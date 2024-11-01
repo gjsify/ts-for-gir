@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-4-template-vite",
-  "version": "4.0.0-beta.10",
+  "version": "4.0.0-beta.16",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files over the Vite bundler",
   "type": "module",
   "private": true,
@@ -18,8 +18,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.3.4"
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
   },
   "dependencies": {
     "@girs/gdk-4.0": "workspace:^",

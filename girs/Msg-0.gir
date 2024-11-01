@@ -1,0 +1,3396 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Goa" version="1.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Soup" version="3.0"/>
+  <package name="msgraph-0"/>
+  <c:include name="msg.h"/>
+  <namespace name="Msg"
+             version="0"
+             shared-library="libmsgraph-0.so.1"
+             c:identifier-prefixes="Msg"
+             c:symbol-prefixes="msg">
+    <constant name="API_ENDPOINT"
+              value="https://graph.microsoft.com/v1.0"
+              c:type="MSG_API_ENDPOINT">
+      <source-position filename="src/msg-private.h" line="23"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="AUTHORIZER"
+                    c:identifier="MSG_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="src/msg-authorizer.h" line="26"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="AUTHORIZER_GET_INTERFACE"
+                    c:identifier="MSG_AUTHORIZER_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="src/msg-authorizer.h" line="28"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="Authorizer"
+               c:symbol-prefix="authorizer"
+               c:type="MsgAuthorizer"
+               glib:type-name="MsgAuthorizer"
+               glib:get-type="msg_authorizer_get_type"
+               glib:type-struct="AuthorizerInterface">
+      <source-position filename="src/msg-authorizer.h" line="55"/>
+      <virtual-method name="process_request" invoker="process_request">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.c"
+             line="43">Adds the necessary authorization to @message. The type of @message
+can be DELETE, GET and POST.
+
+This method modifies @message in place and is thread safe.</doc>
+        <source-position filename="src/msg-authorizer.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="45">A #MsgAuthorizer.</doc>
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="46">A #SoupMessage.</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="refresh_authorization"
+                      invoker="refresh_authorization"
+                      throws="1">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.c"
+             line="61">Synchronously forces @iface to refresh any authorization tokens
+held by it. See msg_authorizer_refresh_authorization_async() for the
+asynchronous version of this call.
+
+This method is thread safe.</doc>
+        <source-position filename="src/msg-authorizer.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/msg-authorizer.c"
+               line="74">%TRUE if the authorizer now has a valid token.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="63">A #MsgAuthorizer.</doc>
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="64">An optional #GCancellable object, or
+  %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="process_request"
+              c:identifier="msg_authorizer_process_request">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.c"
+             line="43">Adds the necessary authorization to @message. The type of @message
+can be DELETE, GET and POST.
+
+This method modifies @message in place and is thread safe.</doc>
+        <source-position filename="src/msg-authorizer.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="45">A #MsgAuthorizer.</doc>
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="46">A #SoupMessage.</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="refresh_authorization"
+              c:identifier="msg_authorizer_refresh_authorization"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.c"
+             line="61">Synchronously forces @iface to refresh any authorization tokens
+held by it. See msg_authorizer_refresh_authorization_async() for the
+asynchronous version of this call.
+
+This method is thread safe.</doc>
+        <source-position filename="src/msg-authorizer.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/msg-authorizer.c"
+               line="74">%TRUE if the authorizer now has a valid token.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="63">A #MsgAuthorizer.</doc>
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="64">An optional #GCancellable object, or
+  %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="AuthorizerInterface"
+            c:type="MsgAuthorizerInterface"
+            glib:is-gtype-struct-for="Authorizer">
+      <doc xml:space="preserve"
+           filename="src/msg-authorizer.h"
+           line="33">Interface structure for #MsgAuthorizer. All methods should be
+thread safe.</doc>
+      <source-position filename="src/msg-authorizer.h" line="55"/>
+      <field name="parent_iface">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.h"
+             line="35">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="process_request">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.h"
+             line="36">A method to append authorization headers to a
+  #SoupMessage. Types of messages include DELETE, GET and POST.</doc>
+        <callback name="process_request">
+          <source-position filename="src/msg-authorizer.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/msg-authorizer.c"
+                   line="45">A #MsgAuthorizer.</doc>
+              <type name="Authorizer" c:type="MsgAuthorizer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/msg-authorizer.c"
+                   line="46">A #SoupMessage.</doc>
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="refresh_authorization">
+        <doc xml:space="preserve"
+             filename="src/msg-authorizer.h"
+             line="38">A synchronous method to force a refresh of
+  any authorization tokens held by the authorizer. It should return
+  %TRUE on success. An asynchronous version will be defined by
+  invoking this in a thread.</doc>
+        <callback name="refresh_authorization" throws="1">
+          <source-position filename="src/msg-authorizer.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-authorizer.c"
+                 line="74">%TRUE if the authorizer now has a valid token.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/msg-authorizer.c"
+                   line="63">A #MsgAuthorizer.</doc>
+              <type name="Authorizer" c:type="MsgAuthorizer*"/>
+            </parameter>
+            <parameter name="cancellable"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="src/msg-authorizer.c"
+                   line="64">An optional #GCancellable object, or
+  %NULL.</doc>
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Contact"
+           c:symbol-prefix="contact"
+           c:type="MsgContact"
+           parent="GObject.Object"
+           glib:type-name="MsgContact"
+           glib:get-type="msg_contact_get_type"
+           glib:type-struct="ContactClass">
+      <doc xml:space="preserve"
+           filename="src/contact/msg-contact.c"
+           line="21">Handling of contact specific functions.
+
+Details: https://learn.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0</doc>
+      <source-position filename="src/contact/msg-contact.h" line="31"/>
+      <constructor name="new" c:identifier="msg_contact_new">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="66">Creates a new `MsgContact`.</doc>
+        <source-position filename="src/contact/msg-contact.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact.c"
+               line="71">the newly created `MsgContact`</doc>
+          <type name="Contact" c:type="MsgContact*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_contact_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="79">Creates a new `MsgContact` from json response object.</doc>
+        <source-position filename="src/contact/msg-contact.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact.c"
+               line="86">the newly created `MsgContact`</doc>
+          <type name="Contact" c:type="MsgContact*"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="81">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_given_name" c:identifier="msg_contact_get_given_name">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="130">Gets given name.</doc>
+        <source-position filename="src/contact/msg-contact.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact.c"
+               line="136">given name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="132">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="msg_contact_get_id">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="173">Gets ID</doc>
+        <source-position filename="src/contact/msg-contact.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact.c"
+               line="179">identifier</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="175">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="msg_contact_get_name">
+        <source-position filename="src/contact/msg-contact.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact.c"
+               line="107">name of contact</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="105">a contact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_surname" c:identifier="msg_contact_get_surname">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="159">Gets surname.</doc>
+        <source-position filename="src/contact/msg-contact.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact.c"
+               line="165">surname</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="161">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_given_name" c:identifier="msg_contact_set_given_name">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="115">Sets contacts given name</doc>
+        <source-position filename="src/contact/msg-contact.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="117">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </instance-parameter>
+          <parameter name="given_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="118">new give name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_surname" c:identifier="msg_contact_set_surname">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact.c"
+             line="144">Sets contacts surname</doc>
+        <source-position filename="src/contact/msg-contact.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="146">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </instance-parameter>
+          <parameter name="surname" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact.c"
+                 line="147">new sirname</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ContactClass"
+            c:type="MsgContactClass"
+            glib:is-gtype-struct-for="Contact">
+      <source-position filename="src/contact/msg-contact.h" line="31"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ContactService"
+           c:symbol-prefix="contact_service"
+           c:type="MsgContactService"
+           parent="Service"
+           glib:type-name="MsgContactService"
+           glib:get-type="msg_contact_service_get_type"
+           glib:type-struct="ContactServiceClass">
+      <source-position filename="src/contact/msg-contact-service.h" line="28"/>
+      <constructor name="new" c:identifier="msg_contact_service_new">
+        <source-position filename="src/contact/msg-contact-service.h"
+                         line="30"/>
+        <return-value transfer-ownership="full">
+          <type name="ContactService" c:type="MsgContactService*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="create"
+              c:identifier="msg_contact_service_create"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact-service.c"
+             line="111">Create new contact #contact and return new contact object.</doc>
+        <source-position filename="src/contact/msg-contact-service.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact-service.c"
+               line="120">a new #MsgContact</doc>
+          <type name="Contact" c:type="MsgContact*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="113">a #MsgContextService</doc>
+            <type name="ContactService" c:type="MsgContactService*"/>
+          </instance-parameter>
+          <parameter name="contact" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="114">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="115">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="delete"
+              c:identifier="msg_contact_service_delete"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact-service.c"
+             line="164">Delets #contact.</doc>
+        <source-position filename="src/contact/msg-contact-service.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact-service.c"
+               line="173">%TRUE for succes, else %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="166">a #MsgContactService</doc>
+            <type name="ContactService" c:type="MsgContactService*"/>
+          </instance-parameter>
+          <parameter name="contact" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="167">a #MsgContact</doc>
+            <type name="Contact" c:type="MsgContact*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="168">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_contacts"
+              c:identifier="msg_contact_service_get_contacts"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/contact/msg-contact-service.c"
+             line="51">Get all contacts accessed by contact service.</doc>
+        <source-position filename="src/contact/msg-contact-service.h"
+                         line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/contact/msg-contact-service.c"
+               line="59">all contacts</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Contact"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="53">a contact service</doc>
+            <type name="ContactService" c:type="MsgContactService*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/contact/msg-contact-service.c"
+                 line="54">a cancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ContactServiceClass"
+            c:type="MsgContactServiceClass"
+            glib:is-gtype-struct-for="ContactService">
+      <source-position filename="src/contact/msg-contact-service.h" line="28"/>
+      <field name="parent_class">
+        <type name="ServiceClass" c:type="MsgServiceClass"/>
+      </field>
+    </record>
+    <class name="Drive"
+           c:symbol-prefix="drive"
+           c:type="MsgDrive"
+           parent="GObject.Object"
+           glib:type-name="MsgDrive"
+           glib:get-type="msg_drive_get_type"
+           glib:type-struct="DriveClass">
+      <doc xml:space="preserve"
+           filename="src/drive/msg-drive.c"
+           line="21">#MsgDriveService is a subclass of #MsgService for communicating with the MS Graph API.
+
+Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-rest-1.0</doc>
+      <source-position filename="src/drive/msg-drive.h" line="48"/>
+      <constructor name="new" c:identifier="msg_drive_new">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="70">Creates a new `MsgDrive`.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="75">the newly created `MsgDrive`</doc>
+          <type name="Drive" c:type="MsgDrive*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_drive_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="83">Creates a new `MsgDrive` from json response object.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="90">the newly created `MsgDrive`</doc>
+          <type name="Drive" c:type="MsgDrive*"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="85">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_created" c:identifier="msg_drive_get_created">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="221">Get created time of drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="227">created time of drive</doc>
+          <type name="GLib.DateTime" c:type="const GDateTime*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="223">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_drive_type" c:identifier="msg_drive_get_drive_type">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="151">Gets the drive type of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="157">the drive type of drive</doc>
+          <type name="DriveType" c:type="MsgDriveType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="153">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="msg_drive_get_id">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="137">Gets the ID of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="143">the id of the drive</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="139">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_modified" c:identifier="msg_drive_get_modified">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="235">Gets the modified time of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="241">modified time of drive</doc>
+          <type name="GLib.DateTime" c:type="const GDateTime*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="237">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="msg_drive_get_name">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="165">Gets tthe name of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="171">name of drive</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="167">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_remaining" c:identifier="msg_drive_get_remaining">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="207">Gets the remaining size of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="213">remaining size of drive</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="209">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_total" c:identifier="msg_drive_get_total">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="179">Gets the total size of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="185">total size of drive</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="181">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_used" c:identifier="msg_drive_get_used">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.c"
+             line="193">Gets the used size of the drive.</doc>
+        <source-position filename="src/drive/msg-drive.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive.c"
+               line="199">used size of drive</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive.c"
+                 line="195">a drive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DriveClass"
+            c:type="MsgDriveClass"
+            glib:is-gtype-struct-for="Drive">
+      <source-position filename="src/drive/msg-drive.h" line="48"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="DriveItem"
+           c:symbol-prefix="drive_item"
+           c:type="MsgDriveItem"
+           parent="GObject.Object"
+           glib:type-name="MsgDriveItem"
+           glib:get-type="msg_drive_item_get_type"
+           glib:type-struct="DriveItemClass">
+      <source-position filename="src/drive/msg-drive-item.h" line="37"/>
+      <constructor name="new_from_json"
+                   c:identifier="msg_drive_item_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="76">Creates a new `MsgDriveItem` from json response object.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="83">the newly created `MsgDriveItem`</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="78">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_created" c:identifier="msg_drive_item_get_created">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="235">Get created time of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="241">created date time of drive item</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="237">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_drive_id" c:identifier="msg_drive_item_get_drive_id">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="315">Gets drive id of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="321">drive id of drive item</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="317">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_etag" c:identifier="msg_drive_item_get_etag">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="267">Gets etag of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="273">etag of drive item</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="269">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="msg_drive_item_get_id">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="202">Get id of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="208">id of drive item</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="204">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_modified" c:identifier="msg_drive_item_get_modified">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="251">Gets modified time of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="257">modified date time of drive item</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="253">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="msg_drive_item_get_name">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="169">Gets name of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="175">name of drive item</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="171">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_id" c:identifier="msg_drive_item_get_parent_id">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="331">Gets parent id of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="337">parent id of drive item</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="333">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size" c:identifier="msg_drive_item_get_size">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="299">Gets size of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="305">size of drive item</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="301">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user" c:identifier="msg_drive_item_get_user">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="283">Gets user of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="289">user of drive item</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="285">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_shared" c:identifier="msg_drive_item_is_shared">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="347">Gets whether item is shared.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item.c"
+               line="353">%TRUE if item is shared, otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="349">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_id" c:identifier="msg_drive_item_set_id">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="218">Sets id of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="220">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="221">new id of drive item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="msg_drive_item_set_name">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="185">Sets name of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="187">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="188">new name of drive item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_parent_id" c:identifier="msg_drive_item_set_parent_id">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item.c"
+             line="363">Set parent id of drive item.</doc>
+        <source-position filename="src/drive/msg-drive-item.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="365">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </instance-parameter>
+          <parameter name="parent_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item.c"
+                 line="366">parent id</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="DriveItemClass"
+            c:type="MsgDriveItemClass"
+            glib:is-gtype-struct-for="DriveItem">
+      <source-position filename="src/drive/msg-drive-item.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="DriveItemFile"
+           c:symbol-prefix="drive_item_file"
+           c:type="MsgDriveItemFile"
+           parent="DriveItem"
+           glib:type-name="MsgDriveItemFile"
+           glib:get-type="msg_drive_item_file_get_type"
+           glib:type-struct="DriveItemFileClass">
+      <source-position filename="src/drive/msg-drive-item-file.h" line="32"/>
+      <constructor name="new" c:identifier="msg_drive_item_file_new">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item-file.c"
+             line="53">Creates a new `MsgDriveItemFile`.</doc>
+        <source-position filename="src/drive/msg-drive-item-file.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item-file.c"
+               line="58">the newly created `MsgDriveItemFile`</doc>
+          <type name="DriveItemFile" c:type="MsgDriveItemFile*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_drive_item_file_new_from_json">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item-file.c"
+             line="66">Creates a new `MsgDriveItemFile` from json response object.</doc>
+        <source-position filename="src/drive/msg-drive-item-file.h" line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item-file.c"
+               line="72">the newly created `MsgDriveItemFile`</doc>
+          <type name="DriveItemFile" c:type="MsgDriveItemFile*"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item-file.c"
+                 line="68">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_mime_type"
+              c:identifier="msg_drive_item_file_get_mime_type">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item-file.c"
+             line="105">Gets mime type of drive item file.</doc>
+        <source-position filename="src/drive/msg-drive-item-file.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item-file.c"
+               line="111">mime type of drive item file</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item-file.c"
+                 line="107">a drive item file</doc>
+            <type name="DriveItemFile" c:type="MsgDriveItemFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_thumbnail_uri"
+              c:identifier="msg_drive_item_file_get_thumbnail_uri">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item-file.c"
+             line="119">Gets thumbnail uri of drive item file.</doc>
+        <source-position filename="src/drive/msg-drive-item-file.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item-file.c"
+               line="125">thumbnail uri of drive item file</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item-file.c"
+                 line="121">a drive item file</doc>
+            <type name="DriveItemFile" c:type="MsgDriveItemFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DriveItemFileClass"
+            c:type="MsgDriveItemFileClass"
+            glib:is-gtype-struct-for="DriveItemFile">
+      <source-position filename="src/drive/msg-drive-item-file.h" line="32"/>
+      <field name="parent_class">
+        <type name="DriveItemClass" c:type="MsgDriveItemClass"/>
+      </field>
+    </record>
+    <class name="DriveItemFolder"
+           c:symbol-prefix="drive_item_folder"
+           c:type="MsgDriveItemFolder"
+           parent="DriveItem"
+           glib:type-name="MsgDriveItemFolder"
+           glib:get-type="msg_drive_item_folder_get_type"
+           glib:type-struct="DriveItemFolderClass">
+      <source-position filename="src/drive/msg-drive-item-folder.h" line="32"/>
+      <constructor name="new" c:identifier="msg_drive_item_folder_new">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item-folder.c"
+             line="38">Creates a new `MsgDriveItemFolder`.</doc>
+        <source-position filename="src/drive/msg-drive-item-folder.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item-folder.c"
+               line="43">the newly created `MsgDriveItemFolder`</doc>
+          <type name="DriveItemFolder" c:type="MsgDriveItemFolder*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_drive_item_folder_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-item-folder.c"
+             line="51">Creates a new `MsgDriveItemFolder` from json response object.</doc>
+        <source-position filename="src/drive/msg-drive-item-folder.h"
+                         line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-item-folder.c"
+               line="58">the newly created `MsgDriveItemFolder`</doc>
+          <type name="DriveItemFolder" c:type="MsgDriveItemFolder*"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-item-folder.c"
+                 line="53">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="DriveItemFolderClass"
+            c:type="MsgDriveItemFolderClass"
+            glib:is-gtype-struct-for="DriveItemFolder">
+      <source-position filename="src/drive/msg-drive-item-folder.h" line="32"/>
+      <field name="parent_class">
+        <type name="DriveItemClass" c:type="MsgDriveItemClass"/>
+      </field>
+    </record>
+    <class name="DriveService"
+           c:symbol-prefix="drive_service"
+           c:type="MsgDriveService"
+           parent="Service"
+           glib:type-name="MsgDriveService"
+           glib:get-type="msg_drive_service_get_type"
+           glib:type-struct="DriveServiceClass">
+      <source-position filename="src/drive/msg-drive-service.h" line="33"/>
+      <constructor name="new" c:identifier="msg_drive_service_new">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="46">Creates a new `MsgDriveService` using #MsgAuthorizer.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="52">the newly created `MsgDriveService`</doc>
+          <type name="DriveService" c:type="MsgDriveService*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="48">A authorizer</doc>
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_item_to_folder"
+              c:identifier="msg_drive_service_add_item_to_folder"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="572">Adds item to parent folder</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="104"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="582">a new drive item</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="574">a msg drive service</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="575">parent drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="576">drive item to add</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="577">a cancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy_file"
+              c:identifier="msg_drive_service_copy_file"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="687">Copy a file async on remote server to a new directory.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="697">%TRUE if accepted, %FALSE on error</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="689">#MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="690">source #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="destination" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="691">destination directory #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="692">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_folder"
+              c:identifier="msg_drive_service_create_folder"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="346">Creates a new folder called name under parent.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="356">a newly created `MsgDriveItem`</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="348">a drive service</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="349">parent drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="350">name of new folder</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="351">a cancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="delete" c:identifier="msg_drive_service_delete" throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="411">Deletes item.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="420">%TRUE when item has been deleted, otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="413">a drive service</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="414">a #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="415">a cancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="download_item"
+              c:identifier="msg_drive_service_download_item"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="156">Download item</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="62"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="165">input stream of drive item</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="158">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="159">a #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="160">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="download_url"
+              c:identifier="msg_drive_service_download_url"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="324">Download url</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="333">a new `GInputStream` for url</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="326">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="url" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="327">url to download</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="328">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_drives"
+              c:identifier="msg_drive_service_get_drives"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="60">Queries the Microsoft Graph API for all the drives of the currently logged in user</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="68">all drives the user can access</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Drive"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="62">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="63">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_root"
+              c:identifier="msg_drive_service_get_root"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="121">Get root item of selected drive</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="130">root 'MsgDriveItem'</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="123">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="drive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="124">a #MsgDrive</doc>
+            <type name="Drive" c:type="MsgDrive*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="125">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_shared_with_me"
+              c:identifier="msg_drive_service_get_shared_with_me"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="624">Requests all shared with me items</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="111"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="632">shared with me list</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="DriveItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="626">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="627">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_children"
+              c:identifier="msg_drive_service_list_children"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="194">Get a list of all files in folder item</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="203">all items in folder</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="DriveItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="196">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="197">a #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="198">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_file"
+              c:identifier="msg_drive_service_move_file"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="758">Move a file async on remote server to a new directory.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="123"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="768">moved #MsgDriveItem</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="760">#MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="761">source #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="destination" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="762">destination directory #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="763">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rename" c:identifier="msg_drive_service_rename" throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="265">Sets a new drive item name</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="275">the renamed `MsgDriveItem`</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="267">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="268">a #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="new_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="269">new name of item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="270">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update" c:identifier="msg_drive_service_update" throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="448">Creates an update stream for drive item in order to update it's content.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="91"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="457">an output stream</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="450">a drive service</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="451">a drive item</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="452">a cancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_finish"
+              c:identifier="msg_drive_service_update_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive-service.c"
+             line="521">Finish a update session of given #item.</doc>
+        <source-position filename="src/drive/msg-drive-service.h" line="97"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/drive/msg-drive-service.c"
+               line="531">a new #MsgDriveItem or %NULL on error.</doc>
+          <type name="DriveItem" c:type="MsgDriveItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="523">a #MsgDriveService</doc>
+            <type name="DriveService" c:type="MsgDriveService*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="524">a #MsgDriveItem</doc>
+            <type name="DriveItem" c:type="MsgDriveItem*"/>
+          </parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="525">stream where data is store and needs to be transfered</doc>
+            <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/drive/msg-drive-service.c"
+                 line="526">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DriveServiceClass"
+            c:type="MsgDriveServiceClass"
+            glib:is-gtype-struct-for="DriveService">
+      <source-position filename="src/drive/msg-drive-service.h" line="33"/>
+      <field name="parent_class">
+        <type name="ServiceClass" c:type="MsgServiceClass"/>
+      </field>
+    </record>
+    <enumeration name="DriveType" c:type="MsgDriveType">
+      <doc xml:space="preserve"
+           filename="src/drive/msg-drive.h"
+           line="29">The type of Drive
+&lt;ulink url="https://docs.microsoft.com/en-us/graph/api/resources/drive?view=graph-rest-1.0"&gt;
+objects&lt;/ulink&gt;.</doc>
+      <source-position filename="src/drive/msg-drive.h" line="44"/>
+      <member name="personal" value="0" c:identifier="MSG_DRIVE_TYPE_PERSONAL">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.h"
+             line="31">Personal OneDrive drive</doc>
+      </member>
+      <member name="business" value="1" c:identifier="MSG_DRIVE_TYPE_BUSINESS">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.h"
+             line="32">OneDrive for Business drive</doc>
+      </member>
+      <member name="document_library"
+              value="2"
+              c:identifier="MSG_DRIVE_TYPE_DOCUMENT_LIBRARY">
+        <doc xml:space="preserve"
+             filename="src/drive/msg-drive.h"
+             line="33">SharePoint document library</doc>
+      </member>
+    </enumeration>
+    <enumeration name="Error"
+                 c:type="MsgError"
+                 glib:error-domain="msg-error-quark">
+      <doc xml:space="preserve"
+           filename="src/msg-error.h"
+           line="31">This enumeration can be expanded at a later date.</doc>
+      <source-position filename="src/msg-error.h" line="41"/>
+      <member name="failed" value="0" c:identifier="MSG_ERROR_FAILED">
+        <doc xml:space="preserve"
+             filename="src/msg-error.h"
+             line="33">An unrecoverable error occurred.</doc>
+      </member>
+      <member name="protocol_error"
+              value="1"
+              c:identifier="MSG_ERROR_PROTOCOL_ERROR">
+      </member>
+    </enumeration>
+    <function-macro name="GOA_AUTHORIZER"
+                    c:identifier="MSG_GOA_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="src/msg-goa-authorizer.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GOA_AUTHORIZER_CLASS"
+                    c:identifier="MSG_GOA_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-goa-authorizer.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GOA_AUTHORIZER_GET_CLASS"
+                    c:identifier="MSG_GOA_AUTHORIZER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-goa-authorizer.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="GoaAuthorizer"
+           c:symbol-prefix="goa_authorizer"
+           c:type="MsgGoaAuthorizer"
+           parent="GObject.Object"
+           glib:type-name="MsgGoaAuthorizer"
+           glib:get-type="msg_goa_authorizer_get_type"
+           glib:type-struct="GoaAuthorizerClass">
+      <doc xml:space="preserve"
+           filename="src/msg-goa-authorizer.h"
+           line="38">The #MsgGoaAuthorizer structure contains only private data and
+should only be accessed using the provided API.</doc>
+      <source-position filename="src/msg-goa-authorizer.h" line="59"/>
+      <implements name="Authorizer"/>
+      <constructor name="new" c:identifier="msg_goa_authorizer_new">
+        <doc xml:space="preserve"
+             filename="src/msg-goa-authorizer.c"
+             line="223">Creates a new #MsgGoaAuthorizer using @goa_object.</doc>
+        <source-position filename="src/msg-goa-authorizer.h" line="63"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-goa-authorizer.c"
+               line="229">A new #MsgGoaAuthorizer. Free the returned
+object with g_object_unref().</doc>
+          <type name="GoaAuthorizer" c:type="MsgGoaAuthorizer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="goa_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-goa-authorizer.c"
+                 line="225">A #GoaObject representing a MS Graph account.</doc>
+            <type name="Goa.Object" c:type="GoaObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_goa_object"
+              c:identifier="msg_goa_authorizer_get_goa_object"
+              glib:get-property="goa-object">
+        <doc xml:space="preserve"
+             filename="src/msg-goa-authorizer.c"
+             line="238">Gets the GOA account used by @self for authorization.</doc>
+        <source-position filename="src/msg-goa-authorizer.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/msg-goa-authorizer.c"
+               line="244">A #GoaObject. The returned object is
+owned by #MsgGoaAuthorizer and should not be modified or freed.</doc>
+          <type name="Goa.Object" c:type="GoaObject*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-goa-authorizer.c"
+                 line="240">A #MsgGoaAuthorizer.</doc>
+            <type name="GoaAuthorizer" c:type="MsgGoaAuthorizer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="goa-object"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_goa_object">
+        <type name="Goa.Object"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="GoaAuthorizerPrivate" c:type="MsgGoaAuthorizerPrivate*"/>
+      </field>
+    </class>
+    <record name="GoaAuthorizerClass"
+            c:type="MsgGoaAuthorizerClass"
+            glib:is-gtype-struct-for="GoaAuthorizer">
+      <doc xml:space="preserve"
+           filename="src/msg-goa-authorizer.h"
+           line="50">Class structure for #MsgGoaAuthorizer.</doc>
+      <source-position filename="src/msg-goa-authorizer.h" line="59"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="src/msg-goa-authorizer.h"
+             line="52">The parent class.</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="GoaAuthorizerPrivate"
+            c:type="MsgGoaAuthorizerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/msg-goa-authorizer.h" line="36"/>
+    </record>
+    <function-macro name="INPUT_STREAM"
+                    c:identifier="MSG_INPUT_STREAM"
+                    introspectable="0">
+      <source-position filename="src/msg-input-stream.h" line="27"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INPUT_STREAM_CLASS"
+                    c:identifier="MSG_INPUT_STREAM_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-input-stream.h" line="28"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INPUT_STREAM_GET_CLASS"
+                    c:identifier="MSG_INPUT_STREAM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-input-stream.h" line="31"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_AUTHORIZER"
+                    c:identifier="MSG_IS_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="src/msg-authorizer.h" line="27"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GOA_AUTHORIZER"
+                    c:identifier="MSG_IS_GOA_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="src/msg-goa-authorizer.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GOA_AUTHORIZER_CLASS"
+                    c:identifier="MSG_IS_GOA_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-goa-authorizer.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INPUT_STREAM"
+                    c:identifier="MSG_IS_INPUT_STREAM"
+                    introspectable="0">
+      <source-position filename="src/msg-input-stream.h" line="29"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INPUT_STREAM_CLASS"
+                    c:identifier="MSG_IS_INPUT_STREAM_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-input-stream.h" line="30"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_OAUTH2_AUTHORIZER"
+                    c:identifier="MSG_IS_OAUTH2_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="12"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_OAUTH2_AUTHORIZER_CLASS"
+                    c:identifier="MSG_IS_OAUTH2_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="13"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="InputStream"
+           c:symbol-prefix="input_stream"
+           c:type="MsgInputStream"
+           parent="Gio.InputStream"
+           glib:type-name="MsgInputStream"
+           glib:get-type="msg_input_stream_get_type"
+           glib:type-struct="InputStreamClass">
+      <source-position filename="src/msg-input-stream.h" line="54"/>
+      <implements name="Gio.Seekable"/>
+      <constructor name="new" c:identifier="msg_input_stream_new">
+        <doc xml:space="preserve"
+             filename="src/msg-input-stream.c"
+             line="69">Prepares to send a GET request for @uri on @session, and returns a
+#GInputStream that can be used to read the response.
+
+The request will not be sent until the first read call; if you need
+to look at the status code or response headers before reading the
+body, you can use msg_input_stream_send() or
+msg_input_stream_send_async() to force the message to be
+sent and the response headers read.</doc>
+        <source-position filename="src/msg-input-stream.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-input-stream.c"
+               line="83">a new #GInputStream.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-input-stream.c"
+                 line="71">a #MsgService</doc>
+            <type name="Service" c:type="MsgService*"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-input-stream.c"
+                 line="72">a #GUri</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_message" c:identifier="msg_input_stream_get_message">
+        <doc xml:space="preserve"
+             filename="src/msg-input-stream.c"
+             line="407">Gets corresponding SoupMessage</doc>
+        <source-position filename="src/msg-input-stream.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-input-stream.c"
+               line="413">a #SoupMessage</doc>
+          <type name="Soup.Message" c:type="SoupMessage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-input-stream.c"
+                 line="409">a #GInputStream</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="send_async"
+                c:identifier="msg_input_stream_send_async"
+                glib:finish-func="send_finish">
+        <source-position filename="src/msg-input-stream.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="send_finish"
+                c:identifier="msg_input_stream_send_finish"
+                throws="1">
+        <source-position filename="src/msg-input-stream.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <field name="parent">
+        <type name="Gio.InputStream" c:type="GInputStream"/>
+      </field>
+      <field name="priv">
+        <type name="InputStreamPrivate" c:type="MsgInputStreamPrivate*"/>
+      </field>
+    </class>
+    <record name="InputStreamClass"
+            c:type="MsgInputStreamClass"
+            glib:is-gtype-struct-for="InputStream">
+      <source-position filename="src/msg-input-stream.h" line="54"/>
+      <field name="parent_class">
+        <type name="Gio.InputStreamClass" c:type="GInputStreamClass"/>
+      </field>
+      <field name="_g_reserved1" introspectable="0">
+        <callback name="_g_reserved1">
+          <source-position filename="src/msg-input-stream.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_g_reserved2" introspectable="0">
+        <callback name="_g_reserved2">
+          <source-position filename="src/msg-input-stream.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_g_reserved3" introspectable="0">
+        <callback name="_g_reserved3">
+          <source-position filename="src/msg-input-stream.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_g_reserved4" introspectable="0">
+        <callback name="_g_reserved4">
+          <source-position filename="src/msg-input-stream.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_g_reserved5" introspectable="0">
+        <callback name="_g_reserved5">
+          <source-position filename="src/msg-input-stream.h" line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="InputStreamPrivate"
+            c:type="MsgInputStreamPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/msg-input-stream.h" line="34"/>
+    </record>
+    <class name="MailFolder"
+           c:symbol-prefix="mail_folder"
+           c:type="MsgMailFolder"
+           parent="GObject.Object"
+           glib:type-name="MsgMailFolder"
+           glib:get-type="msg_mail_folder_get_type"
+           glib:type-struct="MailFolderClass">
+      <doc xml:space="preserve"
+           filename="src/message/msg-mail-folder.c"
+           line="21">Handling of mail folder specific functions.</doc>
+      <source-position filename="src/message/msg-mail-folder.h" line="31"/>
+      <constructor name="new" c:identifier="msg_mail_folder_new">
+        <doc xml:space="preserve"
+             filename="src/message/msg-mail-folder.c"
+             line="64">Creates a new `MsgMailFolder`.</doc>
+        <source-position filename="src/message/msg-mail-folder.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-mail-folder.c"
+               line="69">the newly created `MsgMailFolder`</doc>
+          <type name="MailFolder" c:type="MsgMailFolder*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_mail_folder_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-mail-folder.c"
+             line="77">Creates a new `MsgMailFolder` from json response object.</doc>
+        <source-position filename="src/message/msg-mail-folder.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-mail-folder.c"
+               line="84">the newly created `MsgMailFolder`</doc>
+          <type name="MailFolder" c:type="MsgMailFolder*"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-mail-folder.c"
+                 line="79">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_display_name"
+              c:identifier="msg_mail_folder_get_display_name">
+        <source-position filename="src/message/msg-mail-folder.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/message/msg-mail-folder.c"
+               line="106">display name of mail folder</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-mail-folder.c"
+                 line="104">a mail folder</doc>
+            <type name="MailFolder" c:type="MsgMailFolder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_total_item_count"
+              c:identifier="msg_mail_folder_get_total_item_count">
+        <source-position filename="src/message/msg-mail-folder.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/message/msg-mail-folder.c"
+               line="130">total item number of mail folder</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-mail-folder.c"
+                 line="128">a mail folder</doc>
+            <type name="MailFolder" c:type="MsgMailFolder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_unread_item_count"
+              c:identifier="msg_mail_folder_get_unread_item_count">
+        <source-position filename="src/message/msg-mail-folder.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/message/msg-mail-folder.c"
+               line="118">unread item number of mail folder</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-mail-folder.c"
+                 line="116">a mail folder</doc>
+            <type name="MailFolder" c:type="MsgMailFolder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MailFolderClass"
+            c:type="MsgMailFolderClass"
+            glib:is-gtype-struct-for="MailFolder">
+      <source-position filename="src/message/msg-mail-folder.h" line="31"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Message"
+           c:symbol-prefix="message"
+           c:type="MsgMessage"
+           parent="GObject.Object"
+           glib:type-name="MsgMessage"
+           glib:get-type="msg_message_get_type"
+           glib:type-struct="MessageClass">
+      <doc xml:space="preserve"
+           filename="src/message/msg-message.c"
+           line="21">Handling of message specific functions.
+
+Details: https://learn.microsoft.com/en-us/graph/api/resources/message?view=graph-rest-1.0</doc>
+      <source-position filename="src/message/msg-message.h" line="31"/>
+      <constructor name="new" c:identifier="msg_message_new">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message.c"
+             line="66">Creates a new `MsgMessage`.</doc>
+        <source-position filename="src/message/msg-message.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message.c"
+               line="71">the newly created `MsgMessage`</doc>
+          <type name="Message" c:type="MsgMessage*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_message_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message.c"
+             line="79">Creates a new `MsgMessage` from json response object.</doc>
+        <source-position filename="src/message/msg-message.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message.c"
+               line="86">the newly created `MsgMessage`</doc>
+          <type name="Message" c:type="MsgMessage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message.c"
+                 line="81">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_body_preview"
+              c:identifier="msg_message_get_body_preview">
+        <source-position filename="src/message/msg-message.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message.c"
+               line="118">body preview of message</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message.c"
+                 line="116">a message</doc>
+            <type name="Message" c:type="MsgMessage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="msg_message_get_id">
+        <source-position filename="src/message/msg-message.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Message" c:type="MsgMessage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subject" c:identifier="msg_message_get_subject">
+        <source-position filename="src/message/msg-message.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message.c"
+               line="106">subject of message</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message.c"
+                 line="104">a message</doc>
+            <type name="Message" c:type="MsgMessage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_body" c:identifier="msg_message_set_body">
+        <source-position filename="src/message/msg-message.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Message" c:type="MsgMessage*"/>
+          </instance-parameter>
+          <parameter name="body" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subject" c:identifier="msg_message_set_subject">
+        <source-position filename="src/message/msg-message.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Message" c:type="MsgMessage*"/>
+          </instance-parameter>
+          <parameter name="subject" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MessageClass"
+            c:type="MsgMessageClass"
+            glib:is-gtype-struct-for="Message">
+      <source-position filename="src/message/msg-message.h" line="31"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="MessageMailFolderType"
+                 c:type="MsgMessageMailFolderType">
+      <source-position filename="src/message/msg-message-service.h" line="41"/>
+      <member name="inbox"
+              value="0"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_INBOX">
+      </member>
+      <member name="drafts"
+              value="1"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_DRAFTS">
+      </member>
+      <member name="sent_items"
+              value="2"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_SENT_ITEMS">
+      </member>
+      <member name="junk_email"
+              value="3"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_JUNK_EMAIL">
+      </member>
+      <member name="deleted_items"
+              value="4"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_DELETED_ITEMS">
+      </member>
+      <member name="outbox"
+              value="5"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_OUTBOX">
+      </member>
+      <member name="archive"
+              value="6"
+              c:identifier="MSG_MESSAGE_MAIL_FOLDER_TYPE_ARCHIVE">
+      </member>
+    </enumeration>
+    <class name="MessageService"
+           c:symbol-prefix="message_service"
+           c:type="MsgMessageService"
+           parent="Service"
+           glib:type-name="MsgMessageService"
+           glib:get-type="msg_message_service_get_type"
+           glib:type-struct="MessageServiceClass">
+      <source-position filename="src/message/msg-message-service.h" line="28"/>
+      <constructor name="new" c:identifier="msg_message_service_new">
+        <source-position filename="src/message/msg-message-service.h"
+                         line="30"/>
+        <return-value transfer-ownership="full">
+          <type name="MessageService" c:type="MsgMessageService*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="create_draft"
+              c:identifier="msg_message_service_create_draft"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message-service.c"
+             line="270">Create new draft message #message and return new message object.</doc>
+        <source-position filename="src/message/msg-message-service.h"
+                         line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message-service.c"
+               line="279">a new #MsgMessage</doc>
+          <type name="Message" c:type="MsgMessage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="272">a #MsgContextService</doc>
+            <type name="MessageService" c:type="MsgMessageService*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="273">a #MsgMessage</doc>
+            <type name="Message" c:type="MsgMessage*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="274">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="delete"
+              c:identifier="msg_message_service_delete"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message-service.c"
+             line="236">Delets #message.</doc>
+        <source-position filename="src/message/msg-message-service.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message-service.c"
+               line="245">%TRUE for succes, else &amp;FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="238">a #MsgMessageService</doc>
+            <type name="MessageService" c:type="MsgMessageService*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="239">a #MsgMessage</doc>
+            <type name="Message" c:type="MsgMessage*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="240">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mail_folder"
+              c:identifier="msg_message_service_get_mail_folder"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message-service.c"
+             line="178">Get a specific mail folder for given service</doc>
+        <source-position filename="src/message/msg-message-service.h"
+                         line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message-service.c"
+               line="187">a #MsgMailFolder</doc>
+          <type name="MailFolder" c:type="MsgMailFolder*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="180">a #MsgMessageService</doc>
+            <type name="MessageService" c:type="MsgMessageService*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="181">a #MsgMessageMailFolderType</doc>
+            <type name="MessageMailFolderType"
+                  c:type="MsgMessageMailFolderType"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="182">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mail_folders"
+              c:identifier="msg_message_service_get_mail_folders"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message-service.c"
+             line="115">Get all folders for given service</doc>
+        <source-position filename="src/message/msg-message-service.h"
+                         line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message-service.c"
+               line="123">all mail folders the user can access</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MailFolder"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="117">a #MsgMessageService</doc>
+            <type name="MessageService" c:type="MsgMessageService*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="118">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_messages"
+              c:identifier="msg_message_service_get_messages"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/message/msg-message-service.c"
+             line="52">Get all messages for given service</doc>
+        <source-position filename="src/message/msg-message-service.h"
+                         line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/message/msg-message-service.c"
+               line="60">all messages the user can access</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Message"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="54">a #MsgMessageService</doc>
+            <type name="MessageService" c:type="MsgMessageService*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/message/msg-message-service.c"
+                 line="55">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MessageServiceClass"
+            c:type="MsgMessageServiceClass"
+            glib:is-gtype-struct-for="MessageService">
+      <source-position filename="src/message/msg-message-service.h" line="28"/>
+      <field name="parent_class">
+        <type name="ServiceClass" c:type="MsgServiceClass"/>
+      </field>
+    </record>
+    <function-macro name="OAUTH2_AUTHORIZER"
+                    c:identifier="MSG_OAUTH2_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="10"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="OAUTH2_AUTHORIZER_CLASS"
+                    c:identifier="MSG_OAUTH2_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="11"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="OAUTH2_AUTHORIZER_GET_CLASS"
+                    c:identifier="MSG_OAUTH2_AUTHORIZER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="14"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="OAuth2Authorizer"
+           c:symbol-prefix="oauth2_authorizer"
+           c:type="MsgOAuth2Authorizer"
+           parent="GObject.Object"
+           glib:type-name="MsgOAuth2Authorizer"
+           glib:get-type="msg_oauth2_authorizer_get_type"
+           glib:type-struct="OAuth2AuthorizerClass">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="29"/>
+      <implements name="Authorizer"/>
+      <constructor name="new" c:identifier="msg_oauth2_authorizer_new">
+        <source-position filename="src/msg-oauth2-authorizer.h" line="36"/>
+        <return-value transfer-ownership="full">
+          <type name="OAuth2Authorizer" c:type="MsgOAuth2Authorizer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="client_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="redirect_uri" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="test_load_credentials"
+                c:identifier="msg_oauth2_authorizer_test_load_credentials">
+        <source-position filename="src/msg-oauth2-authorizer.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="self" transfer-ownership="none">
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="test_save_credentials"
+                c:identifier="msg_oauth2_authorizer_test_save_credentials">
+        <source-position filename="src/msg-oauth2-authorizer.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="self" transfer-ownership="none">
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="build_authentication_uri"
+              c:identifier="msg_oauth2_authorizer_build_authentication_uri">
+        <source-position filename="src/msg-oauth2-authorizer.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OAuth2Authorizer" c:type="MsgOAuth2Authorizer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_authorization"
+              c:identifier="msg_oauth2_authorizer_request_authorization"
+              throws="1">
+        <source-position filename="src/msg-oauth2-authorizer.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OAuth2Authorizer" c:type="MsgOAuth2Authorizer*"/>
+          </instance-parameter>
+          <parameter name="authorization_code" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="client-id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="redirect-uri"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="refresh-token"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="OAuth2AuthorizerPrivate"
+              c:type="MsgOAuth2AuthorizerPrivate*"/>
+      </field>
+    </class>
+    <record name="OAuth2AuthorizerClass"
+            c:type="MsgOAuth2AuthorizerClass"
+            glib:is-gtype-struct-for="OAuth2Authorizer">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="29"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="OAuth2AuthorizerPrivate"
+            c:type="MsgOAuth2AuthorizerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/msg-oauth2-authorizer.h" line="18"/>
+    </record>
+    <class name="Service"
+           c:symbol-prefix="service"
+           c:type="MsgService"
+           parent="GObject.Object"
+           glib:type-name="MsgService"
+           glib:get-type="msg_service_get_type"
+           glib:type-struct="ServiceClass">
+      <source-position filename="src/msg-service.h" line="31"/>
+      <function name="accept_certificate_cb"
+                c:identifier="msg_service_accept_certificate_cb">
+        <source-position filename="src/msg-service.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="tls_cert" transfer-ownership="none">
+            <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
+          </parameter>
+          <parameter name="tls_errors" transfer-ownership="none">
+            <type name="Gio.TlsCertificateFlags"
+                  c:type="GTlsCertificateFlags"/>
+          </parameter>
+          <parameter name="session"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_https_port"
+                c:identifier="msg_service_get_https_port">
+        <source-position filename="src/msg-service.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+      </function>
+      <function name="get_next_link" c:identifier="msg_service_get_next_link">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="429">Get next link</doc>
+        <source-position filename="src/msg-service.h" line="87"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="435">next link or %NULL if not available</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="431">a #JsonObject</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="parse_response"
+                c:identifier="msg_service_parse_response"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="342">Parse response data and check for errors. In case
+no errors are found, return json root object.</doc>
+        <source-position filename="src/msg-service.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="351">a #JsonParser</doc>
+          <type name="Json.Parser" c:type="JsonParser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="bytes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="344">input bytes containing response buffer</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="345">a pointer to the returning root object</doc>
+            <type name="Json.Object" c:type="JsonObject**"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="build_message" c:identifier="msg_service_build_message">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="103">Construct and checks a #SoupMessage for transfer</doc>
+        <source-position filename="src/msg-service.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="112">a #SoupMessage or NULL on error.</doc>
+          <type name="Soup.Message" c:type="SoupMessage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="105">transfer method</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="106">uri to access</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="etag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="107">an optional etag</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="etag_if_match" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="108">use etag if</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_authorizer" c:identifier="msg_service_get_authorizer">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="414">Get related authorizer.</doc>
+        <source-position filename="src/msg-service.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="420">a #MsgAuthorizer</doc>
+          <type name="Authorizer" c:type="MsgAuthorizer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="416">a #MsgService</doc>
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_session" c:identifier="msg_service_get_session">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="399">Get related soup session</doc>
+        <source-position filename="src/msg-service.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="405">a #SoupSession</doc>
+          <type name="Soup.Session" c:type="SoupSession*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="401">a #MsgService</doc>
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="refresh_authorization"
+              c:identifier="msg_service_refresh_authorization"
+              throws="1">
+        <source-position filename="src/msg-service.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send" c:identifier="msg_service_send" throws="1">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="148">Adds authorizer information to `message` and send it.</doc>
+        <source-position filename="src/msg-service.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="157">a #GInputStream</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="150">a msg service</doc>
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="151">a #SoupMessage</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="152">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_and_parse_response"
+              c:identifier="msg_service_send_and_parse_response"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="196">A combination of `msg_service_send_and_read` and `msg_service_parse_response`</doc>
+        <source-position filename="src/msg-service.h" line="80"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="205">a #JsonParser or %NULL on error</doc>
+          <type name="Json.Parser" c:type="JsonParser*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="198">a msg service</doc>
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="199">a #SoupMessage</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object" c:type="JsonObject**"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="200">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_and_read"
+              c:identifier="msg_service_send_and_read"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/msg-service.c"
+             line="172">Adds authorizer information to `message` and send it.</doc>
+        <source-position filename="src/msg-service.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/msg-service.c"
+               line="181">a #GBytes or %NULL on error.</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="174">a msg service</doc>
+            <type name="Service" c:type="MsgService*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="175">a #SoupMessage</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/msg-service.c"
+                 line="176">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="authorizer"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Authorizer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ServiceClass"
+            c:type="MsgServiceClass"
+            glib:is-gtype-struct-for="Service">
+      <source-position filename="src/msg-service.h" line="31"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="User"
+           c:symbol-prefix="user"
+           c:type="MsgUser"
+           parent="GObject.Object"
+           glib:type-name="MsgUser"
+           glib:get-type="msg_user_get_type"
+           glib:type-struct="UserClass">
+      <doc xml:space="preserve"
+           filename="src/user/msg-user.c"
+           line="21">Handling of user specific functions.</doc>
+      <source-position filename="src/user/msg-user.h" line="31"/>
+      <constructor name="new" c:identifier="msg_user_new">
+        <doc xml:space="preserve"
+             filename="src/user/msg-user.c"
+             line="58">Creates a new `MsgUser`.</doc>
+        <source-position filename="src/user/msg-user.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/user/msg-user.c"
+               line="63">the newly created `MsgUser`</doc>
+          <type name="User" c:type="MsgUser*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json"
+                   c:identifier="msg_user_new_from_json"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/user/msg-user.c"
+             line="71">Creates a new `MsgUser` from json response object.</doc>
+        <source-position filename="src/user/msg-user.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/user/msg-user.c"
+               line="78">the newly created `MsgUser`</doc>
+          <type name="User" c:type="MsgUser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/user/msg-user.c"
+                 line="73">The json object to parse</doc>
+            <type name="Json.Object" c:type="JsonObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_mail" c:identifier="msg_user_get_mail">
+        <source-position filename="src/user/msg-user.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/user/msg-user.c"
+               line="96">mail of user or %NULL if not existing</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/user/msg-user.c"
+                 line="94">a user</doc>
+            <type name="User" c:type="MsgUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="UserClass"
+            c:type="MsgUserClass"
+            glib:is-gtype-struct-for="User">
+      <source-position filename="src/user/msg-user.h" line="31"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="UserService"
+           c:symbol-prefix="user_service"
+           c:type="MsgUserService"
+           parent="Service"
+           glib:type-name="MsgUserService"
+           glib:get-type="msg_user_service_get_type"
+           glib:type-struct="UserServiceClass">
+      <source-position filename="src/user/msg-user-service.h" line="27"/>
+      <constructor name="new" c:identifier="msg_user_service_new">
+        <source-position filename="src/user/msg-user-service.h" line="29"/>
+        <return-value transfer-ownership="full">
+          <type name="UserService" c:type="MsgUserService*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <type name="Authorizer" c:type="MsgAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_user"
+              c:identifier="msg_user_service_get_user"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/user/msg-user-service.c"
+             line="51">Get user information</doc>
+        <source-position filename="src/user/msg-user-service.h" line="32"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/user/msg-user-service.c"
+               line="60">request user</doc>
+          <type name="User" c:type="MsgUser*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/user/msg-user-service.c"
+                 line="53">a #MsgUserService</doc>
+            <type name="UserService" c:type="MsgUserService*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/user/msg-user-service.c"
+                 line="54">user name (%NULL for me)</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/user/msg-user-service.c"
+                 line="55">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="UserServiceClass"
+            c:type="MsgUserServiceClass"
+            glib:is-gtype-struct-for="UserService">
+      <source-position filename="src/user/msg-user-service.h" line="27"/>
+      <field name="parent_class">
+        <type name="ServiceClass" c:type="MsgServiceClass"/>
+      </field>
+    </record>
+    <record name="_DriveItemFileClass" c:type="_MsgDriveItemFileClass">
+      <source-position filename="src/drive/msg-drive-item-file.h" line="38"/>
+      <field name="parent_class" writable="1">
+        <type name="DriveItemClass" c:type="MsgDriveItemClass"/>
+      </field>
+      <field name="padding" writable="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="_DriveItemFolderClass" c:type="_MsgDriveItemFolderClass">
+      <source-position filename="src/drive/msg-drive-item-folder.h" line="38"/>
+      <field name="parent_class" writable="1">
+        <type name="DriveItemClass" c:type="MsgDriveItemClass"/>
+      </field>
+      <field name="padding" writable="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <function name="error_quark" c:identifier="msg_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="json_object_get_string"
+              c:identifier="msg_json_object_get_string">
+      <source-position filename="src/msg-json-utils.h" line="6"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="object" transfer-ownership="none">
+          <type name="Json.Object" c:type="JsonObject*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="msg-error">
+      <doc xml:space="preserve"
+           filename="src/msg-error.c"
+           line="22">Error codes used to represent errors thrown by the MS Graph APIs.</doc>
+    </docsection>
+    <docsection name="msg-goa-authorizer">
+      <doc xml:space="preserve"
+           filename="src/msg-goa-authorizer.c"
+           line="25">#MsgGoaAuthorizer provides an implementation of the #MsgAuthorizer
+interface using GNOME Online Accounts.</doc>
+    </docsection>
+  </namespace>
+</repository>

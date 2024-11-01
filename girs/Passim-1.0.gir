@@ -65,12 +65,12 @@ depending on the version of libpassim installed.</doc>
       <constructor name="new" c:identifier="passim_client_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-client.c"
-             line="503">Creates a new client.</doc>
+             line="505">Creates a new client.</doc>
         <source-position filename="libpassim/passim-client.h" line="41"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-client.c"
-               line="508">a new #PassimClient</doc>
+               line="510">a new #PassimClient</doc>
           <type name="Client" c:type="PassimClient*"/>
         </return-value>
       </constructor>
@@ -260,25 +260,25 @@ depending on the version of libpassim installed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libpassim/passim-client.c"
-             line="399">Connects to the remote server.</doc>
+             line="401">Connects to the remote server.</doc>
         <source-position filename="libpassim/passim-client.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-client.c"
-               line="407">%TRUE for success</doc>
+               line="409">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-client.c"
-                 line="401">a #PassimClient</doc>
+                 line="403">a #PassimClient</doc>
             <type name="Client" c:type="PassimClient*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-client.c"
-                 line="402">a #PassimItem</doc>
+                 line="404">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </parameter>
         </parameters>
@@ -1376,7 +1376,7 @@ NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
       <source-position filename="libpassim/passim-version.h" line="21"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="7" c:type="PASSIM_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="8" c:type="PASSIM_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libpassim/passim-version.h"
            line="30">The compile-time micro version</doc>

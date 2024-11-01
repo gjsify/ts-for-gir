@@ -1251,7 +1251,7 @@ full input buffer of length @x.</doc>
           <doc xml:space="preserve"
                filename="gmime-certificate.c"
                line="548">the creation date of the certificate's key or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert" transfer-ownership="none">
@@ -1340,7 +1340,7 @@ address will be returned.</doc>
           <doc xml:space="preserve"
                filename="gmime-certificate.c"
                line="602">the expiration date of the certificate's key or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert" transfer-ownership="none">
@@ -1591,7 +1591,7 @@ User ID will be returned.</doc>
             <doc xml:space="preserve"
                  filename="gmime-certificate.c"
                  line="529">creation date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1662,7 +1662,7 @@ certificate. (e.g. "jane\@example.org")</doc>
             <doc xml:space="preserve"
                  filename="gmime-certificate.c"
                  line="583">expiration date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1928,13 +1928,13 @@ a mail name-addr as described in RFC 5322.  (e.g. "Jane Doe
         <doc xml:space="preserve"
              filename="gmime-certificate.h"
              line="193">The creation date of the certificate.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="expires">
         <doc xml:space="preserve"
              filename="gmime-certificate.h"
              line="194">The expiration date of the certificate.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="keyid">
         <doc xml:space="preserve"
@@ -20175,7 +20175,7 @@ headers defined in rfc822.</doc>
           <doc xml:space="preserve"
                filename="gmime-signature.c"
                line="216">the creation date of the signature or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="sig" transfer-ownership="none">
@@ -20217,7 +20217,7 @@ epoch, represented as a 64-bit signed integer.</doc>
           <doc xml:space="preserve"
                filename="gmime-signature.c"
                line="270">the expiration date of the signature or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="sig" transfer-ownership="none">
@@ -20314,7 +20314,7 @@ the signature never expires.</doc>
             <doc xml:space="preserve"
                  filename="gmime-signature.c"
                  line="197">creation date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -20337,7 +20337,7 @@ the signature never expires.</doc>
             <doc xml:space="preserve"
                  filename="gmime-signature.c"
                  line="251">expiration date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -20386,13 +20386,13 @@ the signature never expires.</doc>
         <doc xml:space="preserve"
              filename="gmime-signature.h"
              line="98">The creation date of the signature.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="expires">
         <doc xml:space="preserve"
              filename="gmime-signature.h"
              line="99">The expiration date of the signature.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
     </class>
     <record name="SignatureClass"

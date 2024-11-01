@@ -3929,6 +3929,10 @@ will react to this by updating the shown information.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_label">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="45">The virtual function pointer for gtk_source_completion_proposal_get_label().
+By default, %NULL is returned.</doc>
         <callback name="get_label">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="72"/>
@@ -3950,6 +3954,10 @@ will react to this by updating the shown information.</doc>
         </callback>
       </field>
       <field name="get_markup">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="47">The virtual function pointer for gtk_source_completion_proposal_get_markup().
+By default, %NULL is returned.</doc>
         <callback name="get_markup">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="73"/>
@@ -3971,6 +3979,10 @@ will react to this by updating the shown information.</doc>
         </callback>
       </field>
       <field name="get_text">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="49">The virtual function pointer for gtk_source_completion_proposal_get_text().
+By default, %NULL is returned.</doc>
         <callback name="get_text">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="74"/>
@@ -3992,6 +4004,10 @@ will react to this by updating the shown information.</doc>
         </callback>
       </field>
       <field name="get_icon">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="51">The virtual function pointer for gtk_source_completion_proposal_get_icon().
+By default, %NULL is returned.</doc>
         <callback name="get_icon">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="76"/>
@@ -4013,6 +4029,10 @@ will react to this by updating the shown information.</doc>
         </callback>
       </field>
       <field name="get_icon_name">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="53">The virtual function pointer for gtk_source_completion_proposal_get_icon_name().
+By default, %NULL is returned.</doc>
         <callback name="get_icon_name">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="77"/>
@@ -4034,6 +4054,10 @@ will react to this by updating the shown information.</doc>
         </callback>
       </field>
       <field name="get_gicon">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="55">The virtual function pointer for gtk_source_completion_proposal_get_gicon().
+By default, %NULL is returned.</doc>
         <callback name="get_gicon">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="78"/>
@@ -4055,6 +4079,10 @@ will react to this by updating the shown information.</doc>
         </callback>
       </field>
       <field name="get_info">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="57">The virtual function pointer for gtk_source_completion_proposal_get_info().
+By default, %NULL is returned.</doc>
         <callback name="get_info">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="80"/>
@@ -4078,6 +4106,10 @@ to @proposal.</doc>
         </callback>
       </field>
       <field name="hash">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="59">The virtual function pointer for gtk_source_completion_proposal_hash().
+By default, it uses a direct hash (g_direct_hash()).</doc>
         <callback name="hash">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="82"/>
@@ -4099,6 +4131,10 @@ to @proposal.</doc>
         </callback>
       </field>
       <field name="equal">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="61">The virtual function pointer for gtk_source_completion_proposal_equal().
+By default, it uses direct equality (g_direct_equal()).</doc>
         <callback name="equal">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="83"/>
@@ -4127,6 +4163,9 @@ to @proposal.</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionproposal.h"
+             line="63">The function pointer for the #GtkSourceCompletionProposal::changed signal.</doc>
         <callback name="changed">
           <source-position filename="gtksourceview/gtksourcecompletionproposal.h"
                            line="87"/>
@@ -4998,6 +5037,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="45">The virtual function pointer for gtk_source_completion_provider_get_name().
+Must be implemented.</doc>
         <callback name="get_name">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="78"/>
@@ -5019,6 +5062,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="get_icon">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="47">The virtual function pointer for gtk_source_completion_provider_get_icon().
+By default, %NULL is returned.</doc>
         <callback name="get_icon">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="80"/>
@@ -5041,6 +5088,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="get_icon_name">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="49">The virtual function pointer for gtk_source_completion_provider_get_icon_name().
+By default, %NULL is returned.</doc>
         <callback name="get_icon_name">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="81"/>
@@ -5063,6 +5114,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="get_gicon">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="51">The virtual function pointer for gtk_source_completion_provider_get_gicon().
+By default, %NULL is returned.</doc>
         <callback name="get_gicon">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="82"/>
@@ -5085,6 +5140,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="populate">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="53">The virtual function pointer for gtk_source_completion_provider_populate().
+Add no proposals by default.</doc>
         <callback name="populate">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="84"/>
@@ -5110,6 +5169,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="match">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="55">The virtual function pointer for gtk_source_completion_provider_match().
+By default, %TRUE is returned.</doc>
         <callback name="match">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="87"/>
@@ -5138,6 +5201,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="get_activation">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="57">The virtual function pointer for gtk_source_completion_provider_get_activation().
+The combination of all #GtkSourceCompletionActivation is returned by default.</doc>
         <callback name="get_activation">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="91"/>
@@ -5160,6 +5227,10 @@ gtk_source_completion_context_add_proposals() function.</doc>
         </callback>
       </field>
       <field name="get_info_widget">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="59">The virtual function pointer for gtk_source_completion_provider_get_info_widget().
+By default, %NULL is returned.</doc>
         <callback name="get_info_widget">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="93"/>
@@ -5190,6 +5261,10 @@ info widget.</doc>
         </callback>
       </field>
       <field name="update_info">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="61">The virtual function pointer for gtk_source_completion_provider_update_info().
+Does nothing by default.</doc>
         <callback name="update_info">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="95"/>
@@ -5221,6 +5296,10 @@ info widget.</doc>
         </callback>
       </field>
       <field name="get_start_iter">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="63">The virtual function pointer for gtk_source_completion_provider_get_start_iter().
+By default, %FALSE is returned.</doc>
         <callback name="get_start_iter">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="99"/>
@@ -5265,6 +5344,10 @@ info widget.</doc>
         </callback>
       </field>
       <field name="activate_proposal">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="65">The virtual function pointer for gtk_source_completion_provider_activate_proposal().
+By default, %FALSE is returned.</doc>
         <callback name="activate_proposal">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="103"/>
@@ -5300,6 +5383,10 @@ info widget.</doc>
         </callback>
       </field>
       <field name="get_interactive_delay">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="67">The virtual function pointer for gtk_source_completion_provider_get_interactive_delay().
+By default, -1 is returned.</doc>
         <callback name="get_interactive_delay">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="107"/>
@@ -5321,6 +5408,10 @@ info widget.</doc>
         </callback>
       </field>
       <field name="get_priority">
+        <doc xml:space="preserve"
+             filename="gtksourceview/gtksourcecompletionprovider.h"
+             line="69">The virtual function pointer for gtk_source_completion_provider_get_priority().
+By default, 0 is returned.</doc>
         <callback name="get_priority">
           <source-position filename="gtksourceview/gtksourcecompletionprovider.h"
                            line="108"/>
@@ -6451,7 +6542,8 @@ if an input stream is used.</doc>
       </method>
       <method name="load_async"
               c:identifier="gtk_source_file_loader_load_async"
-              version="3.14">
+              version="3.14"
+              glib:finish-func="load_finish">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcefileloader.c"
              line="1070">Loads asynchronously the file or input stream contents into the
@@ -6974,7 +7066,8 @@ buffer for the first time.</doc>
       </method>
       <method name="save_async"
               c:identifier="gtk_source_file_saver_save_async"
-              version="3.14">
+              version="3.14"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcefilesaver.c"
              line="1359">Saves asynchronously the buffer into the file. See the #GAsyncResult
@@ -11648,10 +11741,7 @@ If @category is %NULL, looks for marks of any category</doc>
                  line="241">a #GtkSourceMark.</doc>
             <type name="Mark" c:type="GtkSourceMark*"/>
           </instance-parameter>
-          <parameter name="category"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
+          <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcemark.c"
                  line="242">a string specifying the mark category, or %NULL.</doc>
@@ -14554,7 +14644,8 @@ gtk_source_search_context_get_settings().</doc>
       </constructor>
       <method name="backward"
               c:identifier="gtk_source_search_context_backward"
-              version="4.0">
+              version="4.0"
+              glib:async-func="backward_async">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcesearchcontext.c"
              line="3397">Synchronous backward search. It is recommended to use the asynchronous
@@ -14626,7 +14717,9 @@ the same value as the #GtkSourceSearchSettings:wrap-around property.</doc>
       </method>
       <method name="backward_async"
               c:identifier="gtk_source_search_context_backward_async"
-              version="3.10">
+              version="3.10"
+              glib:finish-func="backward_finish"
+              glib:sync-func="backward">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcesearchcontext.c"
              line="3473">The asynchronous version of gtk_source_search_context_backward().
@@ -14758,7 +14851,8 @@ details.</doc>
       </method>
       <method name="forward"
               c:identifier="gtk_source_search_context_forward"
-              version="4.0">
+              version="4.0"
+              glib:async-func="forward_async">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcesearchcontext.c"
              line="3201">Synchronous forward search. It is recommended to use the asynchronous
@@ -14830,7 +14924,9 @@ the same value as the #GtkSourceSearchSettings:wrap-around property.</doc>
       </method>
       <method name="forward_async"
               c:identifier="gtk_source_search_context_forward_async"
-              version="3.10">
+              version="3.10"
+              glib:finish-func="forward_finish"
+              glib:sync-func="forward">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcesearchcontext.c"
              line="3276">The asynchronous version of gtk_source_search_context_forward().

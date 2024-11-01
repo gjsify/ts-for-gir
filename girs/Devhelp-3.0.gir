@@ -980,6 +980,9 @@ with dh_book_list_builder_create_object().</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="add_book">
+        <doc xml:space="preserve"
+             filename="devhelp/dh-book-list.h"
+             line="34">Virtual function pointer for the #DhBookList::add-book signal.</doc>
         <callback name="add_book">
           <source-position filename="devhelp/dh-book-list.h" line="45"/>
           <return-value transfer-ownership="none">
@@ -1002,6 +1005,10 @@ with dh_book_list_builder_create_object().</doc>
         </callback>
       </field>
       <field name="remove_book">
+        <doc xml:space="preserve"
+             filename="devhelp/dh-book-list.h"
+             line="35">Virtual function pointer for the #DhBookList::remove-book
+  signal.</doc>
         <callback name="remove_book">
           <source-position filename="devhelp/dh-book-list.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -1024,6 +1031,11 @@ with dh_book_list_builder_create_object().</doc>
         </callback>
       </field>
       <field name="get_books">
+        <doc xml:space="preserve"
+             filename="devhelp/dh-book-list.h"
+             line="37">Virtual function pointer for dh_book_list_get_books(). Returns
+  the #DhBookList internal #GList by default. If you override this vfunc
+  ensure that each book ID is unique in the returned list.</doc>
         <callback name="get_books">
           <source-position filename="devhelp/dh-book-list.h" line="52"/>
           <return-value transfer-ownership="none">

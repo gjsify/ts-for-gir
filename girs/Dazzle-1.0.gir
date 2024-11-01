@@ -2479,7 +2479,8 @@ DZL_DEFINE_COUNTER (my_counter, "My", "Counter", "My Counter Description");
       </method>
       <method name="execute"
               c:identifier="dzl_directory_reaper_execute"
-              throws="1">
+              throws="1"
+              glib:async-func="execute_async">
         <source-position filename="src/files/dzl-directory-reaper.h"
                          line="49"/>
         <return-value transfer-ownership="none">
@@ -2498,7 +2499,9 @@ DZL_DEFINE_COUNTER (my_counter, "My", "Counter", "My Counter Description");
         </parameters>
       </method>
       <method name="execute_async"
-              c:identifier="dzl_directory_reaper_execute_async">
+              c:identifier="dzl_directory_reaper_execute_async"
+              glib:finish-func="execute_finish"
+              glib:sync-func="execute">
         <source-position filename="src/files/dzl-directory-reaper.h"
                          line="53"/>
         <return-value transfer-ownership="none">
@@ -5805,7 +5808,8 @@ notify::reveal-child instead.</doc>
       </method>
       <method name="execute"
               c:identifier="dzl_file_transfer_execute"
-              throws="1">
+              throws="1"
+              glib:async-func="execute_async">
         <source-position filename="src/files/dzl-file-transfer.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5826,7 +5830,9 @@ notify::reveal-child instead.</doc>
         </parameters>
       </method>
       <method name="execute_async"
-              c:identifier="dzl_file_transfer_execute_async">
+              c:identifier="dzl_file_transfer_execute_async"
+              glib:finish-func="execute_finish"
+              glib:sync-func="execute">
         <source-position filename="src/files/dzl-file-transfer.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6099,7 +6105,8 @@ notify::reveal-child instead.</doc>
       </method>
       <method name="load_file"
               c:identifier="dzl_fuzzy_index_load_file"
-              throws="1">
+              throws="1"
+              glib:async-func="load_file_async">
         <source-position filename="src/search/dzl-fuzzy-index.h" line="36"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -6120,7 +6127,9 @@ notify::reveal-child instead.</doc>
         </parameters>
       </method>
       <method name="load_file_async"
-              c:identifier="dzl_fuzzy_index_load_file_async">
+              c:identifier="dzl_fuzzy_index_load_file_async"
+              glib:finish-func="load_file_finish"
+              glib:sync-func="load_file">
         <source-position filename="src/search/dzl-fuzzy-index.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6170,7 +6179,9 @@ notify::reveal-child instead.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="query_async" c:identifier="dzl_fuzzy_index_query_async">
+      <method name="query_async"
+              c:identifier="dzl_fuzzy_index_query_async"
+              glib:finish-func="query_finish">
         <source-position filename="src/search/dzl-fuzzy-index.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6425,7 +6436,8 @@ less than 256.</doc>
       </method>
       <method name="write"
               c:identifier="dzl_fuzzy_index_builder_write"
-              throws="1">
+              throws="1"
+              glib:async-func="write_async">
         <source-position filename="src/search/dzl-fuzzy-index-builder.h"
                          line="46"/>
         <return-value transfer-ownership="none">
@@ -6450,7 +6462,9 @@ less than 256.</doc>
         </parameters>
       </method>
       <method name="write_async"
-              c:identifier="dzl_fuzzy_index_builder_write_async">
+              c:identifier="dzl_fuzzy_index_builder_write_async"
+              glib:finish-func="write_finish"
+              glib:sync-func="write">
         <doc xml:space="preserve"
              filename="src/search/dzl-fuzzy-index-builder.c"
              line="531">Builds and writes the index to @file. The file format is a
@@ -12856,7 +12870,8 @@ ignore any files or directories.</doc>
         </parameters>
       </method>
       <method name="start_async"
-              c:identifier="dzl_recursive_file_monitor_start_async">
+              c:identifier="dzl_recursive_file_monitor_start_async"
+              glib:finish-func="start_finish">
         <source-position filename="src/files/dzl-recursive-file-monitor.h"
                          line="41"/>
         <return-value transfer-ownership="none">
@@ -22065,7 +22080,9 @@ Otherwise, the position is expected to be relative to @entry.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_async" c:identifier="dzl_task_cache_get_async">
+      <method name="get_async"
+              c:identifier="dzl_task_cache_get_async"
+              glib:finish-func="get_finish">
         <source-position filename="src/cache/dzl-task-cache.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

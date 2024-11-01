@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="poppler.h"/>
   <namespace name="Poppler"
              version="0.18"
-             shared-library="libpoppler-glib.so.8,libpoppler.so.134"
+             shared-library="libpoppler-glib.so.8,libpoppler.so.140"
              c:identifier-prefixes="Poppler"
              c:symbol-prefixes="poppler">
     <function-macro name="ACTION"
@@ -3431,12 +3431,12 @@ will fail with the same error.</doc>
                    version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1974">Creates a new #PopplerCertificateInfo</doc>
+             line="1975">Creates a new #PopplerCertificateInfo</doc>
         <source-position filename="glib/poppler-form-field.h" line="345"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1979">a new #PopplerCertificateInfo. It must be freed with poppler_certificate_info_free() when done.</doc>
+               line="1980">a new #PopplerCertificateInfo. It must be freed with poppler_certificate_info_free() when done.</doc>
           <type name="CertificateInfo" c:type="PopplerCertificateInfo*"/>
         </return-value>
       </constructor>
@@ -3445,12 +3445,12 @@ will fail with the same error.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2156">Copies @certificate_info, creating an identical #PopplerCertificateInfo.</doc>
+             line="2157">Copies @certificate_info, creating an identical #PopplerCertificateInfo.</doc>
         <source-position filename="glib/poppler-form-field.h" line="347"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2162">a new #PopplerCertificateInfo structure identical to @certificate_info</doc>
+               line="2163">a new #PopplerCertificateInfo structure identical to @certificate_info</doc>
           <type name="CertificateInfo" c:type="PopplerCertificateInfo*"/>
         </return-value>
         <parameters>
@@ -3458,7 +3458,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2158">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2159">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3469,7 +3469,7 @@ will fail with the same error.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2186">Frees @certificate_info</doc>
+             line="2187">Frees @certificate_info</doc>
         <source-position filename="glib/poppler-form-field.h" line="349"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3479,7 +3479,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2188">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2189">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo" c:type="PopplerCertificateInfo*"/>
           </instance-parameter>
         </parameters>
@@ -3489,12 +3489,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2116">Get certificate expiration time</doc>
+             line="2117">Get certificate expiration time</doc>
         <source-position filename="glib/poppler-form-field.h" line="367"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2122">certificate expiration time</doc>
+               line="2123">certificate expiration time</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
@@ -3502,7 +3502,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2118">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2119">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3513,12 +3513,12 @@ will fail with the same error.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1988">Get certificate nick name</doc>
+             line="1989">Get certificate nick name</doc>
         <source-position filename="glib/poppler-form-field.h" line="351"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1994">certificate nick name</doc>
+               line="1995">certificate nick name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3526,7 +3526,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1990">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="1991">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3537,12 +3537,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2100">Get certificate issuance time</doc>
+             line="2101">Get certificate issuance time</doc>
         <source-position filename="glib/poppler-form-field.h" line="365"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2106">certificate issuance time</doc>
+               line="2107">certificate issuance time</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
@@ -3550,7 +3550,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2102">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2103">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3561,12 +3561,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2052">Get certificate issuer common name</doc>
+             line="2053">Get certificate issuer common name</doc>
         <source-position filename="glib/poppler-form-field.h" line="359"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2058">certificate issuer common name</doc>
+               line="2059">certificate issuer common name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3574,7 +3574,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2054">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2055">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3585,12 +3585,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2084">Get certificate issuer email</doc>
+             line="2085">Get certificate issuer email</doc>
         <source-position filename="glib/poppler-form-field.h" line="363"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2090">certificate issuer email</doc>
+               line="2091">certificate issuer email</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3598,7 +3598,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2086">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2087">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3609,12 +3609,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2068">Get certificate issuer organization</doc>
+             line="2069">Get certificate issuer organization</doc>
         <source-position filename="glib/poppler-form-field.h" line="361"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2074">certificate issuer organization</doc>
+               line="2075">certificate issuer organization</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3622,7 +3622,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2070">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2071">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3633,12 +3633,12 @@ will fail with the same error.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2004">Get certificate subject common name</doc>
+             line="2005">Get certificate subject common name</doc>
         <source-position filename="glib/poppler-form-field.h" line="353"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2010">certificate subject common name</doc>
+               line="2011">certificate subject common name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3646,7 +3646,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2006">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2007">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3657,12 +3657,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2036">Get certificate subject email</doc>
+             line="2037">Get certificate subject email</doc>
         <source-position filename="glib/poppler-form-field.h" line="357"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2042">certificate subject email</doc>
+               line="2043">certificate subject email</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3670,7 +3670,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2038">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2039">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -3681,12 +3681,12 @@ will fail with the same error.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2020">Get certificate subject organization</doc>
+             line="2021">Get certificate subject organization</doc>
         <source-position filename="glib/poppler-form-field.h" line="355"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2026">certificate subject organization</doc>
+               line="2027">certificate subject organization</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3694,7 +3694,7 @@ will fail with the same error.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="2022">a #PopplerCertificateInfo structure containing certificate information</doc>
+                 line="2023">a #PopplerCertificateInfo structure containing certificate information</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </instance-parameter>
@@ -4475,7 +4475,7 @@ g_list_free().</doc>
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
                line="1587">the date the document was created, or -1</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
@@ -4538,13 +4538,13 @@ that created the original document from which it was converted.</doc>
               c:identifier="poppler_document_get_form_field">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3693">Returns the #PopplerFormField for the given @id. It must be freed with
+             line="3696">Returns the #PopplerFormField for the given @id. It must be freed with
 g_object_unref()</doc>
         <source-position filename="glib/poppler-document.h" line="412"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3701">a new #PopplerFormField or %NULL if
+               line="3704">a new #PopplerFormField or %NULL if
 not found</doc>
           <type name="FormField" c:type="PopplerFormField*"/>
         </return-value>
@@ -4552,13 +4552,13 @@ not found</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3695">a #PopplerDocument</doc>
+                 line="3698">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3696">an id of a #PopplerFormField</doc>
+                 line="3699">an id of a #PopplerFormField</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4673,7 +4673,7 @@ size of 32 bytes.</doc>
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
                line="1676">the date the document was most recently modified, or -1</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
@@ -5522,7 +5522,7 @@ entry is removed from the document's Info dictionary.</doc>
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
                  line="1609">A new creation date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -5631,7 +5631,7 @@ entry is removed from the document's Info dictionary.</doc>
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
                  line="1698">A new modification date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -5747,10 +5747,11 @@ is removed from the document's Info dictionary.</doc>
       </method>
       <method name="sign"
               c:identifier="poppler_document_sign"
-              version="23.07.0">
+              version="23.07.0"
+              glib:finish-func="sign_finish">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3874">Sign #document using #signing_data.</doc>
+             line="3877">Sign #document using #signing_data.</doc>
         <source-position filename="glib/poppler-document.h" line="525"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5759,13 +5760,13 @@ is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3876">a #PopplerDocument</doc>
+                 line="3879">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3877">a #PopplerSigningData</doc>
+                 line="3880">a #PopplerSigningData</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5774,7 +5775,7 @@ is removed from the document's Info dictionary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3878">a #GCancellable</doc>
+                 line="3881">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -5785,7 +5786,7 @@ is removed from the document's Info dictionary.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3879">a #GAsyncReadyCallback</doc>
+                 line="3882">a #GAsyncReadyCallback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5794,7 +5795,7 @@ is removed from the document's Info dictionary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3880">user data used by callback function</doc>
+                 line="3883">user data used by callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5805,25 +5806,25 @@ is removed from the document's Info dictionary.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3900">Finish poppler_sign_document and get return status or error.</doc>
+             line="3903">Finish poppler_sign_document and get return status or error.</doc>
         <source-position filename="glib/poppler-document.h" line="527"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3908">%TRUE on successful signing a document, otherwise %FALSE and error is set.</doc>
+               line="3911">%TRUE on successful signing a document, otherwise %FALSE and error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3902">a #PopplerDocument</doc>
+                 line="3905">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3903">a #GAsyncResult</doc>
+                 line="3906">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -6266,7 +6267,10 @@ Here is a simple example of code to scan fonts in a document
 
 &lt;informalexample&gt;&lt;programlisting&gt;
 font_info = poppler_font_info_new (document);
-while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
+scanned_pages = 0;
+while (scanned_pages &lt;= poppler_document_get_n_pages(document)) {
+        poppler_font_info_scan (font_info, 20, &amp;fonts_iter);
+        scanned_pages += 20;
         if (!fonts_iter)
                 continue; /&lt;!-- --&gt;* No fonts found in these 20 pages *&lt;!-- --&gt;/
         do {
@@ -6280,7 +6284,7 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3162">%TRUE, if there are more fonts left to scan</doc>
+               line="3165">%TRUE, if fonts were found</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -6776,19 +6780,19 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_can_select_multiple">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="933">Checks whether @field allows multiple choices to be selected</doc>
+             line="934">Checks whether @field allows multiple choices to be selected</doc>
         <source-position filename="glib/poppler-form-field.h" line="207"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="939">%TRUE if @field allows multiple choices to be selected</doc>
+               line="940">%TRUE if @field allows multiple choices to be selected</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="935">a #PopplerFormField</doc>
+                 line="936">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -6809,19 +6813,19 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_do_spell_check">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="948">Checks whether spell checking should be done for the contents of @field</doc>
+             line="949">Checks whether spell checking should be done for the contents of @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="209"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="954">%TRUE if spell checking should be done for @field</doc>
+               line="955">%TRUE if spell checking should be done for @field</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="950">a #PopplerFormField</doc>
+                 line="951">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -6830,19 +6834,19 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_get_choice_type">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="899">Gets the choice type of @field</doc>
+             line="900">Gets the choice type of @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="203"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="905">#PopplerFormChoiceType of @field</doc>
+               line="906">#PopplerFormChoiceType of @field</doc>
           <type name="FormChoiceType" c:type="PopplerFormChoiceType"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="901">a #PopplerFormField</doc>
+                 line="902">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -6851,25 +6855,25 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_get_item">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="985">Returns the contents of the item on @field at the given index</doc>
+             line="986">Returns the contents of the item on @field at the given index</doc>
         <source-position filename="glib/poppler-form-field.h" line="215"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="992">a new allocated string. It must be freed with g_free() when done.</doc>
+               line="993">a new allocated string. It must be freed with g_free() when done.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="987">a #PopplerFormField</doc>
+                 line="988">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="988">the index of the item</doc>
+                 line="989">the index of the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -6878,19 +6882,19 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_get_n_items">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="970">Returns the number of items on @field</doc>
+             line="971">Returns the number of items on @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="213"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="976">the number of items on @field</doc>
+               line="977">the number of items on @field</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="972">a #PopplerFormField</doc>
+                 line="973">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -6899,19 +6903,19 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_get_text">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1087">Retrieves the contents of @field.</doc>
+             line="1088">Retrieves the contents of @field.</doc>
         <source-position filename="glib/poppler-form-field.h" line="227"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1093">a new allocated string. It must be freed with g_free() when done.</doc>
+               line="1094">a new allocated string. It must be freed with g_free() when done.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1089">a #PopplerFormField</doc>
+                 line="1090">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -6920,19 +6924,19 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_is_editable">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="918">Checks whether @field is editable</doc>
+             line="919">Checks whether @field is editable</doc>
         <source-position filename="glib/poppler-form-field.h" line="205"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="924">%TRUE if @field is editable</doc>
+               line="925">%TRUE if @field is editable</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="920">a #PopplerFormField</doc>
+                 line="921">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -6941,25 +6945,25 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_is_item_selected">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1005">Checks whether the item at the given index on @field is currently selected</doc>
+             line="1006">Checks whether the item at the given index on @field is currently selected</doc>
         <source-position filename="glib/poppler-form-field.h" line="217"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1012">%TRUE if item at @index is currently selected</doc>
+               line="1013">%TRUE if item at @index is currently selected</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1007">a #PopplerFormField</doc>
+                 line="1008">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1008">the index of the item</doc>
+                 line="1009">the index of the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -6968,7 +6972,7 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_select_item">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1022">Selects the item at the given index on @field</doc>
+             line="1023">Selects the item at the given index on @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="219"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6977,13 +6981,13 @@ to be 'pressed in', and %FALSE to raise it.</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1024">a #PopplerFormField</doc>
+                 line="1025">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1025">the index of the item</doc>
+                 line="1026">the index of the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -6992,7 +6996,7 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_set_text">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1065">Sets the text in @field to the given value, replacing the current contents</doc>
+             line="1066">Sets the text in @field to the given value, replacing the current contents</doc>
         <source-position filename="glib/poppler-form-field.h" line="225"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7001,13 +7005,13 @@ to be 'pressed in', and %FALSE to raise it.</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1067">a #PopplerFormField</doc>
+                 line="1068">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1068">the new text</doc>
+                 line="1069">the new text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -7016,7 +7020,7 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_toggle_item">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1050">Changes the state of the item at the given index</doc>
+             line="1051">Changes the state of the item at the given index</doc>
         <source-position filename="glib/poppler-form-field.h" line="223"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7025,13 +7029,13 @@ to be 'pressed in', and %FALSE to raise it.</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1052">a #PopplerFormField</doc>
+                 line="1053">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1053">the index of the item</doc>
+                 line="1054">the index of the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -7040,7 +7044,7 @@ to be 'pressed in', and %FALSE to raise it.</doc>
               c:identifier="poppler_form_field_choice_unselect_all">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1037">Unselects all the items on @field</doc>
+             line="1038">Unselects all the items on @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="221"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7049,7 +7053,7 @@ to be 'pressed in', and %FALSE to raise it.</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1039">a #PopplerFormField</doc>
+                 line="1040">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7289,10 +7293,11 @@ the partial field names of the field and all of its ancestors.</doc>
       </method>
       <method name="signature_validate_async"
               c:identifier="poppler_form_field_signature_validate_async"
-              version="21.12.0">
+              version="21.12.0"
+              glib:finish-func="signature_validate_finish">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="579">Asynchronously validates the cryptographic signature contained in @signature_field.</doc>
+             line="580">Asynchronously validates the cryptographic signature contained in @signature_field.</doc>
         <source-position filename="glib/poppler-form-field.h" line="231"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7301,13 +7306,13 @@ the partial field names of the field and all of its ancestors.</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="581">a #PopplerFormField that represents a signature annotation</doc>
+                 line="582">a #PopplerFormField that represents a signature annotation</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="582">#PopplerSignatureValidationFlags flags influencing process of validation of the field signature</doc>
+                 line="583">#PopplerSignatureValidationFlags flags influencing process of validation of the field signature</doc>
             <type name="SignatureValidationFlags"
                   c:type="PopplerSignatureValidationFlags"/>
           </parameter>
@@ -7317,7 +7322,7 @@ the partial field names of the field and all of its ancestors.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="583">optional #GCancellable object</doc>
+                 line="584">optional #GCancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -7328,7 +7333,7 @@ the partial field names of the field and all of its ancestors.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="584">a #GAsyncReadyCallback to call when the signature is validated</doc>
+                 line="585">a #GAsyncReadyCallback to call when the signature is validated</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -7337,7 +7342,7 @@ the partial field names of the field and all of its ancestors.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="585">the data to pass to callback function</doc>
+                 line="586">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -7348,13 +7353,13 @@ the partial field names of the field and all of its ancestors.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="604">Finishes validation of the cryptographic signature contained in @signature_field.
+             line="605">Finishes validation of the cryptographic signature contained in @signature_field.
 See poppler_form_field_signature_validate_async().</doc>
         <source-position filename="glib/poppler-form-field.h" line="233"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="613">a #PopplerSignatureInfo structure containing signature metadata and validation status
+               line="614">a #PopplerSignatureInfo structure containing signature metadata and validation status
                                Free the returned structure with poppler_signature_info_free().</doc>
           <type name="SignatureInfo" c:type="PopplerSignatureInfo*"/>
         </return-value>
@@ -7362,13 +7367,13 @@ See poppler_form_field_signature_validate_async().</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="606">a #PopplerFormField that represents a signature annotation</doc>
+                 line="607">a #PopplerFormField that represents a signature annotation</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="607">a #GAsyncResult</doc>
+                 line="608">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -7379,12 +7384,12 @@ See poppler_form_field_signature_validate_async().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="546">Synchronously validates the cryptographic signature contained in @signature_field.</doc>
+             line="547">Synchronously validates the cryptographic signature contained in @signature_field.</doc>
         <source-position filename="glib/poppler-form-field.h" line="229"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="555">a #PopplerSignatureInfo structure containing signature metadata and validation status
+               line="556">a #PopplerSignatureInfo structure containing signature metadata and validation status
                                Free the returned structure with poppler_signature_info_free().</doc>
           <type name="SignatureInfo" c:type="PopplerSignatureInfo*"/>
         </return-value>
@@ -7392,13 +7397,13 @@ See poppler_form_field_signature_validate_async().</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="548">a #PopplerFormField that represents a signature annotation</doc>
+                 line="549">a #PopplerFormField that represents a signature annotation</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="549">#PopplerSignatureValidationFlags flags influencing process of validation of the field signature</doc>
+                 line="550">#PopplerSignatureValidationFlags flags influencing process of validation of the field signature</doc>
             <type name="SignatureValidationFlags"
                   c:type="PopplerSignatureValidationFlags"/>
           </parameter>
@@ -7408,7 +7413,7 @@ See poppler_form_field_signature_validate_async().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="550">optional #GCancellable object</doc>
+                 line="551">optional #GCancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -7429,19 +7434,19 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_do_spell_check">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="846">Checks whether spell checking should be done for the contents of @field</doc>
+             line="847">Checks whether spell checking should be done for the contents of @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="193"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="852">%TRUE if spell checking should be done for @field</doc>
+               line="853">%TRUE if spell checking should be done for @field</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="848">a #PopplerFormField</doc>
+                 line="849">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7450,19 +7455,19 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_get_max_len">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="831">Retrieves the maximum allowed length of the text in @field</doc>
+             line="832">Retrieves the maximum allowed length of the text in @field</doc>
         <source-position filename="glib/poppler-form-field.h" line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="837">the maximum allowed number of characters in @field, or -1 if there is no maximum.</doc>
+               line="838">the maximum allowed number of characters in @field, or -1 if there is no maximum.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="833">a #PopplerFormField</doc>
+                 line="834">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7471,19 +7476,19 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_get_text">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="788">Retrieves the contents of @field.</doc>
+             line="789">Retrieves the contents of @field.</doc>
         <source-position filename="glib/poppler-form-field.h" line="187"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="794">a new allocated string. It must be freed with g_free() when done.</doc>
+               line="795">a new allocated string. It must be freed with g_free() when done.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="790">a #PopplerFormField</doc>
+                 line="791">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7492,19 +7497,19 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_get_text_type">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="763">Gets the text type of @field.</doc>
+             line="764">Gets the text type of @field.</doc>
         <source-position filename="glib/poppler-form-field.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="769">#PopplerFormTextType of @field</doc>
+               line="770">#PopplerFormTextType of @field</doc>
           <type name="FormTextType" c:type="PopplerFormTextType"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="765">a #PopplerFormField</doc>
+                 line="766">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7513,19 +7518,19 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_is_password">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="883">Checks whether content of @field is a password and it must be hidden</doc>
+             line="884">Checks whether content of @field is a password and it must be hidden</doc>
         <source-position filename="glib/poppler-form-field.h" line="199"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="889">%TRUE if the content of @field is a password</doc>
+               line="890">%TRUE if the content of @field is a password</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="885">a #PopplerFormField</doc>
+                 line="886">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7534,19 +7539,19 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_is_rich_text">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="868">Checks whether the contents of @field are rich text</doc>
+             line="869">Checks whether the contents of @field are rich text</doc>
         <source-position filename="glib/poppler-form-field.h" line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="874">%TRUE if the contents of @field are rich text</doc>
+               line="875">%TRUE if the contents of @field are rich text</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="870">a #PopplerFormField</doc>
+                 line="871">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
         </parameters>
@@ -7555,7 +7560,7 @@ See poppler_form_field_signature_validate_async().</doc>
               c:identifier="poppler_form_field_text_set_text">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="809">Sets the text in @field to the given value, replacing the current contents.</doc>
+             line="810">Sets the text in @field to the given value, replacing the current contents.</doc>
         <source-position filename="glib/poppler-form-field.h" line="189"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7564,13 +7569,13 @@ See poppler_form_field_signature_validate_async().</doc>
           <instance-parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="811">a #PopplerFormField</doc>
+                 line="812">a #PopplerFormField</doc>
             <type name="FormField" c:type="PopplerFormField*"/>
           </instance-parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="812">the new text</doc>
+                 line="813">the new text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8325,7 +8330,7 @@ is shown again</doc>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3410">a #PopplerDocument</doc>
+                 line="3413">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
         </parameters>
@@ -8333,13 +8338,13 @@ is shown again</doc>
       <method name="copy" c:identifier="poppler_layers_iter_copy">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3367">Creates a new #PopplerLayersIter as a copy of @iter.  This must be freed with
+             line="3370">Creates a new #PopplerLayersIter as a copy of @iter.  This must be freed with
 poppler_layers_iter_free().</doc>
         <source-position filename="glib/poppler-document.h" line="492"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3374">a new #PopplerLayersIter
+               line="3377">a new #PopplerLayersIter
 
 Since 0.12</doc>
           <type name="LayersIter" c:type="PopplerLayersIter*"/>
@@ -8348,7 +8353,7 @@ Since 0.12</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3369">a #PopplerLayersIter</doc>
+                 line="3372">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8358,7 +8363,7 @@ Since 0.12</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3390">Frees @iter.</doc>
+             line="3393">Frees @iter.</doc>
         <source-position filename="glib/poppler-document.h" line="494"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8367,7 +8372,7 @@ Since 0.12</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3392">a #PopplerLayersIter</doc>
+                 line="3395">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8377,20 +8382,20 @@ Since 0.12</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3432">Returns a newly created child of @parent, or %NULL if the iter has no child.
+             line="3435">Returns a newly created child of @parent, or %NULL if the iter has no child.
 See poppler_layers_iter_new() for more information on this function.</doc>
         <source-position filename="glib/poppler-document.h" line="497"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3439">a new #PopplerLayersIter, or %NULL</doc>
+               line="3442">a new #PopplerLayersIter, or %NULL</doc>
           <type name="LayersIter" c:type="PopplerLayersIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3434">a #PopplerLayersIter</doc>
+                 line="3437">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8400,12 +8405,12 @@ See poppler_layers_iter_new() for more information on this function.</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3487">Returns the #PopplerLayer associated with @iter.</doc>
+             line="3490">Returns the #PopplerLayer associated with @iter.</doc>
         <source-position filename="glib/poppler-document.h" line="501"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3493">a new #PopplerLayer, or %NULL if
+               line="3496">a new #PopplerLayer, or %NULL if
 there isn't any layer associated with @iter</doc>
           <type name="Layer" c:type="PopplerLayer*"/>
         </return-value>
@@ -8413,7 +8418,7 @@ there isn't any layer associated with @iter</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3489">a #PopplerLayersIter</doc>
+                 line="3492">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8423,13 +8428,13 @@ there isn't any layer associated with @iter</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3464">Returns the title associated with @iter.  It must be freed with
+             line="3467">Returns the title associated with @iter.  It must be freed with
 g_free().</doc>
         <source-position filename="glib/poppler-document.h" line="499"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3471">a new string containing the @iter's title or %NULL if @iter doesn't have a title.
+               line="3474">a new string containing the @iter's title or %NULL if @iter doesn't have a title.
 The returned string should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -8437,7 +8442,7 @@ The returned string should be freed with g_free() when no longer needed.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3466">a #PopplerLayersIter</doc>
+                 line="3469">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8447,20 +8452,20 @@ The returned string should be freed with g_free() when no longer needed.</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3516">Sets @iter to point to the next action at the current level, if valid.  See
+             line="3519">Sets @iter to point to the next action at the current level, if valid.  See
 poppler_layers_iter_new() for more information.</doc>
         <source-position filename="glib/poppler-document.h" line="503"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3523">%TRUE, if @iter was set to the next action</doc>
+               line="3526">%TRUE, if @iter was set to the next action</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3518">a #PopplerLayersIter</doc>
+                 line="3521">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8570,7 +8575,7 @@ of @action on the page</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="2"
+              value="8"
               c:type="POPPLER_MINOR_VERSION"
               version="0.12">
       <doc xml:space="preserve"
@@ -9489,37 +9494,37 @@ from the movie file.</doc>
       <constructor name="new" c:identifier="poppler_ps_file_new">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3582">Create a new postscript file to render to</doc>
+             line="3585">Create a new postscript file to render to</doc>
         <source-position filename="glib/poppler-document.h" line="512"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3591">a PopplerPSFile</doc>
+               line="3594">a PopplerPSFile</doc>
           <type name="PSFile" c:type="PopplerPSFile*"/>
         </return-value>
         <parameters>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3584">a #PopplerDocument</doc>
+                 line="3587">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3585">the path of the output filename</doc>
+                 line="3588">the path of the output filename</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="first_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3586">the first page to print</doc>
+                 line="3589">the first page to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="n_pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3587">the number of pages to print</doc>
+                 line="3590">the number of pages to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -9529,39 +9534,39 @@ from the movie file.</doc>
                    version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3612">Create a new postscript file to render to.
+             line="3615">Create a new postscript file to render to.
 Note that this function takes ownership of @fd; you must not operate on it
 again, nor close it.</doc>
         <source-position filename="glib/poppler-document.h" line="515"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3623">a #PopplerPSFile</doc>
+               line="3626">a #PopplerPSFile</doc>
           <type name="PSFile" c:type="PopplerPSFile*"/>
         </return-value>
         <parameters>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3614">a #PopplerDocument</doc>
+                 line="3617">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3615">a valid file descriptor open for writing</doc>
+                 line="3618">a valid file descriptor open for writing</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="first_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3616">the first page to print</doc>
+                 line="3619">the first page to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="n_pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3617">the number of pages to print</doc>
+                 line="3620">the number of pages to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -9569,7 +9574,7 @@ again, nor close it.</doc>
       <method name="free" c:identifier="poppler_ps_file_free">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3680">Frees @ps_file</doc>
+             line="3683">Frees @ps_file</doc>
         <source-position filename="glib/poppler-document.h" line="522"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9578,7 +9583,7 @@ again, nor close it.</doc>
           <instance-parameter name="ps_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3682">a PopplerPSFile</doc>
+                 line="3685">a PopplerPSFile</doc>
             <type name="PSFile" c:type="PopplerPSFile*"/>
           </instance-parameter>
         </parameters>
@@ -9586,7 +9591,7 @@ again, nor close it.</doc>
       <method name="set_duplex" c:identifier="poppler_ps_file_set_duplex">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3665">Enable or disable Duplex printing.</doc>
+             line="3668">Enable or disable Duplex printing.</doc>
         <source-position filename="glib/poppler-document.h" line="520"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9595,13 +9600,13 @@ again, nor close it.</doc>
           <instance-parameter name="ps_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3667">a PopplerPSFile which was not yet printed to</doc>
+                 line="3670">a PopplerPSFile which was not yet printed to</doc>
             <type name="PSFile" c:type="PopplerPSFile*"/>
           </instance-parameter>
           <parameter name="duplex" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3668">whether to force duplex printing (on printers which support this)</doc>
+                 line="3671">whether to force duplex printing (on printers which support this)</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -9610,7 +9615,7 @@ again, nor close it.</doc>
               c:identifier="poppler_ps_file_set_paper_size">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3646">Set the output paper size. These values will end up in the
+             line="3649">Set the output paper size. These values will end up in the
 DocumentMedia, the BoundingBox DSC comments and other places in the
 generated PostScript.</doc>
         <source-position filename="glib/poppler-document.h" line="518"/>
@@ -9621,19 +9626,19 @@ generated PostScript.</doc>
           <instance-parameter name="ps_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3648">a PopplerPSFile which was not yet printed to.</doc>
+                 line="3651">a PopplerPSFile which was not yet printed to.</doc>
             <type name="PSFile" c:type="PopplerPSFile*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3649">the paper width in 1/72 inch</doc>
+                 line="3652">the paper width in 1/72 inch</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3650">the paper height in 1/72 inch</doc>
+                 line="3653">the paper height in 1/72 inch</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -11872,19 +11877,19 @@ contained in a form field.</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="627">Copies @siginfo, creating an identical #PopplerSignatureInfo.</doc>
+             line="628">Copies @siginfo, creating an identical #PopplerSignatureInfo.</doc>
         <source-position filename="glib/poppler-form-field.h" line="240"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="633">a new #PopplerSignatureInfo structure identical to @siginfo</doc>
+               line="634">a new #PopplerSignatureInfo structure identical to @siginfo</doc>
           <type name="SignatureInfo" c:type="PopplerSignatureInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="629">a #PopplerSignatureInfo structure containing signature metadata and validation status</doc>
+                 line="630">a #PopplerSignatureInfo structure containing signature metadata and validation status</doc>
             <type name="SignatureInfo" c:type="const PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -11894,7 +11899,7 @@ contained in a form field.</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="653">Frees @siginfo</doc>
+             line="654">Frees @siginfo</doc>
         <source-position filename="glib/poppler-form-field.h" line="242"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11903,7 +11908,7 @@ contained in a form field.</doc>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="655">a #PopplerSignatureInfo structure containing signature metadata and validation status</doc>
+                 line="656">a #PopplerSignatureInfo structure containing signature metadata and validation status</doc>
             <type name="SignatureInfo" c:type="PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -11913,19 +11918,19 @@ contained in a form field.</doc>
               version="23.08.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="690">Returns PopplerCertificateInfo for given PopplerSignatureInfo.</doc>
+             line="691">Returns PopplerCertificateInfo for given PopplerSignatureInfo.</doc>
         <source-position filename="glib/poppler-form-field.h" line="248"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="696">certificate info of the signature</doc>
+               line="697">certificate info of the signature</doc>
           <type name="CertificateInfo" c:type="PopplerCertificateInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="692">a #PopplerSignatureInfo</doc>
+                 line="693">a #PopplerSignatureInfo</doc>
             <type name="SignatureInfo" c:type="const PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -11935,19 +11940,19 @@ contained in a form field.</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="707">Returns status of the certificate for given PopplerSignatureInfo.</doc>
+             line="708">Returns status of the certificate for given PopplerSignatureInfo.</doc>
         <source-position filename="glib/poppler-form-field.h" line="246"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="713">certificate status of the signature</doc>
+               line="714">certificate status of the signature</doc>
           <type name="CertificateStatus" c:type="PopplerCertificateStatus"/>
         </return-value>
         <parameters>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="709">a #PopplerSignatureInfo</doc>
+                 line="710">a #PopplerSignatureInfo</doc>
             <type name="SignatureInfo" c:type="const PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -11957,7 +11962,7 @@ contained in a form field.</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="741">Returns local time of signing as GDateTime. This does not
+             line="742">Returns local time of signing as GDateTime. This does not
 contain information about time zone since it has not been
 preserved during conversion.
 Do not modify returned value since it is internal to
@@ -11966,14 +11971,14 @@ PopplerSignatureInfo.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="751">GDateTime</doc>
+               line="752">GDateTime</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="743">a #PopplerSignatureInfo</doc>
+                 line="744">a #PopplerSignatureInfo</doc>
             <type name="SignatureInfo" c:type="const PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -11983,19 +11988,19 @@ PopplerSignatureInfo.</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="673">Returns status of the signature for given PopplerSignatureInfo.</doc>
+             line="674">Returns status of the signature for given PopplerSignatureInfo.</doc>
         <source-position filename="glib/poppler-form-field.h" line="244"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="679">signature status of the signature</doc>
+               line="680">signature status of the signature</doc>
           <type name="SignatureStatus" c:type="PopplerSignatureStatus"/>
         </return-value>
         <parameters>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="675">a #PopplerSignatureInfo</doc>
+                 line="676">a #PopplerSignatureInfo</doc>
             <type name="SignatureInfo" c:type="const PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -12005,19 +12010,19 @@ PopplerSignatureInfo.</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="724">Returns name of signer for given PopplerSignatureInfo.</doc>
+             line="725">Returns name of signer for given PopplerSignatureInfo.</doc>
         <source-position filename="glib/poppler-form-field.h" line="250"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="730">A string.</doc>
+               line="731">A string.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="siginfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="726">a #PopplerSignatureInfo</doc>
+                 line="727">a #PopplerSignatureInfo</doc>
             <type name="SignatureInfo" c:type="const PopplerSignatureInfo*"/>
           </instance-parameter>
         </parameters>
@@ -12143,12 +12148,12 @@ PopplerSignatureInfo.</doc>
                    version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1139">Creates a new #PopplerSigningData with default content.</doc>
+             line="1140">Creates a new #PopplerSigningData with default content.</doc>
         <source-position filename="glib/poppler-form-field.h" line="259"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1144">a new #PopplerSigningData. It must be freed with poppler_signing_data_free() when done.</doc>
+               line="1145">a new #PopplerSigningData. It must be freed with poppler_signing_data_free() when done.</doc>
           <type name="SigningData" c:type="PopplerSigningData*"/>
         </return-value>
       </constructor>
@@ -12157,19 +12162,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1183">Copies @signing_data, creating an identical #PopplerSigningData.</doc>
+             line="1184">Copies @signing_data, creating an identical #PopplerSigningData.</doc>
         <source-position filename="glib/poppler-form-field.h" line="261"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1189">a new #PopplerSigningData structure identical to @signing_data</doc>
+               line="1190">a new #PopplerSigningData structure identical to @signing_data</doc>
           <type name="SigningData" c:type="PopplerSigningData*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1185">a #PopplerSigningData structure containing signing data</doc>
+                 line="1186">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12179,7 +12184,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1228">Frees @signing_data</doc>
+             line="1229">Frees @signing_data</doc>
         <source-position filename="glib/poppler-form-field.h" line="263"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12191,7 +12196,7 @@ PopplerSignatureInfo.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1230">a #PopplerSigningData structure containing signing data</doc>
+                 line="1231">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12201,19 +12206,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1694">Get signature background color.</doc>
+             line="1695">Get signature background color.</doc>
         <source-position filename="glib/poppler-form-field.h" line="311"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1700">a #PopplerColor</doc>
+               line="1701">a #PopplerColor</doc>
           <type name="Color" c:type="const PopplerColor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1696">a #PopplerSigningData structure containing signing data</doc>
+                 line="1697">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12223,19 +12228,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1625">Get signature border color.</doc>
+             line="1626">Get signature border color.</doc>
         <source-position filename="glib/poppler-form-field.h" line="303"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1631">a #PopplerColor</doc>
+               line="1632">a #PopplerColor</doc>
           <type name="Color" c:type="const PopplerColor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1627">a #PopplerSigningData structure containing signing data</doc>
+                 line="1628">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12245,19 +12250,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1661">Get signature border width.</doc>
+             line="1662">Get signature border width.</doc>
         <source-position filename="glib/poppler-form-field.h" line="307"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1667">border width</doc>
+               line="1668">border width</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1663">a #PopplerSigningData structure containing signing data</doc>
+                 line="1664">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12267,19 +12272,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1342">Get certification information.</doc>
+             line="1343">Get certification information.</doc>
         <source-position filename="glib/poppler-form-field.h" line="271"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1348">a #PopplerCertificateInfo</doc>
+               line="1349">a #PopplerCertificateInfo</doc>
           <type name="CertificateInfo" c:type="const PopplerCertificateInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1344">a #PopplerSigningData structure containing signing data</doc>
+                 line="1345">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12289,19 +12294,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1303">Get destination file name.</doc>
+             line="1304">Get destination file name.</doc>
         <source-position filename="glib/poppler-form-field.h" line="267"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1309">destination filename</doc>
+               line="1310">destination filename</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1305">a #PopplerSigningData structure containing signing data</doc>
+                 line="1306">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12311,19 +12316,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1918">Get document owner password.</doc>
+             line="1919">Get document owner password.</doc>
         <source-position filename="glib/poppler-form-field.h" line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1924">document owner password (for encrypted files)</doc>
+               line="1925">document owner password (for encrypted files)</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1920">a #PopplerSigningData structure containing signing data</doc>
+                 line="1921">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12333,19 +12338,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1956">Get document user password.</doc>
+             line="1957">Get document user password.</doc>
         <source-position filename="glib/poppler-form-field.h" line="339"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1962">document user password (for encrypted files)</doc>
+               line="1963">document user password (for encrypted files)</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1958">a #PopplerSigningData structure containing signing data</doc>
+                 line="1959">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12355,19 +12360,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1728">Get field partial name.</doc>
+             line="1729">Get field partial name.</doc>
         <source-position filename="glib/poppler-form-field.h" line="315"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1734">field partial name</doc>
+               line="1735">field partial name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1730">a #PopplerSigningData structure containing signing data</doc>
+                 line="1731">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12377,19 +12382,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1520">Get signature font color.</doc>
+             line="1521">Get signature font color.</doc>
         <source-position filename="glib/poppler-form-field.h" line="291"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1526">a #PopplerColor</doc>
+               line="1527">a #PopplerColor</doc>
           <type name="Color" c:type="const PopplerColor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1522">a #PopplerSigningData structure containing signing data</doc>
+                 line="1523">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12399,19 +12404,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1556">Get signature font size.</doc>
+             line="1557">Get signature font size.</doc>
         <source-position filename="glib/poppler-form-field.h" line="295"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1562">font size</doc>
+               line="1563">font size</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1558">a #PopplerSigningData structure containing signing data</doc>
+                 line="1559">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12421,19 +12426,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1842">Get image path.</doc>
+             line="1843">Get image path.</doc>
         <source-position filename="glib/poppler-form-field.h" line="327"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1848">image path</doc>
+               line="1849">image path</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1844">a #PopplerSigningData structure containing signing data</doc>
+                 line="1845">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12443,19 +12448,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1592">Get signature left font size.</doc>
+             line="1593">Get signature left font size.</doc>
         <source-position filename="glib/poppler-form-field.h" line="299"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1598">left font size</doc>
+               line="1599">left font size</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1594">a #PopplerSigningData structure containing signing data</doc>
+                 line="1595">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12465,19 +12470,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1804">Get location.</doc>
+             line="1805">Get location.</doc>
         <source-position filename="glib/poppler-form-field.h" line="323"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1810">location</doc>
+               line="1811">location</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1806">a #PopplerSigningData structure containing signing data</doc>
+                 line="1807">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12487,19 +12492,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1378">Get page.</doc>
+             line="1379">Get page.</doc>
         <source-position filename="glib/poppler-form-field.h" line="275"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1384">page number</doc>
+               line="1385">page number</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1380">a #PopplerSigningData structure containing signing data</doc>
+                 line="1381">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12509,19 +12514,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1880">Get signing key password.</doc>
+             line="1881">Get signing key password.</doc>
         <source-position filename="glib/poppler-form-field.h" line="331"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1886">password</doc>
+               line="1887">password</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1882">a #PopplerSigningData structure containing signing data</doc>
+                 line="1883">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12531,19 +12536,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1766">Get reason.</doc>
+             line="1767">Get reason.</doc>
         <source-position filename="glib/poppler-form-field.h" line="319"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1772">reason</doc>
+               line="1773">reason</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1768">a #PopplerSigningData structure containing signing data</doc>
+                 line="1769">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12553,19 +12558,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1487">Get signature rectangle.</doc>
+             line="1488">Get signature rectangle.</doc>
         <source-position filename="glib/poppler-form-field.h" line="287"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1493">a #PopplerRectangle</doc>
+               line="1494">a #PopplerRectangle</doc>
           <type name="Rectangle" c:type="const PopplerRectangle*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1489">a #PopplerSigningData structure containing signing data</doc>
+                 line="1490">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12575,19 +12580,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1416">Get signature text.</doc>
+             line="1417">Get signature text.</doc>
         <source-position filename="glib/poppler-form-field.h" line="279"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1422">signature text</doc>
+               line="1423">signature text</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1418">a #PopplerSigningData structure containing signing data</doc>
+                 line="1419">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12597,19 +12602,19 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1454">Get signature text left.</doc>
+             line="1455">Get signature text left.</doc>
         <source-position filename="glib/poppler-form-field.h" line="283"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="1460">signature text left</doc>
+               line="1461">signature text left</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1456">a #PopplerSigningData structure containing signing data</doc>
+                 line="1457">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </instance-parameter>
         </parameters>
@@ -12619,7 +12624,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1677">Set signature background color.</doc>
+             line="1678">Set signature background color.</doc>
         <source-position filename="glib/poppler-form-field.h" line="309"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12628,13 +12633,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1679">a #PopplerSigningData structure containing signing data</doc>
+                 line="1680">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="background_color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1680">a #PopplerColor to be used for signature background</doc>
+                 line="1681">a #PopplerColor to be used for signature background</doc>
             <type name="Color" c:type="const PopplerColor*"/>
           </parameter>
         </parameters>
@@ -12644,7 +12649,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1608">Set signature border color.</doc>
+             line="1609">Set signature border color.</doc>
         <source-position filename="glib/poppler-form-field.h" line="301"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12653,13 +12658,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1610">a #PopplerSigningData structure containing signing data</doc>
+                 line="1611">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="border_color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1611">a #PopplerColor to be used for signature border</doc>
+                 line="1612">a #PopplerColor to be used for signature border</doc>
             <type name="Color" c:type="const PopplerColor*"/>
           </parameter>
         </parameters>
@@ -12669,7 +12674,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1641">Set signature border width.</doc>
+             line="1642">Set signature border width.</doc>
         <source-position filename="glib/poppler-form-field.h" line="305"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12678,13 +12683,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1643">a #PopplerSigningData structure containing signing data</doc>
+                 line="1644">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="border_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1644">border width</doc>
+                 line="1645">border width</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -12694,7 +12699,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1320">Set certification information.</doc>
+             line="1321">Set certification information.</doc>
         <source-position filename="glib/poppler-form-field.h" line="269"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12703,13 +12708,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1322">a #PopplerSigningData structure containing signing data</doc>
+                 line="1323">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="certificate_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1323">a #PopplerCertificateInfo</doc>
+                 line="1324">a #PopplerCertificateInfo</doc>
             <type name="CertificateInfo"
                   c:type="const PopplerCertificateInfo*"/>
           </parameter>
@@ -12720,7 +12725,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1281">Set destination file name.</doc>
+             line="1282">Set destination file name.</doc>
         <source-position filename="glib/poppler-form-field.h" line="265"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12729,13 +12734,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1283">a #PopplerSigningData structure containing signing data</doc>
+                 line="1284">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1284">destination filename</doc>
+                 line="1285">destination filename</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12745,7 +12750,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1896">Set document owner password (for encrypted files).</doc>
+             line="1897">Set document owner password (for encrypted files).</doc>
         <source-position filename="glib/poppler-form-field.h" line="333"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12754,13 +12759,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1898">a #PopplerSigningData structure containing signing data</doc>
+                 line="1899">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="document_owner_password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1899">document owner password</doc>
+                 line="1900">document owner password</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12770,7 +12775,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1934">Set document user password (for encrypted files).</doc>
+             line="1935">Set document user password (for encrypted files).</doc>
         <source-position filename="glib/poppler-form-field.h" line="337"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12779,13 +12784,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1936">a #PopplerSigningData structure containing signing data</doc>
+                 line="1937">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="document_user_password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1937">document user password</doc>
+                 line="1938">document user password</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12795,7 +12800,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1710">Set field partial name (existing field id or a new one) where signature is placed.</doc>
+             line="1711">Set field partial name (existing field id or a new one) where signature is placed.</doc>
         <source-position filename="glib/poppler-form-field.h" line="313"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12804,13 +12809,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1712">a #PopplerSigningData structure containing signing data</doc>
+                 line="1713">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="field_partial_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1713">a field partial name</doc>
+                 line="1714">a field partial name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12820,7 +12825,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1503">Set signature font color.</doc>
+             line="1504">Set signature font color.</doc>
         <source-position filename="glib/poppler-form-field.h" line="289"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12829,13 +12834,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1505">a #PopplerSigningData structure containing signing data</doc>
+                 line="1506">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="font_color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1506">a #PopplerColor to be used as signature font color</doc>
+                 line="1507">a #PopplerColor to be used as signature font color</doc>
             <type name="Color" c:type="const PopplerColor*"/>
           </parameter>
         </parameters>
@@ -12845,7 +12850,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1536">Set signature font size (&gt;0).</doc>
+             line="1537">Set signature font size (&gt;0).</doc>
         <source-position filename="glib/poppler-form-field.h" line="293"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12854,13 +12859,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1538">a #PopplerSigningData structure containing signing data</doc>
+                 line="1539">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="font_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1539">signature font size</doc>
+                 line="1540">signature font size</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -12870,7 +12875,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1820">Set signature background (watermark) image path.</doc>
+             line="1821">Set signature background (watermark) image path.</doc>
         <source-position filename="glib/poppler-form-field.h" line="325"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12879,13 +12884,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1822">a #PopplerSigningData structure containing signing data</doc>
+                 line="1823">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="image_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1823">signature image path</doc>
+                 line="1824">signature image path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12895,7 +12900,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1572">Set signature left font size (&gt; 0).</doc>
+             line="1573">Set signature left font size (&gt; 0).</doc>
         <source-position filename="glib/poppler-form-field.h" line="297"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12904,13 +12909,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1574">a #PopplerSigningData structure containing signing data</doc>
+                 line="1575">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="font_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1575">signature font size</doc>
+                 line="1576">signature font size</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -12920,7 +12925,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1782">Set signature location (e.g. "At my desk").</doc>
+             line="1783">Set signature location (e.g. "At my desk").</doc>
         <source-position filename="glib/poppler-form-field.h" line="321"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12929,13 +12934,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1784">a #PopplerSigningData structure containing signing data</doc>
+                 line="1785">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1785">a location</doc>
+                 line="1786">a location</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12945,7 +12950,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1358">Set page (&gt;=0).</doc>
+             line="1359">Set page (&gt;=0).</doc>
         <source-position filename="glib/poppler-form-field.h" line="273"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12954,13 +12959,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1360">a #PopplerSigningData structure containing signing data</doc>
+                 line="1361">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1361">a page number</doc>
+                 line="1362">a page number</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -12970,7 +12975,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1858">Set password for the signing key.</doc>
+             line="1859">Set password for the signing key.</doc>
         <source-position filename="glib/poppler-form-field.h" line="329"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12979,13 +12984,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1860">a #PopplerSigningData structure containing signing data</doc>
+                 line="1861">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1861">a password</doc>
+                 line="1862">a password</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12995,7 +13000,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1744">Set reason for signature (e.g. I'm approver).</doc>
+             line="1745">Set reason for signature (e.g. I'm approver).</doc>
         <source-position filename="glib/poppler-form-field.h" line="317"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13004,13 +13009,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1746">a #PopplerSigningData structure containing signing data</doc>
+                 line="1747">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1747">a reason</doc>
+                 line="1748">a reason</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -13020,7 +13025,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1470">Set signature rectangle.</doc>
+             line="1471">Set signature rectangle.</doc>
         <source-position filename="glib/poppler-form-field.h" line="285"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13029,13 +13034,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1472">a #PopplerSigningData structure containing signing data</doc>
+                 line="1473">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="signature_rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1473">a #PopplerRectangle where signature should be shown</doc>
+                 line="1474">a #PopplerRectangle where signature should be shown</doc>
             <type name="Rectangle" c:type="const PopplerRectangle*"/>
           </parameter>
         </parameters>
@@ -13045,7 +13050,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1394">Set signature text.</doc>
+             line="1395">Set signature text.</doc>
         <source-position filename="glib/poppler-form-field.h" line="277"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13054,13 +13059,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1396">a #PopplerSigningData structure containing signing data</doc>
+                 line="1397">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="signature_text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1397">text to show as main signature</doc>
+                 line="1398">text to show as main signature</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -13070,7 +13075,7 @@ PopplerSignatureInfo.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="1432">Set small signature text on the left hand.</doc>
+             line="1433">Set small signature text on the left hand.</doc>
         <source-position filename="glib/poppler-form-field.h" line="281"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13079,13 +13084,13 @@ PopplerSignatureInfo.</doc>
           <instance-parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1434">a #PopplerSigningData structure containing signing data</doc>
+                 line="1435">a #PopplerSigningData structure containing signing data</doc>
             <type name="SigningData" c:type="PopplerSigningData*"/>
           </instance-parameter>
           <parameter name="signature_text_left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-form-field.cc"
-                 line="1435">text to show as small left signature</doc>
+                 line="1436">text to show as small left signature</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -16091,7 +16096,7 @@ if the parsing fails or the input string is not a valid PDF format date string</
           <doc xml:space="preserve"
                filename="glib/poppler-date.cc"
                line="28">an uninitialized #time_t</doc>
-          <type name="glong" c:type="time_t*"/>
+          <type name="time_t" c:type="time_t*"/>
         </parameter>
       </parameters>
     </function>
@@ -16106,12 +16111,12 @@ if the parsing fails or the input string is not a valid PDF format date string</
               c:identifier="poppler_get_available_signing_certificates">
       <doc xml:space="preserve"
            filename="glib/poppler-form-field.cc"
-           line="2213">Get all available signing certificate information</doc>
+           line="2214">Get all available signing certificate information</doc>
       <source-position filename="glib/poppler-form-field.h" line="371"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2218">all available signing certificate information</doc>
+             line="2219">all available signing certificate information</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="CertificateInfo"/>
         </type>
@@ -16133,12 +16138,12 @@ if the parsing fails or the input string is not a valid PDF format date string</
               c:identifier="poppler_get_certificate_info_by_id">
       <doc xml:space="preserve"
            filename="glib/poppler-form-field.cc"
-           line="2237">Get certificate by nick name</doc>
+           line="2238">Get certificate by nick name</doc>
       <source-position filename="glib/poppler-form-field.h" line="369"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2242">a #PopplerCertificateInfo or %NULL if not found</doc>
+             line="2243">a #PopplerCertificateInfo or %NULL if not found</doc>
         <type name="CertificateInfo" c:type="PopplerCertificateInfo*"/>
       </return-value>
       <parameters>
@@ -16152,12 +16157,12 @@ if the parsing fails or the input string is not a valid PDF format date string</
               version="23.07.0">
       <doc xml:space="preserve"
            filename="glib/poppler-form-field.cc"
-           line="2282">Get NSS directory</doc>
+           line="2283">Get NSS directory</doc>
       <source-position filename="glib/poppler-form-field.h" line="377"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="glib/poppler-form-field.cc"
-             line="2287">nss directroy.</doc>
+             line="2288">nss directroy.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
     </function>
@@ -16279,7 +16284,7 @@ for the top-level #PopplerStructureElement, and then use the
               version="23.07.0">
       <doc xml:space="preserve"
            filename="glib/poppler-form-field.cc"
-           line="2266">Set NSS directory</doc>
+           line="2267">Set NSS directory</doc>
       <source-position filename="glib/poppler-form-field.h" line="375"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -16295,7 +16300,7 @@ for the top-level #PopplerStructureElement, and then use the
               version="23.07.0">
       <doc xml:space="preserve"
            filename="glib/poppler-form-field.cc"
-           line="2300">A callback which asks for certificate password</doc>
+           line="2301">A callback which asks for certificate password</doc>
       <source-position filename="glib/poppler-form-field.h" line="380"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -16304,7 +16309,7 @@ for the top-level #PopplerStructureElement, and then use the
         <parameter name="func" transfer-ownership="none" scope="call">
           <doc xml:space="preserve"
                filename="glib/poppler-form-field.cc"
-               line="2302">a #PopplerNssPasswordFunc that represents a signature annotation</doc>
+               line="2303">a #PopplerNssPasswordFunc that represents a signature annotation</doc>
           <type name="NssPasswordFunc" c:type="PopplerNssPasswordFunc"/>
         </parameter>
       </parameters>

@@ -5733,7 +5733,7 @@ functions below.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-             line="608">Calls the add_timezone_sync method on the given backend.</doc>
+             line="611">Calls the add_timezone_sync method on the given backend.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-backend-sync.h"
                          line="291"/>
         <return-value transfer-ownership="none">
@@ -5743,13 +5743,13 @@ functions below.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="610">An ECalBackendSync object.</doc>
+                 line="613">An ECalBackendSync object.</doc>
             <type name="CalBackendSync" c:type="ECalBackendSync*"/>
           </instance-parameter>
           <parameter name="cal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="611">An EDataCal object.</doc>
+                 line="614">An EDataCal object.</doc>
             <type name="DataCal" c:type="EDataCal*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5758,13 +5758,13 @@ functions below.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="612">a #GCancellable for the operation</doc>
+                 line="615">a #GCancellable for the operation</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="tzobject" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="613">VTIMEZONE object to be added.</doc>
+                 line="616">VTIMEZONE object to be added.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6139,7 +6139,7 @@ functions below.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-             line="545">Calls the get_timezone_sync method on the given backend.
+             line="548">Calls the get_timezone_sync method on the given backend.
 This method is not mandatory on the backend, because here
 is used internal_get_timezone call to fetch timezone from
 it and that is transformed to a string. In other words,
@@ -6155,13 +6155,13 @@ get_timezone_sync completely.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="547">An ECalBackendSync object.</doc>
+                 line="550">An ECalBackendSync object.</doc>
             <type name="CalBackendSync" c:type="ECalBackendSync*"/>
           </instance-parameter>
           <parameter name="cal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="548">An EDataCal object.</doc>
+                 line="551">An EDataCal object.</doc>
             <type name="DataCal" c:type="EDataCal*"/>
           </parameter>
           <parameter name="cancellable"
@@ -6170,19 +6170,19 @@ get_timezone_sync completely.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="549">a #GCancellable for the operation</doc>
+                 line="552">a #GCancellable for the operation</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="tzid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="550">ID of the timezone to retrieve.</doc>
+                 line="553">ID of the timezone to retrieve.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="tzobject" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-backend-sync.c"
-                 line="551">Placeholder for the returned timezone.</doc>
+                 line="554">Placeholder for the returned timezone.</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -9324,7 +9324,7 @@ the functions below.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4918">This is called always before any operation which requires a connection
+             line="4933">This is called always before any operation which requires a connection
 to the remote side. It can fail with an #E_CLIENT_ERROR_REPOSITORY_OFFLINE
 error to indicate that the remote side cannot be currently reached. Other
 errors are propagated to the caller/client side. This method is not called
@@ -9355,14 +9355,14 @@ It is mandatory to implement this virtual method by the descendant.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4955">Whether succeeded.</doc>
+               line="4970">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4920">an #ECalMetaBackend</doc>
+                 line="4935">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="credentials"
@@ -9371,7 +9371,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4921">an #ENamedParameters with previously used credentials, or %NULL</doc>
+                 line="4936">an #ENamedParameters with previously used credentials, or %NULL</doc>
             <type name="EDataServer.NamedParameters"
                   c:type="const ENamedParameters*"/>
           </parameter>
@@ -9381,7 +9381,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4922">an #ESourceAuthenticationResult with an authentication result</doc>
+                 line="4937">an #ESourceAuthenticationResult with an authentication result</doc>
             <type name="EDataServer.SourceAuthenticationResult"
                   c:type="ESourceAuthenticationResult*"/>
           </parameter>
@@ -9391,7 +9391,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4923">a PEM encoded certificate on failure, or %NULL</doc>
+                 line="4938">a PEM encoded certificate on failure, or %NULL</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_certificate_errors"
@@ -9400,7 +9400,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4924">a #GTlsCertificateFlags on failure, or 0</doc>
+                 line="4939">a #GTlsCertificateFlags on failure, or 0</doc>
             <type name="Gio.TlsCertificateFlags"
                   c:type="GTlsCertificateFlags*"/>
           </parameter>
@@ -9410,7 +9410,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4925">optional #GCancellable object, or %NULL</doc>
+                 line="4940">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9421,7 +9421,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4979">This is called when the backend goes into offline mode or
+             line="5008">This is called when the backend goes into offline mode or
 when the disconnect is required. The implementation should
 not report any error when it is called and the @meta_backend
 is not connected.
@@ -9432,14 +9432,14 @@ It is mandatory to implement this virtual method by the descendant.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4992">Whether succeeded.</doc>
+               line="5021">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4981">an #ECalMetaBackend</doc>
+                 line="5010">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -9448,7 +9448,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4982">optional #GCancellable object, or %NULL</doc>
+                 line="5011">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9459,7 +9459,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5012">Gathers the changes since the last check which had been done
+             line="5055">Gathers the changes since the last check which had been done
 on the remote side.
 
 The @last_sync_tag can be used as a tag of the last check. This can be %NULL,
@@ -9490,14 +9490,14 @@ when no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5058">Whether succeeded.</doc>
+               line="5101">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5014">an #ECalMetaBackend</doc>
+                 line="5057">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="last_sync_tag"
@@ -9506,13 +9506,13 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5015">optional sync tag from the last check</doc>
+                 line="5058">optional sync tag from the last check</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="is_repeat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5016">set to %TRUE when this is the repeated call</doc>
+                 line="5059">set to %TRUE when this is the repeated call</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="out_new_sync_tag"
@@ -9521,7 +9521,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5017">new sync tag to store on success</doc>
+                 line="5060">new sync tag to store on success</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_repeat"
@@ -9530,7 +9530,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5018">whether to repeat this call again; default is %FALSE</doc>
+                 line="5061">whether to repeat this call again; default is %FALSE</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="out_created_objects"
@@ -9539,7 +9539,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5019">
+                 line="5062">
    a #GSList of #ECalMetaBackendInfo object infos which had been created since
    the last check</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -9552,7 +9552,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5022">
+                 line="5065">
    a #GSList of #ECalMetaBackendInfo object infos which had been modified since
    the last check</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -9565,7 +9565,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5025">
+                 line="5068">
    a #GSList of #ECalMetaBackendInfo object infos which had been removed since
    the last check</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -9578,7 +9578,7 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5028">optional #GCancellable object, or %NULL</doc>
+                 line="5071">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9588,7 +9588,7 @@ when no longer needed.</doc>
                       version="3.28">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5561">It is optional to implement this virtual method by the descendants.
+             line="5683">It is optional to implement this virtual method by the descendants.
 It is used to receive SSL error details when any online operation
 returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
@@ -9596,7 +9596,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5571">%TRUE, when the SSL error details had been available and
+               line="5693">%TRUE, when the SSL error details had been available and
    the out parameters populated, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -9604,7 +9604,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5563">an #ECalMetaBackend</doc>
+                 line="5685">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="out_certificate_pem"
@@ -9613,7 +9613,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5564">SSL certificate encoded in PEM format</doc>
+                 line="5686">SSL certificate encoded in PEM format</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_certificate_errors"
@@ -9622,7 +9622,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5565">bit-or of #GTlsCertificateFlags claiming the certificate errors</doc>
+                 line="5687">bit-or of #GTlsCertificateFlags claiming the certificate errors</doc>
             <type name="Gio.TlsCertificateFlags"
                   c:type="GTlsCertificateFlags*"/>
           </parameter>
@@ -9634,7 +9634,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5123">Used to get list of all existing objects on the remote side. The descendant
+             line="5176">Used to get list of all existing objects on the remote side. The descendant
 can optionally provide @out_new_sync_tag, which will be stored on success, if
 not %NULL. The descendant can populate also ECalMetaBackendInfo::object of
 the @out_existing_objects, if known, in which case this will be used instead
@@ -9651,14 +9651,14 @@ when no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5145">Whether succeeded.</doc>
+               line="5198">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5125">an #ECalMetaBackend</doc>
+                 line="5178">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="out_new_sync_tag"
@@ -9667,7 +9667,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5126">optional return location for a new sync tag</doc>
+                 line="5179">optional return location for a new sync tag</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_existing_objects"
@@ -9676,7 +9676,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5127">
+                 line="5180">
    a #GSList of #ECalMetaBackendInfo object infos which are stored on the remote side</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="CalMetaBackendInfo"/>
@@ -9688,7 +9688,7 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5129">optional #GCancellable object, or %NULL</doc>
+                 line="5182">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9699,7 +9699,7 @@ when no longer needed.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5191">Loads a component from the remote side. Any detached instances should be
+             line="5254">Loads a component from the remote side. Any detached instances should be
 returned together with the master object. The @out_component can be either
 a VCALENDAR component, which would contain the master object and all of
 its detached instances, eventually also used time zones, or the requested
@@ -9717,20 +9717,20 @@ needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5215">Whether succeeded.</doc>
+               line="5278">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5193">an #ECalMetaBackend</doc>
+                 line="5256">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5194">a component UID</doc>
+                 line="5257">a component UID</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extra"
@@ -9739,7 +9739,7 @@ needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5195">optional extra data stored with the component, or %NULL</doc>
+                 line="5258">optional extra data stored with the component, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_component"
@@ -9748,7 +9748,7 @@ needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5196">a loaded component, as #ICalComponent</doc>
+                 line="5259">a loaded component, as #ICalComponent</doc>
             <type name="ICalGLib.Component" c:type="ICalComponent**"/>
           </parameter>
           <parameter name="out_extra"
@@ -9757,7 +9757,7 @@ needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5197">an extra data to store to #ECalCache with this component</doc>
+                 line="5260">an extra data to store to #ECalCache with this component</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="cancellable"
@@ -9766,7 +9766,7 @@ needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5198">optional #GCancellable object, or %NULL</doc>
+                 line="5261">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9777,7 +9777,7 @@ needed.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5374">Removes a component from the remote side, with all its detached instances.
+             line="5457">Removes a component from the remote side, with all its detached instances.
 The @object is not %NULL when it's removing locally deleted object
 in offline mode. Being it %NULL, the descendant can obtain the object
 from the #ECalCache.
@@ -9788,27 +9788,27 @@ It is mandatory to implement this virtual method by the writable descendant.</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5392">Whether succeeded.</doc>
+               line="5475">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5376">an #ECalMetaBackend</doc>
+                 line="5459">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="conflict_resolution" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5377">an #EConflictResolution to use</doc>
+                 line="5460">an #EConflictResolution to use</doc>
             <type name="EDataServer.ConflictResolution"
                   c:type="EConflictResolution"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5378">a component UID</doc>
+                 line="5461">a component UID</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extra"
@@ -9817,7 +9817,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5379">extra data being saved with the component in the local cache, or %NULL</doc>
+                 line="5462">extra data being saved with the component in the local cache, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object"
@@ -9826,13 +9826,13 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5380">corresponding iCalendar object, as stored in the local cache, or %NULL</doc>
+                 line="5463">corresponding iCalendar object, as stored in the local cache, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="opflags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5381">bit-or of #ECalOperationFlags</doc>
+                 line="5464">bit-or of #ECalOperationFlags</doc>
             <type name="ECal.OperationFlags" c:type="ECalOperationFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -9841,7 +9841,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5382">optional #GCancellable object, or %NULL</doc>
+                 line="5465">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9851,7 +9851,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                       version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5530">Determines, whether current source content requires reconnect of the backend.
+             line="5652">Determines, whether current source content requires reconnect of the backend.
 
 It is optional to implement this virtual method by the descendant. The default
 implementation compares %E_SOURCE_EXTENSION_AUTHENTICATION and
@@ -9864,14 +9864,14 @@ no successful connect done yet.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5543">%TRUE, when reconnect is required, %FALSE otherwise.</doc>
+               line="5665">%TRUE, when reconnect is required, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5532">an #ECalMetaBackend</doc>
+                 line="5654">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -9882,7 +9882,7 @@ no successful connect done yet.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5265">Saves one component into the remote side. The @instances contain the master
+             line="5338">Saves one component into the remote side. The @instances contain the master
 object and all the detached instances of the same component (all have the same UID).
 When the @overwrite_existing is %TRUE, then the descendant can overwrite an object
 with the same UID on the remote side (usually used for modify). The @conflict_resolution
@@ -9916,33 +9916,33 @@ It is mandatory to implement this virtual method by the writable descendant.</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5308">Whether succeeded.</doc>
+               line="5381">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5267">an #ECalMetaBackend</doc>
+                 line="5340">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="overwrite_existing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5268">%TRUE when can overwrite existing components, %FALSE otherwise</doc>
+                 line="5341">%TRUE when can overwrite existing components, %FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="conflict_resolution" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5269">one of #EConflictResolution, what to do on conflicts</doc>
+                 line="5342">one of #EConflictResolution, what to do on conflicts</doc>
             <type name="EDataServer.ConflictResolution"
                   c:type="EConflictResolution"/>
           </parameter>
           <parameter name="instances" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5270">instances of the component to save</doc>
+                 line="5343">instances of the component to save</doc>
             <type name="GLib.SList" c:type="const GSList*">
               <type name="ECal.Component"/>
             </type>
@@ -9953,13 +9953,13 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5271">extra data saved with the components in an #ECalCache</doc>
+                 line="5344">extra data saved with the components in an #ECalCache</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="opflags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5272">bit-or of #ECalOperationFlags</doc>
+                 line="5345">bit-or of #ECalOperationFlags</doc>
             <type name="ECal.OperationFlags" c:type="ECalOperationFlags"/>
           </parameter>
           <parameter name="out_new_uid"
@@ -9968,7 +9968,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5273">return location for the UID of the saved component</doc>
+                 line="5346">return location for the UID of the saved component</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_new_extra"
@@ -9977,7 +9977,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5274">return location for the extra data to store with the component</doc>
+                 line="5347">return location for the extra data to store with the component</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="cancellable"
@@ -9986,7 +9986,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5275">optional #GCancellable object, or %NULL</doc>
+                 line="5348">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9997,7 +9997,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5487">Searches @meta_backend with given expression @expr and returns
+             line="5595">Searches @meta_backend with given expression @expr and returns
 found components as a #GSList of #ECalComponent @out_components.
 Free the returned @out_components with g_slist_free_full (components, g_object_unref);
 when no longer needed.
@@ -10013,14 +10013,14 @@ ensure it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5507">Whether succeeded.</doc>
+               line="5615">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5489">an #ECalMetaBackend</doc>
+                 line="5597">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="expr"
@@ -10029,7 +10029,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5490">a search expression, or %NULL</doc>
+                 line="5598">a search expression, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_components"
@@ -10038,7 +10038,7 @@ ensure it.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5491">return location for the found #ECalComponent-s</doc>
+                 line="5599">return location for the found #ECalComponent-s</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="ECal.Component"/>
             </type>
@@ -10049,7 +10049,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5492">optional #GCancellable object, or %NULL</doc>
+                 line="5600">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10060,7 +10060,7 @@ ensure it.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5444">Searches @meta_backend with given expression @expr and returns
+             line="5538">Searches @meta_backend with given expression @expr and returns
 found components as a #GSList of iCal strings @out_icalstrings.
 Free the returned @out_icalstrings with g_slist_free_full (icalstrings, g_free);
 when no longer needed.
@@ -10076,14 +10076,14 @@ ensure it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5464">Whether succeeded.</doc>
+               line="5558">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5446">an #ECalMetaBackend</doc>
+                 line="5540">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="expr"
@@ -10092,7 +10092,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5447">a search expression, or %NULL</doc>
+                 line="5541">a search expression, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_icalstrings"
@@ -10101,7 +10101,7 @@ ensure it.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5448">return location for the found components as iCal strings</doc>
+                 line="5542">return location for the found components as iCal strings</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="utf8"/>
             </type>
@@ -10112,7 +10112,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5449">optional #GCancellable object, or %NULL</doc>
+                 line="5543">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10135,7 +10135,7 @@ ensure it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4918">This is called always before any operation which requires a connection
+             line="4933">This is called always before any operation which requires a connection
 to the remote side. It can fail with an #E_CLIENT_ERROR_REPOSITORY_OFFLINE
 error to indicate that the remote side cannot be currently reached. Other
 errors are propagated to the caller/client side. This method is not called
@@ -10166,14 +10166,14 @@ It is mandatory to implement this virtual method by the descendant.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4955">Whether succeeded.</doc>
+               line="4970">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4920">an #ECalMetaBackend</doc>
+                 line="4935">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="credentials"
@@ -10182,7 +10182,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4921">an #ENamedParameters with previously used credentials, or %NULL</doc>
+                 line="4936">an #ENamedParameters with previously used credentials, or %NULL</doc>
             <type name="EDataServer.NamedParameters"
                   c:type="const ENamedParameters*"/>
           </parameter>
@@ -10192,7 +10192,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4922">an #ESourceAuthenticationResult with an authentication result</doc>
+                 line="4937">an #ESourceAuthenticationResult with an authentication result</doc>
             <type name="EDataServer.SourceAuthenticationResult"
                   c:type="ESourceAuthenticationResult*"/>
           </parameter>
@@ -10202,7 +10202,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4923">a PEM encoded certificate on failure, or %NULL</doc>
+                 line="4938">a PEM encoded certificate on failure, or %NULL</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_certificate_errors"
@@ -10211,7 +10211,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4924">a #GTlsCertificateFlags on failure, or 0</doc>
+                 line="4939">a #GTlsCertificateFlags on failure, or 0</doc>
             <type name="Gio.TlsCertificateFlags"
                   c:type="GTlsCertificateFlags*"/>
           </parameter>
@@ -10221,7 +10221,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4925">optional #GCancellable object, or %NULL</doc>
+                 line="4940">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10232,7 +10232,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4979">This is called when the backend goes into offline mode or
+             line="5008">This is called when the backend goes into offline mode or
 when the disconnect is required. The implementation should
 not report any error when it is called and the @meta_backend
 is not connected.
@@ -10243,14 +10243,14 @@ It is mandatory to implement this virtual method by the descendant.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4992">Whether succeeded.</doc>
+               line="5021">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4981">an #ECalMetaBackend</doc>
+                 line="5010">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -10259,7 +10259,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4982">optional #GCancellable object, or %NULL</doc>
+                 line="5011">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10269,7 +10269,7 @@ It is mandatory to implement this virtual method by the descendant.</doc>
               version="3.28">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3797">Returns the last known synchronization tag, the same as used to
+             line="3799">Returns the last known synchronization tag, the same as used to
 call e_cal_meta_backend_get_changes_sync().
 
 Free the returned string with g_free(), when no longer needed.</doc>
@@ -10278,7 +10278,7 @@ Free the returned string with g_free(), when no longer needed.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="3806">The last known synchronization tag,
+               line="3808">The last known synchronization tag,
    or %NULL, when none is stored.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -10286,7 +10286,7 @@ Free the returned string with g_free(), when no longer needed.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3799">an #ECalMetaBackend</doc>
+                 line="3801">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -10297,7 +10297,7 @@ Free the returned string with g_free(), when no longer needed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4427">Empties the local cache by removing all known components from it
+             line="4429">Empties the local cache by removing all known components from it
 and notifies about such removal any opened views. It removes also
 all known time zones.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
@@ -10305,14 +10305,14 @@ all known time zones.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4437">Whether succeeded.</doc>
+               line="4439">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4429">an #ECalMetaBackend</doc>
+                 line="4431">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -10321,7 +10321,7 @@ all known time zones.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4430">optional #GCancellable object, or %NULL</doc>
+                 line="4432">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10332,20 +10332,20 @@ all known time zones.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4545">Ensures that the @meta_backend is connected to its destination.</doc>
+             line="4547">Ensures that the @meta_backend is connected to its destination.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                          line="226"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4553">Whether succeeded.</doc>
+               line="4555">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4547">an #ECalMetaBackend</doc>
+                 line="4549">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -10354,7 +10354,7 @@ all known time zones.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4548">optional #GCancellable object, or %NULL</doc>
+                 line="4550">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10365,7 +10365,7 @@ all known time zones.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4373">Extracts all VTIMEZONE components from the @vcalendar and adds them
+             line="4375">Extracts all VTIMEZONE components from the @vcalendar and adds them
 to the memory cache, thus they are available when needed. The function does
 nothing when the @vcalendar doesn't hold a VCALENDAR component.
 
@@ -10377,26 +10377,26 @@ to preserver existing timezones and merge them with those in @vcalendar.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4389">Whether succeeded.</doc>
+               line="4391">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4375">an #ECalMetaBackend</doc>
+                 line="4377">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="vcalendar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4376">a VCALENDAR #ICalComponent</doc>
+                 line="4378">a VCALENDAR #ICalComponent</doc>
             <type name="ICalGLib.Component" c:type="ICalComponent*"/>
           </parameter>
           <parameter name="remove_existing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4377">whether to remove any existing first</doc>
+                 line="4379">whether to remove any existing first</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -10405,7 +10405,7 @@ to preserver existing timezones and merge them with those in @vcalendar.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4378">optional #GCancellable object, or %NULL</doc>
+                 line="4380">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10418,7 +10418,7 @@ to preserver existing timezones and merge them with those in @vcalendar.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="3653">an #ECalBackend::capabilities property to be used by
+               line="3655">an #ECalBackend::capabilities property to be used by
    the descendant in conjunction to the descendant's capabilities
    in the result of e_cal_backend_get_backend_property() with
    #CLIENT_BACKEND_PROPERTY_CAPABILITIES.</doc>
@@ -10428,7 +10428,7 @@ to preserver existing timezones and merge them with those in @vcalendar.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3651">an #ECalMetaBackend</doc>
+                 line="3653">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -10439,7 +10439,7 @@ to preserver existing timezones and merge them with those in @vcalendar.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5012">Gathers the changes since the last check which had been done
+             line="5055">Gathers the changes since the last check which had been done
 on the remote side.
 
 The @last_sync_tag can be used as a tag of the last check. This can be %NULL,
@@ -10470,14 +10470,14 @@ when no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5058">Whether succeeded.</doc>
+               line="5101">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5014">an #ECalMetaBackend</doc>
+                 line="5057">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="last_sync_tag"
@@ -10486,13 +10486,13 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5015">optional sync tag from the last check</doc>
+                 line="5058">optional sync tag from the last check</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="is_repeat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5016">set to %TRUE when this is the repeated call</doc>
+                 line="5059">set to %TRUE when this is the repeated call</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="out_new_sync_tag"
@@ -10501,7 +10501,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5017">new sync tag to store on success</doc>
+                 line="5060">new sync tag to store on success</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_repeat"
@@ -10510,7 +10510,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5018">whether to repeat this call again; default is %FALSE</doc>
+                 line="5061">whether to repeat this call again; default is %FALSE</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="out_created_objects"
@@ -10519,7 +10519,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5019">
+                 line="5062">
    a #GSList of #ECalMetaBackendInfo object infos which had been created since
    the last check</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -10532,7 +10532,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5022">
+                 line="5065">
    a #GSList of #ECalMetaBackendInfo object infos which had been modified since
    the last check</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -10545,7 +10545,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5025">
+                 line="5068">
    a #GSList of #ECalMetaBackendInfo object infos which had been removed since
    the last check</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -10558,7 +10558,7 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5028">optional #GCancellable object, or %NULL</doc>
+                 line="5071">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10568,21 +10568,21 @@ when no longer needed.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3764">This value has meaning only if e_cal_meta_backend_get_ever_connected()
+             line="3766">This value has meaning only if e_cal_meta_backend_get_ever_connected()
 is %TRUE.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                          line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="3771">Whether the @meta_backend connected to a writable destination.</doc>
+               line="3773">Whether the @meta_backend connected to a writable destination.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3766">an #ECalMetaBackend</doc>
+                 line="3768">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -10595,7 +10595,7 @@ is %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="3706">Whether the @meta_backend ever made a successful connection
+               line="3708">Whether the @meta_backend ever made a successful connection
    to its destination.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10603,7 +10603,7 @@ is %TRUE.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3704">an #ECalMetaBackend</doc>
+                 line="3706">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -10613,7 +10613,7 @@ is %TRUE.</doc>
               version="3.28">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5561">It is optional to implement this virtual method by the descendants.
+             line="5683">It is optional to implement this virtual method by the descendants.
 It is used to receive SSL error details when any online operation
 returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
@@ -10621,7 +10621,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5571">%TRUE, when the SSL error details had been available and
+               line="5693">%TRUE, when the SSL error details had been available and
    the out parameters populated, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10629,7 +10629,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5563">an #ECalMetaBackend</doc>
+                 line="5685">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="out_certificate_pem"
@@ -10638,7 +10638,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5564">SSL certificate encoded in PEM format</doc>
+                 line="5686">SSL certificate encoded in PEM format</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_certificate_errors"
@@ -10647,7 +10647,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5565">bit-or of #GTlsCertificateFlags claiming the certificate errors</doc>
+                 line="5687">bit-or of #GTlsCertificateFlags claiming the certificate errors</doc>
             <type name="Gio.TlsCertificateFlags"
                   c:type="GTlsCertificateFlags*"/>
           </parameter>
@@ -10659,7 +10659,7 @@ returns E_CLIENT_ERROR, E_CLIENT_ERROR_TLS_NOT_AVAILABLE error.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4253">Changes all URL attachments which point to a local file in @component
+             line="4255">Changes all URL attachments which point to a local file in @component
 to inline attachments, aka adds the file content into the @component.
 It also populates FILENAME parameter on the attachment.
 This is called automatically before e_cal_meta_backend_save_component_sync().
@@ -10670,20 +10670,20 @@ The reverse operation is e_cal_meta_backend_store_inline_attachments_sync().</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4267">Whether succeeded.</doc>
+               line="4269">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4255">an #ECalMetaBackend</doc>
+                 line="4257">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="component" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4256">an #ICalComponent to work with</doc>
+                 line="4258">an #ICalComponent to work with</doc>
             <type name="ICalGLib.Component" c:type="ICalComponent*"/>
           </parameter>
           <parameter name="cancellable"
@@ -10692,7 +10692,7 @@ The reverse operation is e_cal_meta_backend_store_inline_attachments_sync().</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4257">optional #GCancellable object, or %NULL</doc>
+                 line="4259">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10703,7 +10703,7 @@ The reverse operation is e_cal_meta_backend_store_inline_attachments_sync().</do
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5123">Used to get list of all existing objects on the remote side. The descendant
+             line="5176">Used to get list of all existing objects on the remote side. The descendant
 can optionally provide @out_new_sync_tag, which will be stored on success, if
 not %NULL. The descendant can populate also ECalMetaBackendInfo::object of
 the @out_existing_objects, if known, in which case this will be used instead
@@ -10720,14 +10720,14 @@ when no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5145">Whether succeeded.</doc>
+               line="5198">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5125">an #ECalMetaBackend</doc>
+                 line="5178">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="out_new_sync_tag"
@@ -10736,7 +10736,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5126">optional return location for a new sync tag</doc>
+                 line="5179">optional return location for a new sync tag</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_existing_objects"
@@ -10745,7 +10745,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5127">
+                 line="5180">
    a #GSList of #ECalMetaBackendInfo object infos which are stored on the remote side</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="CalMetaBackendInfo"/>
@@ -10757,7 +10757,7 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5129">optional #GCancellable object, or %NULL</doc>
+                 line="5182">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10768,7 +10768,7 @@ when no longer needed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5191">Loads a component from the remote side. Any detached instances should be
+             line="5254">Loads a component from the remote side. Any detached instances should be
 returned together with the master object. The @out_component can be either
 a VCALENDAR component, which would contain the master object and all of
 its detached instances, eventually also used time zones, or the requested
@@ -10786,20 +10786,20 @@ needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5215">Whether succeeded.</doc>
+               line="5278">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5193">an #ECalMetaBackend</doc>
+                 line="5256">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5194">a component UID</doc>
+                 line="5257">a component UID</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extra"
@@ -10808,7 +10808,7 @@ needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5195">optional extra data stored with the component, or %NULL</doc>
+                 line="5258">optional extra data stored with the component, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_component"
@@ -10817,7 +10817,7 @@ needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5196">a loaded component, as #ICalComponent</doc>
+                 line="5259">a loaded component, as #ICalComponent</doc>
             <type name="ICalGLib.Component" c:type="ICalComponent**"/>
           </parameter>
           <parameter name="out_extra"
@@ -10826,7 +10826,7 @@ needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5197">an extra data to store to #ECalCache with this component</doc>
+                 line="5260">an extra data to store to #ECalCache with this component</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="cancellable"
@@ -10835,7 +10835,7 @@ needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5198">optional #GCancellable object, or %NULL</doc>
+                 line="5261">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10845,7 +10845,7 @@ needed.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4093">Merges all the instances provided in @instances list into one VCALENDAR
+             line="4095">Merges all the instances provided in @instances list into one VCALENDAR
 object, which would eventually contain also all the used timezones.
 The @instances list should contain the master object and eventually all
 the detached instances for one component (they all have the same UID).
@@ -10857,7 +10857,7 @@ location, which will not influence the timezone itself.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4107">an #ICalComponent containing a VCALENDAR
+               line="4109">an #ICalComponent containing a VCALENDAR
    component which consists of all the given instances. Free
    the returned pointer with g_object_unref(), when no longer needed.
 
@@ -10868,13 +10868,13 @@ See: e_cal_meta_backend_save_component_sync()</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4095">an #ECalMetaBackend</doc>
+                 line="4097">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="instances" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4096">component instances to merge</doc>
+                 line="4098">component instances to merge</doc>
             <type name="GLib.SList" c:type="const GSList*">
               <type name="ECal.Component"/>
             </type>
@@ -10883,7 +10883,7 @@ See: e_cal_meta_backend_save_component_sync()</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4097">whether to replace TZID-s with locations</doc>
+                 line="4099">whether to replace TZID-s with locations</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -10894,7 +10894,7 @@ See: e_cal_meta_backend_save_component_sync()</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4797">Processes given changes by updating local cache content accordingly.
+             line="4799">Processes given changes by updating local cache content accordingly.
 The @meta_backend processes the changes like being online and particularly
 requires to be online to load created and modified objects when needed.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
@@ -10902,14 +10902,14 @@ requires to be online to load created and modified objects when needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4813">Whether succeeded.</doc>
+               line="4815">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4799">an #ECalMetaBackend</doc>
+                 line="4801">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="created_objects"
@@ -10918,7 +10918,7 @@ requires to be online to load created and modified objects when needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4800">
+                 line="4802">
    a #GSList of #ECalMetaBackendInfo object infos which had been created</doc>
             <type name="GLib.SList" c:type="const GSList*">
               <type name="CalMetaBackendInfo"/>
@@ -10930,7 +10930,7 @@ requires to be online to load created and modified objects when needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4802">
+                 line="4804">
    a #GSList of #ECalMetaBackendInfo object infos which had been modified</doc>
             <type name="GLib.SList" c:type="const GSList*">
               <type name="CalMetaBackendInfo"/>
@@ -10942,7 +10942,7 @@ requires to be online to load created and modified objects when needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4804">
+                 line="4806">
    a #GSList of #ECalMetaBackendInfo object infos which had been removed</doc>
             <type name="GLib.SList" c:type="const GSList*">
               <type name="CalMetaBackendInfo"/>
@@ -10954,7 +10954,7 @@ requires to be online to load created and modified objects when needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4806">optional #GCancellable object, or %NULL</doc>
+                 line="4808">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10967,7 +10967,7 @@ requires to be online to load created and modified objects when needed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="3947">Referenced #ECalCache, which is used by @meta_backend.
+               line="3949">Referenced #ECalCache, which is used by @meta_backend.
    Unref it with g_object_unref() when no longer needed.</doc>
           <type name="CalCache" c:type="ECalCache*"/>
         </return-value>
@@ -10975,7 +10975,7 @@ requires to be online to load created and modified objects when needed.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3945">an #ECalMetaBackend</doc>
+                 line="3947">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -10986,21 +10986,21 @@ requires to be online to load created and modified objects when needed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4522">Refreshes the @meta_backend immediately. To just schedule refresh
+             line="4524">Refreshes the @meta_backend immediately. To just schedule refresh
 operation call e_cal_meta_backend_schedule_refresh().</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                          line="223"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4531">Whether succeeded.</doc>
+               line="4533">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4524">an #ECalMetaBackend</doc>
+                 line="4526">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -11009,7 +11009,7 @@ operation call e_cal_meta_backend_schedule_refresh().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4525">optional #GCancellable object, or %NULL</doc>
+                 line="4527">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11020,7 +11020,7 @@ operation call e_cal_meta_backend_schedule_refresh().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5374">Removes a component from the remote side, with all its detached instances.
+             line="5457">Removes a component from the remote side, with all its detached instances.
 The @object is not %NULL when it's removing locally deleted object
 in offline mode. Being it %NULL, the descendant can obtain the object
 from the #ECalCache.
@@ -11031,27 +11031,27 @@ It is mandatory to implement this virtual method by the writable descendant.</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5392">Whether succeeded.</doc>
+               line="5475">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5376">an #ECalMetaBackend</doc>
+                 line="5459">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="conflict_resolution" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5377">an #EConflictResolution to use</doc>
+                 line="5460">an #EConflictResolution to use</doc>
             <type name="EDataServer.ConflictResolution"
                   c:type="EConflictResolution"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5378">a component UID</doc>
+                 line="5461">a component UID</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extra"
@@ -11060,7 +11060,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5379">extra data being saved with the component in the local cache, or %NULL</doc>
+                 line="5462">extra data being saved with the component in the local cache, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object"
@@ -11069,13 +11069,13 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5380">corresponding iCalendar object, as stored in the local cache, or %NULL</doc>
+                 line="5463">corresponding iCalendar object, as stored in the local cache, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="opflags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5381">bit-or of #ECalOperationFlags</doc>
+                 line="5464">bit-or of #ECalOperationFlags</doc>
             <type name="ECal.OperationFlags" c:type="ECalOperationFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -11084,7 +11084,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5382">optional #GCancellable object, or %NULL</doc>
+                 line="5465">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11094,7 +11094,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5530">Determines, whether current source content requires reconnect of the backend.
+             line="5652">Determines, whether current source content requires reconnect of the backend.
 
 It is optional to implement this virtual method by the descendant. The default
 implementation compares %E_SOURCE_EXTENSION_AUTHENTICATION and
@@ -11107,14 +11107,14 @@ no successful connect done yet.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5543">%TRUE, when reconnect is required, %FALSE otherwise.</doc>
+               line="5665">%TRUE, when reconnect is required, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5532">an #ECalMetaBackend</doc>
+                 line="5654">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -11125,7 +11125,7 @@ no successful connect done yet.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5265">Saves one component into the remote side. The @instances contain the master
+             line="5338">Saves one component into the remote side. The @instances contain the master
 object and all the detached instances of the same component (all have the same UID).
 When the @overwrite_existing is %TRUE, then the descendant can overwrite an object
 with the same UID on the remote side (usually used for modify). The @conflict_resolution
@@ -11159,33 +11159,33 @@ It is mandatory to implement this virtual method by the writable descendant.</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5308">Whether succeeded.</doc>
+               line="5381">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5267">an #ECalMetaBackend</doc>
+                 line="5340">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="overwrite_existing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5268">%TRUE when can overwrite existing components, %FALSE otherwise</doc>
+                 line="5341">%TRUE when can overwrite existing components, %FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="conflict_resolution" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5269">one of #EConflictResolution, what to do on conflicts</doc>
+                 line="5342">one of #EConflictResolution, what to do on conflicts</doc>
             <type name="EDataServer.ConflictResolution"
                   c:type="EConflictResolution"/>
           </parameter>
           <parameter name="instances" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5270">instances of the component to save</doc>
+                 line="5343">instances of the component to save</doc>
             <type name="GLib.SList" c:type="const GSList*">
               <type name="ECal.Component"/>
             </type>
@@ -11196,13 +11196,13 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5271">extra data saved with the components in an #ECalCache</doc>
+                 line="5344">extra data saved with the components in an #ECalCache</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="opflags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5272">bit-or of #ECalOperationFlags</doc>
+                 line="5345">bit-or of #ECalOperationFlags</doc>
             <type name="ECal.OperationFlags" c:type="ECalOperationFlags"/>
           </parameter>
           <parameter name="out_new_uid"
@@ -11211,7 +11211,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5273">return location for the UID of the saved component</doc>
+                 line="5346">return location for the UID of the saved component</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="out_new_extra"
@@ -11220,7 +11220,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5274">return location for the extra data to store with the component</doc>
+                 line="5347">return location for the extra data to store with the component</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="cancellable"
@@ -11229,7 +11229,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5275">optional #GCancellable object, or %NULL</doc>
+                 line="5348">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11239,7 +11239,7 @@ It is mandatory to implement this virtual method by the writable descendant.</do
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4484">Schedules refresh of the content of the @meta_backend. If there's any
+             line="4486">Schedules refresh of the content of the @meta_backend. If there's any
 already scheduled, then the function does nothing.
 
 Use e_cal_meta_backend_refresh_sync() to refresh the @meta_backend
@@ -11253,7 +11253,7 @@ immediately.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4486">an #ECalMetaBackend</doc>
+                 line="4488">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -11264,7 +11264,7 @@ immediately.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5487">Searches @meta_backend with given expression @expr and returns
+             line="5595">Searches @meta_backend with given expression @expr and returns
 found components as a #GSList of #ECalComponent @out_components.
 Free the returned @out_components with g_slist_free_full (components, g_object_unref);
 when no longer needed.
@@ -11280,14 +11280,14 @@ ensure it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5507">Whether succeeded.</doc>
+               line="5615">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5489">an #ECalMetaBackend</doc>
+                 line="5597">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="expr"
@@ -11296,7 +11296,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5490">a search expression, or %NULL</doc>
+                 line="5598">a search expression, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_components"
@@ -11305,7 +11305,7 @@ ensure it.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5491">return location for the found #ECalComponent-s</doc>
+                 line="5599">return location for the found #ECalComponent-s</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="ECal.Component"/>
             </type>
@@ -11316,7 +11316,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5492">optional #GCancellable object, or %NULL</doc>
+                 line="5600">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11327,7 +11327,7 @@ ensure it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="5444">Searches @meta_backend with given expression @expr and returns
+             line="5538">Searches @meta_backend with given expression @expr and returns
 found components as a #GSList of iCal strings @out_icalstrings.
 Free the returned @out_icalstrings with g_slist_free_full (icalstrings, g_free);
 when no longer needed.
@@ -11343,14 +11343,14 @@ ensure it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="5464">Whether succeeded.</doc>
+               line="5558">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5446">an #ECalMetaBackend</doc>
+                 line="5540">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="expr"
@@ -11359,7 +11359,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5447">a search expression, or %NULL</doc>
+                 line="5541">a search expression, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_icalstrings"
@@ -11368,7 +11368,7 @@ ensure it.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5448">return location for the found components as iCal strings</doc>
+                 line="5542">return location for the found components as iCal strings</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="utf8"/>
             </type>
@@ -11379,7 +11379,7 @@ ensure it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5449">optional #GCancellable object, or %NULL</doc>
+                 line="5543">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11390,7 +11390,7 @@ ensure it.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3892">Sets the @cache as the cache to be used by the @meta_backend.
+             line="3894">Sets the @cache as the cache to be used by the @meta_backend.
 By default, a cache.db in ECalBackend::cache-dir is created
 in the constructed method. This function can be used to override
 the default.
@@ -11405,13 +11405,13 @@ Note the @meta_backend adds its own reference to the @cache.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3894">an #ECalMetaBackend</doc>
+                 line="3896">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3895">an #ECalCache to use</doc>
+                 line="3897">an #ECalCache to use</doc>
             <type name="CalCache" c:type="ECalCache*"/>
           </parameter>
         </parameters>
@@ -11421,7 +11421,7 @@ Note the @meta_backend adds its own reference to the @cache.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3733">Sets whether the @meta_backend connected to a writable destination.
+             line="3735">Sets whether the @meta_backend connected to a writable destination.
 This value has meaning only if e_cal_meta_backend_get_ever_connected()
 is %TRUE.
 
@@ -11436,13 +11436,13 @@ to set the backend writable or not also in the offline mode.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3735">an #ECalMetaBackend</doc>
+                 line="3737">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3736">value to set</doc>
+                 line="3738">value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11452,7 +11452,7 @@ to set the backend writable or not also in the offline mode.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3671">Sets whether the @meta_backend ever made a successful connection
+             line="3673">Sets whether the @meta_backend ever made a successful connection
 to its destination.
 
 This is used by the @meta_backend itself, during the opening phase,
@@ -11467,13 +11467,13 @@ eventually report settings error easily.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3673">an #ECalMetaBackend</doc>
+                 line="3675">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3674">value to set</doc>
+                 line="3676">value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11483,7 +11483,7 @@ eventually report settings error easily.</doc>
               version="3.50">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3834">Sets the @sync_tag for the @meta_backend.</doc>
+             line="3836">Sets the @sync_tag for the @meta_backend.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                          line="192"/>
         <return-value transfer-ownership="none">
@@ -11493,7 +11493,7 @@ eventually report settings error easily.</doc>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3836">an #ECalMetaBackend</doc>
+                 line="3838">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="sync_tag"
@@ -11502,7 +11502,7 @@ eventually report settings error easily.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="3837">a sync tag to set, or %NULL to unset the old one</doc>
+                 line="3839">a sync tag to set, or %NULL to unset the old one</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11513,7 +11513,7 @@ eventually report settings error easily.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4655">Splits @objects into created/modified/removed lists according to current local
+             line="4657">Splits @objects into created/modified/removed lists according to current local
 cache content. Only the @out_removed_objects can be %NULL, others cannot.
 The function modifies @objects by moving its 'data' to corresponding out
 lists and sets the @objects 'data' to %NULL.
@@ -11528,14 +11528,14 @@ The caller is still responsible to free @objects as well.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4681">Whether succeeded.</doc>
+               line="4683">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4657">an #ECalMetaBackend</doc>
+                 line="4659">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="objects"
@@ -11544,7 +11544,7 @@ The caller is still responsible to free @objects as well.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4658">
+                 line="4660">
    a #GSList of #ECalMetaBackendInfo object infos to split</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="CalMetaBackendInfo"/>
@@ -11556,7 +11556,7 @@ The caller is still responsible to free @objects as well.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4660">
+                 line="4662">
    a #GSList of #ECalMetaBackendInfo object infos which had been created</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="CalMetaBackendInfo"/>
@@ -11568,7 +11568,7 @@ The caller is still responsible to free @objects as well.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4662">
+                 line="4664">
    a #GSList of #ECalMetaBackendInfo object infos which had been modified</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="CalMetaBackendInfo"/>
@@ -11581,7 +11581,7 @@ The caller is still responsible to free @objects as well.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4664">
+                 line="4666">
    a #GSList of #ECalMetaBackendInfo object infos which had been removed;
    it can be %NULL, to not gather list of removed object infos</doc>
             <type name="GLib.SList" c:type="GSList**">
@@ -11594,7 +11594,7 @@ The caller is still responsible to free @objects as well.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4667">optional #GCancellable object, or %NULL</doc>
+                 line="4669">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11605,7 +11605,7 @@ The caller is still responsible to free @objects as well.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="4282">Changes all inline attachments to URL attachments in @component, which
+             line="4284">Changes all inline attachments to URL attachments in @component, which
 will point to a local file instead. The function expects FILENAME parameter
 to be set on the attachment as the file name of it.
 This is called automatically after e_cal_meta_backend_load_component_sync().
@@ -11616,20 +11616,20 @@ The reverse operation is e_cal_meta_backend_inline_local_attachments_sync().</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="4296">Whether succeeded.</doc>
+               line="4298">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta_backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4284">an #ECalMetaBackend</doc>
+                 line="4286">an #ECalMetaBackend</doc>
             <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
           </instance-parameter>
           <parameter name="component" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4285">an #ICalComponent to work with</doc>
+                 line="4287">an #ICalComponent to work with</doc>
             <type name="ICalGLib.Component" c:type="ICalComponent*"/>
           </parameter>
           <parameter name="cancellable"
@@ -11638,7 +11638,7 @@ The reverse operation is e_cal_meta_backend_inline_local_attachments_sync().</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4286">optional #GCancellable object, or %NULL</doc>
+                 line="4288">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11649,7 +11649,7 @@ The reverse operation is e_cal_meta_backend_inline_local_attachments_sync().</do
                 setter="set_cache">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3576">The #ECalCache being used for this meta backend.</doc>
+             line="3578">The #ECalCache being used for this meta backend.</doc>
         <type name="CalCache"/>
       </property>
       <field name="parent" readable="0" private="1">
@@ -11666,7 +11666,7 @@ The reverse operation is e_cal_meta_backend_inline_local_attachments_sync().</do
       <glib:signal name="source-changed" when="last" version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="3602">This signal is emitted whenever the underlying backend #ESource
+             line="3604">This signal is emitted whenever the underlying backend #ESource
 changes. Unlike the #ESource's 'changed' signal this one is
 tight to the #ECalMetaBackend itself and is emitted from
 a dedicated thread, thus it doesn't block the main thread.</doc>
@@ -11694,14 +11694,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4955">Whether succeeded.</doc>
+                 line="4970">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4920">an #ECalMetaBackend</doc>
+                   line="4935">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="credentials"
@@ -11710,7 +11710,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4921">an #ENamedParameters with previously used credentials, or %NULL</doc>
+                   line="4936">an #ENamedParameters with previously used credentials, or %NULL</doc>
               <type name="EDataServer.NamedParameters"
                     c:type="const ENamedParameters*"/>
             </parameter>
@@ -11720,7 +11720,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4922">an #ESourceAuthenticationResult with an authentication result</doc>
+                   line="4937">an #ESourceAuthenticationResult with an authentication result</doc>
               <type name="EDataServer.SourceAuthenticationResult"
                     c:type="ESourceAuthenticationResult*"/>
             </parameter>
@@ -11730,7 +11730,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4923">a PEM encoded certificate on failure, or %NULL</doc>
+                   line="4938">a PEM encoded certificate on failure, or %NULL</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="out_certificate_errors"
@@ -11739,7 +11739,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4924">a #GTlsCertificateFlags on failure, or 0</doc>
+                   line="4939">a #GTlsCertificateFlags on failure, or 0</doc>
               <type name="Gio.TlsCertificateFlags"
                     c:type="GTlsCertificateFlags*"/>
             </parameter>
@@ -11749,7 +11749,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4925">optional #GCancellable object, or %NULL</doc>
+                   line="4940">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -11762,14 +11762,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="4992">Whether succeeded.</doc>
+                 line="5021">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4981">an #ECalMetaBackend</doc>
+                   line="5010">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="cancellable"
@@ -11778,7 +11778,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="4982">optional #GCancellable object, or %NULL</doc>
+                   line="5011">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -11791,14 +11791,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5058">Whether succeeded.</doc>
+                 line="5101">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5014">an #ECalMetaBackend</doc>
+                   line="5057">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="last_sync_tag"
@@ -11807,13 +11807,13 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5015">optional sync tag from the last check</doc>
+                   line="5058">optional sync tag from the last check</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="is_repeat" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5016">set to %TRUE when this is the repeated call</doc>
+                   line="5059">set to %TRUE when this is the repeated call</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
             <parameter name="out_new_sync_tag"
@@ -11822,7 +11822,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5017">new sync tag to store on success</doc>
+                   line="5060">new sync tag to store on success</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="out_repeat"
@@ -11831,7 +11831,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5018">whether to repeat this call again; default is %FALSE</doc>
+                   line="5061">whether to repeat this call again; default is %FALSE</doc>
               <type name="gboolean" c:type="gboolean*"/>
             </parameter>
             <parameter name="out_created_objects"
@@ -11840,7 +11840,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5019">
+                   line="5062">
    a #GSList of #ECalMetaBackendInfo object infos which had been created since
    the last check</doc>
               <type name="GLib.SList" c:type="GSList**">
@@ -11853,7 +11853,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5022">
+                   line="5065">
    a #GSList of #ECalMetaBackendInfo object infos which had been modified since
    the last check</doc>
               <type name="GLib.SList" c:type="GSList**">
@@ -11866,7 +11866,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5025">
+                   line="5068">
    a #GSList of #ECalMetaBackendInfo object infos which had been removed since
    the last check</doc>
               <type name="GLib.SList" c:type="GSList**">
@@ -11879,7 +11879,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5028">optional #GCancellable object, or %NULL</doc>
+                   line="5071">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -11892,14 +11892,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5145">Whether succeeded.</doc>
+                 line="5198">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5125">an #ECalMetaBackend</doc>
+                   line="5178">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="out_new_sync_tag"
@@ -11908,7 +11908,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5126">optional return location for a new sync tag</doc>
+                   line="5179">optional return location for a new sync tag</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="out_existing_objects"
@@ -11917,7 +11917,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5127">
+                   line="5180">
    a #GSList of #ECalMetaBackendInfo object infos which are stored on the remote side</doc>
               <type name="GLib.SList" c:type="GSList**">
                 <type name="CalMetaBackendInfo"/>
@@ -11929,7 +11929,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5129">optional #GCancellable object, or %NULL</doc>
+                   line="5182">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -11942,20 +11942,20 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5215">Whether succeeded.</doc>
+                 line="5278">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5193">an #ECalMetaBackend</doc>
+                   line="5256">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="uid" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5194">a component UID</doc>
+                   line="5257">a component UID</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="extra"
@@ -11964,7 +11964,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5195">optional extra data stored with the component, or %NULL</doc>
+                   line="5258">optional extra data stored with the component, or %NULL</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="out_component"
@@ -11973,7 +11973,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5196">a loaded component, as #ICalComponent</doc>
+                   line="5259">a loaded component, as #ICalComponent</doc>
               <type name="ICalGLib.Component" c:type="ICalComponent**"/>
             </parameter>
             <parameter name="out_extra"
@@ -11982,7 +11982,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5197">an extra data to store to #ECalCache with this component</doc>
+                   line="5260">an extra data to store to #ECalCache with this component</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="cancellable"
@@ -11991,7 +11991,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5198">optional #GCancellable object, or %NULL</doc>
+                   line="5261">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -12004,33 +12004,33 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5308">Whether succeeded.</doc>
+                 line="5381">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5267">an #ECalMetaBackend</doc>
+                   line="5340">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="overwrite_existing" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5268">%TRUE when can overwrite existing components, %FALSE otherwise</doc>
+                   line="5341">%TRUE when can overwrite existing components, %FALSE otherwise</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
             <parameter name="conflict_resolution" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5269">one of #EConflictResolution, what to do on conflicts</doc>
+                   line="5342">one of #EConflictResolution, what to do on conflicts</doc>
               <type name="EDataServer.ConflictResolution"
                     c:type="EConflictResolution"/>
             </parameter>
             <parameter name="instances" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5270">instances of the component to save</doc>
+                   line="5343">instances of the component to save</doc>
               <type name="GLib.SList" c:type="const GSList*">
                 <type name="ECal.Component"/>
               </type>
@@ -12041,13 +12041,13 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5271">extra data saved with the components in an #ECalCache</doc>
+                   line="5344">extra data saved with the components in an #ECalCache</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="opflags" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5272">bit-or of #ECalOperationFlags</doc>
+                   line="5345">bit-or of #ECalOperationFlags</doc>
               <type name="ECal.OperationFlags" c:type="ECalOperationFlags"/>
             </parameter>
             <parameter name="out_new_uid"
@@ -12056,7 +12056,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5273">return location for the UID of the saved component</doc>
+                   line="5346">return location for the UID of the saved component</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="out_new_extra"
@@ -12065,7 +12065,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5274">return location for the extra data to store with the component</doc>
+                   line="5347">return location for the extra data to store with the component</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="cancellable"
@@ -12074,7 +12074,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5275">optional #GCancellable object, or %NULL</doc>
+                   line="5348">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -12087,27 +12087,27 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5392">Whether succeeded.</doc>
+                 line="5475">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5376">an #ECalMetaBackend</doc>
+                   line="5459">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="conflict_resolution" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5377">an #EConflictResolution to use</doc>
+                   line="5460">an #EConflictResolution to use</doc>
               <type name="EDataServer.ConflictResolution"
                     c:type="EConflictResolution"/>
             </parameter>
             <parameter name="uid" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5378">a component UID</doc>
+                   line="5461">a component UID</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="extra"
@@ -12116,7 +12116,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5379">extra data being saved with the component in the local cache, or %NULL</doc>
+                   line="5462">extra data being saved with the component in the local cache, or %NULL</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="object"
@@ -12125,13 +12125,13 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5380">corresponding iCalendar object, as stored in the local cache, or %NULL</doc>
+                   line="5463">corresponding iCalendar object, as stored in the local cache, or %NULL</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="opflags" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5381">bit-or of #ECalOperationFlags</doc>
+                   line="5464">bit-or of #ECalOperationFlags</doc>
               <type name="ECal.OperationFlags" c:type="ECalOperationFlags"/>
             </parameter>
             <parameter name="cancellable"
@@ -12140,7 +12140,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5382">optional #GCancellable object, or %NULL</doc>
+                   line="5465">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -12153,14 +12153,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5464">Whether succeeded.</doc>
+                 line="5558">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5446">an #ECalMetaBackend</doc>
+                   line="5540">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="expr"
@@ -12169,7 +12169,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5447">a search expression, or %NULL</doc>
+                   line="5541">a search expression, or %NULL</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="out_icalstrings"
@@ -12178,7 +12178,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5448">return location for the found components as iCal strings</doc>
+                   line="5542">return location for the found components as iCal strings</doc>
               <type name="GLib.SList" c:type="GSList**">
                 <type name="utf8"/>
               </type>
@@ -12189,7 +12189,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5449">optional #GCancellable object, or %NULL</doc>
+                   line="5543">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -12202,14 +12202,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5507">Whether succeeded.</doc>
+                 line="5615">Whether succeeded.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5489">an #ECalMetaBackend</doc>
+                   line="5597">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="expr"
@@ -12218,7 +12218,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5490">a search expression, or %NULL</doc>
+                   line="5598">a search expression, or %NULL</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="out_components"
@@ -12227,7 +12227,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5491">return location for the found #ECalComponent-s</doc>
+                   line="5599">return location for the found #ECalComponent-s</doc>
               <type name="GLib.SList" c:type="GSList**">
                 <type name="ECal.Component"/>
               </type>
@@ -12238,7 +12238,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5492">optional #GCancellable object, or %NULL</doc>
+                   line="5600">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -12251,14 +12251,14 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5543">%TRUE, when reconnect is required, %FALSE otherwise.</doc>
+                 line="5665">%TRUE, when reconnect is required, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5532">an #ECalMetaBackend</doc>
+                   line="5654">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
           </parameters>
@@ -12285,7 +12285,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="5571">%TRUE, when the SSL error details had been available and
+                 line="5693">%TRUE, when the SSL error details had been available and
    the out parameters populated, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -12293,7 +12293,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
             <parameter name="meta_backend" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5563">an #ECalMetaBackend</doc>
+                   line="5685">an #ECalMetaBackend</doc>
               <type name="CalMetaBackend" c:type="ECalMetaBackend*"/>
             </parameter>
             <parameter name="out_certificate_pem"
@@ -12302,7 +12302,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5564">SSL certificate encoded in PEM format</doc>
+                   line="5686">SSL certificate encoded in PEM format</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="out_certificate_errors"
@@ -12311,7 +12311,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                   line="5565">bit-or of #GTlsCertificateFlags claiming the certificate errors</doc>
+                   line="5687">bit-or of #GTlsCertificateFlags claiming the certificate errors</doc>
               <type name="Gio.TlsCertificateFlags"
                     c:type="GTlsCertificateFlags*"/>
             </parameter>
@@ -12348,13 +12348,13 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                    version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="198">Creates a new #ECalMetaBackendInfo prefilled with the given values.</doc>
+             line="200">Creates a new #ECalMetaBackendInfo prefilled with the given values.</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                          line="63"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="207">A new #ECalMetaBackendInfo. Free it with
+               line="209">A new #ECalMetaBackendInfo. Free it with
    e_cal_meta_backend_info_free(), when no longer needed.</doc>
           <type name="CalMetaBackendInfo" c:type="ECalMetaBackendInfo*"/>
         </return-value>
@@ -12362,7 +12362,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="200">a component UID; cannot be %NULL</doc>
+                 line="202">a component UID; cannot be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="revision"
@@ -12371,7 +12371,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="201">the component revision; can be %NULL</doc>
+                 line="203">the component revision; can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object"
@@ -12380,7 +12380,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="202">the component object as an iCalendar string; can be %NULL</doc>
+                 line="204">the component object as an iCalendar string; can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extra"
@@ -12389,7 +12389,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="203">extra backend-specific data; can be %NULL</doc>
+                 line="205">extra backend-specific data; can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12402,7 +12402,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="235">Copy of the given @src. Free it with
+               line="237">Copy of the given @src. Free it with
    e_cal_meta_backend_info_free() when no longer needed.
    If the @src is %NULL, then returns %NULL as well.</doc>
           <type name="CalMetaBackendInfo" c:type="ECalMetaBackendInfo*"/>
@@ -12414,7 +12414,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="233">a source ECalMetaBackendInfo to copy, or %NULL</doc>
+                 line="235">a source ECalMetaBackendInfo to copy, or %NULL</doc>
             <type name="CalMetaBackendInfo"
                   c:type="const ECalMetaBackendInfo*"/>
           </instance-parameter>
@@ -12425,7 +12425,7 @@ a dedicated thread, thus it doesn't block the main thread.</doc>
                 version="3.26">
         <doc xml:space="preserve"
              filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-             line="250">Frees the @ptr structure, previously allocated with e_cal_meta_backend_info_new()
+             line="252">Frees the @ptr structure, previously allocated with e_cal_meta_backend_info_new()
 or e_cal_meta_backend_info_copy().</doc>
         <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                          line="69"/>
@@ -12439,7 +12439,7 @@ or e_cal_meta_backend_info_copy().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-                 line="252">an #ECalMetaBackendInfo</doc>
+                 line="254">an #ECalMetaBackendInfo</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14763,7 +14763,7 @@ or e_cal_cache_search_data_copy().</doc>
               version="3.26">
       <doc xml:space="preserve"
            filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-           line="250">Frees the @ptr structure, previously allocated with e_cal_meta_backend_info_new()
+           line="252">Frees the @ptr structure, previously allocated with e_cal_meta_backend_info_new()
 or e_cal_meta_backend_info_copy().</doc>
       <source-position filename="src/calendar/libedata-cal/e-cal-meta-backend.h"
                        line="69"/>
@@ -14777,7 +14777,7 @@ or e_cal_meta_backend_info_copy().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libedata-cal/e-cal-meta-backend.c"
-               line="252">an #ECalMetaBackendInfo</doc>
+               line="254">an #ECalMetaBackendInfo</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>

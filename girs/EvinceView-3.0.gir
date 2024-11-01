@@ -3865,7 +3865,7 @@ with it afterwards.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="6341">Adds a Text Markup annotation (defaulting to a 'highlight' one) to
+             line="6338">Adds a Text Markup annotation (defaulting to a 'highlight' one) to
 the currently selected text on the document.
 
 When the selected text spans more than one page, it will add a
@@ -3874,14 +3874,14 @@ corresponding annotation for each page that contains selected text.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libview/ev-view.c"
-               line="6351">%TRUE if annotations were added successfully, %FALSE otherwise.</doc>
+               line="6348">%TRUE if annotations were added successfully, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="6343">#EvView instance</doc>
+                 line="6340">#EvView instance</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
         </parameters>
@@ -4028,13 +4028,13 @@ corresponding annotation for each page that contains selected text.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="9759">an #EvView</doc>
+                 line="9756">an #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="results" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="9760">the results as returned by ev_job_find_get_results()</doc>
+                 line="9757">the results as returned by ev_job_find_get_results()</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="gpointer" c:type="gpointer"/>
             </type>
@@ -4042,7 +4042,7 @@ corresponding annotation for each page that contains selected text.</doc>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="9761">page index</doc>
+                 line="9758">page index</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4074,7 +4074,7 @@ corresponding annotation for each page that contains selected text.</doc>
               version="3.12">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="9783">Restart the current search operation from the given @page.</doc>
+             line="9780">Restart the current search operation from the given @page.</doc>
         <source-position filename="libview/ev-view.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4083,13 +4083,13 @@ corresponding annotation for each page that contains selected text.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="9785">an #EvView</doc>
+                 line="9782">an #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="9786">a page index</doc>
+                 line="9783">a page index</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4126,7 +4126,7 @@ corresponding annotation for each page that contains selected text.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="9845">FIXME</doc>
+             line="9842">FIXME</doc>
         <source-position filename="libview/ev-view.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4135,7 +4135,7 @@ corresponding annotation for each page that contains selected text.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="9847">a #EvView</doc>
+                 line="9844">a #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
@@ -4258,7 +4258,7 @@ corresponding annotation for each page that contains selected text.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="6322">Returns a pointer to a constant string containing the selected
+             line="6319">Returns a pointer to a constant string containing the selected
 text in the view.
 
 The value returned may be NULL if there is no selected text.</doc>
@@ -4266,14 +4266,14 @@ The value returned may be NULL if there is no selected text.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libview/ev-view.c"
-               line="6331">The string representing selected text.</doc>
+               line="6328">The string representing selected text.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="6324">#EvView instance</doc>
+                 line="6321">#EvView instance</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
         </parameters>
@@ -4338,7 +4338,7 @@ The value returned may be NULL if there is no selected text.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libview/ev-view.c"
-               line="8903">%TRUE iff the view is currently loading a document</doc>
+               line="8900">%TRUE iff the view is currently loading a document</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -4407,7 +4407,7 @@ The value returned may be NULL if there is no selected text.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="1019">a #EvView</doc>
+                 line="1016">a #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="scroll" transfer-ownership="none">
@@ -4455,7 +4455,7 @@ The value returned may be NULL if there is no selected text.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="4319">a #EvView</doc>
+                 line="4316">a #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
@@ -4471,7 +4471,7 @@ The value returned may be NULL if there is no selected text.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="4274">Enables or disables caret navigation mode for the document.</doc>
+             line="4271">Enables or disables caret navigation mode for the document.</doc>
         <source-position filename="libview/ev-view.h" line="188"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4480,13 +4480,13 @@ The value returned may be NULL if there is no selected text.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="4276">a #EvView</doc>
+                 line="4273">a #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="4277">whether to enable caret navigation mode</doc>
+                 line="4274">whether to enable caret navigation mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4541,7 +4541,7 @@ The value returned may be NULL if there is no selected text.</doc>
               c:identifier="ev_view_set_page_cache_size">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="8854">Sets the maximum size in bytes that will be used to cache
+             line="8851">Sets the maximum size in bytes that will be used to cache
 rendered pages. Use 0 to disable caching rendered pages.
 
 Note that this limit doesn't affect the current visible page range,
@@ -4555,13 +4555,13 @@ you have to use ev_document_model_set_max_scale() too.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="8856">#EvView instance</doc>
+                 line="8853">#EvView instance</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="cache_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="8857">size in bytes</doc>
+                 line="8854">size in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -4584,14 +4584,14 @@ you have to use ev_document_model_set_max_scale() too.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libview/ev-view.c"
-               line="4255">whether the document supports caret navigation</doc>
+               line="4252">whether the document supports caret navigation</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libview/ev-view.c"
-                 line="4253">a #EvView</doc>
+                 line="4250">a #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
         </parameters>
@@ -4639,7 +4639,7 @@ you have to use ev_document_model_set_max_scale() too.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libview/ev-view.c"
-             line="8312">Allows to implement a custom notification system.</doc>
+             line="8309">Allows to implement a custom notification system.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="activate" when="first" action="1">

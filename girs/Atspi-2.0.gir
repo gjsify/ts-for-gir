@@ -171,7 +171,7 @@ actually have children.</doc>
              filename="atspi/atspi-accessible.c"
              line="1781">Clears the cached information for the given accessible and all of its
 descendants.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="169"/>
+        <source-position filename="atspi/atspi-accessible.h" line="197"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -189,7 +189,7 @@ descendants.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1768">Clears the cached information only for the given accessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="171"/>
+        <source-position filename="atspi/atspi-accessible.h" line="199"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -211,7 +211,7 @@ descendants.</doc>
              line="1920">Gets the accessible id of the accessible.  This is not meant to be presented
 to the user, but to be an id which is stable over application development.
 Typically, this is the gtkbuilder id.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="175"/>
+        <source-position filename="atspi/atspi-accessible.h" line="203"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -236,7 +236,7 @@ Typically, this is the gtkbuilder id.</doc>
              filename="atspi/atspi-accessible.c"
              line="1259">Gets the #AtspiAction interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_action_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="114"/>
+        <source-position filename="atspi/atspi-accessible.h" line="142"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -258,7 +258,7 @@ Typically, this is the gtkbuilder id.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1276">Gets the #AtspiAction interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="141"/>
+        <source-position filename="atspi/atspi-accessible.h" line="169"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -281,7 +281,7 @@ Typically, this is the gtkbuilder id.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="827">Gets the containing #AtspiApplication for an object.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="111"/>
+        <source-position filename="atspi/atspi-accessible.h" line="139"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -439,7 +439,7 @@ index @child_index or NULL on exception.</doc>
              filename="atspi/atspi-accessible.c"
              line="1291">Gets the #AtspiCollection interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_collection_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="116"/>
+        <source-position filename="atspi/atspi-accessible.h" line="144"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -461,7 +461,7 @@ index @child_index or NULL on exception.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1308">Gets the #AtspiCollection interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="143"/>
+        <source-position filename="atspi/atspi-accessible.h" line="171"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -486,7 +486,7 @@ index @child_index or NULL on exception.</doc>
              filename="atspi/atspi-accessible.c"
              line="1323">Gets the #AtspiComponent interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_component_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="118"/>
+        <source-position filename="atspi/atspi-accessible.h" line="146"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -508,7 +508,7 @@ index @child_index or NULL on exception.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1340">Gets the #AtspiComponent interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="145"/>
+        <source-position filename="atspi/atspi-accessible.h" line="173"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -556,7 +556,7 @@ or NULL on exception.</doc>
              filename="atspi/atspi-accessible.c"
              line="1355">Gets the #AtspiDocument interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_document_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="120"/>
+        <source-position filename="atspi/atspi-accessible.h" line="148"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -578,7 +578,7 @@ or NULL on exception.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1372">Gets the #AtspiDocument interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="147"/>
+        <source-position filename="atspi/atspi-accessible.h" line="175"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -603,7 +603,7 @@ or NULL on exception.</doc>
              filename="atspi/atspi-accessible.c"
              line="1387">Gets the #AtspiEditableText interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_editable_text_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="122"/>
+        <source-position filename="atspi/atspi-accessible.h" line="150"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -625,7 +625,7 @@ or NULL on exception.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1404">Gets the #AtspiEditableText interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="149"/>
+        <source-position filename="atspi/atspi-accessible.h" line="177"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -651,7 +651,7 @@ or NULL on exception.</doc>
              line="1947">Gets the help text associated with the accessible, if set. When this is
 present, it provides information that a screen reader can relay to the user
 to explain how to interact with the object.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="177"/>
+        <source-position filename="atspi/atspi-accessible.h" line="205"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -673,7 +673,7 @@ to explain how to interact with the object.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1419">Gets the #AtspiHyperlink interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="124"/>
+        <source-position filename="atspi/atspi-accessible.h" line="152"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -698,7 +698,7 @@ to explain how to interact with the object.</doc>
              filename="atspi/atspi-accessible.c"
              line="1434">Gets the #AtspiHypertext interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_hypertext_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="126"/>
+        <source-position filename="atspi/atspi-accessible.h" line="154"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -720,7 +720,7 @@ to explain how to interact with the object.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1451">Gets the #AtspiHypertext interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="151"/>
+        <source-position filename="atspi/atspi-accessible.h" line="179"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -767,7 +767,7 @@ or -1 on exception.</doc>
              filename="atspi/atspi-accessible.c"
              line="1466">Gets the #AtspiImage interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_image_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="128"/>
+        <source-position filename="atspi/atspi-accessible.h" line="156"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -789,7 +789,7 @@ or -1 on exception.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1483">Gets the #AtspiImage interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="153"/>
+        <source-position filename="atspi/atspi-accessible.h" line="181"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -836,7 +836,7 @@ or -1 on exception.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1668">A set of pointers to all interfaces supported by an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="163"/>
+        <source-position filename="atspi/atspi-accessible.h" line="191"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -908,7 +908,7 @@ or NULL on exception.</doc>
       <method name="get_object_locale"
               c:identifier="atspi_accessible_get_object_locale"
               throws="1">
-        <source-position filename="atspi/atspi-accessible.h" line="165"/>
+        <source-position filename="atspi/atspi-accessible.h" line="193"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -951,7 +951,7 @@ or NULL on exception.</doc>
              line="1796">Returns the process id associated with the given accessible.  Mainly
 added for debugging; it is a shortcut to explicitly querying the
 accessible's app-&gt;bus_name and then calling GetConnectionUnixProcessID.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="173"/>
+        <source-position filename="atspi/atspi-accessible.h" line="201"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1049,7 +1049,7 @@ enumeration used in atspi_accessible_get_role ().</doc>
              filename="atspi/atspi-accessible.c"
              line="1498">Gets the #AtspiSelection interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_selection_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="130"/>
+        <source-position filename="atspi/atspi-accessible.h" line="158"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1071,7 +1071,7 @@ enumeration used in atspi_accessible_get_role ().</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1515">Gets the #AtspiSelection interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="155"/>
+        <source-position filename="atspi/atspi-accessible.h" line="183"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1118,7 +1118,7 @@ object's current state set.</doc>
              filename="atspi/atspi-accessible.c"
              line="1548">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_table_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="132"/>
+        <source-position filename="atspi/atspi-accessible.h" line="160"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1140,7 +1140,7 @@ object's current state set.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1580">Gets the #AtspiTableCell interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="134"/>
+        <source-position filename="atspi/atspi-accessible.h" line="162"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1162,7 +1162,7 @@ object's current state set.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1565">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="157"/>
+        <source-position filename="atspi/atspi-accessible.h" line="185"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1187,7 +1187,7 @@ object's current state set.</doc>
              filename="atspi/atspi-accessible.c"
              line="1595">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_text_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="136"/>
+        <source-position filename="atspi/atspi-accessible.h" line="164"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1209,7 +1209,7 @@ object's current state set.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1612">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="159"/>
+        <source-position filename="atspi/atspi-accessible.h" line="187"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1280,7 +1280,7 @@ Only works on application root objects.</doc>
              filename="atspi/atspi-accessible.c"
              line="1627">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_accessible_get_value_iface instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-accessible.h" line="138"/>
+        <source-position filename="atspi/atspi-accessible.h" line="166"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1302,7 +1302,7 @@ Only works on application root objects.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1644">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="161"/>
+        <source-position filename="atspi/atspi-accessible.h" line="189"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-accessible.c"
@@ -1319,6 +1319,317 @@ Only works on application root objects.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="is_action" c:identifier="atspi_accessible_is_action">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1000">Query whether the specified #AtspiAccessible implements the
+#AtspiAction interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1007">#TRUE if @obj implements the #AtspiAction interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1002">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_application"
+              c:identifier="atspi_accessible_is_application">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1017">Query whether the specified #AtspiAccessible implements the
+#AtspiApplication interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1024">#TRUE if @obj implements the #AtspiApplication interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1019">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_collection"
+              c:identifier="atspi_accessible_is_collection">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1034">Query whether the specified #AtspiAccessible implements the
+#AtspiCollection interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1041">#TRUE if @obj implements the #AtspiCollection interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1036">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_component" c:identifier="atspi_accessible_is_component">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1051">Query whether the specified #AtspiAccessible implements #AtspiComponent.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1057">#TRUE if @obj implements the #AtspiComponent interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1053">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_document" c:identifier="atspi_accessible_is_document">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1067">Query whether the specified #AtspiAccessible implements the
+#AtspiDocument interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1074">#TRUE if @obj implements the #AtspiDocument interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1069">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_editable_text"
+              c:identifier="atspi_accessible_is_editable_text">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1084">Query whether the specified #AtspiAccessible implements the
+#AtspiEditableText interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1091">#TRUE if @obj implements the #AtspiEditableText interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1086">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_hyperlink" c:identifier="atspi_accessible_is_hyperlink">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1118">Query whether the specified #AtspiAccessible implements the
+#AtspiHyperlink interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1125">#TRUE if @obj implements the #AtspiHypertext interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1120">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_hypertext" c:identifier="atspi_accessible_is_hypertext">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1101">Query whether the specified #AtspiAccessible implements the
+#AtspiHypertext interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1108">#TRUE if @obj implements the #AtspiHypertext interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1103">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_image" c:identifier="atspi_accessible_is_image">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1135">Query whether the specified #AtspiAccessible implements the
+#AtspiImage interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1142">#TRUE if @obj implements the #AtspiImage interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1137">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_selection" c:identifier="atspi_accessible_is_selection">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1152">Query whether the specified #AtspiAccessible implements the
+#AtspiSelection interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1159">#TRUE if @obj implements the #AtspiSelection interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1154">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_table" c:identifier="atspi_accessible_is_table">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1169">Query whether the specified #AtspiAccessible implements the
+#AtspiTable interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1176">#TRUE if @obj implements the #AtspiTable interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1171">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_table_cell"
+              c:identifier="atspi_accessible_is_table_cell">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1186">Query whether the specified #AtspiAccessible implements the
+#AtspiTableCell interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1193">#TRUE if @obj implements the #AtspiTable interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1188">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_text" c:identifier="atspi_accessible_is_text">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1225">Query whether the specified #AtspiAccessible implements the
+#AtspiText interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1232">#TRUE if @obj implements the #AtspiText interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1227">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_value" c:identifier="atspi_accessible_is_value">
+        <doc xml:space="preserve"
+             filename="atspi/atspi-accessible.c"
+             line="1242">Query whether the specified #AtspiAccessible implements the
+#AtspiValue interface.</doc>
+        <source-position filename="atspi/atspi-accessible.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atspi/atspi-accessible.c"
+               line="1249">#TRUE if @obj implements the #AtspiValue interface,
+         #FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atspi/atspi-accessible.c"
+                 line="1244">a pointer to the #AtspiAccessible instance to query.</doc>
+            <type name="Accessible" c:type="AtspiAccessible*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="set_cache_mask"
               c:identifier="atspi_accessible_set_cache_mask">
         <doc xml:space="preserve"
@@ -1330,7 +1641,7 @@ If the desktop's cache flag is also undefined, then all possible data will
 be cached.
 This function is intended to work around bugs in toolkits where the proper
 events are not raised / to aid in testing for such bugs.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="167"/>
+        <source-position filename="atspi/atspi-accessible.h" line="195"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3019,181 +3330,181 @@ immediate parent.</doc>
     <constant name="DBUS_INTERFACE_ACCESSIBLE"
               value="org.a11y.atspi.Accessible"
               c:type="ATSPI_DBUS_INTERFACE_ACCESSIBLE">
-      <source-position filename="atspi/atspi-constants.h" line="1510"/>
+      <source-position filename="atspi/atspi-constants.h" line="1513"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_ACTION"
               value="org.a11y.atspi.Action"
               c:type="ATSPI_DBUS_INTERFACE_ACTION">
-      <source-position filename="atspi/atspi-constants.h" line="1511"/>
+      <source-position filename="atspi/atspi-constants.h" line="1514"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_APPLICATION"
               value="org.a11y.atspi.Application"
               c:type="ATSPI_DBUS_INTERFACE_APPLICATION">
-      <source-position filename="atspi/atspi-constants.h" line="1512"/>
+      <source-position filename="atspi/atspi-constants.h" line="1515"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_CACHE"
               value="org.a11y.atspi.Cache"
               c:type="ATSPI_DBUS_INTERFACE_CACHE">
-      <source-position filename="atspi/atspi-constants.h" line="1509"/>
+      <source-position filename="atspi/atspi-constants.h" line="1512"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_COLLECTION"
               value="org.a11y.atspi.Collection"
               c:type="ATSPI_DBUS_INTERFACE_COLLECTION">
-      <source-position filename="atspi/atspi-constants.h" line="1513"/>
+      <source-position filename="atspi/atspi-constants.h" line="1516"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_COMPONENT"
               value="org.a11y.atspi.Component"
               c:type="ATSPI_DBUS_INTERFACE_COMPONENT">
-      <source-position filename="atspi/atspi-constants.h" line="1514"/>
+      <source-position filename="atspi/atspi-constants.h" line="1517"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_DEC"
               value="org.a11y.atspi.DeviceEventController"
               c:type="ATSPI_DBUS_INTERFACE_DEC">
-      <source-position filename="atspi/atspi-constants.h" line="1506"/>
+      <source-position filename="atspi/atspi-constants.h" line="1509"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_DEVICE_EVENT_LISTENER"
               value="org.a11y.atspi.DeviceEventListener"
               c:type="ATSPI_DBUS_INTERFACE_DEVICE_EVENT_LISTENER">
-      <source-position filename="atspi/atspi-constants.h" line="1507"/>
+      <source-position filename="atspi/atspi-constants.h" line="1510"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_DOCUMENT"
               value="org.a11y.atspi.Document"
               c:type="ATSPI_DBUS_INTERFACE_DOCUMENT">
-      <source-position filename="atspi/atspi-constants.h" line="1515"/>
+      <source-position filename="atspi/atspi-constants.h" line="1518"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_EDITABLE_TEXT"
               value="org.a11y.atspi.EditableText"
               c:type="ATSPI_DBUS_INTERFACE_EDITABLE_TEXT">
-      <source-position filename="atspi/atspi-constants.h" line="1516"/>
+      <source-position filename="atspi/atspi-constants.h" line="1519"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_EVENT_KEYBOARD"
               value="org.a11y.atspi.Event.Keyboard"
               c:type="ATSPI_DBUS_INTERFACE_EVENT_KEYBOARD">
-      <source-position filename="atspi/atspi-constants.h" line="1517"/>
+      <source-position filename="atspi/atspi-constants.h" line="1520"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_EVENT_MOUSE"
               value="org.a11y.atspi.Event.Mouse"
               c:type="ATSPI_DBUS_INTERFACE_EVENT_MOUSE">
-      <source-position filename="atspi/atspi-constants.h" line="1518"/>
+      <source-position filename="atspi/atspi-constants.h" line="1521"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_EVENT_OBJECT"
               value="org.a11y.atspi.Event.Object"
               c:type="ATSPI_DBUS_INTERFACE_EVENT_OBJECT">
-      <source-position filename="atspi/atspi-constants.h" line="1519"/>
+      <source-position filename="atspi/atspi-constants.h" line="1522"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_EVENT_SCREEN_READER"
               value="org.a11y.atspi.Event.ScreenReader"
               c:type="ATSPI_DBUS_INTERFACE_EVENT_SCREEN_READER">
-      <source-position filename="atspi/atspi-constants.h" line="1531"/>
+      <source-position filename="atspi/atspi-constants.h" line="1534"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_HYPERLINK"
               value="org.a11y.atspi.Hyperlink"
               c:type="ATSPI_DBUS_INTERFACE_HYPERLINK">
-      <source-position filename="atspi/atspi-constants.h" line="1520"/>
+      <source-position filename="atspi/atspi-constants.h" line="1523"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_HYPERTEXT"
               value="org.a11y.atspi.Hypertext"
               c:type="ATSPI_DBUS_INTERFACE_HYPERTEXT">
-      <source-position filename="atspi/atspi-constants.h" line="1521"/>
+      <source-position filename="atspi/atspi-constants.h" line="1524"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_IMAGE"
               value="org.a11y.atspi.Image"
               c:type="ATSPI_DBUS_INTERFACE_IMAGE">
-      <source-position filename="atspi/atspi-constants.h" line="1522"/>
+      <source-position filename="atspi/atspi-constants.h" line="1525"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_REGISTRY"
               value="org.a11y.atspi.Registry"
               c:type="ATSPI_DBUS_INTERFACE_REGISTRY">
-      <source-position filename="atspi/atspi-constants.h" line="1500"/>
+      <source-position filename="atspi/atspi-constants.h" line="1503"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_SELECTION"
               value="org.a11y.atspi.Selection"
               c:type="ATSPI_DBUS_INTERFACE_SELECTION">
-      <source-position filename="atspi/atspi-constants.h" line="1523"/>
+      <source-position filename="atspi/atspi-constants.h" line="1526"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_SOCKET"
               value="org.a11y.atspi.Socket"
               c:type="ATSPI_DBUS_INTERFACE_SOCKET">
-      <source-position filename="atspi/atspi-constants.h" line="1528"/>
+      <source-position filename="atspi/atspi-constants.h" line="1531"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_TABLE"
               value="org.a11y.atspi.Table"
               c:type="ATSPI_DBUS_INTERFACE_TABLE">
-      <source-position filename="atspi/atspi-constants.h" line="1524"/>
+      <source-position filename="atspi/atspi-constants.h" line="1527"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_TABLE_CELL"
               value="org.a11y.atspi.TableCell"
               c:type="ATSPI_DBUS_INTERFACE_TABLE_CELL">
-      <source-position filename="atspi/atspi-constants.h" line="1525"/>
+      <source-position filename="atspi/atspi-constants.h" line="1528"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_TEXT"
               value="org.a11y.atspi.Text"
               c:type="ATSPI_DBUS_INTERFACE_TEXT">
-      <source-position filename="atspi/atspi-constants.h" line="1526"/>
+      <source-position filename="atspi/atspi-constants.h" line="1529"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_INTERFACE_VALUE"
               value="org.a11y.atspi.Value"
               c:type="ATSPI_DBUS_INTERFACE_VALUE">
-      <source-position filename="atspi/atspi-constants.h" line="1527"/>
+      <source-position filename="atspi/atspi-constants.h" line="1530"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_NAME_REGISTRY"
               value="org.a11y.atspi.Registry"
               c:type="ATSPI_DBUS_NAME_REGISTRY">
-      <source-position filename="atspi/atspi-constants.h" line="1498"/>
+      <source-position filename="atspi/atspi-constants.h" line="1501"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_PATH_DEC"
               value="/org/a11y/atspi/registry/deviceeventcontroller"
               c:type="ATSPI_DBUS_PATH_DEC">
-      <source-position filename="atspi/atspi-constants.h" line="1505"/>
+      <source-position filename="atspi/atspi-constants.h" line="1508"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_PATH_NULL"
               value="/org/a11y/atspi/null"
               c:type="ATSPI_DBUS_PATH_NULL">
-      <source-position filename="atspi/atspi-constants.h" line="1502"/>
+      <source-position filename="atspi/atspi-constants.h" line="1505"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_PATH_REGISTRY"
               value="/org/a11y/atspi/registry"
               c:type="ATSPI_DBUS_PATH_REGISTRY">
-      <source-position filename="atspi/atspi-constants.h" line="1499"/>
+      <source-position filename="atspi/atspi-constants.h" line="1502"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_PATH_ROOT"
               value="/org/a11y/atspi/accessible/root"
               c:type="ATSPI_DBUS_PATH_ROOT">
-      <source-position filename="atspi/atspi-constants.h" line="1503"/>
+      <source-position filename="atspi/atspi-constants.h" line="1506"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DBUS_PATH_SCREEN_READER"
               value="/org/a11y/atspi/screenreader"
               c:type="ATSPI_DBUS_PATH_SCREEN_READER">
-      <source-position filename="atspi/atspi-constants.h" line="1530"/>
+      <source-position filename="atspi/atspi-constants.h" line="1533"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="DEVICE"
@@ -5078,7 +5389,7 @@ As with all character offsets, the specified @position may not be the
       <function name="main" c:identifier="atspi_event_main">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1111">Starts/enters the main event loop for the AT-SPI services.
+             line="1113">Starts/enters the main event loop for the AT-SPI services.
 
 NOTE: This method does not return control; it is exited via a call to
 #atspi_event_quit from within an event handler.</doc>
@@ -5090,7 +5401,7 @@ NOTE: This method does not return control; it is exited via a call to
       <function name="quit" c:identifier="atspi_event_quit">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1129">Quits the last main event loop for the AT-SPI services,
+             line="1131">Quits the last main event loop for the AT-SPI services,
 See: #atspi_event_main</doc>
         <source-position filename="atspi/atspi-misc.h" line="36"/>
         <return-value transfer-ownership="none">
@@ -5199,13 +5510,13 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="877">Deregisters an #AtspiEventListenerCB from the registry, for a specific
+             line="878">Deregisters an #AtspiEventListenerCB from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="888">#TRUE if successful, otherwise #FALSE.</doc>
+               line="889">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5215,7 +5526,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="879">the #AtspiEventListenerCB registered against an
+                 line="880">the #AtspiEventListenerCB registered against an
            event type.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
@@ -5225,13 +5536,13 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="881">User data that was passed in for this callback.</doc>
+                 line="882">User data that was passed in for this callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="882">a string specifying the event type for which this
+                 line="883">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5243,20 +5554,20 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="960">deregisters an #AtspiEventListenerSimpleCB from the registry, for a specific
+             line="961">deregisters an #AtspiEventListenerSimpleCB from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="970">#TRUE if successful, otherwise #FALSE.</doc>
+               line="971">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="callback" transfer-ownership="none" scope="call">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="962">the #AtspiEventListenerSimpleCB registered against
+                 line="963">the #AtspiEventListenerSimpleCB registered against
            an event type.</doc>
             <type name="EventListenerSimpleCB"
                   c:type="AtspiEventListenerSimpleCB"/>
@@ -5264,7 +5575,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="964">a string specifying the event type for which this
+                 line="965">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5275,12 +5586,12 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="656">Registers an #AtspiEventListenerCB against an @event_type.</doc>
+             line="657">Registers an #AtspiEventListenerCB against an @event_type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="668">#TRUE if successfull, otherwise #FALSE.</doc>
+               line="669">#TRUE if successfull, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5291,7 +5602,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="658">the #AtspiEventListenerCB to be registered
+                 line="659">the #AtspiEventListenerCB to be registered
 against an event type.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
@@ -5301,7 +5612,7 @@ against an event type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="660">User data to be passed to the callback.</doc>
+                 line="661">User data to be passed to the callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -5309,13 +5620,13 @@ against an event type.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="661">A #GDestroyNotify called when the callback is destroyed.</doc>
+                 line="662">A #GDestroyNotify called when the callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="662">a character string indicating the type of events for which
+                 line="663">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5329,7 +5640,7 @@ for a description of the format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="711">#TRUE if successful, otherwise #FALSE.</doc>
+               line="712">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5342,7 +5653,7 @@ for a description of the format.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="704">an #AtspiEventListenerCB function pointer.</doc>
+                 line="705">an #AtspiEventListenerCB function pointer.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
           <parameter name="user_data"
@@ -5375,7 +5686,7 @@ for a description of the format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="739">#TRUE if successful, otherwise #FALSE.</doc>
+               line="740">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5388,7 +5699,7 @@ for a description of the format.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="731">an #AtspiEventListenerCB function pointer.</doc>
+                 line="732">an #AtspiEventListenerCB function pointer.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
           <parameter name="user_data"
@@ -5426,13 +5737,13 @@ for a description of the format.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="817">Registers an #AtspiEventListenetSimpleCB. The method is similar to
+             line="818">Registers an #AtspiEventListenetSimpleCB. The method is similar to
 #atspi_event_listener_register, but @callback takes no user_data.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="833">#TRUE if successfull, otherwise #FALSE.</doc>
+               line="834">#TRUE if successfull, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5442,7 +5753,7 @@ for a description of the format.</doc>
                      destroy="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="819">the #AtspiEventListenerSimpleCB to be
+                 line="820">the #AtspiEventListenerSimpleCB to be
            registered against an event type.</doc>
             <type name="EventListenerSimpleCB"
                   c:type="AtspiEventListenerSimpleCB"/>
@@ -5452,13 +5763,13 @@ for a description of the format.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="821">A #GDestroyNotify called when the callback is destroyed.</doc>
+                 line="822">A #GDestroyNotify called when the callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="822">a character string indicating the type of events for which
+                 line="823">a character string indicating the type of events for which
            notification is requested.  Format is
            EventClass:major_type:minor_type:detail
            where all subfields other than EventClass are optional.
@@ -5474,26 +5785,26 @@ for a description of the format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="856">Deregisters an #AtspiEventListener from the registry, for a specific
+             line="857">Deregisters an #AtspiEventListener from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="865">#TRUE if successful, otherwise #FALSE.</doc>
+               line="866">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="858">The #AtspiEventListener to deregister.</doc>
+                 line="859">The #AtspiEventListener to deregister.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="859">a string specifying the event type for which this
+                 line="860">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5513,6 +5824,7 @@ Legal object event types:
            object:property-change
            object:property-change:accessible-name
            object:property-change:accessible-description
+           object:property-change:accessible-help-text
            object:property-change:accessible-parent
            object:property-change:accessible-value
            object:property-change:accessible-role
@@ -5591,7 +5903,7 @@ reader and is thus a special case internally.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="561">#TRUE if successful, otherwise #FALSE.</doc>
+               line="562">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5620,25 +5932,25 @@ reader and is thus a special case internally.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="577">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
+             line="578">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="590">#TRUE if successful, otherwise #FALSE.</doc>
+               line="591">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="579">The #AtspiEventListener to register against an event type.</doc>
+                 line="580">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="580">a character string indicating the type of events for which
+                 line="581">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format and legal event types.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5649,7 +5961,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="583">a list of
+                 line="584">a list of
             properties that should be sent along with the event. The
             properties are valued for the duration of the event callback.
             TODO: Document.</doc>
@@ -5664,25 +5976,25 @@ for a description of the format and legal event types.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="609">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
+             line="610">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="623">#TRUE if successful, otherwise #FALSE.</doc>
+               line="624">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="611">The #AtspiEventListener to register against an event type.</doc>
+                 line="612">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="612">a character string indicating the type of events for which
+                 line="613">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format and legal event types.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5693,7 +6005,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="615">a list of
+                 line="616">a list of
             properties that should be sent along with the event. The
             properties are valued for the duration of the event callback.</doc>
             <array name="GLib.Array" c:type="GArray*">
@@ -5706,7 +6018,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="618">the application whose events should be reported, or
+                 line="619">the application whose events should be reported, or
      %null for all applications.</doc>
             <type name="Accessible" c:type="AtspiAccessible*"/>
           </parameter>
@@ -6975,7 +7287,7 @@ Chinese and Japanese locales.</doc>
                  c:type="AtspiLive">
       <doc xml:space="preserve"
            filename="atspi/atspi-constants.h"
-           line="1480">Enumeration used to indicate a type of live region and how assertive it
+           line="1483">Enumeration used to indicate a type of live region and how assertive it
 should be in terms of speaking notifications. Currently, this is only used
 for "announcement" events, but it may be used for additional purposes
 in the future.</doc>
@@ -6986,7 +7298,7 @@ in the future.</doc>
               glib:name="ATSPI_LIVE_NONE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1482">No live region.</doc>
+             line="1485">No live region.</doc>
       </member>
       <member name="polite"
               value="1"
@@ -6995,7 +7307,7 @@ in the future.</doc>
               glib:name="ATSPI_LIVE_POLITE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1483">This live region should be considered polite.</doc>
+             line="1486">This live region should be considered polite.</doc>
       </member>
       <member name="assertive"
               value="2"
@@ -7004,7 +7316,7 @@ in the future.</doc>
               glib:name="ATSPI_LIVE_ASSERTIVE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1484">This live region should be considered assertive.</doc>
+             line="1487">This live region should be considered assertive.</doc>
       </member>
     </enumeration>
     <enumeration name="LocaleType"
@@ -7137,32 +7449,40 @@ for accessible objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-matchrule.c"
-               line="120">A new #AtspiMatchRule.</doc>
+               line="127">A new #AtspiMatchRule.</doc>
           <type name="MatchRule" c:type="AtspiMatchRule*"/>
         </return-value>
         <parameters>
-          <parameter name="states" transfer-ownership="none">
+          <parameter name="states"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="91">An #AtspiStateSet specifying the states to match or NULL if none.</doc>
+                 line="91">An #AtspiStateSet specifying the states to match or
+         NULL if none.</doc>
             <type name="StateSet" c:type="AtspiStateSet*"/>
           </parameter>
           <parameter name="statematchtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="92">An #AtspiCollectionMatchType specifying how to interpret
-         @states.</doc>
+                 line="93">An #AtspiCollectionMatchType specifying how to interpret
+                 @states.</doc>
             <type name="CollectionMatchType"
                   c:type="AtspiCollectionMatchType"/>
           </parameter>
-          <parameter name="attributes" transfer-ownership="none">
+          <parameter name="attributes"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="94">A #GHashTable specifying
-         attributes to match. To specify multiple attribute values,
-         separate each value with a :: If an attribute value contains a :,
-         then it can be escaped by preceding it with a \. A backslash can
-         likewise be escaped by inserting a double backslash.</doc>
+                 line="95">A #GHashTable
+             specifying attributes to match. To specify multiple attribute
+             values, separate each value with a :: If an attribute value
+             contains a :, then it can be escaped by preceding it with a \.
+             A backslash can likewise be escaped by inserting a double
+             backslash.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="utf8"/>
               <type name="utf8"/>
@@ -7171,16 +7491,19 @@ for accessible objects.</doc>
           <parameter name="attributematchtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="99">An #AtspiCollectionMatchType specifying how to
+                 line="101">An #AtspiCollectionMatchType specifying how to
          interpret @attributes.</doc>
             <type name="CollectionMatchType"
                   c:type="AtspiCollectionMatchType"/>
           </parameter>
-          <parameter name="roles" transfer-ownership="none">
+          <parameter name="roles"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="107">A #GArray of roles to match, or NULL if
-         not applicable.</doc>
+                 line="114">A #GArray of roles to match,
+        or NULL if not applicable.</doc>
             <array name="GLib.Array" c:type="GArray*">
               <type name="Role"/>
             </array>
@@ -7188,18 +7511,26 @@ for accessible objects.</doc>
           <parameter name="rolematchtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="109">An #AtspiCollectionMatchType specifying how to
-         interpret @roles.</doc>
+                 line="116">An #AtspiCollectionMatchType specifying how to
+                interpret @roles.</doc>
             <type name="CollectionMatchType"
                   c:type="AtspiCollectionMatchType"/>
           </parameter>
-          <parameter name="interfaces" transfer-ownership="none">
+          <parameter name="interfaces"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="101">An array of interfaces to match, or
-         NULL if not applicable.  Interface names should be specified
-         by the final component of their DBus names (Accessible,
-         Component, etc).</doc>
+                 line="103">An array of interfaces to
+             match, or NULL if not applicable.  Interface names should be
+             specified by the final component of their DBus names
+             (Accessible, Component, etc). For Action, it is possible to
+             specify an action name by enclosing it in parenthesis after
+             the interface name, in which case only accessibles that
+             implement that particular action will be returned. For
+             instance, Action(click) will return accessibles that provide
+             an action called "click".</doc>
             <array name="GLib.Array" c:type="GArray*">
               <type name="utf8"/>
             </array>
@@ -7207,15 +7538,15 @@ for accessible objects.</doc>
           <parameter name="interfacematchtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="105">An #AtspiCollectionMatchType specifying how to
-         interpret @interfaces.</doc>
+                 line="112">An #AtspiCollectionMatchType specifying how to
+                     interpret @interfaces.</doc>
             <type name="CollectionMatchType"
                   c:type="AtspiCollectionMatchType"/>
           </parameter>
           <parameter name="invert" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-matchrule.c"
-                 line="111">if #TRUE, the match rule should be denied (inverted); if #FALSE,
+                 line="118">if #TRUE, the match rule should be denied (inverted); if #FALSE,
          it should not. For example, if the match rule defines that a match is
          an object of ROLE_HEADING which has STATE_FOCUSABLE and a click action,
          inverting it would match all objects that are not of ROLE_HEADING,
@@ -7460,8 +7791,8 @@ to the appropriate META value, for the convenience of the client.</doc>
     <constant name="ROLE_COUNT" value="131" c:type="ATSPI_ROLE_COUNT">
       <doc xml:space="preserve"
            filename="atspi/atspi-constants.h"
-           line="1419">One higher than the highest valid value of #AtspiRole.</doc>
-      <source-position filename="atspi/atspi-constants.h" line="1424"/>
+           line="1422">One higher than the highest valid value of #AtspiRole.</doc>
+      <source-position filename="atspi/atspi-constants.h" line="1427"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <record name="Range"
@@ -8363,11 +8694,11 @@ choices.</doc>
              line="1016">An object used to indicate how much of a task has
 been completed.</doc>
       </member>
-      <member name="push_button"
+      <member name="button"
               value="43"
-              c:identifier="ATSPI_ROLE_PUSH_BUTTON"
-              glib:nick="push-button"
-              glib:name="ATSPI_ROLE_PUSH_BUTTON">
+              c:identifier="ATSPI_ROLE_BUTTON"
+              glib:nick="button"
+              glib:name="ATSPI_ROLE_BUTTON">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
              line="1018">An object the user can manipulate to tell the
@@ -9328,23 +9659,29 @@ actual change is. @Since: 2.36</doc>
              line="1277">Not a valid role, used for finding end of
 enumeration.</doc>
       </member>
+      <member name="push_button"
+              value="43"
+              c:identifier="ATSPI_ROLE_PUSH_BUTTON"
+              glib:nick="push-button"
+              glib:name="ATSPI_ROLE_PUSH_BUTTON">
+      </member>
       <function name="get_localized_name"
                 c:identifier="atspi_role_get_localized_name">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="2027">Gets the localized description string describing the #AtspiRole @role.</doc>
+             line="2029">Gets the localized description string describing the #AtspiRole @role.</doc>
         <source-position filename="atspi/atspi-misc.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2033">the localized string describing the AtspiRole</doc>
+               line="2035">the localized string describing the AtspiRole</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-misc.c"
-                 line="2029">an #AtspiRole object to query.</doc>
+                 line="2031">an #AtspiRole object to query.</doc>
             <type name="Role" c:type="AtspiRole"/>
           </parameter>
         </parameters>
@@ -9352,19 +9689,19 @@ enumeration.</doc>
       <function name="get_name" c:identifier="atspi_role_get_name">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1994">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
+             line="1996">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
         <source-position filename="atspi/atspi-misc.h" line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2000">a localizable string name for an #AtspiRole enumerated type.</doc>
+               line="2002">a localizable string name for an #AtspiRole enumerated type.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-misc.c"
-                 line="1996">an #AtspiRole object to query.</doc>
+                 line="1998">an #AtspiRole object to query.</doc>
             <type name="Role" c:type="AtspiRole"/>
           </parameter>
         </parameters>
@@ -9375,8 +9712,8 @@ enumeration.</doc>
               c:type="ATSPI_SCROLLTYPE_COUNT">
       <doc xml:space="preserve"
            filename="atspi/atspi-constants.h"
-           line="1473">One higher than the highest valid value of #AtspiScrollType.</doc>
-      <source-position filename="atspi/atspi-constants.h" line="1478"/>
+           line="1476">One higher than the highest valid value of #AtspiScrollType.</doc>
+      <source-position filename="atspi/atspi-constants.h" line="1481"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="SELECTION"
@@ -9444,7 +9781,7 @@ enumeration.</doc>
                  c:type="AtspiScrollType">
       <doc xml:space="preserve"
            filename="atspi/atspi-constants.h"
-           line="1442">Enumeration used by interface #AtspiAccessible to specify where an
+           line="1445">Enumeration used by interface #AtspiAccessible to specify where an
 #AtspiAccessible object should be placed on the screen when using scroll_to.</doc>
       <member name="top_left"
               value="0"
@@ -9453,7 +9790,7 @@ enumeration.</doc>
               glib:name="ATSPI_SCROLL_TOP_LEFT">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1444">Scroll the object to the top left corner of the
+             line="1447">Scroll the object to the top left corner of the
 window.</doc>
       </member>
       <member name="bottom_right"
@@ -9463,7 +9800,7 @@ window.</doc>
               glib:name="ATSPI_SCROLL_BOTTOM_RIGHT">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1446">Scroll the object to the bottom right corner of
+             line="1449">Scroll the object to the bottom right corner of
 the window.</doc>
       </member>
       <member name="top_edge"
@@ -9473,7 +9810,7 @@ the window.</doc>
               glib:name="ATSPI_SCROLL_TOP_EDGE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1448">Scroll the object to the top edge of the window.</doc>
+             line="1451">Scroll the object to the top edge of the window.</doc>
       </member>
       <member name="bottom_edge"
               value="3"
@@ -9482,7 +9819,7 @@ the window.</doc>
               glib:name="ATSPI_SCROLL_BOTTOM_EDGE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1449">Scroll the object to the bottom edge of the
+             line="1452">Scroll the object to the bottom edge of the
 window.</doc>
       </member>
       <member name="left_edge"
@@ -9492,7 +9829,7 @@ window.</doc>
               glib:name="ATSPI_SCROLL_LEFT_EDGE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1451">Scroll the object to the left edge of the
+             line="1454">Scroll the object to the left edge of the
 window.</doc>
       </member>
       <member name="right_edge"
@@ -9502,7 +9839,7 @@ window.</doc>
               glib:name="ATSPI_SCROLL_RIGHT_EDGE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1453">Scroll the object to the right edge of the
+             line="1456">Scroll the object to the right edge of the
 window.</doc>
       </member>
       <member name="anywhere"
@@ -9512,7 +9849,7 @@ window.</doc>
               glib:name="ATSPI_SCROLL_ANYWHERE">
         <doc xml:space="preserve"
              filename="atspi/atspi-constants.h"
-             line="1455">Scroll the object to application-dependent position
+             line="1458">Scroll the object to application-dependent position
 on the window.</doc>
       </member>
     </enumeration>
@@ -13421,7 +13758,7 @@ connection.</doc>
               moved-to="Event.main">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1111">Starts/enters the main event loop for the AT-SPI services.
+           line="1113">Starts/enters the main event loop for the AT-SPI services.
 
 NOTE: This method does not return control; it is exited via a call to
 #atspi_event_quit from within an event handler.</doc>
@@ -13435,7 +13772,7 @@ NOTE: This method does not return control; it is exited via a call to
               moved-to="Event.quit">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1129">Quits the last main event loop for the AT-SPI services,
+           line="1131">Quits the last main event loop for the AT-SPI services,
 See: #atspi_event_main</doc>
       <source-position filename="atspi/atspi-misc.h" line="36"/>
       <return-value transfer-ownership="none">
@@ -13445,13 +13782,13 @@ See: #atspi_event_main</doc>
     <function name="exit" c:identifier="atspi_exit">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1141">Disconnects from #AtspiRegistry instances and releases
+           line="1143">Disconnects from #AtspiRegistry instances and releases
 any floating resources. Call only once at exit.</doc>
       <source-position filename="atspi/atspi-misc.h" line="38"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1147">0 if there were no leaks, otherwise other integer values.</doc>
+             line="1149">0 if there were no leaks, otherwise other integer values.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
     </function>
@@ -13671,7 +14008,7 @@ desktops.</doc>
               version="2.50">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="2200">Returns the version of the AT-SPI library being used at runtime.</doc>
+           line="2202">Returns the version of the AT-SPI library being used at runtime.</doc>
       <source-position filename="atspi/atspi-misc.h" line="53"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -13683,7 +14020,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2202">the major version.</doc>
+               line="2204">the major version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="minor"
@@ -13692,7 +14029,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2203">the minor version.</doc>
+               line="2205">the minor version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="micro"
@@ -13701,7 +14038,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2204">the micro/patch version.</doc>
+               line="2206">the micro/patch version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
       </parameters>
@@ -13709,24 +14046,24 @@ desktops.</doc>
     <function name="init" c:identifier="atspi_init">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1041">Connects to the accessibility registry and initializes the SPI.</doc>
+           line="1043">Connects to the accessibility registry and initializes the SPI.</doc>
       <source-position filename="atspi/atspi-misc.h" line="31"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1046">0 on success, 1 if already initialized, or an integer error code.</doc>
+             line="1048">0 on success, 1 if already initialized, or an integer error code.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
     </function>
     <function name="is_initialized" c:identifier="atspi_is_initialized">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1098">Indicates whether AT-SPI has been initialized.</doc>
+           line="1100">Indicates whether AT-SPI has been initialized.</doc>
       <source-position filename="atspi/atspi-misc.h" line="32"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1103">%True if initialized; %False otherwise.</doc>
+             line="1105">%True if initialized; %False otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -13833,19 +14170,19 @@ desktops.</doc>
               moved-to="Role.get_localized_name">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="2027">Gets the localized description string describing the #AtspiRole @role.</doc>
+           line="2029">Gets the localized description string describing the #AtspiRole @role.</doc>
       <source-position filename="atspi/atspi-misc.h" line="51"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="2033">the localized string describing the AtspiRole</doc>
+             line="2035">the localized string describing the AtspiRole</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="role" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2029">an #AtspiRole object to query.</doc>
+               line="2031">an #AtspiRole object to query.</doc>
           <type name="Role" c:type="AtspiRole"/>
         </parameter>
       </parameters>
@@ -13855,19 +14192,19 @@ desktops.</doc>
               moved-to="Role.get_name">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1994">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
+           line="1996">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
       <source-position filename="atspi/atspi-misc.h" line="49"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="2000">a localizable string name for an #AtspiRole enumerated type.</doc>
+             line="2002">a localizable string name for an #AtspiRole enumerated type.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="role" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1996">an #AtspiRole object to query.</doc>
+               line="1998">an #AtspiRole object to query.</doc>
           <type name="Role" c:type="AtspiRole"/>
         </parameter>
       </parameters>
@@ -13875,7 +14212,7 @@ desktops.</doc>
     <function name="set_main_context" c:identifier="atspi_set_main_context">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1925">Sets the main loop context that AT-SPI should assume is in use when
+           line="1927">Sets the main loop context that AT-SPI should assume is in use when
 setting an idle callback.
 This function should be called by application-side implementors (ie,
 at-spi2-atk) when it is desirable to re-enter the main loop.</doc>
@@ -13887,7 +14224,7 @@ at-spi2-atk) when it is desirable to re-enter the main loop.</doc>
         <parameter name="cnx" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1927">The #GMainContext to use.</doc>
+               line="1929">The #GMainContext to use.</doc>
           <type name="GLib.MainContext" c:type="GMainContext*"/>
         </parameter>
       </parameters>
@@ -13915,7 +14252,7 @@ at-spi2-atk) when it is desirable to re-enter the main loop.</doc>
     <function name="set_timeout" c:identifier="atspi_set_timeout">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1895">Set the timeout used for method calls. If this is not set explicitly,
+           line="1897">Set the timeout used for method calls. If this is not set explicitly,
 a default of 800 ms is used.
 Note that at-spi2-registryd currently uses a timeout of 3 seconds when
 sending a keyboard event notification. This means that, if an AT makes
@@ -13936,13 +14273,13 @@ timeout is set to 15 seconds.</doc>
         <parameter name="val" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1897">The timeout value, in milliseconds, or -1 to disable the timeout.</doc>
+               line="1899">The timeout value, in milliseconds, or -1 to disable the timeout.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="startup_time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1898">The amount of time, in milliseconds, to allow to pass
+               line="1900">The amount of time, in milliseconds, to allow to pass
 before enforcing timeouts on an application. Can be used to prevent
 timeout exceptions if an application is likely to block for an extended
 period of time on initialization. -1 can be passed to disable this

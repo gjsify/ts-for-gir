@@ -187,7 +187,8 @@ and/or use gtk-doc annotations.  -->
       </constructor>
       <method name="autofocus"
               c:identifier="entangle_camera_autofocus"
-              throws="1">
+              throws="1"
+              glib:async-func="autofocus_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2734">Trigger the autofocus mechanism on the camera, waiting
@@ -213,7 +214,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="autofocus_async"
-              c:identifier="entangle_camera_autofocus_async">
+              c:identifier="entangle_camera_autofocus_async"
+              glib:finish-func="autofocus_finish"
+              glib:sync-func="autofocus">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2842">Trigger the autofocus mechanism on the camera, waiting
@@ -298,7 +301,8 @@ entangle_camera_autofocus_async.</doc>
       </method>
       <method name="capture_image"
               c:identifier="entangle_camera_capture_image"
-              throws="1">
+              throws="1"
+              glib:async-func="capture_image_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1029">Trigger the camera shutter and download the first resulting
@@ -327,7 +331,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="capture_image_async"
-              c:identifier="entangle_camera_capture_image_async">
+              c:identifier="entangle_camera_capture_image_async"
+              glib:finish-func="capture_image_finish"
+              glib:sync-func="capture_image">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1099">Trigger the camera shutter and download the first resulting
@@ -413,7 +419,10 @@ entangle_camera_capture_image_async.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close" c:identifier="entangle_camera_close" throws="1">
+      <method name="close"
+              c:identifier="entangle_camera_close"
+              throws="1"
+              glib:async-func="close_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="801">Close from the camera, enabling it to be used by
@@ -436,7 +445,10 @@ This block execution of the caller until completion.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="close_async" c:identifier="entangle_camera_close_async">
+      <method name="close_async"
+              c:identifier="entangle_camera_close_async"
+              glib:finish-func="close_finish"
+              glib:sync-func="close">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="889">Close from the camera, enabling it to be used by
@@ -519,7 +531,8 @@ entangle_camera_close_async</doc>
       </method>
       <method name="delete_file"
               c:identifier="entangle_camera_delete_file"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_file_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1464">Delete @file from the camera capture target.
@@ -550,7 +563,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="delete_file_async"
-              c:identifier="entangle_camera_delete_file_async">
+              c:identifier="entangle_camera_delete_file_async"
+              glib:finish-func="delete_file_finish"
+              glib:sync-func="delete_file">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1538">Delete @file from the camera capture target.
@@ -640,7 +655,8 @@ entangle_camera_delete_file_async.</doc>
       </method>
       <method name="download_file"
               c:identifier="entangle_camera_download_file"
-              throws="1">
+              throws="1"
+              glib:async-func="download_file_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1306">Download the data associated with @file and set the data
@@ -672,7 +688,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="download_file_async"
-              c:identifier="entangle_camera_download_file_async">
+              c:identifier="entangle_camera_download_file_async"
+              glib:finish-func="download_file_finish"
+              glib:sync-func="download_file">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1406">Download the data associated with @file and set the data
@@ -1052,7 +1070,8 @@ which would prevent opening it.</doc>
       </method>
       <method name="load_controls"
               c:identifier="entangle_camera_load_controls"
-              throws="1">
+              throws="1"
+              glib:async-func="load_controls_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2240">Loads the configuration controls from the camera.
@@ -1077,7 +1096,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="load_controls_async"
-              c:identifier="entangle_camera_load_controls_async">
+              c:identifier="entangle_camera_load_controls_async"
+              glib:finish-func="load_controls_finish"
+              glib:sync-func="load_controls">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2325">Loads the configuration controls from the camera.
@@ -1161,7 +1182,8 @@ entangle_camera_load_controls_async.</doc>
       </method>
       <method name="manualfocus"
               c:identifier="entangle_camera_manualfocus"
-              throws="1">
+              throws="1"
+              glib:async-func="manualfocus_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2894">Trigger the focus mechanism on the camera, to move
@@ -1194,7 +1216,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="manualfocus_async"
-              c:identifier="entangle_camera_manualfocus_async">
+              c:identifier="entangle_camera_manualfocus_async"
+              glib:finish-func="manualfocus_finish"
+              glib:sync-func="manualfocus">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="3060">Trigger the focus mechanism on the camera, to move
@@ -1284,7 +1308,9 @@ entangle_camera_manualfocus_async.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="mount_async" c:identifier="entangle_camera_mount_async">
+      <method name="mount_async"
+              c:identifier="entangle_camera_mount_async"
+              glib:finish-func="mount_finish">
         <source-position filename="src/backend/entangle-camera.h" line="285"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1331,7 +1357,10 @@ entangle_camera_manualfocus_async.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="open" c:identifier="entangle_camera_open" throws="1">
+      <method name="open"
+              c:identifier="entangle_camera_open"
+              throws="1"
+              glib:async-func="open_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="619">Attempt to open to and initialize the camera. This
@@ -1355,7 +1384,10 @@ This block execution of the caller until completion.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_async" c:identifier="entangle_camera_open_async">
+      <method name="open_async"
+              c:identifier="entangle_camera_open_async"
+              glib:finish-func="open_finish"
+              glib:sync-func="open">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="750">Attempt to open to and initialize the camera. This
@@ -1439,7 +1471,8 @@ entangle_camera_open_async</doc>
       </method>
       <method name="preview_image"
               c:identifier="entangle_camera_preview_image"
-              throws="1">
+              throws="1"
+              glib:async-func="preview_image_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1154">Enable "live view", if not already enabled, and capture a
@@ -1466,7 +1499,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="preview_image_async"
-              c:identifier="entangle_camera_preview_image_async">
+              c:identifier="entangle_camera_preview_image_async"
+              glib:finish-func="preview_image_finish"
+              glib:sync-func="preview_image">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1253">Enable "live view", if not already enabled, and capture a
@@ -1552,7 +1587,8 @@ entangle_camera_preview_image_async.</doc>
       </method>
       <method name="process_events"
               c:identifier="entangle_camera_process_events"
-              throws="1">
+              throws="1"
+              glib:async-func="process_events_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1595">Wait upto @waitms milliseconds for events to arrive from
@@ -1586,7 +1622,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="process_events_async"
-              c:identifier="entangle_camera_process_events_async">
+              c:identifier="entangle_camera_process_events_async"
+              glib:finish-func="process_events_finish"
+              glib:sync-func="process_events">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="1745">Wait upto @waitms milliseconds for events to arrive from
@@ -1679,7 +1717,8 @@ entangle_camera_process_events_async.</doc>
       </method>
       <method name="save_controls"
               c:identifier="entangle_camera_save_controls"
-              throws="1">
+              throws="1"
+              glib:async-func="save_controls_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2376">Saves the configuration controls to the camera.
@@ -1704,7 +1743,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="save_controls_async"
-              c:identifier="entangle_camera_save_controls_async">
+              c:identifier="entangle_camera_save_controls_async"
+              glib:finish-func="save_controls_finish"
+              glib:sync-func="save_controls">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2461">Saves the configuration controls to the camera.
@@ -1788,7 +1829,8 @@ entangle_camera_save_controls_async.</doc>
       </method>
       <method name="set_capture_target"
               c:identifier="entangle_camera_set_capture_target"
-              throws="1">
+              throws="1"
+              glib:async-func="set_capture_target_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="3279">Set the destination for storing captured images
@@ -1821,7 +1863,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="set_capture_target_async"
-              c:identifier="entangle_camera_set_capture_target_async">
+              c:identifier="entangle_camera_set_capture_target_async"
+              glib:finish-func="set_capture_target_finish"
+              glib:sync-func="set_capture_target">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="3391">Set the destination for storing captured images
@@ -1900,7 +1944,8 @@ satisfied.</doc>
       </method>
       <method name="set_clock"
               c:identifier="entangle_camera_set_clock"
-              throws="1">
+              throws="1"
+              glib:async-func="set_clock_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="3116">Update the camera clock to be @epochsecs seconds since
@@ -1932,7 +1977,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="set_clock_async"
-              c:identifier="entangle_camera_set_clock_async">
+              c:identifier="entangle_camera_set_clock_async"
+              glib:finish-func="set_clock_finish"
+              glib:sync-func="set_clock">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="3219">Update the camera clock to be @epochsecs seconds since
@@ -2052,7 +2099,8 @@ notifications</doc>
       </method>
       <method name="set_viewfinder"
               c:identifier="entangle_camera_set_viewfinder"
-              throws="1">
+              throws="1"
+              glib:async-func="set_viewfinder_async">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2552">If @enabled is TRUE, the view finder will be activated
@@ -2085,7 +2133,9 @@ This block execution of the caller until completion.</doc>
         </parameters>
       </method>
       <method name="set_viewfinder_async"
-              c:identifier="entangle_camera_set_viewfinder_async">
+              c:identifier="entangle_camera_set_viewfinder_async"
+              glib:finish-func="set_viewfinder_finish"
+              glib:sync-func="set_viewfinder">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="2677">If @enabled is TRUE, the view finder will be activated
@@ -2176,7 +2226,8 @@ entangle_camera_set_viewfinder_async.</doc>
         </parameters>
       </method>
       <method name="unmount_async"
-              c:identifier="entangle_camera_unmount_async">
+              c:identifier="entangle_camera_unmount_async"
+              glib:finish-func="unmount_finish">
         <doc xml:space="preserve"
              filename="src/backend/entangle-camera.c"
              line="3715">Unmount the camera virtual filesystem, allowing it to be
@@ -2420,7 +2471,8 @@ entangle_camera_unmount_async.</doc>
         </return-value>
       </constructor>
       <method name="capture_async"
-              c:identifier="entangle_camera_automata_capture_async">
+              c:identifier="entangle_camera_automata_capture_async"
+              glib:finish-func="capture_finish">
         <source-position filename="src/backend/entangle-camera-automata.h"
                          line="43"/>
         <return-value transfer-ownership="none">
@@ -2530,7 +2582,8 @@ entangle_camera_unmount_async.</doc>
         </parameters>
       </method>
       <method name="preview_async"
-              c:identifier="entangle_camera_automata_preview_async">
+              c:identifier="entangle_camera_automata_preview_async"
+              glib:finish-func="preview_finish">
         <source-position filename="src/backend/entangle-camera-automata.h"
                          line="54"/>
         <return-value transfer-ownership="none">
@@ -5983,7 +6036,7 @@ a file on disk</doc>
           <doc xml:space="preserve"
                filename="src/backend/entangle-media.c"
                line="221">the size in bytes, or 0</doc>
-          <type name="gsize" c:type="off_t"/>
+          <type name="off_t" c:type="off_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="media" transfer-ownership="none">
@@ -6027,7 +6080,7 @@ it is backed by a file on disk</doc>
           <doc xml:space="preserve"
                filename="src/backend/entangle-media.c"
                line="199">the last modification time in seconds since epoch, or 0</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="media" transfer-ownership="none">
@@ -8557,7 +8610,9 @@ the scene being shot.</doc>
            glib:get-type="entangle_script_get_type"
            glib:type-struct="ScriptClass">
       <source-position filename="src/frontend/entangle-script.h" line="52"/>
-      <virtual-method name="execute_async" invoker="execute_async">
+      <virtual-method name="execute_async"
+                      invoker="execute_async"
+                      glib:finish-func="execute_finish">
         <source-position filename="src/frontend/entangle-script.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8653,7 +8708,8 @@ finished</doc>
         </parameters>
       </virtual-method>
       <method name="execute_async"
-              c:identifier="entangle_script_execute_async">
+              c:identifier="entangle_script_execute_async"
+              glib:finish-func="execute_finish">
         <source-position filename="src/frontend/entangle-script.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8996,6 +9052,13 @@ finished</doc>
       <source-position filename="src/frontend/entangle-script-simple.h"
                        line="62"/>
       <virtual-method name="execute">
+        <doc xml:space="preserve"
+             filename="src/frontend/entangle-script-simple.h"
+             line="37">Runs the logic for the script. The implementation should
+ use the @automata object to perform capture/preview operations on
+ the camera. @cancel will indicate whether the script should be
+ aborted early. @result should be set when the script completes
+ or aborts.</doc>
         <source-position filename="src/frontend/entangle-script-simple.h"
                          line="56"/>
         <return-value transfer-ownership="none">
@@ -9020,6 +9083,10 @@ finished</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="init_task_data" invoker="init_task_data">
+        <doc xml:space="preserve"
+             filename="src/frontend/entangle-script-simple.h"
+             line="42">create a data object that will be associated
+ with the #GTask passed to the @execute method.</doc>
         <source-position filename="src/frontend/entangle-script-simple.h"
                          line="61"/>
         <return-value transfer-ownership="full">
@@ -9119,6 +9186,13 @@ the C layer, and dealing with async ready callbacks.</doc>
         <type name="ScriptClass" c:type="EntangleScriptClass"/>
       </field>
       <field name="execute">
+        <doc xml:space="preserve"
+             filename="src/frontend/entangle-script-simple.h"
+             line="37">Runs the logic for the script. The implementation should
+ use the @automata object to perform capture/preview operations on
+ the camera. @cancel will indicate whether the script should be
+ aborted early. @result should be set when the script completes
+ or aborts.</doc>
         <callback name="execute">
           <source-position filename="src/frontend/entangle-script-simple.h"
                            line="56"/>
@@ -9145,6 +9219,10 @@ the C layer, and dealing with async ready callbacks.</doc>
         </callback>
       </field>
       <field name="init_task_data">
+        <doc xml:space="preserve"
+             filename="src/frontend/entangle-script-simple.h"
+             line="42">create a data object that will be associated
+ with the #GTask passed to the @execute method.</doc>
         <callback name="init_task_data">
           <source-position filename="src/frontend/entangle-script-simple.h"
                            line="61"/>

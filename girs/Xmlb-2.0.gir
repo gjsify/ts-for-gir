@@ -26,7 +26,7 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="xb_builder_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="1162">Creates a new builder.
+             line="1148">Creates a new builder.
 
 The #XbSilo returned by the methods of this #XbBuilder will use the
 thread-default main context at the time of calling this function for its
@@ -35,7 +35,7 @@ future signal emissions.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder.c"
-               line="1171">a new #XbBuilder</doc>
+               line="1157">a new #XbBuilder</doc>
           <type name="Builder" c:type="XbBuilder*"/>
         </return-value>
       </constructor>
@@ -44,7 +44,7 @@ future signal emissions.</doc>
               version="0.1.3">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="1101">Adds a function that will get run on every #XbBuilderNode compile creates
+             line="1089">Adds a function that will get run on every #XbBuilderNode compile creates
 for the silo. This is run after all the #XbBuilderSource fixups have been
 run.</doc>
         <source-position filename="src/xb-builder.h" line="79"/>
@@ -55,13 +55,13 @@ run.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="1103">a #XbBuilder</doc>
+                 line="1091">a #XbBuilder</doc>
             <type name="Builder" c:type="XbBuilder*"/>
           </instance-parameter>
           <parameter name="fixup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="1104">a #XbBuilderFixup</doc>
+                 line="1092">a #XbBuilderFixup</doc>
             <type name="BuilderFixup" c:type="XbBuilderFixup*"/>
           </parameter>
         </parameters>
@@ -97,7 +97,7 @@ locales added later.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="1065">Adds the GUID to the internal correctness hash.</doc>
+             line="1054">Adds the GUID to the internal correctness hash.</doc>
         <source-position filename="src/xb-builder.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -106,13 +106,13 @@ locales added later.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="1067">a #XbSilo</doc>
+                 line="1056">a #XbSilo</doc>
             <type name="Builder" c:type="XbBuilder*"/>
           </instance-parameter>
           <parameter name="guid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="1068">any text, typcically a filename or GUID</doc>
+                 line="1057">any text, typcically a filename or GUID</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -123,25 +123,25 @@ locales added later.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="734">Compiles a #XbSilo.</doc>
+             line="732">Compiles a #XbSilo.</doc>
         <source-position filename="src/xb-builder.h" line="66"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder.c"
-               line="743">a #XbSilo, or %NULL for error</doc>
+               line="741">a #XbSilo, or %NULL for error</doc>
           <type name="Silo" c:type="XbSilo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="736">a #XbSilo</doc>
+                 line="734">a #XbSilo</doc>
             <type name="Builder" c:type="XbBuilder*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="737">some #XbBuilderCompileFlags, e.g. %XB_BUILDER_SOURCE_FLAG_LITERAL_TEXT</doc>
+                 line="735">some #XbBuilderCompileFlags, e.g. %XB_BUILDER_SOURCE_FLAG_LITERAL_TEXT</doc>
             <type name="BuilderCompileFlags" c:type="XbBuilderCompileFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -150,7 +150,7 @@ locales added later.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="738">a #GCancellable, or %NULL</doc>
+                 line="736">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -161,7 +161,7 @@ locales added later.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="952">Ensures @file is up to date, and returns a compiled #XbSilo.
+             line="954">Ensures @file is up to date, and returns a compiled #XbSilo.
 
 If @silo is being used by a query (e.g. in another thread) then all node
 data is immediately invalid.
@@ -172,26 +172,26 @@ calling this function for its future signal emissions.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder.c"
-               line="968">a #XbSilo, or %NULL for error</doc>
+               line="970">a #XbSilo, or %NULL for error</doc>
           <type name="Silo" c:type="XbSilo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="954">a #XbSilo</doc>
+                 line="956">a #XbSilo</doc>
             <type name="Builder" c:type="XbBuilder*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="955">a #GFile</doc>
+                 line="957">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="956">some #XbBuilderCompileFlags, e.g. %XB_BUILDER_COMPILE_FLAG_IGNORE_INVALID</doc>
+                 line="958">some #XbBuilderCompileFlags, e.g. %XB_BUILDER_COMPILE_FLAG_IGNORE_INVALID</doc>
             <type name="BuilderCompileFlags" c:type="XbBuilderCompileFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -200,7 +200,7 @@ calling this function for its future signal emissions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="957">a #GCancellable, or %NULL</doc>
+                 line="959">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -245,7 +245,7 @@ Failure to include an appropriate GUID value would allow an out-of-data silo to 
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="180">Adds a #XbBuilderSource to the #XbBuilder.</doc>
+             line="179">Adds a #XbBuilderSource to the #XbBuilder.</doc>
         <source-position filename="src/xb-builder.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -254,13 +254,13 @@ Failure to include an appropriate GUID value would allow an out-of-data silo to 
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="182">a #XbSilo</doc>
+                 line="181">a #XbSilo</doc>
             <type name="Builder" c:type="XbBuilder*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="183">a #XbBuilderSource</doc>
+                 line="182">a #XbBuilderSource</doc>
             <type name="BuilderSource" c:type="XbBuilderSource*"/>
           </parameter>
         </parameters>
@@ -270,7 +270,7 @@ Failure to include an appropriate GUID value would allow an out-of-data silo to 
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder.c"
-             line="1083">Enables or disables the collection of profiling data.</doc>
+             line="1072">Enables or disables the collection of profiling data.</doc>
         <source-position filename="src/xb-builder.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -279,13 +279,13 @@ Failure to include an appropriate GUID value would allow an out-of-data silo to 
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="1085">a #XbBuilder</doc>
+                 line="1074">a #XbBuilder</doc>
             <type name="Builder" c:type="XbBuilder*"/>
           </instance-parameter>
           <parameter name="profile_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder.c"
-                 line="1086">some #XbSiloProfileFlags, e.g. %XB_SILO_PROFILE_FLAG_DEBUG</doc>
+                 line="1075">some #XbSiloProfileFlags, e.g. %XB_SILO_PROFILE_FLAG_DEBUG</doc>
             <type name="SiloProfileFlags" c:type="XbSiloProfileFlags"/>
           </parameter>
         </parameters>

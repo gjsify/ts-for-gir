@@ -11,6 +11,37 @@ and/or use gtk-doc annotations.  -->
              shared-library=""
              c:identifier-prefixes="GDesktop"
              c:symbol-prefixes="g_desktop">
+    <enumeration name="AccentColor" c:type="GDesktopAccentColor">
+      <source-position filename="headers/gdesktop-enums.h" line="287"/>
+      <member name="blue" value="0" c:identifier="G_DESKTOP_ACCENT_COLOR_BLUE">
+      </member>
+      <member name="teal" value="1" c:identifier="G_DESKTOP_ACCENT_COLOR_TEAL">
+      </member>
+      <member name="green"
+              value="2"
+              c:identifier="G_DESKTOP_ACCENT_COLOR_GREEN">
+      </member>
+      <member name="yellow"
+              value="3"
+              c:identifier="G_DESKTOP_ACCENT_COLOR_YELLOW">
+      </member>
+      <member name="orange"
+              value="4"
+              c:identifier="G_DESKTOP_ACCENT_COLOR_ORANGE">
+      </member>
+      <member name="red" value="5" c:identifier="G_DESKTOP_ACCENT_COLOR_RED">
+      </member>
+      <member name="pink" value="6" c:identifier="G_DESKTOP_ACCENT_COLOR_PINK">
+      </member>
+      <member name="purple"
+              value="7"
+              c:identifier="G_DESKTOP_ACCENT_COLOR_PURPLE">
+      </member>
+      <member name="slate"
+              value="8"
+              c:identifier="G_DESKTOP_ACCENT_COLOR_SLATE">
+      </member>
+    </enumeration>
     <enumeration name="BackgroundShading" c:type="GDesktopBackgroundShading">
       <source-position filename="headers/gdesktop-enums.h" line="63"/>
       <member name="solid"
@@ -65,7 +96,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="ColorScheme" c:type="GDesktopColorScheme">
-      <source-position filename="headers/gdesktop-enums.h" line="259"/>
+      <source-position filename="headers/gdesktop-enums.h" line="261"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_COLOR_SCHEME_DEFAULT">
@@ -118,7 +149,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="FontAntialiasingMode"
                  c:type="GDesktopFontAntialiasingMode">
-      <source-position filename="headers/gdesktop-enums.h" line="235"/>
+      <source-position filename="headers/gdesktop-enums.h" line="237"/>
       <member name="none"
               value="0"
               c:identifier="G_DESKTOP_FONT_ANTIALIASING_MODE_NONE">
@@ -133,7 +164,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="FontHinting" c:type="GDesktopFontHinting">
-      <source-position filename="headers/gdesktop-enums.h" line="243"/>
+      <source-position filename="headers/gdesktop-enums.h" line="245"/>
       <member name="none" value="0" c:identifier="G_DESKTOP_FONT_HINTING_NONE">
       </member>
       <member name="slight"
@@ -147,8 +178,19 @@ and/or use gtk-doc annotations.  -->
       <member name="full" value="3" c:identifier="G_DESKTOP_FONT_HINTING_FULL">
       </member>
     </enumeration>
+    <enumeration name="FontRendering" c:type="GDesktopFontRendering">
+      <source-position filename="headers/gdesktop-enums.h" line="274"/>
+      <member name="automatic"
+              value="0"
+              c:identifier="G_DESKTOP_FONT_RENDERING_AUTOMATIC">
+      </member>
+      <member name="manual"
+              value="1"
+              c:identifier="G_DESKTOP_FONT_RENDERING_MANUAL">
+      </member>
+    </enumeration>
     <enumeration name="FontRgbaOrder" c:type="GDesktopFontRgbaOrder">
-      <source-position filename="headers/gdesktop-enums.h" line="252"/>
+      <source-position filename="headers/gdesktop-enums.h" line="254"/>
       <member name="rgba"
               value="0"
               c:identifier="G_DESKTOP_FONT_RGBA_ORDER_RGBA">
@@ -334,7 +376,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="PointerAccelProfile"
                  c:type="GDesktopPointerAccelProfile">
-      <source-position filename="headers/gdesktop-enums.h" line="222"/>
+      <source-position filename="headers/gdesktop-enums.h" line="224"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_POINTER_ACCEL_PROFILE_DEFAULT">
@@ -350,7 +392,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="PointingStickScrollMethod"
                  c:type="GDesktopPointingStickScrollMethod">
-      <source-position filename="headers/gdesktop-enums.h" line="266"/>
+      <source-position filename="headers/gdesktop-enums.h" line="268"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_POINTING_STICK_SCROLL_METHOD_DEFAULT">
@@ -391,7 +433,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="StylusButtonAction" c:type="GDesktopStylusButtonAction">
-      <source-position filename="headers/gdesktop-enums.h" line="215"/>
+      <source-position filename="headers/gdesktop-enums.h" line="217"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_DEFAULT">
@@ -411,6 +453,14 @@ and/or use gtk-doc annotations.  -->
       <member name="forward"
               value="4"
               c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_FORWARD">
+      </member>
+      <member name="switch_monitor"
+              value="5"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_SWITCH_MONITOR">
+      </member>
+      <member name="keybinding"
+              value="6"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_KEYBINDING">
       </member>
     </enumeration>
     <enumeration name="TabletMapping" c:type="GDesktopTabletMapping">
@@ -541,7 +591,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="UsbProtection" c:type="GDesktopUsbProtection">
-      <source-position filename="headers/gdesktop-enums.h" line="228"/>
+      <source-position filename="headers/gdesktop-enums.h" line="230"/>
       <member name="lockscreen"
               value="0"
               c:identifier="G_DESKTOP_USB_PROTECTION_LOCKSCREEN">

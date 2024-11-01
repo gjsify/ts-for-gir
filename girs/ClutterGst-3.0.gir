@@ -2449,7 +2449,7 @@ should not be accessed directly.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="28"
+              value="27"
               c:type="CLUTTER_GST_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="clutter-gst-version.h"
@@ -3534,6 +3534,9 @@ decide whether it should continue buffering in download-buffering mode.</doc>
 directly accessed</doc>
       <source-position filename="clutter-gst-player.h" line="135"/>
       <virtual-method name="eos">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="89">signal class closure for #ClutterGstPlayer::eos</doc>
         <source-position filename="clutter-gst-player.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3545,6 +3548,9 @@ directly accessed</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="error">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="90">signal class closure for #ClutterGstPlayer::error</doc>
         <source-position filename="clutter-gst-player.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3684,6 +3690,9 @@ GStreamer API.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="new_frame">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="87">signal class closure for #ClutterGstPlayer::new-frame</doc>
         <source-position filename="clutter-gst-player.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3698,6 +3707,9 @@ GStreamer API.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="ready">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="88">signal class closure for #ClutterGstPlayer::ready</doc>
         <source-position filename="clutter-gst-player.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3763,6 +3775,9 @@ in clutter-gst is an example of such an asynchronous implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="size_change">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="91">signal class closure for #ClutterGstPlayer::size-change</doc>
         <source-position filename="clutter-gst-player.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4096,6 +4111,9 @@ has different dimensions to the previous frame.</doc>
               c:type="ClutterGstPlayerIfacePrivate*"/>
       </field>
       <field name="get_frame">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="79">virtual function; returns the current visible frame</doc>
         <callback name="get_frame">
           <source-position filename="clutter-gst-player.h" line="105"/>
           <return-value transfer-ownership="none">
@@ -4115,6 +4133,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="get_pipeline">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="80">virtual function; returns the current GStreamer pipeline</doc>
         <callback name="get_pipeline">
           <source-position filename="clutter-gst-player.h" line="106"/>
           <return-value transfer-ownership="none">
@@ -4134,6 +4155,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="get_video_sink">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="81">virtual function; returns the current ClutterGst video sink</doc>
         <callback name="get_video_sink">
           <source-position filename="clutter-gst-player.h" line="107"/>
           <return-value transfer-ownership="none">
@@ -4153,6 +4177,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="get_idle">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="82">virtual function; returns whether the player is currently in idle state</doc>
         <callback name="get_idle">
           <source-position filename="clutter-gst-player.h" line="109"/>
           <return-value transfer-ownership="none">
@@ -4172,6 +4199,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="get_audio_volume">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="83">virtual function; returns the current audio volume</doc>
         <callback name="get_audio_volume">
           <source-position filename="clutter-gst-player.h" line="111"/>
           <return-value transfer-ownership="none">
@@ -4191,6 +4221,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="set_audio_volume">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="84">virtual function; sets the audio volume</doc>
         <callback name="set_audio_volume">
           <source-position filename="clutter-gst-player.h" line="112"/>
           <return-value transfer-ownership="none">
@@ -4213,6 +4246,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="get_playing">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="85">virtual function; returns whether the player is currently playing</doc>
         <callback name="get_playing">
           <source-position filename="clutter-gst-player.h" line="115"/>
           <return-value transfer-ownership="none">
@@ -4232,6 +4268,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="set_playing">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="86">virtual function; starts or stops the player from playing</doc>
         <callback name="set_playing">
           <source-position filename="clutter-gst-player.h" line="116"/>
           <return-value transfer-ownership="none">
@@ -4259,6 +4298,9 @@ has different dimensions to the previous frame.</doc>
         </array>
       </field>
       <field name="new_frame">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="87">signal class closure for #ClutterGstPlayer::new-frame</doc>
         <callback name="new_frame">
           <source-position filename="clutter-gst-player.h" line="124"/>
           <return-value transfer-ownership="none">
@@ -4275,6 +4317,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="ready">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="88">signal class closure for #ClutterGstPlayer::ready</doc>
         <callback name="ready">
           <source-position filename="clutter-gst-player.h" line="125"/>
           <return-value transfer-ownership="none">
@@ -4288,6 +4333,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="eos">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="89">signal class closure for #ClutterGstPlayer::eos</doc>
         <callback name="eos">
           <source-position filename="clutter-gst-player.h" line="126"/>
           <return-value transfer-ownership="none">
@@ -4301,6 +4349,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="error">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="90">signal class closure for #ClutterGstPlayer::error</doc>
         <callback name="error">
           <source-position filename="clutter-gst-player.h" line="127"/>
           <return-value transfer-ownership="none">
@@ -4317,6 +4368,9 @@ has different dimensions to the previous frame.</doc>
         </callback>
       </field>
       <field name="size_change">
+        <doc xml:space="preserve"
+             filename="clutter-gst-player.h"
+             line="91">signal class closure for #ClutterGstPlayer::size-change</doc>
         <callback name="size_change">
           <source-position filename="clutter-gst-player.h" line="129"/>
           <return-value transfer-ownership="none">
@@ -4388,7 +4442,7 @@ has different dimensions to the previous frame.</doc>
       <source-position filename="clutter-gst-version.h" line="80"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_S" value="3.0.28" c:type="CLUTTER_GST_VERSION_S">
+    <constant name="VERSION_S" value="3.0.27" c:type="CLUTTER_GST_VERSION_S">
       <doc xml:space="preserve"
            filename="clutter-gst-version.h"
            line="68">ClutterGst full version, encoded as a string.</doc>
@@ -4468,16 +4522,19 @@ should be accessed using the provided API.</doc>
                    version="3.0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2510">Creates a new #ClutterGstVideoSink</doc>
+             line="2506">Creates a new #ClutterGstVideoSink</doc>
         <source-position filename="clutter-gst-video-sink.h" line="109"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter-gst-video-sink.c"
-               line="2515">a new #ClutterGstVideoSink</doc>
+               line="2511">a new #ClutterGstVideoSink</doc>
           <type name="VideoSink" c:type="ClutterGstVideoSink*"/>
         </return-value>
       </constructor>
       <virtual-method name="new_frame">
+        <doc xml:space="preserve"
+             filename="clutter-gst-video-sink.h"
+             line="87">handler for the #ClutterGstVideoSink::new-frame signal</doc>
         <source-position filename="clutter-gst-video-sink.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4500,6 +4557,9 @@ should be accessed using the provided API.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pipeline_ready">
+        <doc xml:space="preserve"
+             filename="clutter-gst-video-sink.h"
+             line="88">handler for the #ClutterGstVideoSink::pipeline-ready signal</doc>
         <source-position filename="clutter-gst-video-sink.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4515,14 +4575,14 @@ should be accessed using the provided API.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2566">Returns a #ClutterGstFrame object suitable to render the current
+             line="2562">Returns a #ClutterGstFrame object suitable to render the current
 frame of the given video sink. An application is free to make a
 copy of this pipeline and modify it for custom rendering.</doc>
         <source-position filename="clutter-gst-video-sink.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter-gst-video-sink.c"
-               line="2574">A #ClutterGstFrame or NULL if there
+               line="2570">A #ClutterGstFrame or NULL if there
   isn't a frame to be displayed yet.</doc>
           <type name="Frame" c:type="ClutterGstFrame*"/>
         </return-value>
@@ -4530,7 +4590,7 @@ copy of this pipeline and modify it for custom rendering.</doc>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter-gst-video-sink.c"
-                 line="2568">The #ClutterGstVideoSink</doc>
+                 line="2564">The #ClutterGstVideoSink</doc>
             <type name="VideoSink" c:type="ClutterGstVideoSink*"/>
           </instance-parameter>
         </parameters>
@@ -4553,7 +4613,7 @@ copy of this pipeline and modify it for custom rendering.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2626">Returns a pipeline suitable for rendering the current frame of the
+             line="2622">Returns a pipeline suitable for rendering the current frame of the
 given video sink. The pipeline will already have the textures for
 the frame attached. For simple rendering, an application will
 typically call this function immediately before it paints the
@@ -4569,7 +4629,7 @@ Note: it is considered an error to call this function before the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter-gst-video-sink.c"
-               line="2643">the pipeline for rendering the
+               line="2639">the pipeline for rendering the
   current frame</doc>
           <type c:type="CoglPipeline*"/>
         </return-value>
@@ -4577,7 +4637,7 @@ Note: it is considered an error to call this function before the
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter-gst-video-sink.c"
-                 line="2628">The #ClutterGstVideoSink</doc>
+                 line="2624">The #ClutterGstVideoSink</doc>
             <type name="VideoSink" c:type="ClutterGstVideoSink*"/>
           </instance-parameter>
         </parameters>
@@ -4587,7 +4647,7 @@ Note: it is considered an error to call this function before the
               version="3.0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2541">Returns whether the pipeline is ready and so
+             line="2537">Returns whether the pipeline is ready and so
 clutter_gst_video_sink_get_pipeline() and
 clutter_gst_video_sink_setup_pipeline() can be called without causing error.
 
@@ -4600,14 +4660,14 @@ connect a signal handler this can be useful.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter-gst-video-sink.c"
-               line="2555">%TRUE if the sink is ready, else %FALSE</doc>
+               line="2551">%TRUE if the sink is ready, else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter-gst-video-sink.c"
-                 line="2543">The #ClutterGstVideoSink</doc>
+                 line="2539">The #ClutterGstVideoSink</doc>
             <type name="VideoSink" c:type="ClutterGstVideoSink*"/>
           </instance-parameter>
         </parameters>
@@ -4618,7 +4678,7 @@ connect a signal handler this can be useful.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2662">Configures the given pipeline so that will be able to render the
+             line="2658">Configures the given pipeline so that will be able to render the
 video for the @sink. This should only be used if the application
 wants to perform some custom rendering using its own pipeline.
 Typically an application will call this in response to the
@@ -4634,13 +4694,13 @@ Note: it is considered an error to call this function before the
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter-gst-video-sink.c"
-                 line="2664">The #ClutterGstVideoSink</doc>
+                 line="2660">The #ClutterGstVideoSink</doc>
             <type name="VideoSink" c:type="ClutterGstVideoSink*"/>
           </instance-parameter>
           <parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter-gst-video-sink.c"
-                 line="2665">A #CoglPipeline</doc>
+                 line="2661">A #CoglPipeline</doc>
             <type c:type="CoglPipeline*"/>
           </parameter>
         </parameters>
@@ -4660,7 +4720,7 @@ Note: it is considered an error to call this function before the
       <glib:signal name="new-frame" when="last" version="3.0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2462">The sink will emit this signal whenever there are new textures
+             line="2458">The sink will emit this signal whenever there are new textures
 available for a new frame of the video. After this signal is
 emitted, an application can call clutter_gst_video_sink_get_pipeline()
 to get a pipeline suitable for rendering the frame. If the
@@ -4673,7 +4733,7 @@ clutter_gst_video_sink_attach_frame() to attach the textures.</doc>
       <glib:signal name="new-overlays" when="last" version="3.0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2486">The sink will emit this signal whenever there are new textures
+             line="2482">The sink will emit this signal whenever there are new textures
 available for set of overlays on the video. After this signal is
 emitted, an application can call
 clutter_gst_video_sink_get_overlays() to get a set of pipelines
@@ -4685,7 +4745,7 @@ suitable for rendering overlays on a video frame.</doc>
       <glib:signal name="pipeline-ready" when="last" version="3.0">
         <doc xml:space="preserve"
              filename="clutter-gst-video-sink.c"
-             line="2432">The sink will emit this signal as soon as it has gathered enough
+             line="2428">The sink will emit this signal as soon as it has gathered enough
 information from the video to configure a pipeline. If the
 application wants to do some customized rendering, it can setup its
 pipeline after this signal is emitted. The application's pipeline
@@ -4711,6 +4771,9 @@ could also create its pipeline in the handler for that.</doc>
         <type name="GstVideo.VideoSinkClass" c:type="GstVideoSinkClass"/>
       </field>
       <field name="new_frame">
+        <doc xml:space="preserve"
+             filename="clutter-gst-video-sink.h"
+             line="87">handler for the #ClutterGstVideoSink::new-frame signal</doc>
         <callback name="new_frame">
           <source-position filename="clutter-gst-video-sink.h" line="98"/>
           <return-value transfer-ownership="none">
@@ -4724,6 +4787,9 @@ could also create its pipeline in the handler for that.</doc>
         </callback>
       </field>
       <field name="pipeline_ready">
+        <doc xml:space="preserve"
+             filename="clutter-gst-video-sink.h"
+             line="88">handler for the #ClutterGstVideoSink::pipeline-ready signal</doc>
         <callback name="pipeline_ready">
           <source-position filename="clutter-gst-video-sink.h" line="99"/>
           <return-value transfer-ownership="none">

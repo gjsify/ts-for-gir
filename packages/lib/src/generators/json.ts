@@ -235,7 +235,7 @@ export interface VirtualMethodJson extends NodeJson {
     parameters: ParameterJson[];
     returnType: TypeJson[] | TypeJson;
 }
-export interface MetadataJson extends Json {}
+export type MetadataJson = Json;
 export interface ConstJson extends NodeJson {
     kind: NodeKind.constant;
     name: string;

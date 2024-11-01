@@ -531,6 +531,24 @@ perform reads and writes.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="set_param_bytes"
+              c:identifier="gom_command_set_param_bytes">
+        <source-position filename="gom/gom-command.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="command" transfer-ownership="none">
+            <type name="Command" c:type="GomCommand*"/>
+          </instance-parameter>
+          <parameter name="param" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="bytes" transfer-ownership="none">
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="set_param_double"
               c:identifier="gom_command_set_param_double">
         <source-position filename="gom/gom-command.h" line="65"/>
@@ -704,20 +722,20 @@ perform reads and writes.</doc>
               c:identifier="gom_command_builder_build_count">
         <doc xml:space="preserve"
              filename="gom/gom-command-builder.c"
-             line="574">Builds a new command that will count the number of rows matching the
+             line="580">Builds a new command that will count the number of rows matching the
 current query parameters.</doc>
         <source-position filename="gom/gom-command-builder.h" line="54"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gom/gom-command-builder.c"
-               line="581">A #GomCommand.</doc>
+               line="587">A #GomCommand.</doc>
           <type name="Command" c:type="GomCommand*"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="576">A #GomCommandBuilder.</doc>
+                 line="582">A #GomCommandBuilder.</doc>
             <type name="CommandBuilder" c:type="GomCommandBuilder*"/>
           </instance-parameter>
         </parameters>
@@ -726,13 +744,13 @@ current query parameters.</doc>
               c:identifier="gom_command_builder_build_create">
         <doc xml:space="preserve"
              filename="gom/gom-command-builder.c"
-             line="424">Builds a list of #GomCommand to update the table for the
+             line="430">Builds a list of #GomCommand to update the table for the
 resource_type associated with @builder up to @version.</doc>
         <source-position filename="gom/gom-command-builder.h" line="61"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gom/gom-command-builder.c"
-               line="432">A #GList of #GomCommand.</doc>
+               line="438">A #GList of #GomCommand.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Command"/>
           </type>
@@ -741,13 +759,13 @@ resource_type associated with @builder up to @version.</doc>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="426">A #GomCommandBuilder.</doc>
+                 line="432">A #GomCommandBuilder.</doc>
             <type name="CommandBuilder" c:type="GomCommandBuilder*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="427">the version of the database.</doc>
+                 line="433">the version of the database.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -756,20 +774,20 @@ resource_type associated with @builder up to @version.</doc>
               c:identifier="gom_command_builder_build_delete">
         <doc xml:space="preserve"
              filename="gom/gom-command-builder.c"
-             line="620">Builds a new #GomCommand to delete the rows matching the current query
+             line="626">Builds a new #GomCommand to delete the rows matching the current query
 params.</doc>
         <source-position filename="gom/gom-command-builder.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gom/gom-command-builder.c"
-               line="627">A #GomCommand.</doc>
+               line="633">A #GomCommand.</doc>
           <type name="Command" c:type="GomCommand*"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="622">A #GomCommandBuilder.</doc>
+                 line="628">A #GomCommandBuilder.</doc>
             <type name="CommandBuilder" c:type="GomCommandBuilder*"/>
           </instance-parameter>
         </parameters>
@@ -778,26 +796,26 @@ params.</doc>
               c:identifier="gom_command_builder_build_insert">
         <doc xml:space="preserve"
              filename="gom/gom-command-builder.c"
-             line="708">Builds a new #GomCommand that will insert the parameters of the resource
+             line="714">Builds a new #GomCommand that will insert the parameters of the resource
 into the underlying database.</doc>
         <source-position filename="gom/gom-command-builder.h" line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gom/gom-command-builder.c"
-               line="716">A #GomCommand.</doc>
+               line="722">A #GomCommand.</doc>
           <type name="Command" c:type="GomCommand*"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="710">A #GomCommandBuilder.</doc>
+                 line="716">A #GomCommandBuilder.</doc>
             <type name="CommandBuilder" c:type="GomCommandBuilder*"/>
           </instance-parameter>
           <parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="711">a #GomResource</doc>
+                 line="717">a #GomResource</doc>
             <type name="Resource" c:type="GomResource*"/>
           </parameter>
         </parameters>
@@ -806,20 +824,20 @@ into the underlying database.</doc>
               c:identifier="gom_command_builder_build_select">
         <doc xml:space="preserve"
              filename="gom/gom-command-builder.c"
-             line="528">Builds a #GomCommand that will select all the rows matching the current
+             line="534">Builds a #GomCommand that will select all the rows matching the current
 query params.</doc>
         <source-position filename="gom/gom-command-builder.h" line="56"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gom/gom-command-builder.c"
-               line="535">A #GomCommand.</doc>
+               line="541">A #GomCommand.</doc>
           <type name="Command" c:type="GomCommand*"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="530">A #GomCommandBuilder.</doc>
+                 line="536">A #GomCommandBuilder.</doc>
             <type name="CommandBuilder" c:type="GomCommandBuilder*"/>
           </instance-parameter>
         </parameters>
@@ -828,26 +846,26 @@ query params.</doc>
               c:identifier="gom_command_builder_build_update">
         <doc xml:space="preserve"
              filename="gom/gom-command-builder.c"
-             line="812">Builds a new #GomCommand that will update the contents stored for @resource
+             line="818">Builds a new #GomCommand that will update the contents stored for @resource
 in the underlying database.</doc>
         <source-position filename="gom/gom-command-builder.h" line="59"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gom/gom-command-builder.c"
-               line="820">A #GomCommand.</doc>
+               line="826">A #GomCommand.</doc>
           <type name="Command" c:type="GomCommand*"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="814">A #GomCommandBuilder.</doc>
+                 line="820">A #GomCommandBuilder.</doc>
             <type name="CommandBuilder" c:type="GomCommandBuilder*"/>
           </instance-parameter>
           <parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gom/gom-command-builder.c"
-                 line="815">a #GomResource</doc>
+                 line="821">a #GomResource</doc>
             <type name="Resource" c:type="GomResource*"/>
           </parameter>
         </parameters>

@@ -1,0 +1,26 @@
+{
+  "name": "@ts-for-gir-example/pkg-tsc",
+  "version": "4.0.0-beta.16",
+  "description": "Simple pkg GJS example",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:app": "tsc",
+    "build": "yarn build:app",
+    "start:app": "gjs -m dist/main.js",
+    "debug:app": "GTK_DEBUG=interactive yarn start:app",
+    "start": "yarn build && yarn start:app",
+    "validate": "yarn validate:types",
+    "validate:types": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^"
+  }
+}

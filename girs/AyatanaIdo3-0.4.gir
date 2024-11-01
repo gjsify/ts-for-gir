@@ -1237,12 +1237,12 @@ of user input.</doc>
       <constructor name="new" c:identifier="ido_switch_menu_item_new">
         <doc xml:space="preserve"
              filename="src/idoswitchmenuitem.c"
-             line="106">Creates a new #IdoSwitchMenuItem</doc>
+             line="107">Creates a new #IdoSwitchMenuItem</doc>
         <source-position filename="src/idoswitchmenuitem.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoswitchmenuitem.c"
-               line="111">a new #IdoSwitchMenuItem.</doc>
+               line="112">a new #IdoSwitchMenuItem.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -1265,21 +1265,21 @@ of user input.</doc>
               c:identifier="ido_switch_menu_item_get_content_area">
         <doc xml:space="preserve"
              filename="src/idoswitchmenuitem.c"
-             line="119">Get the #GtkContainer to add additional widgets into.
+             line="120">Get the #GtkContainer to add additional widgets into.
 
 This function is dperecated.</doc>
         <source-position filename="src/idoswitchmenuitem.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoswitchmenuitem.c"
-               line="127">The #GtkContainer to add additional widgets into.</doc>
+               line="128">The #GtkContainer to add additional widgets into.</doc>
           <type name="Gtk.Container" c:type="GtkContainer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoswitchmenuitem.c"
-                 line="121">The #IdoSwitchMenuItem.</doc>
+                 line="122">The #IdoSwitchMenuItem.</doc>
             <type name="SwitchMenuItem" c:type="IdoSwitchMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1287,7 +1287,7 @@ This function is dperecated.</doc>
       <method name="set_icon" c:identifier="ido_switch_menu_item_set_icon">
         <doc xml:space="preserve"
              filename="src/idoswitchmenuitem.c"
-             line="177">Set the icon of @item to @icon.</doc>
+             line="212">Set the icon of @item to @icon.</doc>
         <source-position filename="src/idoswitchmenuitem.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1296,7 +1296,7 @@ This function is dperecated.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoswitchmenuitem.c"
-                 line="179">a #IdoSwitchMenuItem.</doc>
+                 line="214">a #IdoSwitchMenuItem.</doc>
             <type name="SwitchMenuItem" c:type="IdoSwitchMenuItem*"/>
           </instance-parameter>
           <parameter name="icon"
@@ -1305,7 +1305,7 @@ This function is dperecated.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/idoswitchmenuitem.c"
-                 line="180">a #GIcon</doc>
+                 line="215">a #GIcon</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -1313,7 +1313,7 @@ This function is dperecated.</doc>
       <method name="set_label" c:identifier="ido_switch_menu_item_set_label">
         <doc xml:space="preserve"
              filename="src/idoswitchmenuitem.c"
-             line="148">Set the label of @item to @label.</doc>
+             line="149">Set the label of @item to @label.</doc>
         <source-position filename="src/idoswitchmenuitem.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1322,13 +1322,13 @@ This function is dperecated.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoswitchmenuitem.c"
-                 line="150">a #IdoSwitchMenuItem.</doc>
+                 line="151">a #IdoSwitchMenuItem.</doc>
             <type name="SwitchMenuItem" c:type="IdoSwitchMenuItem*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoswitchmenuitem.c"
-                 line="151">a string to set as the label of @item</doc>
+                 line="152">a string to set as the label of @item</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>

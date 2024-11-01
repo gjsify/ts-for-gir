@@ -467,7 +467,10 @@ while fetching it. More cookie can be added to every #GrssFeedChannel</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="fetch" c:identifier="grss_feed_channel_fetch" throws="1">
+      <method name="fetch"
+              c:identifier="grss_feed_channel_fetch"
+              throws="1"
+              glib:async-func="fetch_async">
         <doc xml:space="preserve"
              filename="feed-channel.c"
              line="989">Utility to fetch and populate a #GrssFeedChannel for the first time, and init
@@ -493,16 +496,17 @@ otherwise.</doc>
       </method>
       <method name="fetch_all"
               c:identifier="grss_feed_channel_fetch_all"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_all_async">
         <doc xml:space="preserve"
              filename="feed-channel.c"
-             line="1119">Utility to fetch and populate a #GrssFeedChannel, and retrieve all its
+             line="1122">Utility to fetch and populate a #GrssFeedChannel, and retrieve all its
 items.</doc>
         <source-position filename="feed-channel.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="feed-channel.c"
-               line="1128">a GList
+               line="1131">a GList
 of #GrssFeedItem, to be completely unreferenced and freed when no
 longer in use, or %NULL if an error occurs.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -513,16 +517,18 @@ longer in use, or %NULL if an error occurs.</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1121">a #GrssFeedChannel.</doc>
+                 line="1124">a #GrssFeedChannel.</doc>
             <type name="FeedChannel" c:type="GrssFeedChannel*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="fetch_all_async"
-              c:identifier="grss_feed_channel_fetch_all_async">
+              c:identifier="grss_feed_channel_fetch_all_async"
+              glib:finish-func="fetch_all_finish"
+              glib:sync-func="fetch_all">
         <doc xml:space="preserve"
              filename="feed-channel.c"
-             line="1207">Similar to grss_feed_channel_fetch_all(), but asyncronous.</doc>
+             line="1211">Similar to grss_feed_channel_fetch_all(), but asyncronous.</doc>
         <source-position filename="feed-channel.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -531,7 +537,7 @@ longer in use, or %NULL if an error occurs.</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1209">a #GrssFeedChannel.</doc>
+                 line="1213">a #GrssFeedChannel.</doc>
             <type name="FeedChannel" c:type="GrssFeedChannel*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -542,7 +548,7 @@ longer in use, or %NULL if an error occurs.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1210">function to invoke at the end of the download.</doc>
+                 line="1214">function to invoke at the end of the download.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -551,7 +557,7 @@ longer in use, or %NULL if an error occurs.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1211">data passed to the callback.</doc>
+                 line="1215">data passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -561,13 +567,13 @@ longer in use, or %NULL if an error occurs.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="feed-channel.c"
-             line="1234">Finalizes an asyncronous operation started with
+             line="1239">Finalizes an asyncronous operation started with
 grss_feed_channel_fetch_all_async().</doc>
         <source-position filename="feed-channel.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-channel.c"
-               line="1244">list of
+               line="1249">list of
 items fetched from the #GrssFeedChannel, or %NULL if @error is
 set. The list (and contained items) is freed at the end of the
 callback</doc>
@@ -579,21 +585,24 @@ callback</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1236">a #GrssFeedChannel.</doc>
+                 line="1241">a #GrssFeedChannel.</doc>
             <type name="FeedChannel" c:type="GrssFeedChannel*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1237">the #GAsyncResult passed to the callback.</doc>
+                 line="1242">the #GAsyncResult passed to the callback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="fetch_async" c:identifier="grss_feed_channel_fetch_async">
+      <method name="fetch_async"
+              c:identifier="grss_feed_channel_fetch_async"
+              glib:finish-func="fetch_finish"
+              glib:sync-func="fetch">
         <doc xml:space="preserve"
              filename="feed-channel.c"
-             line="1088">Similar to grss_feed_channel_fetch(), but asyncronous.</doc>
+             line="1090">Similar to grss_feed_channel_fetch(), but asyncronous.</doc>
         <source-position filename="feed-channel.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -602,7 +611,7 @@ callback</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1090">a #GrssFeedChannel.</doc>
+                 line="1092">a #GrssFeedChannel.</doc>
             <type name="FeedChannel" c:type="GrssFeedChannel*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -613,7 +622,7 @@ callback</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1091">function to invoke at the end of the download.</doc>
+                 line="1093">function to invoke at the end of the download.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -622,7 +631,7 @@ callback</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1092">data passed to the callback.</doc>
+                 line="1094">data passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -631,13 +640,13 @@ callback</doc>
               c:identifier="grss_feed_channel_fetch_cancel">
         <doc xml:space="preserve"
              filename="feed-channel.c"
-             line="1255">If a fetch operation was scheduled with grss_feed_channel_fetch_async() or
+             line="1263">If a fetch operation was scheduled with grss_feed_channel_fetch_async() or
 grss_feed_channel_fetch_all_async(), cancel it.</doc>
         <source-position filename="feed-channel.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-channel.c"
-               line="1262">%TRUE if a fetch was scheduled (and now cancelled), %FALSE if
+               line="1270">%TRUE if a fetch was scheduled (and now cancelled), %FALSE if
 this function had nothing to do</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -645,7 +654,7 @@ this function had nothing to do</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1257">a #GrssFeedChannel.</doc>
+                 line="1265">a #GrssFeedChannel.</doc>
             <type name="FeedChannel" c:type="GrssFeedChannel*"/>
           </instance-parameter>
         </parameters>
@@ -655,13 +664,13 @@ this function had nothing to do</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="feed-channel.c"
-             line="1062">Finalizes an asyncronous operation started with
+             line="1061">Finalizes an asyncronous operation started with
 grss_feed_channel_fetch_async().</doc>
         <source-position filename="feed-channel.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-channel.c"
-               line="1072">%TRUE if @channel informations have been successfully fetched,
+               line="1071">%TRUE if @channel informations have been successfully fetched,
 %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -669,13 +678,13 @@ grss_feed_channel_fetch_async().</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1064">a #GrssFeedChannel.</doc>
+                 line="1063">a #GrssFeedChannel.</doc>
             <type name="FeedChannel" c:type="GrssFeedChannel*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-channel.c"
-                 line="1065">the #GAsyncResult passed to the callback.</doc>
+                 line="1064">the #GAsyncResult passed to the callback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -967,7 +976,7 @@ this is the feed).</doc>
           <doc xml:space="preserve"
                filename="feed-channel.c"
                line="876">time of feed's publish.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
@@ -1116,7 +1125,7 @@ grss_feed_channel_set_update_interval().</doc>
                line="903">time of the feed's latest update. If this value was not set
 (with grss_feed_channel_set_update_time()) returns
 grss_feed_channel_get_publish_time().</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
@@ -1438,7 +1447,7 @@ grss_feed_channel_get_publish_time().</doc>
             <doc xml:space="preserve"
                  filename="feed-channel.c"
                  line="860">timestamp of publishing.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1594,7 +1603,7 @@ pass %NULL as parameter.</doc>
             <doc xml:space="preserve"
                  filename="feed-channel.c"
                  line="887">update time of the feed.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1671,7 +1680,10 @@ pass %NULL as parameter.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <method name="fetch" c:identifier="grss_feed_enclosure_fetch" throws="1">
+      <method name="fetch"
+              c:identifier="grss_feed_enclosure_fetch"
+              throws="1"
+              glib:async-func="fetch_async">
         <doc xml:space="preserve"
              filename="feed-enclosure.c"
              line="197">Utility to fetch a #GrssFeedEnclosure. Contents are stored in a temporary
@@ -1695,10 +1707,12 @@ written, or %NULL if an error occours.</doc>
         </parameters>
       </method>
       <method name="fetch_async"
-              c:identifier="grss_feed_enclosure_fetch_async">
+              c:identifier="grss_feed_enclosure_fetch_async"
+              glib:finish-func="fetch_finish"
+              glib:sync-func="fetch">
         <doc xml:space="preserve"
              filename="feed-enclosure.c"
-             line="268">Similar to grss_feed_enclosure_fetch(), but asyncronous.</doc>
+             line="269">Similar to grss_feed_enclosure_fetch(), but asyncronous.</doc>
         <source-position filename="feed-enclosure.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1707,7 +1721,7 @@ written, or %NULL if an error occours.</doc>
           <instance-parameter name="enclosure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-enclosure.c"
-                 line="270">a #GrssFeedEnclosure.</doc>
+                 line="271">a #GrssFeedEnclosure.</doc>
             <type name="FeedEnclosure" c:type="GrssFeedEnclosure*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -1718,7 +1732,7 @@ written, or %NULL if an error occours.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="feed-enclosure.c"
-                 line="271">function to invoke at the end of the download.</doc>
+                 line="272">function to invoke at the end of the download.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1727,7 +1741,7 @@ written, or %NULL if an error occours.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="feed-enclosure.c"
-                 line="272">data passed to the callback.</doc>
+                 line="273">data passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1737,13 +1751,13 @@ written, or %NULL if an error occours.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="feed-enclosure.c"
-             line="289">Finalizes an asyncronous operation started with
+             line="290">Finalizes an asyncronous operation started with
 grss_feed_enclosure_fetch_async().</doc>
         <source-position filename="feed-enclosure.h" line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="feed-enclosure.c"
-               line="299">temporary file where the contents have been
+               line="300">temporary file where the contents have been
 written, or %NULL if an error occours.</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -1751,13 +1765,13 @@ written, or %NULL if an error occours.</doc>
           <instance-parameter name="enclosure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-enclosure.c"
-                 line="291">a #GrssFeedEnclosure.</doc>
+                 line="292">a #GrssFeedEnclosure.</doc>
             <type name="FeedEnclosure" c:type="GrssFeedEnclosure*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-enclosure.c"
-                 line="292">the #GAsyncResult passed to the callback.</doc>
+                 line="293">the #GAsyncResult passed to the callback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2153,7 +2167,7 @@ rappresentation of the given channel containing the given items.</doc>
       <method name="add_category" c:identifier="grss_feed_item_add_category">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="257">Adds a category to the @item. The complete list can be obtained with
+             line="258">Adds a category to the @item. The complete list can be obtained with
 grss_feed_item_get_categories().</doc>
         <source-position filename="feed-item.h" line="59"/>
         <return-value transfer-ownership="none">
@@ -2163,13 +2177,13 @@ grss_feed_item_get_categories().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="259">a #GrssFeedItem.</doc>
+                 line="260">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="260">a new category to assign to the item.</doc>
+                 line="261">a new category to assign to the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2178,7 +2192,7 @@ grss_feed_item_get_categories().</doc>
               c:identifier="grss_feed_item_add_contributor">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="462">To add a contributor to the @item.</doc>
+             line="463">To add a contributor to the @item.</doc>
         <source-position filename="feed-item.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2187,13 +2201,13 @@ grss_feed_item_get_categories().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="464">a #GrssFeedItem.</doc>
+                 line="465">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="contributor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="465">a #GrssPerson.</doc>
+                 line="466">a #GrssPerson.</doc>
             <type name="Person" c:type="GrssPerson*"/>
           </parameter>
         </parameters>
@@ -2201,7 +2215,7 @@ grss_feed_item_get_categories().</doc>
       <method name="add_enclosure" c:identifier="grss_feed_item_add_enclosure">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="611">Adds an enclosure to the @item. That external elements may be references
+             line="612">Adds an enclosure to the @item. That external elements may be references
 to images, videos, or other contents (usually multimedial) embedded in the
 element.</doc>
         <source-position filename="feed-item.h" line="82"/>
@@ -2212,13 +2226,13 @@ element.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="613">a #GrssFeedItem.</doc>
+                 line="614">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="enclosure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="614">a #GrssFeedEnclosure to add to the item.</doc>
+                 line="615">a #GrssFeedEnclosure to add to the item.</doc>
             <type name="FeedEnclosure" c:type="GrssFeedEnclosure*"/>
           </parameter>
         </parameters>
@@ -2226,19 +2240,19 @@ element.</doc>
       <method name="get_author" c:identifier="grss_feed_item_get_author">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="448">Retrieves the author of @item.</doc>
+             line="449">Retrieves the author of @item.</doc>
         <source-position filename="feed-item.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="454">#GrssPerson, or %NULL.</doc>
+               line="455">#GrssPerson, or %NULL.</doc>
           <type name="Person" c:type="GrssPerson*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="450">a #GrssFeedItem.</doc>
+                 line="451">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2247,12 +2261,12 @@ element.</doc>
               c:identifier="grss_feed_item_get_categories">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="278">Retrieves list of categories assigned to the @item.</doc>
+             line="279">Retrieves list of categories assigned to the @item.</doc>
         <source-position filename="feed-item.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="284">list of strings,
+               line="285">list of strings,
 one for assigned category. Do not free or modify this list.</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="utf8"/>
@@ -2262,7 +2276,7 @@ one for assigned category. Do not free or modify this list.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="280">a #GrssFeedItem.</doc>
+                 line="281">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2271,19 +2285,19 @@ one for assigned category. Do not free or modify this list.</doc>
               c:identifier="grss_feed_item_get_comments_url">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="519">Retrieves the URL where to catch comments to the @item.</doc>
+             line="520">Retrieves the URL where to catch comments to the @item.</doc>
         <source-position filename="feed-item.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="525">URL to parse to read comments for @item, or %NULL.</doc>
+               line="526">URL to parse to read comments for @item, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="521">a #GrssFeedItem.</doc>
+                 line="522">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2292,12 +2306,12 @@ one for assigned category. Do not free or modify this list.</doc>
               c:identifier="grss_feed_item_get_contributors">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="481">Retrieves contributors for @item.</doc>
+             line="482">Retrieves contributors for @item.</doc>
         <source-position filename="feed-item.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="487">list of
+               line="488">list of
          contributors to the item.</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="Person"/>
@@ -2307,7 +2321,7 @@ one for assigned category. Do not free or modify this list.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="483">a #GrssFeedItem.</doc>
+                 line="484">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2315,19 +2329,19 @@ one for assigned category. Do not free or modify this list.</doc>
       <method name="get_copyright" c:identifier="grss_feed_item_get_copyright">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="416">Retrieves copyright reference for the @item.</doc>
+             line="417">Retrieves copyright reference for the @item.</doc>
         <source-position filename="feed-item.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="422">copyright mark, or %NULL.</doc>
+               line="423">copyright mark, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="418">a #GrssFeedItem.</doc>
+                 line="419">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2336,19 +2350,19 @@ one for assigned category. Do not free or modify this list.</doc>
               c:identifier="grss_feed_item_get_description">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="243">Retrieves the description of the @item.</doc>
+             line="244">Retrieves the description of the @item.</doc>
         <source-position filename="feed-item.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="249">description of @item.</doc>
+               line="250">description of @item.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="245">a #GrssFeedItem.</doc>
+                 line="246">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2357,12 +2371,12 @@ one for assigned category. Do not free or modify this list.</doc>
               c:identifier="grss_feed_item_get_enclosures">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="629">Retrieves the list of enclosures added with grss_feed_item_add_enclosure().</doc>
+             line="630">Retrieves the list of enclosures added with grss_feed_item_add_enclosure().</doc>
         <source-position filename="feed-item.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="635">a list of
+               line="636">a list of
 #GrssFeedEnclosure. This is a direct reference to the internal list, do not
 free or modify it.</doc>
           <type name="GLib.List" c:type="const GList*">
@@ -2373,7 +2387,7 @@ free or modify it.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="631">a #GrssFeedItem.</doc>
+                 line="632">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2381,12 +2395,12 @@ free or modify it.</doc>
       <method name="get_geo_point" c:identifier="grss_feed_item_get_geo_point">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="559">Retrieves the geo reference of the @item.</doc>
+             line="560">Retrieves the geo reference of the @item.</doc>
         <source-position filename="feed-item.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="567">%TRUE if @item has geographic coordinates assigned and
+               line="568">%TRUE if @item has geographic coordinates assigned and
 @latitude and @longitude have been set, %FALSE if @item has not geo
 reference.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -2395,25 +2409,19 @@ reference.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="561">a #GrssFeedItem.</doc>
+                 line="562">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
-          <parameter name="latitude"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
+          <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="562">will be assigned to the latitude of the point, or %NULL.</doc>
+                 line="563">will be assigned to the latitude of the point, or %NULL.</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
-          <parameter name="longitude"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
+          <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="563">will be assigned to the longitude of the point, or %NULL.</doc>
+                 line="564">will be assigned to the longitude of the point, or %NULL.</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -2421,7 +2429,7 @@ reference.</doc>
       <method name="get_id" c:identifier="grss_feed_item_get_id">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="181">Retrieves the ID assigned to the @item. If no ID was set with
+             line="182">Retrieves the ID assigned to the @item. If no ID was set with
 grss_feed_item_set_id() this returns the same of grss_feed_item_get_source().
 Pay attention to the fact this library do not check uniqueness of assigned
 IDs.</doc>
@@ -2429,14 +2437,14 @@ IDs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="190">ID of the item.</doc>
+               line="191">ID of the item.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="183">#GrssFeedItem from which retrieve the ID.</doc>
+                 line="184">#GrssFeedItem from which retrieve the ID.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2444,19 +2452,19 @@ IDs.</doc>
       <method name="get_parent" c:identifier="grss_feed_item_get_parent">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="142">Retrieves the feed from which the item belongs.</doc>
+             line="143">Retrieves the feed from which the item belongs.</doc>
         <source-position filename="feed-item.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="148">the parent feed, as set in grss_feed_item_new().</doc>
+               line="149">the parent feed, as set in grss_feed_item_new().</doc>
           <type name="FeedChannel" c:type="GrssFeedChannel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="144">a #GrssFeedItem.</doc>
+                 line="145">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2465,21 +2473,21 @@ IDs.</doc>
               c:identifier="grss_feed_item_get_publish_time">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="595">Retrieves the publish time of the item. By default this value is the
+             line="596">Retrieves the publish time of the item. By default this value is the
 current timestamp assigned when creating the #GrssFeedItem, and may be
 changed with grss_feed_item_set_publish_time().</doc>
         <source-position filename="feed-item.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="603">publish time of @item.</doc>
-          <type name="glong" c:type="time_t"/>
+               line="604">publish time of @item.</doc>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="597">a #GrssFeedItem.</doc>
+                 line="598">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2488,7 +2496,7 @@ changed with grss_feed_item_set_publish_time().</doc>
               c:identifier="grss_feed_item_get_real_source">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="357">Retrieves references to the real source of @item.</doc>
+             line="358">Retrieves references to the real source of @item.</doc>
         <source-position filename="feed-item.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2497,19 +2505,19 @@ changed with grss_feed_item_set_publish_time().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="359">a #GrssFeedItem.</doc>
+                 line="360">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="realsource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="360">will be assigned to the URL of the real source, or %NULL.</doc>
+                 line="361">will be assigned to the URL of the real source, or %NULL.</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="361">will be assigned to the title of the real source, or %NULL.</doc>
+                 line="362">will be assigned to the title of the real source, or %NULL.</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>
@@ -2517,19 +2525,19 @@ changed with grss_feed_item_set_publish_time().</doc>
       <method name="get_related" c:identifier="grss_feed_item_get_related">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="388">Retrieves indication about posts related to @item.</doc>
+             line="389">Retrieves indication about posts related to @item.</doc>
         <source-position filename="feed-item.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="394">related posts, or %NULL.</doc>
+               line="395">related posts, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="390">a #GrssFeedItem.</doc>
+                 line="391">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2537,19 +2545,19 @@ changed with grss_feed_item_set_publish_time().</doc>
       <method name="get_source" c:identifier="grss_feed_item_get_source">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="316">Retrieves the URL where the @item can be found.</doc>
+             line="317">Retrieves the URL where the @item can be found.</doc>
         <source-position filename="feed-item.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="322">URL of the item, or %NULL.</doc>
+               line="323">URL of the item, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="318">a #GrssFeedItem.</doc>
+                 line="319">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2557,19 +2565,19 @@ changed with grss_feed_item_set_publish_time().</doc>
       <method name="get_title" c:identifier="grss_feed_item_get_title">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="215">Retrieves the title assigned to @item.</doc>
+             line="216">Retrieves the title assigned to @item.</doc>
         <source-position filename="feed-item.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="221">title of the element.</doc>
+               line="222">title of the element.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="217">a #GrssFeedItem.</doc>
+                 line="218">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
         </parameters>
@@ -2577,7 +2585,7 @@ changed with grss_feed_item_set_publish_time().</doc>
       <method name="set_author" c:identifier="grss_feed_item_set_author">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="430">To assign an author to the @item.</doc>
+             line="431">To assign an author to the @item.</doc>
         <source-position filename="feed-item.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2586,13 +2594,13 @@ changed with grss_feed_item_set_publish_time().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="432">a #GrssFeedItem.</doc>
+                 line="433">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="author" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="433">a #GrssPerson.</doc>
+                 line="434">a #GrssPerson.</doc>
             <type name="Person" c:type="GrssPerson*"/>
           </parameter>
         </parameters>
@@ -2601,25 +2609,25 @@ changed with grss_feed_item_set_publish_time().</doc>
               c:identifier="grss_feed_item_set_comments_url">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="496">To assign the URL where to fetch comments for the item.</doc>
+             line="497">To assign the URL where to fetch comments for the item.</doc>
         <source-position filename="feed-item.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="503">%TRUE if @url is a valid URL, %FALSE otherwise</doc>
+               line="504">%TRUE if @url is a valid URL, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="498">a #GrssFeedItem.</doc>
+                 line="499">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="499">URL where to retrieve comments to the item.</doc>
+                 line="500">URL where to retrieve comments to the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2627,7 +2635,7 @@ changed with grss_feed_item_set_publish_time().</doc>
       <method name="set_copyright" c:identifier="grss_feed_item_set_copyright">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="402">To set a copyright reference to @item.</doc>
+             line="403">To set a copyright reference to @item.</doc>
         <source-position filename="feed-item.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2636,13 +2644,13 @@ changed with grss_feed_item_set_publish_time().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="404">a #GrssFeedItem.</doc>
+                 line="405">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="copyright" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="405">copyright declaration for the item.</doc>
+                 line="406">copyright declaration for the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2651,7 +2659,7 @@ changed with grss_feed_item_set_publish_time().</doc>
               c:identifier="grss_feed_item_set_description">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="229">To set the description of @item. Usually "description" means his content.</doc>
+             line="230">To set the description of @item. Usually "description" means his content.</doc>
         <source-position filename="feed-item.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2660,13 +2668,13 @@ changed with grss_feed_item_set_publish_time().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="231">a #GrssFeedItem.</doc>
+                 line="232">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="232">content of the item.</doc>
+                 line="233">content of the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2674,7 +2682,7 @@ changed with grss_feed_item_set_publish_time().</doc>
       <method name="set_geo_point" c:identifier="grss_feed_item_set_geo_point">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="533">To assign geographic context to the @item.
+             line="534">To assign geographic context to the @item.
 Passing -1 as @latitude or @longitude, the relative value is untouched in
 the object. This is to easy assignment of coordinates in more than a
 single step. If both are -1, nothing happens.</doc>
@@ -2686,19 +2694,19 @@ single step. If both are -1, nothing happens.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="535">a #GrssFeedItem.</doc>
+                 line="536">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="536">latitude of the point, or -1 to leave the previous one.</doc>
+                 line="537">latitude of the point, or -1 to leave the previous one.</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="537">longitude of the point, or -1 to leave the previous one.</doc>
+                 line="538">longitude of the point, or -1 to leave the previous one.</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -2706,7 +2714,7 @@ single step. If both are -1, nothing happens.</doc>
       <method name="set_id" c:identifier="grss_feed_item_set_id">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="156">To set the ID of the @item. This parameter has not a particular format: it
+             line="157">To set the ID of the @item. This parameter has not a particular format: it
 is just a string used to identify in unique way the item.</doc>
         <source-position filename="feed-item.h" line="53"/>
         <return-value transfer-ownership="none">
@@ -2716,13 +2724,13 @@ is just a string used to identify in unique way the item.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="158">a #GrssFeedItem.</doc>
+                 line="159">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="159">the new ID to set.</doc>
+                 line="160">the new ID to set.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2731,7 +2739,7 @@ is just a string used to identify in unique way the item.</doc>
               c:identifier="grss_feed_item_set_publish_time">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="582">To set the publish time of the item.</doc>
+             line="583">To set the publish time of the item.</doc>
         <source-position filename="feed-item.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2740,14 +2748,14 @@ is just a string used to identify in unique way the item.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="584">a #GrssFeedItem.</doc>
+                 line="585">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="publish" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="585">publishing timestamp of the item.</doc>
-            <type name="glong" c:type="time_t"/>
+                 line="586">publishing timestamp of the item.</doc>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2755,32 +2763,32 @@ is just a string used to identify in unique way the item.</doc>
               c:identifier="grss_feed_item_set_real_source">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="330">To set an alternative real source for @item. This parameter is used by web
+             line="331">To set an alternative real source for @item. This parameter is used by web
 aggregators to explicit the origin of a content reproduced in them.</doc>
         <source-position filename="feed-item.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="339">%TRUE if @realsource is a valid URL, %FALSE otherwise</doc>
+               line="340">%TRUE if @realsource is a valid URL, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="332">a #GrssFeedItem.</doc>
+                 line="333">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="realsource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="333">URL of the real source for the item.</doc>
+                 line="334">URL of the real source for the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="334">title of the real source.</doc>
+                 line="335">title of the real source.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2788,7 +2796,7 @@ aggregators to explicit the origin of a content reproduced in them.</doc>
       <method name="set_related" c:identifier="grss_feed_item_set_related">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="374">To set reference to a post related to @item.</doc>
+             line="375">To set reference to a post related to @item.</doc>
         <source-position filename="feed-item.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2797,13 +2805,13 @@ aggregators to explicit the origin of a content reproduced in them.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="376">a #GrssFeedItem.</doc>
+                 line="377">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="related" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="377">reference to a related post.</doc>
+                 line="378">reference to a related post.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2811,25 +2819,25 @@ aggregators to explicit the origin of a content reproduced in them.</doc>
       <method name="set_source" c:identifier="grss_feed_item_set_source">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="293">To set the source of the @item.</doc>
+             line="294">To set the source of the @item.</doc>
         <source-position filename="feed-item.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feed-item.c"
-               line="300">%TRUE if @source is a valid URL, %FALSE otherwise</doc>
+               line="301">%TRUE if @source is a valid URL, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="295">a #GrssFeedItem.</doc>
+                 line="296">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="296">URL of the item.</doc>
+                 line="297">URL of the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2837,7 +2845,7 @@ aggregators to explicit the origin of a content reproduced in them.</doc>
       <method name="set_title" c:identifier="grss_feed_item_set_title">
         <doc xml:space="preserve"
              filename="feed-item.c"
-             line="201">To set a title to the @item.</doc>
+             line="202">To set a title to the @item.</doc>
         <source-position filename="feed-item.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2846,13 +2854,13 @@ aggregators to explicit the origin of a content reproduced in them.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="203">a #GrssFeedItem.</doc>
+                 line="204">a #GrssFeedItem.</doc>
             <type name="FeedItem" c:type="GrssFeedItem*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feed-item.c"
-                 line="204">title of the item.</doc>
+                 line="205">title of the item.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -3049,8 +3057,8 @@ skips parsing of items into the document.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="feeds-group.c"
-             line="231">Creates a new file with the list of @channels represented in the required
-@format. If the file already exists at the @uri location, it is overwritten.</doc>
+             line="231">Creates a new file with the list of @channels rappresented in the required
+@format. It a file already exists at the @uri location, it is overwritten.</doc>
         <source-position filename="feeds-group.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3272,19 +3280,19 @@ grss_feeds_pool_get_listened().</doc>
       <method name="get_session" c:identifier="grss_feeds_pool_get_session">
         <doc xml:space="preserve"
              filename="feeds-pool.c"
-             line="395">To access the internal #SoupSession used by the @pool to fetch items.</doc>
+             line="391">To access the internal #SoupSession used by the @pool to fetch items.</doc>
         <source-position filename="feeds-pool.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="feeds-pool.c"
-               line="401">instance of #SoupSession. Do not free it.</doc>
+               line="397">instance of #SoupSession. Do not free it.</doc>
           <type name="Soup.Session" c:type="SoupSession*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-pool.c"
-                 line="397">a #GrssFeedsPool.</doc>
+                 line="393">a #GrssFeedsPool.</doc>
             <type name="FeedsPool" c:type="GrssFeedsPool*"/>
           </instance-parameter>
         </parameters>
@@ -3322,7 +3330,7 @@ are g_object_ref'd here.</doc>
       <method name="switch" c:identifier="grss_feeds_pool_switch">
         <doc xml:space="preserve"
              filename="feeds-pool.c"
-             line="370">Permits to pause or resume the @pool fetching feeds. If @run is %TRUE, the
+             line="366">Permits to pause or resume the @pool fetching feeds. If @run is %TRUE, the
 @pool starts immediately.</doc>
         <source-position filename="feeds-pool.h" line="55"/>
         <return-value transfer-ownership="none">
@@ -3332,13 +3340,13 @@ are g_object_ref'd here.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-pool.c"
-                 line="372">a #GrssFeedsPool.</doc>
+                 line="368">a #GrssFeedsPool.</doc>
             <type name="FeedsPool" c:type="GrssFeedsPool*"/>
           </instance-parameter>
           <parameter name="run" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-pool.c"
-                 line="373">%TRUE to run the pool, %FALSE to pause it.</doc>
+                 line="369">%TRUE to run the pool, %FALSE to pause it.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3562,7 +3570,7 @@ freed when no longer in use.</doc>
               c:identifier="grss_feeds_publisher_hub_set_port">
         <doc xml:space="preserve"
              filename="feeds-publisher.c"
-             line="902">To customize the port opened by the local server to deliver feeds and
+             line="894">To customize the port opened by the local server to deliver feeds and
 catch incoming subscriptions. By default this is 80. Changing the port
 while the hub is running imply restart the local server.</doc>
         <source-position filename="feeds-publisher.h" line="56"/>
@@ -3573,13 +3581,13 @@ while the hub is running imply restart the local server.</doc>
           <instance-parameter name="pub" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-publisher.c"
-                 line="904">a #GrssFeedsPublisher.</doc>
+                 line="896">a #GrssFeedsPublisher.</doc>
             <type name="FeedsPublisher" c:type="GrssFeedsPublisher*"/>
           </instance-parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-publisher.c"
-                 line="905">new listening port for the server.</doc>
+                 line="897">new listening port for the server.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3588,7 +3596,7 @@ while the hub is running imply restart the local server.</doc>
               c:identifier="grss_feeds_publisher_hub_set_topics">
         <doc xml:space="preserve"
              filename="feeds-publisher.c"
-             line="924">To define a list of valid "topics" for which the #GrssFeedsPublisher will
+             line="916">To define a list of valid "topics" for which the #GrssFeedsPublisher will
 deliver contents. Sources of those channels, as retrieved by
 grss_feed_channel_get_source(), are accepted as "hub.topic" parameter in
 PubSubHubbub registration requests from remote subscribers.
@@ -3602,13 +3610,13 @@ now rejected.</doc>
           <instance-parameter name="pub" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-publisher.c"
-                 line="926">a #GrssFeedsPublisher.</doc>
+                 line="918">a #GrssFeedsPublisher.</doc>
             <type name="FeedsPublisher" c:type="GrssFeedsPublisher*"/>
           </instance-parameter>
           <parameter name="topics" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-publisher.c"
-                 line="927">a list of #GrssFeedChannels.</doc>
+                 line="919">a list of #GrssFeedChannels.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FeedChannel"/>
             </type>
@@ -3618,7 +3626,7 @@ now rejected.</doc>
       <method name="hub_switch" c:identifier="grss_feeds_publisher_hub_switch">
         <doc xml:space="preserve"
              filename="feeds-publisher.c"
-             line="998">Permits to start and stop the webserver implemented by this object.</doc>
+             line="990">Permits to start and stop the webserver implemented by this object.</doc>
         <source-position filename="feeds-publisher.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3627,13 +3635,13 @@ now rejected.</doc>
           <instance-parameter name="pub" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-publisher.c"
-                 line="1000">a #GrssFeedsPublisher.</doc>
+                 line="992">a #GrssFeedsPublisher.</doc>
             <type name="FeedsPublisher" c:type="GrssFeedsPublisher*"/>
           </instance-parameter>
           <parameter name="run" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="feeds-publisher.c"
-                 line="1001">%TRUE to run the local server, %FALSE to stop it.</doc>
+                 line="993">%TRUE to run the local server, %FALSE to stop it.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>

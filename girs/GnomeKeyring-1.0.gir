@@ -669,7 +669,7 @@ nothing occurs.</doc>
           <doc xml:space="preserve"
                filename="gnome-keyring-utils.c"
                line="1026">The created time.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="keyring_info" transfer-ownership="none">
@@ -765,7 +765,7 @@ See also gnome_keyring_info_get_lock_on_idle().</doc>
           <doc xml:space="preserve"
                filename="gnome-keyring-utils.c"
                line="1009">The last modified time.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="keyring_info" transfer-ownership="none">
@@ -913,7 +913,7 @@ A %NULL pointer may be passed, in which case it will be ignored.</doc>
           <doc xml:space="preserve"
                filename="gnome-keyring-utils.c"
                line="1182">The item created time.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="item_info" transfer-ownership="none">
@@ -959,7 +959,7 @@ A %NULL pointer may be passed, in which case it will be ignored.</doc>
           <doc xml:space="preserve"
                filename="gnome-keyring-utils.c"
                line="1165">The item last modified time.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="item_info" transfer-ownership="none">

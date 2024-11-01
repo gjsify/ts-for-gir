@@ -569,7 +569,10 @@ with the allocated size of the widget.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="press" c:identifier="mks_keyboard_press">
+      <method name="press"
+              c:identifier="mks_keyboard_press"
+              glib:finish-func="press_finish"
+              glib:sync-func="press_sync">
         <doc xml:space="preserve"
              filename="lib/mks-keyboard.c"
              line="243">Presses @keycode.</doc>
@@ -652,7 +655,8 @@ with the allocated size of the widget.</doc>
       </method>
       <method name="press_sync"
               c:identifier="mks_keyboard_press_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="press">
         <doc xml:space="preserve"
              filename="lib/mks-keyboard.c"
              line="312">Synchronously press the `keycode`.</doc>
@@ -688,7 +692,10 @@ with the allocated size of the widget.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="release" c:identifier="mks_keyboard_release">
+      <method name="release"
+              c:identifier="mks_keyboard_release"
+              glib:finish-func="release_finish"
+              glib:sync-func="release_sync">
         <doc xml:space="preserve"
              filename="lib/mks-keyboard.c"
              line="368">Releases @keycode.</doc>
@@ -771,7 +778,8 @@ with the allocated size of the widget.</doc>
       </method>
       <method name="release_sync"
               c:identifier="mks_keyboard_release_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="release">
         <doc xml:space="preserve"
              filename="lib/mks-keyboard.c"
              line="436">Synchronously release the `keycode`.</doc>
@@ -954,7 +962,10 @@ with the allocated size of the widget.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="move_by" c:identifier="mks_mouse_move_by">
+      <method name="move_by"
+              c:identifier="mks_mouse_move_by"
+              glib:finish-func="move_by_finish"
+              glib:sync-func="move_by_sync">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="624">Moves the mouse by delta_x and delta_y.</doc>
@@ -1043,7 +1054,8 @@ with the allocated size of the widget.</doc>
       </method>
       <method name="move_by_sync"
               c:identifier="mks_mouse_move_by_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="move_by">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="697">Synchronously moves the mouse by delta_x and delta_y.</doc>
@@ -1085,7 +1097,10 @@ with the allocated size of the widget.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="move_to" c:identifier="mks_mouse_move_to">
+      <method name="move_to"
+              c:identifier="mks_mouse_move_to"
+              glib:finish-func="move_to_finish"
+              glib:sync-func="move_to_sync">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="490">Moves to the absolute position at coordinates (x,y).</doc>
@@ -1174,7 +1189,8 @@ with the allocated size of the widget.</doc>
       </method>
       <method name="move_to_sync"
               c:identifier="mks_mouse_move_to_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="move_to">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="563">Synchronously moves to the absolute position at coordinates (x,y).</doc>
@@ -1216,7 +1232,10 @@ with the allocated size of the widget.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="press" c:identifier="mks_mouse_press">
+      <method name="press"
+              c:identifier="mks_mouse_press"
+              glib:finish-func="press_finish"
+              glib:sync-func="press_sync">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="242">Presses a mouse button.</doc>
@@ -1297,7 +1316,10 @@ with the allocated size of the widget.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="press_sync" c:identifier="mks_mouse_press_sync" throws="1">
+      <method name="press_sync"
+              c:identifier="mks_mouse_press_sync"
+              throws="1"
+              glib:async-func="press">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="310">Synchronously press a mouse button.</doc>
@@ -1333,7 +1355,10 @@ with the allocated size of the widget.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="release" c:identifier="mks_mouse_release">
+      <method name="release"
+              c:identifier="mks_mouse_release"
+              glib:finish-func="release_finish"
+              glib:sync-func="release_sync">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="366">Releases a mouse button.</doc>
@@ -1416,7 +1441,8 @@ with the allocated size of the widget.</doc>
       </method>
       <method name="release_sync"
               c:identifier="mks_mouse_release_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="release">
         <doc xml:space="preserve"
              filename="lib/mks-mouse.c"
              line="434">Synchronously releases a mouse button.</doc>
@@ -1583,7 +1609,10 @@ with the allocated size of the widget.</doc>
            glib:get-type="mks_screen_get_type"
            glib:type-struct="ScreenClass">
       <source-position filename="lib/mks-screen.h" line="44"/>
-      <method name="attach" c:identifier="mks_screen_attach">
+      <method name="attach"
+              c:identifier="mks_screen_attach"
+              glib:finish-func="attach_finish"
+              glib:sync-func="attach_sync">
         <doc xml:space="preserve"
              filename="lib/mks-screen.c"
              line="623">Asynchronously creates a #GdkPaintable that is updated with the
@@ -1671,7 +1700,8 @@ changes are propagated using a DMA-BUF and damage notifications.</doc>
       </method>
       <method name="attach_sync"
               c:identifier="mks_screen_attach_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="attach">
         <doc xml:space="preserve"
              filename="lib/mks-screen.c"
              line="703">Synchronous request to attach to screen, creating a paintable that can
@@ -1702,7 +1732,10 @@ be used to update display as the QEMU instance updates.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="configure" c:identifier="mks_screen_configure">
+      <method name="configure"
+              c:identifier="mks_screen_configure"
+              glib:finish-func="configure_finish"
+              glib:sync-func="configure_sync">
         <source-position filename="lib/mks-screen.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1767,7 +1800,8 @@ be used to update display as the QEMU instance updates.</doc>
       </method>
       <method name="configure_sync"
               c:identifier="mks_screen_configure_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="configure">
         <doc xml:space="preserve"
              filename="lib/mks-screen.c"
              line="564">Requests the QEMU instance reconfigure the screen using @attributes.
@@ -2374,7 +2408,8 @@ initial devices and VM status.</doc>
         </parameters>
       </constructor>
       <function name="new_for_connection"
-                c:identifier="mks_session_new_for_connection">
+                c:identifier="mks_session_new_for_connection"
+                glib:finish-func="new_for_connection_finish">
         <doc xml:space="preserve"
              filename="lib/mks-session.c"
              line="579">Creates a #MksSession which communicates using @connection.
@@ -2695,7 +2730,10 @@ discovered on the [class@Gio.DBusConnection] to QEMU.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="send_event" c:identifier="mks_touchable_send_event">
+      <method name="send_event"
+              c:identifier="mks_touchable_send_event"
+              glib:finish-func="send_event_finish"
+              glib:sync-func="send_event_sync">
         <doc xml:space="preserve"
              filename="lib/mks-touchable.c"
              line="228">Send a touch event.</doc>
@@ -2793,7 +2831,8 @@ discovered on the [class@Gio.DBusConnection] to QEMU.</doc>
       </method>
       <method name="send_event_sync"
               c:identifier="mks_touchable_send_event_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="send_event">
         <doc xml:space="preserve"
              filename="lib/mks-touchable.c"
              line="302">Synchronously send a touch event.</doc>

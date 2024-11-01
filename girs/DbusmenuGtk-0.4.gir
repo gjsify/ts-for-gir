@@ -225,6 +225,9 @@ on this client.</doc>
         <type name="Dbusmenu.ClientClass" c:type="DbusmenuClientClass"/>
       </field>
       <field name="root_changed">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="56">Slot for signal #DbusmenuGtkClient::root-changed</doc>
         <callback name="root_changed">
           <source-position filename="client.h" line="71"/>
           <return-value transfer-ownership="none">
@@ -238,6 +241,9 @@ on this client.</doc>
         </callback>
       </field>
       <field name="reserved1">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="57">Reserved for future use.</doc>
         <callback name="reserved1">
           <source-position filename="client.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -246,6 +252,9 @@ on this client.</doc>
         </callback>
       </field>
       <field name="reserved2">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="58">Reserved for future use.</doc>
         <callback name="reserved2">
           <source-position filename="client.h" line="75"/>
           <return-value transfer-ownership="none">
@@ -254,6 +263,9 @@ on this client.</doc>
         </callback>
       </field>
       <field name="reserved3">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="59">Reserved for future use.</doc>
         <callback name="reserved3">
           <source-position filename="client.h" line="76"/>
           <return-value transfer-ownership="none">
@@ -262,6 +274,9 @@ on this client.</doc>
         </callback>
       </field>
       <field name="reserved4">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="60">Reserved for future use.</doc>
         <callback name="reserved4">
           <source-position filename="client.h" line="77"/>
           <return-value transfer-ownership="none">
@@ -270,6 +285,9 @@ on this client.</doc>
         </callback>
       </field>
       <field name="reserved5">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="61">Reserved for future use.</doc>
         <callback name="reserved5">
           <source-position filename="client.h" line="78"/>
           <return-value transfer-ownership="none">
@@ -278,6 +296,9 @@ on this client.</doc>
         </callback>
       </field>
       <field name="reserved6">
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="62">Reserved for future use.</doc>
         <callback name="reserved6">
           <source-position filename="client.h" line="79"/>
           <return-value transfer-ownership="none">
@@ -486,6 +507,9 @@ communicate with the server.</doc>
         <type name="Gtk.MenuClass" c:type="GtkMenuClass"/>
       </field>
       <field name="reserved1">
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="50">Reserved for future use.</doc>
         <callback name="reserved1">
           <source-position filename="menu.h" line="65"/>
           <return-value transfer-ownership="none">
@@ -494,6 +518,9 @@ communicate with the server.</doc>
         </callback>
       </field>
       <field name="reserved2">
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="51">Reserved for future use.</doc>
         <callback name="reserved2">
           <source-position filename="menu.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -502,6 +529,9 @@ communicate with the server.</doc>
         </callback>
       </field>
       <field name="reserved3">
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="52">Reserved for future use.</doc>
         <callback name="reserved3">
           <source-position filename="menu.h" line="67"/>
           <return-value transfer-ownership="none">
@@ -510,6 +540,9 @@ communicate with the server.</doc>
         </callback>
       </field>
       <field name="reserved4">
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="53">Reserved for future use.</doc>
         <callback name="reserved4">
           <source-position filename="menu.h" line="68"/>
           <return-value transfer-ownership="none">
@@ -518,6 +551,9 @@ communicate with the server.</doc>
         </callback>
       </field>
       <field name="reserved5">
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="54">Reserved for future use.</doc>
         <callback name="reserved5">
           <source-position filename="menu.h" line="69"/>
           <return-value transfer-ownership="none">
@@ -526,6 +562,9 @@ communicate with the server.</doc>
         </callback>
       </field>
       <field name="reserved6">
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="55">Reserved for future use.</doc>
         <callback name="reserved6">
           <source-position filename="menu.h" line="70"/>
           <return-value transfer-ownership="none">

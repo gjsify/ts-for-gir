@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/soup-3-http-example",
-  "version": "4.0.0-beta.10",
+  "version": "4.0.0-beta.16",
   "description": "GJS example showing how to build a http server/client using Soap 3",
   "type": "module",
   "private": true,
@@ -21,8 +21,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.23.0",
-    "typescript": "^5.5.3"
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",

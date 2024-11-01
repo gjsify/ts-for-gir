@@ -1834,7 +1834,9 @@ is compiled against.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="nma_mobile_providers_database_new">
+      <function name="new"
+                c:identifier="nma_mobile_providers_database_new"
+                glib:finish-func="new_finish">
         <source-position filename="src/nma-mobile-providers.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

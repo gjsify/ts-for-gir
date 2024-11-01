@@ -1171,7 +1171,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         clazz._copyBaseProperties(this);
 
         if (superType) {
-            clazz.superType;
+            clazz.superType = superType;
         }
 
         clazz._structFor = _structFor;
@@ -1400,7 +1400,6 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         // "simple" records.
         if (!this.isSimple()) {
             return null;
-            ("not simple");
         }
 
         // Because we may have to recursively check

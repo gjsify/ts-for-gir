@@ -1519,15 +1519,6 @@ Triggers state saving for all feed list sources.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="IS_LIFEREA_MEDIA_PLAYER_ACTIVATABLE"
-                    c:identifier="IS_LIFEREA_MEDIA_PLAYER_ACTIVATABLE"
-                    introspectable="0">
-      <source-position filename="ui/media_player_activatable.h" line="32"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="IS_LIFEREA_NODE_SOURCE_ACTIVATABLE"
                     c:identifier="IS_LIFEREA_NODE_SOURCE_ACTIVATABLE"
                     introspectable="0">
@@ -3119,215 +3110,6 @@ TODO: register for signal at feed merger instead</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <function-macro name="MEDIA_PLAYER_ACTIVATABLE"
-                    c:identifier="LIFEREA_MEDIA_PLAYER_ACTIVATABLE"
-                    introspectable="0">
-      <source-position filename="ui/media_player_activatable.h" line="30"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="MEDIA_PLAYER_ACTIVATABLE_GET_IFACE"
-                    c:identifier="LIFEREA_MEDIA_PLAYER_ACTIVATABLE_GET_IFACE"
-                    introspectable="0">
-      <source-position filename="ui/media_player_activatable.h" line="33"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="MEDIA_PLAYER_ACTIVATABLE_IFACE"
-                    c:identifier="LIFEREA_MEDIA_PLAYER_ACTIVATABLE_IFACE"
-                    introspectable="0">
-      <source-position filename="ui/media_player_activatable.h" line="31"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <interface name="MediaPlayerActivatable"
-               c:symbol-prefix="media_player_activatable"
-               c:type="LifereaMediaPlayerActivatable"
-               glib:type-name="LifereaMediaPlayerActivatable"
-               glib:get-type="liferea_media_player_activatable_get_type"
-               glib:type-struct="MediaPlayerActivatableInterface">
-      <source-position filename="ui/media_player_activatable.h" line="45"/>
-      <virtual-method name="activate" invoker="activate">
-        <source-position filename="ui/media_player_activatable.h" line="42"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="activatable" transfer-ownership="none">
-            <type name="MediaPlayerActivatable"
-                  c:type="LifereaMediaPlayerActivatable*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="deactivate" invoker="deactivate">
-        <source-position filename="ui/media_player_activatable.h" line="43"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="activatable" transfer-ownership="none">
-            <type name="MediaPlayerActivatable"
-                  c:type="LifereaMediaPlayerActivatable*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="load" invoker="load">
-        <doc xml:space="preserve"
-             filename="ui/media_player_activatable.h"
-             line="53">Triggers the creation of a suitable media player and loads a list of
-enclosures into it.</doc>
-        <source-position filename="ui/media_player_activatable.h" line="44"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="activatable" transfer-ownership="none">
-            <type name="MediaPlayerActivatable"
-                  c:type="LifereaMediaPlayerActivatable*"/>
-          </instance-parameter>
-          <parameter name="parentWidget" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="ui/media_player_activatable.h"
-                 line="55">the parent widget for the media player</doc>
-            <type name="Gtk.Widget" c:type="GtkWidget*"/>
-          </parameter>
-          <parameter name="enclosures" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="ui/media_player_activatable.h"
-                 line="56">a list of enclosures</doc>
-            <type name="GLib.SList" c:type="GSList*">
-              <type name="utf8"/>
-            </type>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <method name="activate"
-              c:identifier="liferea_media_player_activatable_activate">
-        <source-position filename="ui/media_player_activatable.h" line="49"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="activatable" transfer-ownership="none">
-            <type name="MediaPlayerActivatable"
-                  c:type="LifereaMediaPlayerActivatable*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="deactivate"
-              c:identifier="liferea_media_player_activatable_deactivate">
-        <source-position filename="ui/media_player_activatable.h" line="51"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="activatable" transfer-ownership="none">
-            <type name="MediaPlayerActivatable"
-                  c:type="LifereaMediaPlayerActivatable*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="load" c:identifier="liferea_media_player_activatable_load">
-        <doc xml:space="preserve"
-             filename="ui/media_player_activatable.h"
-             line="53">Triggers the creation of a suitable media player and loads a list of
-enclosures into it.</doc>
-        <source-position filename="ui/media_player_activatable.h" line="61"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="activatable" transfer-ownership="none">
-            <type name="MediaPlayerActivatable"
-                  c:type="LifereaMediaPlayerActivatable*"/>
-          </instance-parameter>
-          <parameter name="parentWidget" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="ui/media_player_activatable.h"
-                 line="55">the parent widget for the media player</doc>
-            <type name="Gtk.Widget" c:type="GtkWidget*"/>
-          </parameter>
-          <parameter name="enclosures" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="ui/media_player_activatable.h"
-                 line="56">a list of enclosures</doc>
-            <type name="GLib.SList" c:type="GSList*">
-              <type name="utf8"/>
-            </type>
-          </parameter>
-        </parameters>
-      </method>
-    </interface>
-    <record name="MediaPlayerActivatableInterface"
-            c:type="LifereaMediaPlayerActivatableInterface"
-            glib:is-gtype-struct-for="MediaPlayerActivatable">
-      <source-position filename="ui/media_player_activatable.h" line="45"/>
-      <field name="g_iface">
-        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
-      </field>
-      <field name="activate">
-        <callback name="activate">
-          <source-position filename="ui/media_player_activatable.h" line="42"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="activatable" transfer-ownership="none">
-              <type name="MediaPlayerActivatable"
-                    c:type="LifereaMediaPlayerActivatable*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="deactivate">
-        <callback name="deactivate">
-          <source-position filename="ui/media_player_activatable.h" line="43"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="activatable" transfer-ownership="none">
-              <type name="MediaPlayerActivatable"
-                    c:type="LifereaMediaPlayerActivatable*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="load">
-        <callback name="load">
-          <source-position filename="ui/media_player_activatable.h" line="44"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="activatable" transfer-ownership="none">
-              <type name="MediaPlayerActivatable"
-                    c:type="LifereaMediaPlayerActivatable*"/>
-            </parameter>
-            <parameter name="parentWidget" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="ui/media_player_activatable.h"
-                   line="55">the parent widget for the media player</doc>
-              <type name="Gtk.Widget" c:type="GtkWidget*"/>
-            </parameter>
-            <parameter name="enclosures" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="ui/media_player_activatable.h"
-                   line="56">a list of enclosures</doc>
-              <type name="GLib.SList" c:type="GSList*">
-                <type name="utf8"/>
-              </type>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-    </record>
     <function-macro name="NETWORK_MONITOR"
                     c:identifier="NETWORK_MONITOR"
                     introspectable="0">
@@ -4724,21 +4506,21 @@ node_foreach_child_data().</doc>
               c:identifier="icon_create_from_file">
       <doc xml:space="preserve"
            filename="ui/icons.h"
-           line="75">Takes a file name relative to "pixmaps" directory and tries to load the
+           line="68">Takes a file name relative to "pixmaps" directory and tries to load the
 image into a GdkPixbuf. Can be used to load icons not in lifereaIcon
 on demand.</doc>
-      <source-position filename="ui/icons.h" line="85"/>
+      <source-position filename="ui/icons.h" line="78"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="ui/icons.h"
-             line="83">a new pixbuf or NULL</doc>
+             line="76">a new pixbuf or NULL</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ui/icons.h"
-               line="77">the name of the file</doc>
+               line="70">the name of the file</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4747,19 +4529,19 @@ on demand.</doc>
               c:identifier="icon_find_pixmap_file">
       <doc xml:space="preserve"
            filename="ui/icons.h"
-           line="65">Takes a file name relative to "pixmaps" directory and returns it's path.</doc>
-      <source-position filename="ui/icons.h" line="73"/>
+           line="58">Takes a file name relative to "pixmaps" directory and returns it's path.</doc>
+      <source-position filename="ui/icons.h" line="66"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="ui/icons.h"
-             line="71">file path or NULL</doc>
+             line="64">file path or NULL</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ui/icons.h"
-               line="67">the name of the file</doc>
+               line="60">the name of the file</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4767,17 +4549,17 @@ on demand.</doc>
     <function name="icon_get" c:identifier="icon_get">
       <doc xml:space="preserve"
            filename="ui/icons.h"
-           line="55">Returns a GIcon for the requested item.</doc>
-      <source-position filename="ui/icons.h" line="63"/>
+           line="48">Returns a GIcon for the requested item.</doc>
+      <source-position filename="ui/icons.h" line="56"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve" filename="ui/icons.h" line="61">GIcon</doc>
+        <doc xml:space="preserve" filename="ui/icons.h" line="54">GIcon</doc>
         <type name="Gio.Icon" c:type="const GIcon*"/>
       </return-value>
       <parameters>
         <parameter name="icon" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ui/icons.h"
-               line="57">the icon</doc>
+               line="50">the icon</doc>
           <type name="lifereaIcon" c:type="lifereaIcon"/>
         </parameter>
       </parameters>
@@ -4785,11 +4567,11 @@ on demand.</doc>
     <function name="icons_load" c:identifier="icons_load" introspectable="0">
       <doc xml:space="preserve"
            filename="ui/icons.h"
-           line="45">Load all icons from theme and Liferea pixmaps.
+           line="38">Load all icons from theme and Liferea pixmaps.
 
 Must be called once before icon_get() may be used!
 Must be called only after GTK theme was initialized!</doc>
-      <source-position filename="ui/icons.h" line="53"/>
+      <source-position filename="ui/icons.h" line="46"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -5016,40 +4798,22 @@ the given node. Used for node updating.</doc>
       </parameters>
     </function>
     <enumeration name="lifereaIcon" c:type="lifereaIcon">
-      <source-position filename="ui/icons.h" line="43"/>
+      <source-position filename="ui/icons.h" line="36"/>
       <member name="con_unread" value="0" c:identifier="ICON_UNREAD">
       </member>
       <member name="con_flag" value="1" c:identifier="ICON_FLAG">
       </member>
-      <member name="con_available" value="2" c:identifier="ICON_AVAILABLE">
+      <member name="con_unavailable" value="2" c:identifier="ICON_UNAVAILABLE">
       </member>
-      <member name="con_available_offline"
-              value="3"
-              c:identifier="ICON_AVAILABLE_OFFLINE">
+      <member name="con_default" value="3" c:identifier="ICON_DEFAULT">
       </member>
-      <member name="con_unavailable" value="4" c:identifier="ICON_UNAVAILABLE">
+      <member name="con_folder" value="4" c:identifier="ICON_FOLDER">
       </member>
-      <member name="con_default" value="5" c:identifier="ICON_DEFAULT">
+      <member name="con_vfolder" value="5" c:identifier="ICON_VFOLDER">
       </member>
-      <member name="con_folder" value="6" c:identifier="ICON_FOLDER">
+      <member name="con_newsbin" value="6" c:identifier="ICON_NEWSBIN">
       </member>
-      <member name="con_vfolder" value="7" c:identifier="ICON_VFOLDER">
-      </member>
-      <member name="con_newsbin" value="8" c:identifier="ICON_NEWSBIN">
-      </member>
-      <member name="con_empty" value="9" c:identifier="ICON_EMPTY">
-      </member>
-      <member name="con_empty_offline"
-              value="10"
-              c:identifier="ICON_EMPTY_OFFLINE">
-      </member>
-      <member name="con_online" value="11" c:identifier="ICON_ONLINE">
-      </member>
-      <member name="con_offline" value="12" c:identifier="ICON_OFFLINE">
-      </member>
-      <member name="con_enclosure" value="13" c:identifier="ICON_ENCLOSURE">
-      </member>
-      <member name="ax_icons" value="14" c:identifier="MAX_ICONS">
+      <member name="ax_icons" value="7" c:identifier="MAX_ICONS">
       </member>
     </enumeration>
     <docsection name="liferea_auth_activatable">
@@ -5058,47 +4822,14 @@ the given node. Used for node updating.</doc>
            line="23">#LifereaAuthActivatable is an interface which should be implemented by
 extensions that want to provide a password store</doc>
     </docsection>
-    <docsection name="liferea_media_player_activatable">
-      <doc xml:space="preserve"
-           filename="ui/media_player_activatable.c"
-           line="23">#LifereaMediaPlayerActivatable is an interface which should be implemented by
-extensions that want to provide a media player</doc>
-    </docsection>
     <docsection name="liferea_shell_activatable">
       <doc xml:space="preserve"
            filename="ui/liferea_shell_activatable.c"
            line="25">#LifereaShellActivatable is an interface which should be implemented by
 extensions that should be activated on the Liferea main window.</doc>
     </docsection>
-    <function name="media_player_load"
-              c:identifier="liferea_media_player_load">
-      <doc xml:space="preserve"
-           filename="ui/media_player.h"
-           line="27">Triggers the creation of a suitable media player and loads a list of
-enclosures into it.</doc>
-      <source-position filename="ui/media_player.h" line="35"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-      <parameters>
-        <parameter name="parentWidget" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="ui/media_player.h"
-               line="29">the parent widget for the media player</doc>
-          <type name="Gtk.Widget" c:type="GtkWidget*"/>
-        </parameter>
-        <parameter name="enclosures" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="ui/media_player.h"
-               line="30">a list of enclosure strings</doc>
-          <type name="GLib.SList" c:type="GSList*">
-            <type name="utf8"/>
-          </type>
-        </parameter>
-      </parameters>
-    </function>
     <record name="node" c:type="node">
-      <source-position filename="node.h" line="75"/>
+      <source-position filename="node.h" line="72"/>
       <field name="data" writable="1">
         <type name="gpointer" c:type="gpointer"/>
       </field>
@@ -5155,9 +4886,6 @@ enclosures into it.</doc>
       <field name="sortReversed" writable="1">
         <type name="gboolean" c:type="gboolean"/>
       </field>
-      <field name="loadItemLink" writable="1">
-        <type name="gboolean" c:type="gboolean"/>
-      </field>
       <field name="needsUpdate" writable="1">
         <type name="gboolean" c:type="gboolean"/>
       </field>
@@ -5169,9 +4897,9 @@ enclosures into it.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="166">Helper function to be used with node_foreach_child()
+             line="163">Helper function to be used with node_foreach_child()
 to mass-auto-update subscriptions.</doc>
-        <source-position filename="node.h" line="173"/>
+        <source-position filename="node.h" line="170"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5179,7 +4907,7 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="168">the node</doc>
+                 line="165">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5189,19 +4917,19 @@ to mass-auto-update subscriptions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="392">Query whether a feed be added to the given node.</doc>
-        <source-position filename="node.h" line="400"/>
+             line="389">Query whether a feed be added to the given node.</doc>
+        <source-position filename="node.h" line="397"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="398">TRUE if a feed can be added</doc>
+               line="395">TRUE if a feed can be added</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="394">the node</doc>
+                 line="391">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5211,19 +4939,19 @@ to mass-auto-update subscriptions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="402">Query whether a folder be added to the given node.</doc>
-        <source-position filename="node.h" line="410"/>
+             line="399">Query whether a folder be added to the given node.</doc>
+        <source-position filename="node.h" line="407"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="408">TRUE if a folder can be added</doc>
+               line="405">TRUE if a folder can be added</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="404">the node</doc>
+                 line="401">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5233,29 +4961,29 @@ to mass-auto-update subscriptions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="310">Helper function for generic node rendering. Performs
+             line="307">Helper function for generic node rendering. Performs
 a generic node serialization to XML and passes the
 generated XML source document to the XSLT stylesheet
 with the same name as the node type id.</doc>
-        <source-position filename="node.h" line="321"/>
+        <source-position filename="node.h" line="318"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="node.h"
-               line="319">XHTML string</doc>
+               line="316">XHTML string</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="312">the node to render</doc>
+                 line="309">the node to render</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
       </function>
       <function name="foreach_child_full"
                 c:identifier="node_foreach_child_full">
-        <source-position filename="node.h" line="432"/>
+        <source-position filename="node.h" line="429"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5283,8 +5011,8 @@ with the same name as the node type id.</doc>
       <function name="free" c:identifier="node_free" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="302">Frees a given node structure.</doc>
-        <source-position filename="node.h" line="308"/>
+             line="299">Frees a given node structure.</doc>
+        <source-position filename="node.h" line="305"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5292,7 +5020,7 @@ with the same name as the node type id.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="304">the node to free</doc>
+                 line="301">the node to free</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5300,20 +5028,20 @@ with the same name as the node type id.</doc>
       <function name="from_id" c:identifier="node_from_id" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="95">Node lookup by node id. Will report an error if the queried
+             line="92">Node lookup by node id. Will report an error if the queried
 id does not exist.</doc>
-        <source-position filename="node.h" line="104"/>
+        <source-position filename="node.h" line="101"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="102">the node with the given id (or NULL)</doc>
+               line="99">the node with the given id (or NULL)</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="97">the node id to look up</doc>
+                 line="94">the node id to look up</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5323,18 +5051,18 @@ id does not exist.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="381">Returns the base URL for the given node.
+             line="378">Returns the base URL for the given node.
 If it is a mixed item set NULL will be returned.</doc>
-        <source-position filename="node.h" line="390"/>
+        <source-position filename="node.h" line="387"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="388">base URL</doc>
+          <doc xml:space="preserve" filename="node.h" line="385">base URL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="383">the node</doc>
+                 line="380">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5344,20 +5072,20 @@ If it is a mixed item set NULL will be returned.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="263">Returns the name of the favicon cache file for the given node.
+             line="260">Returns the name of the favicon cache file for the given node.
 If there is no favicon a default icon file name will be returned.</doc>
-        <source-position filename="node.h" line="272"/>
+        <source-position filename="node.h" line="269"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="270">a file name</doc>
+               line="267">a file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="265">the node</doc>
+                 line="262">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5367,15 +5095,15 @@ If there is no favicon a default icon file name will be returned.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="241">Returns an appropriate icon for the given node. If the node
+             line="238">Returns an appropriate icon for the given node. If the node
 is unavailable the "unavailable" icon will be returned. If
 the node is available an existing favicon or the node type
 specific default icon will be returned.</doc>
-        <source-position filename="node.h" line="251"/>
+        <source-position filename="node.h" line="248"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="249">a pixmap or NULL</doc>
+               line="246">a pixmap or NULL</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
@@ -5387,19 +5115,19 @@ specific default icon will be returned.</doc>
       <function name="get_id" c:identifier="node_get_id" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="283">Query the unique id string of the node.</doc>
-        <source-position filename="node.h" line="291"/>
+             line="280">Query the unique id string of the node.</doc>
+        <source-position filename="node.h" line="288"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="289">id string</doc>
+               line="286">id string</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="285">the node</doc>
+                 line="282">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5409,20 +5137,20 @@ specific default icon will be returned.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="331">Loads all items of the given node into memory.
+             line="328">Loads all items of the given node into memory.
 The caller needs to free the item set using itemset_free()</doc>
-        <source-position filename="node.h" line="340"/>
+        <source-position filename="node.h" line="337"/>
         <return-value>
           <doc xml:space="preserve"
                filename="node.h"
-               line="338">the item set</doc>
+               line="335">the item set</doc>
           <type name="itemSetPtr" c:type="itemSetPtr"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="333">the node</doc>
+                 line="330">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5432,13 +5160,13 @@ The caller needs to free the item set using itemset_free()</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="253">Returns a large icon for the node. Does not return any default
+             line="250">Returns a large icon for the node. Does not return any default
 icons like node_get_icon() does.</doc>
-        <source-position filename="node.h" line="261"/>
+        <source-position filename="node.h" line="258"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="259">a pixmap or NULL</doc>
+               line="256">a pixmap or NULL</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
@@ -5452,19 +5180,19 @@ icons like node_get_icon() does.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="196">Query the node's title for the feed list.</doc>
-        <source-position filename="node.h" line="204"/>
+             line="193">Query the node's title for the feed list.</doc>
+        <source-position filename="node.h" line="201"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="202">the title</doc>
+               line="199">the title</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="198">the node</doc>
+                 line="195">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5474,25 +5202,25 @@ icons like node_get_icon() does.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="185">Determines whether node1 is an ancestor of node2</doc>
-        <source-position filename="node.h" line="194"/>
+             line="182">Determines whether node1 is an ancestor of node2</doc>
+        <source-position filename="node.h" line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="192">TRUE if node1 is ancestor of node2</doc>
+               line="189">TRUE if node1 is ancestor of node2</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="node1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="187">the possible ancestor</doc>
+                 line="184">the possible ancestor</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="node2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="188">the possible child</doc>
+                 line="185">the possible child</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5502,19 +5230,19 @@ icons like node_get_icon() does.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="85">Can be used to check whether an id is used or not.</doc>
-        <source-position filename="node.h" line="93"/>
+             line="82">Can be used to check whether an id is used or not.</doc>
+        <source-position filename="node.h" line="90"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="91">the node with the given id (or NULL)</doc>
+               line="88">the node with the given id (or NULL)</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="87">the node id to check</doc>
+                 line="84">the node id to check</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5524,9 +5252,9 @@ icons like node_get_icon() does.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="360">Load node icon in memory. Should be called only once on startup
+             line="357">Load node icon in memory. Should be called only once on startup
 and when the node icon has changed.</doc>
-        <source-position filename="node.h" line="367"/>
+        <source-position filename="node.h" line="364"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5534,7 +5262,7 @@ and when the node icon has changed.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="362">the node</doc>
+                 line="359">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5544,8 +5272,8 @@ and when the node icon has changed.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="224">Recursively marks all items of the given node as read.</doc>
-        <source-position filename="node.h" line="230"/>
+             line="221">Recursively marks all items of the given node as read.</doc>
+        <source-position filename="node.h" line="227"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5553,7 +5281,7 @@ and when the node icon has changed.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="226">the node to process</doc>
+                 line="223">the node to process</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5561,12 +5289,12 @@ and when the node icon has changed.</doc>
       <function name="new" c:identifier="node_new" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="77">Creates a new node structure.</doc>
-        <source-position filename="node.h" line="83"/>
+             line="74">Creates a new node structure.</doc>
+        <source-position filename="node.h" line="80"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="node.h"
-               line="81">the new node</doc>
+               line="78">the new node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </return-value>
         <parameters>
@@ -5581,20 +5309,20 @@ and when the node icon has changed.</doc>
       <function name="new_id" c:identifier="node_new_id">
         <doc xml:space="preserve"
              filename="node.h"
-             line="274">Returns a new unused unique node id.</doc>
-        <source-position filename="node.h" line="281"/>
+             line="271">Returns a new unused unique node id.</doc>
+        <source-position filename="node.h" line="278"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="node.h"
-               line="279">new id (to be free'd using g_free)</doc>
+               line="276">new id (to be free'd using g_free)</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
       </function>
       <function name="remove" c:identifier="node_remove" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="130">Removes all data associated with the given node.</doc>
-        <source-position filename="node.h" line="136"/>
+             line="127">Removes all data associated with the given node.</doc>
+        <source-position filename="node.h" line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5602,7 +5330,7 @@ and when the node icon has changed.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="132">the node</doc>
+                 line="129">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5610,19 +5338,19 @@ and when the node icon has changed.</doc>
       <function name="render" c:identifier="node_render" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="342">Node content rendering</doc>
-        <source-position filename="node.h" line="350"/>
+             line="339">Node content rendering</doc>
+        <source-position filename="node.h" line="347"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="node.h"
-               line="348">string with node rendered in HTML</doc>
+               line="345">string with node rendered in HTML</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="344">the node</doc>
+                 line="341">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5632,9 +5360,9 @@ and when the node icon has changed.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="120">Set a node's new parent and update UI. If a node already has a parent,
+             line="117">Set a node's new parent and update UI. If a node already has a parent,
 it will be removed from its parent children list.</doc>
-        <source-position filename="node.h" line="128"/>
+        <source-position filename="node.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5642,13 +5370,13 @@ it will be removed from its parent children list.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="122">the node</doc>
+                 line="119">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="new_parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="123">nodes new parent</doc>
+                 line="120">nodes new parent</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5658,9 +5386,9 @@ it will be removed from its parent children list.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="175">Helper function to be used with node_foreach_child()
+             line="172">Helper function to be used with node_foreach_child()
 to mass-auto-update subscriptions.</doc>
-        <source-position filename="node.h" line="183"/>
+        <source-position filename="node.h" line="180"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5668,13 +5396,13 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="177">the node</doc>
+                 line="174">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="now" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="178">the current timestamp</doc>
+                 line="175">the current timestamp</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
         </parameters>
@@ -5682,8 +5410,8 @@ to mass-auto-update subscriptions.</doc>
       <function name="save" c:identifier="node_save" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="323">Saves the given node to cache.</doc>
-        <source-position filename="node.h" line="329"/>
+             line="320">Saves the given node to cache.</doc>
+        <source-position filename="node.h" line="326"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5691,7 +5419,7 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="325">the node</doc>
+                 line="322">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5702,8 +5430,8 @@ to mass-auto-update subscriptions.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="node.h"
-             line="412">Exports all items in this node as a RSS2 feed.</doc>
-        <source-position filename="node.h" line="420"/>
+             line="409">Exports all items in this node as a RSS2 feed.</doc>
+        <source-position filename="node.h" line="417"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5711,13 +5439,13 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="414">the node</doc>
+                 line="411">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="415">the destination file name</doc>
+                 line="412">the destination file name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5727,8 +5455,8 @@ to mass-auto-update subscriptions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="138">Attaches a data structure to the given node.</doc>
-        <source-position filename="node.h" line="145"/>
+             line="135">Attaches a data structure to the given node.</doc>
+        <source-position filename="node.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5736,7 +5464,7 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="140">the node to attach to</doc>
+                 line="137">the node to attach to</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="data"
@@ -5745,7 +5473,7 @@ to mass-auto-update subscriptions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="141">the structure</doc>
+                 line="138">the structure</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5755,8 +5483,8 @@ to mass-auto-update subscriptions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="232">Assigns a new pixmaps as the favicon representing this node.</doc>
-        <source-position filename="node.h" line="239"/>
+             line="229">Assigns a new pixmaps as the favicon representing this node.</doc>
+        <source-position filename="node.h" line="236"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5764,7 +5492,7 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="234">the node</doc>
+                 line="231">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="icon"
@@ -5773,7 +5501,7 @@ to mass-auto-update subscriptions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="235">a pixmap or NULL</doc>
+                 line="232">a pixmap or NULL</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5781,8 +5509,8 @@ to mass-auto-update subscriptions.</doc>
       <function name="set_id" c:identifier="node_set_id" introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="293">Set the unique id string of the node.</doc>
-        <source-position filename="node.h" line="300"/>
+             line="290">Set the unique id string of the node.</doc>
+        <source-position filename="node.h" line="297"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5790,13 +5518,13 @@ to mass-auto-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="295">the node</doc>
+                 line="292">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="296">the id string</doc>
+                 line="293">the id string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5806,12 +5534,12 @@ to mass-auto-update subscriptions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="106">Sets a nodes parent. If no parent node is given the
+             line="103">Sets a nodes parent. If no parent node is given the
 parent node of the currently selected feed or the
 selected folder will be used.
 
 To be used before calling feedlist_node_added()</doc>
-        <source-position filename="node.h" line="118"/>
+        <source-position filename="node.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5819,7 +5547,7 @@ To be used before calling feedlist_node_added()</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="108">the node</doc>
+                 line="105">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="parent"
@@ -5828,13 +5556,13 @@ To be used before calling feedlist_node_added()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="109">the parent node (optional can be NULL)</doc>
+                 line="106">the parent node (optional can be NULL)</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="110">insert position (optional can be 0)</doc>
+                 line="107">insert position (optional can be 0)</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -5844,31 +5572,31 @@ To be used before calling feedlist_node_added()</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="369">Change/Set the sort column of a given node.</doc>
-        <source-position filename="node.h" line="379"/>
+             line="366">Change/Set the sort column of a given node.</doc>
+        <source-position filename="node.h" line="376"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="377">TRUE if the passed settings were different from the previous ones</doc>
+               line="374">TRUE if the passed settings were different from the previous ones</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="371">the node</doc>
+                 line="368">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="sortColumn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="372">sort column id</doc>
+                 line="369">sort column id</doc>
             <type name="nodeViewSortType" c:type="nodeViewSortType"/>
           </parameter>
           <parameter name="reversed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="373">TRUE if order should be reversed</doc>
+                 line="370">TRUE if order should be reversed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5878,8 +5606,8 @@ To be used before calling feedlist_node_added()</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="147">Attaches the subscription to the given node.</doc>
-        <source-position filename="node.h" line="154"/>
+             line="144">Attaches the subscription to the given node.</doc>
+        <source-position filename="node.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5887,7 +5615,7 @@ To be used before calling feedlist_node_added()</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="149">the node</doc>
+                 line="146">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="subscription"
@@ -5896,7 +5624,7 @@ To be used before calling feedlist_node_added()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="150">the subscription</doc>
+                 line="147">the subscription</doc>
             <type name="gpointer" c:type="subscription*"/>
           </parameter>
         </parameters>
@@ -5906,8 +5634,8 @@ To be used before calling feedlist_node_added()</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="206">Sets the node's title for the feed list.</doc>
-        <source-position filename="node.h" line="213"/>
+             line="203">Sets the node's title for the feed list.</doc>
+        <source-position filename="node.h" line="210"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5915,13 +5643,13 @@ To be used before calling feedlist_node_added()</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="208">the node</doc>
+                 line="205">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="209">the title</doc>
+                 line="206">the title</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5931,9 +5659,9 @@ To be used before calling feedlist_node_added()</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="215">Update the number of items and unread items of a node from
+             line="212">Update the number of items and unread items of a node from
 the DB. This method ensures propagation to parent folders.</doc>
-        <source-position filename="node.h" line="222"/>
+        <source-position filename="node.h" line="219"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5941,7 +5669,7 @@ the DB. This method ensures propagation to parent folders.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="217">the node</doc>
+                 line="214">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5951,8 +5679,8 @@ the DB. This method ensures propagation to parent folders.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="352">Called when updating favicons is requested.</doc>
-        <source-position filename="node.h" line="358"/>
+             line="349">Called when updating favicons is requested.</doc>
+        <source-position filename="node.h" line="355"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5960,7 +5688,7 @@ the DB. This method ensures propagation to parent folders.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="354">the node</doc>
+                 line="351">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
         </parameters>
@@ -5970,9 +5698,9 @@ the DB. This method ensures propagation to parent folders.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="node.h"
-             line="156">Helper function to be used with node_foreach_child()
+             line="153">Helper function to be used with node_foreach_child()
 to mass-update subscriptions.</doc>
-        <source-position filename="node.h" line="164"/>
+        <source-position filename="node.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5980,7 +5708,7 @@ to mass-update subscriptions.</doc>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="158">the node</doc>
+                 line="155">the node</doc>
             <type name="nodePtr" c:type="nodePtr"/>
           </parameter>
           <parameter name="user_data"
@@ -5989,14 +5717,14 @@ to mass-update subscriptions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="node.h"
-                 line="159">update flags</doc>
+                 line="156">update flags</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </function>
     </record>
     <callback name="nodeActionDataFunc">
-      <source-position filename="node.h" line="426"/>
+      <source-position filename="node.h" line="423"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6014,7 +5742,7 @@ to mass-update subscriptions.</doc>
       </parameters>
     </callback>
     <callback name="nodeActionFunc">
-      <source-position filename="node.h" line="425"/>
+      <source-position filename="node.h" line="422"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6025,7 +5753,7 @@ to mass-update subscriptions.</doc>
       </parameters>
     </callback>
     <record name="nodePtr" c:type="nodePtr" disguised="1" pointer="1">
-      <source-position filename="node.h" line="75"/>
+      <source-position filename="node.h" line="72"/>
     </record>
     <record name="nodeSource" c:type="nodeSource">
       <source-position filename="fl_sources/node_source.h" line="237"/>
@@ -6814,15 +6542,15 @@ To be used only via NodeSourceTypeActivatable</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="166">Helper function to be used with node_foreach_child()
+           line="163">Helper function to be used with node_foreach_child()
 to mass-auto-update subscriptions.</doc>
-      <source-position filename="node.h" line="173"/>
+      <source-position filename="node.h" line="170"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="168">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="165">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -6833,17 +6561,17 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="392">Query whether a feed be added to the given node.</doc>
-      <source-position filename="node.h" line="400"/>
+           line="389">Query whether a feed be added to the given node.</doc>
+      <source-position filename="node.h" line="397"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="node.h"
-             line="398">TRUE if a feed can be added</doc>
+             line="395">TRUE if a feed can be added</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="394">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="391">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -6854,17 +6582,17 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="402">Query whether a folder be added to the given node.</doc>
-      <source-position filename="node.h" line="410"/>
+           line="399">Query whether a folder be added to the given node.</doc>
+      <source-position filename="node.h" line="407"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="node.h"
-             line="408">TRUE if a folder can be added</doc>
+             line="405">TRUE if a folder can be added</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="404">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="401">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -6875,22 +6603,22 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="310">Helper function for generic node rendering. Performs
+           line="307">Helper function for generic node rendering. Performs
 a generic node serialization to XML and passes the
 generated XML source document to the XSLT stylesheet
 with the same name as the node type id.</doc>
-      <source-position filename="node.h" line="321"/>
+      <source-position filename="node.h" line="318"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="node.h"
-             line="319">XHTML string</doc>
+             line="316">XHTML string</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="312">the node to render</doc>
+               line="309">the node to render</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -6900,20 +6628,20 @@ with the same name as the node type id.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="434">Helper function to call node methods for all
+           line="431">Helper function to call node methods for all
 children of a given node. The given function may
 modify the children list.</doc>
-      <source-position filename="node.h" line="443"/>
+      <source-position filename="node.h" line="440"/>
       <parameters>
         <parameter name="node">
           <doc xml:space="preserve"
                filename="node.h"
-               line="436">node pointer whose children should be processed</doc>
+               line="433">node pointer whose children should be processed</doc>
         </parameter>
         <parameter name="func">
           <doc xml:space="preserve"
                filename="node.h"
-               line="437">the function to process all found elements</doc>
+               line="434">the function to process all found elements</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -6922,32 +6650,32 @@ modify the children list.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="445">Helper function to call node methods for all
+           line="442">Helper function to call node methods for all
 children of a given node. The given function may
 modify the children list.</doc>
-      <source-position filename="node.h" line="455"/>
+      <source-position filename="node.h" line="452"/>
       <parameters>
         <parameter name="node">
           <doc xml:space="preserve"
                filename="node.h"
-               line="447">node pointer whose children should be processed</doc>
+               line="444">node pointer whose children should be processed</doc>
         </parameter>
         <parameter name="func">
           <doc xml:space="preserve"
                filename="node.h"
-               line="448">the function to process all found elements</doc>
+               line="445">the function to process all found elements</doc>
         </parameter>
         <parameter name="user_data">
           <doc xml:space="preserve"
                filename="node.h"
-               line="449">specifies the second argument that func should be passed</doc>
+               line="446">specifies the second argument that func should be passed</doc>
         </parameter>
       </parameters>
     </function-macro>
     <function name="node_foreach_child_full"
               c:identifier="node_foreach_child_full"
               moved-to="node.foreach_child_full">
-      <source-position filename="node.h" line="432"/>
+      <source-position filename="node.h" line="429"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6978,8 +6706,8 @@ modify the children list.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="302">Frees a given node structure.</doc>
-      <source-position filename="node.h" line="308"/>
+           line="299">Frees a given node structure.</doc>
+      <source-position filename="node.h" line="305"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6987,7 +6715,7 @@ modify the children list.</doc>
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="304">the node to free</doc>
+               line="301">the node to free</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -6998,20 +6726,20 @@ modify the children list.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="95">Node lookup by node id. Will report an error if the queried
+           line="92">Node lookup by node id. Will report an error if the queried
 id does not exist.</doc>
-      <source-position filename="node.h" line="104"/>
+      <source-position filename="node.h" line="101"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="node.h"
-             line="102">the node with the given id (or NULL)</doc>
+             line="99">the node with the given id (or NULL)</doc>
         <type name="nodePtr" c:type="nodePtr"/>
       </return-value>
       <parameters>
         <parameter name="id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="97">the node id to look up</doc>
+               line="94">the node id to look up</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -7022,16 +6750,16 @@ id does not exist.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="381">Returns the base URL for the given node.
+           line="378">Returns the base URL for the given node.
 If it is a mixed item set NULL will be returned.</doc>
-      <source-position filename="node.h" line="390"/>
+      <source-position filename="node.h" line="387"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve" filename="node.h" line="388">base URL</doc>
+        <doc xml:space="preserve" filename="node.h" line="385">base URL</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="383">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="380">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7042,18 +6770,18 @@ If it is a mixed item set NULL will be returned.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="263">Returns the name of the favicon cache file for the given node.
+           line="260">Returns the name of the favicon cache file for the given node.
 If there is no favicon a default icon file name will be returned.</doc>
-      <source-position filename="node.h" line="272"/>
+      <source-position filename="node.h" line="269"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="node.h"
-             line="270">a file name</doc>
+             line="267">a file name</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="265">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="262">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7064,15 +6792,15 @@ If there is no favicon a default icon file name will be returned.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="241">Returns an appropriate icon for the given node. If the node
+           line="238">Returns an appropriate icon for the given node. If the node
 is unavailable the "unavailable" icon will be returned. If
 the node is available an existing favicon or the node type
 specific default icon will be returned.</doc>
-      <source-position filename="node.h" line="251"/>
+      <source-position filename="node.h" line="248"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="node.h"
-             line="249">a pixmap or NULL</doc>
+             line="246">a pixmap or NULL</doc>
         <type name="gpointer" c:type="gpointer"/>
       </return-value>
       <parameters>
@@ -7087,15 +6815,15 @@ specific default icon will be returned.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="283">Query the unique id string of the node.</doc>
-      <source-position filename="node.h" line="291"/>
+           line="280">Query the unique id string of the node.</doc>
+      <source-position filename="node.h" line="288"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve" filename="node.h" line="289">id string</doc>
+        <doc xml:space="preserve" filename="node.h" line="286">id string</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="285">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="282">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7106,18 +6834,18 @@ specific default icon will be returned.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="331">Loads all items of the given node into memory.
+           line="328">Loads all items of the given node into memory.
 The caller needs to free the item set using itemset_free()</doc>
-      <source-position filename="node.h" line="340"/>
+      <source-position filename="node.h" line="337"/>
       <return-value>
         <doc xml:space="preserve"
              filename="node.h"
-             line="338">the item set</doc>
+             line="335">the item set</doc>
         <type name="itemSetPtr" c:type="itemSetPtr"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="333">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="330">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7128,13 +6856,13 @@ The caller needs to free the item set using itemset_free()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="253">Returns a large icon for the node. Does not return any default
+           line="250">Returns a large icon for the node. Does not return any default
 icons like node_get_icon() does.</doc>
-      <source-position filename="node.h" line="261"/>
+      <source-position filename="node.h" line="258"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="node.h"
-             line="259">a pixmap or NULL</doc>
+             line="256">a pixmap or NULL</doc>
         <type name="gpointer" c:type="gpointer"/>
       </return-value>
       <parameters>
@@ -7149,15 +6877,15 @@ icons like node_get_icon() does.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="196">Query the node's title for the feed list.</doc>
-      <source-position filename="node.h" line="204"/>
+           line="193">Query the node's title for the feed list.</doc>
+      <source-position filename="node.h" line="201"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve" filename="node.h" line="202">the title</doc>
+        <doc xml:space="preserve" filename="node.h" line="199">the title</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="198">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="195">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7168,25 +6896,25 @@ icons like node_get_icon() does.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="185">Determines whether node1 is an ancestor of node2</doc>
-      <source-position filename="node.h" line="194"/>
+           line="182">Determines whether node1 is an ancestor of node2</doc>
+      <source-position filename="node.h" line="191"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="node.h"
-             line="192">TRUE if node1 is ancestor of node2</doc>
+             line="189">TRUE if node1 is ancestor of node2</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="node1" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="187">the possible ancestor</doc>
+               line="184">the possible ancestor</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="node2" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="188">the possible child</doc>
+               line="185">the possible child</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7197,19 +6925,19 @@ icons like node_get_icon() does.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="85">Can be used to check whether an id is used or not.</doc>
-      <source-position filename="node.h" line="93"/>
+           line="82">Can be used to check whether an id is used or not.</doc>
+      <source-position filename="node.h" line="90"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="node.h"
-             line="91">the node with the given id (or NULL)</doc>
+             line="88">the node with the given id (or NULL)</doc>
         <type name="nodePtr" c:type="nodePtr"/>
       </return-value>
       <parameters>
         <parameter name="id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="87">the node id to check</doc>
+               line="84">the node id to check</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -7220,15 +6948,15 @@ icons like node_get_icon() does.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="360">Load node icon in memory. Should be called only once on startup
+           line="357">Load node icon in memory. Should be called only once on startup
 and when the node icon has changed.</doc>
-      <source-position filename="node.h" line="367"/>
+      <source-position filename="node.h" line="364"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="362">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="359">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7239,8 +6967,8 @@ and when the node icon has changed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="224">Recursively marks all items of the given node as read.</doc>
-      <source-position filename="node.h" line="230"/>
+           line="221">Recursively marks all items of the given node as read.</doc>
+      <source-position filename="node.h" line="227"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -7248,7 +6976,7 @@ and when the node icon has changed.</doc>
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="226">the node to process</doc>
+               line="223">the node to process</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7259,12 +6987,12 @@ and when the node icon has changed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="77">Creates a new node structure.</doc>
-      <source-position filename="node.h" line="83"/>
+           line="74">Creates a new node structure.</doc>
+      <source-position filename="node.h" line="80"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="node.h"
-             line="81">the new node</doc>
+             line="78">the new node</doc>
         <type name="nodePtr" c:type="nodePtr"/>
       </return-value>
       <parameters>
@@ -7281,12 +7009,12 @@ and when the node icon has changed.</doc>
               moved-to="node.new_id">
       <doc xml:space="preserve"
            filename="node.h"
-           line="274">Returns a new unused unique node id.</doc>
-      <source-position filename="node.h" line="281"/>
+           line="271">Returns a new unused unique node id.</doc>
+      <source-position filename="node.h" line="278"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="node.h"
-             line="279">new id (to be free'd using g_free)</doc>
+             line="276">new id (to be free'd using g_free)</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
     </function>
@@ -7296,14 +7024,14 @@ and when the node icon has changed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="130">Removes all data associated with the given node.</doc>
-      <source-position filename="node.h" line="136"/>
+           line="127">Removes all data associated with the given node.</doc>
+      <source-position filename="node.h" line="133"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="132">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="129">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7314,17 +7042,17 @@ and when the node icon has changed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="342">Node content rendering</doc>
-      <source-position filename="node.h" line="350"/>
+           line="339">Node content rendering</doc>
+      <source-position filename="node.h" line="347"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="node.h"
-             line="348">string with node rendered in HTML</doc>
+             line="345">string with node rendered in HTML</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="344">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="341">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7335,21 +7063,21 @@ and when the node icon has changed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="120">Set a node's new parent and update UI. If a node already has a parent,
+           line="117">Set a node's new parent and update UI. If a node already has a parent,
 it will be removed from its parent children list.</doc>
-      <source-position filename="node.h" line="128"/>
+      <source-position filename="node.h" line="125"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="122">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="119">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="new_parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="123">nodes new parent</doc>
+               line="120">nodes new parent</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7360,21 +7088,21 @@ it will be removed from its parent children list.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="175">Helper function to be used with node_foreach_child()
+           line="172">Helper function to be used with node_foreach_child()
 to mass-auto-update subscriptions.</doc>
-      <source-position filename="node.h" line="183"/>
+      <source-position filename="node.h" line="180"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="177">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="174">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="now" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="178">the current timestamp</doc>
+               line="175">the current timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -7385,14 +7113,14 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="323">Saves the given node to cache.</doc>
-      <source-position filename="node.h" line="329"/>
+           line="320">Saves the given node to cache.</doc>
+      <source-position filename="node.h" line="326"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="325">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="322">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -7404,20 +7132,20 @@ to mass-auto-update subscriptions.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="node.h"
-           line="412">Exports all items in this node as a RSS2 feed.</doc>
-      <source-position filename="node.h" line="420"/>
+           line="409">Exports all items in this node as a RSS2 feed.</doc>
+      <source-position filename="node.h" line="417"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="414">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="411">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="415">the destination file name</doc>
+               line="412">the destination file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -7428,8 +7156,8 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="138">Attaches a data structure to the given node.</doc>
-      <source-position filename="node.h" line="145"/>
+           line="135">Attaches a data structure to the given node.</doc>
+      <source-position filename="node.h" line="142"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -7437,7 +7165,7 @@ to mass-auto-update subscriptions.</doc>
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="140">the node to attach to</doc>
+               line="137">the node to attach to</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="data"
@@ -7446,7 +7174,7 @@ to mass-auto-update subscriptions.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="141">the structure</doc>
+               line="138">the structure</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -7457,14 +7185,14 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="232">Assigns a new pixmaps as the favicon representing this node.</doc>
-      <source-position filename="node.h" line="239"/>
+           line="229">Assigns a new pixmaps as the favicon representing this node.</doc>
+      <source-position filename="node.h" line="236"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="234">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="231">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="icon"
@@ -7473,7 +7201,7 @@ to mass-auto-update subscriptions.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="235">a pixmap or NULL</doc>
+               line="232">a pixmap or NULL</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -7484,20 +7212,20 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="293">Set the unique id string of the node.</doc>
-      <source-position filename="node.h" line="300"/>
+           line="290">Set the unique id string of the node.</doc>
+      <source-position filename="node.h" line="297"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="295">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="292">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="296">the id string</doc>
+               line="293">the id string</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -7508,18 +7236,18 @@ to mass-auto-update subscriptions.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="106">Sets a nodes parent. If no parent node is given the
+           line="103">Sets a nodes parent. If no parent node is given the
 parent node of the currently selected feed or the
 selected folder will be used.
 
 To be used before calling feedlist_node_added()</doc>
-      <source-position filename="node.h" line="118"/>
+      <source-position filename="node.h" line="115"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="108">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="105">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="parent"
@@ -7528,13 +7256,13 @@ To be used before calling feedlist_node_added()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="109">the parent node (optional can be NULL)</doc>
+               line="106">the parent node (optional can be NULL)</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="position" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="110">insert position (optional can be 0)</doc>
+               line="107">insert position (optional can be 0)</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -7545,29 +7273,29 @@ To be used before calling feedlist_node_added()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="369">Change/Set the sort column of a given node.</doc>
-      <source-position filename="node.h" line="379"/>
+           line="366">Change/Set the sort column of a given node.</doc>
+      <source-position filename="node.h" line="376"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="node.h"
-             line="377">TRUE if the passed settings were different from the previous ones</doc>
+             line="374">TRUE if the passed settings were different from the previous ones</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="371">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="368">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="sortColumn" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="372">sort column id</doc>
+               line="369">sort column id</doc>
           <type name="nodeViewSortType" c:type="nodeViewSortType"/>
         </parameter>
         <parameter name="reversed" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="373">TRUE if order should be reversed</doc>
+               line="370">TRUE if order should be reversed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -7578,14 +7306,14 @@ To be used before calling feedlist_node_added()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="147">Attaches the subscription to the given node.</doc>
-      <source-position filename="node.h" line="154"/>
+           line="144">Attaches the subscription to the given node.</doc>
+      <source-position filename="node.h" line="151"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="149">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="146">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="subscription"
@@ -7594,7 +7322,7 @@ To be used before calling feedlist_node_added()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="150">the subscription</doc>
+               line="147">the subscription</doc>
           <type name="gpointer" c:type="subscription*"/>
         </parameter>
       </parameters>
@@ -7605,20 +7333,20 @@ To be used before calling feedlist_node_added()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="206">Sets the node's title for the feed list.</doc>
-      <source-position filename="node.h" line="213"/>
+           line="203">Sets the node's title for the feed list.</doc>
+      <source-position filename="node.h" line="210"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="208">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="205">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="title" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="node.h"
-               line="209">the title</doc>
+               line="206">the title</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -8065,15 +7793,15 @@ the node will be reparented.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="215">Update the number of items and unread items of a node from
+           line="212">Update the number of items and unread items of a node from
 the DB. This method ensures propagation to parent folders.</doc>
-      <source-position filename="node.h" line="222"/>
+      <source-position filename="node.h" line="219"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="217">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="214">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -8084,14 +7812,14 @@ the DB. This method ensures propagation to parent folders.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="352">Called when updating favicons is requested.</doc>
-      <source-position filename="node.h" line="358"/>
+           line="349">Called when updating favicons is requested.</doc>
+      <source-position filename="node.h" line="355"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="354">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="351">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
       </parameters>
@@ -8102,15 +7830,15 @@ the DB. This method ensures propagation to parent folders.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="node.h"
-           line="156">Helper function to be used with node_foreach_child()
+           line="153">Helper function to be used with node_foreach_child()
 to mass-update subscriptions.</doc>
-      <source-position filename="node.h" line="164"/>
+      <source-position filename="node.h" line="161"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
-          <doc xml:space="preserve" filename="node.h" line="158">the node</doc>
+          <doc xml:space="preserve" filename="node.h" line="155">the node</doc>
           <type name="nodePtr" c:type="nodePtr"/>
         </parameter>
         <parameter name="user_data"
@@ -8119,7 +7847,7 @@ to mass-update subscriptions.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="node.h"
-               line="159">update flags</doc>
+               line="156">update flags</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>

@@ -13341,13 +13341,13 @@ icalparameter_free(param);
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="start" transfer-ownership="none">
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="count" transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="array" transfer-ownership="none">
-          <type name="glong" c:type="time_t*"/>
+          <type name="time_t" c:type="time_t*"/>
         </parameter>
       </parameters>
     </function>
@@ -13759,7 +13759,7 @@ icalparameter_free(param);
     <function name="icaltime_as_timet" c:identifier="icaltime_as_timet">
       <source-position filename="ical.h" line="257"/>
       <return-value transfer-ownership="none">
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="arg0"
@@ -13774,7 +13774,7 @@ icalparameter_free(param);
               c:identifier="icaltime_as_timet_with_zone">
       <source-position filename="ical.h" line="267"/>
       <return-value transfer-ownership="none">
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="tt"
@@ -14030,7 +14030,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </return-value>
       <parameters>
         <parameter name="tm" transfer-ownership="none">
-          <type name="glong" c:type="const time_t"/>
+          <type name="time_t" c:type="const time_t"/>
         </parameter>
         <parameter name="is_date" transfer-ownership="none">
           <type name="gint" c:type="const int"/>
@@ -19173,10 +19173,10 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
     <record name="time_span" c:type="icaltime_span">
       <source-position filename="ical.h" line="152"/>
       <field name="start" writable="1">
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="end" writable="1">
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="is_busy" writable="1">
         <type name="gint" c:type="int"/>

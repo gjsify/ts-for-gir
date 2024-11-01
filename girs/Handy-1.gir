@@ -593,6 +593,9 @@ the next character should be used for the mnemonic accelerator key.</doc>
         <type name="Gtk.ListBoxRowClass" c:type="GtkListBoxRowClass"/>
       </field>
       <field name="activate">
+        <doc xml:space="preserve"
+             filename="src/hdy-action-row.h"
+             line="27">activates the row to trigger its main action</doc>
         <callback name="activate">
           <source-position filename="src/hdy-action-row.h" line="36"/>
           <return-value transfer-ownership="none">
@@ -740,7 +743,8 @@ set a custom image.
       </constructor>
       <method name="draw_to_pixbuf"
               c:identifier="hdy_avatar_draw_to_pixbuf"
-              version="1.2">
+              version="1.2"
+              glib:async-func="draw_to_pixbuf_async">
         <doc xml:space="preserve"
              filename="src/hdy-avatar.c"
              line="1220">Renders @self into a [class@GdkPixbuf.Pixbuf] at @size and @scale_factor.
@@ -776,7 +780,9 @@ This can be used to export the fallback avatar.</doc>
       </method>
       <method name="draw_to_pixbuf_async"
               c:identifier="hdy_avatar_draw_to_pixbuf_async"
-              version="1.2">
+              version="1.2"
+              glib:finish-func="draw_to_pixbuf_finish"
+              glib:sync-func="draw_to_pixbuf">
         <doc xml:space="preserve"
              filename="src/hdy-avatar.c"
              line="1282">Renders asynchronously @self into a pixbuf at @size and @scale_factor.
@@ -12501,6 +12507,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="switch_child">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="29">switches visible child</doc>
         <callback name="switch_child">
           <source-position filename="src/hdy-swipeable.h" line="45"/>
           <return-value transfer-ownership="none">
@@ -12529,6 +12538,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         </callback>
       </field>
       <field name="get_swipe_tracker">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="30">gets the swipe tracker</doc>
         <callback name="get_swipe_tracker">
           <source-position filename="src/hdy-swipeable.h" line="49"/>
           <return-value transfer-ownership="none">
@@ -12548,6 +12560,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         </callback>
       </field>
       <field name="get_distance">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="31">gets the swipe distance</doc>
         <callback name="get_distance">
           <source-position filename="src/hdy-swipeable.h" line="50"/>
           <return-value transfer-ownership="none">
@@ -12567,6 +12582,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         </callback>
       </field>
       <field name="get_snap_points">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="32">gets the snap points</doc>
         <callback name="get_snap_points">
           <source-position filename="src/hdy-swipeable.h" line="51"/>
           <return-value transfer-ownership="full">
@@ -12597,6 +12615,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         </callback>
       </field>
       <field name="get_progress">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="33">gets the current progress</doc>
         <callback name="get_progress">
           <source-position filename="src/hdy-swipeable.h" line="53"/>
           <return-value transfer-ownership="none">
@@ -12616,6 +12637,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         </callback>
       </field>
       <field name="get_cancel_progress">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="34">gets the cancel progress</doc>
         <callback name="get_cancel_progress">
           <source-position filename="src/hdy-swipeable.h" line="54"/>
           <return-value transfer-ownership="none">
@@ -12635,6 +12659,9 @@ This is used by [class@SwipeGroup], applications should not connect to it.</doc>
         </callback>
       </field>
       <field name="get_swipe_area">
+        <doc xml:space="preserve"
+             filename="src/hdy-swipeable.h"
+             line="35">gets the swipeable rectangle</doc>
         <callback name="get_swipe_area">
           <source-position filename="src/hdy-swipeable.h" line="55"/>
           <return-value transfer-ownership="none">

@@ -4262,7 +4262,7 @@ if no track elements are created or an error occurred.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-discoverer-manager.c"
-               line="248">The default #GESDiscovererManager</doc>
+               line="251">The default #GESDiscovererManager</doc>
           <type name="DiscovererManager" c:type="GESDiscovererManager*"/>
         </return-value>
       </function>
@@ -4274,14 +4274,14 @@ if no track elements are created or an error occurred.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-discoverer-manager.c"
-               line="304">The timeout to use for the discoverer</doc>
+               line="307">The timeout to use for the discoverer</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="302">The #GESDiscovererManager</doc>
+                 line="305">The #GESDiscovererManager</doc>
             <type name="DiscovererManager" c:type="GESDiscovererManager*"/>
           </instance-parameter>
         </parameters>
@@ -4294,14 +4294,14 @@ if no track elements are created or an error occurred.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-discoverer-manager.c"
-               line="268">Whether to use the cache or not</doc>
+               line="271">Whether to use the cache or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="266">The #GESDiscovererManager</doc>
+                 line="269">The #GESDiscovererManager</doc>
             <type name="DiscovererManager" c:type="GESDiscovererManager*"/>
           </instance-parameter>
         </parameters>
@@ -4312,7 +4312,7 @@ if no track elements are created or an error occurred.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="ges/ges-discoverer-manager.c"
-             line="316">Sets the timeout to use for the discoverer</doc>
+             line="319">Sets the timeout to use for the discoverer</doc>
         <source-position filename="ges/ges-discoverer-manager.h" line="25"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4321,13 +4321,13 @@ if no track elements are created or an error occurred.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="318">The #GESDiscovererManager</doc>
+                 line="321">The #GESDiscovererManager</doc>
             <type name="DiscovererManager" c:type="GESDiscovererManager*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="319">The timeout to set</doc>
+                 line="322">The timeout to set</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -4338,7 +4338,7 @@ if no track elements are created or an error occurred.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="ges/ges-discoverer-manager.c"
-             line="281">Sets whether to use the cache or not</doc>
+             line="284">Sets whether to use the cache or not</doc>
         <source-position filename="ges/ges-discoverer-manager.h" line="28"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4347,13 +4347,13 @@ if no track elements are created or an error occurred.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="283">The #GESDiscovererManager</doc>
+                 line="286">The #GESDiscovererManager</doc>
             <type name="DiscovererManager" c:type="GESDiscovererManager*"/>
           </instance-parameter>
           <parameter name="use_cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="284">Whether to use the cache</doc>
+                 line="287">Whether to use the cache</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4368,7 +4368,7 @@ if no track elements are created or an error occurred.</doc>
                 default-value="60000000000">
         <doc xml:space="preserve"
              filename="ges/ges-discoverer-manager.c"
-             line="155">The timeout (in milliseconds) for the #GstDiscoverer operations</doc>
+             line="157">The timeout (in milliseconds) for the #GstDiscoverer operations</doc>
         <type name="guint64" c:type="guint64"/>
       </property>
       <property name="use-cache"
@@ -4389,7 +4389,7 @@ if no track elements are created or an error occurred.</doc>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="225">The #GstDiscovererInfo representing the discovered URI</doc>
+                 line="227">The #GstDiscovererInfo representing the discovered URI</doc>
             <type name="GstPbutils.DiscovererInfo"/>
           </parameter>
           <parameter name="error"
@@ -4398,7 +4398,7 @@ if no track elements are created or an error occurred.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="226">The #GError that occurred, or %NULL</doc>
+                 line="228">The #GError that occurred, or %NULL</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -4406,13 +4406,13 @@ if no track elements are created or an error occurred.</doc>
       <glib:signal name="load-serialized-info" when="last" version="1.24">
         <doc xml:space="preserve"
              filename="ges/ges-discoverer-manager.c"
-             line="190">Retrieves information about a URI from and external source of information,
+             line="192">Retrieves information about a URI from and external source of information,
 like a cache file. This is used by the discoverer to speed up the
 discovery.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-discoverer-manager.c"
-               line="199">The #GstDiscovererInfo representing
+               line="201">The #GstDiscovererInfo representing
 @uri, or %NULL if no information</doc>
           <type name="GstPbutils.DiscovererInfo"/>
         </return-value>
@@ -4420,7 +4420,7 @@ discovery.</doc>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="193">The URI to load the serialized info for</doc>
+                 line="195">The URI to load the serialized info for</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -4428,7 +4428,7 @@ discovery.</doc>
       <glib:signal name="source-setup" when="last" version="1.24">
         <doc xml:space="preserve"
              filename="ges/ges-discoverer-manager.c"
-             line="209">Allows to setup the source element before the discoverer runs.</doc>
+             line="211">Allows to setup the source element before the discoverer runs.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4436,7 +4436,7 @@ discovery.</doc>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-discoverer-manager.c"
-                 line="212">The source #GstElement to setup</doc>
+                 line="214">The source #GstElement to setup</doc>
             <type name="Gst.Element"/>
           </parameter>
         </parameters>
@@ -21959,7 +21959,7 @@ contains one frame)</doc>
       <source-position filename="ges/ges-version.h" line="24"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="5" c:type="GES_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="7" c:type="GES_VERSION_MICRO">
       <source-position filename="ges/ges-version.h" line="26"/>
       <type name="gint" c:type="gint"/>
     </constant>

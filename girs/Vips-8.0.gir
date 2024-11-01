@@ -23822,6 +23822,9 @@ don't need to free.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="interpolate">
+        <doc xml:space="preserve"
+             filename="libvips/resample/interpolate.c"
+             line="96">the interpolation method</doc>
         <source-position filename="libvips/include/vips/interpolate.h"
                          line="69"/>
         <return-value transfer-ownership="none">
@@ -24030,6 +24033,9 @@ vips_interpolate_bilinear_static().</doc>
         <type name="InterpolateMethod" c:type="VipsInterpolateMethod"/>
       </field>
       <field name="get_window_size">
+        <doc xml:space="preserve"
+             filename="libvips/resample/interpolate.c"
+             line="97">return the size of the window needed by this method</doc>
         <callback name="get_window_size">
           <source-position filename="libvips/include/vips/interpolate.h"
                            line="82"/>
@@ -24056,6 +24062,9 @@ vips_interpolate_bilinear_static().</doc>
         <type name="gint" c:type="int"/>
       </field>
       <field name="get_window_offset">
+        <doc xml:space="preserve"
+             filename="libvips/resample/interpolate.c"
+             line="99">return the window offset for this method</doc>
         <callback name="get_window_offset">
           <source-position filename="libvips/include/vips/interpolate.h"
                            line="91"/>

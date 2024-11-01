@@ -26,6 +26,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_bitrate"
                       invoker="get_bitrate"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="52">This is called by #GUPnPDLNAProfileGuesser to get a
+bitrate.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="82"/>
         <return-value>
@@ -46,6 +50,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_channels"
                       invoker="get_channels"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="54">This is called by #GUPnPDLNAProfileGuesser to get a
+channels count.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="85"/>
         <return-value>
@@ -64,6 +72,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_depth" invoker="get_depth" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="56">This is called by #GUPnPDLNAProfileGuesser to get a
+depth.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="88"/>
         <return-value>
@@ -82,6 +94,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_layer" invoker="get_layer" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="58">This is called by #GUPnPDLNAProfileGuesser to get a
+layer.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="91"/>
         <return-value>
@@ -100,6 +116,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_level" invoker="get_level" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="60">This is called by #GUPnPDLNAProfileGuesser to get a
+level.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="94"/>
         <return-value>
@@ -118,6 +138,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_mime" invoker="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="74">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="115"/>
         <return-value>
@@ -138,6 +162,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_mpeg_audio_version"
                       invoker="get_mpeg_audio_version"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="62">This is called by #GUPnPDLNAProfileGuesser
+to get an MPEG audio version.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="97"/>
         <return-value>
@@ -158,6 +186,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_mpeg_version"
                       invoker="get_mpeg_version"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="64">This is called by #GUPnPDLNAProfileGuesser to
+get an MPEG version.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="100"/>
         <return-value>
@@ -178,6 +210,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_profile"
                       invoker="get_profile"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="66">This is called by #GUPnPDLNAProfileGuesser to get a
+profile.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="103"/>
         <return-value>
@@ -196,6 +232,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_rate" invoker="get_rate" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="68">This is called by #GUPnPDLNAProfileGuesser to get a
+sample rate.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="106"/>
         <return-value>
@@ -216,6 +256,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_stream_format"
                       invoker="get_stream_format"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="70">This is called by #GUPnPDLNAProfileGuesser to
+get a stream format.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="109"/>
         <return-value>
@@ -236,6 +280,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_wma_version"
                       invoker="get_wma_version"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="72">This is called by #GUPnPDLNAProfileGuesser to get
+a WMA version.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                          line="112"/>
         <return-value>
@@ -509,6 +557,10 @@ and/or use gtk-doc annotations.  -->
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_bitrate" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="52">This is called by #GUPnPDLNAProfileGuesser to get a
+bitrate.</doc>
         <callback name="get_bitrate" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="82"/>
@@ -530,6 +582,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_channels" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="54">This is called by #GUPnPDLNAProfileGuesser to get a
+channels count.</doc>
         <callback name="get_channels" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="85"/>
@@ -551,6 +607,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_depth" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="56">This is called by #GUPnPDLNAProfileGuesser to get a
+depth.</doc>
         <callback name="get_depth" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="88"/>
@@ -572,6 +632,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_layer" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="58">This is called by #GUPnPDLNAProfileGuesser to get a
+layer.</doc>
         <callback name="get_layer" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="91"/>
@@ -593,6 +657,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_level" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="60">This is called by #GUPnPDLNAProfileGuesser to get a
+level.</doc>
         <callback name="get_level" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="94"/>
@@ -614,6 +682,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_mpeg_audio_version" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="62">This is called by #GUPnPDLNAProfileGuesser
+to get an MPEG audio version.</doc>
         <callback name="get_mpeg_audio_version" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="97"/>
@@ -635,6 +707,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_mpeg_version" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="64">This is called by #GUPnPDLNAProfileGuesser to
+get an MPEG version.</doc>
         <callback name="get_mpeg_version" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="100"/>
@@ -656,6 +732,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_profile" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="66">This is called by #GUPnPDLNAProfileGuesser to get a
+profile.</doc>
         <callback name="get_profile" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="103"/>
@@ -677,6 +757,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_rate" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="68">This is called by #GUPnPDLNAProfileGuesser to get a
+sample rate.</doc>
         <callback name="get_rate" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="106"/>
@@ -698,6 +782,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_stream_format" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="70">This is called by #GUPnPDLNAProfileGuesser to
+get a stream format.</doc>
         <callback name="get_stream_format" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="109"/>
@@ -719,6 +807,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_wma_version" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="72">This is called by #GUPnPDLNAProfileGuesser to get
+a WMA version.</doc>
         <callback name="get_wma_version" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="112"/>
@@ -740,6 +832,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
+             line="74">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <callback name="get_mime" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-audio-information.h"
                            line="115"/>
@@ -798,6 +894,10 @@ and/or use gtk-doc annotations.  -->
       <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                        line="88"/>
       <virtual-method name="get_mime" invoker="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="62">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                          line="85"/>
         <return-value>
@@ -819,6 +919,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_mpeg_version"
                       invoker="get_mpeg_version"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="52">This is called by #GUPnPDLNAProfileGuesser to
+get an MPEG version.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                          line="70"/>
         <return-value>
@@ -840,6 +944,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_packet_size"
                       invoker="get_packet_size"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="54">This is called by #GUPnPDLNAProfileGuesser to get
+a packet size.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                          line="73"/>
         <return-value>
@@ -861,6 +969,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_profile"
                       invoker="get_profile"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="56">This is called by #GUPnPDLNAProfileGuesser to get a
+profile.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                          line="76"/>
         <return-value>
@@ -882,6 +994,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_variant"
                       invoker="get_variant"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="60">This is called by #GUPnPDLNAProfileGuesser to get a
+variant.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                          line="82"/>
         <return-value>
@@ -903,6 +1019,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="is_system_stream"
                       invoker="is_system_stream"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="58">This is called by #GUPnPDLNAProfileGuesser to
+get whether it is a system stream</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                          line="79"/>
         <return-value>
@@ -1063,6 +1183,10 @@ and/or use gtk-doc annotations.  -->
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_mpeg_version" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="52">This is called by #GUPnPDLNAProfileGuesser to
+get an MPEG version.</doc>
         <callback name="get_mpeg_version" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                            line="70"/>
@@ -1084,6 +1208,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_packet_size" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="54">This is called by #GUPnPDLNAProfileGuesser to get
+a packet size.</doc>
         <callback name="get_packet_size" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                            line="73"/>
@@ -1105,6 +1233,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_profile" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="56">This is called by #GUPnPDLNAProfileGuesser to get a
+profile.</doc>
         <callback name="get_profile" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                            line="76"/>
@@ -1126,6 +1258,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="is_system_stream" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="58">This is called by #GUPnPDLNAProfileGuesser to
+get whether it is a system stream</doc>
         <callback name="is_system_stream" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                            line="79"/>
@@ -1147,6 +1283,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_variant" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="60">This is called by #GUPnPDLNAProfileGuesser to get a
+variant.</doc>
         <callback name="get_variant" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                            line="82"/>
@@ -1168,6 +1308,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-container-information.h"
+             line="62">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <callback name="get_mime" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-container-information.h"
                            line="85"/>
@@ -1427,6 +1571,10 @@ and/or use gtk-doc annotations.  -->
       <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                        line="79"/>
       <virtual-method name="get_depth" invoker="get_depth" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="53">This is called by #GUPnPDLNAProfileGuesser to get a
+depth.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                          line="67"/>
         <return-value>
@@ -1447,6 +1595,10 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="get_height"
                       invoker="get_height"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="55">This is called by #GUPnPDLNAProfileGuesser to get a
+height.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                          line="70"/>
         <return-value>
@@ -1465,6 +1617,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_mime" invoker="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="59">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                          line="76"/>
         <return-value>
@@ -1483,6 +1639,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_width" invoker="get_width" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="57">This is called by #GUPnPDLNAProfileGuesser to get a
+width.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                          line="73"/>
         <return-value>
@@ -1596,6 +1756,10 @@ and/or use gtk-doc annotations.  -->
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_depth" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="53">This is called by #GUPnPDLNAProfileGuesser to get a
+depth.</doc>
         <callback name="get_depth" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                            line="67"/>
@@ -1617,6 +1781,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_height" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="55">This is called by #GUPnPDLNAProfileGuesser to get a
+height.</doc>
         <callback name="get_height" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                            line="70"/>
@@ -1638,6 +1806,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_width" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="57">This is called by #GUPnPDLNAProfileGuesser to get a
+width.</doc>
         <callback name="get_width" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                            line="73"/>
@@ -1659,6 +1831,10 @@ and/or use gtk-doc annotations.  -->
         </callback>
       </field>
       <field name="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-image-information.h"
+             line="59">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <callback name="get_mime" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-image-information.h"
                            line="76"/>
@@ -1769,6 +1945,10 @@ image files).</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_profile_name" invoker="get_profile_name">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-information.h"
+             line="62">This is called by #GUPnPDLNAProfileGuesser to
+get the name of the DLNA profile assigned with this information.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-information.h"
                          line="82"/>
         <return-value transfer-ownership="none">
@@ -2004,6 +2184,10 @@ video files).</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_audio_information">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-information.h"
+             line="54">This is called by #GUPnPDLNAProfileGuesser
+to get an audio information.</doc>
         <callback name="get_audio_information">
           <source-position filename="libgupnp-dlna/gupnp-dlna-information.h"
                            line="70"/>
@@ -2024,6 +2208,10 @@ video files).</doc>
         </callback>
       </field>
       <field name="get_container_information">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-information.h"
+             line="56">This is called by
+#GUPnPDLNAProfileGuesser to get a container information.</doc>
         <callback name="get_container_information">
           <source-position filename="libgupnp-dlna/gupnp-dlna-information.h"
                            line="73"/>
@@ -2045,6 +2233,10 @@ video files).</doc>
         </callback>
       </field>
       <field name="get_image_information">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-information.h"
+             line="58">This is called by #GUPnPDLNAProfileGuesser
+to get an image information.</doc>
         <callback name="get_image_information">
           <source-position filename="libgupnp-dlna/gupnp-dlna-information.h"
                            line="76"/>
@@ -2065,6 +2257,10 @@ video files).</doc>
         </callback>
       </field>
       <field name="get_video_information">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-information.h"
+             line="60">This is called by #GUPnPDLNAProfileGuesser
+to get a video information.</doc>
         <callback name="get_video_information">
           <source-position filename="libgupnp-dlna/gupnp-dlna-information.h"
                            line="79"/>
@@ -2085,6 +2281,10 @@ video files).</doc>
         </callback>
       </field>
       <field name="get_profile_name">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-information.h"
+             line="62">This is called by #GUPnPDLNAProfileGuesser to
+get the name of the DLNA profile assigned with this information.</doc>
         <callback name="get_profile_name">
           <source-position filename="libgupnp-dlna/gupnp-dlna-information.h"
                            line="82"/>
@@ -2449,6 +2649,10 @@ the error if discovery fails, otherwise is %NULL.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="extract_async">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/metadata/gupnp-dlna-metadata-extractor.h"
+             line="56">This is called by #GUPnPDLNAProfileGuesser to get a
+information about media file asynchronously.</doc>
         <callback name="extract_async" throws="1">
           <source-position filename="libgupnp-dlna/metadata/gupnp-dlna-metadata-extractor.h"
                            line="67"/>
@@ -2482,6 +2686,10 @@ the error if discovery fails, otherwise is %NULL.</doc>
         </callback>
       </field>
       <field name="extract_sync">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/metadata/gupnp-dlna-metadata-extractor.h"
+             line="58">This is called by #GUPnPDLNAProfileGuesser to get a
+information about media file synchronously.</doc>
         <callback name="extract_sync" throws="1">
           <source-position filename="libgupnp-dlna/metadata/gupnp-dlna-metadata-extractor.h"
                            line="73"/>
@@ -3435,6 +3643,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="get_bitrate"
                       invoker="get_bitrate"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="53">This is called by #GUPnPDLNAProfileGuesser to get a
+bitrate.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="81"/>
         <return-value>
@@ -3455,6 +3667,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="get_framerate"
                       invoker="get_framerate"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="55">This is called by #GUPnPDLNAProfileGuesser to get a
+framerate.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="84"/>
         <return-value>
@@ -3475,6 +3691,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="get_height"
                       invoker="get_height"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="57">This is called by #GUPnPDLNAProfileGuesser to get a
+height.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="87"/>
         <return-value>
@@ -3493,6 +3713,10 @@ with g_free() when not needed.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_level" invoker="get_level" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="61">This is called by #GUPnPDLNAProfileGuesser to get a
+level.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="93"/>
         <return-value>
@@ -3511,6 +3735,10 @@ with g_free() when not needed.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_mime" invoker="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="73">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="111"/>
         <return-value>
@@ -3531,6 +3759,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="get_mpeg_version"
                       invoker="get_mpeg_version"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="63">This is called by #GUPnPDLNAProfileGuesser to
+get an MPEG version.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="96"/>
         <return-value>
@@ -3551,6 +3783,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="get_pixel_aspect_ratio"
                       invoker="get_pixel_aspect_ratio"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="65">This is called by #GUPnPDLNAProfileGuesser
+to get a pixel-aspect-ratio.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="99"/>
         <return-value>
@@ -3571,6 +3807,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="get_profile"
                       invoker="get_profile"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="67">This is called by #GUPnPDLNAProfileGuesser to get a
+profile.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="102"/>
         <return-value>
@@ -3589,6 +3829,10 @@ with g_free() when not needed.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_width" invoker="get_width" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="71">This is called by #GUPnPDLNAProfileGuesser to get a
+width.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="108"/>
         <return-value>
@@ -3609,6 +3853,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="is_interlaced"
                       invoker="is_interlaced"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="59">This is called by #GUPnPDLNAProfileGuesser to get
+whether it is interlaced.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="90"/>
         <return-value>
@@ -3629,6 +3877,10 @@ with g_free() when not needed.</doc>
       <virtual-method name="is_system_stream"
                       invoker="is_system_stream"
                       introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="69">This is called by #GUPnPDLNAProfileGuesser to
+get whether it is a system stream.</doc>
         <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                          line="105"/>
         <return-value>
@@ -3882,6 +4134,10 @@ with g_free() when not needed.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_bitrate" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="53">This is called by #GUPnPDLNAProfileGuesser to get a
+bitrate.</doc>
         <callback name="get_bitrate" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="81"/>
@@ -3903,6 +4159,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_framerate" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="55">This is called by #GUPnPDLNAProfileGuesser to get a
+framerate.</doc>
         <callback name="get_framerate" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="84"/>
@@ -3924,6 +4184,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_height" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="57">This is called by #GUPnPDLNAProfileGuesser to get a
+height.</doc>
         <callback name="get_height" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="87"/>
@@ -3945,6 +4209,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="is_interlaced" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="59">This is called by #GUPnPDLNAProfileGuesser to get
+whether it is interlaced.</doc>
         <callback name="is_interlaced" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="90"/>
@@ -3966,6 +4234,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_level" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="61">This is called by #GUPnPDLNAProfileGuesser to get a
+level.</doc>
         <callback name="get_level" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="93"/>
@@ -3987,6 +4259,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_mpeg_version" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="63">This is called by #GUPnPDLNAProfileGuesser to
+get an MPEG version.</doc>
         <callback name="get_mpeg_version" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="96"/>
@@ -4008,6 +4284,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_pixel_aspect_ratio" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="65">This is called by #GUPnPDLNAProfileGuesser
+to get a pixel-aspect-ratio.</doc>
         <callback name="get_pixel_aspect_ratio" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="99"/>
@@ -4029,6 +4309,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_profile" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="67">This is called by #GUPnPDLNAProfileGuesser to get a
+profile.</doc>
         <callback name="get_profile" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="102"/>
@@ -4050,6 +4334,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="is_system_stream" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="69">This is called by #GUPnPDLNAProfileGuesser to
+get whether it is a system stream.</doc>
         <callback name="is_system_stream" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="105"/>
@@ -4071,6 +4359,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_width" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="71">This is called by #GUPnPDLNAProfileGuesser to get a
+width.</doc>
         <callback name="get_width" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="108"/>
@@ -4092,6 +4384,10 @@ with g_free() when not needed.</doc>
         </callback>
       </field>
       <field name="get_mime" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/gupnp-dlna-video-information.h"
+             line="73">This is called by #GUPnPDLNAProfileGuesser to get a MIME
+type.</doc>
         <callback name="get_mime" introspectable="0">
           <source-position filename="libgupnp-dlna/gupnp-dlna-video-information.h"
                            line="111"/>

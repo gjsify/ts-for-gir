@@ -110,6 +110,9 @@ of the thread that you call this constructor from.</doc>
         </parameters>
       </constructor>
       <virtual-method name="uevent">
+        <doc xml:space="preserve"
+             filename="gudev/gudevclient.h"
+             line="48">Signal class handler for the #GUdevClient::uevent signal.</doc>
         <source-position filename="gudev/gudevclient.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -360,6 +363,9 @@ of the thread that @client was created in.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="uevent">
+        <doc xml:space="preserve"
+             filename="gudev/gudevclient.h"
+             line="48">Signal class handler for the #GUdevClient::uevent signal.</doc>
         <callback name="uevent">
           <source-position filename="gudev/gudevclient.h" line="57"/>
           <return-value transfer-ownership="none">

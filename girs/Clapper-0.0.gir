@@ -1325,9 +1325,7 @@ You probably want to implement this function if you also implemented item remova
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MARKER_NO_END"
-              value="1.000000"
-              c:type="CLAPPER_MARKER_NO_END">
+    <constant name="MARKER_NO_END" value="-1" c:type="CLAPPER_MARKER_NO_END">
       <doc xml:space="preserve"
            filename="src/lib/clapper/clapper-marker.h"
            line="41">The value used to indicate that marker does not have an ending time specified</doc>
@@ -1344,7 +1342,7 @@ You probably want to implement this function if you also implemented item remova
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="0" c:type="CLAPPER_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="CLAPPER_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/lib/clapper/clapper-version.h"
            line="40">Clapper micro version component</doc>
@@ -2206,9 +2204,9 @@ Example: "My Player"</doc>
              line="1606">DBus name to own on connection.
 
 Must be written as a reverse DNS format starting with "org.mpris.MediaPlayer2." prefix.
-Each #ClapperMpris instance running on the same system must have an unique.
+Each #ClapperMpris instance running on the same system must have an unique name.
 
-Example: "org.mpris.MediaPlayer2.MyPlayer1"</doc>
+Example: "org.mpris.MediaPlayer2.MyPlayer.instance123"</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="queue-controllable"
@@ -5761,7 +5759,7 @@ so it is safe to call if unsure.</doc>
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
     </record>
-    <constant name="VERSION_S" value="0.6.0" c:type="CLAPPER_VERSION_S">
+    <constant name="VERSION_S" value="0.6.1" c:type="CLAPPER_VERSION_S">
       <doc xml:space="preserve"
            filename="src/lib/clapper/clapper-version.h"
            line="54">Clapper version, encoded as a string</doc>
@@ -6044,7 +6042,7 @@ use [func@Clapper.init_check] instead.</doc>
       <doc xml:space="preserve"
            filename="src/lib/clapper/clapper.c"
            line="80">This function does the same thing as [func@Clapper.init], but instead of
-terminating on failure it returns %FALSE with @error set.</doc>
+terminating on failure it returns %FALSE.</doc>
       <source-position filename="src/lib/clapper/clapper.h" line="57"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"

@@ -17,4 +17,3 @@ console.log(gtk3.__name__, gtk3.__version__)
 
 import gtk4 from 'gi://Gtk?version=4.0'
 console.log(gtk4.__name__, gtk4.__version__)
-

@@ -2944,7 +2944,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="mate-desktop-thumbnail.c"
                  line="817">the mtime of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2979,7 +2979,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="mate-desktop-thumbnail.c"
                  line="1254">the modification time of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3056,7 +3056,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="mate-desktop-thumbnail.c"
                  line="782">the mtime of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3093,7 +3093,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="mate-desktop-thumbnail.c"
                  line="756">the mtime of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3134,7 +3134,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="mate-desktop-thumbnail.c"
                  line="1221">the modification time of the original file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -5913,7 +5913,7 @@ png options.</doc>
           <doc xml:space="preserve"
                filename="mate-desktop-thumbnail.c"
                line="1323">the mtime</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>

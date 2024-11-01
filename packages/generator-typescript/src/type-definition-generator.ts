@@ -65,6 +65,9 @@ export class TypeDefinitionGenerator implements Generator {
             await templateProcessor.create('gjs/cairo.d.ts', config.outdir, 'cairo.d.ts')
             await templateProcessor.create('gjs/cairo.js', config.outdir, 'cairo.js')
 
+            await templateProcessor.create('gjs/console.d.ts', config.outdir, 'console.d.ts')
+            await templateProcessor.create('gjs/console.js', config.outdir, 'console.js')
+
             // Import ambient types
             await templateProcessor.create('gjs/gjs-ambient.d.ts', config.outdir, 'gjs-ambient.d.ts')
             await templateProcessor.create('gjs/gjs-ambient.js', config.outdir, 'gjs-ambient.js')
@@ -94,6 +97,13 @@ export class TypeDefinitionGenerator implements Generator {
                 cairoContent.prepend + '\n' + cairoContent.append,
                 config.outdir,
                 'cairo.d.ts',
+            )
+
+            const consoleContent = await templateProcessor.load('gjs/console.d.ts')
+            await templateProcessor.write(
+                consoleContent.prepend + '\n' + consoleContent.append,
+                config.outdir,
+                'console.d.ts',
             )
 
             // Additional DOM types supported by GJS

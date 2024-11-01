@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-3-editor-example",
-  "version": "4.0.0-beta.10",
+  "version": "4.0.0-beta.16",
   "type": "module",
   "targets": {
     ".": {
@@ -33,7 +33,7 @@
     "@parcel/resolver-default": "^2.12.0",
     "parcel": "^2.12.0",
     "parcel-plugin-externals": "^0.5.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@girs/gjs": "workspace:^",

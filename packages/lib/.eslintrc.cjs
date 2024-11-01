@@ -13,7 +13,7 @@ module.exports = {
         'no-debugger': 'off',
         '@typescript-eslint/triple-slash-reference': 'off',
         camelcase: 'off',
-        '@typescript-eslint/camelcase': 'off',
+        '@typescript-eslint/camelcase': 'off'
     },
     parserOptions: {
         tsconfigRootDir: __dirname,

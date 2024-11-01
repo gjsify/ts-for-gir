@@ -139,7 +139,9 @@ and/or use gtk-doc annotations.  -->
           <type name="Client" c:type="GPasteClient*"/>
         </return-value>
       </constructor>
-      <function name="new" c:identifier="g_paste_client_new">
+      <function name="new"
+                c:identifier="g_paste_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="2122">Create a new instance of #GPasteClient</doc>
@@ -4222,7 +4224,9 @@ should be handled.</doc>
           <type name="GnomeShellClient" c:type="GPasteGnomeShellClient*"/>
         </return-value>
       </constructor>
-      <function name="new" c:identifier="g_paste_gnome_shell_client_new">
+      <function name="new"
+                c:identifier="g_paste_gnome_shell_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="390">Create a new instance of #GPasteGnomeShellClient</doc>
@@ -4945,7 +4949,9 @@ that an accelerator has been pressed.</doc>
           <type name="ScreensaverClient" c:type="GPasteScreensaverClient*"/>
         </return-value>
       </constructor>
-      <function name="new" c:identifier="g_paste_screensaver_client_new">
+      <function name="new"
+                c:identifier="g_paste_screensaver_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-screensaver-client.c"
              line="110">Create a new instance of #GPasteScreensaverClient</doc>

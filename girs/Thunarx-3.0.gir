@@ -817,6 +817,9 @@ from the extensions.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="75">See thunarx_file_info_get_name().</doc>
         <callback name="get_name">
           <source-position filename="thunarx-file-info.h" line="100"/>
           <return-value transfer-ownership="full">
@@ -837,6 +840,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_uri">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="76">See thunarx_file_info_get_uri().</doc>
         <callback name="get_uri">
           <source-position filename="thunarx-file-info.h" line="102"/>
           <return-value transfer-ownership="full">
@@ -856,6 +862,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_parent_uri">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="77">See thunarx_file_info_get_parent_uri().</doc>
         <callback name="get_parent_uri">
           <source-position filename="thunarx-file-info.h" line="103"/>
           <return-value transfer-ownership="full">
@@ -876,6 +885,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_uri_scheme">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="78">See thunarx_file_info_get_uri_scheme().</doc>
         <callback name="get_uri_scheme">
           <source-position filename="thunarx-file-info.h" line="104"/>
           <return-value transfer-ownership="full">
@@ -895,6 +907,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_mime_type">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="79">See thunarx_file_info_get_mime_type().</doc>
         <callback name="get_mime_type">
           <source-position filename="thunarx-file-info.h" line="106"/>
           <return-value transfer-ownership="full">
@@ -915,6 +930,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="has_mime_type">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="80">See thunarx_file_info_has_mime_type().</doc>
         <callback name="has_mime_type">
           <source-position filename="thunarx-file-info.h" line="107"/>
           <return-value transfer-ownership="none">
@@ -941,6 +959,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="is_directory">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="81">See thunarx_file_info_is_directory().</doc>
         <callback name="is_directory">
           <source-position filename="thunarx-file-info.h" line="110"/>
           <return-value transfer-ownership="none">
@@ -960,6 +981,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_file_info">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="82">See thunarx_file_info_get_file_info().</doc>
         <callback name="get_file_info">
           <source-position filename="thunarx-file-info.h" line="112"/>
           <return-value transfer-ownership="full">
@@ -980,6 +1004,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_filesystem_info">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="83">See thunarx_filesystem_info_get_filesystem_info().</doc>
         <callback name="get_filesystem_info">
           <source-position filename="thunarx-file-info.h" line="113"/>
           <return-value transfer-ownership="full">
@@ -1001,6 +1028,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="get_location">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="84">See thunarx_location_get_location().</doc>
         <callback name="get_location">
           <source-position filename="thunarx-file-info.h" line="114"/>
           <return-value transfer-ownership="full">
@@ -1077,6 +1107,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="85">See thunarx_file_info_changed().</doc>
         <callback name="changed">
           <source-position filename="thunarx-file-info.h" line="128"/>
           <return-value transfer-ownership="none">
@@ -1093,6 +1126,9 @@ from the extensions.</doc>
         </callback>
       </field>
       <field name="renamed">
+        <doc xml:space="preserve"
+             filename="thunarx-file-info.h"
+             line="86">See thunarx_file_info_renamed().</doc>
         <callback name="renamed">
           <source-position filename="thunarx-file-info.h" line="129"/>
           <return-value transfer-ownership="none">
@@ -1431,7 +1467,7 @@ list and decreases the reference count on the
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="10" c:type="THUNARX_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="11" c:type="THUNARX_MICRO_VERSION">
       <source-position filename="thunarx-config.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -2149,6 +2185,9 @@ the interface.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_file_menu_items">
+        <doc xml:space="preserve"
+             filename="thunarx-menu-provider.h"
+             line="44">See thunarx_menu_provider_get_file_menu_items().</doc>
         <callback name="get_file_menu_items">
           <source-position filename="thunarx-menu-provider.h" line="60"/>
           <return-value transfer-ownership="full">
@@ -2186,6 +2225,9 @@ the interface.</doc>
         </callback>
       </field>
       <field name="get_folder_menu_items">
+        <doc xml:space="preserve"
+             filename="thunarx-menu-provider.h"
+             line="45">See thunarx_menu_provider_get_folder_menu_items().</doc>
         <callback name="get_folder_menu_items">
           <source-position filename="thunarx-menu-provider.h" line="64"/>
           <return-value transfer-ownership="full">
@@ -2220,6 +2262,9 @@ the interface.</doc>
         </callback>
       </field>
       <field name="get_dnd_menu_items">
+        <doc xml:space="preserve"
+             filename="thunarx-menu-provider.h"
+             line="46">See thunarx_menu_provider_get_dnd_menu_items().</doc>
         <callback name="get_dnd_menu_items">
           <source-position filename="thunarx-menu-provider.h" line="68"/>
           <return-value transfer-ownership="full">
@@ -2540,6 +2585,9 @@ in the interface.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_menu_items">
+        <doc xml:space="preserve"
+             filename="thunarx-preferences-provider.h"
+             line="42">See thunarx_preferences_provider_get_menu_items().</doc>
         <callback name="get_menu_items">
           <source-position filename="thunarx-preferences-provider.h"
                            line="56"/>
@@ -3003,6 +3051,9 @@ additional pages for the file properties dialog.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_pages">
+        <doc xml:space="preserve"
+             filename="thunarx-property-page-provider.h"
+             line="42">see thunarx_property_page_provider_get_pages().</doc>
         <callback name="get_pages">
           <source-position filename="thunarx-property-page-provider.h"
                            line="53"/>
@@ -3692,6 +3743,9 @@ accessible from the extensions.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_resident">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-plugin.h"
+             line="40">see thunarx_provider_plugin_get_resident().</doc>
         <callback name="get_resident">
           <source-position filename="thunarx-provider-plugin.h" line="57"/>
           <return-value transfer-ownership="none">
@@ -3713,6 +3767,9 @@ accessible from the extensions.</doc>
         </callback>
       </field>
       <field name="set_resident">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-plugin.h"
+             line="41">see thunarx_provider_plugin_set_resident().</doc>
         <callback name="set_resident">
           <source-position filename="thunarx-provider-plugin.h" line="58"/>
           <return-value transfer-ownership="none">
@@ -3735,6 +3792,9 @@ accessible from the extensions.</doc>
         </callback>
       </field>
       <field name="register_type">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-plugin.h"
+             line="42">see thunarx_provider_plugin_register_type().</doc>
         <callback name="register_type">
           <source-position filename="thunarx-provider-plugin.h" line="61"/>
           <return-value transfer-ownership="none">
@@ -3778,6 +3838,9 @@ accessible from the extensions.</doc>
         </callback>
       </field>
       <field name="add_interface">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-plugin.h"
+             line="43">see thunarx_provider_plugin_add_interface().</doc>
         <callback name="add_interface">
           <source-position filename="thunarx-provider-plugin.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -3813,6 +3876,9 @@ accessible from the extensions.</doc>
         </callback>
       </field>
       <field name="register_enum">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-plugin.h"
+             line="44">see thunarx_provider_plugin_register_enum().</doc>
         <callback name="register_enum">
           <source-position filename="thunarx-provider-plugin.h" line="70"/>
           <return-value transfer-ownership="none">
@@ -3845,6 +3911,9 @@ accessible from the extensions.</doc>
         </callback>
       </field>
       <field name="register_flags">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-plugin.h"
+             line="45">see thunarx_provider_plugin_register_flags().</doc>
         <callback name="register_flags">
           <source-position filename="thunarx-provider-plugin.h" line="73"/>
           <return-value transfer-ownership="none">
@@ -4652,6 +4721,9 @@ rename module in Thunar.</doc>
         <type name="Gtk.VBoxClass" c:type="GtkVBoxClass"/>
       </field>
       <field name="process">
+        <doc xml:space="preserve"
+             filename="thunarx-renamer.h"
+             line="47">see thunarx_renamer_process().</doc>
         <callback name="process">
           <source-position filename="thunarx-renamer.h" line="67"/>
           <return-value transfer-ownership="full">
@@ -4693,6 +4765,9 @@ rename module in Thunar.</doc>
         </callback>
       </field>
       <field name="load">
+        <doc xml:space="preserve"
+             filename="thunarx-renamer.h"
+             line="48">see thunarx_renamer_load().</doc>
         <callback name="load">
           <source-position filename="thunarx-renamer.h" line="72"/>
           <return-value transfer-ownership="none">
@@ -4719,6 +4794,9 @@ rename module in Thunar.</doc>
         </callback>
       </field>
       <field name="save">
+        <doc xml:space="preserve"
+             filename="thunarx-renamer.h"
+             line="49">see thunarx_renamer_save().</doc>
         <callback name="save">
           <source-position filename="thunarx-renamer.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -4745,6 +4823,9 @@ rename module in Thunar.</doc>
         </callback>
       </field>
       <field name="get_menu_items">
+        <doc xml:space="preserve"
+             filename="thunarx-renamer.h"
+             line="50">see thunarx_renamer_get_menu_items().</doc>
         <callback name="get_menu_items">
           <source-position filename="thunarx-renamer.h" line="77"/>
           <return-value transfer-ownership="full">
@@ -4822,6 +4903,9 @@ rename module in Thunar.</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="thunarx-renamer.h"
+             line="51">see thunarx_renamer_changed().</doc>
         <callback name="changed">
           <source-position filename="thunarx-renamer.h" line="91"/>
           <return-value transfer-ownership="none">
@@ -4990,6 +5074,9 @@ additional bulk renamers for the integrated bulk renamer in Thunar.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_renamers">
+        <doc xml:space="preserve"
+             filename="thunarx-renamer-provider.h"
+             line="42">see thunarx_renamer_provider_get_renamers().</doc>
         <callback name="get_renamers">
           <source-position filename="thunarx-renamer-provider.h" line="54"/>
           <return-value transfer-ownership="full">

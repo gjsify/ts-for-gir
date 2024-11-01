@@ -876,7 +876,7 @@ in some operation. The value sent to the WM will be clamped to
 between 0 and 100.
 
 Note: If a window will stick around after progress is complete, you will
-probaby need to set progress to 0 to remove any progress effects on taskbars
+probably need to set progress to 0 to remove any progress effects on taskbars
 and window lists.
 
 Setting progress will also cancel the 'pulsing' flag on the window as
@@ -909,7 +909,7 @@ to make available when applications want to display indeterminate or
 ongoing progress in a task manager.
 
 Note: If a window will stick around after progress is complete, you will
-probaby need to set progress to 0 to remove any progress effects on taskbars
+probably need to set progress to 0 to remove any progress effects on taskbars
 and window lists.  This will also remove the pulse state, if it is set.
 
 Setting an explicit progress value will unset this flag.</doc>
@@ -2721,7 +2721,9 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
           </parameter>
         </parameters>
       </function>
-      <function name="new" c:identifier="xapp_object_manager_client_new">
+      <function name="new"
+                c:identifier="xapp_object_manager_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="3264">Asynchronously creates #GDBusObjectManagerClient using xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new() for more details.
@@ -2796,7 +2798,8 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="xapp_object_manager_client_new_for_bus">
+                c:identifier="xapp_object_manager_client_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="3354">Like xapp_object_manager_client_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -4482,6 +4485,9 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_button_press">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="777">Handler for the #XAppStatusIconInterface::handle-button-press signal.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="34"/>
         <return-value transfer-ownership="none">
@@ -4514,6 +4520,9 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_button_release">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="778">Handler for the #XAppStatusIconInterface::handle-button-release signal.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="43"/>
         <return-value transfer-ownership="none">
@@ -4546,6 +4555,9 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_scroll">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="779">Handler for the #XAppStatusIconInterface::handle-scroll signal.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="52"/>
         <return-value transfer-ownership="none">
@@ -4572,7 +4584,9 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <method name="call_button_press"
-              c:identifier="xapp_status_icon_interface_call_button_press">
+              c:identifier="xapp_status_icon_interface_call_button_press"
+              glib:finish-func="call_button_press_finish"
+              glib:sync-func="call_button_press_sync">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="1360">Asynchronously invokes the &lt;link linkend="gdbus-method-org-x-StatusIcon.ButtonPress"&gt;ButtonPress()&lt;/link&gt; D-Bus method on @proxy.
@@ -4686,7 +4700,8 @@ See xapp_status_icon_interface_call_button_press_sync() for the synchronous, blo
       </method>
       <method name="call_button_press_sync"
               c:identifier="xapp_status_icon_interface_call_button_press_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_button_press">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="1432">Synchronously invokes the &lt;link linkend="gdbus-method-org-x-StatusIcon.ButtonPress"&gt;ButtonPress()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -4750,7 +4765,9 @@ See xapp_status_icon_interface_call_button_press() for the asynchronous version 
         </parameters>
       </method>
       <method name="call_button_release"
-              c:identifier="xapp_status_icon_interface_call_button_release">
+              c:identifier="xapp_status_icon_interface_call_button_release"
+              glib:finish-func="call_button_release_finish"
+              glib:sync-func="call_button_release_sync">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="1482">Asynchronously invokes the &lt;link linkend="gdbus-method-org-x-StatusIcon.ButtonRelease"&gt;ButtonRelease()&lt;/link&gt; D-Bus method on @proxy.
@@ -4864,7 +4881,8 @@ See xapp_status_icon_interface_call_button_release_sync() for the synchronous, b
       </method>
       <method name="call_button_release_sync"
               c:identifier="xapp_status_icon_interface_call_button_release_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_button_release">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="1554">Synchronously invokes the &lt;link linkend="gdbus-method-org-x-StatusIcon.ButtonRelease"&gt;ButtonRelease()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -4928,7 +4946,9 @@ See xapp_status_icon_interface_call_button_release() for the asynchronous versio
         </parameters>
       </method>
       <method name="call_scroll"
-              c:identifier="xapp_status_icon_interface_call_scroll">
+              c:identifier="xapp_status_icon_interface_call_scroll"
+              glib:finish-func="call_scroll_finish"
+              glib:sync-func="call_scroll_sync">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="1604">Asynchronously invokes the &lt;link linkend="gdbus-method-org-x-StatusIcon.Scroll"&gt;Scroll()&lt;/link&gt; D-Bus method on @proxy.
@@ -5030,7 +5050,8 @@ See xapp_status_icon_interface_call_scroll_sync() for the synchronous, blocking 
       </method>
       <method name="call_scroll_sync"
               c:identifier="xapp_status_icon_interface_call_scroll_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_scroll">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="1670">Synchronously invokes the &lt;link linkend="gdbus-method-org-x-StatusIcon.Scroll"&gt;Scroll()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -6095,6 +6116,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_button_press">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="777">Handler for the #XAppStatusIconInterface::handle-button-press signal.</doc>
         <callback name="handle_button_press">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="34"/>
@@ -6129,6 +6153,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_button_release">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="778">Handler for the #XAppStatusIconInterface::handle-button-release signal.</doc>
         <callback name="handle_button_release">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="43"/>
@@ -6163,6 +6190,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_scroll">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="779">Handler for the #XAppStatusIconInterface::handle-scroll signal.</doc>
         <callback name="handle_scroll">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="52"/>
@@ -6191,6 +6221,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_icon_name">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="780">Getter for the #XAppStatusIconInterface:icon-name property.</doc>
         <callback name="get_icon_name">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="59"/>
@@ -6212,6 +6245,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_icon_size">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="781">Getter for the #XAppStatusIconInterface:icon-size property.</doc>
         <callback name="get_icon_size">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="61"/>
@@ -6233,6 +6269,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_label">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="782">Getter for the #XAppStatusIconInterface:label property.</doc>
         <callback name="get_label">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="63"/>
@@ -6254,6 +6293,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_metadata">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="783">Getter for the #XAppStatusIconInterface:metadata property.</doc>
         <callback name="get_metadata">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="65"/>
@@ -6275,6 +6317,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="784">Getter for the #XAppStatusIconInterface:name property.</doc>
         <callback name="get_name">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="67"/>
@@ -6296,6 +6341,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_primary_menu_is_open">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="785">Getter for the #XAppStatusIconInterface:primary-menu-is-open property.</doc>
         <callback name="get_primary_menu_is_open">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="69"/>
@@ -6317,6 +6365,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_secondary_menu_is_open">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="786">Getter for the #XAppStatusIconInterface:secondary-menu-is-open property.</doc>
         <callback name="get_secondary_menu_is_open">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="71"/>
@@ -6338,6 +6389,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_tooltip_text">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="787">Getter for the #XAppStatusIconInterface:tooltip-text property.</doc>
         <callback name="get_tooltip_text">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="73"/>
@@ -6359,6 +6413,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_visible">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-statusicon-interface.c"
+             line="788">Getter for the #XAppStatusIconInterface:visible property.</doc>
         <callback name="get_visible">
           <source-position filename="libxapp/xapp-statusicon-interface.h"
                            line="75"/>
@@ -6557,7 +6614,9 @@ See xapp_status_icon_interface_proxy_new() for the asynchronous version of this 
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="xapp_status_icon_interface_proxy_new">
+      <function name="new"
+                c:identifier="xapp_status_icon_interface_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="2128">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -6631,7 +6690,8 @@ See xapp_status_icon_interface_proxy_new_sync() for the synchronous, blocking ve
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="xapp_status_icon_interface_proxy_new_for_bus">
+                c:identifier="xapp_status_icon_interface_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
              line="2218">Like xapp_status_icon_interface_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -7468,6 +7528,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_gpus">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-switcheroo-interface.c"
+             line="322">Getter for the #XAppSwitcherooControl:gpus property.</doc>
         <callback name="get_gpus">
           <source-position filename="libxapp/xapp-switcheroo-interface.h"
                            line="33"/>
@@ -7488,6 +7551,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_has_dual_gpu">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-switcheroo-interface.c"
+             line="323">Getter for the #XAppSwitcherooControl:has-dual-gpu property.</doc>
         <callback name="get_has_dual_gpu">
           <source-position filename="libxapp/xapp-switcheroo-interface.h"
                            line="35"/>
@@ -7508,6 +7574,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_num_gpus">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-switcheroo-interface.c"
+             line="324">Getter for the #XAppSwitcherooControl:num-gpus property.</doc>
         <callback name="get_num_gpus">
           <source-position filename="libxapp/xapp-switcheroo-interface.h"
                            line="37"/>
@@ -7701,7 +7770,9 @@ See xapp_switcheroo_control_proxy_new() for the asynchronous version of this con
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="xapp_switcheroo_control_proxy_new">
+      <function name="new"
+                c:identifier="xapp_switcheroo_control_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-switcheroo-interface.c"
              line="746">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-net-hadess-SwitcherooControl.top_of_page"&gt;net.hadess.SwitcherooControl&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -7775,7 +7846,8 @@ See xapp_switcheroo_control_proxy_new_sync() for the synchronous, blocking versi
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="xapp_switcheroo_control_proxy_new_for_bus">
+                c:identifier="xapp_switcheroo_control_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-switcheroo-interface.c"
              line="836">Like xapp_switcheroo_control_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -7970,7 +8042,7 @@ See xapp_switcheroo_control_proxy_new_for_bus_sync() for the synchronous, blocki
                    version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="134">Creates a new #XAppVisibilityGroup.
+             line="131">Creates a new #XAppVisibilityGroup.
 
 If @widgets is not NULL, adds these widgets to the group with the starting visibility and
 sensitivity state.</doc>
@@ -7978,20 +8050,20 @@ sensitivity state.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-visibility-group.c"
-               line="145">a new #XAppVisibilityGroup. Use xapp_visibility_group_free when finished.</doc>
+               line="142">a new #XAppVisibilityGroup. Use xapp_visibility_group_free when finished.</doc>
           <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
         </return-value>
         <parameters>
           <parameter name="visible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="136">starting visibility state</doc>
+                 line="133">starting visibility state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="sensitive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="137">starting sensitivity state</doc>
+                 line="134">starting sensitivity state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="widgets"
@@ -8000,7 +8072,7 @@ sensitivity state.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="138">list of #GtkWidgets to add to the group.</doc>
+                 line="135">list of #GtkWidgets to add to the group.</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Gtk.Widget"/>
             </type>
@@ -8012,7 +8084,7 @@ sensitivity state.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="302">Adds widget to the visibility group.</doc>
+             line="299">Adds widget to the visibility group.</doc>
         <source-position filename="libxapp/xapp-visibility-group.h" line="30"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8021,15 +8093,34 @@ sensitivity state.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="304">the visibility group</doc>
+                 line="301">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="305">the #GtkWidget to add to the group</doc>
+                 line="302">the #GtkWidget to add to the group</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="xapp_visibility_group_free">
+        <doc xml:space="preserve"
+             filename="libxapp/xapp-visibility-group.c"
+             line="112">Destroys the #XAppVisibilityGroup.
+
+Since 2.2.15</doc>
+        <source-position filename="libxapp/xapp-visibility-group.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxapp/xapp-visibility-group.c"
+                 line="114">The #XAppVisibilityGroup to free.</doc>
+            <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
+          </instance-parameter>
         </parameters>
       </method>
       <method name="get_sensitive"
@@ -8037,7 +8128,7 @@ sensitivity state.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="281">Get the sensitivity of the group.
+             line="278">Get the sensitivity of the group.
 
 There is no guarantee that all widgets in the group actually are
 in the returned state, if they've had their sensitivity individually
@@ -8046,14 +8137,14 @@ modified since the last time the group was set.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-visibility-group.c"
-               line="291">The sensitivity state of the group.</doc>
+               line="288">The sensitivity state of the group.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="283">the visibility group.</doc>
+                 line="280">the visibility group.</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
         </parameters>
@@ -8063,7 +8154,7 @@ modified since the last time the group was set.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="237">Get the visibility of the group.
+             line="234">Get the visibility of the group.
 
 There is no guarantee that all widgets in the group actually are
 in the returned state, if they've had their visibility individually
@@ -8072,14 +8163,14 @@ modified since the last time the group was set.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-visibility-group.c"
-               line="247">The visibility state of the group.</doc>
+               line="244">The visibility state of the group.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="239">the visibility group.</doc>
+                 line="236">the visibility group.</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
         </parameters>
@@ -8089,12 +8180,12 @@ modified since the last time the group was set.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="338">Returns the members of the group or NULL if the group is empty.</doc>
+             line="335">Returns the members of the group or NULL if the group is empty.</doc>
         <source-position filename="libxapp/xapp-visibility-group.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-visibility-group.c"
-               line="344">a list of members of the group.
+               line="341">a list of members of the group.
 
 The list is owned by XApp, do not free.</doc>
           <type name="GLib.SList" c:type="GSList*">
@@ -8105,7 +8196,7 @@ The list is owned by XApp, do not free.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="340">the visibility group</doc>
+                 line="337">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
         </parameters>
@@ -8115,7 +8206,7 @@ The list is owned by XApp, do not free.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="194">Hide all widgets in the group.</doc>
+             line="191">Hide all widgets in the group.</doc>
         <source-position filename="libxapp/xapp-visibility-group.h" line="32"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8124,7 +8215,7 @@ The list is owned by XApp, do not free.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="196">the visibility group</doc>
+                 line="193">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
         </parameters>
@@ -8136,20 +8227,20 @@ The list is owned by XApp, do not free.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-visibility-group.c"
-               line="325">TRUE if the widget was found and removed.</doc>
+               line="322">TRUE if the widget was found and removed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="322">the visibility group</doc>
+                 line="319">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="323">the #GtkWidget to remove from the group</doc>
+                 line="320">the #GtkWidget to remove from the group</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -8159,7 +8250,7 @@ The list is owned by XApp, do not free.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="258">Set the sensitivity of all widgets in group.</doc>
+             line="255">Set the sensitivity of all widgets in group.</doc>
         <source-position filename="libxapp/xapp-visibility-group.h" line="36"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8168,13 +8259,13 @@ The list is owned by XApp, do not free.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="260">the visibility group.</doc>
+                 line="257">the visibility group.</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
           <parameter name="sensitive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="261">TRUE to make the widgets sensitive.</doc>
+                 line="258">TRUE to make the widgets sensitive.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8184,7 +8275,7 @@ The list is owned by XApp, do not free.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="212">Set the visibility of all widgets in the group.</doc>
+             line="209">Set the visibility of all widgets in the group.</doc>
         <source-position filename="libxapp/xapp-visibility-group.h" line="34"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8193,13 +8284,13 @@ The list is owned by XApp, do not free.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="214">the visibility group</doc>
+                 line="211">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
           <parameter name="visible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="215">TRUE to make the widgets visible.</doc>
+                 line="212">TRUE to make the widgets visible.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8215,7 +8306,7 @@ The list is owned by XApp, do not free.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="360">the visibility group</doc>
+                 line="357">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
           <parameter name="widgets"
@@ -8224,7 +8315,7 @@ The list is owned by XApp, do not free.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="361">The widgets to add to this group, replacing any existing ones.</doc>
+                 line="358">The widgets to add to this group, replacing any existing ones.</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Gtk.Widget"/>
             </type>
@@ -8236,7 +8327,7 @@ The list is owned by XApp, do not free.</doc>
               version="2.2.15">
         <doc xml:space="preserve"
              filename="libxapp/xapp-visibility-group.c"
-             line="171">Show all widgets in the group.</doc>
+             line="168">Show all widgets in the group.</doc>
         <source-position filename="libxapp/xapp-visibility-group.h" line="33"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8245,7 +8336,7 @@ The list is owned by XApp, do not free.</doc>
           <instance-parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-visibility-group.c"
-                 line="173">the visibility group</doc>
+                 line="170">the visibility group</doc>
             <type name="VisibilityGroup" c:type="XAppVisibilityGroup*"/>
           </instance-parameter>
         </parameters>
@@ -8383,7 +8474,7 @@ in some operation. The value sent to the WM will be clamped to
 between 0 and 100.
 
 Note: If a window will stick around after progress is complete, you will
-probaby need to set progress to 0 to remove any progress effects on taskbars
+probably need to set progress to 0 to remove any progress effects on taskbars
 and window lists.
 
 Setting progress will also cancel the 'pulsing' flag on the window as
@@ -8416,7 +8507,7 @@ to make available when applications want to display indeterminate or
 ongoing progress in a task manager.
 
 Note: If a window will stick around after progress is complete, you will
-probaby need to set progress to 0 to remove any progress effects on taskbars
+probably need to set progress to 0 to remove any progress effects on taskbars
 and window lists.  This will also remove the pulse state, if it is set.
 
 Setting an explicit progress value will unset this flag.</doc>
@@ -8514,7 +8605,7 @@ Setting progress will also cancel the 'pulsing' flag on the window as
 well, if it has been set.
 
 Note: If a window will stick around after progress is complete, you will
-probaby need to set progress to 0 to remove any progress effects on taskbars
+probably need to set progress to 0 to remove any progress effects on taskbars
 and window lists.
 
 This is a function, not a method, for applying the progress property for
@@ -8547,7 +8638,7 @@ to make available when applications want to display indeterminate or
 ongoing progress in a task manager.
 
 Note: If a window will stick around after progress is complete, you will
-probaby need to set progress to 0 to remove any progress effects on taskbars
+probably need to set progress to 0 to remove any progress effects on taskbars
 and window lists.
 
 Setting an explicit progress value will unset this flag.</doc>
@@ -8846,7 +8937,7 @@ to request that the app display its menu.</doc>
     <docsection name="xapp-visibility-group">
       <doc xml:space="preserve"
            filename="libxapp/xapp-visibility-group.c"
-           line="13">You can use this to hide and show groups of widgets all at once, without having to
+           line="11">You can use this to hide and show groups of widgets all at once, without having to
 specify each one. They do not have to have the same parents, or even have the same toplevel
 window.
 

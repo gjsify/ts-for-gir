@@ -26,6 +26,18 @@ and/or use gtk-doc annotations.  -->
                        line="32"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
+    <constant name="ALLOCATOR_SHM"
+              value="shm"
+              c:type="GST_ALLOCATOR_SHM"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/allocators/gstshmallocator.h"
+           line="30">Name of this allocator, to be used for example with gst_allocator_find() and
+gst_memory_is_type().</doc>
+      <source-position filename="gst-libs/gst/allocators/gstshmallocator.h"
+                       line="38"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
     <constant name="CAPS_FEATURE_MEMORY_DMABUF"
               value="memory:DMABuf"
               c:type="GST_CAPS_FEATURE_MEMORY_DMABUF"
@@ -118,7 +130,7 @@ gst_is_dmabuf_memory().</doc>
                    version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/allocators/gstdrmdumb.c"
-             line="650">Creates a new #GstDRMDumbAllocator for the specific device path. This
+             line="647">Creates a new #GstDRMDumbAllocator for the specific device path. This
 function can fail if the path does not exist, is not a DRM device or if
 the DRM device doesnot support DUMB allocation.</doc>
         <source-position filename="gst-libs/gst/allocators/gstdrmdumb.h"
@@ -126,7 +138,7 @@ the DRM device doesnot support DUMB allocation.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/allocators/gstdrmdumb.c"
-               line="658">a new DRM Dumb allocator. Use gst_object_unref()
+               line="655">a new DRM Dumb allocator. Use gst_object_unref()
   to release the allocator after usage.</doc>
           <type name="Gst.Allocator" c:type="GstAllocator*"/>
         </return-value>
@@ -134,7 +146,7 @@ the DRM device doesnot support DUMB allocation.</doc>
           <parameter name="drm_device_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="652">path to the DRM device to open</doc>
+                 line="649">path to the DRM device to open</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -144,7 +156,7 @@ the DRM device doesnot support DUMB allocation.</doc>
                    version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/allocators/gstdrmdumb.c"
-             line="614">Creates a new #GstDRMDumbAllocator for the specific file desciptor. This
+             line="611">Creates a new #GstDRMDumbAllocator for the specific file desciptor. This
 function can fail if the file descriptor is not a DRM device or if
 the DRM device does not support DUMB allocation.</doc>
         <source-position filename="gst-libs/gst/allocators/gstdrmdumb.h"
@@ -152,7 +164,7 @@ the DRM device does not support DUMB allocation.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/allocators/gstdrmdumb.c"
-               line="622">a new DRM Dumb allocator. Use gst_object_unref()
+               line="619">a new DRM Dumb allocator. Use gst_object_unref()
   to release the allocator after usage.</doc>
           <type name="Gst.Allocator" c:type="GstAllocator*"/>
         </return-value>
@@ -160,7 +172,7 @@ the DRM device does not support DUMB allocation.</doc>
           <parameter name="drm_fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="616">file descriptor of the DRM device</doc>
+                 line="613">file descriptor of the DRM device</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -170,7 +182,7 @@ the DRM device does not support DUMB allocation.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/allocators/gstdrmdumb.c"
-             line="686">Allocated a DRM buffer object for the specific @drm_fourcc, @width and
+             line="683">Allocated a DRM buffer object for the specific @drm_fourcc, @width and
 @height. Note that the DRM Dumb allocation interface is agnostic to the
 pixel format. This @drm_fourcc is converted into a bpp (bit-per-pixel)
 number and the height is scaled according to the sub-sampling.</doc>
@@ -179,7 +191,7 @@ number and the height is scaled according to the sub-sampling.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/allocators/gstdrmdumb.c"
-               line="699">a new DRM Dumb #GstMemory. Use gst_memory_unref()
+               line="696">a new DRM Dumb #GstMemory. Use gst_memory_unref()
   to release the memory after usage.</doc>
           <type name="Gst.Memory" c:type="GstMemory*"/>
         </return-value>
@@ -187,25 +199,25 @@ number and the height is scaled according to the sub-sampling.</doc>
           <instance-parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="688">the allocator instance</doc>
+                 line="685">the allocator instance</doc>
             <type name="DRMDumbAllocator" c:type="GstAllocator*"/>
           </instance-parameter>
           <parameter name="drm_fourcc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="689">the DRM format to allocate for</doc>
+                 line="686">the DRM format to allocate for</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="690">padded width for this allocation</doc>
+                 line="687">padded width for this allocation</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="691">padded height for this allocation</doc>
+                 line="688">padded height for this allocation</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="out_pitch"
@@ -214,7 +226,7 @@ number and the height is scaled according to the sub-sampling.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="692">the pitch as returned by the driver</doc>
+                 line="689">the pitch as returned by the driver</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -224,20 +236,20 @@ number and the height is scaled according to the sub-sampling.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/allocators/gstdrmdumb.c"
-             line="725">This function allow verifying if the driver support dma-buf exportation.</doc>
+             line="722">This function allow verifying if the driver support dma-buf exportation.</doc>
         <source-position filename="gst-libs/gst/allocators/gstdrmdumb.h"
                          line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/allocators/gstdrmdumb.c"
-               line="731">%TRUE if the allocator support exporting dma-buf.</doc>
+               line="728">%TRUE if the allocator support exporting dma-buf.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/allocators/gstdrmdumb.c"
-                 line="727">the #GstAllocator</doc>
+                 line="724">the #GstAllocator</doc>
             <type name="DRMDumbAllocator" c:type="GstAllocator*"/>
           </instance-parameter>
         </parameters>
@@ -638,6 +650,10 @@ The memory is only mmapped on gst_buffer_map() request.</doc>
                        line="52"/>
       <prerequisite name="Gst.Allocator"/>
       <virtual-method name="get_phys_addr">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstphysmemory.h"
+             line="38">Implementations shall return the physicall memory address
+   that is backing the provided memory, or 0 if none.</doc>
         <source-position filename="gst-libs/gst/allocators/gstphysmemory.h"
                          line="51"/>
         <return-value transfer-ownership="none">
@@ -666,6 +682,10 @@ The memory is only mmapped on gst_buffer_map() request.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_phys_addr">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstphysmemory.h"
+             line="38">Implementations shall return the physicall memory address
+   that is backing the provided memory, or 0 if none.</doc>
         <callback name="get_phys_addr">
           <source-position filename="gst-libs/gst/allocators/gstphysmemory.h"
                            line="51"/>
@@ -682,6 +702,68 @@ The memory is only mmapped on gst_buffer_map() request.</doc>
             </parameter>
           </parameters>
         </callback>
+      </field>
+    </record>
+    <class name="ShmAllocator"
+           c:symbol-prefix="shm_allocator"
+           c:type="GstShmAllocator"
+           version="1.24"
+           parent="FdAllocator"
+           glib:type-name="GstShmAllocator"
+           glib:get-type="gst_shm_allocator_get_type"
+           glib:type-struct="ShmAllocatorClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/allocators/gstshmallocator.c"
+           line="24">This is a subclass of #GstFdAllocator that implements the
+gst_allocator_alloc() method using `memfd_create()` when available, POSIX
+`shm_open()` otherwise. Platforms not supporting any of those (Windows) will
+always return %NULL.
+
+Note that allocating new shared memories has a significant performance cost,
+it is thus recommended to keep a pool of pre-allocated #GstMemory, using
+#GstBufferPool. For that reason, this allocator has the
+%GST_ALLOCATOR_FLAG_NO_COPY flag set.</doc>
+      <source-position filename="gst-libs/gst/allocators/gstshmallocator.h"
+                       line="65"/>
+      <function name="get" c:identifier="gst_shm_allocator_get" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstshmallocator.c"
+             line="207">Get the #GstShmAllocator singleton previously registered with
+gst_shm_allocator_init_once().</doc>
+        <source-position filename="gst-libs/gst/allocators/gstshmallocator.h"
+                         line="68"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/allocators/gstshmallocator.c"
+               line="213">a #GstAllocator or %NULL if
+gst_shm_allocator_init_once() has not been previously called.</doc>
+          <type name="Gst.Allocator" c:type="GstAllocator*"/>
+        </return-value>
+      </function>
+      <function name="init_once"
+                c:identifier="gst_shm_allocator_init_once"
+                version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstshmallocator.c"
+             line="183">Register a #GstShmAllocator using gst_allocator_register() with the name
+%GST_ALLOCATOR_SHM. This is no-op after the first call.</doc>
+        <source-position filename="gst-libs/gst/allocators/gstshmallocator.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </function>
+    </class>
+    <record name="ShmAllocatorClass"
+            c:type="GstShmAllocatorClass"
+            glib:is-gtype-struct-for="ShmAllocator">
+      <source-position filename="gst-libs/gst/allocators/gstshmallocator.h"
+                       line="65"/>
+      <field name="parent_class" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstshmallocator.h"
+             line="48">Parent Class.</doc>
+        <type name="FdAllocatorClass" c:type="GstFdAllocatorClass"/>
       </field>
     </record>
     <function name="dmabuf_memory_get_fd"

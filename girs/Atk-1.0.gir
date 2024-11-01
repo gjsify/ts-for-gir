@@ -772,7 +772,7 @@ A string name/value pair representing a generic attribute.</doc>
       </function>
     </record>
     <constant name="BINARY_AGE"
-              value="25210"
+              value="25311"
               c:type="ATK_BINARY_AGE"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -7155,7 +7155,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="1"
               c:type="ATK_MICRO_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -7167,7 +7167,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="52"
+              value="53"
               c:type="ATK_MINOR_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -8838,7 +8838,9 @@ the name to a empty value you can use "".</doc>
              filename="atk/atkobject.c"
              line="1774">Sets the help text associated with the accessible. This can be used to
 expose context-sensitive information to help a user understand how to
-interact with the object.</doc>
+interact with the object. You can't set the help text to NULL.
+This is reserved for the initial value. If you want to set the name to
+an empty value, you can use "".</doc>
         <source-position filename="atk/atkobject.h" line="819"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

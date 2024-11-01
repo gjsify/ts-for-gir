@@ -2,7 +2,8 @@
  * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
  */
 
-import inquirer, { ListQuestion, Answers } from 'inquirer'
+import { type Question } from 'inquirer'
+import { select } from '@inquirer/prompts'
 import { glob } from 'glob'
 import { basename, join } from 'path'
 import { bold } from 'colorette'
@@ -107,49 +108,56 @@ export class ModuleLoader {
     protected generateContinueQuestion(
         message = `do you want to continue?`,
         choices = ['Yes', 'Go back'],
-    ): ListQuestion {
-        const question: ListQuestion = {
-            name: 'continue',
+    ): { message: string; choices: string[] } {
+        return {
             message,
-            type: 'list',
             choices,
         }
-        return question
     }
 
     protected generateIgnoreDepsQuestion(
         message = `Do you want to ignore them too?`,
         choices = ['Yes', 'No', 'Go back'],
-    ): ListQuestion {
-        const question: ListQuestion = {
-            name: 'continue',
+    ): { message: string; choices: string[] } {
+        return {
             message,
-            type: 'list',
             choices,
         }
-        return question
     }
 
     protected async askIgnoreDepsPrompt(
         deps: GirModuleResolvedBy[] | Set<GirModuleResolvedBy>,
     ): Promise<'Yes' | 'No' | 'Go back'> {
-        let question: ListQuestion<Answers> | null = null
         const size = (deps as GirModuleResolvedBy[]).length || (deps as Set<GirModuleResolvedBy>).size || 0
+
         if (size > 0) {
+            // Show dependencies that would be ignored
             this.log.log(bold('\nThe following modules have the ignored modules as dependencies:'))
             for (const dep of deps) {
                 this.log.log(`- ${dep.packageName}`)
             }
             this.log.log(bold('\n'))
-            question = this.generateIgnoreDepsQuestion()
-        } else {
-            this.log.log(bold('\nNo dependencies found on the ignored modules'))
-            question = this.generateContinueQuestion()
+
+            // Ask if user wants to ignore these dependencies
+            return select<'Yes' | 'No' | 'Go back'>({
+                message: 'Do you want to ignore them too?',
+                choices: [
+                    { value: 'Yes', name: 'Yes' },
+                    { value: 'No', name: 'No' },
+                    { value: 'Go back', name: 'Go back' },
+                ],
+            })
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const answer: string = (await inquirer.prompt([question])).continue
-        return answer as 'Yes' | 'No' | 'Go back'
+        // No dependencies found
+        this.log.log(bold('\nNo dependencies found on the ignored modules'))
+        return select<'Yes' | 'Go back'>({
+            message: 'Do you want to continue?',
+            choices: [
+                { value: 'Yes', name: 'Yes' },
+                { value: 'Go back', name: 'Go back' },
+            ],
+        })
     }
 
     /**
@@ -157,16 +165,16 @@ export class ModuleLoader {
      * @param girModuleGrouped
      * @param message
      */
-    protected generateModuleVersionQuestion(girModuleGrouped: GirModulesGrouped, message?: string): ListQuestion {
+    protected generateModuleVersionQuestion(girModuleGrouped: GirModulesGrouped, message?: string): Question {
         message = message || `Multiple versions of '${girModuleGrouped.namespace}' found, which one do you want to use?`
         const choices = ['All', ...girModuleGrouped.modules.map((module) => module.packageName)]
-        const question: ListQuestion = {
+
+        return {
             name: girModuleGrouped.namespace,
             message,
             type: 'list',
             choices,
         }
-        return question
     }
 
     /**
@@ -211,16 +219,15 @@ export class ModuleLoader {
     }
 
     protected async askForVersionsPrompt(girModulesGrouped: GirModulesGrouped): Promise<AnswerVersion> {
-        const question = this.generateModuleVersionQuestion(girModulesGrouped)
-        const choices = question.choices as string[]
-        if (!choices) {
-            throw new Error('No valid questions!')
-        }
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const selected: string = (await inquirer.prompt([question]))[girModulesGrouped.namespace]
-        if (!selected) {
-            throw new Error('No valid answer!')
-        }
+        const choices = ['All', ...girModulesGrouped.modules.map((module) => module.packageName)]
+
+        const selected = await select<string>({
+            message: `Multiple versions of '${girModulesGrouped.namespace}' found, which one do you want to use?`,
+            choices: choices.map((choice) => ({
+                value: choice,
+                name: choice,
+            })),
+        })
 
         if (selected === 'All') {
             return {
@@ -229,10 +236,9 @@ export class ModuleLoader {
             }
         }
 
-        const unselected = choices.filter((choice) => choice !== selected)
         return {
             selected: [selected],
-            unselected,
+            unselected: choices.filter((choice) => choice !== selected && choice !== 'All'),
         }
     }
 
@@ -309,19 +315,15 @@ export class ModuleLoader {
      * @param ignoredModules
      */
     protected async askAddToIgnoreToConfigPrompt(ignoredModules: string[] | Set<string>): Promise<void> {
-        const questions = [
-            {
-                name: 'addToIgnore',
-                message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?\n  Config path: '${Config.configFilePath}`,
-                type: 'list',
-                choices: ['No', 'Yes'],
-            },
-        ]
+        const shouldAdd = await select<'Yes' | 'No'>({
+            message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?\n  Config path: '${Config.configFilePath}'`,
+            choices: [
+                { value: 'No', name: 'No' },
+                { value: 'Yes', name: 'Yes' },
+            ],
+        })
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const answer: { [name: string]: string } = await inquirer.prompt(questions)
-
-        if (answer.addToIgnore === 'Yes') {
+        if (shouldAdd === 'Yes') {
             await Config.addToConfig({
                 ignore: Array.from(ignoredModules),
             })

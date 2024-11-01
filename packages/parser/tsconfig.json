@@ -14,6 +14,7 @@
     "strictPropertyInitialization": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "diagnostics": true,
     "lib": [
       "ES2019"
     ]

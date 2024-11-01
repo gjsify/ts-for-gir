@@ -14,7 +14,8 @@
         "rootDir": "src",
         "resolveJsonModule": true,
         "declaration": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "diagnostics": true
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],
     "exclude": ["lib", "node_modules", "**/*.spec.ts", "templates"]

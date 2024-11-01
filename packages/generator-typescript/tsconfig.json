@@ -15,6 +15,7 @@
     "resolveJsonModule": true,
     "declaration": true,
     "skipLibCheck": true,
+    "diagnostics": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

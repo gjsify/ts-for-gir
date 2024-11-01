@@ -658,6 +658,7 @@ export class IntrospectedClassFunction<
         output_parameters?: IntrospectedFunctionParameter[];
         return_type?: TypeExpression;
         parent: Parent;
+        originalParent?: Parent | null;
         doc?: string | null;
     }>) {
         super(name, parent, { ...args });

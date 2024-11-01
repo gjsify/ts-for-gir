@@ -21,12 +21,12 @@ import { TypeExpression } from "../gir.js";
 import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 
 import {
-    GirInterfaceElement,
-    GirClassElement,
-    GirRecordElement,
     GirDirection,
-    GirUnionElement,
-    ClassStructTypeIdentifier
+    ClassStructTypeIdentifier,
+    type GirInterfaceElement,
+    type GirClassElement,
+    type GirRecordElement,
+    type GirUnionElement
 } from "../index.js";
 import {
     IntrospectedClassFunction,
@@ -300,7 +300,34 @@ export function filterFunctionConflict<
         }, [] as T[]);
 }
 
-export function promisifyFunctions(functions: IntrospectedClassFunction[]) {
+function generatePromisifyOverloadedSignatures(
+    node: IntrospectedClassFunction,
+    async_parameters: IntrospectedFunctionParameter[],
+    sync_parameters: IntrospectedFunctionParameter[],
+    async_return: PromiseType
+): IntrospectedClassFunction[] {
+    // Promise-based overload (without callback)
+    const promiseOverload = node.copy({
+        parameters: async_parameters,
+        returnType: async_return
+    });
+
+    // Callback-based overload (with required callback)
+    const callbackOverload = node.copy({
+        parameters: sync_parameters,
+        returnType: VoidType
+    });
+
+    // Union overload (with optional callback)
+    const unionOverload = node.copy({
+        parameters: [...async_parameters, sync_parameters[sync_parameters.length - 1].copy({ isOptional: true })],
+        returnType: new BinaryType(async_return, VoidType)
+    });
+
+    return [promiseOverload, callbackOverload, unionOverload];
+}
+
+export function promisifyFunctions(functions: IntrospectedClassFunction[]): IntrospectedClassFunction[] {
     return functions
         .map(node => {
             if (node.parameters.length > 0) {
@@ -312,6 +339,7 @@ export function promisifyFunctions(functions: IntrospectedClassFunction[]) {
                     if (last_param_unwrapped instanceof ClosureType) {
                         const internal = last_param_unwrapped.type;
                         if (internal instanceof TypeIdentifier && internal.is("Gio", "AsyncReadyCallback")) {
+                            // TODO: Look in parent parents for the _finish method
                             const parent = node.parent;
                             const interfaceParent = node.interfaceParent;
 
@@ -359,18 +387,12 @@ export function promisifyFunctions(functions: IntrospectedClassFunction[]) {
                                         }
                                     }
 
-                                    return [
-                                        node.copy({
-                                            parameters: async_parameters,
-                                            returnType: async_return
-                                        }),
-                                        node.copy({
-                                            parameters: sync_parameters
-                                        }),
-                                        node.copy({
-                                            returnType: new BinaryType(async_return, node.return())
-                                        })
-                                    ];
+                                    return generatePromisifyOverloadedSignatures(
+                                        node,
+                                        async_parameters,
+                                        sync_parameters,
+                                        async_return
+                                    );
                                 }
                             }
                         }

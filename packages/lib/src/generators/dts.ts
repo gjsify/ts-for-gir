@@ -8,9 +8,9 @@ import {
     IntrospectedClass,
     filterConflicts,
     filterFunctionConflict,
-    FilterBehavior,
-    promisifyFunctions
+    FilterBehavior
 } from "../gir/class.js";
+import { promisifyFunctions } from "../gir/promisify.js";
 import { IntrospectedConstant } from "../gir/const.js";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
 import { IntrospectedProperty, IntrospectedField } from "../gir/property.js";

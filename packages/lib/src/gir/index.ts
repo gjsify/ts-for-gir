@@ -7,6 +7,7 @@ export * from "./function.js";
 export * from "./generics.js";
 export * from "./namespace.js";
 export * from "./nodes.js";
+export * from "./promisify.js";
 export * from "./property.js";
 export * from "./registry.js";
 export * from "./signal.js";

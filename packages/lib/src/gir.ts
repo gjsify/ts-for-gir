@@ -11,7 +11,8 @@ export {
     IntrospectedNamespaceMember,
     IntrospectedClassMember,
 } from './gir/base.js'
-export { promisifyFunctions, filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/class.js'
+export { filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/class.js'
+export { promisifyFunctions } from './gir/promisify.js'
 export { resolveDirectedType, resolvePrimitiveType } from './gir/util.js'
 export * from './gir/nodes.js'
 

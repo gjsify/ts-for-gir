@@ -327,80 +327,89 @@ function generatePromisifyOverloadedSignatures(
     return [promiseOverload, callbackOverload, unionOverload];
 }
 
+function findFinishMethodInClass(cls: IntrospectedBaseClass, node: IntrospectedClassFunction) {
+    const members =
+        node instanceof IntrospectedStaticClassFunction
+            ? [...cls.constructors, ...cls.members.filter(m => m instanceof IntrospectedStaticClassFunction)]
+            : [...cls.members.filter(m => !(m instanceof IntrospectedStaticClassFunction))];
+
+    return members.find(
+        m => m.name === `${node.name.replace(/_async$/, "")}_finish` || m.name === `${node.name}_finish`
+    );
+}
+
+function findFinishMethod(
+    node: IntrospectedClassFunction,
+    parent: IntrospectedBaseClass,
+    interfaceParent?: IntrospectedInterface
+) {
+    // Search in current class
+    let async_res = findFinishMethodInClass(parent, node);
+
+    // If not found and we have an interface parent, search there
+    if (!async_res && interfaceParent) {
+        async_res = findFinishMethodInClass(interfaceParent, node);
+    }
+
+    // If still not found, search through parent hierarchy
+    if (!async_res) {
+        async_res = parent.findParentMap(parentClass => findFinishMethodInClass(parentClass, node));
+    }
+
+    return async_res;
+}
+
+function createAsyncReturn(async_res: IntrospectedClassFunction | IntrospectedConstructor) {
+    const output_parameters = async_res instanceof IntrospectedConstructor ? [] : async_res.output_parameters;
+    let async_return = new PromiseType(async_res.return());
+
+    if (output_parameters.length > 0) {
+        const raw_return = async_res.return();
+        if (raw_return.equals(VoidType) || raw_return.equals(BooleanType)) {
+            const [output_type, ...output_types] = output_parameters.map(op => op.type);
+            async_return = new PromiseType(new TupleType(output_type, ...output_types));
+        } else {
+            const [...output_types] = output_parameters.map(op => op.type);
+            async_return = new PromiseType(new TupleType(raw_return, ...output_types));
+        }
+    }
+
+    return async_return;
+}
+
+function isAsyncReadyCallback(param: IntrospectedFunctionParameter): boolean {
+    const unwrapped = param.type.unwrap();
+    return (
+        unwrapped instanceof ClosureType &&
+        unwrapped.type instanceof TypeIdentifier &&
+        unwrapped.type.is("Gio", "AsyncReadyCallback")
+    );
+}
+
 export function promisifyFunctions(functions: IntrospectedClassFunction[]): IntrospectedClassFunction[] {
     return functions
         .map(node => {
-            if (node.parameters.length > 0) {
-                const last_param = node.parameters[node.parameters.length - 1];
+            if (node.parameters.length === 0) return node;
 
-                if (last_param) {
-                    const last_param_unwrapped = last_param.type.unwrap();
+            const last_param = node.parameters[node.parameters.length - 1];
+            if (!last_param || !isAsyncReadyCallback(last_param)) return node;
 
-                    if (last_param_unwrapped instanceof ClosureType) {
-                        const internal = last_param_unwrapped.type;
-                        if (internal instanceof TypeIdentifier && internal.is("Gio", "AsyncReadyCallback")) {
-                            // TODO: Look in parent parents for the _finish method
-                            const parent = node.parent;
-                            const interfaceParent = node.interfaceParent;
+            const parent = node.parent;
+            if (!(parent instanceof IntrospectedBaseClass)) return node;
 
-                            if (parent instanceof IntrospectedBaseClass) {
-                                const async_res = (
-                                    node instanceof IntrospectedStaticClassFunction
-                                        ? [
-                                              ...parent.constructors,
-                                              ...parent.members.filter(
-                                                  m => m instanceof IntrospectedStaticClassFunction
-                                              )
-                                          ]
-                                        : [
-                                              ...(interfaceParent instanceof IntrospectedInterface
-                                                  ? [...interfaceParent.members]
-                                                  : []),
-                                              ...parent.members.filter(
-                                                  m => !(m instanceof IntrospectedStaticClassFunction)
-                                              )
-                                          ]
-                                ).find(
-                                    m =>
-                                        m.name === `${node.name.replace(/_async$/, "")}_finish` ||
-                                        m.name === `${node.name}_finish`
-                                );
+            const async_res = findFinishMethod(
+                node,
+                parent,
+                node.interfaceParent instanceof IntrospectedInterface ? node.interfaceParent : undefined
+            );
 
-                                if (async_res) {
-                                    const async_parameters = node.parameters
-                                        .slice(0, -1)
-                                        .map(p => p.copy({ parent: null }));
-                                    const sync_parameters = node.parameters.map(p => p.copy({ isOptional: false }));
-                                    const output_parameters =
-                                        async_res instanceof IntrospectedConstructor ? [] : async_res.output_parameters;
+            if (!async_res) return node;
 
-                                    let async_return = new PromiseType(async_res.return());
+            const async_parameters = node.parameters.slice(0, -1).map(p => p.copy({ parent: null }));
+            const sync_parameters = node.parameters.map(p => p.copy({ isOptional: false }));
+            const async_return = createAsyncReturn(async_res);
 
-                                    if (output_parameters.length > 0) {
-                                        const raw_return = async_res.return();
-                                        if (raw_return.equals(VoidType) || raw_return.equals(BooleanType)) {
-                                            const [output_type, ...output_types] = output_parameters.map(op => op.type);
-                                            async_return = new PromiseType(new TupleType(output_type, ...output_types));
-                                        } else {
-                                            const [...output_types] = output_parameters.map(op => op.type);
-                                            async_return = new PromiseType(new TupleType(raw_return, ...output_types));
-                                        }
-                                    }
-
-                                    return generatePromisifyOverloadedSignatures(
-                                        node,
-                                        async_parameters,
-                                        sync_parameters,
-                                        async_return
-                                    );
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            return node;
+            return generatePromisifyOverloadedSignatures(node, async_parameters, sync_parameters, async_return);
         })
         .flat(1);
 }

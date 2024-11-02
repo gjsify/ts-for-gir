@@ -38,7 +38,6 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
     constructor(name: string, parent: Parent, options: BaseOptions = {}) {
         this.name = name;
         this._parent = parent;
-
         this._isPrivate = options.isPrivate ?? false;
         this._isIntrospectable = options.isIntrospectable ?? true;
         this.doc = options.doc ?? null;

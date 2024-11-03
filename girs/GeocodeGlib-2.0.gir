@@ -62,8 +62,7 @@ never be accessed directly.</doc>
       <virtual-method name="forward_search"
                       invoker="forward_search"
                       version="3.23.1"
-                      throws="1"
-                      glib:async-func="forward_search_async">
+                      throws="1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="142">Gets the result of a forward geocoding query using the @backend.
@@ -114,9 +113,7 @@ g_object_unref() and the list with g_list_free() when done.</doc>
       </virtual-method>
       <virtual-method name="forward_search_async"
                       invoker="forward_search_async"
-                      version="3.23.1"
-                      glib:finish-func="forward_search_finish"
-                      glib:sync-func="forward_search">
+                      version="3.23.1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="72">Asynchronously performs a forward geocoding query using the @backend. Use
@@ -218,8 +215,7 @@ g_object_unref() and the list with g_list_free() when done.</doc>
       <virtual-method name="reverse_resolve"
                       invoker="reverse_resolve"
                       version="3.23.1"
-                      throws="1"
-                      glib:async-func="reverse_resolve_async">
+                      throws="1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="259">Gets the result of a reverse geocoding query using the @backend.
@@ -273,9 +269,7 @@ documentation for more information on usage.</doc>
       </virtual-method>
       <virtual-method name="reverse_resolve_async"
                       invoker="reverse_resolve_async"
-                      version="3.23.1"
-                      glib:finish-func="reverse_resolve_finish"
-                      glib:sync-func="reverse_resolve">
+                      version="3.23.1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="180">Asynchronously gets the result of a reverse geocoding query using the
@@ -385,8 +379,7 @@ geocode_backend_reverse_resolve_finish() to get the result of the operation.</do
       <method name="forward_search"
               c:identifier="geocode_backend_forward_search"
               version="3.23.1"
-              throws="1"
-              glib:async-func="forward_search_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="142">Gets the result of a forward geocoding query using the @backend.
@@ -437,9 +430,7 @@ g_object_unref() and the list with g_list_free() when done.</doc>
       </method>
       <method name="forward_search_async"
               c:identifier="geocode_backend_forward_search_async"
-              version="3.23.1"
-              glib:finish-func="forward_search_finish"
-              glib:sync-func="forward_search">
+              version="3.23.1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="72">Asynchronously performs a forward geocoding query using the @backend. Use
@@ -540,8 +531,7 @@ g_object_unref() and the list with g_list_free() when done.</doc>
       <method name="reverse_resolve"
               c:identifier="geocode_backend_reverse_resolve"
               version="3.23.1"
-              throws="1"
-              glib:async-func="reverse_resolve_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="259">Gets the result of a reverse geocoding query using the @backend.
@@ -595,9 +585,7 @@ documentation for more information on usage.</doc>
       </method>
       <method name="reverse_resolve_async"
               c:identifier="geocode_backend_reverse_resolve_async"
-              version="3.23.1"
-              glib:finish-func="reverse_resolve_finish"
-              glib:sync-func="reverse_resolve">
+              version="3.23.1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-backend.c"
              line="180">Asynchronously gets the result of a reverse geocoding query using the
@@ -716,9 +704,6 @@ geocode_backend_reverse_resolve_finish() to get the result of the operation.</do
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="forward_search">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-backend.h"
-             line="55">handles a synchronous forward geocoding request.</doc>
         <callback name="forward_search" throws="1">
           <source-position filename="geocode-glib/geocode-backend.h"
                            line="74"/>
@@ -761,9 +746,6 @@ g_object_unref() and the list with g_list_free() when done.</doc>
         </callback>
       </field>
       <field name="forward_search_async">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-backend.h"
-             line="56">starts an asynchronous forward geocoding request.</doc>
         <callback name="forward_search_async">
           <source-position filename="geocode-glib/geocode-backend.h"
                            line="78"/>
@@ -821,9 +803,6 @@ g_object_unref() and the list with g_list_free() when done.</doc>
         </callback>
       </field>
       <field name="forward_search_finish">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-backend.h"
-             line="57">finishes an asynchronous forward geocoding request.</doc>
         <callback name="forward_search_finish" throws="1">
           <source-position filename="geocode-glib/geocode-backend.h"
                            line="83"/>
@@ -854,9 +833,6 @@ g_object_unref() and the list with g_list_free() when done.</doc>
         </callback>
       </field>
       <field name="reverse_resolve">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-backend.h"
-             line="58">handles a synchronous reverse geocoding request.</doc>
         <callback name="reverse_resolve" throws="1">
           <source-position filename="geocode-glib/geocode-backend.h"
                            line="88"/>
@@ -900,9 +876,6 @@ g_object_unref() and the list with g_list_free() when done.</doc>
         </callback>
       </field>
       <field name="reverse_resolve_async">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-backend.h"
-             line="59">starts an asynchronous reverse geocoding request.</doc>
         <callback name="reverse_resolve_async">
           <source-position filename="geocode-glib/geocode-backend.h"
                            line="92"/>
@@ -960,9 +933,6 @@ g_object_unref() and the list with g_list_free() when done.</doc>
         </callback>
       </field>
       <field name="reverse_resolve_finish">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-backend.h"
-             line="60">finishes an asynchronous reverse geocoding request.</doc>
         <callback name="reverse_resolve_finish" throws="1">
           <source-position filename="geocode-glib/geocode-backend.h"
                            line="97"/>
@@ -1460,10 +1430,7 @@ string is in free-form format.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="search"
-              c:identifier="geocode_forward_search"
-              throws="1"
-              glib:async-func="search_async">
+      <method name="search" c:identifier="geocode_forward_search" throws="1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-forward.c"
              line="378">Gets the result of a forward geocoding
@@ -1492,10 +1459,7 @@ g_object_unref() and the list with g_list_free() when done.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="search_async"
-              c:identifier="geocode_forward_search_async"
-              glib:finish-func="search_finish"
-              glib:sync-func="search">
+      <method name="search_async" c:identifier="geocode_forward_search_async">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-forward.c"
              line="315">Asynchronously performs a forward geocoding
@@ -2804,10 +2768,7 @@ This function is thread-safe.</doc>
           <type name="Nominatim" c:type="GeocodeNominatim*"/>
         </return-value>
       </function>
-      <virtual-method name="query" throws="1" glib:async-func="query_async">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-nominatim.h"
-             line="55">synchronous query function to override network `GET` requests.</doc>
+      <virtual-method name="query" throws="1">
         <source-position filename="geocode-glib/geocode-nominatim.h"
                          line="73"/>
         <return-value transfer-ownership="full">
@@ -2828,12 +2789,7 @@ This function is thread-safe.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="query_async"
-                      glib:finish-func="query_finish"
-                      glib:sync-func="query">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-nominatim.h"
-             line="56">asynchronous version of @query.</doc>
+      <virtual-method name="query_async">
         <source-position filename="geocode-glib/geocode-nominatim.h"
                          line="78"/>
         <return-value transfer-ownership="none">
@@ -2870,9 +2826,6 @@ This function is thread-safe.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query_finish" throws="1">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-nominatim.h"
-             line="57">asynchronous finish function for @query_async.</doc>
         <source-position filename="geocode-glib/geocode-nominatim.h"
                          line="84"/>
         <return-value transfer-ownership="full">
@@ -2955,9 +2908,6 @@ virtual methods are mainly intended for testing.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="query">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-nominatim.h"
-             line="55">synchronous query function to override network `GET` requests.</doc>
         <callback name="query" throws="1">
           <source-position filename="geocode-glib/geocode-nominatim.h"
                            line="73"/>
@@ -2981,9 +2931,6 @@ virtual methods are mainly intended for testing.</doc>
         </callback>
       </field>
       <field name="query_async">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-nominatim.h"
-             line="56">asynchronous version of @query.</doc>
         <callback name="query_async">
           <source-position filename="geocode-glib/geocode-nominatim.h"
                            line="78"/>
@@ -3023,9 +2970,6 @@ virtual methods are mainly intended for testing.</doc>
         </callback>
       </field>
       <field name="query_finish">
-        <doc xml:space="preserve"
-             filename="geocode-glib/geocode-nominatim.h"
-             line="57">asynchronous finish function for @query_async.</doc>
         <callback name="query_finish" throws="1">
           <source-position filename="geocode-glib/geocode-nominatim.h"
                            line="84"/>
@@ -4617,10 +4561,7 @@ Use geocode_reverse_resolve_async() to perform the resolution.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <method name="resolve"
-              c:identifier="geocode_reverse_resolve"
-              throws="1"
-              glib:async-func="resolve_async">
+      <method name="resolve" c:identifier="geocode_reverse_resolve" throws="1">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-reverse.c"
              line="243">Gets the result of a reverse geocoding
@@ -4649,9 +4590,7 @@ errors. Free the returned instance with #g_object_unref() when done.</doc>
         </parameters>
       </method>
       <method name="resolve_async"
-              c:identifier="geocode_reverse_resolve_async"
-              glib:finish-func="resolve_finish"
-              glib:sync-func="resolve">
+              c:identifier="geocode_reverse_resolve_async">
         <doc xml:space="preserve"
              filename="geocode-glib/geocode-reverse.c"
              line="178">Asynchronously gets the result of a reverse geocoding

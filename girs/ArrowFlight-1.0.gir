@@ -8,10 +8,9 @@ and/or use gtk-doc annotations.  -->
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Arrow" version="1.0"/>
   <package name="arrow-flight-glib"/>
-  <c:include name="arrow-flight-glib/arrow-flight-glib.h"/>
   <namespace name="ArrowFlight"
              version="1.0"
-             shared-library="libarrow-flight-glib.so.1601"
+             shared-library="libarrow-flight-glib-700.dll"
              c:identifier-prefixes="GAFlight"
              c:symbol-prefixes="gaflight">
     <class name="CallOptions"
@@ -21,105 +20,18 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GAFlightCallOptions"
            glib:get-type="gaflight_call_options_get_type"
            glib:type-struct="CallOptionsClass">
-      <source-position filename="arrow-flight-glib/client.h" line="43"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="49"/>
       <constructor name="new"
                    c:identifier="gaflight_call_options_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/client.h" line="47"/>
+        <source-position filename="../arrow-flight-glib/client.h" line="53"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="98">The newly created options for a call.</doc>
+               filename="../arrow-flight-glib/client.cpp"
+               line="100">The newly created options for a call.</doc>
           <type name="CallOptions" c:type="GAFlightCallOptions*"/>
         </return-value>
       </constructor>
-      <method name="add_header"
-              c:identifier="gaflight_call_options_add_header"
-              version="9.0.0">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="109">Add a header.</doc>
-        <source-position filename="arrow-flight-glib/client.h" line="51"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="options" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="111">A #GAFlightCallOptions.</doc>
-            <type name="CallOptions" c:type="GAFlightCallOptions*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="112">A header name.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="113">A header value.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="clear_headers"
-              c:identifier="gaflight_call_options_clear_headers"
-              version="9.0.0">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="128">Clear all headers.</doc>
-        <source-position filename="arrow-flight-glib/client.h" line="56"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="options" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="130">A #GAFlightCallOptions.</doc>
-            <type name="CallOptions" c:type="GAFlightCallOptions*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="foreach_header"
-              c:identifier="gaflight_call_options_foreach_header"
-              version="9.0.0">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="143">Iterates over all headers in the options.</doc>
-        <source-position filename="arrow-flight-glib/client.h" line="59"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="options" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="145">A #GAFlightCallOptions.</doc>
-            <type name="CallOptions" c:type="GAFlightCallOptions*"/>
-          </instance-parameter>
-          <parameter name="func"
-                     transfer-ownership="none"
-                     scope="call"
-                     closure="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="146">The user's callback function.</doc>
-            <type name="HeaderFunc" c:type="GAFlightHeaderFunc"/>
-          </parameter>
-          <parameter name="user_data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="147">Data for @func.</doc>
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </method>
       <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
@@ -127,7 +39,7 @@ and/or use gtk-doc annotations.  -->
     <record name="CallOptionsClass"
             c:type="GAFlightCallOptionsClass"
             glib:is-gtype-struct-for="CallOptions">
-      <source-position filename="arrow-flight-glib/client.h" line="43"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="49"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -139,23 +51,23 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GAFlightClient"
            glib:get-type="gaflight_client_get_type"
            glib:type-struct="ClientClass">
-      <source-position filename="arrow-flight-glib/client.h" line="80"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="81"/>
       <constructor name="new"
                    c:identifier="gaflight_client_new"
                    version="5.0.0"
                    throws="1">
-        <source-position filename="arrow-flight-glib/client.h" line="84"/>
+        <source-position filename="../arrow-flight-glib/client.h" line="85"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="462">The newly created client, %NULL on error.</doc>
+               filename="../arrow-flight-glib/client.cpp"
+               line="240">The newly created client, %NULL on error.</doc>
           <type name="Client" c:type="GAFlightClient*"/>
         </return-value>
         <parameters>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="458">A #GAFlightLocation to be connected.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="236">A #GAFlightLocation to be connected.</doc>
             <type name="Location" c:type="GAFlightLocation*"/>
           </parameter>
           <parameter name="options"
@@ -163,103 +75,21 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="459">A #GAFlightClientOptions.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="237">A #GAFlightClientOptions.</doc>
             <type name="ClientOptions" c:type="GAFlightClientOptions*"/>
           </parameter>
         </parameters>
       </constructor>
-      <method name="authenticate_basic_token"
-              c:identifier="gaflight_client_authenticate_basic_token"
-              version="12.0.0"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="504">Authenticates to the server using basic HTTP style authentication.</doc>
-        <source-position filename="arrow-flight-glib/client.h" line="94"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="516">%TRUE on success, %FALSE if there was an error.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="506">A #GAFlightClient.</doc>
-            <type name="Client" c:type="GAFlightClient*"/>
-          </instance-parameter>
-          <parameter name="user" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="507">User name to be used.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="password" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="508">Password to be used.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="options"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="509">A #GAFlightCallOptions.</doc>
-            <type name="CallOptions" c:type="GAFlightCallOptions*"/>
-          </parameter>
-          <parameter name="bearer_name"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="510">Bearer token name on success.</doc>
-            <type name="utf8" c:type="gchar**"/>
-          </parameter>
-          <parameter name="bearer_value"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="511">Bearer token value on success.</doc>
-            <type name="utf8" c:type="gchar**"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="close"
-              c:identifier="gaflight_client_close"
-              version="8.0.0"
-              throws="1">
-        <source-position filename="arrow-flight-glib/client.h" line="90"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="492">%TRUE on success, %FALSE if there was an error.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="489">A #GAFlightClient.</doc>
-            <type name="Client" c:type="GAFlightClient*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="do_get"
               c:identifier="gaflight_client_do_get"
               version="6.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/client.h" line="118"/>
+        <source-position filename="../arrow-flight-glib/client.h" line="98"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="637">
+               filename="../arrow-flight-glib/client.cpp"
+               line="332">
   The #GAFlightStreamReader to read record batched from the server
   on success, %NULL on error.</doc>
           <type name="StreamReader" c:type="GAFlightStreamReader*"/>
@@ -267,14 +97,14 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="632">A #GAFlightClient.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="327">A #GAFlightClient.</doc>
             <type name="Client" c:type="GAFlightClient*"/>
           </instance-parameter>
           <parameter name="ticket" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="633">A #GAFlightTicket.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="328">A #GAFlightTicket.</doc>
             <type name="Ticket" c:type="GAFlightTicket*"/>
           </parameter>
           <parameter name="options"
@@ -282,44 +112,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="634">A #GAFlightCallOptions.</doc>
-            <type name="CallOptions" c:type="GAFlightCallOptions*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_flight_info"
-              c:identifier="gaflight_client_get_flight_info"
-              version="9.0.0"
-              throws="1">
-        <source-position filename="arrow-flight-glib/client.h" line="111"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="604">The returned #GAFlightInfo on
-  success, %NULL on error.</doc>
-          <type name="Info" c:type="GAFlightInfo*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="599">A #GAFlightClient.</doc>
-            <type name="Client" c:type="GAFlightClient*"/>
-          </instance-parameter>
-          <parameter name="descriptor" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="600">A #GAFlightDescriptor to be processed.</doc>
-            <type name="Descriptor" c:type="GAFlightDescriptor*"/>
-          </parameter>
-          <parameter name="options"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="601">A #GAFlightCallOptions.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="329">A #GAFlightCallOptions.</doc>
             <type name="CallOptions" c:type="GAFlightCallOptions*"/>
           </parameter>
         </parameters>
@@ -328,11 +122,11 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gaflight_client_list_flights"
               version="5.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/client.h" line="104"/>
+        <source-position filename="../arrow-flight-glib/client.h" line="91"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="552">
+               filename="../arrow-flight-glib/client.cpp"
+               line="275">
   The returned list of #GAFlightInfo on success, %NULL on error.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Info"/>
@@ -341,8 +135,8 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="547">A #GAFlightClient.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="270">A #GAFlightClient.</doc>
             <type name="Client" c:type="GAFlightClient*"/>
           </instance-parameter>
           <parameter name="criteria"
@@ -350,8 +144,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="548">A #GAFlightCriteria.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="271">A #GAFlightCriteria.</doc>
             <type name="Criteria" c:type="GAFlightCriteria*"/>
           </parameter>
           <parameter name="options"
@@ -359,8 +153,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/client.cpp"
-                 line="549">A #GAFlightCallOptions.</doc>
+                 filename="../arrow-flight-glib/client.cpp"
+                 line="272">A #GAFlightCallOptions.</doc>
             <type name="CallOptions" c:type="GAFlightCallOptions*"/>
           </parameter>
         </parameters>
@@ -379,7 +173,7 @@ and/or use gtk-doc annotations.  -->
     <record name="ClientClass"
             c:type="GAFlightClientClass"
             glib:is-gtype-struct-for="Client">
-      <source-position filename="arrow-flight-glib/client.h" line="80"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="81"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -391,80 +185,18 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GAFlightClientOptions"
            glib:get-type="gaflight_client_options_get_type"
            glib:type-struct="ClientOptionsClass">
-      <source-position filename="arrow-flight-glib/client.h" line="69"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="65"/>
       <constructor name="new"
                    c:identifier="gaflight_client_options_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/client.h" line="73"/>
+        <source-position filename="../arrow-flight-glib/client.h" line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/client.cpp"
-               line="377">The newly created options for a client.</doc>
+               filename="../arrow-flight-glib/client.cpp"
+               line="154">The newly created options for a client.</doc>
           <type name="ClientOptions" c:type="GAFlightClientOptions*"/>
         </return-value>
       </constructor>
-      <property name="certificate-chain"
-                version="14.0.0"
-                writable="1"
-                transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="309">The client certificate to use if using Mutual TLS.</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="disable-server-verification"
-                version="9.0.0"
-                writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="358">Whether use TLS without validating the server certificate. Use
-with caution.</doc>
-        <type name="gboolean" c:type="gboolean"/>
-      </property>
-      <property name="override-host-name"
-                version="14.0.0"
-                writable="1"
-                transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="295">Override the host name checked by TLS. Use with caution.</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="private-key"
-                version="14.0.0"
-                writable="1"
-                transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="323">The private key associated with the client certificate for Mutual
-TLS.</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="tls-root-certificates"
-                version="14.0.0"
-                writable="1"
-                transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="281">Root certificates to use for validating server certificates.</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="write-size-limit-bytes"
-                version="14.0.0"
-                writable="1"
-                transfer-ownership="none"
-                default-value="0">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/client.cpp"
-             line="338">A soft limit on the number of bytes to write in a single batch
-when sending Arrow data to a server.
-
-Used to help limit server memory consumption. Only enabled if
-positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
-        <type name="gint64" c:type="gint64"/>
-      </property>
       <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
@@ -472,7 +204,7 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
     <record name="ClientOptionsClass"
             c:type="GAFlightClientOptionsClass"
             glib:is-gtype-struct-for="ClientOptions">
-      <source-position filename="arrow-flight-glib/client.h" line="69"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="65"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -484,22 +216,22 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
            glib:type-name="GAFlightCommandDescriptor"
            glib:get-type="gaflight_command_descriptor_get_type"
            glib:type-struct="CommandDescriptorClass">
-      <source-position filename="arrow-flight-glib/common.h" line="109"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="124"/>
       <constructor name="new"
                    c:identifier="gaflight_command_descriptor_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="113"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="503">The newly created #GAFlightCommandDescriptor.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="505">The newly created #GAFlightCommandDescriptor.</doc>
           <type name="CommandDescriptor" c:type="GAFlightCommandDescriptor*"/>
         </return-value>
         <parameters>
           <parameter name="command" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="501">Opaque value used to express a command.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="503">Opaque value used to express a command.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -507,11 +239,11 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
       <method name="get_command"
               c:identifier="gaflight_command_descriptor_get_command"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="117"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="132"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="518">The opaque value used to express a command.
+               filename="../arrow-flight-glib/common.cpp"
+               line="521">The opaque value used to express a command.
 
   It should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -519,8 +251,8 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="516">A #GAFlightCommandDescriptor.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="519">A #GAFlightCommandDescriptor.</doc>
             <type name="CommandDescriptor"
                   c:type="GAFlightCommandDescriptor*"/>
           </instance-parameter>
@@ -533,7 +265,7 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
     <record name="CommandDescriptorClass"
             c:type="GAFlightCommandDescriptorClass"
             glib:is-gtype-struct-for="CommandDescriptor">
-      <source-position filename="arrow-flight-glib/common.h" line="109"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="124"/>
       <field name="parent_class">
         <type name="DescriptorClass" c:type="GAFlightDescriptorClass"/>
       </field>
@@ -545,22 +277,22 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
            glib:type-name="GAFlightCriteria"
            glib:get-type="gaflight_criteria_get_type"
            glib:type-struct="CriteriaClass">
-      <source-position filename="arrow-flight-glib/common.h" line="35"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="36"/>
       <constructor name="new"
                    c:identifier="gaflight_criteria_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="39"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="191">The newly created #GAFlightCriteria, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="180">The newly created #GAFlightCriteria, %NULL on error.</doc>
           <type name="Criteria" c:type="GAFlightCriteria*"/>
         </return-value>
         <parameters>
           <parameter name="expression" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="189">A #GBytes.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="178">A #GBytes.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -570,8 +302,8 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
                 writable="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="arrow-flight-glib/common.cpp"
-             line="171">Opaque criteria expression, dependent on server implementation.</doc>
+             filename="../arrow-flight-glib/common.cpp"
+             line="160">Opaque criteria expression, dependent on server implementation.</doc>
         <type name="GLib.Bytes"/>
       </property>
       <field name="parent_instance">
@@ -581,7 +313,7 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
     <record name="CriteriaClass"
             c:type="GAFlightCriteriaClass"
             glib:is-gtype-struct-for="Criteria">
-      <source-position filename="arrow-flight-glib/common.h" line="35"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -593,7 +325,7 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
            glib:type-name="GAFlightDataStream"
            glib:get-type="gaflight_data_stream_get_type"
            glib:type-struct="DataStreamClass">
-      <source-position filename="arrow-flight-glib/server.h" line="32"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="37"/>
       <property name="stream"
                 readable="0"
                 writable="1"
@@ -608,7 +340,7 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
     <record name="DataStreamClass"
             c:type="GAFlightDataStreamClass"
             glib:is-gtype-struct-for="DataStream">
-      <source-position filename="arrow-flight-glib/server.h" line="32"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="37"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -621,29 +353,29 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
            glib:type-name="GAFlightDescriptor"
            glib:get-type="gaflight_descriptor_get_type"
            glib:type-struct="DescriptorClass">
-      <source-position filename="arrow-flight-glib/common.h" line="70"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="82"/>
       <method name="equal"
               c:identifier="gaflight_descriptor_equal"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="78"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="408">%TRUE if both of them represents the same descriptor,
+               filename="../arrow-flight-glib/common.cpp"
+               line="402">%TRUE if both of them represents the same descriptor,
   %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="405">A #GAFlightDescriptor.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="399">A #GAFlightDescriptor.</doc>
             <type name="Descriptor" c:type="GAFlightDescriptor*"/>
           </instance-parameter>
           <parameter name="other_descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="406">A #GAFlightDescriptor to be compared.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="400">A #GAFlightDescriptor to be compared.</doc>
             <type name="Descriptor" c:type="GAFlightDescriptor*"/>
           </parameter>
         </parameters>
@@ -651,11 +383,11 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
       <method name="to_string"
               c:identifier="gaflight_descriptor_to_string"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="74"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="389">A descriptor as a string.
+               filename="../arrow-flight-glib/common.cpp"
+               line="384">A descriptor as a string.
 
   It should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -663,8 +395,8 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="387">A #GAFlightDescriptor.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="382">A #GAFlightDescriptor.</doc>
             <type name="Descriptor" c:type="GAFlightDescriptor*"/>
           </instance-parameter>
         </parameters>
@@ -683,7 +415,7 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
     <record name="DescriptorClass"
             c:type="GAFlightDescriptorClass"
             glib:is-gtype-struct-for="Descriptor">
-      <source-position filename="arrow-flight-glib/common.h" line="70"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="82"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -695,28 +427,28 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
            glib:type-name="GAFlightEndpoint"
            glib:get-type="gaflight_endpoint_get_type"
            glib:type-struct="EndpointClass">
-      <source-position filename="arrow-flight-glib/common.h" line="139"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="165"/>
       <constructor name="new"
                    c:identifier="gaflight_endpoint_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="143"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="169"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="782">The newly created #GAFlightEndpoint, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="796">The newly created #GAFlightEndpoint, %NULL on error.</doc>
           <type name="Endpoint" c:type="GAFlightEndpoint*"/>
         </return-value>
         <parameters>
           <parameter name="ticket" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="779">A #GAFlightTicket.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="793">A #GAFlightTicket.</doc>
             <type name="Ticket" c:type="GAFlightTicket*"/>
           </parameter>
           <parameter name="locations" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="780">A list of #GAFlightLocation.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="794">A list of #GAFlightLocation.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Location"/>
             </type>
@@ -726,25 +458,25 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
       <method name="equal"
               c:identifier="gaflight_endpoint_equal"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="147"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="174"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="803">%TRUE if both of them represents the same endpoint,
+               filename="../arrow-flight-glib/common.cpp"
+               line="818">%TRUE if both of them represents the same endpoint,
   %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="endpoint" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="800">A #GAFlightEndpoint.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="815">A #GAFlightEndpoint.</doc>
             <type name="Endpoint" c:type="GAFlightEndpoint*"/>
           </instance-parameter>
           <parameter name="other_endpoint" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="801">A #GAFlightEndpoint to be compared.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="816">A #GAFlightEndpoint to be compared.</doc>
             <type name="Endpoint" c:type="GAFlightEndpoint*"/>
           </parameter>
         </parameters>
@@ -752,11 +484,11 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
       <method name="get_locations"
               c:identifier="gaflight_endpoint_get_locations"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="151"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="179"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="820">
+               filename="../arrow-flight-glib/common.cpp"
+               line="836">
   The locations in this endpoint.
 
   It must be freed with g_list_free() and g_object_unref() when no
@@ -769,16 +501,16 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
         <parameters>
           <instance-parameter name="endpoint" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="818">A #GAFlightEndpoint.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="834">A #GAFlightEndpoint.</doc>
             <type name="Endpoint" c:type="GAFlightEndpoint*"/>
           </instance-parameter>
         </parameters>
       </method>
       <property name="ticket" version="5.0.0" transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="arrow-flight-glib/common.cpp"
-             line="762">Opaque ticket identify; use with DoGet RPC.</doc>
+             filename="../arrow-flight-glib/common.cpp"
+             line="776">Opaque ticket identify; use with DoGet RPC.</doc>
         <type name="Ticket"/>
       </property>
       <field name="parent_instance">
@@ -788,47 +520,11 @@ positive. When enabled, @GARROW_ERROR_IO may be yielded.</doc>
     <record name="EndpointClass"
             c:type="GAFlightEndpointClass"
             glib:is-gtype-struct-for="Endpoint">
-      <source-position filename="arrow-flight-glib/common.h" line="139"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="165"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <callback name="HeaderFunc" c:type="GAFlightHeaderFunc" version="9.0.0">
-      <doc xml:space="preserve"
-           filename="arrow-flight-glib/common.cpp"
-           line="56">It is called with each header name/value pair, together with the
-@user_data parameter which is passed to
-gaflight_call_options_foreach_header() and so on.</doc>
-      <source-position filename="arrow-flight-glib/common.h" line="26"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-      <parameters>
-        <parameter name="name" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="58">A header name.</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </parameter>
-        <parameter name="value" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="59">The value corresponding to the name.</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </parameter>
-        <parameter name="user_data"
-                   transfer-ownership="none"
-                   nullable="1"
-                   allow-none="1"
-                   closure="2">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="60">User data passed to gaflight_call_options_foreach_header()
-  and so on.</doc>
-          <type name="gpointer" c:type="gpointer"/>
-        </parameter>
-      </parameters>
-    </callback>
     <class name="Info"
            c:symbol-prefix="info"
            c:type="GAFlightInfo"
@@ -836,73 +532,73 @@ gaflight_call_options_foreach_header() and so on.</doc>
            glib:type-name="GAFlightInfo"
            glib:get-type="gaflight_info_get_type"
            glib:type-struct="InfoClass">
-      <source-position filename="arrow-flight-glib/common.h" line="158"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="191"/>
       <constructor name="new"
                    c:identifier="gaflight_info_new"
                    version="5.0.0"
                    throws="1">
-        <source-position filename="arrow-flight-glib/common.h" line="162"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="195"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="918">The newly created #GAFlightInfo, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="939">The newly created #GAFlightInfo, %NULL on error.</doc>
           <type name="Info" c:type="GAFlightInfo*"/>
         </return-value>
         <parameters>
           <parameter name="schema" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="911">A #GArrowSchema.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="932">A #GArrowSchema.</doc>
             <type name="Arrow.Schema" c:type="GArrowSchema*"/>
           </parameter>
           <parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="912">A #GAFlightDescriptor.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="933">A #GAFlightDescriptor.</doc>
             <type name="Descriptor" c:type="GAFlightDescriptor*"/>
           </parameter>
           <parameter name="endpoints" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="913">A list of #GAFlightEndpoint.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="934">A list of #GAFlightEndpoint.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Endpoint"/>
             </type>
           </parameter>
           <parameter name="total_records" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="914">The number of total records.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="935">The number of total records.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="total_bytes" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="915">The number of total bytes.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="936">The number of total bytes.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="equal" c:identifier="gaflight_info_equal" version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="171"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="204"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="953">%TRUE if both of them represents the same information,
+               filename="../arrow-flight-glib/common.cpp"
+               line="977">%TRUE if both of them represents the same information,
   %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="950">A #GAFlightInfo.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="974">A #GAFlightInfo.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </instance-parameter>
           <parameter name="other_info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="951">A #GAFlightInfo to be compared.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="975">A #GAFlightInfo to be compared.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </parameter>
         </parameters>
@@ -910,18 +606,18 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="get_descriptor"
               c:identifier="gaflight_info_get_descriptor"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="178"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="214"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1004">The #GAFlightDescriptor of the information.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="1037">The #GAFlightDescriptor of the information.</doc>
           <type name="Descriptor" c:type="GAFlightDescriptor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1002">A #GAFlightInfo.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1035">A #GAFlightInfo.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </instance-parameter>
         </parameters>
@@ -929,11 +625,11 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="get_endpoints"
               c:identifier="gaflight_info_get_endpoints"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="181"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="217"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1019">
+               filename="../arrow-flight-glib/common.cpp"
+               line="1052">
   The list of #GAFlightEndpoint of the information.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Endpoint"/>
@@ -942,8 +638,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1017">A #GAFlightInfo.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1050">A #GAFlightInfo.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </instance-parameter>
         </parameters>
@@ -952,18 +648,18 @@ gaflight_call_options_foreach_header() and so on.</doc>
               c:identifier="gaflight_info_get_schema"
               version="5.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/common.h" line="175"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="209"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="976">Deserialized #GArrowSchema, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="1007">Deserialized #GArrowSchema, %NULL on error.</doc>
           <type name="Arrow.Schema" c:type="GArrowSchema*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="972">A #GAFlightInfo.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1003">A #GAFlightInfo.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </instance-parameter>
           <parameter name="options"
@@ -971,8 +667,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="973">A #GArrowReadOptions.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1004">A #GArrowReadOptions.</doc>
             <type name="Arrow.ReadOptions" c:type="GArrowReadOptions*"/>
           </parameter>
         </parameters>
@@ -980,18 +676,18 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="get_total_bytes"
               c:identifier="gaflight_info_get_total_bytes"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="187"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="223"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1055">The number of total bytes of the information.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="1088">The number of total bytes of the information.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1053">A #GAFlightInfo.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1086">A #GAFlightInfo.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </instance-parameter>
         </parameters>
@@ -999,18 +695,18 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="get_total_records"
               c:identifier="gaflight_info_get_total_records"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="184"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="220"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1040">The number of total records of the information.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="1073">The number of total records of the information.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1038">A #GAFlightInfo.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1071">A #GAFlightInfo.</doc>
             <type name="Info" c:type="GAFlightInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1029,7 +725,7 @@ gaflight_call_options_foreach_header() and so on.</doc>
     <record name="InfoClass"
             c:type="GAFlightInfoClass"
             glib:is-gtype-struct-for="Info">
-      <source-position filename="arrow-flight-glib/common.h" line="158"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="191"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1041,23 +737,23 @@ gaflight_call_options_foreach_header() and so on.</doc>
            glib:type-name="GAFlightLocation"
            glib:get-type="gaflight_location_get_type"
            glib:type-struct="LocationClass">
-      <source-position filename="arrow-flight-glib/common.h" line="46"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="52"/>
       <constructor name="new"
                    c:identifier="gaflight_location_new"
                    version="5.0.0"
                    throws="1">
-        <source-position filename="arrow-flight-glib/common.h" line="50"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="56"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="243">The newly created location, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="237">The newly created location, %NULL on error.</doc>
           <type name="Location" c:type="GAFlightLocation*"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="240">An URI to specify location.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="234">An URI to specify location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1065,24 +761,24 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="equal"
               c:identifier="gaflight_location_equal"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="62"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="303">%TRUE if both of them represents the same URI, %FALSE otherwise.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="296">%TRUE if both of them represents the same URI, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="300">A #GAFlightLocation.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="293">A #GAFlightLocation.</doc>
             <type name="Location" c:type="GAFlightLocation*"/>
           </instance-parameter>
           <parameter name="other_location" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="301">A #GAFlightLocation to be compared.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="294">A #GAFlightLocation to be compared.</doc>
             <type name="Location" c:type="GAFlightLocation*"/>
           </parameter>
         </parameters>
@@ -1090,11 +786,11 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="get_scheme"
               c:identifier="gaflight_location_get_scheme"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="58"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="65"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="284">The scheme of this URI.
+               filename="../arrow-flight-glib/common.cpp"
+               line="278">The scheme of this URI.
 
   It should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -1102,8 +798,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
         <parameters>
           <instance-parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="282">A #GAFlightLocation.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="276">A #GAFlightLocation.</doc>
             <type name="Location" c:type="GAFlightLocation*"/>
           </instance-parameter>
         </parameters>
@@ -1111,11 +807,11 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="to_string"
               c:identifier="gaflight_location_to_string"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="54"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="61"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="266">A representation of this URI as a string.
+               filename="../arrow-flight-glib/common.cpp"
+               line="261">A representation of this URI as a string.
 
   It should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -1123,8 +819,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
         <parameters>
           <instance-parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="264">A #GAFlightLocation.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="259">A #GAFlightLocation.</doc>
             <type name="Location" c:type="GAFlightLocation*"/>
           </instance-parameter>
         </parameters>
@@ -1136,49 +832,9 @@ gaflight_call_options_foreach_header() and so on.</doc>
     <record name="LocationClass"
             c:type="GAFlightLocationClass"
             glib:is-gtype-struct-for="Location">
-      <source-position filename="arrow-flight-glib/common.h" line="46"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="52"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <class name="MessageReader"
-           c:symbol-prefix="message_reader"
-           c:type="GAFlightMessageReader"
-           parent="RecordBatchReader"
-           glib:type-name="GAFlightMessageReader"
-           glib:get-type="gaflight_message_reader_get_type"
-           glib:type-struct="MessageReaderClass">
-      <source-position filename="arrow-flight-glib/server.h" line="59"/>
-      <method name="get_descriptor"
-              c:identifier="gaflight_message_reader_get_descriptor"
-              version="14.0.0">
-        <source-position filename="arrow-flight-glib/server.h" line="63"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="281">The descriptor for this upload.</doc>
-          <type name="Descriptor" c:type="GAFlightDescriptor*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="reader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="279">A #GAFlightMessageReader.</doc>
-            <type name="MessageReader" c:type="GAFlightMessageReader*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="RecordBatchReader" c:type="GAFlightRecordBatchReader"/>
-      </field>
-    </class>
-    <record name="MessageReaderClass"
-            c:type="GAFlightMessageReaderClass"
-            glib:is-gtype-struct-for="MessageReader">
-      <source-position filename="arrow-flight-glib/server.h" line="59"/>
-      <field name="parent_class">
-        <type name="RecordBatchReaderClass"
-              c:type="GAFlightRecordBatchReaderClass"/>
       </field>
     </record>
     <class name="PathDescriptor"
@@ -1188,22 +844,22 @@ gaflight_call_options_foreach_header() and so on.</doc>
            glib:type-name="GAFlightPathDescriptor"
            glib:get-type="gaflight_path_descriptor_get_type"
            glib:type-struct="PathDescriptorClass">
-      <source-position filename="arrow-flight-glib/common.h" line="90"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="103"/>
       <constructor name="new"
                    c:identifier="gaflight_path_descriptor_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="94"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="107"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="440">The newly created #GAFlightPathDescriptor.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="439">The newly created #GAFlightPathDescriptor.</doc>
           <type name="PathDescriptor" c:type="GAFlightPathDescriptor*"/>
         </return-value>
         <parameters>
           <parameter name="paths" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="436">List of paths identifying a
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="435">List of paths identifying a
   particular dataset.</doc>
             <array length="1" zero-terminated="0" c:type="const gchar**">
               <type name="utf8" c:type="gchar*"/>
@@ -1211,8 +867,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
           </parameter>
           <parameter name="n_paths" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="438">The number of @paths.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="437">The number of @paths.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -1220,11 +876,11 @@ gaflight_call_options_foreach_header() and so on.</doc>
       <method name="get_paths"
               c:identifier="gaflight_path_descriptor_get_paths"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="98"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="112"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="459">
+               filename="../arrow-flight-glib/common.cpp"
+               line="460">
   The paths in this descriptor.
 
   It must be freed with g_strfreev() when no longer needed.</doc>
@@ -1235,8 +891,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="457">A #GAFlightPathDescriptor.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="458">A #GAFlightPathDescriptor.</doc>
             <type name="PathDescriptor" c:type="GAFlightPathDescriptor*"/>
           </instance-parameter>
         </parameters>
@@ -1248,7 +904,7 @@ gaflight_call_options_foreach_header() and so on.</doc>
     <record name="PathDescriptorClass"
             c:type="GAFlightPathDescriptorClass"
             glib:is-gtype-struct-for="PathDescriptor">
-      <source-position filename="arrow-flight-glib/common.h" line="90"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="103"/>
       <field name="parent_class">
         <type name="DescriptorClass" c:type="GAFlightDescriptorClass"/>
       </field>
@@ -1260,23 +916,23 @@ gaflight_call_options_foreach_header() and so on.</doc>
            glib:type-name="GAFlightRecordBatchReader"
            glib:get-type="gaflight_record_batch_reader_get_type"
            glib:type-struct="RecordBatchReaderClass">
-      <source-position filename="arrow-flight-glib/common.h" line="213"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="255"/>
       <method name="read_all"
               c:identifier="gaflight_record_batch_reader_read_all"
               version="6.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/common.h" line="221"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="264"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1282">The all data on success, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="1307">The all data on success, %NULL on error.</doc>
           <type name="Arrow.Table" c:type="GArrowTable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1279">A #GAFlightRecordBatchReader.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1304">A #GAFlightRecordBatchReader.</doc>
             <type name="RecordBatchReader"
                   c:type="GAFlightRecordBatchReader*"/>
           </instance-parameter>
@@ -1286,32 +942,24 @@ gaflight_call_options_foreach_header() and so on.</doc>
               c:identifier="gaflight_record_batch_reader_read_next"
               version="6.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/common.h" line="217"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="259"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1255">The next chunk on success, %NULL on end
+               filename="../arrow-flight-glib/common.cpp"
+               line="1279">The next chunk on success, %NULL on end
   of stream, %NULL on error.</doc>
           <type name="StreamChunk" c:type="GAFlightStreamChunk*"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1252">A #GAFlightRecordBatchReader.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1276">A #GAFlightRecordBatchReader.</doc>
             <type name="RecordBatchReader"
                   c:type="GAFlightRecordBatchReader*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="is-owner"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none"
-                default-value="TRUE">
-        <type name="gboolean" c:type="gboolean"/>
-      </property>
       <property name="reader"
                 readable="0"
                 writable="1"
@@ -1326,7 +974,7 @@ gaflight_call_options_foreach_header() and so on.</doc>
     <record name="RecordBatchReaderClass"
             c:type="GAFlightRecordBatchReaderClass"
             glib:is-gtype-struct-for="RecordBatchReader">
-      <source-position filename="arrow-flight-glib/common.h" line="213"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="255"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1338,22 +986,22 @@ gaflight_call_options_foreach_header() and so on.</doc>
            glib:type-name="GAFlightRecordBatchStream"
            glib:get-type="gaflight_record_batch_stream_get_type"
            glib:type-struct="RecordBatchStreamClass">
-      <source-position filename="arrow-flight-glib/server.h" line="43"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="50"/>
       <constructor name="new"
                    c:identifier="gaflight_record_batch_stream_new"
                    version="6.0.0">
-        <source-position filename="arrow-flight-glib/server.h" line="47"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="54"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="236">The newly created #GAFlightRecordBatchStream.</doc>
+               filename="../arrow-flight-glib/server.cpp"
+               line="226">The newly created #GAFlightRecordBatchStream.</doc>
           <type name="RecordBatchStream" c:type="GAFlightRecordBatchStream*"/>
         </return-value>
         <parameters>
           <parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="232">A #GArrowRecordBatchReader to be read.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="222">A #GArrowRecordBatchReader to be read.</doc>
             <type name="Arrow.RecordBatchReader"
                   c:type="GArrowRecordBatchReader*"/>
           </parameter>
@@ -1362,8 +1010,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="233">A #GArrowWriteOptions for writing record batches to
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="223">A #GArrowWriteOptions for writing record batches to
   a client.</doc>
             <type name="Arrow.WriteOptions" c:type="GArrowWriteOptions*"/>
           </parameter>
@@ -1375,8 +1023,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
                 construct-only="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="214">The reader that produces record batches.</doc>
+             filename="../arrow-flight-glib/server.cpp"
+             line="204">The reader that produces record batches.</doc>
         <type name="Arrow.RecordBatchReader"/>
       </property>
       <field name="parent_instance">
@@ -1386,25 +1034,10 @@ gaflight_call_options_foreach_header() and so on.</doc>
     <record name="RecordBatchStreamClass"
             c:type="GAFlightRecordBatchStreamClass"
             glib:is-gtype-struct-for="RecordBatchStream">
-      <source-position filename="arrow-flight-glib/server.h" line="43"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="50"/>
       <field name="parent_class">
         <type name="DataStreamClass" c:type="GAFlightDataStreamClass"/>
       </field>
-    </record>
-    <interface name="Servable"
-               c:symbol-prefix="servable"
-               c:type="GAFlightServable"
-               glib:type-name="GAFlightServable"
-               glib:get-type="gaflight_servable_get_type"
-               glib:type-struct="ServableInterface">
-      <source-position filename="arrow-flight-glib/server.h" line="183"/>
-    </interface>
-    <record name="ServableInterface"
-            c:type="GAFlightServableInterface"
-            disguised="1"
-            opaque="1"
-            glib:is-gtype-struct-for="Servable">
-      <source-position filename="arrow-flight-glib/server.h" line="183"/>
     </record>
     <class name="Server"
            c:symbol-prefix="server"
@@ -1414,74 +1047,37 @@ gaflight_call_options_foreach_header() and so on.</doc>
            glib:type-name="GAFlightServer"
            glib:get-type="gaflight_server_get_type"
            glib:type-struct="ServerClass">
-      <source-position filename="arrow-flight-glib/server.h" line="210"/>
-      <implements name="Servable"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="112"/>
       <virtual-method name="do_get"
                       invoker="do_get"
                       version="6.0.0"
                       throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.h"
-             line="190">A virtual function to implement `DoGet` API.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="206"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="108"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1213">#GAFlightDataStream on success, %NULL on error.</doc>
+               filename="../arrow-flight-glib/server.cpp"
+               line="670">#GAFlightDataStream on success, %NULL on error.</doc>
           <type name="DataStream" c:type="GAFlightDataStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1208">A #GAFlightServer.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="665">A #GAFlightServer.</doc>
             <type name="Server" c:type="GAFlightServer*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1209">A #GAFlightServerCallContext.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="666">A #GAFlightServerCallContext.</doc>
             <type name="ServerCallContext"
                   c:type="GAFlightServerCallContext*"/>
           </parameter>
           <parameter name="ticket" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1210">A #GAFlightTicket.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="667">A #GAFlightTicket.</doc>
             <type name="Ticket" c:type="GAFlightTicket*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="get_flight_info"
-                      invoker="get_flight_info"
-                      version="9.0.0"
-                      throws="1">
-        <source-position filename="arrow-flight-glib/server.h" line="202"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1188">A #GAFlightInfo on success, %NULL on error.</doc>
-          <type name="Info" c:type="GAFlightInfo*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="server" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1183">A #GAFlightServer.</doc>
-            <type name="Server" c:type="GAFlightServer*"/>
-          </instance-parameter>
-          <parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1184">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </parameter>
-          <parameter name="request" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1185">A #GAFlightDescriptor.</doc>
-            <type name="Descriptor" c:type="GAFlightDescriptor*"/>
           </parameter>
         </parameters>
       </virtual-method>
@@ -1489,14 +1085,11 @@ gaflight_call_options_foreach_header() and so on.</doc>
                       invoker="list_flights"
                       version="5.0.0"
                       throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.h"
-             line="189">A virtual function to implement `ListFlights` API.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="198"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="104"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1162">
+               filename="../arrow-flight-glib/server.cpp"
+               line="641">
   #GList of #GAFlightInfo on success, %NULL on error.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Info"/>
@@ -1505,14 +1098,14 @@ gaflight_call_options_foreach_header() and so on.</doc>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1157">A #GAFlightServer.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="636">A #GAFlightServer.</doc>
             <type name="Server" c:type="GAFlightServer*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1158">A #GAFlightServerCallContext.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="637">A #GAFlightServerCallContext.</doc>
             <type name="ServerCallContext"
                   c:type="GAFlightServerCallContext*"/>
           </parameter>
@@ -1521,8 +1114,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1159">A #GAFlightCriteria.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="638">A #GAFlightCriteria.</doc>
             <type name="Criteria" c:type="GAFlightCriteria*"/>
           </parameter>
         </parameters>
@@ -1531,70 +1124,37 @@ gaflight_call_options_foreach_header() and so on.</doc>
               c:identifier="gaflight_server_do_get"
               version="6.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/server.h" line="241"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="139"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1213">#GAFlightDataStream on success, %NULL on error.</doc>
+               filename="../arrow-flight-glib/server.cpp"
+               line="670">#GAFlightDataStream on success, %NULL on error.</doc>
           <type name="DataStream" c:type="GAFlightDataStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1208">A #GAFlightServer.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="665">A #GAFlightServer.</doc>
             <type name="Server" c:type="GAFlightServer*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1209">A #GAFlightServerCallContext.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="666">A #GAFlightServerCallContext.</doc>
             <type name="ServerCallContext"
                   c:type="GAFlightServerCallContext*"/>
           </parameter>
           <parameter name="ticket" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1210">A #GAFlightTicket.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="667">A #GAFlightTicket.</doc>
             <type name="Ticket" c:type="GAFlightTicket*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_flight_info"
-              c:identifier="gaflight_server_get_flight_info"
-              version="9.0.0"
-              throws="1">
-        <source-position filename="arrow-flight-glib/server.h" line="235"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1188">A #GAFlightInfo on success, %NULL on error.</doc>
-          <type name="Info" c:type="GAFlightInfo*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="server" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1183">A #GAFlightServer.</doc>
-            <type name="Server" c:type="GAFlightServer*"/>
-          </instance-parameter>
-          <parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1184">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </parameter>
-          <parameter name="request" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1185">A #GAFlightDescriptor.</doc>
-            <type name="Descriptor" c:type="GAFlightDescriptor*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="get_port" c:identifier="gaflight_server_get_port">
-        <source-position filename="arrow-flight-glib/server.h" line="219"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -1608,11 +1168,11 @@ gaflight_call_options_foreach_header() and so on.</doc>
               c:identifier="gaflight_server_list_flights"
               version="5.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/server.h" line="229"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="133"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1162">
+               filename="../arrow-flight-glib/server.cpp"
+               line="641">
   #GList of #GAFlightInfo on success, %NULL on error.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Info"/>
@@ -1621,14 +1181,14 @@ gaflight_call_options_foreach_header() and so on.</doc>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1157">A #GAFlightServer.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="636">A #GAFlightServer.</doc>
             <type name="Server" c:type="GAFlightServer*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1158">A #GAFlightServerCallContext.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="637">A #GAFlightServerCallContext.</doc>
             <type name="ServerCallContext"
                   c:type="GAFlightServerCallContext*"/>
           </parameter>
@@ -1637,8 +1197,8 @@ gaflight_call_options_foreach_header() and so on.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1159">A #GAFlightCriteria.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="638">A #GAFlightCriteria.</doc>
             <type name="Criteria" c:type="GAFlightCriteria*"/>
           </parameter>
         </parameters>
@@ -1647,24 +1207,24 @@ gaflight_call_options_foreach_header() and so on.</doc>
               c:identifier="gaflight_server_listen"
               version="5.0.0"
               throws="1">
-        <source-position filename="arrow-flight-glib/server.h" line="214"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1105">%TRUE on success, %FALSE on error.</doc>
+               filename="../arrow-flight-glib/server.cpp"
+               line="581">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1101">A #GAFlightServer.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="577">A #GAFlightServer.</doc>
             <type name="Server" c:type="GAFlightServer*"/>
           </instance-parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1102">A #GAFlightServerOptions.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="578">A #GAFlightServerOptions.</doc>
             <type name="ServerOptions" c:type="GAFlightServerOptions*"/>
           </parameter>
         </parameters>
@@ -1674,27 +1234,27 @@ gaflight_call_options_foreach_header() and so on.</doc>
               version="5.0.0"
               throws="1">
         <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="1136">Shuts down the serve. This function can be called from signal
+             filename="../arrow-flight-glib/server.cpp"
+             line="612">Shuts down the serve. This function can be called from signal
 handler or another thread.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="222"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="124"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="1144">%TRUE on success, %FALSE on error.</doc>
+               filename="../arrow-flight-glib/server.cpp"
+               line="620">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1138">A #GAFlightServer.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="614">A #GAFlightServer.</doc>
             <type name="Server" c:type="GAFlightServer*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="wait" c:identifier="gaflight_server_wait" throws="1">
-        <source-position filename="arrow-flight-glib/server.h" line="225"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1708,141 +1268,6 @@ handler or another thread.</doc>
         <type name="GObject.Object" c:type="GObject"/>
       </field>
     </class>
-    <class name="ServerAuthHandler"
-           c:symbol-prefix="server_auth_handler"
-           c:type="GAFlightServerAuthHandler"
-           parent="GObject.Object"
-           abstract="1"
-           glib:type-name="GAFlightServerAuthHandler"
-           glib:get-type="gaflight_server_auth_handler_get_type"
-           glib:type-struct="ServerAuthHandlerClass">
-      <source-position filename="arrow-flight-glib/server.h" line="123"/>
-      <property name="handler"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="ServerAuthHandlerClass"
-            c:type="GAFlightServerAuthHandlerClass"
-            glib:is-gtype-struct-for="ServerAuthHandler">
-      <source-position filename="arrow-flight-glib/server.h" line="123"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <class name="ServerAuthReader"
-           c:symbol-prefix="server_auth_reader"
-           c:type="GAFlightServerAuthReader"
-           parent="GObject.Object"
-           glib:type-name="GAFlightServerAuthReader"
-           glib:get-type="gaflight_server_auth_reader_get_type"
-           glib:type-struct="ServerAuthReaderClass">
-      <source-position filename="arrow-flight-glib/server.h" line="108"/>
-      <method name="read"
-              c:identifier="gaflight_server_auth_reader_read"
-              version="12.0.0"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="531">Reads a message from the client.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="112"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="538">Read data as #GBytes on
-  success, %NULL on error.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="reader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="533">A #GAFlightServerAuthReader.</doc>
-            <type name="ServerAuthReader" c:type="GAFlightServerAuthReader*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="reader"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="ServerAuthReaderClass"
-            c:type="GAFlightServerAuthReaderClass"
-            glib:is-gtype-struct-for="ServerAuthReader">
-      <source-position filename="arrow-flight-glib/server.h" line="108"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <class name="ServerAuthSender"
-           c:symbol-prefix="server_auth_sender"
-           c:type="GAFlightServerAuthSender"
-           parent="GObject.Object"
-           glib:type-name="GAFlightServerAuthSender"
-           glib:get-type="gaflight_server_auth_sender_get_type"
-           glib:type-struct="ServerAuthSenderClass">
-      <source-position filename="arrow-flight-glib/server.h" line="91"/>
-      <method name="write"
-              c:identifier="gaflight_server_auth_sender_write"
-              version="12.0.0"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="449">Writes a message to the client.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="95"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="457">%TRUE on success, %FALSE on error.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="sender" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="451">A #GAFlightServerAuthSender.</doc>
-            <type name="ServerAuthSender" c:type="GAFlightServerAuthSender*"/>
-          </instance-parameter>
-          <parameter name="message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="452">A #GBytes to be sent.</doc>
-            <type name="GLib.Bytes" c:type="GBytes*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <property name="sender"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="ServerAuthSenderClass"
-            c:type="GAFlightServerAuthSenderClass"
-            glib:is-gtype-struct-for="ServerAuthSender">
-      <source-position filename="arrow-flight-glib/server.h" line="91"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
     <class name="ServerCallContext"
            c:symbol-prefix="server_call_context"
            c:type="GAFlightServerCallContext"
@@ -1850,45 +1275,7 @@ handler or another thread.</doc>
            glib:type-name="GAFlightServerCallContext"
            glib:get-type="gaflight_server_call_context_get_type"
            glib:type-struct="ServerCallContextClass">
-      <source-position filename="arrow-flight-glib/server.h" line="74"/>
-      <method name="foreach_incoming_header"
-              c:identifier="gaflight_server_call_context_foreach_incoming_header"
-              version="14.0.0">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="366">Iterates over all incoming headers.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="78"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="368">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </instance-parameter>
-          <parameter name="func"
-                     transfer-ownership="none"
-                     scope="call"
-                     closure="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="369">The user's callback function.</doc>
-            <type name="HeaderFunc" c:type="GAFlightHeaderFunc"/>
-          </parameter>
-          <parameter name="user_data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="370">Data for @func.</doc>
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </method>
+      <source-position filename="../arrow-flight-glib/server.h" line="84"/>
       <property name="call-context"
                 readable="0"
                 writable="1"
@@ -1903,7 +1290,7 @@ handler or another thread.</doc>
     <record name="ServerCallContextClass"
             c:type="GAFlightServerCallContextClass"
             glib:is-gtype-struct-for="ServerCallContext">
-      <source-position filename="arrow-flight-glib/server.h" line="74"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="84"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1912,20 +1299,18 @@ handler or another thread.</doc>
             c:type="GAFlightServerClass"
             glib:is-gtype-struct-for="Server"
             version="5.0.0">
-      <source-position filename="arrow-flight-glib/server.h" line="210"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="112"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="list_flights">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.h"
-             line="189">A virtual function to implement `ListFlights` API.</doc>
         <callback name="list_flights" throws="1">
-          <source-position filename="arrow-flight-glib/server.h" line="198"/>
+          <source-position filename="../arrow-flight-glib/server.h"
+                           line="104"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1162">
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="641">
   #GList of #GAFlightInfo on success, %NULL on error.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Info"/>
@@ -1934,14 +1319,14 @@ handler or another thread.</doc>
           <parameters>
             <parameter name="server" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1157">A #GAFlightServer.</doc>
+                   filename="../arrow-flight-glib/server.cpp"
+                   line="636">A #GAFlightServer.</doc>
               <type name="Server" c:type="GAFlightServer*"/>
             </parameter>
             <parameter name="context" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1158">A #GAFlightServerCallContext.</doc>
+                   filename="../arrow-flight-glib/server.cpp"
+                   line="637">A #GAFlightServerCallContext.</doc>
               <type name="ServerCallContext"
                     c:type="GAFlightServerCallContext*"/>
             </parameter>
@@ -1950,338 +1335,42 @@ handler or another thread.</doc>
                        nullable="1"
                        allow-none="1">
               <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1159">A #GAFlightCriteria.</doc>
+                   filename="../arrow-flight-glib/server.cpp"
+                   line="638">A #GAFlightCriteria.</doc>
               <type name="Criteria" c:type="GAFlightCriteria*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
-      <field name="get_flight_info">
-        <callback name="get_flight_info" throws="1">
-          <source-position filename="arrow-flight-glib/server.h" line="202"/>
-          <return-value transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1188">A #GAFlightInfo on success, %NULL on error.</doc>
-            <type name="Info" c:type="GAFlightInfo*"/>
-          </return-value>
-          <parameters>
-            <parameter name="server" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1183">A #GAFlightServer.</doc>
-              <type name="Server" c:type="GAFlightServer*"/>
-            </parameter>
-            <parameter name="context" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1184">A #GAFlightServerCallContext.</doc>
-              <type name="ServerCallContext"
-                    c:type="GAFlightServerCallContext*"/>
-            </parameter>
-            <parameter name="request" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1185">A #GAFlightDescriptor.</doc>
-              <type name="Descriptor" c:type="GAFlightDescriptor*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
       <field name="do_get">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.h"
-             line="190">A virtual function to implement `DoGet` API.</doc>
         <callback name="do_get" throws="1">
-          <source-position filename="arrow-flight-glib/server.h" line="206"/>
+          <source-position filename="../arrow-flight-glib/server.h"
+                           line="108"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="1213">#GAFlightDataStream on success, %NULL on error.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="670">#GAFlightDataStream on success, %NULL on error.</doc>
             <type name="DataStream" c:type="GAFlightDataStream*"/>
           </return-value>
           <parameters>
             <parameter name="server" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1208">A #GAFlightServer.</doc>
+                   filename="../arrow-flight-glib/server.cpp"
+                   line="665">A #GAFlightServer.</doc>
               <type name="Server" c:type="GAFlightServer*"/>
             </parameter>
             <parameter name="context" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1209">A #GAFlightServerCallContext.</doc>
+                   filename="../arrow-flight-glib/server.cpp"
+                   line="666">A #GAFlightServerCallContext.</doc>
               <type name="ServerCallContext"
                     c:type="GAFlightServerCallContext*"/>
             </parameter>
             <parameter name="ticket" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="1210">A #GAFlightTicket.</doc>
+                   filename="../arrow-flight-glib/server.cpp"
+                   line="667">A #GAFlightTicket.</doc>
               <type name="Ticket" c:type="GAFlightTicket*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-    </record>
-    <class name="ServerCustomAuthHandler"
-           c:symbol-prefix="server_custom_auth_handler"
-           c:type="GAFlightServerCustomAuthHandler"
-           parent="ServerAuthHandler"
-           glib:type-name="GAFlightServerCustomAuthHandler"
-           glib:get-type="gaflight_server_custom_auth_handler_get_type"
-           glib:type-struct="ServerCustomAuthHandlerClass">
-      <source-position filename="arrow-flight-glib/server.h" line="153"/>
-      <virtual-method name="authenticate"
-                      invoker="authenticate"
-                      version="12.0.0"
-                      throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="713">Authenticates the client on initial connection. The server can send
-and read responses from the client at any time.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="144"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="handler" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="715">A #GAFlightServerCustomAuthHandler.</doc>
-            <type name="ServerCustomAuthHandler"
-                  c:type="GAFlightServerCustomAuthHandler*"/>
-          </instance-parameter>
-          <parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="716">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </parameter>
-          <parameter name="sender" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="717">A #GAFlightServerAuthSender.</doc>
-            <type name="ServerAuthSender" c:type="GAFlightServerAuthSender*"/>
-          </parameter>
-          <parameter name="reader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="718">A #GAFlightServerAuthReader.</doc>
-            <type name="ServerAuthReader" c:type="GAFlightServerAuthReader*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="is_valid"
-                      invoker="is_valid"
-                      version="12.0.0"
-                      throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="743">Validates a per-call client token.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="149"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="753">The identity of the peer, if
-  this authentication method supports it.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="handler" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="745">A #GAFlightServerCustomAuthHandler.</doc>
-            <type name="ServerCustomAuthHandler"
-                  c:type="GAFlightServerCustomAuthHandler*"/>
-          </instance-parameter>
-          <parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="746">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </parameter>
-          <parameter name="token" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="747">The client token. May be the empty string if the client does not
-  provide a token.</doc>
-            <type name="GLib.Bytes" c:type="GBytes*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <method name="authenticate"
-              c:identifier="gaflight_server_custom_auth_handler_authenticate"
-              version="12.0.0"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="713">Authenticates the client on initial connection. The server can send
-and read responses from the client at any time.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="157"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="handler" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="715">A #GAFlightServerCustomAuthHandler.</doc>
-            <type name="ServerCustomAuthHandler"
-                  c:type="GAFlightServerCustomAuthHandler*"/>
-          </instance-parameter>
-          <parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="716">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </parameter>
-          <parameter name="sender" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="717">A #GAFlightServerAuthSender.</doc>
-            <type name="ServerAuthSender" c:type="GAFlightServerAuthSender*"/>
-          </parameter>
-          <parameter name="reader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="718">A #GAFlightServerAuthReader.</doc>
-            <type name="ServerAuthReader" c:type="GAFlightServerAuthReader*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="is_valid"
-              c:identifier="gaflight_server_custom_auth_handler_is_valid"
-              version="12.0.0"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="743">Validates a per-call client token.</doc>
-        <source-position filename="arrow-flight-glib/server.h" line="165"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="753">The identity of the peer, if
-  this authentication method supports it.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="handler" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="745">A #GAFlightServerCustomAuthHandler.</doc>
-            <type name="ServerCustomAuthHandler"
-                  c:type="GAFlightServerCustomAuthHandler*"/>
-          </instance-parameter>
-          <parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="746">A #GAFlightServerCallContext.</doc>
-            <type name="ServerCallContext"
-                  c:type="GAFlightServerCallContext*"/>
-          </parameter>
-          <parameter name="token" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="747">The client token. May be the empty string if the client does not
-  provide a token.</doc>
-            <type name="GLib.Bytes" c:type="GBytes*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="ServerAuthHandler" c:type="GAFlightServerAuthHandler"/>
-      </field>
-    </class>
-    <record name="ServerCustomAuthHandlerClass"
-            c:type="GAFlightServerCustomAuthHandlerClass"
-            glib:is-gtype-struct-for="ServerCustomAuthHandler"
-            version="12.0.0">
-      <source-position filename="arrow-flight-glib/server.h" line="153"/>
-      <field name="parent_class">
-        <type name="ServerAuthHandlerClass"
-              c:type="GAFlightServerAuthHandlerClass"/>
-      </field>
-      <field name="authenticate">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.h"
-             line="134">Authenticates the client on initial connection. The server
-  can send and read responses from the client at any time.</doc>
-        <callback name="authenticate" throws="1">
-          <source-position filename="arrow-flight-glib/server.h" line="144"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="handler" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="715">A #GAFlightServerCustomAuthHandler.</doc>
-              <type name="ServerCustomAuthHandler"
-                    c:type="GAFlightServerCustomAuthHandler*"/>
-            </parameter>
-            <parameter name="context" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="716">A #GAFlightServerCallContext.</doc>
-              <type name="ServerCallContext"
-                    c:type="GAFlightServerCallContext*"/>
-            </parameter>
-            <parameter name="sender" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="717">A #GAFlightServerAuthSender.</doc>
-              <type name="ServerAuthSender"
-                    c:type="GAFlightServerAuthSender*"/>
-            </parameter>
-            <parameter name="reader" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="718">A #GAFlightServerAuthReader.</doc>
-              <type name="ServerAuthReader"
-                    c:type="GAFlightServerAuthReader*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="is_valid">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.h"
-             line="136">Validates a per-call client token.</doc>
-        <callback name="is_valid" throws="1">
-          <source-position filename="arrow-flight-glib/server.h" line="149"/>
-          <return-value transfer-ownership="full" nullable="1">
-            <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="753">The identity of the peer, if
-  this authentication method supports it.</doc>
-            <type name="GLib.Bytes" c:type="GBytes*"/>
-          </return-value>
-          <parameters>
-            <parameter name="handler" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="745">A #GAFlightServerCustomAuthHandler.</doc>
-              <type name="ServerCustomAuthHandler"
-                    c:type="GAFlightServerCustomAuthHandler*"/>
-            </parameter>
-            <parameter name="context" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="746">A #GAFlightServerCallContext.</doc>
-              <type name="ServerCallContext"
-                    c:type="GAFlightServerCallContext*"/>
-            </parameter>
-            <parameter name="token" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="arrow-flight-glib/server.cpp"
-                   line="747">The client token. May be the empty string if the client does not
-  provide a token.</doc>
-              <type name="GLib.Bytes" c:type="GBytes*"/>
             </parameter>
           </parameters>
         </callback>
@@ -2294,43 +1383,30 @@ and read responses from the client at any time.</doc>
            glib:type-name="GAFlightServerOptions"
            glib:get-type="gaflight_server_options_get_type"
            glib:type-struct="ServerOptionsClass">
-      <source-position filename="arrow-flight-glib/server.h" line="176"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="67"/>
       <constructor name="new"
                    c:identifier="gaflight_server_options_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/server.h" line="180"/>
+        <source-position filename="../arrow-flight-glib/server.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/server.cpp"
-               line="936">The newly created options for a server.</doc>
+               filename="../arrow-flight-glib/server.cpp"
+               line="362">The newly created options for a server.</doc>
           <type name="ServerOptions" c:type="GAFlightServerOptions*"/>
         </return-value>
         <parameters>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/server.cpp"
-                 line="934">A #GAFlightLocation to be listened.</doc>
+                 filename="../arrow-flight-glib/server.cpp"
+                 line="360">A #GAFlightLocation to be listened.</doc>
             <type name="Location" c:type="GAFlightLocation*"/>
           </parameter>
         </parameters>
       </constructor>
-      <property name="auth-handler"
-                version="12.0.0"
-                writable="1"
-                transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="917">The authentication handler.</doc>
-        <type name="ServerAuthHandler"/>
-      </property>
       <property name="location"
-                version="5.0.0"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="arrow-flight-glib/server.cpp"
-             line="902">The location to be listened.</doc>
         <type name="Location"/>
       </property>
       <field name="parent_instance">
@@ -2340,7 +1416,7 @@ and read responses from the client at any time.</doc>
     <record name="ServerOptionsClass"
             c:type="GAFlightServerOptionsClass"
             glib:is-gtype-struct-for="ServerOptions">
-      <source-position filename="arrow-flight-glib/server.h" line="176"/>
+      <source-position filename="../arrow-flight-glib/server.h" line="67"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2352,22 +1428,22 @@ and read responses from the client at any time.</doc>
            glib:type-name="GAFlightStreamChunk"
            glib:get-type="gaflight_stream_chunk_get_type"
            glib:type-struct="StreamChunkClass">
-      <source-position filename="arrow-flight-glib/common.h" line="195"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="235"/>
       <method name="get_data"
               c:identifier="gaflight_stream_chunk_get_data"
               version="6.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="199"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="239"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1136">The data of the chunk.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="1172">The data of the chunk.</doc>
           <type name="Arrow.RecordBatch" c:type="GArrowRecordBatch*"/>
         </return-value>
         <parameters>
           <instance-parameter name="chunk" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1134">A #GAFlightStreamChunk.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1170">A #GAFlightStreamChunk.</doc>
             <type name="StreamChunk" c:type="GAFlightStreamChunk*"/>
           </instance-parameter>
         </parameters>
@@ -2375,11 +1451,11 @@ and read responses from the client at any time.</doc>
       <method name="get_metadata"
               c:identifier="gaflight_stream_chunk_get_metadata"
               version="6.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="202"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="242"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="1151">The metadata of the chunk.
+               filename="../arrow-flight-glib/common.cpp"
+               line="1187">The metadata of the chunk.
 
   The metadata may be NULL.</doc>
           <type name="Arrow.Buffer" c:type="GArrowBuffer*"/>
@@ -2387,8 +1463,8 @@ and read responses from the client at any time.</doc>
         <parameters>
           <instance-parameter name="chunk" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="1149">A #GAFlightStreamChunk.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="1185">A #GAFlightStreamChunk.</doc>
             <type name="StreamChunk" c:type="GAFlightStreamChunk*"/>
           </instance-parameter>
         </parameters>
@@ -2407,7 +1483,7 @@ and read responses from the client at any time.</doc>
     <record name="StreamChunkClass"
             c:type="GAFlightStreamChunkClass"
             glib:is-gtype-struct-for="StreamChunk">
-      <source-position filename="arrow-flight-glib/common.h" line="195"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="235"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2419,7 +1495,7 @@ and read responses from the client at any time.</doc>
            glib:type-name="GAFlightStreamReader"
            glib:get-type="gaflight_stream_reader_get_type"
            glib:type-struct="StreamReaderClass">
-      <source-position filename="arrow-flight-glib/client.h" line="35"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="37"/>
       <field name="parent_instance">
         <type name="RecordBatchReader" c:type="GAFlightRecordBatchReader"/>
       </field>
@@ -2427,7 +1503,7 @@ and read responses from the client at any time.</doc>
     <record name="StreamReaderClass"
             c:type="GAFlightStreamReaderClass"
             glib:is-gtype-struct-for="StreamReader">
-      <source-position filename="arrow-flight-glib/client.h" line="35"/>
+      <source-position filename="../arrow-flight-glib/client.h" line="37"/>
       <field name="parent_class">
         <type name="RecordBatchReaderClass"
               c:type="GAFlightRecordBatchReaderClass"/>
@@ -2440,22 +1516,22 @@ and read responses from the client at any time.</doc>
            glib:type-name="GAFlightTicket"
            glib:get-type="gaflight_ticket_get_type"
            glib:type-struct="TicketClass">
-      <source-position filename="arrow-flight-glib/common.h" line="124"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="144"/>
       <constructor name="new"
                    c:identifier="gaflight_ticket_new"
                    version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="128"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="148"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="655">The newly created #GAFlightTicket, %NULL on error.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="662">The newly created #GAFlightTicket, %NULL on error.</doc>
           <type name="Ticket" c:type="GAFlightTicket*"/>
         </return-value>
         <parameters>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="653">A #GBytes.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="660">A #GBytes.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -2463,24 +1539,24 @@ and read responses from the client at any time.</doc>
       <method name="equal"
               c:identifier="gaflight_ticket_equal"
               version="5.0.0">
-        <source-position filename="arrow-flight-glib/common.h" line="132"/>
+        <source-position filename="../arrow-flight-glib/common.h" line="152"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="arrow-flight-glib/common.cpp"
-               line="670">%TRUE if both of them represents the same ticket, %FALSE otherwise.</doc>
+               filename="../arrow-flight-glib/common.cpp"
+               line="680">%TRUE if both of them represents the same ticket, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ticket" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="667">A #GAFlightTicket.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="677">A #GAFlightTicket.</doc>
             <type name="Ticket" c:type="GAFlightTicket*"/>
           </instance-parameter>
           <parameter name="other_ticket" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="arrow-flight-glib/common.cpp"
-                 line="668">A #GAFlightTicket to be compared.</doc>
+                 filename="../arrow-flight-glib/common.cpp"
+                 line="678">A #GAFlightTicket to be compared.</doc>
             <type name="Ticket" c:type="GAFlightTicket*"/>
           </parameter>
         </parameters>
@@ -2490,8 +1566,8 @@ and read responses from the client at any time.</doc>
                 writable="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="arrow-flight-glib/common.cpp"
-             line="634">Opaque identifier or credential to use when requesting a data
+             filename="../arrow-flight-glib/common.cpp"
+             line="641">Opaque identifier or credential to use when requesting a data
 stream with the DoGet RPC.</doc>
         <type name="GLib.Bytes"/>
       </property>
@@ -2502,14 +1578,14 @@ stream with the DoGet RPC.</doc>
     <record name="TicketClass"
             c:type="GAFlightTicketClass"
             glib:is-gtype-struct-for="Ticket">
-      <source-position filename="arrow-flight-glib/common.h" line="124"/>
+      <source-position filename="../arrow-flight-glib/common.h" line="144"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <docsection name="client">
       <doc xml:space="preserve"
-           filename="arrow-flight-glib/client.cpp"
+           filename="../arrow-flight-glib/client.cpp"
            line="27">#GAFlightStreamReader is a class for reading record batches from a
 server.
 
@@ -2521,7 +1597,7 @@ server.
     </docsection>
     <docsection name="common">
       <doc xml:space="preserve"
-           filename="arrow-flight-glib/common.cpp"
+           filename="../arrow-flight-glib/common.cpp"
            line="26">#GAFlightCriteria is a class for criteria.
 
 #GAFlightLocation is a class for location.
@@ -2545,7 +1621,7 @@ as #GAFlightPathDescriptor.
     </docsection>
     <docsection name="server">
       <doc xml:space="preserve"
-           filename="arrow-flight-glib/server.cpp"
+           filename="../arrow-flight-glib/server.cpp"
            line="29">#GAFlightDataStream is a class for producing a sequence of IPC
 payloads to be sent in `FlightData` protobuf messages. Generally,
 this is not used directly. Generally, #GAFlightRecordBatchStream is
@@ -2554,19 +1630,6 @@ used instead.
 #GAFlightRecordBatchStream is a class for producing a sequence of
 IPC payloads to be sent in `FlightData` protobuf messages by
 #GArrowRecordBatchReader`.
-
-#GAFlightMessageReader is a class for IPC payloads uploaded by a
-client. Also allows reading application-defined metadata via the
-Flight protocol.
-
-#GAFlightServerAuthSender is a class for sending messages to the
-client during an authentication handshake.
-
-#GAFlightServerAuthReader is a class for reading messages from the
-client during an authentication handshake.
-
-#GAFlightServerAuthHandler is an abstract class to implement
-authentication for a Flight service.
 
 #GAFlightServerOptions is a class for options of each server.
 

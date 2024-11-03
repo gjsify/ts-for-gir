@@ -1365,12 +1365,12 @@ from the libexif package for possible values (e.g. %EXIF_TAG_EXPOSURE_MODE).</do
                 c:identifier="eog_image_get_supported_mime_types">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2344">Gets the list of supported mimetypes</doc>
+             line="2342">Gets the list of supported mimetypes</doc>
         <source-position filename="src/eog-image.h" line="199"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2349">a #GList of supported mimetypes</doc>
+               line="2347">a #GList of supported mimetypes</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="utf8"/>
           </type>
@@ -1402,7 +1402,7 @@ from the libexif package for possible values (e.g. %EXIF_TAG_EXPOSURE_MODE).</do
       <virtual-method name="file_changed" invoker="file_changed">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2558">Marks the image file contents as changed. Also, emits
+             line="2556">Marks the image file contents as changed. Also, emits
 EogImage::file-changed signal.</doc>
         <source-position filename="src/eog-image.h" line="113"/>
         <return-value transfer-ownership="none">
@@ -1412,7 +1412,7 @@ EogImage::file-changed signal.</doc>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2560">a #EogImage</doc>
+                 line="2558">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1520,7 +1520,7 @@ EogImage::file-changed signal.</doc>
       <method name="file_changed" c:identifier="eog_image_file_changed">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2558">Marks the image file contents as changed. Also, emits
+             line="2556">Marks the image file contents as changed. Also, emits
 EogImage::file-changed signal.</doc>
         <source-position filename="src/eog-image.h" line="217"/>
         <return-value transfer-ownership="none">
@@ -1530,7 +1530,7 @@ EogImage::file-changed signal.</doc>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2560">a #EogImage</doc>
+                 line="2558">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1539,19 +1539,19 @@ EogImage::file-changed signal.</doc>
               c:identifier="eog_image_get_autorotate_transform">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2541">Get @img autorotate transform.</doc>
+             line="2539">Get @img autorotate transform.</doc>
         <source-position filename="src/eog-image.h" line="213"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2547">A #EogTransform.</doc>
+               line="2545">A #EogTransform.</doc>
           <type name="Transform" c:type="EogTransform*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2543">a #EogImage</doc>
+                 line="2541">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1592,19 +1592,19 @@ EogImage::file-changed signal.</doc>
       <method name="get_file" c:identifier="eog_image_get_file">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2215">Gets the #GFile associated with @img</doc>
+             line="2213">Gets the #GFile associated with @img</doc>
         <source-position filename="src/eog-image.h" line="176"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2221">a #GFile</doc>
+               line="2219">a #GFile</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2217">a #EogImage</doc>
+                 line="2215">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1613,20 +1613,20 @@ EogImage::file-changed signal.</doc>
               c:identifier="eog_image_get_metadata_status">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2286">Returns the current status of the image metadata, that is,
+             line="2284">Returns the current status of the image metadata, that is,
 whether the metadata has not been read yet, is ready, or not available at all.</doc>
         <source-position filename="src/eog-image.h" line="182"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2293">one of #EogImageMetadataStatus</doc>
+               line="2291">one of #EogImageMetadataStatus</doc>
           <type name="ImageMetadataStatus" c:type="EogImageMetadataStatus"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2288">a #EogImage</doc>
+                 line="2286">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1634,19 +1634,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_pixbuf" c:identifier="eog_image_get_pixbuf">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="1414">Gets the #GdkPixbuf of the image</doc>
+             line="1412">Gets the #GdkPixbuf of the image</doc>
         <source-position filename="src/eog-image.h" line="148"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="1420">a #GdkPixbuf</doc>
+               line="1418">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="1416">a #EogImage</doc>
+                 line="1414">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1682,19 +1682,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_thumbnail" c:identifier="eog_image_get_thumbnail">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="1450">Gets the thumbnail pixbuf for @img</doc>
+             line="1448">Gets the thumbnail pixbuf for @img</doc>
         <source-position filename="src/eog-image.h" line="150"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="1456">a #GdkPixbuf with a thumbnail</doc>
+               line="1454">a #GdkPixbuf with a thumbnail</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="1452">a #EogImage</doc>
+                 line="1450">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1702,19 +1702,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_transform" c:identifier="eog_image_get_transform">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2524">Get @img transform.</doc>
+             line="2522">Get @img transform.</doc>
         <source-position filename="src/eog-image.h" line="212"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2530">A #EogTransform.</doc>
+               line="2528">A #EogTransform.</doc>
           <type name="Transform" c:type="EogTransform*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2526">a #EogImage</doc>
+                 line="2524">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1748,19 +1748,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="is_animation" c:identifier="eog_image_is_animation">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2438">Checks whether a given image is animated.</doc>
+             line="2436">Checks whether a given image is animated.</doc>
         <source-position filename="src/eog-image.h" line="203"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2444">#TRUE if it is an animated image, #FALSE otherwise.</doc>
+               line="2442">#TRUE if it is an animated image, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2440">a #EogImage</doc>
+                 line="2438">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1780,12 +1780,12 @@ whether the metadata has not been read yet, is ready, or not available at all.</
               c:identifier="eog_image_is_file_writable">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2582">Evaluate if the user has write permission on the image file.</doc>
+             line="2580">Evaluate if the user has write permission on the image file.</doc>
         <source-position filename="src/eog-image.h" line="221"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2588">%TRUE on success, %FALSE if the user hasn't write permissions on it,
+               line="2586">%TRUE on success, %FALSE if the user hasn't write permissions on it,
 or @img is not an #EogImage.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1793,7 +1793,7 @@ or @img is not an #EogImage.</doc>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2584">a #EogImage</doc>
+                 line="2582">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1825,7 +1825,7 @@ or @img is not an #EogImage.</doc>
               version="3.18">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2611">Check whether the image actually contains multiple images/pages.
+             line="2609">Check whether the image actually contains multiple images/pages.
 This can happen for TIFF files. GIF animations are not multipaged.
 
 Note that this only works if the image data is loaded.</doc>
@@ -1833,14 +1833,14 @@ Note that this only works if the image data is loaded.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2620">%TRUE if @img is multipaged, %FALSE if not or the image data wasn't loaded.</doc>
+               line="2618">%TRUE if @img is multipaged, %FALSE if not or the image data wasn't loaded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2613">an #EogImage</doc>
+                 line="2611">an #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -1925,19 +1925,19 @@ Note that this only works if the image data is loaded.</doc>
       <method name="start_animation" c:identifier="eog_image_start_animation">
         <doc xml:space="preserve"
              filename="src/eog-image.c"
-             line="2476">Starts playing an animated image.</doc>
+             line="2474">Starts playing an animated image.</doc>
         <source-position filename="src/eog-image.h" line="205"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-image.c"
-               line="2482">%TRUE on success, %FALSE if @img is already playing or isn't an animated image.</doc>
+               line="2480">%TRUE on success, %FALSE if @img is already playing or isn't an animated image.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-image.c"
-                 line="2478">a #EogImage</doc>
+                 line="2476">a #EogImage</doc>
             <type name="Image" c:type="EogImage*"/>
           </instance-parameter>
         </parameters>
@@ -2126,7 +2126,7 @@ advances to the next frame.</doc>
             <parameter name="img" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/eog-image.c"
-                   line="2560">a #EogImage</doc>
+                   line="2558">a #EogImage</doc>
               <type name="Image" c:type="EogImage*"/>
             </parameter>
           </parameters>
@@ -2859,19 +2859,19 @@ advances to the next frame.</doc>
       <constructor name="new" c:identifier="eog_job_copy_new">
         <doc xml:space="preserve"
              filename="src/eog-jobs.c"
-             line="487">Creates a new #EogJob.</doc>
+             line="486">Creates a new #EogJob.</doc>
         <source-position filename="src/eog-jobs.h" line="265"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-jobs.c"
-               line="494">A #EogJob.</doc>
+               line="493">A #EogJob.</doc>
           <type name="Job" c:type="EogJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="489">a #EogImage list</doc>
+                 line="488">a #EogImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -2879,7 +2879,7 @@ advances to the next frame.</doc>
           <parameter name="destination" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="490">destination path for the copy</doc>
+                 line="489">destination path for the copy</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2958,19 +2958,19 @@ advances to the next frame.</doc>
       <constructor name="new" c:identifier="eog_job_model_new">
         <doc xml:space="preserve"
              filename="src/eog-jobs.c"
-             line="852">Creates a new #EogJob model.</doc>
+             line="849">Creates a new #EogJob model.</doc>
         <source-position filename="src/eog-jobs.h" line="276"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-jobs.c"
-               line="858">A #EogJob.</doc>
+               line="855">A #EogJob.</doc>
           <type name="Job" c:type="EogJob*"/>
         </return-value>
         <parameters>
           <parameter name="file_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="854">a #GFile list</doc>
+                 line="851">a #GFile list</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Gio.File"/>
             </type>
@@ -3037,19 +3037,19 @@ advances to the next frame.</doc>
       <constructor name="new" c:identifier="eog_job_save_new">
         <doc xml:space="preserve"
              filename="src/eog-jobs.c"
-             line="1038">Creates a new #EogJob for image saving.</doc>
+             line="1035">Creates a new #EogJob for image saving.</doc>
         <source-position filename="src/eog-jobs.h" line="280"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-jobs.c"
-               line="1044">A #EogJob.</doc>
+               line="1041">A #EogJob.</doc>
           <type name="Job" c:type="EogJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="1040">a #EogImage list</doc>
+                 line="1037">a #EogImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -3082,19 +3082,19 @@ advances to the next frame.</doc>
       <constructor name="new" c:identifier="eog_job_save_as_new">
         <doc xml:space="preserve"
              filename="src/eog-jobs.c"
-             line="1245">Creates a new #EogJog for save as.</doc>
+             line="1242">Creates a new #EogJog for save as.</doc>
         <source-position filename="src/eog-jobs.h" line="284"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-jobs.c"
-               line="1253">A #EogJob.</doc>
+               line="1250">A #EogJob.</doc>
           <type name="Job" c:type="EogJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="1247">a #EogImage list</doc>
+                 line="1244">a #EogImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -3102,7 +3102,7 @@ advances to the next frame.</doc>
           <parameter name="converter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="1248">a URI converter
+                 line="1245">a URI converter
 file: a #GFile</doc>
             <type name="URIConverter" c:type="EogURIConverter*"/>
           </parameter>
@@ -3185,19 +3185,19 @@ file: a #GFile</doc>
       <constructor name="new" c:identifier="eog_job_transform_new">
         <doc xml:space="preserve"
              filename="src/eog-jobs.c"
-             line="1541">Create a new #EogJob for image transformation.</doc>
+             line="1538">Create a new #EogJob for image transformation.</doc>
         <source-position filename="src/eog-jobs.h" line="294"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-jobs.c"
-               line="1548">A #EogJob.</doc>
+               line="1545">A #EogJob.</doc>
           <type name="Job" c:type="EogJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="1543">a #EogImage list</doc>
+                 line="1540">a #EogImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -3205,7 +3205,7 @@ file: a #GFile</doc>
           <parameter name="transform" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-jobs.c"
-                 line="1544">a #EogTransform</doc>
+                 line="1541">a #EogTransform</doc>
             <type name="Transform" c:type="EogTransform*"/>
           </parameter>
         </parameters>
@@ -3279,12 +3279,12 @@ file: a #GFile</doc>
       <constructor name="new" c:identifier="eog_list_store_new">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="207">Creates a new and empty #EogListStore.</doc>
+             line="206">Creates a new and empty #EogListStore.</doc>
         <source-position filename="src/eog-list-store.h" line="77"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="212">a newly created #EogListStore.</doc>
+               line="211">a newly created #EogListStore.</doc>
           <type name="Gtk.ListStore" c:type="GtkListStore*"/>
         </return-value>
       </constructor>
@@ -3292,20 +3292,20 @@ file: a #GFile</doc>
                    c:identifier="eog_list_store_new_from_glist">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="798">Creates a new #EogListStore from a list of #EogImage's.
+             line="792">Creates a new #EogListStore from a list of #EogImage's.
 The given list must be %NULL-terminated.</doc>
         <source-position filename="src/eog-list-store.h" line="79"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="805">a new #EogListStore.</doc>
+               line="799">a new #EogListStore.</doc>
           <type name="Gtk.ListStore" c:type="GtkListStore*"/>
         </return-value>
         <parameters>
           <parameter name="list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="800">a %NULL-terminated list of #EogImage's.</doc>
+                 line="794">a %NULL-terminated list of #EogImage's.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -3326,7 +3326,7 @@ The given list must be %NULL-terminated.</doc>
       <method name="add_files" c:identifier="eog_list_store_add_files">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="661">Adds a list of #GFile's to @store. The given list
+             line="656">Adds a list of #GFile's to @store. The given list
 must be %NULL-terminated.
 
 If any of the #GFile's in @file_list is a directory, all the images
@@ -3341,13 +3341,13 @@ directory will be added as well to @store.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="663">An #EogListStore.</doc>
+                 line="658">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="file_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="664">A %NULL-terminated list of #GFile's.</doc>
+                 line="659">A %NULL-terminated list of #GFile's.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Gio.File"/>
             </type>
@@ -3357,7 +3357,7 @@ directory will be added as well to @store.</doc>
       <method name="append_image" c:identifier="eog_list_store_append_image">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="411">Adds an #EogImage to @store. The thumbnail of the image is not
+             line="410">Adds an #EogImage to @store. The thumbnail of the image is not
 loaded and will only be loaded if the thumbnail is made visible.</doc>
         <source-position filename="src/eog-list-store.h" line="81"/>
         <return-value transfer-ownership="none">
@@ -3367,13 +3367,13 @@ loaded and will only be loaded if the thumbnail is made visible.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="413">An #EogListStore.</doc>
+                 line="412">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="414">An #EogImage.</doc>
+                 line="413">An #EogImage.</doc>
             <type name="Image" c:type="EogImage*"/>
           </parameter>
         </parameters>
@@ -3382,26 +3382,26 @@ loaded and will only be loaded if the thumbnail is made visible.</doc>
               c:identifier="eog_list_store_get_image_by_pos">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="852">Gets the #EogImage in the position @pos of @store. If there is
+             line="846">Gets the #EogImage in the position @pos of @store. If there is
 no image at position @pos, %NULL is returned.</doc>
         <source-position filename="src/eog-list-store.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="860">the #EogImage in position @pos or %NULL.</doc>
+               line="854">the #EogImage in position @pos or %NULL.</doc>
           <type name="Image" c:type="EogImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="854">An #EogListStore.</doc>
+                 line="848">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="855">the position of the required #EogImage.</doc>
+                 line="849">the position of the required #EogImage.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3410,20 +3410,20 @@ no image at position @pos, %NULL is returned.</doc>
               c:identifier="eog_list_store_get_initial_pos">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="921">Gets the position of the #EogImage that should be loaded first.
+             line="915">Gets the position of the #EogImage that should be loaded first.
 If not set, it returns -1.</doc>
         <source-position filename="src/eog-list-store.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="928">the position of the image to be loaded first or -1.</doc>
+               line="922">the position of the image to be loaded first or -1.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="923">An #EogListStore.</doc>
+                 line="917">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
         </parameters>
@@ -3432,26 +3432,26 @@ If not set, it returns -1.</doc>
               c:identifier="eog_list_store_get_pos_by_image">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="822">Gets the position where @image is stored in @store. If @image
+             line="816">Gets the position where @image is stored in @store. If @image
 is not stored in @store, -1 is returned.</doc>
         <source-position filename="src/eog-list-store.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="830">the position of @image in @store or -1 if not found.</doc>
+               line="824">the position of @image in @store or -1 if not found.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="824">An #EogListStore.</doc>
+                 line="818">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="825">An #EogImage.</doc>
+                 line="819">An #EogImage.</doc>
             <type name="Image" c:type="EogImage*"/>
           </parameter>
         </parameters>
@@ -3460,25 +3460,25 @@ is not stored in @store, -1 is returned.</doc>
               c:identifier="eog_list_store_get_pos_by_iter">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="880">Gets the position of the image pointed by @iter.</doc>
+             line="874">Gets the position of the image pointed by @iter.</doc>
         <source-position filename="src/eog-list-store.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="887">The position of the image pointed by @iter.</doc>
+               line="881">The position of the image pointed by @iter.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="882">An #EogListStore.</doc>
+                 line="876">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="883">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="877">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3486,19 +3486,19 @@ is not stored in @store, -1 is returned.</doc>
       <method name="length" c:identifier="eog_list_store_length">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="905">Returns the number of images in the store.</doc>
+             line="899">Returns the number of images in the store.</doc>
         <source-position filename="src/eog-list-store.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-list-store.c"
-               line="911">The number of images in @store.</doc>
+               line="905">The number of images in @store.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="907">An #EogListStore.</doc>
+                 line="901">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
         </parameters>
@@ -3506,7 +3506,7 @@ is not stored in @store, -1 is returned.</doc>
       <method name="remove_image" c:identifier="eog_list_store_remove_image">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="774">Removes @image from @store.</doc>
+             line="768">Removes @image from @store.</doc>
         <source-position filename="src/eog-list-store.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3515,13 +3515,13 @@ is not stored in @store, -1 is returned.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="776">An #EogListStore.</doc>
+                 line="770">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="777">An #EogImage.</doc>
+                 line="771">An #EogImage.</doc>
             <type name="Image" c:type="EogImage*"/>
           </parameter>
         </parameters>
@@ -3530,7 +3530,7 @@ is not stored in @store, -1 is returned.</doc>
               c:identifier="eog_list_store_thumbnail_refresh">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="1048">Refreshes the thumbnail for the image pointed by @iter.</doc>
+             line="1042">Refreshes the thumbnail for the image pointed by @iter.</doc>
         <source-position filename="src/eog-list-store.h" line="109"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3539,13 +3539,13 @@ is not stored in @store, -1 is returned.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="1050">An #EogListStore.</doc>
+                 line="1044">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="1051">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="1045">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3553,7 +3553,7 @@ is not stored in @store, -1 is returned.</doc>
       <method name="thumbnail_set" c:identifier="eog_list_store_thumbnail_set">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="994">Sets the thumbnail for the image pointed by @iter.</doc>
+             line="988">Sets the thumbnail for the image pointed by @iter.</doc>
         <source-position filename="src/eog-list-store.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3562,13 +3562,13 @@ is not stored in @store, -1 is returned.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="996">An #EogListStore.</doc>
+                 line="990">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="997">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="991">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3577,7 +3577,7 @@ is not stored in @store, -1 is returned.</doc>
               c:identifier="eog_list_store_thumbnail_unset">
         <doc xml:space="preserve"
              filename="src/eog-list-store.c"
-             line="1019">Unsets the thumbnail for the image pointed by @iter, changing
+             line="1013">Unsets the thumbnail for the image pointed by @iter, changing
 it to a "busy" icon.</doc>
         <source-position filename="src/eog-list-store.h" line="106"/>
         <return-value transfer-ownership="none">
@@ -3587,13 +3587,13 @@ it to a "busy" icon.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="1021">An #EogListStore.</doc>
+                 line="1015">An #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-list-store.c"
-                 line="1022">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="1016">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -5195,12 +5195,12 @@ widget should be visible.</doc>
       <constructor name="new" c:identifier="eog_thumb_view_new">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="655">Creates a new #EogThumbView object.</doc>
+             line="654">Creates a new #EogThumbView object.</doc>
         <source-position filename="src/eog-thumb-view.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-thumb-view.c"
-               line="660">a newly created #EogThumbView.</doc>
+               line="659">a newly created #EogThumbView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -5208,21 +5208,21 @@ widget should be visible.</doc>
               c:identifier="eog_thumb_view_get_first_selected_image">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="882">Returns the first selected image. Note that the returned #EogImage
+             line="881">Returns the first selected image. Note that the returned #EogImage
 is not ensured to be really the first selected image in @thumbview, but
 generally, it will be.</doc>
         <source-position filename="src/eog-thumb-view.h" line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-thumb-view.c"
-               line="890">A #EogImage.</doc>
+               line="889">A #EogImage.</doc>
           <type name="Image" c:type="EogImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="884">A #EogThumbView.</doc>
+                 line="883">A #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
         </parameters>
@@ -5231,19 +5231,19 @@ generally, it will be.</doc>
               c:identifier="eog_thumb_view_get_n_selected">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="837">Gets the number of images that are currently selected in @thumbview.</doc>
+             line="836">Gets the number of images that are currently selected in @thumbview.</doc>
         <source-position filename="src/eog-thumb-view.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-thumb-view.c"
-               line="843">the number of selected images in @thumbview.</doc>
+               line="842">the number of selected images in @thumbview.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="839">An #EogThumbView.</doc>
+                 line="838">An #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
         </parameters>
@@ -5252,13 +5252,13 @@ generally, it will be.</doc>
               c:identifier="eog_thumb_view_get_selected_images">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="916">Gets a list with the currently selected images. Note that a new reference is
+             line="915">Gets a list with the currently selected images. Note that a new reference is
 hold for each image and the list must be freed with g_list_free().</doc>
         <source-position filename="src/eog-thumb-view.h" line="72"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/eog-thumb-view.c"
-               line="923">A newly allocated list of #EogImage's.</doc>
+               line="922">A newly allocated list of #EogImage's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Image"/>
           </type>
@@ -5267,7 +5267,7 @@ hold for each image and the list must be freed with g_list_free().</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="918">A #EogThumbView.</doc>
+                 line="917">A #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
         </parameters>
@@ -5275,7 +5275,7 @@ hold for each image and the list must be freed with g_list_free().</doc>
       <method name="select_single" c:identifier="eog_thumb_view_select_single">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="985">Changes the current selection according to a single movement
+             line="984">Changes the current selection according to a single movement
 described by #EogThumbViewSelectionChange. If there are no
 thumbnails currently selected, one is selected according to the
 natural selection according to the #EogThumbViewSelectionChange
@@ -5289,13 +5289,13 @@ the first thumbnail will be selected.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="987">A #EogThumbView.</doc>
+                 line="986">A #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
           <parameter name="change" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="988">A #EogThumbViewSelectionChange, describing the
+                 line="987">A #EogThumbViewSelectionChange, describing the
 desired selection change.</doc>
             <type name="ThumbViewSelectionChange"
                   c:type="EogThumbViewSelectionChange"/>
@@ -5306,7 +5306,7 @@ desired selection change.</doc>
               c:identifier="eog_thumb_view_set_current_image">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="947">Changes the status of a image, marking it as currently selected.
+             line="946">Changes the status of a image, marking it as currently selected.
 If @deselect_other is %TRUE, all other selected images will be
 deselected.</doc>
         <source-position filename="src/eog-thumb-view.h" line="77"/>
@@ -5317,19 +5317,19 @@ deselected.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="949">A #EogThumbView.</doc>
+                 line="948">A #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="950">The image to be selected.</doc>
+                 line="949">The image to be selected.</doc>
             <type name="Image" c:type="EogImage*"/>
           </parameter>
           <parameter name="deselect_other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="951">Whether to deselect currently selected images.</doc>
+                 line="950">Whether to deselect currently selected images.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5338,7 +5338,7 @@ deselected.</doc>
               c:identifier="eog_thumb_view_set_item_height">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="810">Sets the height of each thumbnail in @thumbview.</doc>
+             line="809">Sets the height of each thumbnail in @thumbview.</doc>
         <source-position filename="src/eog-thumb-view.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5347,13 +5347,13 @@ deselected.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="812">A #EogThumbView.</doc>
+                 line="811">A #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="813">The desired height.</doc>
+                 line="812">The desired height.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -5361,7 +5361,7 @@ deselected.</doc>
       <method name="set_model" c:identifier="eog_thumb_view_set_model">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="734">Sets the #EogListStore to be used with @thumbview. If an initial image
+             line="733">Sets the #EogListStore to be used with @thumbview. If an initial image
 was set during @store creation, its thumbnail will be selected and visible.</doc>
         <source-position filename="src/eog-thumb-view.h" line="62"/>
         <return-value transfer-ownership="none">
@@ -5371,13 +5371,13 @@ was set during @store creation, its thumbnail will be selected and visible.</doc
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="736">A #EogThumbView.</doc>
+                 line="735">A #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
           <parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="737">A #EogListStore.</doc>
+                 line="736">A #EogListStore.</doc>
             <type name="ListStore" c:type="EogListStore*"/>
           </parameter>
         </parameters>
@@ -5386,7 +5386,7 @@ was set during @store creation, its thumbnail will be selected and visible.</doc
               c:identifier="eog_thumb_view_set_thumbnail_popup">
         <doc xml:space="preserve"
              filename="src/eog-thumb-view.c"
-             line="1085">Set the contextual menu to be used with the thumbnails in the
+             line="1084">Set the contextual menu to be used with the thumbnails in the
 widget. This can be done only once.</doc>
         <source-position filename="src/eog-thumb-view.h" line="81"/>
         <return-value transfer-ownership="none">
@@ -5396,13 +5396,13 @@ widget. This can be done only once.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="1087">An #EogThumbView.</doc>
+                 line="1086">An #EogThumbView.</doc>
             <type name="ThumbView" c:type="EogThumbView*"/>
           </instance-parameter>
           <parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-thumb-view.c"
-                 line="1088">A #GtkMenu.</doc>
+                 line="1087">A #GtkMenu.</doc>
             <type name="Gtk.Menu" c:type="GtkMenu*"/>
           </parameter>
         </parameters>
@@ -6107,21 +6107,21 @@ widget. This can be done only once.</doc>
       <constructor name="new" c:identifier="eog_window_new">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5090">Creates a new and empty #EogWindow. Use @flags to indicate
+             line="5084">Creates a new and empty #EogWindow. Use @flags to indicate
 if the window should be initialized fullscreen, in slideshow mode,
 and/or without the thumbnails gallery visible. See #EogStartupFlags.</doc>
         <source-position filename="src/eog-window.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5099">a newly created #EogWindow.</doc>
+               line="5093">a newly created #EogWindow.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5092">the initialization parameters for the new window.</doc>
+                 line="5086">the initialization parameters for the new window.</doc>
             <type name="StartupFlags" c:type="EogStartupFlags"/>
           </parameter>
         </parameters>
@@ -6154,20 +6154,20 @@ and/or without the thumbnails gallery visible. See #EogStartupFlags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5287">a #GMenu or %NULL on failure</doc>
+               line="5281">a #GMenu or %NULL on failure</doc>
           <type name="Gio.Menu" c:type="GMenu*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5284">an #EogWindow.</doc>
+                 line="5278">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5285">the ID for the menu section to look up</doc>
+                 line="5279">the ID for the menu section to look up</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6175,20 +6175,20 @@ and/or without the thumbnails gallery visible. See #EogStartupFlags.</doc>
       <method name="get_image" c:identifier="eog_window_get_image">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5447">Gets the image currently displayed in @window or %NULL if
+             line="5441">Gets the image currently displayed in @window or %NULL if
 no image is being displayed.</doc>
         <source-position filename="src/eog-window.h" line="122"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5454">an #EogImage.</doc>
+               line="5448">an #EogImage.</doc>
           <type name="Image" c:type="EogImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5449">an #EogWindow.</doc>
+                 line="5443">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6196,19 +6196,19 @@ no image is being displayed.</doc>
       <method name="get_mode" c:identifier="eog_window_get_mode">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5302">Gets the mode of @window. See #EogWindowMode for details.</doc>
+             line="5296">Gets the mode of @window. See #EogWindowMode for details.</doc>
         <source-position filename="src/eog-window.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5308">An #EogWindowMode.</doc>
+               line="5302">An #EogWindowMode.</doc>
           <type name="WindowMode" c:type="EogWindowMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5304">An #EogWindow.</doc>
+                 line="5298">An #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6217,19 +6217,19 @@ no image is being displayed.</doc>
               c:identifier="eog_window_get_remote_presenter">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="3096">Gets the remote presenter dialog. The widget will be built on the first call to this function.</doc>
+             line="3090">Gets the remote presenter dialog. The widget will be built on the first call to this function.</doc>
         <source-position filename="src/eog-window.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="3102">a #GtkWidget.</doc>
+               line="3096">a #GtkWidget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="3098">a #EogWindow</doc>
+                 line="3092">a #EogWindow</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6237,19 +6237,19 @@ no image is being displayed.</doc>
       <method name="get_sidebar" c:identifier="eog_window_get_sidebar">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5383">Gets the sidebar widget of @window.</doc>
+             line="5377">Gets the sidebar widget of @window.</doc>
         <source-position filename="src/eog-window.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5389">the #EogSidebar.</doc>
+               line="5383">the #EogSidebar.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5385">An #EogWindow.</doc>
+                 line="5379">An #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6257,19 +6257,19 @@ no image is being displayed.</doc>
       <method name="get_statusbar" c:identifier="eog_window_get_statusbar">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5431">Gets the statusbar in @window.</doc>
+             line="5425">Gets the statusbar in @window.</doc>
         <source-position filename="src/eog-window.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5437">a #EogStatusbar.</doc>
+               line="5431">a #EogStatusbar.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5433">an #EogWindow.</doc>
+                 line="5427">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6277,20 +6277,20 @@ no image is being displayed.</doc>
       <method name="get_store" c:identifier="eog_window_get_store">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5350">Gets the #EogListStore that contains the images in the gallery
+             line="5344">Gets the #EogListStore that contains the images in the gallery
 of @window.</doc>
         <source-position filename="src/eog-window.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5357">an #EogListStore.</doc>
+               line="5351">an #EogListStore.</doc>
           <type name="ListStore" c:type="EogListStore*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5352">An #EogWindow.</doc>
+                 line="5346">An #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6298,19 +6298,19 @@ of @window.</doc>
       <method name="get_thumb_nav" c:identifier="eog_window_get_thumb_nav">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5415">Gets the thumbnails navigation pane in @window.</doc>
+             line="5409">Gets the thumbnails navigation pane in @window.</doc>
         <source-position filename="src/eog-window.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5421">an #EogThumbNav.</doc>
+               line="5415">an #EogThumbNav.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5417">an #EogWindow.</doc>
+                 line="5411">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6318,19 +6318,19 @@ of @window.</doc>
       <method name="get_thumb_view" c:identifier="eog_window_get_thumb_view">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5399">Gets the thumbnails view in @window.</doc>
+             line="5393">Gets the thumbnails view in @window.</doc>
         <source-position filename="src/eog-window.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5405">an #EogThumbView.</doc>
+               line="5399">an #EogThumbView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5401">an #EogWindow.</doc>
+                 line="5395">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6338,19 +6338,19 @@ of @window.</doc>
       <method name="get_view" c:identifier="eog_window_get_view">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5367">Gets the #EogScrollView in the window.</doc>
+             line="5361">Gets the #EogScrollView in the window.</doc>
         <source-position filename="src/eog-window.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5373">the #EogScrollView.</doc>
+               line="5367">the #EogScrollView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5369">An #EogWindow.</doc>
+                 line="5363">An #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6358,19 +6358,19 @@ of @window.</doc>
       <method name="is_empty" c:identifier="eog_window_is_empty">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5464">Tells whether @window is currently empty or not.</doc>
+             line="5458">Tells whether @window is currently empty or not.</doc>
         <source-position filename="src/eog-window.h" line="127"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-window.c"
-               line="5470">%TRUE if @window has no images, %FALSE otherwise.</doc>
+               line="5464">%TRUE if @window has no images, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5466">an #EogWindow.</doc>
+                 line="5460">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6390,7 +6390,7 @@ of @window.</doc>
       <method name="open_file_list" c:identifier="eog_window_open_file_list">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5242">Opens a list of files, adding them to the gallery in @window.
+             line="5236">Opens a list of files, adding them to the gallery in @window.
 Files will be checked to be readable and later filtered according
 with eog_list_store_add_files().</doc>
         <source-position filename="src/eog-window.h" line="124"/>
@@ -6401,13 +6401,13 @@ with eog_list_store_add_files().</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5244">An #EogWindow.</doc>
+                 line="5238">An #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
           <parameter name="file_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5245">A %NULL-terminated list of #GFile's.</doc>
+                 line="5239">A %NULL-terminated list of #GFile's.</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Gio.File"/>
             </type>
@@ -6428,7 +6428,7 @@ with eog_list_store_add_files().</doc>
       <method name="set_mode" c:identifier="eog_window_set_mode">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5318">Changes the mode of @window to normal, fullscreen, or slideshow.
+             line="5312">Changes the mode of @window to normal, fullscreen, or slideshow.
 See #EogWindowMode for details.</doc>
         <source-position filename="src/eog-window.h" line="104"/>
         <return-value transfer-ownership="none">
@@ -6438,13 +6438,13 @@ See #EogWindowMode for details.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5320">an #EogWindow.</doc>
+                 line="5314">an #EogWindow.</doc>
             <type name="Window" c:type="EogWindow*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/eog-window.c"
-                 line="5321">an #EogWindowMode value.</doc>
+                 line="5315">an #EogWindowMode value.</doc>
             <type name="WindowMode" c:type="EogWindowMode"/>
           </parameter>
         </parameters>
@@ -6479,7 +6479,7 @@ See #EogWindowMode for details.</doc>
                 default-value="EOG_WINDOW_GALLERY_POS_BOTTOM">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5033">Determines the position of the image gallery in the window
+             line="5027">Determines the position of the image gallery in the window
 relative to the image.</doc>
         <type name="WindowGalleryPos"/>
       </property>
@@ -6489,7 +6489,7 @@ relative to the image.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5046">If %TRUE the gallery will be resizable by the user otherwise it will be
+             line="5040">If %TRUE the gallery will be resizable by the user otherwise it will be
 in single column/row mode.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -6500,7 +6500,7 @@ in single column/row mode.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5057">A bitwise OR of #EogStartupFlags elements, indicating how the window
+             line="5051">A bitwise OR of #EogStartupFlags elements, indicating how the window
 should behave upon creation.</doc>
         <type name="StartupFlags"/>
       </property>
@@ -6513,7 +6513,7 @@ should behave upon creation.</doc>
       <glib:signal name="prepared" when="last">
         <doc xml:space="preserve"
              filename="src/eog-window.c"
-             line="5073">The #EogWindow::prepared signal is emitted when the @window is ready
+             line="5067">The #EogWindow::prepared signal is emitted when the @window is ready
 to be shown.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6930,19 +6930,19 @@ current locale.</doc>
               c:identifier="eog_thumbnail_add_frame">
       <doc xml:space="preserve"
            filename="src/eog-thumbnail.c"
-           line="372">Adds a frame to @thumbnail</doc>
+           line="370">Adds a frame to @thumbnail</doc>
       <source-position filename="src/eog-thumbnail.h" line="37"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/eog-thumbnail.c"
-             line="378">a new #GdkPixbuf, storing @thumbnail nicely framed.</doc>
+             line="376">a new #GdkPixbuf, storing @thumbnail nicely framed.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="thumbnail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-thumbnail.c"
-               line="374">a #GdkPixbuf</doc>
+               line="372">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
       </parameters>
@@ -6951,25 +6951,25 @@ current locale.</doc>
               c:identifier="eog_thumbnail_fit_to_size">
       <doc xml:space="preserve"
            filename="src/eog-thumbnail.c"
-           line="409">Ensures a pixbuf fits a given @dimension</doc>
+           line="407">Ensures a pixbuf fits a given @dimension</doc>
       <source-position filename="src/eog-thumbnail.h" line="34"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/eog-thumbnail.c"
-             line="416">a new #GdkPixbuf</doc>
+             line="414">a new #GdkPixbuf</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="thumbnail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-thumbnail.c"
-               line="411">a #GdkPixbuf</doc>
+               line="409">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="dimension" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-thumbnail.c"
-               line="412">the maximum width or height desired</doc>
+               line="410">the maximum width or height desired</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -6985,13 +6985,13 @@ current locale.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="src/eog-thumbnail.c"
-           line="446">Loads the thumbnail for @image. In case of error, %NULL is returned
+           line="444">Loads the thumbnail for @image. In case of error, %NULL is returned
 and @error is set.</doc>
       <source-position filename="src/eog-thumbnail.h" line="39"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/eog-thumbnail.c"
-             line="454">a new #GdkPixbuf with the thumbnail for
+             line="452">a new #GdkPixbuf with the thumbnail for
 @image or %NULL in case of error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
@@ -6999,7 +6999,7 @@ and @error is set.</doc>
         <parameter name="image" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/eog-thumbnail.c"
-               line="448">a #EogImage</doc>
+               line="446">a #EogImage</doc>
           <type name="Image" c:type="EogImage*"/>
         </parameter>
       </parameters>

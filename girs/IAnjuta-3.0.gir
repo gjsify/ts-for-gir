@@ -556,8 +556,7 @@ in source build.</doc>
       <member name="command_compile"
               value="0"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_COMPILE"
-              glib:nick="command-compile"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_COMPILE">
+              glib:nick="command-compile">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="41">Compile source</doc>
@@ -565,8 +564,7 @@ in source build.</doc>
       <member name="command_build"
               value="1"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_BUILD"
-              glib:nick="command-build"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_BUILD">
+              glib:nick="command-build">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="42">Build file (normally using make)</doc>
@@ -574,8 +572,7 @@ in source build.</doc>
       <member name="command_build_tarball"
               value="2"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_BUILD_TARBALL"
-              glib:nick="command-build-tarball"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_BUILD_TARBALL">
+              glib:nick="command-build-tarball">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="43">make dist</doc>
@@ -583,8 +580,7 @@ in source build.</doc>
       <member name="command_install"
               value="3"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_INSTALL"
-              glib:nick="command-install"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_INSTALL">
+              glib:nick="command-install">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="44">make install</doc>
@@ -592,8 +588,7 @@ in source build.</doc>
       <member name="command_configure"
               value="4"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_CONFIGURE"
-              glib:nick="command-configure"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_CONFIGURE">
+              glib:nick="command-configure">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="45">./configure</doc>
@@ -601,8 +596,7 @@ in source build.</doc>
       <member name="command_generate"
               value="5"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_GENERATE"
-              glib:nick="command-generate"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_GENERATE">
+              glib:nick="command-generate">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="46">./autogen.sh</doc>
@@ -610,8 +604,7 @@ in source build.</doc>
       <member name="command_clean"
               value="6"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_CLEAN"
-              glib:nick="command-clean"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_CLEAN">
+              glib:nick="command-clean">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="47">make clean</doc>
@@ -619,8 +612,7 @@ in source build.</doc>
       <member name="command_execute"
               value="7"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_EXECUTE"
-              glib:nick="command-execute"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_EXECUTE">
+              glib:nick="command-execute">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="48">./hello</doc>
@@ -628,8 +620,7 @@ in source build.</doc>
       <member name="command_is_built"
               value="8"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_IS_BUILT"
-              glib:nick="command-is-built"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_IS_BUILT">
+              glib:nick="command-is-built">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="49">check whether object files are up-to-date</doc>
@@ -637,14 +628,12 @@ in source build.</doc>
       <member name="command_autoreconf"
               value="9"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_AUTORECONF"
-              glib:nick="command-autoreconf"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_AUTORECONF">
+              glib:nick="command-autoreconf">
       </member>
       <member name="command_distclean"
               value="10"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_DISTCLEAN"
-              glib:nick="command-distclean"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_DISTCLEAN">
+              glib:nick="command-distclean">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="50">make distclean</doc>
@@ -652,8 +641,7 @@ in source build.</doc>
       <member name="command_check"
               value="11"
               c:identifier="IANJUTA_BUILDABLE_COMMAND_CHECK"
-              glib:nick="command-check"
-              glib:name="IANJUTA_BUILDABLE_COMMAND_CHECK">
+              glib:nick="command-check">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="51">make check</doc>
@@ -661,8 +649,7 @@ in source build.</doc>
       <member name="n_commands"
               value="12"
               c:identifier="IANJUTA_BUILDABLE_N_COMMANDS"
-              glib:nick="n-commands"
-              glib:name="IANJUTA_BUILDABLE_N_COMMANDS">
+              glib:nick="n-commands">
         <doc xml:space="preserve"
              filename="ianjuta-buildable.h"
              line="52">size of enum</doc>
@@ -1274,8 +1261,7 @@ g_list_free.</doc>
       <member name="succeed"
               value="0"
               c:identifier="IANJUTA_BUILDER_SUCCEED"
-              glib:nick="succeed"
-              glib:name="IANJUTA_BUILDER_SUCCEED">
+              glib:nick="succeed">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="71">Build succeeded</doc>
@@ -1283,8 +1269,7 @@ g_list_free.</doc>
       <member name="failed"
               value="1"
               c:identifier="IANJUTA_BUILDER_FAILED"
-              glib:nick="failed"
-              glib:name="IANJUTA_BUILDER_FAILED">
+              glib:nick="failed">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="72">Build failed</doc>
@@ -1292,8 +1277,7 @@ g_list_free.</doc>
       <member name="canceled"
               value="256"
               c:identifier="IANJUTA_BUILDER_CANCELED"
-              glib:nick="canceled"
-              glib:name="IANJUTA_BUILDER_CANCELED">
+              glib:nick="canceled">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="73">Build was canceld</doc>
@@ -1301,8 +1285,7 @@ g_list_free.</doc>
       <member name="aborted"
               value="257"
               c:identifier="IANJUTA_BUILDER_ABORTED"
-              glib:nick="aborted"
-              glib:name="IANJUTA_BUILDER_ABORTED">
+              glib:nick="aborted">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="74">Build aborted</doc>
@@ -1310,8 +1293,7 @@ g_list_free.</doc>
       <member name="interrupted"
               value="258"
               c:identifier="IANJUTA_BUILDER_INTERRUPTED"
-              glib:nick="interrupted"
-              glib:name="IANJUTA_BUILDER_INTERRUPTED">
+              glib:nick="interrupted">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="75">Build interruped</doc>
@@ -1319,8 +1301,7 @@ g_list_free.</doc>
       <member name="terminated"
               value="259"
               c:identifier="IANJUTA_BUILDER_TERMINATED"
-              glib:nick="terminated"
-              glib:name="IANJUTA_BUILDER_TERMINATED">
+              glib:nick="terminated">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="76">Build interruped</doc>
@@ -1328,8 +1309,7 @@ g_list_free.</doc>
       <member name="unknown_target"
               value="260"
               c:identifier="IANJUTA_BUILDER_UNKNOWN_TARGET"
-              glib:nick="unknown-target"
-              glib:name="IANJUTA_BUILDER_UNKNOWN_TARGET">
+              glib:nick="unknown-target">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="77">The specified target is unknown</doc>
@@ -1337,8 +1317,7 @@ g_list_free.</doc>
       <member name="unknown_error"
               value="261"
               c:identifier="IANJUTA_BUILDER_UNKNOWN_ERROR"
-              glib:nick="unknown-error"
-              glib:name="IANJUTA_BUILDER_UNKNOWN_ERROR">
+              glib:nick="unknown-error">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="78">Unknown Error</doc>
@@ -1346,8 +1325,7 @@ g_list_free.</doc>
       <member name="other_error"
               value="262"
               c:identifier="IANJUTA_BUILDER_OTHER_ERROR"
-              glib:nick="other-error"
-              glib:name="IANJUTA_BUILDER_OTHER_ERROR">
+              glib:nick="other-error">
         <doc xml:space="preserve"
              filename="ianjuta-builder.h"
              line="79">Other Error (no unknown ;-))</doc>
@@ -7032,8 +7010,7 @@ backend.</doc>
       <member name="set_at_address"
               value="1"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_ADDRESS"
-              glib:nick="set-at-address"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_ADDRESS">
+              glib:nick="set-at-address">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="43">Allow to set breakpoint on address</doc>
@@ -7041,8 +7018,7 @@ backend.</doc>
       <member name="set_at_function"
               value="2"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_FUNCTION"
-              glib:nick="set-at-function"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_FUNCTION">
+              glib:nick="set-at-function">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="44">Allow to set breakpoint on function name</doc>
@@ -7050,8 +7026,7 @@ backend.</doc>
       <member name="enable"
               value="4"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_ENABLE"
-              glib:nick="enable"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_ENABLE">
+              glib:nick="enable">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="45">Allow to disable breakpoint</doc>
@@ -7059,8 +7034,7 @@ backend.</doc>
       <member name="ignore"
               value="8"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_IGNORE"
-              glib:nick="ignore"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_IGNORE">
+              glib:nick="ignore">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="46">Allow to ignore breakpoint</doc>
@@ -7068,8 +7042,7 @@ backend.</doc>
       <member name="condition"
               value="16"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_CONDITION"
-              glib:nick="condition"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_CONDITION">
+              glib:nick="condition">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="47">Allow to add a condition on breakpoint</doc>
@@ -7085,8 +7058,7 @@ backend.</doc>
       <member name="removed"
               value="1"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_REMOVED"
-              glib:nick="removed"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_REMOVED">
+              glib:nick="removed">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="62">Set for removed breakpoint</doc>
@@ -7094,8 +7066,7 @@ backend.</doc>
       <member name="updated"
               value="131072"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_UPDATED"
-              glib:nick="updated"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_UPDATED">
+              glib:nick="updated">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="63">Set for changed breakpoint</doc>
@@ -7103,8 +7074,7 @@ backend.</doc>
       <member name="on_line"
               value="2"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_ON_LINE"
-              glib:nick="on-line"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_ON_LINE">
+              glib:nick="on-line">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="64">Set on source line</doc>
@@ -7112,8 +7082,7 @@ backend.</doc>
       <member name="on_address"
               value="4"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_ON_ADDRESS"
-              glib:nick="on-address"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_ON_ADDRESS">
+              glib:nick="on-address">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="65">Set on an addresse</doc>
@@ -7121,8 +7090,7 @@ backend.</doc>
       <member name="on_function"
               value="8"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_ON_FUNCTION"
-              glib:nick="on-function"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_ON_FUNCTION">
+              glib:nick="on-function">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="66">Set on a function name</doc>
@@ -7130,8 +7098,7 @@ backend.</doc>
       <member name="on_read"
               value="16"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_ON_READ"
-              glib:nick="on-read"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_ON_READ">
+              glib:nick="on-read">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="67">Set on read access</doc>
@@ -7139,8 +7106,7 @@ backend.</doc>
       <member name="on_write"
               value="32"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_ON_WRITE"
-              glib:nick="on-write"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_ON_WRITE">
+              glib:nick="on-write">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="68">Set on write access</doc>
@@ -7148,8 +7114,7 @@ backend.</doc>
       <member name="with_enable"
               value="65536"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_WITH_ENABLE"
-              glib:nick="with-enable"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_WITH_ENABLE">
+              glib:nick="with-enable">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="69">Has enable information</doc>
@@ -7157,8 +7122,7 @@ backend.</doc>
       <member name="with_ignore"
               value="32768"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_WITH_IGNORE"
-              glib:nick="with-ignore"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_WITH_IGNORE">
+              glib:nick="with-ignore">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="70">Has ignore information,</doc>
@@ -7166,8 +7130,7 @@ backend.</doc>
       <member name="with_time"
               value="2048"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_WITH_TIME"
-              glib:nick="with-time"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_WITH_TIME">
+              glib:nick="with-time">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="71">Has counter information</doc>
@@ -7175,8 +7138,7 @@ backend.</doc>
       <member name="with_condition"
               value="4096"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_WITH_CONDITION"
-              glib:nick="with-condition"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_WITH_CONDITION">
+              glib:nick="with-condition">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="72">Has a condition</doc>
@@ -7184,8 +7146,7 @@ backend.</doc>
       <member name="with_temporary"
               value="8192"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_WITH_TEMPORARY"
-              glib:nick="with-temporary"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_WITH_TEMPORARY">
+              glib:nick="with-temporary">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="73">Temporary breakpoint, automatically removed when triggered</doc>
@@ -7193,8 +7154,7 @@ backend.</doc>
       <member name="with_pending"
               value="16384"
               c:identifier="IANJUTA_DEBUGGER_BREAKPOINT_WITH_PENDING"
-              glib:nick="with-pending"
-              glib:name="IANJUTA_DEBUGGER_BREAKPOINT_WITH_PENDING">
+              glib:nick="with-pending">
         <doc xml:space="preserve"
              filename="ianjuta-debugger-breakpoint.h"
              line="74">Pending breakpoint</doc>
@@ -7249,8 +7209,7 @@ backend.</doc>
       <member name="ok"
               value="0"
               c:identifier="IANJUTA_DEBUGGER_OK"
-              glib:nick="ok"
-              glib:name="IANJUTA_DEBUGGER_OK">
+              glib:nick="ok">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="47">No error</doc>
@@ -7258,8 +7217,7 @@ backend.</doc>
       <member name="not_ready"
               value="1"
               c:identifier="IANJUTA_DEBUGGER_NOT_READY"
-              glib:nick="not-ready"
-              glib:name="IANJUTA_DEBUGGER_NOT_READY">
+              glib:nick="not-ready">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="48">Debugger is not ready to execute the command</doc>
@@ -7267,8 +7225,7 @@ backend.</doc>
       <member name="not_running"
               value="2"
               c:identifier="IANJUTA_DEBUGGER_NOT_RUNNING"
-              glib:nick="not-running"
-              glib:name="IANJUTA_DEBUGGER_NOT_RUNNING">
+              glib:nick="not-running">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="49">Debugger is not is running state</doc>
@@ -7276,8 +7233,7 @@ backend.</doc>
       <member name="not_stopped"
               value="3"
               c:identifier="IANJUTA_DEBUGGER_NOT_STOPPED"
-              glib:nick="not-stopped"
-              glib:name="IANJUTA_DEBUGGER_NOT_STOPPED">
+              glib:nick="not-stopped">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="50">Debugger is not is stopped state</doc>
@@ -7285,8 +7241,7 @@ backend.</doc>
       <member name="not_loaded"
               value="4"
               c:identifier="IANJUTA_DEBUGGER_NOT_LOADED"
-              glib:nick="not-loaded"
-              glib:name="IANJUTA_DEBUGGER_NOT_LOADED">
+              glib:nick="not-loaded">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="51">Debugger is not is loaded state</doc>
@@ -7294,8 +7249,7 @@ backend.</doc>
       <member name="not_started"
               value="5"
               c:identifier="IANJUTA_DEBUGGER_NOT_STARTED"
-              glib:nick="not-started"
-              glib:name="IANJUTA_DEBUGGER_NOT_STARTED">
+              glib:nick="not-started">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="52">Debugger is not in started state</doc>
@@ -7303,8 +7257,7 @@ backend.</doc>
       <member name="not_connected"
               value="6"
               c:identifier="IANJUTA_DEBUGGER_NOT_CONNECTED"
-              glib:nick="not-connected"
-              glib:name="IANJUTA_DEBUGGER_NOT_CONNECTED">
+              glib:nick="not-connected">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="53">Debugger is not connected:</doc>
@@ -7312,8 +7265,7 @@ backend.</doc>
       <member name="not_implemented"
               value="7"
               c:identifier="IANJUTA_DEBUGGER_NOT_IMPLEMENTED"
-              glib:nick="not-implemented"
-              glib:name="IANJUTA_DEBUGGER_NOT_IMPLEMENTED">
+              glib:nick="not-implemented">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="54">Corresponding function is not implemented</doc>
@@ -7321,8 +7273,7 @@ backend.</doc>
       <member name="cancel"
               value="8"
               c:identifier="IANJUTA_DEBUGGER_CANCEL"
-              glib:nick="cancel"
-              glib:name="IANJUTA_DEBUGGER_CANCEL">
+              glib:nick="cancel">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="55">Operation has been cancelled</doc>
@@ -7330,8 +7281,7 @@ backend.</doc>
       <member name="unable_to_create_variable"
               value="9"
               c:identifier="IANJUTA_DEBUGGER_UNABLE_TO_CREATE_VARIABLE"
-              glib:nick="unable-to-create-variable"
-              glib:name="IANJUTA_DEBUGGER_UNABLE_TO_CREATE_VARIABLE">
+              glib:nick="unable-to-create-variable">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="56">Debugger cannot create variable</doc>
@@ -7339,8 +7289,7 @@ backend.</doc>
       <member name="unable_to_access_memory"
               value="10"
               c:identifier="IANJUTA_DEBUGGER_UNABLE_TO_ACCESS_MEMORY"
-              glib:nick="unable-to-access-memory"
-              glib:name="IANJUTA_DEBUGGER_UNABLE_TO_ACCESS_MEMORY">
+              glib:nick="unable-to-access-memory">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="57">Debugger cannot access memory</doc>
@@ -7348,8 +7297,7 @@ backend.</doc>
       <member name="unable_to_open_file"
               value="11"
               c:identifier="IANJUTA_DEBUGGER_UNABLE_TO_OPEN_FILE"
-              glib:nick="unable-to-open-file"
-              glib:name="IANJUTA_DEBUGGER_UNABLE_TO_OPEN_FILE">
+              glib:nick="unable-to-open-file">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="58">Debugger cannot open file</doc>
@@ -7357,8 +7305,7 @@ backend.</doc>
       <member name="unsupported_file_type"
               value="12"
               c:identifier="IANJUTA_DEBUGGER_UNSUPPORTED_FILE_TYPE"
-              glib:nick="unsupported-file-type"
-              glib:name="IANJUTA_DEBUGGER_UNSUPPORTED_FILE_TYPE">
+              glib:nick="unsupported-file-type">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="59">Debugger cannot debug such file</doc>
@@ -7366,8 +7313,7 @@ backend.</doc>
       <member name="unsupported_version"
               value="13"
               c:identifier="IANJUTA_DEBUGGER_UNSUPPORTED_VERSION"
-              glib:nick="unsupported-version"
-              glib:name="IANJUTA_DEBUGGER_UNSUPPORTED_VERSION">
+              glib:nick="unsupported-version">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="60">Debugger is too old</doc>
@@ -7375,8 +7321,7 @@ backend.</doc>
       <member name="unable_to_find_debugger"
               value="14"
               c:identifier="IANJUTA_DEBUGGER_UNABLE_TO_FIND_DEBUGGER"
-              glib:nick="unable-to-find-debugger"
-              glib:name="IANJUTA_DEBUGGER_UNABLE_TO_FIND_DEBUGGER">
+              glib:nick="unable-to-find-debugger">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="61">Debugger cannot be found</doc>
@@ -7384,8 +7329,7 @@ backend.</doc>
       <member name="already_done"
               value="15"
               c:identifier="IANJUTA_DEBUGGER_ALREADY_DONE"
-              glib:nick="already-done"
-              glib:name="IANJUTA_DEBUGGER_ALREADY_DONE">
+              glib:nick="already-done">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="62">Command has already been executed</doc>
@@ -7393,8 +7337,7 @@ backend.</doc>
       <member name="program_not_found"
               value="16"
               c:identifier="IANJUTA_DEBUGGER_PROGRAM_NOT_FOUND"
-              glib:nick="program-not-found"
-              glib:name="IANJUTA_DEBUGGER_PROGRAM_NOT_FOUND">
+              glib:nick="program-not-found">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="63">Program cannot be found</doc>
@@ -7402,8 +7345,7 @@ backend.</doc>
       <member name="unable_to_connect"
               value="17"
               c:identifier="IANJUTA_DEBUGGER_UNABLE_TO_CONNECT"
-              glib:nick="unable-to-connect"
-              glib:name="IANJUTA_DEBUGGER_UNABLE_TO_CONNECT">
+              glib:nick="unable-to-connect">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="64">Unable to connect to debugger</doc>
@@ -7411,8 +7353,7 @@ backend.</doc>
       <member name="unknown_error"
               value="18"
               c:identifier="IANJUTA_DEBUGGER_UNKNOWN_ERROR"
-              glib:nick="unknown-error"
-              glib:name="IANJUTA_DEBUGGER_UNKNOWN_ERROR">
+              glib:nick="unknown-error">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="65">Unknown error</doc>
@@ -7420,8 +7361,7 @@ backend.</doc>
       <member name="other_error"
               value="19"
               c:identifier="IANJUTA_DEBUGGER_OTHER_ERROR"
-              glib:nick="other-error"
-              glib:name="IANJUTA_DEBUGGER_OTHER_ERROR">
+              glib:nick="other-error">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="66">other error</doc>
@@ -9893,8 +9833,7 @@ NULL data.</doc>
       <member name="output"
               value="0"
               c:identifier="IANJUTA_DEBUGGER_OUTPUT"
-              glib:nick="output"
-              glib:name="IANJUTA_DEBUGGER_OUTPUT">
+              glib:nick="output">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="96">Output from debugger</doc>
@@ -9902,8 +9841,7 @@ NULL data.</doc>
       <member name="warning_output"
               value="1"
               c:identifier="IANJUTA_DEBUGGER_WARNING_OUTPUT"
-              glib:nick="warning-output"
-              glib:name="IANJUTA_DEBUGGER_WARNING_OUTPUT">
+              glib:nick="warning-output">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="97">Warning from debugger</doc>
@@ -9911,8 +9849,7 @@ NULL data.</doc>
       <member name="error_output"
               value="2"
               c:identifier="IANJUTA_DEBUGGER_ERROR_OUTPUT"
-              glib:nick="error-output"
-              glib:name="IANJUTA_DEBUGGER_ERROR_OUTPUT">
+              glib:nick="error-output">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="98">Error from debugger</doc>
@@ -9920,8 +9857,7 @@ NULL data.</doc>
       <member name="info_output"
               value="3"
               c:identifier="IANJUTA_DEBUGGER_INFO_OUTPUT"
-              glib:nick="info-output"
-              glib:name="IANJUTA_DEBUGGER_INFO_OUTPUT">
+              glib:nick="info-output">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="99">Additional message from debugger</doc>
@@ -10308,8 +10244,7 @@ called. If FALSE, the callback will not be called.</doc>
       <member name="busy"
               value="0"
               c:identifier="IANJUTA_DEBUGGER_BUSY"
-              glib:nick="busy"
-              glib:name="IANJUTA_DEBUGGER_BUSY">
+              glib:nick="busy">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="113">Debugger is executing a command, it can enter in another
@@ -10318,8 +10253,7 @@ called. If FALSE, the callback will not be called.</doc>
       <member name="stopped"
               value="1"
               c:identifier="IANJUTA_DEBUGGER_STOPPED"
-              glib:nick="stopped"
-              glib:name="IANJUTA_DEBUGGER_STOPPED">
+              glib:nick="stopped">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="115">Debugger is stopped.</doc>
@@ -10327,8 +10261,7 @@ called. If FALSE, the callback will not be called.</doc>
       <member name="started"
               value="2"
               c:identifier="IANJUTA_DEBUGGER_STARTED"
-              glib:nick="started"
-              glib:name="IANJUTA_DEBUGGER_STARTED">
+              glib:nick="started">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="116">Debugger is started but no program is loaded.</doc>
@@ -10336,8 +10269,7 @@ called. If FALSE, the callback will not be called.</doc>
       <member name="program_loaded"
               value="3"
               c:identifier="IANJUTA_DEBUGGER_PROGRAM_LOADED"
-              glib:nick="program-loaded"
-              glib:name="IANJUTA_DEBUGGER_PROGRAM_LOADED">
+              glib:nick="program-loaded">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="117">Debugger is started and has a program loaded.</doc>
@@ -10345,8 +10277,7 @@ called. If FALSE, the callback will not be called.</doc>
       <member name="program_stopped"
               value="4"
               c:identifier="IANJUTA_DEBUGGER_PROGRAM_STOPPED"
-              glib:nick="program-stopped"
-              glib:name="IANJUTA_DEBUGGER_PROGRAM_STOPPED">
+              glib:nick="program-stopped">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="118">Debugger is started and has a program stopped.</doc>
@@ -10354,8 +10285,7 @@ called. If FALSE, the callback will not be called.</doc>
       <member name="program_running"
               value="5"
               c:identifier="IANJUTA_DEBUGGER_PROGRAM_RUNNING"
-              glib:nick="program-running"
-              glib:name="IANJUTA_DEBUGGER_PROGRAM_RUNNING">
+              glib:nick="program-running">
         <doc xml:space="preserve"
              filename="ianjuta-debugger.h"
              line="119">Debugger is started and has a program running.</doc>
@@ -12646,8 +12576,7 @@ saves the document before closing.</doc>
       <member name="doesnt_exist"
               value="0"
               c:identifier="IANJUTA_DOCUMENT_MANAGER_DOESNT_EXIST"
-              glib:nick="doesnt-exist"
-              glib:name="IANJUTA_DOCUMENT_MANAGER_DOESNT_EXIST">
+              glib:nick="doesnt-exist">
       </member>
       <function name="quark"
                 c:identifier="ianjuta_document_manager_error_quark">
@@ -15528,8 +15457,7 @@ editors implement this.</doc>
       <member name="text"
               value="0"
               c:identifier="IANJUTA_EDITOR_TEXT"
-              glib:nick="text"
-              glib:name="IANJUTA_EDITOR_TEXT">
+              glib:nick="text">
         <doc xml:space="preserve"
              filename="ianjuta-editor.h"
              line="73">Normal text</doc>
@@ -15537,8 +15465,7 @@ editors implement this.</doc>
       <member name="keyword"
               value="1"
               c:identifier="IANJUTA_EDITOR_KEYWORD"
-              glib:nick="keyword"
-              glib:name="IANJUTA_EDITOR_KEYWORD">
+              glib:nick="keyword">
         <doc xml:space="preserve"
              filename="ianjuta-editor.h"
              line="74">A keyword of the programming language</doc>
@@ -15546,8 +15473,7 @@ editors implement this.</doc>
       <member name="comment"
               value="2"
               c:identifier="IANJUTA_EDITOR_COMMENT"
-              glib:nick="comment"
-              glib:name="IANJUTA_EDITOR_COMMENT">
+              glib:nick="comment">
         <doc xml:space="preserve"
              filename="ianjuta-editor.h"
              line="75">A comment</doc>
@@ -15555,8 +15481,7 @@ editors implement this.</doc>
       <member name="string"
               value="3"
               c:identifier="IANJUTA_EDITOR_STRING"
-              glib:nick="string"
-              glib:name="IANJUTA_EDITOR_STRING">
+              glib:nick="string">
         <doc xml:space="preserve"
              filename="ianjuta-editor.h"
              line="76">A string</doc>
@@ -16358,8 +16283,7 @@ character.</doc>
       <member name="doesnt_exist"
               value="0"
               c:identifier="IANJUTA_EDITOR_DOESNT_EXIST"
-              glib:nick="doesnt-exist"
-              glib:name="IANJUTA_EDITOR_DOESNT_EXIST">
+              glib:nick="doesnt-exist">
       </member>
       <function name="quark" c:identifier="ianjuta_editor_error_quark">
         <return-value transfer-ownership="none">
@@ -18541,8 +18465,7 @@ editors implement this.</doc>
       <member name="lf"
               value="0"
               c:identifier="IANJUTA_EDITOR_LINE_MODE_LF"
-              glib:nick="lf"
-              glib:name="IANJUTA_EDITOR_LINE_MODE_LF">
+              glib:nick="lf">
         <doc xml:space="preserve"
              filename="ianjuta-editor-line-mode.h"
              line="42">Line-Feed (Unix)</doc>
@@ -18550,8 +18473,7 @@ editors implement this.</doc>
       <member name="cr"
               value="1"
               c:identifier="IANJUTA_EDITOR_LINE_MODE_CR"
-              glib:nick="cr"
-              glib:name="IANJUTA_EDITOR_LINE_MODE_CR">
+              glib:nick="cr">
         <doc xml:space="preserve"
              filename="ianjuta-editor-line-mode.h"
              line="43">Carat return (Max)</doc>
@@ -18559,8 +18481,7 @@ editors implement this.</doc>
       <member name="crlf"
               value="2"
               c:identifier="IANJUTA_EDITOR_LINE_MODE_CRLF"
-              glib:nick="crlf"
-              glib:name="IANJUTA_EDITOR_LINE_MODE_CRLF">
+              glib:nick="crlf">
         <doc xml:space="preserve"
              filename="ianjuta-editor-line-mode.h"
              line="44">Caret return + line-feed (Windows)</doc>
@@ -20278,14 +20199,12 @@ free the output string when not needed.</doc>
       <member name="config"
               value="0"
               c:identifier="IANJUTA_ENVIRONMENT_CONFIG"
-              glib:nick="config"
-              glib:name="IANJUTA_ENVIRONMENT_CONFIG">
+              glib:nick="config">
       </member>
       <member name="other_error"
               value="1"
               c:identifier="IANJUTA_ENVIRONMENT_OTHER_ERROR"
-              glib:nick="other-error"
-              glib:name="IANJUTA_ENVIRONMENT_OTHER_ERROR">
+              glib:nick="other-error">
       </member>
       <function name="quark" c:identifier="ianjuta_environment_error_quark">
         <return-value transfer-ownership="none">
@@ -22706,8 +22625,7 @@ according to the next line start/end.</doc>
       <member name="none"
               value="0"
               c:identifier="IANJUTA_INDICABLE_NONE"
-              glib:nick="none"
-              glib:name="IANJUTA_INDICABLE_NONE">
+              glib:nick="none">
         <doc xml:space="preserve"
              filename="ianjuta-indicable.h"
              line="42">No indicator</doc>
@@ -22715,8 +22633,7 @@ according to the next line start/end.</doc>
       <member name="important"
               value="1"
               c:identifier="IANJUTA_INDICABLE_IMPORTANT"
-              glib:nick="important"
-              glib:name="IANJUTA_INDICABLE_IMPORTANT">
+              glib:nick="important">
         <doc xml:space="preserve"
              filename="ianjuta-indicable.h"
              line="43">Important indicator</doc>
@@ -22724,8 +22641,7 @@ according to the next line start/end.</doc>
       <member name="warning"
               value="2"
               c:identifier="IANJUTA_INDICABLE_WARNING"
-              glib:nick="warning"
-              glib:name="IANJUTA_INDICABLE_WARNING">
+              glib:nick="warning">
         <doc xml:space="preserve"
              filename="ianjuta-indicable.h"
              line="44">Warning indicator</doc>
@@ -22733,8 +22649,7 @@ according to the next line start/end.</doc>
       <member name="critical"
               value="3"
               c:identifier="IANJUTA_INDICABLE_CRITICAL"
-              glib:nick="critical"
-              glib:name="IANJUTA_INDICABLE_CRITICAL">
+              glib:nick="critical">
         <doc xml:space="preserve"
              filename="ianjuta-indicable.h"
              line="45">Critical indicator</doc>
@@ -25723,8 +25638,7 @@ implementor object.</doc>
       <member name="invalid_location"
               value="0"
               c:identifier="IANJUTA_MARKABLE_INVALID_LOCATION"
-              glib:nick="invalid-location"
-              glib:name="IANJUTA_MARKABLE_INVALID_LOCATION">
+              glib:nick="invalid-location">
       </member>
       <function name="quark" c:identifier="ianjuta_markable_error_quark">
         <return-value transfer-ownership="none">
@@ -25917,8 +25831,7 @@ implementor object.</doc>
       <member name="linemarker"
               value="0"
               c:identifier="IANJUTA_MARKABLE_LINEMARKER"
-              glib:nick="linemarker"
-              glib:name="IANJUTA_MARKABLE_LINEMARKER">
+              glib:nick="linemarker">
         <doc xml:space="preserve"
              filename="ianjuta-markable.h"
              line="46">Mark a particular line</doc>
@@ -25926,8 +25839,7 @@ implementor object.</doc>
       <member name="bookmark"
               value="1"
               c:identifier="IANJUTA_MARKABLE_BOOKMARK"
-              glib:nick="bookmark"
-              glib:name="IANJUTA_MARKABLE_BOOKMARK">
+              glib:nick="bookmark">
         <doc xml:space="preserve"
              filename="ianjuta-markable.h"
              line="47">A bookmark</doc>
@@ -25935,8 +25847,7 @@ implementor object.</doc>
       <member name="message"
               value="2"
               c:identifier="IANJUTA_MARKABLE_MESSAGE"
-              glib:nick="message"
-              glib:name="IANJUTA_MARKABLE_MESSAGE">
+              glib:nick="message">
         <doc xml:space="preserve"
              filename="ianjuta-markable.h"
              line="48">An (error) message</doc>
@@ -25944,8 +25855,7 @@ implementor object.</doc>
       <member name="breakpoint_disabled"
               value="3"
               c:identifier="IANJUTA_MARKABLE_BREAKPOINT_DISABLED"
-              glib:nick="breakpoint-disabled"
-              glib:name="IANJUTA_MARKABLE_BREAKPOINT_DISABLED">
+              glib:nick="breakpoint-disabled">
         <doc xml:space="preserve"
              filename="ianjuta-markable.h"
              line="49">a disabled breakpoint</doc>
@@ -25953,8 +25863,7 @@ implementor object.</doc>
       <member name="breakpoint_enabled"
               value="4"
               c:identifier="IANJUTA_MARKABLE_BREAKPOINT_ENABLED"
-              glib:nick="breakpoint-enabled"
-              glib:name="IANJUTA_MARKABLE_BREAKPOINT_ENABLED">
+              glib:nick="breakpoint-enabled">
         <doc xml:space="preserve"
              filename="ianjuta-markable.h"
              line="50">a enabled breakpoint</doc>
@@ -25962,8 +25871,7 @@ implementor object.</doc>
       <member name="program_counter"
               value="5"
               c:identifier="IANJUTA_MARKABLE_PROGRAM_COUNTER"
-              glib:nick="program-counter"
-              glib:name="IANJUTA_MARKABLE_PROGRAM_COUNTER">
+              glib:nick="program-counter">
         <doc xml:space="preserve"
              filename="ianjuta-markable.h"
              line="51">Marks the program counter position</doc>
@@ -26503,8 +26411,7 @@ will become invalid.</doc>
       <member name="doesnt_exist"
               value="0"
               c:identifier="IANJUTA_MESSAGE_MANAGER_DOESNT_EXIST"
-              glib:nick="doesnt-exist"
-              glib:name="IANJUTA_MESSAGE_MANAGER_DOESNT_EXIST">
+              glib:nick="doesnt-exist">
       </member>
       <function name="quark"
                 c:identifier="ianjuta_message_manager_error_quark">
@@ -27324,8 +27231,7 @@ by emiiting buffer_flushed signal. The string is expected to be utf8.</doc>
       <member name="type_normal"
               value="0"
               c:identifier="IANJUTA_MESSAGE_VIEW_TYPE_NORMAL"
-              glib:nick="type-normal"
-              glib:name="IANJUTA_MESSAGE_VIEW_TYPE_NORMAL">
+              glib:nick="type-normal">
         <doc xml:space="preserve"
              filename="ianjuta-message-view.h"
              line="41">Normal message</doc>
@@ -27333,8 +27239,7 @@ by emiiting buffer_flushed signal. The string is expected to be utf8.</doc>
       <member name="type_info"
               value="1"
               c:identifier="IANJUTA_MESSAGE_VIEW_TYPE_INFO"
-              glib:nick="type-info"
-              glib:name="IANJUTA_MESSAGE_VIEW_TYPE_INFO">
+              glib:nick="type-info">
         <doc xml:space="preserve"
              filename="ianjuta-message-view.h"
              line="42">Info message (highlighed)</doc>
@@ -27342,8 +27247,7 @@ by emiiting buffer_flushed signal. The string is expected to be utf8.</doc>
       <member name="type_warning"
               value="2"
               c:identifier="IANJUTA_MESSAGE_VIEW_TYPE_WARNING"
-              glib:nick="type-warning"
-              glib:name="IANJUTA_MESSAGE_VIEW_TYPE_WARNING">
+              glib:nick="type-warning">
         <doc xml:space="preserve"
              filename="ianjuta-message-view.h"
              line="44">Warning message</doc>
@@ -27351,8 +27255,7 @@ by emiiting buffer_flushed signal. The string is expected to be utf8.</doc>
       <member name="type_error"
               value="3"
               c:identifier="IANJUTA_MESSAGE_VIEW_TYPE_ERROR"
-              glib:nick="type-error"
-              glib:name="IANJUTA_MESSAGE_VIEW_TYPE_ERROR">
+              glib:nick="type-error">
         <doc xml:space="preserve"
              filename="ianjuta-message-view.h"
              line="43">Error message</doc>
@@ -27621,14 +27524,12 @@ give it the AnjutaShell object as argument.</doc>
       <member name="ok"
               value="0"
               c:identifier="IANJUTA_PLUGIN_FACTORY_OK"
-              glib:nick="ok"
-              glib:name="IANJUTA_PLUGIN_FACTORY_OK">
+              glib:nick="ok">
       </member>
       <member name="missing_location"
               value="1"
               c:identifier="IANJUTA_PLUGIN_FACTORY_MISSING_LOCATION"
-              glib:nick="missing-location"
-              glib:name="IANJUTA_PLUGIN_FACTORY_MISSING_LOCATION">
+              glib:nick="missing-location">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="44">Module file location is
@@ -27637,8 +27538,7 @@ missing in .plugin file</doc>
       <member name="missing_type"
               value="2"
               c:identifier="IANJUTA_PLUGIN_FACTORY_MISSING_TYPE"
-              glib:nick="missing-type"
-              glib:name="IANJUTA_PLUGIN_FACTORY_MISSING_TYPE">
+              glib:nick="missing-type">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="46">Plugin type (just after
@@ -27647,8 +27547,7 @@ double colon following location) is missing in .plugin file</doc>
       <member name="missing_module"
               value="3"
               c:identifier="IANJUTA_PLUGIN_FACTORY_MISSING_MODULE"
-              glib:nick="missing-module"
-              glib:name="IANJUTA_PLUGIN_FACTORY_MISSING_MODULE">
+              glib:nick="missing-module">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="48">Module file name not found,
@@ -27657,8 +27556,7 @@ plugin module is probably not installed</doc>
       <member name="invalid_module"
               value="4"
               c:identifier="IANJUTA_PLUGIN_FACTORY_INVALID_MODULE"
-              glib:nick="invalid-module"
-              glib:name="IANJUTA_PLUGIN_FACTORY_INVALID_MODULE">
+              glib:nick="invalid-module">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="50">Module file cannot be
@@ -27667,8 +27565,7 @@ loaded, not a shared library perhaps</doc>
       <member name="missing_function"
               value="5"
               c:identifier="IANJUTA_PLUGIN_FACTORY_MISSING_FUNCTION"
-              glib:nick="missing-function"
-              glib:name="IANJUTA_PLUGIN_FACTORY_MISSING_FUNCTION">
+              glib:nick="missing-function">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="52">Module does not contain
@@ -27678,8 +27575,7 @@ is not for the right version</doc>
       <member name="invalid_type"
               value="6"
               c:identifier="IANJUTA_PLUGIN_FACTORY_INVALID_TYPE"
-              glib:nick="invalid-type"
-              glib:name="IANJUTA_PLUGIN_FACTORY_INVALID_TYPE">
+              glib:nick="invalid-type">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="55">Module has not registered
@@ -27689,8 +27585,7 @@ the right version</doc>
       <member name="unknown_error"
               value="7"
               c:identifier="IANJUTA_PLUGIN_FACTORY_UNKNOWN_ERROR"
-              glib:nick="unknown-error"
-              glib:name="IANJUTA_PLUGIN_FACTORY_UNKNOWN_ERROR">
+              glib:nick="unknown-error">
         <doc xml:space="preserve"
              filename="ianjuta-plugin-factory.h"
              line="58">Another error</doc>
@@ -29383,50 +29278,42 @@ the file you must add a refcount using g_object_ref().</doc>
       <member name="error_success"
               value="0"
               c:identifier="IANJUTA_PROJECT_ERROR_SUCCESS"
-              glib:nick="error-success"
-              glib:name="IANJUTA_PROJECT_ERROR_SUCCESS">
+              glib:nick="error-success">
       </member>
       <member name="error_doesnt_exist"
               value="1"
               c:identifier="IANJUTA_PROJECT_ERROR_DOESNT_EXIST"
-              glib:nick="error-doesnt-exist"
-              glib:name="IANJUTA_PROJECT_ERROR_DOESNT_EXIST">
+              glib:nick="error-doesnt-exist">
       </member>
       <member name="error_already_exists"
               value="2"
               c:identifier="IANJUTA_PROJECT_ERROR_ALREADY_EXISTS"
-              glib:nick="error-already-exists"
-              glib:name="IANJUTA_PROJECT_ERROR_ALREADY_EXISTS">
+              glib:nick="error-already-exists">
       </member>
       <member name="error_validation_failed"
               value="3"
               c:identifier="IANJUTA_PROJECT_ERROR_VALIDATION_FAILED"
-              glib:nick="error-validation-failed"
-              glib:name="IANJUTA_PROJECT_ERROR_VALIDATION_FAILED">
+              glib:nick="error-validation-failed">
       </member>
       <member name="error_project_malformed"
               value="4"
               c:identifier="IANJUTA_PROJECT_ERROR_PROJECT_MALFORMED"
-              glib:nick="error-project-malformed"
-              glib:name="IANJUTA_PROJECT_ERROR_PROJECT_MALFORMED">
+              glib:nick="error-project-malformed">
       </member>
       <member name="error_wrong_parent"
               value="5"
               c:identifier="IANJUTA_PROJECT_ERROR_WRONG_PARENT"
-              glib:nick="error-wrong-parent"
-              glib:name="IANJUTA_PROJECT_ERROR_WRONG_PARENT">
+              glib:nick="error-wrong-parent">
       </member>
       <member name="error_not_supported"
               value="6"
               c:identifier="IANJUTA_PROJECT_ERROR_NOT_SUPPORTED"
-              glib:nick="error-not-supported"
-              glib:name="IANJUTA_PROJECT_ERROR_NOT_SUPPORTED">
+              glib:nick="error-not-supported">
       </member>
       <member name="error_general_failure"
               value="7"
               c:identifier="IANJUTA_PROJECT_ERROR_GENERAL_FAILURE"
-              glib:nick="error-general-failure"
-              glib:name="IANJUTA_PROJECT_ERROR_GENERAL_FAILURE">
+              glib:nick="error-general-failure">
       </member>
       <function name="quark" c:identifier="ianjuta_project_error_quark">
         <return-value transfer-ownership="none">
@@ -31531,20 +31418,17 @@ with g_list_free() and the files with g_object_unref().</doc>
       <member name="probe_files"
               value="10"
               c:identifier="IANJUTA_PROJECT_PROBE_FILES"
-              glib:nick="probe-files"
-              glib:name="IANJUTA_PROJECT_PROBE_FILES">
+              glib:nick="probe-files">
       </member>
       <member name="probe_make_files"
               value="100"
               c:identifier="IANJUTA_PROJECT_PROBE_MAKE_FILES"
-              glib:nick="probe-make-files"
-              glib:name="IANJUTA_PROJECT_PROBE_MAKE_FILES">
+              glib:nick="probe-make-files">
       </member>
       <member name="probe_project_files"
               value="200"
               c:identifier="IANJUTA_PROJECT_PROBE_PROJECT_FILES"
-              glib:nick="probe-project-files"
-              glib:name="IANJUTA_PROJECT_PROBE_PROJECT_FILES">
+              glib:nick="probe-project-files">
       </member>
     </enumeration>
     <interface name="Provider"
@@ -32832,8 +32716,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_id"
               value="0"
               c:identifier="IANJUTA_SYMBOL_FIELD_ID"
-              glib:nick="field-id"
-              glib:name="IANJUTA_SYMBOL_FIELD_ID">
+              glib:nick="field-id">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="44">Integer. A unique ID of the symbol</doc>
@@ -32841,8 +32724,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_name"
               value="1"
               c:identifier="IANJUTA_SYMBOL_FIELD_NAME"
-              glib:nick="field-name"
-              glib:name="IANJUTA_SYMBOL_FIELD_NAME">
+              glib:nick="field-name">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="45">String. Name of the symbol</doc>
@@ -32850,8 +32732,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_file_pos"
               value="2"
               c:identifier="IANJUTA_SYMBOL_FIELD_FILE_POS"
-              glib:nick="field-file-pos"
-              glib:name="IANJUTA_SYMBOL_FIELD_FILE_POS">
+              glib:nick="field-file-pos">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="46">Integer. The file line number where the symbol is found.</doc>
@@ -32859,14 +32740,12 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="filed_scope_def_id"
               value="3"
               c:identifier="IANJUTA_SYMBOL_FILED_SCOPE_DEF_ID"
-              glib:nick="filed-scope-def-id"
-              glib:name="IANJUTA_SYMBOL_FILED_SCOPE_DEF_ID">
+              glib:nick="filed-scope-def-id">
       </member>
       <member name="field_file_scope"
               value="4"
               c:identifier="IANJUTA_SYMBOL_FIELD_FILE_SCOPE"
-              glib:nick="field-file-scope"
-              glib:name="IANJUTA_SYMBOL_FIELD_FILE_SCOPE">
+              glib:nick="field-file-scope">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="48">Boolean: TRUE if symbol is within file scope,
@@ -32875,8 +32754,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_signature"
               value="5"
               c:identifier="IANJUTA_SYMBOL_FIELD_SIGNATURE"
-              glib:nick="field-signature"
-              glib:name="IANJUTA_SYMBOL_FIELD_SIGNATURE">
+              glib:nick="field-signature">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="50">String. Signature of a method, if symbol is a funtion.
@@ -32885,8 +32763,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_returntype"
               value="6"
               c:identifier="IANJUTA_SYMBOL_FIELD_RETURNTYPE"
-              glib:nick="field-returntype"
-              glib:name="IANJUTA_SYMBOL_FIELD_RETURNTYPE">
+              glib:nick="field-returntype">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="52">String. Return type of a method, if symbol is a function.</doc>
@@ -32894,8 +32771,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_type"
               value="7"
               c:identifier="IANJUTA_SYMBOL_FIELD_TYPE"
-              glib:nick="field-type"
-              glib:name="IANJUTA_SYMBOL_FIELD_TYPE">
+              glib:nick="field-type">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="62">Both string and Integer. Type attribute of a symbol.
@@ -32905,8 +32781,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_type_name"
               value="8"
               c:identifier="IANJUTA_SYMBOL_FIELD_TYPE_NAME"
-              glib:nick="field-type-name"
-              glib:name="IANJUTA_SYMBOL_FIELD_TYPE_NAME">
+              glib:nick="field-type-name">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="65">type_name attribute of a symbol.
@@ -32915,8 +32790,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_file_path"
               value="9"
               c:identifier="IANJUTA_SYMBOL_FIELD_FILE_PATH"
-              glib:nick="field-file-path"
-              glib:name="IANJUTA_SYMBOL_FIELD_FILE_PATH">
+              glib:nick="field-file-path">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="53">String. The relative path to the file where the symbol is found.</doc>
@@ -32924,8 +32798,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_project_name"
               value="10"
               c:identifier="IANJUTA_SYMBOL_FIELD_PROJECT_NAME"
-              glib:nick="field-project-name"
-              glib:name="IANJUTA_SYMBOL_FIELD_PROJECT_NAME">
+              glib:nick="field-project-name">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="54">String. The project name to which the symbol belongs to.</doc>
@@ -32933,8 +32806,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_project_version"
               value="11"
               c:identifier="IANJUTA_SYMBOL_FIELD_PROJECT_VERSION"
-              glib:nick="field-project-version"
-              glib:name="IANJUTA_SYMBOL_FIELD_PROJECT_VERSION">
+              glib:nick="field-project-version">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="55">String. The project version to which the symbol belongs to.</doc>
@@ -32942,8 +32814,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_implementation"
               value="12"
               c:identifier="IANJUTA_SYMBOL_FIELD_IMPLEMENTATION"
-              glib:nick="field-implementation"
-              glib:name="IANJUTA_SYMBOL_FIELD_IMPLEMENTATION">
+              glib:nick="field-implementation">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="56">String. Implementation attribute of a symbol. It may be
@@ -32952,8 +32823,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_access"
               value="13"
               c:identifier="IANJUTA_SYMBOL_FIELD_ACCESS"
-              glib:nick="field-access"
-              glib:name="IANJUTA_SYMBOL_FIELD_ACCESS">
+              glib:nick="field-access">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="58">String. Access attribute of a symbol.
@@ -32962,8 +32832,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_kind"
               value="14"
               c:identifier="IANJUTA_SYMBOL_FIELD_KIND"
-              glib:nick="field-kind"
-              glib:name="IANJUTA_SYMBOL_FIELD_KIND">
+              glib:nick="field-kind">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="60">Kind attribute of a symbol, such as
@@ -32972,8 +32841,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_is_container"
               value="15"
               c:identifier="IANJUTA_SYMBOL_FIELD_IS_CONTAINER"
-              glib:nick="field-is-container"
-              glib:name="IANJUTA_SYMBOL_FIELD_IS_CONTAINER">
+              glib:nick="field-is-container">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="67">Boolean. TRUE if symbol is
@@ -32983,8 +32851,7 @@ e.g. #IANJUTA_SYMBOL_FIELD_TYPE.</doc>
       <member name="field_end"
               value="16"
               c:identifier="IANJUTA_SYMBOL_FIELD_END"
-              glib:nick="field-end"
-              glib:name="IANJUTA_SYMBOL_FIELD_END">
+              glib:nick="field-end">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="70">The end marker.</doc>
@@ -34777,8 +34644,7 @@ currently open project's symbols are found.</doc>
       <member name="db_project"
               value="0"
               c:identifier="IANJUTA_SYMBOL_QUERY_DB_PROJECT"
-              glib:nick="db-project"
-              glib:name="IANJUTA_SYMBOL_QUERY_DB_PROJECT">
+              glib:nick="db-project">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="46">Select project database.</doc>
@@ -34786,8 +34652,7 @@ currently open project's symbols are found.</doc>
       <member name="db_system"
               value="1"
               c:identifier="IANJUTA_SYMBOL_QUERY_DB_SYSTEM"
-              glib:nick="db-system"
-              glib:name="IANJUTA_SYMBOL_QUERY_DB_SYSTEM">
+              glib:nick="db-system">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="47">Select system database.</doc>
@@ -34803,8 +34668,7 @@ currently open project's symbols are found.</doc>
       <member name="search_fs_ignore"
               value="0"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_FS_IGNORE"
-              glib:nick="search-fs-ignore"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_FS_IGNORE">
+              glib:nick="search-fs-ignore">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="60">Ignore file scope</doc>
@@ -34812,8 +34676,7 @@ currently open project's symbols are found.</doc>
       <member name="search_fs_public"
               value="1"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_FS_PUBLIC"
-              glib:nick="search-fs-public"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_FS_PUBLIC">
+              glib:nick="search-fs-public">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="61">Only public symbols visible to rest of project.</doc>
@@ -34821,8 +34684,7 @@ currently open project's symbols are found.</doc>
       <member name="search_fs_private"
               value="2"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_FS_PRIVATE"
-              glib:nick="search-fs-private"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_FS_PRIVATE">
+              glib:nick="search-fs-private">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="62">Only private symbols visible inside a file.</doc>
@@ -35306,8 +35168,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="mode_sync"
               value="0"
               c:identifier="IANJUTA_SYMBOL_QUERY_MODE_SYNC"
-              glib:nick="mode-sync"
-              glib:name="IANJUTA_SYMBOL_QUERY_MODE_SYNC">
+              glib:nick="mode-sync">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="74">Syncronous query. The result is immediately
@@ -35316,8 +35177,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="mode_async"
               value="1"
               c:identifier="IANJUTA_SYMBOL_QUERY_MODE_ASYNC"
-              glib:nick="mode-async"
-              glib:name="IANJUTA_SYMBOL_QUERY_MODE_ASYNC">
+              glib:nick="mode-async">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="76">Asynchronous query. The search call
@@ -35327,8 +35187,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="mode_queued"
               value="2"
               c:identifier="IANJUTA_SYMBOL_QUERY_MODE_QUEUED"
-              glib:nick="mode-queued"
-              glib:name="IANJUTA_SYMBOL_QUERY_MODE_QUEUED">
+              glib:nick="mode-queued">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="79">If the database is busy
@@ -35348,8 +35207,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search"
               value="0"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH"
-              glib:nick="search"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH">
+              glib:nick="search">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="96">Query to perform basic substring search.</doc>
@@ -35357,8 +35215,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_all"
               value="1"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_ALL"
-              glib:nick="search-all"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_ALL">
+              glib:nick="search-all">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="97">Query to get all symbols</doc>
@@ -35366,8 +35223,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_file"
               value="2"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_FILE"
-              glib:nick="search-file"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_FILE">
+              glib:nick="search-file">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="98">Query to perform substring search in a file.</doc>
@@ -35375,8 +35231,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_in_scope"
               value="3"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_IN_SCOPE"
-              glib:nick="search-in-scope"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_IN_SCOPE">
+              glib:nick="search-in-scope">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="99">Query to perform substring search in a scope.</doc>
@@ -35384,8 +35239,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_id"
               value="4"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_ID"
-              glib:nick="search-id"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_ID">
+              glib:nick="search-id">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="100">Query to find the symbol of given ID.</doc>
@@ -35393,8 +35247,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_members"
               value="5"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_MEMBERS"
-              glib:nick="search-members"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_MEMBERS">
+              glib:nick="search-members">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="101">Query to find members of a scope (eg. class).</doc>
@@ -35402,8 +35255,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_class_parents"
               value="6"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_CLASS_PARENTS"
-              glib:nick="search-class-parents"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_CLASS_PARENTS">
+              glib:nick="search-class-parents">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="102">Query to get parents of a class.</doc>
@@ -35411,8 +35263,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_scope"
               value="7"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_SCOPE"
-              glib:nick="search-scope"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_SCOPE">
+              glib:nick="search-scope">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="103">Query to find scope name of a file position.</doc>
@@ -35420,8 +35271,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_parent_scope"
               value="8"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE"
-              glib:nick="search-parent-scope"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE">
+              glib:nick="search-parent-scope">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="104">Query to get the parent scope of a symbol.</doc>
@@ -35429,8 +35279,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="search_parent_scope_file"
               value="9"
               c:identifier="IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE_FILE"
-              glib:nick="search-parent-scope-file"
-              glib:name="IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE_FILE">
+              glib:nick="search-parent-scope-file">
         <doc xml:space="preserve"
              filename="ianjuta-symbol-query.h"
              line="105">Query to get the parent scope of a symbol in the file.</doc>
@@ -35443,8 +35292,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_none"
               value="0"
               c:identifier="IANJUTA_SYMBOL_TYPE_NONE"
-              glib:nick="type-none"
-              glib:name="IANJUTA_SYMBOL_TYPE_NONE">
+              glib:nick="type-none">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="101">None spedified.</doc>
@@ -35452,8 +35300,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_undef"
               value="1"
               c:identifier="IANJUTA_SYMBOL_TYPE_UNDEF"
-              glib:nick="type-undef"
-              glib:name="IANJUTA_SYMBOL_TYPE_UNDEF">
+              glib:nick="type-undef">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="102">Unknown type.</doc>
@@ -35461,8 +35308,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_class"
               value="2"
               c:identifier="IANJUTA_SYMBOL_TYPE_CLASS"
-              glib:nick="type-class"
-              glib:name="IANJUTA_SYMBOL_TYPE_CLASS">
+              glib:nick="type-class">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="103">Class declaration</doc>
@@ -35470,8 +35316,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_enum"
               value="4"
               c:identifier="IANJUTA_SYMBOL_TYPE_ENUM"
-              glib:nick="type-enum"
-              glib:name="IANJUTA_SYMBOL_TYPE_ENUM">
+              glib:nick="type-enum">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="104">Enum declaration</doc>
@@ -35479,8 +35324,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_enumerator"
               value="8"
               c:identifier="IANJUTA_SYMBOL_TYPE_ENUMERATOR"
-              glib:nick="type-enumerator"
-              glib:name="IANJUTA_SYMBOL_TYPE_ENUMERATOR">
+              glib:nick="type-enumerator">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="105">Enumerator value</doc>
@@ -35488,8 +35332,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_field"
               value="16"
               c:identifier="IANJUTA_SYMBOL_TYPE_FIELD"
-              glib:nick="type-field"
-              glib:name="IANJUTA_SYMBOL_TYPE_FIELD">
+              glib:nick="type-field">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="106">Field (Java only)</doc>
@@ -35497,8 +35340,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_function"
               value="32"
               c:identifier="IANJUTA_SYMBOL_TYPE_FUNCTION"
-              glib:nick="type-function"
-              glib:name="IANJUTA_SYMBOL_TYPE_FUNCTION">
+              glib:nick="type-function">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="107">Function definition</doc>
@@ -35506,8 +35348,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_interface"
               value="64"
               c:identifier="IANJUTA_SYMBOL_TYPE_INTERFACE"
-              glib:nick="type-interface"
-              glib:name="IANJUTA_SYMBOL_TYPE_INTERFACE">
+              glib:nick="type-interface">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="108">Interface (Java only)</doc>
@@ -35515,8 +35356,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_member"
               value="128"
               c:identifier="IANJUTA_SYMBOL_TYPE_MEMBER"
-              glib:nick="type-member"
-              glib:name="IANJUTA_SYMBOL_TYPE_MEMBER">
+              glib:nick="type-member">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="109">Member variable of class/struct</doc>
@@ -35524,8 +35364,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_method"
               value="256"
               c:identifier="IANJUTA_SYMBOL_TYPE_METHOD"
-              glib:nick="type-method"
-              glib:name="IANJUTA_SYMBOL_TYPE_METHOD">
+              glib:nick="type-method">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="110">Class method (Java only)</doc>
@@ -35533,8 +35372,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_namespace"
               value="512"
               c:identifier="IANJUTA_SYMBOL_TYPE_NAMESPACE"
-              glib:nick="type-namespace"
-              glib:name="IANJUTA_SYMBOL_TYPE_NAMESPACE">
+              glib:nick="type-namespace">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="111">Namespace declaration</doc>
@@ -35542,8 +35380,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_package"
               value="1024"
               c:identifier="IANJUTA_SYMBOL_TYPE_PACKAGE"
-              glib:nick="type-package"
-              glib:name="IANJUTA_SYMBOL_TYPE_PACKAGE">
+              glib:nick="type-package">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="112">Package (Java only)</doc>
@@ -35551,8 +35388,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_prototype"
               value="2048"
               c:identifier="IANJUTA_SYMBOL_TYPE_PROTOTYPE"
-              glib:nick="type-prototype"
-              glib:name="IANJUTA_SYMBOL_TYPE_PROTOTYPE">
+              glib:nick="type-prototype">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="113">Function prototype</doc>
@@ -35560,8 +35396,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_struct"
               value="4096"
               c:identifier="IANJUTA_SYMBOL_TYPE_STRUCT"
-              glib:nick="type-struct"
-              glib:name="IANJUTA_SYMBOL_TYPE_STRUCT">
+              glib:nick="type-struct">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="114">Struct declaration</doc>
@@ -35569,8 +35404,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_typedef"
               value="8192"
               c:identifier="IANJUTA_SYMBOL_TYPE_TYPEDEF"
-              glib:nick="type-typedef"
-              glib:name="IANJUTA_SYMBOL_TYPE_TYPEDEF">
+              glib:nick="type-typedef">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="115">Typedef</doc>
@@ -35578,8 +35412,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_union"
               value="16384"
               c:identifier="IANJUTA_SYMBOL_TYPE_UNION"
-              glib:nick="type-union"
-              glib:name="IANJUTA_SYMBOL_TYPE_UNION">
+              glib:nick="type-union">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="116">Union</doc>
@@ -35587,8 +35420,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_variable"
               value="32768"
               c:identifier="IANJUTA_SYMBOL_TYPE_VARIABLE"
-              glib:nick="type-variable"
-              glib:name="IANJUTA_SYMBOL_TYPE_VARIABLE">
+              glib:nick="type-variable">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="117">Variable</doc>
@@ -35596,8 +35428,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_externvar"
               value="65536"
               c:identifier="IANJUTA_SYMBOL_TYPE_EXTERNVAR"
-              glib:nick="type-externvar"
-              glib:name="IANJUTA_SYMBOL_TYPE_EXTERNVAR">
+              glib:nick="type-externvar">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="118">Extern or forward declaration</doc>
@@ -35605,8 +35436,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_macro"
               value="131072"
               c:identifier="IANJUTA_SYMBOL_TYPE_MACRO"
-              glib:nick="type-macro"
-              glib:name="IANJUTA_SYMBOL_TYPE_MACRO">
+              glib:nick="type-macro">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="119">Macro (without arguments)</doc>
@@ -35614,8 +35444,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_macro_with_arg"
               value="262144"
               c:identifier="IANJUTA_SYMBOL_TYPE_MACRO_WITH_ARG"
-              glib:nick="type-macro-with-arg"
-              glib:name="IANJUTA_SYMBOL_TYPE_MACRO_WITH_ARG">
+              glib:nick="type-macro-with-arg">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="120">Parameterized macro</doc>
@@ -35623,8 +35452,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_file"
               value="524288"
               c:identifier="IANJUTA_SYMBOL_TYPE_FILE"
-              glib:nick="type-file"
-              glib:name="IANJUTA_SYMBOL_TYPE_FILE">
+              glib:nick="type-file">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="121">File (Pseudo tag)</doc>
@@ -35632,8 +35460,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_other"
               value="1048576"
               c:identifier="IANJUTA_SYMBOL_TYPE_OTHER"
-              glib:nick="type-other"
-              glib:name="IANJUTA_SYMBOL_TYPE_OTHER">
+              glib:nick="type-other">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="122">Other (non C/C++/Java tag)</doc>
@@ -35641,8 +35468,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_scope_container"
               value="22086"
               c:identifier="IANJUTA_SYMBOL_TYPE_SCOPE_CONTAINER"
-              glib:nick="type-scope-container"
-              glib:name="IANJUTA_SYMBOL_TYPE_SCOPE_CONTAINER">
+              glib:nick="type-scope-container">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="123">types which are subjected to create a scope.</doc>
@@ -35650,8 +35476,7 @@ IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.</doc>
       <member name="type_max"
               value="2097151"
               c:identifier="IANJUTA_SYMBOL_TYPE_MAX"
-              glib:nick="type-max"
-              glib:name="IANJUTA_SYMBOL_TYPE_MAX">
+              glib:nick="type-max">
         <doc xml:space="preserve"
              filename="ianjuta-symbol.h"
              line="124">Maximum value, used as end marker.</doc>
@@ -36480,8 +36305,7 @@ reporting.</doc>
       <member name="unkown_error"
               value="0"
               c:identifier="IANJUTA_VCS_UNKOWN_ERROR"
-              glib:nick="unkown-error"
-              glib:name="IANJUTA_VCS_UNKOWN_ERROR">
+              glib:nick="unkown-error">
       </member>
       <function name="quark" c:identifier="ianjuta_vcs_error_quark">
         <return-value transfer-ownership="none">
@@ -37102,170 +36926,6 @@ ianjuta_vcs_query_status.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
-    <docsection name="ianjuta-debug-manager">
-      <doc xml:space="preserve"
-           filename="ianjuta-debug-manager.c"
-           line="20">This interface wrap the real debugger plugin and provide a
-common graphical user interface.</doc>
-    </docsection>
-    <docsection name="ianjuta-debugger">
-      <doc xml:space="preserve"
-           filename="ianjuta-debugger.c"
-           line="20">This interface is implemented by debugger backends, by example the gdb
-backend. It is used by the debug manager plugin which provides the
-graphical interface and a simple wrapper: #IAnjutaDebugManager.
-
-The debugger is in one on these 5 states and emit a signal to the debug
-manager when it changes. Here is figure showing all transitions and
-the signal emitted.
-&lt;figure id="debugger-states"&gt;
-&lt;mediaobject&gt;
-	&lt;imageobject&gt;
-		&lt;imagedata fileref="debugger-states.png" format="PNG"/&gt;
-	&lt;/imageobject&gt;
-&lt;/mediaobject&gt;
-&lt;/figure&gt;</doc>
-    </docsection>
-    <docsection name="ianjuta-debugger-instruction">
-      <doc xml:space="preserve"
-           filename="ianjuta-debugger-instruction.c"
-           line="20">This interface is used to debuger as machine instruction level.</doc>
-    </docsection>
-    <docsection name="ianjuta-debugger-memory">
-      <doc xml:space="preserve"
-           filename="ianjuta-debugger-memory.c"
-           line="20">This interface is used to examine the target memory.</doc>
-    </docsection>
-    <docsection name="ianjuta-debugger-register">
-      <doc xml:space="preserve"
-           filename="ianjuta-debugger-register.c"
-           line="20">This interface is used to examine and change values of CPU registers.</doc>
-    </docsection>
-    <docsection name="ianjuta-debugger-variable">
-      <doc xml:space="preserve"
-           filename="ianjuta-debugger-variable.c"
-           line="20">This interface is used to examine and change values of expression.
-It is based on the MI2 variable object interface of gdb. A
-variable needs to be created before being able to get or set its
-value and list its children.</doc>
-    </docsection>
-    <docsection name="ianjuta-editor-cell">
-      <doc xml:space="preserve"
-           filename="ianjuta-editor-cell.c"
-           line="20">Represents a cell in editor. A cell corresponds to a unicode
-character along with all associated styles (such as colors and font).
-A cell may or may not have style. If style is supported in the
-editor, it is assumed all cells will have styles and hence every
-IAnjutaEditorCell interface instance will have additionally
-IAnjutaEditorCellStyle implemented.</doc>
-    </docsection>
-    <docsection name="ianjuta-editor-view">
-      <doc xml:space="preserve"
-           filename="ianjuta-editor-view.c"
-           line="20">An editor view is a visual representation of the editor. An editor
-can have multiple views. All views of an editor show the same editor
-content (buffer). Consequently, any change done in one view is
-updated in all other views.</doc>
-    </docsection>
-    <docsection name="ianjuta-file">
-      <doc xml:space="preserve"
-           filename="ianjuta-file.c"
-           line="20">Any plugin that can open files should implemented this interface. Along
-with the 'File Loader::SupportedMimeTypes' property of the plugin in
-.plugin file, it will be used by the loader to open files of that type.</doc>
-    </docsection>
-    <docsection name="ianjuta-file-loader">
-      <doc xml:space="preserve"
-           filename="ianjuta-file-loader.c"
-           line="20">Loaders can deterime correct plugin to open a file.</doc>
-    </docsection>
-    <docsection name="ianjuta-file-savable">
-      <doc xml:space="preserve"
-           filename="ianjuta-file-savable.c"
-           line="20">Plugins implementing #IAnjutaFile inteface that can also save files
-should also implement this interface.</doc>
-    </docsection>
-    <docsection name="ianjuta-loader">
-      <doc xml:space="preserve"
-           filename="ianjuta-loader.c"
-           line="20">Loaders can deterime correct plugin to open a file or stream.  They
-themselves can not load it, but will correctly redirect the request to
-an implementor of IAnjutaFile, IAnjutaFileSavable, IAnjutaStream or
-IAnjutaStreamSavable, depending on the mime-type, meta-type or any other
-requirements.</doc>
-    </docsection>
-    <docsection name="ianjuta-plugin-factory">
-      <doc xml:space="preserve"
-           filename="ianjuta-plugin-factory.c"
-           line="20">This interface is used to create all Anjuta plugin objects. It is
-already implemented inside Anjuta by an object able to load plugins written
-in C. In order to load plugins in other languages (or in a different way),
-a loader plugin implementing this interface must be written first, probably
-in C.</doc>
-    </docsection>
-    <docsection name="ianjuta-project">
-      <doc xml:space="preserve"
-           filename="ianjuta-project.c"
-           line="20">This is the new interface that is replacing Gnome Build.</doc>
-    </docsection>
-    <docsection name="ianjuta-stream-loader">
-      <doc xml:space="preserve"
-           filename="ianjuta-stream-loader.c"
-           line="20">StreamLoaders can deterime correct plugin to open a stream.</doc>
-    </docsection>
-    <docsection name="ianjuta-symbol">
-      <doc xml:space="preserve"
-           filename="ianjuta-symbol.c"
-           line="20">This interface is used to define a symbol, normally got from symbol
-queries. A symbol has various fields that can be retrieved by using
-their get methods. A symbol will have only those fields which have
-been selected to be included in their respective queries, so make sure
-the needed fields are correctly specified during query creation.</doc>
-    </docsection>
-    <docsection name="ianjuta-symbol-query">
-      <doc xml:space="preserve"
-           filename="ianjuta-symbol-query.c"
-           line="20">A query object will have this interface that allows to tweak various
-query parameters. Except for the #IAnjutaSymbolQueryName and
-#IAnjutaSymbolQueryDb parameters, everything else is changable
-post-creation.
-
-Note that chaning a query parameter, except for limit and offset will
-result in re-preparing the query the next time it is executed, so it is
-not advisable to change it each time the query is executed. For such
-cases, create different queries with different parameters.
-
-A query is signified by a name enumeration (#IAnjutaSymbolQueryName) which
-practically determines the query type and its execution condition. Each
-query name is assigned to pre-defined query statement and can only be
-set during creation time. Then only its specific ianjuta_symbol_query_search_*()
-can be used to execute the query. These specific execution methods are
-provided to make it convenient to pass query parameters easily and to
-ensure all the needed parameters are given.
-
-A query can run in different modes, defined by #IAnjutaSymbolQueryMode, by
-default it is executed in synchrounous mode #IANJUTA_SYMBOL_QUERY_MODE_SYNC
-and can be changed using ianjuta_symbol_query_set_mode().
-#IANJUTA_SYMBOL_QUERY_MODE_ASYNC runs it in asynchronous mode in a separate
-thread and can be canceled with ianjuta_symbol_query_cancel().
-
-A query runs on a database, defined by #IAnjutaSymbolQueryDb, and can be
-only selected at creatation time.
-
-In addition, there are many other filters that can be set to the query
-to refine the query results. For example, ianjuta_symbol_query_set_fields()
-is used to set the needed symbol fields to retrieve, ianjuta_symbol_query_set_filters()
-is used to filter the results with symbol types, ianjuta_symbol_query_set_file_scope()
-limits the results to either public or private scope within the source file,
-ianjuta_symbol_query_set_group_by() is used to group the results on a given
-field, ianjuta_symbol_query_set_order_by is used to order the results on a
-given field.
-
-ianjuta_symbol_query_set_limit() and ianjuta_symbol_query_set_offset() are
-used to change limit and offset of the resultset. Note again that these
-parameters do not require re-preparation of query, so can be safely used
-any time without performance hit.</doc>
-    </docsection>
     <function name="indenter_error_quark"
               c:identifier="ianjuta_indenter_error_quark"
               moved-to="Indenter.error_quark">

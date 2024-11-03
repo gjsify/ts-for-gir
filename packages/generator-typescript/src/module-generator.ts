@@ -55,6 +55,7 @@ import {
     isInvalid,
     filterConflicts,
     printGirDocComment,
+    promisifyFunctions,
 } from '@ts-for-gir/lib'
 
 import { TemplateProcessor } from './template-processor.js'
@@ -1036,15 +1037,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateFunctions(
-                filterFunctionConflict(
-                    girClass.parent,
-                    girClass,
-                    [...girClass.members].filter(
-                        (member) =>
-                            !(member instanceof IntrospectedStaticClassFunction) &&
-                            !(member instanceof IntrospectedVirtualClassFunction),
+                promisifyIfEnabled(
+                    this.options,
+                    filterFunctionConflict(
+                        girClass.parent,
+                        girClass,
+                        [...girClass.members].filter(
+                            (member) =>
+                                !(member instanceof IntrospectedStaticClassFunction) &&
+                                !(member instanceof IntrospectedVirtualClassFunction),
+                        ),
+                        [],
                     ),
-                    [],
                 ),
                 indentCount,
                 `Methods`,
@@ -1478,11 +1482,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     if (generatedImplementedProperties.length > 0)
                         def.push('\n// Inherited properties', ...generatedImplementedProperties)
 
-                    const filteredImplMethods = filterFunctionConflict(
-                        girClass.namespace,
-                        girClass,
-                        implementedMethods,
-                        [],
+                    const filteredImplMethods = promisifyIfEnabled(
+                        this.options,
+                        filterFunctionConflict(girClass.namespace, girClass, implementedMethods, []),
                     )
                     const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this))
 
@@ -1629,7 +1631,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         out.push('')
 
-        promisifyNamespaceFunctions(girModule)
+        if (this.options.promisify) {
+            promisifyNamespaceFunctions(girModule)
+        }
 
         if (girModule.members) {
             for (const m of girModule.members.values()) {
@@ -1742,4 +1746,17 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             await pkg.exportNPMPackage()
         }
     }
+}
+
+function promisifyIfEnabled(
+    options: OptionsGeneration,
+    functions: IntrospectedClassFunction[],
+): IntrospectedClassFunction[] {
+    if (options.promisify) {
+        // TODO: Remove this once the type is fixed
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
+        return promisifyFunctions(functions)
+    }
+
+    return functions
 }

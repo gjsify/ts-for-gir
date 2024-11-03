@@ -367,9 +367,6 @@ only private data</doc>
               c:type="AtkGObjectAccessibleClass"/>
       </field>
       <field name="notify_clutter">
-        <doc xml:space="preserve"
-             filename="cally-actor.h"
-             line="91">Signal handler for notify signal on Clutter actor</doc>
         <callback name="notify_clutter">
           <source-position filename="cally-actor.h" line="110"/>
           <return-value transfer-ownership="none">
@@ -386,10 +383,6 @@ only private data</doc>
         </callback>
       </field>
       <field name="focus_clutter">
-        <doc xml:space="preserve"
-             filename="cally-actor.h"
-             line="92">Signal handler for key-focus-in and key-focus-out
-  signal on Clutter actor. This virtual functions is deprecated.</doc>
         <callback name="focus_clutter">
           <source-position filename="cally-actor.h" line="113"/>
           <return-value transfer-ownership="none">
@@ -406,10 +399,6 @@ only private data</doc>
         </callback>
       </field>
       <field name="add_actor">
-        <doc xml:space="preserve"
-             filename="cally-actor.h"
-             line="94">Signal handler for actor-added signal on
-  ClutterContainer interface</doc>
         <callback name="add_actor">
           <source-position filename="cally-actor.h" line="116"/>
           <return-value transfer-ownership="none">
@@ -429,10 +418,6 @@ only private data</doc>
         </callback>
       </field>
       <field name="remove_actor">
-        <doc xml:space="preserve"
-             filename="cally-actor.h"
-             line="96">Signal handler for actor-added signal on
-  ClutterContainer interface</doc>
         <callback name="remove_actor">
           <source-position filename="cally-actor.h" line="120"/>
           <return-value transfer-ownership="none">

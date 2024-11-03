@@ -84,9 +84,7 @@ use it.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="request_async"
-              c:identifier="grl_net_wc_request_async"
-              glib:finish-func="request_finish">
+      <method name="request_async" c:identifier="grl_net_wc_request_async">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
              line="883">Request the fetching of a web resource given the @uri. This request is

@@ -57,7 +57,7 @@ Its role is twofold:
       <constructor name="new" c:identifier="peas_engine_new">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1605">Return a new instance of #PeasEngine.
+             line="1599">Return a new instance of #PeasEngine.
 
 If no default #PeasEngine has been instantiated yet,
 the first call of this function will set the default
@@ -66,7 +66,7 @@ engine as the new instance of #PeasEngine.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1614">a new instance of #PeasEngine.</doc>
+               line="1608">a new instance of #PeasEngine.</doc>
           <type name="Engine" c:type="PeasEngine*"/>
         </return-value>
       </constructor>
@@ -74,7 +74,7 @@ engine as the new instance of #PeasEngine.</doc>
                    c:identifier="peas_engine_new_with_nonglobal_loaders">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1622">Return a new instance of #PeasEngine which will use non-global
+             line="1616">Return a new instance of #PeasEngine which will use non-global
 plugin loaders instead of the default global ones.
 
 This allows multiple threads to each have a #PeasEngine and be used without
@@ -86,14 +86,14 @@ Note: due to CPython's GIL the python and python3
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1634">a new instance of #PeasEngine that uses non-global loaders.</doc>
+               line="1628">a new instance of #PeasEngine that uses non-global loaders.</doc>
           <type name="Engine" c:type="PeasEngine*"/>
         </return-value>
       </constructor>
       <function name="get_default" c:identifier="peas_engine_get_default">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1644">Return the existing instance of #PeasEngine or a subclass of it.
+             line="1638">Return the existing instance of #PeasEngine or a subclass of it.
 
 If no #PeasEngine subclass has been instantiated yet, the first call
 of this function will return a new instance of #PeasEngine.
@@ -104,7 +104,7 @@ Note: this function should never be used when multiple threads are
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1655">the existing instance of #PeasEngine.</doc>
+               line="1649">the existing instance of #PeasEngine.</doc>
           <type name="Engine" c:type="PeasEngine*"/>
         </return-value>
       </function>
@@ -161,7 +161,7 @@ If @data_dir is %NULL, then it is set to the same value as
               introspectable="0">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1465">If the plugin identified by @info implements the @extension_type,
+             line="1459">If the plugin identified by @info implements the @extension_type,
 then this function will return a new instance of this implementation.
 
 When creating the new instance of the @extension_type subtype, the
@@ -171,38 +171,38 @@ handler (exactly like if you had called [ctor@GObject.Object.new] yourself).</do
         <return-value>
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1481">a new #GObject that implements @extension_type; or %NULL.</doc>
+               line="1475">a new #GObject that implements @extension_type; or %NULL.</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1467">A #PeasEngine.</doc>
+                 line="1461">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1468">A loaded #PeasPluginInfo.</doc>
+                 line="1462">A loaded #PeasPluginInfo.</doc>
             <type name="PluginInfo" c:type="PeasPluginInfo*"/>
           </parameter>
           <parameter name="extension_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1469">The implemented extension #GType.</doc>
+                 line="1463">The implemented extension #GType.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="first_property" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1470">the name of the first property.</doc>
+                 line="1464">the name of the first property.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1471">the value of the first property, followed optionally by more
+                 line="1465">the value of the first property, followed optionally by more
   name/value pairs, followed by %NULL.</doc>
             <varargs/>
           </parameter>
@@ -213,7 +213,7 @@ handler (exactly like if you had called [ctor@GObject.Object.new] yourself).</do
               introspectable="0">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1412">If the plugin identified by @info implements the @extension_type,
+             line="1406">If the plugin identified by @info implements the @extension_type,
 then this function will return a new instance of this implementation.
 
 See [method@Engine.create_extension] for more information.</doc>
@@ -221,7 +221,7 @@ See [method@Engine.create_extension] for more information.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1426">a new instance of #GObject that meets the prerequisites of
+               line="1420">a new instance of #GObject that meets the prerequisites of
   @extension_type, or %NULL.</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
@@ -229,31 +229,31 @@ See [method@Engine.create_extension] for more information.</doc>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1414">A #PeasEngine.</doc>
+                 line="1408">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1415">A loaded #PeasPluginInfo.</doc>
+                 line="1409">A loaded #PeasPluginInfo.</doc>
             <type name="PluginInfo" c:type="PeasPluginInfo*"/>
           </parameter>
           <parameter name="extension_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1416">The implemented extension #GType.</doc>
+                 line="1410">The implemented extension #GType.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="first_property" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1417">the name of the first property.</doc>
+                 line="1411">the name of the first property.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="var_args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1418">the value of the first property, followed optionally by more
+                 line="1412">the value of the first property, followed optionally by more
   name/value pairs, followed by %NULL.</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
@@ -264,7 +264,7 @@ See [method@Engine.create_extension] for more information.</doc>
               shadows="create_extension">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1341">If the plugin identified by @info implements the @extension_type,
+             line="1335">If the plugin identified by @info implements the @extension_type,
 then this function will return a new instance of this implementation.
 
 See [method@Engine.create_extension] for more information.</doc>
@@ -272,7 +272,7 @@ See [method@Engine.create_extension] for more information.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1355">a new instance of #GObject which meets the
+               line="1349">a new instance of #GObject which meets the
   prerequisites of @extension_type, or %NULL.</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
@@ -280,31 +280,31 @@ See [method@Engine.create_extension] for more information.</doc>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1343">A #PeasEngine.</doc>
+                 line="1337">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1344">A loaded #PeasPluginInfo.</doc>
+                 line="1338">A loaded #PeasPluginInfo.</doc>
             <type name="PluginInfo" c:type="PeasPluginInfo*"/>
           </parameter>
           <parameter name="extension_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1345">The implemented extension #GType.</doc>
+                 line="1339">The implemented extension #GType.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="n_properties" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1346">the length of the @prop_names and @prop_values array.</doc>
+                 line="1340">the length of the @prop_names and @prop_values array.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="prop_names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1347">an array of property names.</doc>
+                 line="1341">an array of property names.</doc>
             <array length="2" zero-terminated="0" c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -312,7 +312,7 @@ See [method@Engine.create_extension] for more information.</doc>
           <parameter name="prop_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1348">an array of property values.</doc>
+                 line="1342">an array of property values.</doc>
             <array length="2" zero-terminated="0" c:type="const GValue*">
               <type name="GObject.Value" c:type="GValue"/>
             </array>
@@ -323,7 +323,7 @@ See [method@Engine.create_extension] for more information.</doc>
               c:identifier="peas_engine_dup_loaded_plugins">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1507">Returns the list of the names of all the loaded plugins.
+             line="1501">Returns the list of the names of all the loaded plugins.
 
 If there is no plugin currently loaded, it will return an array containing a
 single %NULL element.
@@ -334,7 +334,7 @@ to free it using [func@GLib.strfreev].</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1519">A newly-allocated
+               line="1513">A newly-allocated
   %NULL-terminated array of strings.</doc>
           <array c:type="char**">
             <type name="utf8"/>
@@ -344,7 +344,7 @@ to free it using [func@GLib.strfreev].</doc>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1509">A #PeasEngine.</doc>
+                 line="1503">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
         </parameters>
@@ -352,7 +352,7 @@ to free it using [func@GLib.strfreev].</doc>
       <method name="enable_loader" c:identifier="peas_engine_enable_loader">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="965">Enable a loader, enables a loader for plugins.
+             line="962">Enable a loader, enables a loader for plugins.
 
 The C plugin loader is always enabled. The other plugin
 loaders are: gjs, lua5.1, python and python3.
@@ -376,13 +376,13 @@ Note: plugin loaders used to be shared across `PeasEngine`s so enabling
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="967">A #PeasEngine.</doc>
+                 line="964">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="loader_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="968">The name of the loader to enable.</doc>
+                 line="965">The name of the loader to enable.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -414,13 +414,13 @@ disappear.</doc>
               c:identifier="peas_engine_get_plugin_info">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1059">Gets the [class@PluginInfo] corresponding with @plugin_name,
+             line="1053">Gets the [class@PluginInfo] corresponding with @plugin_name,
 or %NULL if @plugin_name was not found.</doc>
         <source-position filename="libpeas/peas-engine.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1067">the #PeasPluginInfo corresponding with
+               line="1061">the #PeasPluginInfo corresponding with
   a given plugin module name.</doc>
           <type name="PluginInfo" c:type="PeasPluginInfo*"/>
         </return-value>
@@ -428,13 +428,13 @@ or %NULL if @plugin_name was not found.</doc>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1061">A #PeasEngine.</doc>
+                 line="1055">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="plugin_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1062">A plugin name.</doc>
+                 line="1056">A plugin name.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -442,7 +442,7 @@ or %NULL if @plugin_name was not found.</doc>
       <method name="load_plugin" c:identifier="peas_engine_load_plugin">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1176">Loads the plugin corresponding to @info if it's not currently loaded.
+             line="1170">Loads the plugin corresponding to @info if it's not currently loaded.
 
 Emits the [signal@Engine::load-plugin] signal; loading the plugin
 actually occurs in the default signal handler.</doc>
@@ -450,20 +450,20 @@ actually occurs in the default signal handler.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1186">whether the plugin has been successfully loaded.</doc>
+               line="1180">whether the plugin has been successfully loaded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1178">A #PeasEngine.</doc>
+                 line="1172">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1179">A #PeasPluginInfo.</doc>
+                 line="1173">A #PeasPluginInfo.</doc>
             <type name="PluginInfo" c:type="PeasPluginInfo*"/>
           </parameter>
         </parameters>
@@ -472,33 +472,33 @@ actually occurs in the default signal handler.</doc>
               c:identifier="peas_engine_provides_extension">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1278">Returns if @info provides an extension for @extension_type.
+             line="1272">Returns if @info provides an extension for @extension_type.
 
 If the @info is not loaded than %FALSE will always be returned.</doc>
         <source-position filename="libpeas/peas-engine.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1288">if @info provides an extension for @extension_type.</doc>
+               line="1282">if @info provides an extension for @extension_type.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1280">A #PeasEngine.</doc>
+                 line="1274">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1281">A #PeasPluginInfo.</doc>
+                 line="1275">A #PeasPluginInfo.</doc>
             <type name="PluginInfo" c:type="PeasPluginInfo*"/>
           </parameter>
           <parameter name="extension_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1282">The extension #GType.</doc>
+                 line="1276">The extension #GType.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -529,7 +529,7 @@ restarting the application.</doc>
               glib:set-property="loaded-plugins">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1563">Sets the list of loaded plugins for @engine.
+             line="1557">Sets the list of loaded plugins for @engine.
 
 When this function is called, the #PeasEngine will load all the plugins whose
 names are in @plugin_names, and ensures all other active plugins are
@@ -544,7 +544,7 @@ If @plugin_names is %NULL, all plugins will be unloaded.</doc>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1565">A #PeasEngine.</doc>
+                 line="1559">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="plugin_names"
@@ -553,7 +553,7 @@ If @plugin_names is %NULL, all plugins will be unloaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1566">A %NULL-terminated
+                 line="1560">A %NULL-terminated
  array of plugin names, or %NULL.</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
@@ -564,7 +564,7 @@ If @plugin_names is %NULL, all plugins will be unloaded.</doc>
       <method name="unload_plugin" c:identifier="peas_engine_unload_plugin">
         <doc xml:space="preserve"
              filename="libpeas/peas-engine.c"
-             line="1251">Unloads the plugin corresponding to @info.
+             line="1245">Unloads the plugin corresponding to @info.
 
 Emits the [signal@Engine::unload-plugin] signal; unloading the plugin
 actually occurs in the default signal handler.</doc>
@@ -572,20 +572,20 @@ actually occurs in the default signal handler.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas/peas-engine.c"
-               line="1261">whether the plugin has been successfully unloaded.</doc>
+               line="1255">whether the plugin has been successfully unloaded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="engine" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1253">A #PeasEngine.</doc>
+                 line="1247">A #PeasEngine.</doc>
             <type name="Engine" c:type="PeasEngine*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas/peas-engine.c"
-                 line="1254">A #PeasPluginInfo.</doc>
+                 line="1248">A #PeasPluginInfo.</doc>
             <type name="PluginInfo" c:type="PeasPluginInfo*"/>
           </parameter>
         </parameters>
@@ -1717,7 +1717,7 @@ Description=Displays "Hello World"
 Authors=Steve Frécinaux &amp;lt;code@istique.net&amp;gt;
 Copyright=Copyright © 2009-10 Steve Frécinaux
 Website=https://wiki.gnome.org/Projects/Libpeas
-Help=https://gitlab.gnome.org/GNOME/libpeas
+Help=http://library.gnome.org/devel/libpeas/stable/
 Hidden=false
 ```</doc>
       <source-position filename="libpeas/peas-plugin-info.h" line="70"/>

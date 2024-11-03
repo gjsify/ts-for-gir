@@ -14,66 +14,6 @@ and/or use gtk-doc annotations.  -->
              shared-library="libsignon-glib.so.2"
              c:identifier-prefixes="Signon"
              c:symbol-prefixes="signon">
-    <function-macro name="AUTH_SERVICE"
-                    c:identifier="SIGNON_AUTH_SERVICE"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="35"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="AUTH_SERVICE_CLASS"
-                    c:identifier="SIGNON_AUTH_SERVICE_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="36"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="AUTH_SERVICE_GET_CLASS"
-                    c:identifier="SIGNON_AUTH_SERVICE_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="39"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="AUTH_SESSION"
-                    c:identifier="SIGNON_AUTH_SESSION"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="113"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="AUTH_SESSION_CLASS"
-                    c:identifier="SIGNON_AUTH_SESSION_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="114"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="AUTH_SESSION_GET_CLASS"
-                    c:identifier="SIGNON_AUTH_SESSION_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="117"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="AuthService"
            c:symbol-prefix="auth_service"
            c:type="SignonAuthService"
@@ -82,33 +22,31 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="signon_auth_service_get_type"
            glib:type-struct="AuthServiceClass">
       <doc xml:space="preserve"
-           filename="libsignon-glib/signon-auth-service.h"
-           line="55">Opaque struct. Use the accessor functions below.</doc>
+           filename="libsignon-glib/signon-auth-service.c"
+           line="47">Opaque struct. Use the accessor functions below.</doc>
       <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="53"/>
+                       line="35"/>
       <constructor name="new" c:identifier="signon_auth_service_new">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="141">Create a new #SignonAuthService.</doc>
+             line="133">Create a new #SignonAuthService.</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="68"/>
+                         line="37"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-service.c"
-               line="146">an instance of an #SignonAuthService.</doc>
+               line="138">an instance of an #SignonAuthService.</doc>
           <type name="AuthService" c:type="SignonAuthService*"/>
         </return-value>
       </constructor>
       <method name="get_mechanisms"
               c:identifier="signon_auth_service_get_mechanisms"
-              version="2.0"
-              glib:finish-func="get_mechanisms_finish"
-              glib:sync-func="get_mechanisms_sync">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="231">Lists all the available mechanisms.</doc>
+             line="219">Lists all the available mechanisms.</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="81"/>
+                         line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -116,13 +54,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="auth_service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="233">a #SignonAuthService</doc>
+                 line="221">a #SignonAuthService</doc>
             <type name="AuthService" c:type="SignonAuthService*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="234">the name of the method whose mechanisms must be retrieved.</doc>
+                 line="222">the name of the method whose mechanisms must be retrieved.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -131,7 +69,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="235">a #GCancellable or %NULL</doc>
+                 line="223">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -142,7 +80,7 @@ and/or use gtk-doc annotations.  -->
                      closure="3">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="236">a callback to execute upon completion</doc>
+                 line="224">a callback to execute upon completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -151,7 +89,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="237">closure data for @callback</doc>
+                 line="225">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -161,13 +99,13 @@ and/or use gtk-doc annotations.  -->
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="260">Completes an asynchronous request to signon_auth_service_get_mechanisms().</doc>
+             line="246">Completes an asynchronous request to signon_auth_service_get_mechanisms().</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="86"/>
+                         line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-service.c"
-               line="268">A list of available
+               line="254">A list of available
 mechanisms.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
@@ -177,13 +115,13 @@ mechanisms.</doc>
           <instance-parameter name="auth_service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="262">a #SignonAuthService</doc>
+                 line="248">a #SignonAuthService</doc>
             <type name="AuthService" c:type="SignonAuthService*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="263">a #GAsyncResult</doc>
+                 line="249">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -191,18 +129,17 @@ mechanisms.</doc>
       <method name="get_mechanisms_sync"
               c:identifier="signon_auth_service_get_mechanisms_sync"
               version="2.0"
-              throws="1"
-              glib:async-func="get_mechanisms">
+              throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="281">Lists all the available mechanisms.
+             line="267">Lists all the available mechanisms.
 This is a blocking version of signon_auth_service_get_mechanisms().</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="89"/>
+                         line="58"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-service.c"
-               line="291">A list of available
+               line="277">A list of available
 mechanisms.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
@@ -212,13 +149,13 @@ mechanisms.</doc>
           <instance-parameter name="auth_service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="283">a #SignonAuthService</doc>
+                 line="269">a #SignonAuthService</doc>
             <type name="AuthService" c:type="SignonAuthService*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="284">the name of the method whose mechanisms must be retrieved.</doc>
+                 line="270">the name of the method whose mechanisms must be retrieved.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -227,21 +164,19 @@ mechanisms.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="285">a #GCancellable or %NULL</doc>
+                 line="271">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_methods"
               c:identifier="signon_auth_service_get_methods"
-              version="2.0"
-              glib:finish-func="get_methods_finish"
-              glib:sync-func="get_methods_sync">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="154">Lists all the available methods.</doc>
+             line="146">Lists all the available methods.</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="70"/>
+                         line="39"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -249,7 +184,7 @@ mechanisms.</doc>
           <instance-parameter name="auth_service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="156">a #SignonAuthService</doc>
+                 line="148">a #SignonAuthService</doc>
             <type name="AuthService" c:type="SignonAuthService*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -258,7 +193,7 @@ mechanisms.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="157">a #GCancellable or %NULL</doc>
+                 line="149">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -269,7 +204,7 @@ mechanisms.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="158">a callback to execute upon completion</doc>
+                 line="150">a callback to execute upon completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -278,7 +213,7 @@ mechanisms.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="159">closure data for @callback</doc>
+                 line="151">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -288,13 +223,13 @@ mechanisms.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="180">Completes an asynchronous request to signon_auth_service_get_methods().</doc>
+             line="170">Completes an asynchronous request to signon_auth_service_get_methods().</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="74"/>
+                         line="43"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-service.c"
-               line="188">A list of available
+               line="178">A list of available
 methods.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
@@ -304,13 +239,13 @@ methods.</doc>
           <instance-parameter name="auth_service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="182">a #SignonAuthService</doc>
+                 line="172">a #SignonAuthService</doc>
             <type name="AuthService" c:type="SignonAuthService*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="183">a #GAsyncResult</doc>
+                 line="173">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -318,18 +253,17 @@ methods.</doc>
       <method name="get_methods_sync"
               c:identifier="signon_auth_service_get_methods_sync"
               version="2.0"
-              throws="1"
-              glib:async-func="get_methods">
+              throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
-             line="201">Lists all the available methods.
+             line="191">Lists all the available methods.
 This is a blocking version of signon_auth_service_get_methods().</doc>
         <source-position filename="libsignon-glib/signon-auth-service.h"
-                         line="77"/>
+                         line="46"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-service.c"
-               line="210">A list of available
+               line="200">A list of available
 methods.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
@@ -339,7 +273,7 @@ methods.</doc>
           <instance-parameter name="auth_service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="203">a #SignonAuthService</doc>
+                 line="193">a #SignonAuthService</doc>
             <type name="AuthService" c:type="SignonAuthService*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -348,36 +282,23 @@ methods.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-service.c"
-                 line="204">a #GCancellable or %NULL</doc>
+                 line="194">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="AuthServicePrivate" c:type="SignonAuthServicePrivate*"/>
-      </field>
     </class>
     <record name="AuthServiceClass"
             c:type="SignonAuthServiceClass"
             glib:is-gtype-struct-for="AuthService">
       <doc xml:space="preserve"
-           filename="libsignon-glib/signon-auth-service.h"
-           line="45">Opaque struct. Use the accessor functions below.</doc>
+           filename="libsignon-glib/signon-auth-service.c"
+           line="41">Opaque struct. Use the accessor functions below.</doc>
       <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="53"/>
+                       line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
-    </record>
-    <record name="AuthServicePrivate"
-            c:type="SignonAuthServicePrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="42"/>
     </record>
     <class name="AuthSession"
            c:symbol-prefix="auth_session"
@@ -387,37 +308,37 @@ methods.</doc>
            glib:get-type="signon_auth_session_get_type"
            glib:type-struct="AuthSessionClass">
       <doc xml:space="preserve"
-           filename="libsignon-glib/signon-auth-session.h"
-           line="123">Opaque struct. Use the accessor functions below.</doc>
+           filename="libsignon-glib/signon-auth-session.c"
+           line="51">Opaque struct. Use the accessor functions below.</doc>
       <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="141"/>
+                       line="113"/>
       <constructor name="new"
                    c:identifier="signon_auth_session_new"
                    throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.c"
-             line="334">Creates a new #SignonAuthSession, which can be used to authenticate using
+             line="336">Creates a new #SignonAuthSession, which can be used to authenticate using
 the specified method.</doc>
         <source-position filename="libsignon-glib/signon-auth-session.h"
-                         line="145"/>
+                         line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-session.c"
-               line="345">a new #SignonAuthSession.</doc>
+               line="347">a new #SignonAuthSession.</doc>
           <type name="AuthSession" c:type="SignonAuthSession*"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="336">the id of the #SignonIdentity to be used. Can be 0, if this session is
+                 line="338">the id of the #SignonIdentity to be used. Can be 0, if this session is
 not bound to any stored identity.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="method_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="338">the name of the authentication method to be used.</doc>
+                 line="340">the name of the authentication method to be used.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -425,9 +346,9 @@ not bound to any stored identity.</doc>
       <method name="cancel" c:identifier="signon_auth_session_cancel">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.c"
-             line="508">Cancel the authentication session.</doc>
+             line="499">Cancel the authentication session.</doc>
         <source-position filename="libsignon-glib/signon-auth-session.h"
-                         line="161"/>
+                         line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -435,7 +356,7 @@ not bound to any stored identity.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="510">the #SignonAuthSession.</doc>
+                 line="501">the #SignonAuthSession.</doc>
             <type name="AuthSession" c:type="SignonAuthSession*"/>
           </instance-parameter>
         </parameters>
@@ -445,7 +366,7 @@ not bound to any stored identity.</doc>
              filename="libsignon-glib/signon-auth-session.c"
              line="412">Get the current authentication method.</doc>
         <source-position filename="libsignon-glib/signon-auth-session.h"
-                         line="149"/>
+                         line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-session.c"
@@ -463,18 +384,17 @@ not bound to any stored identity.</doc>
       </method>
       <method name="process"
               c:identifier="signon_auth_session_process"
-              version="1.8"
-              glib:finish-func="process_finish">
+              version="1.8">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.c"
-             line="431">Performs one step of the authentication process. If the #SignonAuthSession
+             line="428">Performs one step of the authentication process. If the #SignonAuthSession
 object is bound to an existing identity, the identity properties such as
 username and password will be also passed to the authentication plugin, so
 there's no need to fill them into @session_data.
 @session_data can be used to add additional authentication parameters to the
 session, or to override the parameters otherwise taken from the identity.</doc>
         <source-position filename="libsignon-glib/signon-auth-session.h"
-                         line="151"/>
+                         line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -482,19 +402,19 @@ session, or to override the parameters otherwise taken from the identity.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="433">the #SignonAuthSession.</doc>
+                 line="430">the #SignonAuthSession.</doc>
             <type name="AuthSession" c:type="SignonAuthSession*"/>
           </instance-parameter>
           <parameter name="session_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="434">a dictionary of parameters.</doc>
+                 line="431">a dictionary of parameters.</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="mechanism" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="435">the authentication mechanism to be used.</doc>
+                 line="432">the authentication mechanism to be used.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -503,7 +423,7 @@ session, or to override the parameters otherwise taken from the identity.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="436">optional #GCancellable object, %NULL to ignore.</doc>
+                 line="433">optional #GCancellable object, %NULL to ignore.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -514,7 +434,7 @@ session, or to override the parameters otherwise taken from the identity.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="437">a callback which will be called when the
+                 line="434">a callback which will be called when the
 authentication reply is available.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -524,7 +444,7 @@ authentication reply is available.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="439">user data to be passed to the callback.</doc>
+                 line="436">user data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -535,13 +455,13 @@ authentication reply is available.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.c"
-             line="482">Collect the result of the signon_auth_session_process() operation.</doc>
+             line="476">Collect the result of the signon_auth_session_process() operation.</doc>
         <source-position filename="libsignon-glib/signon-auth-session.h"
-                         line="157"/>
+                         line="127"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-auth-session.c"
-               line="491">a #GVariant of type %G_VARIANT_TYPE_VARDICT containing the
+               line="485">a #GVariant of type %G_VARIANT_TYPE_VARDICT containing the
 authentication reply.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -549,28 +469,22 @@ authentication reply.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="484">the #SignonAuthSession.</doc>
+                 line="478">the #SignonAuthSession.</doc>
             <type name="AuthSession" c:type="SignonAuthSession*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="485">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+                 line="479">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
 signon_auth_session_process().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
-      <field name="parent">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="AuthSessionPrivate" c:type="SignonAuthSessionPrivate*"/>
-      </field>
       <glib:signal name="state-changed" when="last" action="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.c"
-             line="310">Emitted when the state of the #SignonAuthSession changes.</doc>
+             line="312">Emitted when the state of the #SignonAuthSession changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -578,13 +492,13 @@ signon_auth_session_process().</doc>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="313">the current state of the #SignonAuthSession</doc>
+                 line="315">the current state of the #SignonAuthSession</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-auth-session.c"
-                 line="314">the message associated with the state change</doc>
+                 line="316">the message associated with the state change</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -594,30 +508,14 @@ signon_auth_session_process().</doc>
             c:type="SignonAuthSessionClass"
             glib:is-gtype-struct-for="AuthSession">
       <doc xml:space="preserve"
-           filename="libsignon-glib/signon-auth-session.h"
-           line="134">Opaque struct. Use the accessor functions below.</doc>
+           filename="libsignon-glib/signon-auth-session.c"
+           line="57">Opaque struct. Use the accessor functions below.</doc>
       <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="141"/>
-      <field name="parent">
+                       line="113"/>
+      <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <record name="AuthSessionPrivate"
-            c:type="SignonAuthSessionPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="120"/>
-    </record>
-    <function-macro name="DEPRECATED_FOR"
-                    c:identifier="SIGNON_DEPRECATED_FOR"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-types.h" line="34"/>
-      <parameters>
-        <parameter name="x">
-        </parameter>
-      </parameters>
-    </function-macro>
     <enumeration name="Error"
                  glib:type-name="SignonError"
                  glib:get-type="signon_error_get_type"
@@ -629,8 +527,7 @@ signon_auth_session_process().</doc>
       <member name="unknown"
               value="1"
               c:identifier="SIGNON_ERROR_UNKNOWN"
-              glib:nick="unknown"
-              glib:name="SIGNON_ERROR_UNKNOWN">
+              glib:nick="unknown">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="37">Catch-all for errors not distinguished by another code.</doc>
@@ -638,8 +535,7 @@ signon_auth_session_process().</doc>
       <member name="internal_server"
               value="2"
               c:identifier="SIGNON_ERROR_INTERNAL_SERVER"
-              glib:nick="internal-server"
-              glib:name="SIGNON_ERROR_INTERNAL_SERVER">
+              glib:nick="internal-server">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="38">Signon daemon internal error.</doc>
@@ -647,8 +543,7 @@ signon_auth_session_process().</doc>
       <member name="internal_communication"
               value="3"
               c:identifier="SIGNON_ERROR_INTERNAL_COMMUNICATION"
-              glib:nick="internal-communication"
-              glib:name="SIGNON_ERROR_INTERNAL_COMMUNICATION">
+              glib:nick="internal-communication">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="39">Error communicating with Sigon daemon.</doc>
@@ -656,8 +551,7 @@ signon_auth_session_process().</doc>
       <member name="permission_denied"
               value="4"
               c:identifier="SIGNON_ERROR_PERMISSION_DENIED"
-              glib:nick="permission-denied"
-              glib:name="SIGNON_ERROR_PERMISSION_DENIED">
+              glib:nick="permission-denied">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="40">The operation cannot be performed due to
@@ -666,8 +560,7 @@ insufficient client permissions.</doc>
       <member name="method_not_known"
               value="101"
               c:identifier="SIGNON_ERROR_METHOD_NOT_KNOWN"
-              glib:nick="method-not-known"
-              glib:name="SIGNON_ERROR_METHOD_NOT_KNOWN">
+              glib:nick="method-not-known">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="42">The method with this name was not found.</doc>
@@ -675,8 +568,7 @@ insufficient client permissions.</doc>
       <member name="service_not_available"
               value="102"
               c:identifier="SIGNON_ERROR_SERVICE_NOT_AVAILABLE"
-              glib:nick="service-not-available"
-              glib:name="SIGNON_ERROR_SERVICE_NOT_AVAILABLE">
+              glib:nick="service-not-available">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="43">The service is temporarily unavailable.</doc>
@@ -684,8 +576,7 @@ insufficient client permissions.</doc>
       <member name="invalid_query"
               value="103"
               c:identifier="SIGNON_ERROR_INVALID_QUERY"
-              glib:nick="invalid-query"
-              glib:name="SIGNON_ERROR_INVALID_QUERY">
+              glib:nick="invalid-query">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="44">Parameters for the query are invalid.</doc>
@@ -693,8 +584,7 @@ insufficient client permissions.</doc>
       <member name="method_not_available"
               value="201"
               c:identifier="SIGNON_ERROR_METHOD_NOT_AVAILABLE"
-              glib:nick="method-not-available"
-              glib:name="SIGNON_ERROR_METHOD_NOT_AVAILABLE">
+              glib:nick="method-not-available">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="45">The requested method is not available.</doc>
@@ -702,8 +592,7 @@ insufficient client permissions.</doc>
       <member name="identity_not_found"
               value="202"
               c:identifier="SIGNON_ERROR_IDENTITY_NOT_FOUND"
-              glib:nick="identity-not-found"
-              glib:name="SIGNON_ERROR_IDENTITY_NOT_FOUND">
+              glib:nick="identity-not-found">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="46">The identity mathching the #SignonIdentity
@@ -712,8 +601,7 @@ was not found on the service.</doc>
       <member name="store_failed"
               value="203"
               c:identifier="SIGNON_ERROR_STORE_FAILED"
-              glib:nick="store-failed"
-              glib:name="SIGNON_ERROR_STORE_FAILED">
+              glib:nick="store-failed">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="48">Storing credentials failed.</doc>
@@ -721,8 +609,7 @@ was not found on the service.</doc>
       <member name="remove_failed"
               value="204"
               c:identifier="SIGNON_ERROR_REMOVE_FAILED"
-              glib:nick="remove-failed"
-              glib:name="SIGNON_ERROR_REMOVE_FAILED">
+              glib:nick="remove-failed">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="49">Removing credentials failed.</doc>
@@ -730,8 +617,7 @@ was not found on the service.</doc>
       <member name="signout_failed"
               value="205"
               c:identifier="SIGNON_ERROR_SIGNOUT_FAILED"
-              glib:nick="signout-failed"
-              glib:name="SIGNON_ERROR_SIGNOUT_FAILED">
+              glib:nick="signout-failed">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="50">Signing out failed.</doc>
@@ -739,8 +625,7 @@ was not found on the service.</doc>
       <member name="identity_operation_canceled"
               value="206"
               c:identifier="SIGNON_ERROR_IDENTITY_OPERATION_CANCELED"
-              glib:nick="identity-operation-canceled"
-              glib:name="SIGNON_ERROR_IDENTITY_OPERATION_CANCELED">
+              glib:nick="identity-operation-canceled">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="51">Identity operation was canceled
@@ -749,8 +634,7 @@ by the user.</doc>
       <member name="credentials_not_available"
               value="207"
               c:identifier="SIGNON_ERROR_CREDENTIALS_NOT_AVAILABLE"
-              glib:nick="credentials-not-available"
-              glib:name="SIGNON_ERROR_CREDENTIALS_NOT_AVAILABLE">
+              glib:nick="credentials-not-available">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="53">Query failed.</doc>
@@ -758,8 +642,7 @@ by the user.</doc>
       <member name="reference_not_found"
               value="208"
               c:identifier="SIGNON_ERROR_REFERENCE_NOT_FOUND"
-              glib:nick="reference-not-found"
-              glib:name="SIGNON_ERROR_REFERENCE_NOT_FOUND">
+              glib:nick="reference-not-found">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="54">Trying to remove non-existent reference.</doc>
@@ -767,8 +650,7 @@ by the user.</doc>
       <member name="mechanism_not_available"
               value="301"
               c:identifier="SIGNON_ERROR_MECHANISM_NOT_AVAILABLE"
-              glib:nick="mechanism-not-available"
-              glib:name="SIGNON_ERROR_MECHANISM_NOT_AVAILABLE">
+              glib:nick="mechanism-not-available">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="55">The requested mechanism in not
@@ -777,8 +659,7 @@ available.</doc>
       <member name="missing_data"
               value="302"
               c:identifier="SIGNON_ERROR_MISSING_DATA"
-              glib:nick="missing-data"
-              glib:name="SIGNON_ERROR_MISSING_DATA">
+              glib:nick="missing-data">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="57">The #SessionData does not contain the necessary
@@ -787,8 +668,7 @@ information.</doc>
       <member name="invalid_credentials"
               value="303"
               c:identifier="SIGNON_ERROR_INVALID_CREDENTIALS"
-              glib:nick="invalid-credentials"
-              glib:name="SIGNON_ERROR_INVALID_CREDENTIALS">
+              glib:nick="invalid-credentials">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="59">The supplied credentials are invalid for
@@ -797,8 +677,7 @@ the mechanism implementation.</doc>
       <member name="not_authorized"
               value="304"
               c:identifier="SIGNON_ERROR_NOT_AUTHORIZED"
-              glib:nick="not-authorized"
-              glib:name="SIGNON_ERROR_NOT_AUTHORIZED">
+              glib:nick="not-authorized">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="61">Authorization failed.</doc>
@@ -806,8 +685,7 @@ the mechanism implementation.</doc>
       <member name="wrong_state"
               value="305"
               c:identifier="SIGNON_ERROR_WRONG_STATE"
-              glib:nick="wrong-state"
-              glib:name="SIGNON_ERROR_WRONG_STATE">
+              glib:nick="wrong-state">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="62">An operation method has been called in an
@@ -816,8 +694,7 @@ incorrect state.</doc>
       <member name="operation_not_supported"
               value="306"
               c:identifier="SIGNON_ERROR_OPERATION_NOT_SUPPORTED"
-              glib:nick="operation-not-supported"
-              glib:name="SIGNON_ERROR_OPERATION_NOT_SUPPORTED">
+              glib:nick="operation-not-supported">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="64">The operation is not supported by the
@@ -826,8 +703,7 @@ mechanism implementation.</doc>
       <member name="no_connection"
               value="307"
               c:identifier="SIGNON_ERROR_NO_CONNECTION"
-              glib:nick="no-connection"
-              glib:name="SIGNON_ERROR_NO_CONNECTION">
+              glib:nick="no-connection">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="66">No network connection.</doc>
@@ -835,8 +711,7 @@ mechanism implementation.</doc>
       <member name="network"
               value="308"
               c:identifier="SIGNON_ERROR_NETWORK"
-              glib:nick="network"
-              glib:name="SIGNON_ERROR_NETWORK">
+              glib:nick="network">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="67">Network connection failed.</doc>
@@ -844,8 +719,7 @@ mechanism implementation.</doc>
       <member name="ssl"
               value="309"
               c:identifier="SIGNON_ERROR_SSL"
-              glib:nick="ssl"
-              glib:name="SIGNON_ERROR_SSL">
+              glib:nick="ssl">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="68">SSL connection failed.</doc>
@@ -853,8 +727,7 @@ mechanism implementation.</doc>
       <member name="runtime"
               value="310"
               c:identifier="SIGNON_ERROR_RUNTIME"
-              glib:nick="runtime"
-              glib:name="SIGNON_ERROR_RUNTIME">
+              glib:nick="runtime">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="69">Casting #SessionData into subclass failed.</doc>
@@ -862,8 +735,7 @@ mechanism implementation.</doc>
       <member name="session_canceled"
               value="311"
               c:identifier="SIGNON_ERROR_SESSION_CANCELED"
-              glib:nick="session-canceled"
-              glib:name="SIGNON_ERROR_SESSION_CANCELED">
+              glib:nick="session-canceled">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="70">Challenge was canceled.</doc>
@@ -871,8 +743,7 @@ mechanism implementation.</doc>
       <member name="timed_out"
               value="312"
               c:identifier="SIGNON_ERROR_TIMED_OUT"
-              glib:nick="timed-out"
-              glib:name="SIGNON_ERROR_TIMED_OUT">
+              glib:nick="timed-out">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="71">Challenge timed out.</doc>
@@ -880,8 +751,7 @@ mechanism implementation.</doc>
       <member name="user_interaction"
               value="313"
               c:identifier="SIGNON_ERROR_USER_INTERACTION"
-              glib:nick="user-interaction"
-              glib:name="SIGNON_ERROR_USER_INTERACTION">
+              glib:nick="user-interaction">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="72">User interaction dialog failed.</doc>
@@ -889,8 +759,7 @@ mechanism implementation.</doc>
       <member name="operation_failed"
               value="314"
               c:identifier="SIGNON_ERROR_OPERATION_FAILED"
-              glib:nick="operation-failed"
-              glib:name="SIGNON_ERROR_OPERATION_FAILED">
+              glib:nick="operation-failed">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="73">Temporary failure in authentication.</doc>
@@ -898,8 +767,7 @@ mechanism implementation.</doc>
       <member name="encryption_failed"
               value="315"
               c:identifier="SIGNON_ERROR_ENCRYPTION_FAILED"
-              glib:nick="encryption-failed"
-              glib:name="SIGNON_ERROR_ENCRYPTION_FAILED">
+              glib:nick="encryption-failed">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="74">@deprecated: Failure during data
@@ -908,8 +776,7 @@ encryption/decryption.</doc>
       <member name="tos_not_accepted"
               value="316"
               c:identifier="SIGNON_ERROR_TOS_NOT_ACCEPTED"
-              glib:nick="tos-not-accepted"
-              glib:name="SIGNON_ERROR_TOS_NOT_ACCEPTED">
+              glib:nick="tos-not-accepted">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="76">User declined Terms of Service.</doc>
@@ -917,8 +784,7 @@ encryption/decryption.</doc>
       <member name="forgot_password"
               value="317"
               c:identifier="SIGNON_ERROR_FORGOT_PASSWORD"
-              glib:nick="forgot-password"
-              glib:name="SIGNON_ERROR_FORGOT_PASSWORD">
+              glib:nick="forgot-password">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="77">User requested password reset sequence.</doc>
@@ -926,8 +792,7 @@ encryption/decryption.</doc>
       <member name="method_or_mechanism_not_allowed"
               value="318"
               c:identifier="SIGNON_ERROR_METHOD_OR_MECHANISM_NOT_ALLOWED"
-              glib:nick="method-or-mechanism-not-allowed"
-              glib:name="SIGNON_ERROR_METHOD_OR_MECHANISM_NOT_ALLOWED">
+              glib:nick="method-or-mechanism-not-allowed">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="78">Method or mechanism not
@@ -936,8 +801,7 @@ allowed for this identity.</doc>
       <member name="incorrect_date"
               value="319"
               c:identifier="SIGNON_ERROR_INCORRECT_DATE"
-              glib:nick="incorrect-date"
-              glib:name="SIGNON_ERROR_INCORRECT_DATE">
+              glib:nick="incorrect-date">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="80">Date/time incorrect on device.</doc>
@@ -945,8 +809,7 @@ allowed for this identity.</doc>
       <member name="user_error"
               value="400"
               c:identifier="SIGNON_ERROR_USER_ERROR"
-              glib:nick="user-error"
-              glib:name="SIGNON_ERROR_USER_ERROR">
+              glib:nick="user-error">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-errors.h"
              line="81">Placeholder to rearrange enumeration - userspace
@@ -958,91 +821,6 @@ specific.</doc>
         </return-value>
       </function>
     </enumeration>
-    <function-macro name="IDENTITY"
-                    c:identifier="SIGNON_IDENTITY"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-identity.h" line="36"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IDENTITY_CLASS"
-                    c:identifier="SIGNON_IDENTITY_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-identity.h" line="37"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IDENTITY_GET_CLASS"
-                    c:identifier="SIGNON_IDENTITY_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-identity.h" line="40"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_AUTH_SERVICE"
-                    c:identifier="SIGNON_IS_AUTH_SERVICE"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="37"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_AUTH_SERVICE_CLASS"
-                    c:identifier="SIGNON_IS_AUTH_SERVICE_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-service.h"
-                       line="38"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_AUTH_SESSION"
-                    c:identifier="SIGNON_IS_AUTH_SESSION"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="115"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_AUTH_SESSION_CLASS"
-                    c:identifier="SIGNON_IS_AUTH_SESSION_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-auth-session.h"
-                       line="116"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_IDENTITY"
-                    c:identifier="SIGNON_IS_IDENTITY"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-identity.h" line="38"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_IDENTITY_CLASS"
-                    c:identifier="SIGNON_IS_IDENTITY_CLASS"
-                    introspectable="0">
-      <source-position filename="libsignon-glib/signon-identity.h" line="39"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="Identity"
            c:symbol-prefix="identity"
            c:type="SignonIdentity"
@@ -1051,19 +829,19 @@ specific.</doc>
            glib:get-type="signon_identity_get_type"
            glib:type-struct="IdentityClass">
       <doc xml:space="preserve"
-           filename="libsignon-glib/signon-identity.h"
-           line="56">Opaque struct. Use the accessor functions below.</doc>
-      <source-position filename="libsignon-glib/signon-identity.h" line="54"/>
+           filename="libsignon-glib/signon-identity.c"
+           line="72">Opaque struct. Use the accessor functions below.</doc>
+      <source-position filename="libsignon-glib/signon-identity.h" line="36"/>
       <constructor name="new" c:identifier="signon_identity_new">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="596">Construct new, empty, identity object.</doc>
+             line="571">Construct new, empty, identity object.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="70"/>
+                         line="39"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="601">an instance of an #SignonIdentity.</doc>
+               line="576">an instance of an #SignonIdentity.</doc>
           <type name="Identity" c:type="SignonIdentity*"/>
         </return-value>
       </constructor>
@@ -1071,21 +849,21 @@ specific.</doc>
                    c:identifier="signon_identity_new_from_db">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="570">Construct an identity object associated with an existing identity
+             line="546">Construct an identity object associated with an existing identity
 record.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="69"/>
+                         line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="577">an instance of a #SignonIdentity.</doc>
+               line="553">an instance of a #SignonIdentity.</doc>
           <type name="Identity" c:type="SignonIdentity*"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="572">identity ID.</doc>
+                 line="548">identity ID.</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -1095,43 +873,42 @@ record.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="630">Creates an authentication session for this identity.</doc>
+             line="605">Creates an authentication session for this identity.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="76"/>
+                         line="45"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="638">a new #SignonAuthSession.</doc>
+               line="613">a new #SignonAuthSession.</doc>
           <type name="AuthSession" c:type="SignonAuthSession*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="632">the #SignonIdentity.</doc>
+                 line="607">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="633">method.</doc>
+                 line="608">method.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_id"
               c:identifier="signon_identity_get_id"
-              glib:get-property="id"
               version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="449">Get the id of the @identity.</doc>
+             line="430">Get the id of the @identity.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="72"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="457">the id of the #SignonIdentity, or 0 if the identity has not being
+               line="438">the id of the #SignonIdentity, or 0 if the identity has not being
 registered.</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
@@ -1139,7 +916,7 @@ registered.</doc>
           <instance-parameter name="identity" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="451">the #SignonIdentity.</doc>
+                 line="432">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
         </parameters>
@@ -1148,33 +925,32 @@ registered.</doc>
               c:identifier="signon_identity_get_last_error">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="482">Get the most recent error that occurred on @identity.</doc>
+             line="461">Get the most recent error that occurred on @identity.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="74"/>
+                         line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="488">a #GError containing the most recent error, or %NULL on failure.</doc>
+               line="467">a #GError containing the most recent error, or %NULL on failure.</doc>
           <type name="GLib.Error" c:type="const GError*"/>
         </return-value>
         <parameters>
           <instance-parameter name="identity" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="484">the #SignonIdentity.</doc>
+                 line="463">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="query_info"
               c:identifier="signon_identity_query_info"
-              version="2.0"
-              glib:finish-func="query_info_finish">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="1343">Fetches the #SignonIdentityInfo associated with this identity.</doc>
+             line="1278">Fetches the #SignonIdentityInfo associated with this identity.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="98"/>
+                         line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1182,7 +958,7 @@ registered.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1345">the #SignonIdentity.</doc>
+                 line="1280">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1191,7 +967,7 @@ registered.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1346">optional #GCancellable object, %NULL to ignore.</doc>
+                 line="1281">optional #GCancellable object, %NULL to ignore.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1202,7 +978,7 @@ registered.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1347">a callback which will be called when the #SignonIdentityInfo is
+                 line="1282">a callback which will be called when the #SignonIdentityInfo is
 available.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1212,7 +988,7 @@ available.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1349">user data to be passed to the callback.</doc>
+                 line="1284">user data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1222,26 +998,26 @@ available.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="1373">Collect the result of the signon_identity_query_info() operation.</doc>
+             line="1308">Collect the result of the signon_identity_query_info() operation.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="102"/>
+                         line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="1382">the #SignonIdentityInfo associated with this identity.</doc>
+               line="1317">the #SignonIdentityInfo associated with this identity.</doc>
           <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1375">the #SignonIdentity.</doc>
+                 line="1310">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1376">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+                 line="1311">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
 signon_identity_query_info().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
@@ -1249,13 +1025,12 @@ signon_identity_query_info().</doc>
       </method>
       <method name="remove"
               c:identifier="signon_identity_remove"
-              version="2.0"
-              glib:finish-func="remove_finish">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="1162">Removes the corresponding credentials record from the database.</doc>
+             line="1106">Removes the corresponding credentials record from the database.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="106"/>
+                         line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1263,7 +1038,7 @@ signon_identity_query_info().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1164">the #SignonIdentity.</doc>
+                 line="1108">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1272,7 +1047,7 @@ signon_identity_query_info().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1165">optional #GCancellable object, %NULL to ignore.</doc>
+                 line="1109">optional #GCancellable object, %NULL to ignore.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1283,7 +1058,7 @@ signon_identity_query_info().</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1166">a callback which will be called when the operation has completed.</doc>
+                 line="1110">a callback which will be called when the operation has completed.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1292,7 +1067,7 @@ signon_identity_query_info().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1167">user data to be passed to the callback.</doc>
+                 line="1111">user data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1301,7 +1076,7 @@ signon_identity_query_info().</doc>
               c:identifier="signon_identity_remove_finish"
               throws="1">
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="110"/>
+                         line="79"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1316,15 +1091,14 @@ signon_identity_query_info().</doc>
       </method>
       <method name="sign_out"
               c:identifier="signon_identity_sign_out"
-              version="2.0"
-              glib:finish-func="sign_out_finish">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="1201">Asks signond to close all authentication sessions for this
+             line="1145">Asks signond to close all authentication sessions for this
 identity, and to remove any stored secrets associated with it (password and
 authentication tokens).</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="114"/>
+                         line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1332,7 +1106,7 @@ authentication tokens).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1203">the #SignonIdentity.</doc>
+                 line="1147">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1341,7 +1115,7 @@ authentication tokens).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1204">optional #GCancellable object, %NULL to ignore.</doc>
+                 line="1148">optional #GCancellable object, %NULL to ignore.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1352,7 +1126,7 @@ authentication tokens).</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1205">a callback which will be called when the operation has completed.</doc>
+                 line="1149">a callback which will be called when the operation has completed.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1361,7 +1135,7 @@ authentication tokens).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="1206">user data to be passed to the callback.</doc>
+                 line="1150">user data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1370,7 +1144,7 @@ authentication tokens).</doc>
               c:identifier="signon_identity_sign_out_finish"
               throws="1">
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="118"/>
+                         line="87"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1385,13 +1159,12 @@ authentication tokens).</doc>
       </method>
       <method name="store_info"
               c:identifier="signon_identity_store_info"
-              version="2.0"
-              glib:finish-func="store_info_finish">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="702">Stores the data from @info into the identity.</doc>
+             line="674">Stores the data from @info into the identity.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="80"/>
+                         line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1399,13 +1172,13 @@ authentication tokens).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="704">the #SignonIdentity.</doc>
+                 line="676">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="705">the #SignonIdentityInfo data to store.</doc>
+                 line="677">the #SignonIdentityInfo data to store.</doc>
             <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1414,7 +1187,7 @@ authentication tokens).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="706">optional #GCancellable object, %NULL to ignore.</doc>
+                 line="678">optional #GCancellable object, %NULL to ignore.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1425,7 +1198,7 @@ authentication tokens).</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="707">a callback which will be called when the
+                 line="679">a callback which will be called when the
 authentication reply is available.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1435,7 +1208,7 @@ authentication reply is available.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="709">user data to be passed to the callback.</doc>
+                 line="681">user data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1445,26 +1218,26 @@ authentication reply is available.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="740">Collect the result of the signon_identity_store_info() operation.</doc>
+             line="712">Collect the result of the signon_identity_store_info() operation.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="85"/>
+                         line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="749">%TRUE if the info has been stored, %FALSE otherwise.</doc>
+               line="721">%TRUE if the info has been stored, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="742">the #SignonIdentity.</doc>
+                 line="714">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="743">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+                 line="715">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
 signon_identity_store_info().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
@@ -1472,13 +1245,12 @@ signon_identity_store_info().</doc>
       </method>
       <method name="verify_secret"
               c:identifier="signon_identity_verify_secret"
-              version="2.0"
-              glib:finish-func="verify_secret_finish">
+              version="2.0">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="905">Verifies the given secret.</doc>
+             line="870">Verifies the given secret.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="89"/>
+                         line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1486,13 +1258,13 @@ signon_identity_store_info().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="907">the #SignonIdentity.</doc>
+                 line="872">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="secret" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="908">the secret (password) to be verified.</doc>
+                 line="873">the secret (password) to be verified.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1501,7 +1273,7 @@ signon_identity_store_info().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="909">optional #GCancellable object, %NULL to ignore.</doc>
+                 line="874">optional #GCancellable object, %NULL to ignore.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1512,7 +1284,7 @@ signon_identity_store_info().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="910">a callback which will be called when the verification is done.</doc>
+                 line="875">a callback which will be called when the verification is done.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1521,7 +1293,7 @@ signon_identity_store_info().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="911">user data to be passed to the callback.</doc>
+                 line="876">user data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1531,26 +1303,26 @@ signon_identity_store_info().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="940">Collect the result of the signon_identity_verify_secret() operation.</doc>
+             line="905">Collect the result of the signon_identity_verify_secret() operation.</doc>
         <source-position filename="libsignon-glib/signon-identity.h"
-                         line="94"/>
+                         line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsignon-glib/signon-identity.c"
-               line="949">%TRUE if the secret is valid, %FALSE otherwise.</doc>
+               line="914">%TRUE if the secret is valid, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="942">the #SignonIdentity.</doc>
+                 line="907">the #SignonIdentity.</doc>
             <type name="Identity" c:type="SignonIdentity*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsignon-glib/signon-identity.c"
-                 line="943">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+                 line="908">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
 signon_identity_verify_secret().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
@@ -1559,21 +1331,13 @@ signon_identity_verify_secret().</doc>
       <property name="id"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                getter="get_id"
-                default-value="0">
+                transfer-ownership="none">
         <type name="guint" c:type="guint"/>
       </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="IdentityPrivate" c:type="SignonIdentityPrivate*"/>
-      </field>
       <glib:signal name="signed-out" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
-             line="266">Emitted when the identity was signed out.</doc>
+             line="262">Emitted when the identity was signed out.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1583,16 +1347,15 @@ signon_identity_verify_secret().</doc>
             c:type="SignonIdentityClass"
             glib:is-gtype-struct-for="Identity">
       <doc xml:space="preserve"
-           filename="libsignon-glib/signon-identity.h"
-           line="46">Opaque struct. Use the accessor functions below.</doc>
-      <source-position filename="libsignon-glib/signon-identity.h" line="54"/>
+           filename="libsignon-glib/signon-identity.c"
+           line="66">Opaque struct. Use the accessor functions below.</doc>
+      <source-position filename="libsignon-glib/signon-identity.h" line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <record name="IdentityInfo"
             c:type="SignonIdentityInfo"
-            opaque="1"
             glib:type-name="SignonIdentityInfo"
             glib:get-type="signon_identity_info_get_type"
             c:symbol-prefix="identity_info">
@@ -2092,12 +1855,6 @@ should remember it.</doc>
         </parameters>
       </method>
     </record>
-    <record name="IdentityPrivate"
-            c:type="SignonIdentityPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libsignon-glib/signon-identity.h" line="43"/>
-    </record>
     <bitfield name="IdentityType"
               glib:type-name="SignonIdentityType"
               glib:get-type="signon_identity_type_get_type"
@@ -2108,8 +1865,7 @@ should remember it.</doc>
       <member name="other"
               value="0"
               c:identifier="SIGNON_IDENTITY_TYPE_OTHER"
-              glib:nick="other"
-              glib:name="SIGNON_IDENTITY_TYPE_OTHER">
+              glib:nick="other">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity-info.h"
              line="42">an identity that is not an app, web or network</doc>
@@ -2117,8 +1873,7 @@ should remember it.</doc>
       <member name="app"
               value="1"
               c:identifier="SIGNON_IDENTITY_TYPE_APP"
-              glib:nick="app"
-              glib:name="SIGNON_IDENTITY_TYPE_APP">
+              glib:nick="app">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity-info.h"
              line="43">an application identity</doc>
@@ -2126,8 +1881,7 @@ should remember it.</doc>
       <member name="web"
               value="2"
               c:identifier="SIGNON_IDENTITY_TYPE_WEB"
-              glib:nick="web"
-              glib:name="SIGNON_IDENTITY_TYPE_WEB">
+              glib:nick="web">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity-info.h"
              line="44">a web identity</doc>
@@ -2135,8 +1889,7 @@ should remember it.</doc>
       <member name="network"
               value="4"
               c:identifier="SIGNON_IDENTITY_TYPE_NETWORK"
-              glib:nick="network"
-              glib:name="SIGNON_IDENTITY_TYPE_NETWORK">
+              glib:nick="network">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity-info.h"
              line="45">a network server identity</doc>
@@ -2234,7 +1987,6 @@ should remember it.</doc>
     </constant>
     <record name="SecurityContext"
             c:type="SignonSecurityContext"
-            opaque="1"
             glib:type-name="SignonSecurityContext"
             glib:get-type="signon_security_context_get_type"
             c:symbol-prefix="security_context">
@@ -2431,8 +2183,7 @@ should remember it.</doc>
       <member name="default"
               value="0"
               c:identifier="SIGNON_POLICY_DEFAULT"
-              glib:nick="default"
-              glib:name="SIGNON_POLICY_DEFAULT">
+              glib:nick="default">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.h"
              line="65">The plugin can decide when to show UI.</doc>
@@ -2440,8 +2191,7 @@ should remember it.</doc>
       <member name="request_password"
               value="1"
               c:identifier="SIGNON_POLICY_REQUEST_PASSWORD"
-              glib:nick="request-password"
-              glib:name="SIGNON_POLICY_REQUEST_PASSWORD">
+              glib:nick="request-password">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.h"
              line="66">Force the user to enter the password.</doc>
@@ -2449,8 +2199,7 @@ should remember it.</doc>
       <member name="no_user_interaction"
               value="2"
               c:identifier="SIGNON_POLICY_NO_USER_INTERACTION"
-              glib:nick="no-user-interaction"
-              glib:name="SIGNON_POLICY_NO_USER_INTERACTION">
+              glib:nick="no-user-interaction">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.h"
              line="67">No UI elements will be shown to the user.</doc>
@@ -2458,8 +2207,7 @@ should remember it.</doc>
       <member name="validation"
               value="3"
               c:identifier="SIGNON_POLICY_VALIDATION"
-              glib:nick="validation"
-              glib:name="SIGNON_POLICY_VALIDATION">
+              glib:nick="validation">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.h"
              line="68">UI elements can be shown to the user only when
@@ -2473,42 +2221,5 @@ CAPTCHA-like security measures are required.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
-    <docsection name="signon-auth-service">
-      <doc xml:space="preserve"
-           filename="libsignon-glib/signon-auth-service.c"
-           line="26">The #SignonAuthService is the main object in this library.</doc>
-    </docsection>
-    <docsection name="signon-auth-session">
-      <doc xml:space="preserve"
-           filename="libsignon-glib/signon-auth-session.c"
-           line="26">The #SignonAuthSession object is responsible for handling the client
-authentication. #SignonAuthSession objects can be created from existing
-identities (via signon_identity_create_session() or by passing a non-zero ID
-to signon_auth_session_new()), in which case the authentication data such as
-username and password will be implicitly taken from the identity, or they
-can be created with no existing identity bound to them, in which case all
-the authentication data must be filled in by the client when
-signon_auth_session_process() is called.</doc>
-    </docsection>
-    <docsection name="signon-errors">
-      <doc xml:space="preserve"
-           filename="libsignon-glib/signon-errors.c"
-           line="31">An enumeration of errors that are possible from Signon.</doc>
-    </docsection>
-    <docsection name="signon-identity">
-      <doc xml:space="preserve"
-           filename="libsignon-glib/signon-identity.c"
-           line="26">The #SignonIdentity represents a database entry for a single identity.</doc>
-    </docsection>
-    <docsection name="signon-identity-info">
-      <doc xml:space="preserve"
-           filename="libsignon-glib/signon-identity-info.c"
-           line="26">Extra data retreived from a #SignonIdentity.</doc>
-    </docsection>
-    <docsection name="signon-security-context">
-      <doc xml:space="preserve"
-           filename="libsignon-glib/signon-security-context.c"
-           line="26">Security context information for a #SignonIdentity.</doc>
-    </docsection>
   </namespace>
 </repository>

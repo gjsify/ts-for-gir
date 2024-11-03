@@ -623,19 +623,19 @@ fixup functions on large and deeply nested XML files.</doc>
                    version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="992">Creates a new builder node.</doc>
+             line="989">Creates a new builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="58"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="998">a new #XbBuilderNode</doc>
+               line="995">a new #XbBuilderNode</doc>
           <type name="BuilderNode" c:type="XbBuilderNode*"/>
         </return-value>
         <parameters>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="994">An element name, e.g. "component"</doc>
+                 line="991">An element name, e.g. "component"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -645,7 +645,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="522">Adds a child builder node.</doc>
+             line="519">Adds a child builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -654,13 +654,13 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="524">A XbBuilderNode</doc>
+                 line="521">A XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="525">A XbBuilderNode</doc>
+                 line="522">A XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </parameter>
         </parameters>
@@ -695,7 +695,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.3.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="1191">Adds a token to the builder node.</doc>
+             line="1188">Adds a token to the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -704,13 +704,13 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1193">a #XbBuilderNode</doc>
+                 line="1190">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="token" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1194">a new token</doc>
+                 line="1191">a new token</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -720,7 +720,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="502">Gets the depth of the node tree, where 0 is the root node.</doc>
+             line="499">Gets the depth of the node tree, where 0 is the root node.</doc>
         <source-position filename="src/xb-builder-node.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
@@ -729,7 +729,7 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="504">a #XbBuilderNode</doc>
+                 line="501">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -740,25 +740,25 @@ fixup functions on large and deeply nested XML files.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="1161">Exports the node to XML.</doc>
+             line="1158">Exports the node to XML.</doc>
         <source-position filename="src/xb-builder-node.h" line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="1169">XML data, or %NULL for an error</doc>
+               line="1166">XML data, or %NULL for an error</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1163">a #XbBuilderNode</doc>
+                 line="1160">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1164">some #XbNodeExportFlags, e.g. #XB_NODE_EXPORT_FLAG_NONE</doc>
+                 line="1161">some #XbNodeExportFlags, e.g. #XB_NODE_EXPORT_FLAG_NONE</doc>
             <type name="NodeExportFlags" c:type="XbNodeExportFlags"/>
           </parameter>
         </parameters>
@@ -824,25 +824,25 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="678">Finds a child builder node by the element name, and optionally text value.</doc>
+             line="675">Finds a child builder node by the element name, and optionally text value.</doc>
         <source-position filename="src/xb-builder-node.h" line="109"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="686">a new #XbBuilderNode, or %NULL if not found</doc>
+               line="683">a new #XbBuilderNode, or %NULL if not found</doc>
           <type name="BuilderNode" c:type="XbBuilderNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="680">a #XbBuilderNode</doc>
+                 line="677">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="681">An element name, e.g. "url"</doc>
+                 line="678">An element name, e.g. "url"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="text"
@@ -851,7 +851,7 @@ fixup functions on large and deeply nested XML files.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="682">node text, e.g. "gimp.desktop"</doc>
+                 line="679">node text, e.g. "gimp.desktop"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -861,12 +861,12 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="614">Gets the children of the builder node.</doc>
+             line="611">Gets the children of the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="620">children</doc>
+               line="617">children</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="BuilderNode"/>
           </array>
@@ -875,7 +875,7 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="616">a #XbBuilderNode</doc>
+                 line="613">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -907,19 +907,19 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.12">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="638">Gets the first child of the builder node.</doc>
+             line="635">Gets the first child of the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="644">a #XbBuilderNode, or %NULL</doc>
+               line="641">a #XbBuilderNode, or %NULL</doc>
           <type name="BuilderNode" c:type="XbBuilderNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="640">a #XbBuilderNode</doc>
+                 line="637">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -929,19 +929,19 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.12">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="658">Gets the last child of the builder node.</doc>
+             line="655">Gets the last child of the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="107"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="664">a #XbBuilderNode, or %NULL</doc>
+               line="661">a #XbBuilderNode, or %NULL</doc>
           <type name="BuilderNode" c:type="XbBuilderNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="660">a #XbBuilderNode</doc>
+                 line="657">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -951,19 +951,19 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="594">Gets the parent node for the current node.</doc>
+             line="591">Gets the parent node for the current node.</doc>
         <source-position filename="src/xb-builder-node.h" line="114"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="600">a new #XbBuilderNode, or %NULL no parent exists.</doc>
+               line="597">a new #XbBuilderNode, or %NULL no parent exists.</doc>
           <type name="BuilderNode" c:type="XbBuilderNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="596">a #XbBuilderNode</doc>
+                 line="593">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -1039,12 +1039,12 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.3.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="1213">Gets the tokens of the builder node.</doc>
+             line="1210">Gets the tokens of the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="131"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="1219">tokens</doc>
+               line="1216">tokens</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="utf8"/>
           </array>
@@ -1053,7 +1053,7 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1215">a #XbBuilderNode</doc>
+                 line="1212">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -1092,31 +1092,31 @@ fixup functions on large and deeply nested XML files.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="1011">Creates a new builder node.</doc>
+             line="1008">Creates a new builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="60"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder-node.c"
-               line="1019">a new #XbBuilderNode</doc>
+               line="1016">a new #XbBuilderNode</doc>
           <type name="BuilderNode" c:type="XbBuilderNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1013">A XbBuilderNode, or %NULL</doc>
+                 line="1010">A XbBuilderNode, or %NULL</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1014">An element name, e.g. "component"</doc>
+                 line="1011">An element name, e.g. "component"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1015">any attributes to add to the node, terminated by %NULL</doc>
+                 line="1012">any attributes to add to the node, terminated by %NULL</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1127,7 +1127,7 @@ fixup functions on large and deeply nested XML files.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="1051">Creates a new builder node with optional node text.</doc>
+             line="1048">Creates a new builder node with optional node text.</doc>
         <source-position filename="src/xb-builder-node.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1136,13 +1136,13 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1053">A XbBuilderNode, or %NULL</doc>
+                 line="1050">A XbBuilderNode, or %NULL</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1054">An element name, e.g. "id"</doc>
+                 line="1051">An element name, e.g. "id"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="text"
@@ -1151,13 +1151,13 @@ fixup functions on large and deeply nested XML files.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1055">node text, e.g. "gimp.desktop"</doc>
+                 line="1052">node text, e.g. "gimp.desktop"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="1056">any attributes to add to the node, terminated by %NULL</doc>
+                 line="1053">any attributes to add to the node, terminated by %NULL</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1167,7 +1167,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="473">Removes an attribute from the builder node.</doc>
+             line="470">Removes an attribute from the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1176,13 +1176,13 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="475">a #XbBuilderNode</doc>
+                 line="472">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="476">attribute name, e.g. `type`</doc>
+                 line="473">attribute name, e.g. `type`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1192,7 +1192,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="549">Removes a child builder node.</doc>
+             line="546">Removes a child builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1201,13 +1201,13 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="551">A XbBuilderNode</doc>
+                 line="548">A XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="552">A XbBuilderNode</doc>
+                 line="549">A XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </parameter>
         </parameters>
@@ -1217,7 +1217,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="431">Adds an attribute to the builder node.</doc>
+             line="428">Adds an attribute to the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1226,19 +1226,19 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="433">a #XbBuilderNode</doc>
+                 line="430">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="434">attribute name, e.g. `type`</doc>
+                 line="431">attribute name, e.g. `type`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="435">attribute value, e.g. `desktop`</doc>
+                 line="432">attribute value, e.g. `desktop`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1273,7 +1273,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.12">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="408">Sets the tail on the builder node.</doc>
+             line="405">Sets the tail on the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1282,7 +1282,7 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="410">a #XbBuilderNode</doc>
+                 line="407">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="tail"
@@ -1291,13 +1291,13 @@ fixup functions on large and deeply nested XML files.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="411">a string</doc>
+                 line="408">a string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="tail_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="412">length of @tail, or -1 if @tail is NUL terminated</doc>
+                 line="409">length of @tail, or -1 if @tail is NUL terminated</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -1307,7 +1307,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="377">Sets the text on the builder node.</doc>
+             line="374">Sets the text on the builder node.</doc>
         <source-position filename="src/xb-builder-node.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1316,7 +1316,7 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="379">a #XbBuilderNode</doc>
+                 line="376">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="text"
@@ -1325,13 +1325,13 @@ fixup functions on large and deeply nested XML files.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="380">a string</doc>
+                 line="377">a string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="text_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="381">length of @text, or -1 if @text is NUL terminated</doc>
+                 line="378">length of @text, or -1 if @text is NUL terminated</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -1341,7 +1341,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.1.3">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="803">Sorts the node children using a custom sort function.</doc>
+             line="800">Sorts the node children using a custom sort function.</doc>
         <source-position filename="src/xb-builder-node.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1350,7 +1350,7 @@ fixup functions on large and deeply nested XML files.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="805">a #XbBuilderNode</doc>
+                 line="802">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="func"
@@ -1359,7 +1359,7 @@ fixup functions on large and deeply nested XML files.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="806">a #XbBuilderNodeSortFunc</doc>
+                 line="803">a #XbBuilderNodeSortFunc</doc>
             <type name="BuilderNodeSortFunc" c:type="XbBuilderNodeSortFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -1368,7 +1368,7 @@ fixup functions on large and deeply nested XML files.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="807">user pointer to pass to @func, or %NULL</doc>
+                 line="804">user pointer to pass to @func, or %NULL</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1378,7 +1378,7 @@ fixup functions on large and deeply nested XML files.</doc>
               version="0.3.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="314">Tokenize text added with xb_builder_node_set_text().
+             line="311">Tokenize text added with xb_builder_node_set_text().
 
 When searching, libxmlb often has to tokenize strings before they can be
 compared. This is done in the "fast path" and makes searching for non-ASCII
@@ -1400,7 +1400,7 @@ node attribute if set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="316">a #XbBuilderNode</doc>
+                 line="313">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -1410,7 +1410,7 @@ node attribute if set.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="751">Traverses a tree starting from @self. It calls the given function for each
+             line="748">Traverses a tree starting from @self. It calls the given function for each
 node visited.
 
 The traversal can be halted at any point by returning TRUE from @func.</doc>
@@ -1422,25 +1422,25 @@ The traversal can be halted at any point by returning TRUE from @func.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="753">a #XbBuilderNode</doc>
+                 line="750">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
           <parameter name="order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="754">a #GTraverseType, e.g. %G_PRE_ORDER</doc>
+                 line="751">a #GTraverseType, e.g. %G_PRE_ORDER</doc>
             <type name="GLib.TraverseType" c:type="GTraverseType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="755">a #GTraverseFlags, e.g. %G_TRAVERSE_ALL</doc>
+                 line="752">a #GTraverseFlags, e.g. %G_TRAVERSE_ALL</doc>
             <type name="GLib.TraverseFlags" c:type="GTraverseFlags"/>
           </parameter>
           <parameter name="max_depth" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="756">the maximum depth of the traversal, or -1 for no limit</doc>
+                 line="753">the maximum depth of the traversal, or -1 for no limit</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="func"
@@ -1449,7 +1449,7 @@ The traversal can be halted at any point by returning TRUE from @func.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="757">a #XbBuilderNodeTraverseFunc</doc>
+                 line="754">a #XbBuilderNodeTraverseFunc</doc>
             <type name="BuilderNodeTraverseFunc"
                   c:type="XbBuilderNodeTraverseFunc"/>
           </parameter>
@@ -1459,7 +1459,7 @@ The traversal can be halted at any point by returning TRUE from @func.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="758">user pointer to pass to @func, or %NULL</doc>
+                 line="755">user pointer to pass to @func, or %NULL</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1469,7 +1469,7 @@ The traversal can be halted at any point by returning TRUE from @func.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-node.c"
-             line="571">Unlinks a #XbBuilderNode from a tree, resulting in two separate trees.
+             line="568">Unlinks a #XbBuilderNode from a tree, resulting in two separate trees.
 
 This should not be used from the function called by xb_builder_node_traverse()
 otherwise the entire tree will not be traversed.
@@ -1483,7 +1483,7 @@ Instead use xb_builder_node_add_flag(bn,XB_BUILDER_NODE_FLAG_IGNORE);</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-builder-node.c"
-                 line="573">a #XbBuilderNode</doc>
+                 line="570">a #XbBuilderNode</doc>
             <type name="BuilderNode" c:type="XbBuilderNode*"/>
           </instance-parameter>
         </parameters>
@@ -1663,12 +1663,12 @@ Instead use xb_builder_node_add_flag(bn,XB_BUILDER_NODE_FLAG_IGNORE);</doc>
                    version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-builder-source.c"
-             line="627">Creates a new builder source.</doc>
+             line="628">Creates a new builder source.</doc>
         <source-position filename="src/xb-builder-source.h" line="63"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-builder-source.c"
-               line="632">a new #XbBuilderSource</doc>
+               line="633">a new #XbBuilderSource</doc>
           <type name="BuilderSource" c:type="XbBuilderSource*"/>
         </return-value>
       </constructor>
@@ -2331,7 +2331,7 @@ major.minor.micro.</doc>
       <source-position filename="src/xb-version.h" line="24"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="19" c:type="XMLB_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="21" c:type="XMLB_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/xb-version.h"
            line="36">The compile-time micro version</doc>
@@ -3722,7 +3722,7 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-node-query.c"
-             line="252">Searches the node using an XPath query, returning up to one result.
+             line="246">Searches the node using an XPath query, returning up to one result.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -3732,26 +3732,26 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-node-query.c"
-               line="266">a string, or %NULL if unfound</doc>
+               line="260">a string, or %NULL if unfound</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="254">a #XbNode</doc>
+                 line="248">a #XbNode</doc>
             <type name="Node" c:type="XbNode*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="255">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="249">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="256">an attribute name, e.g. `type`</doc>
+                 line="250">an attribute name, e.g. `type`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3762,7 +3762,7 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-node-query.c"
-             line="373">Searches the node using an XPath query, returning up to one result.
+             line="367">Searches the node using an XPath query, returning up to one result.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -3772,26 +3772,26 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-node-query.c"
-               line="387">a #guint64, or %G_MAXUINT64 if unfound</doc>
+               line="381">a #guint64, or %G_MAXUINT64 if unfound</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="375">a #XbNode</doc>
+                 line="369">a #XbNode</doc>
             <type name="Node" c:type="XbNode*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="376">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="370">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="377">an attribute name, e.g. `type`</doc>
+                 line="371">an attribute name, e.g. `type`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3802,7 +3802,7 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-node-query.c"
-             line="296">Searches the node using an XPath query, returning an XML string of the
+             line="290">Searches the node using an XPath query, returning an XML string of the
 result and any children.
 
 It is safe to call this function from a different thread to the one that
@@ -3813,20 +3813,20 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-node-query.c"
-               line="310">a string, or %NULL if unfound</doc>
+               line="304">a string, or %NULL if unfound</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="298">a #XbNode</doc>
+                 line="292">a #XbNode</doc>
             <type name="Node" c:type="XbNode*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="299">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="293">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4020,7 +4020,7 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-node-query.c"
-             line="338">Searches the node using an XPath query, returning up to one result.
+             line="332">Searches the node using an XPath query, returning up to one result.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -4030,20 +4030,20 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-node-query.c"
-               line="351">a #guint64, or %G_MAXUINT64 if unfound</doc>
+               line="345">a #guint64, or %G_MAXUINT64 if unfound</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="340">a #XbNode</doc>
+                 line="334">a #XbNode</doc>
             <type name="Node" c:type="XbNode*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node-query.c"
-                 line="341">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="335">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5636,12 +5636,12 @@ equivalent).</doc>
       <constructor name="new" c:identifier="xb_silo_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="1801">Creates a new silo.</doc>
+             line="1887">Creates a new silo.</doc>
         <source-position filename="src/xb-silo.h" line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="1806">a new #XbSilo</doc>
+               line="1892">a new #XbSilo</doc>
           <type name="Silo" c:type="XbSilo*"/>
         </return-value>
       </constructor>
@@ -5651,19 +5651,19 @@ equivalent).</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="1103">Creates a new silo from an XML string.</doc>
+             line="1178">Creates a new silo from an XML string.</doc>
         <source-position filename="src/xb-silo.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="1110">a new #XbSilo, or %NULL</doc>
+               line="1185">a new #XbSilo, or %NULL</doc>
           <type name="Silo" c:type="XbSilo*"/>
         </return-value>
         <parameters>
           <parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="1105">XML string</doc>
+                 line="1180">XML string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5674,25 +5674,25 @@ equivalent).</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-export.c"
-             line="163">Exports the silo back to XML.</doc>
+             line="211">Exports the silo back to XML.</doc>
         <source-position filename="src/xb-silo-export.h" line="17"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo-export.c"
-               line="171">XML data, or %NULL for an error</doc>
+               line="219">XML data, or %NULL for an error</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-export.c"
-                 line="165">a #XbSilo</doc>
+                 line="213">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-export.c"
-                 line="166">some #XbNodeExportFlags, e.g. #XB_NODE_EXPORT_FLAG_NONE</doc>
+                 line="214">some #XbNodeExportFlags, e.g. #XB_NODE_EXPORT_FLAG_NONE</doc>
             <type name="NodeExportFlags" c:type="XbNodeExportFlags"/>
           </parameter>
         </parameters>
@@ -5703,31 +5703,31 @@ equivalent).</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-export.c"
-             line="187">Exports the silo back to an XML file.</doc>
+             line="235">Exports the silo back to an XML file.</doc>
         <source-position filename="src/xb-silo-export.h" line="19"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo-export.c"
-               line="197">%TRUE on success</doc>
+               line="245">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-export.c"
-                 line="189">a #XbSilo</doc>
+                 line="237">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-export.c"
-                 line="190">a #GFile</doc>
+                 line="238">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-export.c"
-                 line="191">some #XbNodeExportFlags, e.g. #XB_NODE_EXPORT_FLAG_NONE</doc>
+                 line="239">some #XbNodeExportFlags, e.g. #XB_NODE_EXPORT_FLAG_NONE</doc>
             <type name="NodeExportFlags" c:type="XbNodeExportFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -5736,7 +5736,7 @@ equivalent).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo-export.c"
-                 line="192">a #GCancellable, or %NULL</doc>
+                 line="240">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -5746,21 +5746,21 @@ equivalent).</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="621">Gets the backing object that created the blob.
+             line="699">Gets the backing object that created the blob.
 
 You should never *ever* modify this data.</doc>
         <source-position filename="src/xb-silo.h" line="73"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="629">A #GBytes, or %NULL if never set</doc>
+               line="707">A #GBytes, or %NULL if never set</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="623">a #XbSilo</doc>
+                 line="701">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5771,7 +5771,7 @@ You should never *ever* modify this data.</doc>
               version="0.2.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="820">Get #XbSilo:enable-node-cache.</doc>
+             line="895">Get #XbSilo:enable-node-cache.</doc>
         <source-position filename="src/xb-silo.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5780,7 +5780,7 @@ You should never *ever* modify this data.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="822">an #XbSilo</doc>
+                 line="897">an #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5791,19 +5791,19 @@ You should never *ever* modify this data.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="643">Gets the GUID used to identify this silo.</doc>
+             line="721">Gets the GUID used to identify this silo.</doc>
         <source-position filename="src/xb-silo.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="649">a string, otherwise %NULL</doc>
+               line="727">a string, otherwise %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="645">a #XbSilo</doc>
+                 line="723">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5813,20 +5813,20 @@ You should never *ever* modify this data.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="777">Returns the profiling data. This will only return profiling text if
+             line="852">Returns the profiling data. This will only return profiling text if
 xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
         <source-position filename="src/xb-silo.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="784">text profiling data</doc>
+               line="859">text profiling data</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="779">a #XbSilo</doc>
+                 line="854">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5834,19 +5834,19 @@ xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
       <method name="get_root" c:identifier="xb_silo_get_root" version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="286">Gets the root node for the silo. (MIGHT BE MORE).</doc>
+             line="328">Gets the root node for the silo. (MIGHT BE MORE).</doc>
         <source-position filename="src/xb-silo.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="292">A #XbNode, or %NULL for an error</doc>
+               line="334">A #XbNode, or %NULL for an error</doc>
           <type name="Node" c:type="XbNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="288">a #XbSilo</doc>
+                 line="330">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5854,19 +5854,19 @@ xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
       <method name="get_size" c:identifier="xb_silo_get_size" version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="482">Gets the number of nodes in the silo.</doc>
+             line="556">Gets the number of nodes in the silo.</doc>
         <source-position filename="src/xb-silo.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="488">a integer, or 0 is an empty blob</doc>
+               line="562">a integer, or 0 is an empty blob</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="484">a #XbSilo</doc>
+                 line="558">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5876,7 +5876,7 @@ xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="580">Invalidates a silo. Future calls xb_silo_is_valid() will return %FALSE.</doc>
+             line="656">Invalidates a silo. Future calls xb_silo_is_valid() will return %FALSE.</doc>
         <source-position filename="src/xb-silo.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5885,7 +5885,7 @@ xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="582">a #XbSilo</doc>
+                 line="658">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5893,21 +5893,21 @@ xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
       <method name="is_valid" c:identifier="xb_silo_is_valid" version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="512">Checks is the silo is valid. The usual reason the silo is invalidated is
+             line="588">Checks is the silo is valid. The usual reason the silo is invalidated is
 when the backing mmapped file has changed, or one of the imported files have
 been modified.</doc>
         <source-position filename="src/xb-silo.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="520">%TRUE if valid</doc>
+               line="596">%TRUE if valid</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="514">a #XbSilo</doc>
+                 line="590">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -5918,31 +5918,31 @@ been modified.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="670">Loads a silo from memory location.</doc>
+             line="748">Loads a silo from memory location.</doc>
         <source-position filename="src/xb-silo.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="679">%TRUE for success, otherwise @error is set.</doc>
+               line="757">%TRUE for success, otherwise @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="672">a #XbSilo</doc>
+                 line="750">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="blob" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="673">a #GBytes</doc>
+                 line="751">a #GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="674">#XbSiloLoadFlags, e.g. %XB_SILO_LOAD_FLAG_NONE</doc>
+                 line="752">#XbSiloLoadFlags, e.g. %XB_SILO_LOAD_FLAG_NONE</doc>
             <type name="SiloLoadFlags" c:type="XbSiloLoadFlags"/>
           </parameter>
         </parameters>
@@ -5953,31 +5953,31 @@ been modified.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="994">Loads a silo from file.</doc>
+             line="1069">Loads a silo from file.</doc>
         <source-position filename="src/xb-silo.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="1004">%TRUE for success, otherwise @error is set.</doc>
+               line="1079">%TRUE for success, otherwise @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="996">a #XbSilo</doc>
+                 line="1071">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="997">a #GFile</doc>
+                 line="1072">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="998">#XbSiloLoadFlags, e.g. %XB_SILO_LOAD_FLAG_NONE</doc>
+                 line="1073">#XbSiloLoadFlags, e.g. %XB_SILO_LOAD_FLAG_NONE</doc>
             <type name="SiloLoadFlags" c:type="XbSiloLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -5986,7 +5986,7 @@ been modified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="999">a #GCancellable, or %NULL</doc>
+                 line="1074">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -5996,7 +5996,7 @@ been modified.</doc>
               version="0.3.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="1816">Create an #XbQuery from the given @xpath XPath string, or return it from the
+             line="1902">Create an #XbQuery from the given @xpath XPath string, or return it from the
 query cache in the #XbSilo.
 
 @xpath must be valid: it is a programmer error if creating the query fails
@@ -6007,20 +6007,20 @@ This function is thread-safe.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="1829">an #XbQuery representing @xpath</doc>
+               line="1915">an #XbQuery representing @xpath</doc>
           <type name="Query" c:type="XbQuery*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="1818">an #XbSilo</doc>
+                 line="1904">an #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="1819">an XPath query string</doc>
+                 line="1905">an XPath query string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6031,7 +6031,7 @@ This function is thread-safe.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="674">Searches the silo using an XPath query, returning up to @limit results.
+             line="681">Searches the silo using an XPath query, returning up to @limit results.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -6041,7 +6041,7 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="688">results, or %NULL if unfound</doc>
+               line="695">results, or %NULL if unfound</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Node"/>
           </array>
@@ -6050,19 +6050,19 @@ Please note: Only a subset of XPath is supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="676">a #XbSilo</doc>
+                 line="683">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="677">an XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="684">an XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="limit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="678">maximum number of results to return, or 0 for "all"</doc>
+                 line="685">maximum number of results to return, or 0 for "all"</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -6073,25 +6073,25 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="728">Adds the `attr()` or `text()` results of a query to the index.</doc>
+             line="735">Adds the `attr()` or `text()` results of a query to the index.</doc>
         <source-position filename="src/xb-silo-query.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="737">%TRUE for success</doc>
+               line="744">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="730">a #XbSilo</doc>
+                 line="737">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="731">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="738">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="attr"
@@ -6100,7 +6100,7 @@ Please note: Only a subset of XPath is supported.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="732">Attribute name, e.g. `type`, or NULL</doc>
+                 line="739">Attribute name, e.g. `type`, or NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6111,7 +6111,7 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="701">Searches the silo using an XPath query, returning up to one result.
+             line="708">Searches the silo using an XPath query, returning up to one result.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -6121,20 +6121,20 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="714">a #XbNode, or %NULL if unfound</doc>
+               line="721">a #XbNode, or %NULL if unfound</doc>
           <type name="Node" c:type="XbNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="703">a #XbSilo</doc>
+                 line="710">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="704">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
+                 line="711">An XPath, e.g. `/components/component[@type=desktop]/id[abe.desktop]`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6145,7 +6145,7 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="616">Searches the silo using an XPath query, returning up to one result.
+             line="623">Searches the silo using an XPath query, returning up to one result.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -6155,20 +6155,20 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="629">a #XbNode, or %NULL if unfound</doc>
+               line="636">a #XbNode, or %NULL if unfound</doc>
           <type name="Node" c:type="XbNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="618">a #XbSilo</doc>
+                 line="625">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="619">an #XbQuery</doc>
+                 line="626">an #XbQuery</doc>
             <type name="Query" c:type="XbQuery*"/>
           </parameter>
         </parameters>
@@ -6179,7 +6179,7 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="639">Searches the silo using an XPath query, returning up to one result.
+             line="646">Searches the silo using an XPath query, returning up to one result.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -6189,20 +6189,20 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="655">a #XbNode, or %NULL if unfound</doc>
+               line="662">a #XbNode, or %NULL if unfound</doc>
           <type name="Node" c:type="XbNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="641">a #XbSilo</doc>
+                 line="648">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="642">an #XbQuery</doc>
+                 line="649">an #XbQuery</doc>
             <type name="Query" c:type="XbQuery*"/>
           </parameter>
           <parameter name="context"
@@ -6211,7 +6211,7 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="643">context including values bound to opcodes of type
+                 line="650">context including values bound to opcodes of type
     %XB_OPCODE_KIND_BOUND_INTEGER or %XB_OPCODE_KIND_BOUND_TEXT, or %NULL if
     the query doesn’t need any context</doc>
             <type name="QueryContext" c:type="XbQueryContext*"/>
@@ -6224,7 +6224,7 @@ Please note: Only a tiny subset of XPath 1.0 is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="564">Searches the silo using an XPath query.
+             line="571">Searches the silo using an XPath query.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -6234,7 +6234,7 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="577">results, or %NULL if unfound</doc>
+               line="584">results, or %NULL if unfound</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Node"/>
           </array>
@@ -6243,13 +6243,13 @@ Please note: Only a subset of XPath is supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="566">a #XbSilo</doc>
+                 line="573">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="567">an #XbQuery</doc>
+                 line="574">an #XbQuery</doc>
             <type name="Query" c:type="XbQuery*"/>
           </parameter>
         </parameters>
@@ -6260,7 +6260,7 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo-query.c"
-             line="587">Searches the silo using an XPath query.
+             line="594">Searches the silo using an XPath query.
 
 It is safe to call this function from a different thread to the one that
 created the #XbSilo.
@@ -6270,7 +6270,7 @@ Please note: Only a subset of XPath is supported.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/xb-silo-query.c"
-               line="603">results, or %NULL if unfound</doc>
+               line="610">results, or %NULL if unfound</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Node"/>
           </array>
@@ -6279,13 +6279,13 @@ Please note: Only a subset of XPath is supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="589">a #XbSilo</doc>
+                 line="596">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="590">an #XbQuery</doc>
+                 line="597">an #XbQuery</doc>
             <type name="Query" c:type="XbQuery*"/>
           </parameter>
           <parameter name="context"
@@ -6294,7 +6294,7 @@ Please note: Only a subset of XPath is supported.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo-query.c"
-                 line="591">context including values bound to opcodes of type
+                 line="598">context including values bound to opcodes of type
     %XB_OPCODE_KIND_BOUND_INTEGER or %XB_OPCODE_KIND_BOUND_TEXT, or %NULL if
     the query doesn’t need any context</doc>
             <type name="QueryContext" c:type="XbQueryContext*"/>
@@ -6307,25 +6307,25 @@ Please note: Only a subset of XPath is supported.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="1054">Saves a silo to a file.</doc>
+             line="1129">Saves a silo to a file.</doc>
         <source-position filename="src/xb-silo.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="1063">%TRUE for success, otherwise @error is set.</doc>
+               line="1138">%TRUE for success, otherwise @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="1056">a #XbSilo</doc>
+                 line="1131">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="1057">a #GFile</doc>
+                 line="1132">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -6334,7 +6334,7 @@ Please note: Only a subset of XPath is supported.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="1058">a #GCancellable, or %NULL</doc>
+                 line="1133">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6345,7 +6345,7 @@ Please note: Only a subset of XPath is supported.</doc>
               version="0.2.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="836">Set #XbSilo:enable-node-cache.
+             line="911">Set #XbSilo:enable-node-cache.
 
 This is not thread-safe, and can only be called before the #XbSilo is passed
 between threads.</doc>
@@ -6357,13 +6357,13 @@ between threads.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="838">an #XbSilo</doc>
+                 line="913">an #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="enable_node_cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="839">%TRUE to enable the node cache, %FALSE otherwise</doc>
+                 line="914">%TRUE to enable the node cache, %FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6373,7 +6373,7 @@ between threads.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="796">Enables or disables the collection of profiling data.</doc>
+             line="871">Enables or disables the collection of profiling data.</doc>
         <source-position filename="src/xb-silo.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6382,13 +6382,13 @@ between threads.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="798">a #XbSilo</doc>
+                 line="873">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="profile_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="799">some #XbSiloProfileFlags, e.g. %XB_SILO_PROFILE_FLAG_DEBUG</doc>
+                 line="874">some #XbSiloProfileFlags, e.g. %XB_SILO_PROFILE_FLAG_DEBUG</doc>
             <type name="SiloProfileFlags" c:type="XbSiloProfileFlags"/>
           </parameter>
         </parameters>
@@ -6399,20 +6399,20 @@ between threads.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="314">Converts the silo to an internal string representation. This is only
+             line="367">Converts the silo to an internal string representation. This is only
 really useful for debugging #XbSilo itself.</doc>
         <source-position filename="src/xb-silo.h" line="87"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="322">A string, or %NULL for an error</doc>
+               line="375">A string, or %NULL for an error</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="316">a #XbSilo</doc>
+                 line="369">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
         </parameters>
@@ -6423,7 +6423,7 @@ really useful for debugging #XbSilo itself.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="913">Adds a file monitor to the silo. If the file or directory for @file changes
+             line="988">Adds a file monitor to the silo. If the file or directory for @file changes
 then the silo will be invalidated.
 
 The monitor will internally use the #GMainContext which was the thread
@@ -6433,20 +6433,20 @@ for monitoring to work.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/xb-silo.c"
-               line="927">%TRUE for success, otherwise @error is set.</doc>
+               line="1002">%TRUE for success, otherwise @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="915">a #XbSilo</doc>
+                 line="990">a #XbSilo</doc>
             <type name="Silo" c:type="XbSilo*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="916">a #GFile</doc>
+                 line="991">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -6455,7 +6455,7 @@ for monitoring to work.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-silo.c"
-                 line="917">a #GCancellable, or %NULL</doc>
+                 line="992">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6469,7 +6469,7 @@ for monitoring to work.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
-             line="1770">Whether to cache all #XbNode instances ever constructed in a single
+             line="1856">Whether to cache all #XbNode instances ever constructed in a single
 cache in the #XbSilo, so that the same #XbNode instance is always
 returned in query results for a given XPath. This is a form of
 memoisation, and allows xb_node_get_data() and xb_node_set_data() to

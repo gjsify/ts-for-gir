@@ -8,10 +8,9 @@ and/or use gtk-doc annotations.  -->
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Arrow" version="1.0"/>
   <package name="parquet-glib"/>
-  <c:include name="parquet-glib/parquet-glib.h"/>
   <namespace name="Parquet"
              version="1.0"
-             shared-library="libparquet-glib.so.1601"
+             shared-library="libparquet-glib.so.300"
              c:identifier-prefixes="GParquet"
              c:symbol-prefixes="gparquet">
     <class name="ArrowFileReader"
@@ -21,24 +20,25 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GParquetArrowFileReader"
            glib:get-type="gparquet_arrow_file_reader_get_type"
            glib:type-struct="ArrowFileReaderClass">
-      <source-position filename="parquet-glib/arrow-file-reader.h" line="35"/>
+      <source-position filename="../parquet-glib/arrow-file-reader.h"
+                       line="37"/>
       <constructor name="new_arrow"
                    c:identifier="gparquet_arrow_file_reader_new_arrow"
                    version="0.11.0"
                    throws="1">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="38"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="40"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="128">A newly created #GParquetArrowFileReader.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="131">A newly created #GParquetArrowFileReader.</doc>
           <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="125">Arrow source to be read.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="128">Arrow source to be read.</doc>
             <type name="Arrow.SeekableInputStream"
                   c:type="GArrowSeekableInputStream*"/>
           </parameter>
@@ -48,79 +48,39 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="gparquet_arrow_file_reader_new_path"
                    version="0.11.0"
                    throws="1">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="40"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="43"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="153">A newly created #GParquetArrowFileReader.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="160">A newly created #GParquetArrowFileReader.</doc>
           <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
         </return-value>
         <parameters>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="150">Path to be read.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="157">Path to be read.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </constructor>
-      <method name="get_metadata"
-              c:identifier="gparquet_arrow_file_reader_get_metadata"
-              version="8.0.0">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="74"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="379">The metadata.</doc>
-          <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="reader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="377">A #GParquetArrowFileReader.</doc>
-            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="get_n_row_groups"
               c:identifier="gparquet_arrow_file_reader_get_n_row_groups"
               version="0.11.0">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="62"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="334">The number of row groups.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="347">The number of row groups.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="332">A #GParquetArrowFileReader.</doc>
-            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_rows"
-              c:identifier="gparquet_arrow_file_reader_get_n_rows"
-              version="6.0.0">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="66"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="349">The number of rows.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="reader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="347">A #GParquetArrowFileReader.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="345">A #GParquetArrowFileReader.</doc>
             <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
           </instance-parameter>
         </parameters>
@@ -129,19 +89,19 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gparquet_arrow_file_reader_get_schema"
               version="0.12.0"
               throws="1">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="54"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="59"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="268">A got #GArrowSchema.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="281">A got #GArrowSchema.</doc>
           <type name="Arrow.Schema" c:type="GArrowSchema*"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="265">A #GParquetArrowFileReader.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="278">A #GParquetArrowFileReader.</doc>
             <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
           </instance-parameter>
         </parameters>
@@ -150,25 +110,25 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gparquet_arrow_file_reader_read_column_data"
               version="0.15.0"
               throws="1">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="57"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="63"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="294">A read #GArrowChunkedArray.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="310">A read #GArrowChunkedArray.</doc>
           <type name="Arrow.ChunkedArray" c:type="GArrowChunkedArray*"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="288">A #GParquetArrowFileReader.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="304">A #GParquetArrowFileReader.</doc>
             <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
           </instance-parameter>
           <parameter name="i" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="289">The index of the column to be read.
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="305">The index of the column to be read.
   If an index is negative, the index is counted backward from the
   end of the columns. `-1` means the last column.</doc>
             <type name="gint" c:type="gint"/>
@@ -179,25 +139,25 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gparquet_arrow_file_reader_read_row_group"
               version="1.0.0"
               throws="1">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="47"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="52"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="215">A read #GArrowTable.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="228">A read #GArrowTable.</doc>
           <type name="Arrow.Table" c:type="GArrowTable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="206">A #GParquetArrowFileReader.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="219">A #GParquetArrowFileReader.</doc>
             <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
           </instance-parameter>
           <parameter name="row_group_index" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="207">A row group index to be read.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="220">A row group index to be read.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="column_indices"
@@ -205,8 +165,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="208">
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="221">
   Column indices to be read. %NULL means that all columns are read.
   If an index is negative, the index is counted backward from the
   end of the columns. `-1` means the last column.</doc>
@@ -216,8 +176,8 @@ and/or use gtk-doc annotations.  -->
           </parameter>
           <parameter name="n_column_indices" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="212">The number of elements of @column_indices.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="225">The number of elements of @column_indices.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -226,27 +186,27 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gparquet_arrow_file_reader_read_table"
               version="0.11.0"
               throws="1">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="43"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="47"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-reader.cpp"
-               line="187">A read #GArrowTable.</doc>
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="197">A read #GArrowTable.</doc>
           <type name="Arrow.Table" c:type="GArrowTable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-reader.cpp"
-                 line="184">A #GParquetArrowFileReader.</doc>
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="194">A #GParquetArrowFileReader.</doc>
             <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="set_use_threads"
               c:identifier="gparquet_arrow_file_reader_set_use_threads">
-        <source-position filename="parquet-glib/arrow-file-reader.h"
-                         line="69"/>
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -273,7 +233,8 @@ and/or use gtk-doc annotations.  -->
     <record name="ArrowFileReaderClass"
             c:type="GParquetArrowFileReaderClass"
             glib:is-gtype-struct-for="ArrowFileReader">
-      <source-position filename="parquet-glib/arrow-file-reader.h" line="35"/>
+      <source-position filename="../parquet-glib/arrow-file-reader.h"
+                       line="37"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -285,30 +246,31 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GParquetArrowFileWriter"
            glib:get-type="gparquet_arrow_file_writer_get_type"
            glib:type-struct="ArrowFileWriterClass">
-      <source-position filename="parquet-glib/arrow-file-writer.h" line="100"/>
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="102"/>
       <constructor name="new_arrow"
                    c:identifier="gparquet_arrow_file_writer_new_arrow"
                    version="0.11.0"
                    throws="1">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="103"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="105"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="410">A newly created #GParquetArrowFileWriter.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="415">A newly created #GParquetArrowFileWriter.</doc>
           <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
         </return-value>
         <parameters>
           <parameter name="schema" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="405">Arrow schema for written data.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="410">Arrow schema for written data.</doc>
             <type name="Arrow.Schema" c:type="GArrowSchema*"/>
           </parameter>
           <parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="406">Arrow output stream to be written.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="411">Arrow output stream to be written.</doc>
             <type name="Arrow.OutputStream" c:type="GArrowOutputStream*"/>
           </parameter>
           <parameter name="writer_properties"
@@ -316,8 +278,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="407">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="412">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </parameter>
         </parameters>
@@ -326,25 +288,25 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="gparquet_arrow_file_writer_new_path"
                    version="0.11.0"
                    throws="1">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="108"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="110"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="454">A newly created #GParquetArrowFileWriter.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="461">A newly created #GParquetArrowFileWriter.</doc>
           <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
         </return-value>
         <parameters>
           <parameter name="schema" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="449">Arrow schema for written data.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="456">Arrow schema for written data.</doc>
             <type name="Arrow.Schema" c:type="GArrowSchema*"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="450">Path to be read.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="457">Path to be read.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="writer_properties"
@@ -352,8 +314,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="451">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="458">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </parameter>
         </parameters>
@@ -362,19 +324,19 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gparquet_arrow_file_writer_close"
               version="0.11.0"
               throws="1">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="120"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="122"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="527">%TRUE on success, %FALSE if there was an error.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="539">%TRUE on success, %FALSE if there was an error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="writer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="524">A #GParquetArrowFileWriter.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="536">A #GParquetArrowFileWriter.</doc>
             <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
           </instance-parameter>
         </parameters>
@@ -383,31 +345,31 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gparquet_arrow_file_writer_write_table"
               version="0.11.0"
               throws="1">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="114"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="506">%TRUE on success, %FALSE if there was an error.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="516">%TRUE on success, %FALSE if there was an error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="writer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="501">A #GParquetArrowFileWriter.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="511">A #GParquetArrowFileWriter.</doc>
             <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
           </instance-parameter>
           <parameter name="table" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="502">A table to be written.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="512">A table to be written.</doc>
             <type name="Arrow.Table" c:type="GArrowTable*"/>
           </parameter>
           <parameter name="chunk_size" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="503">The max number of rows in a row group.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="513">The max number of rows in a row group.</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -426,1195 +388,126 @@ and/or use gtk-doc annotations.  -->
     <record name="ArrowFileWriterClass"
             c:type="GParquetArrowFileWriterClass"
             glib:is-gtype-struct-for="ArrowFileWriter">
-      <source-position filename="parquet-glib/arrow-file-writer.h" line="100"/>
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="102"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <class name="BooleanStatistics"
-           c:symbol-prefix="boolean_statistics"
-           c:type="GParquetBooleanStatistics"
-           parent="Statistics"
-           glib:type-name="GParquetBooleanStatistics"
-           glib:get-type="gparquet_boolean_statistics_get_type"
-           glib:type-struct="BooleanStatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="66"/>
-      <method name="get_max"
-              c:identifier="gparquet_boolean_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="73"/>
-        <return-value transfer-ownership="none">
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="105"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_0_16_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_IN_0_16_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="206"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_0_17_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_IN_0_17_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="192"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_0_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_IN_1_0_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="178"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="GPARQUET_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="106"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VERSION_CHECK"
+                    c:identifier="GPARQUET_VERSION_CHECK"
+                    version="0.16.0"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="71">You can use this macro in C pre-processor.</doc>
+      <source-position filename="../parquet-glib/version.h" line="84"/>
+      <parameters>
+        <parameter name="major">
           <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="292">The maximum value.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="290">A #GParquetBooleanStatistics.</doc>
-            <type name="BooleanStatistics"
-                  c:type="GParquetBooleanStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_boolean_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="70"/>
-        <return-value transfer-ownership="none">
+               filename="../parquet-glib/version.h"
+               line="73">A major version to check for.</doc>
+        </parameter>
+        <parameter name="minor">
           <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="278">The minimum value.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="276">A #GParquetBooleanStatistics.</doc>
-            <type name="BooleanStatistics"
-                  c:type="GParquetBooleanStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="BooleanStatisticsClass"
-            c:type="GParquetBooleanStatisticsClass"
-            glib:is-gtype-struct-for="BooleanStatistics">
-      <source-position filename="parquet-glib/statistics.h" line="66"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="ByteArrayStatistics"
-           c:symbol-prefix="byte_array_statistics"
-           c:type="GParquetByteArrayStatistics"
-           parent="Statistics"
-           glib:type-name="GParquetByteArrayStatistics"
-           glib:get-type="gparquet_byte_array_statistics_get_type"
-           glib:type-struct="ByteArrayStatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="156"/>
-      <method name="get_max"
-              c:identifier="gparquet_byte_array_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="163"/>
-        <return-value transfer-ownership="none">
+               filename="../parquet-glib/version.h"
+               line="74">A minor version to check for.</doc>
+        </parameter>
+        <parameter name="micro">
           <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="539">The maximum value.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="537">A #GParquetByteArrayStatistics.</doc>
-            <type name="ByteArrayStatistics"
-                  c:type="GParquetByteArrayStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_byte_array_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="160"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="519">The minimum value.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="517">A #GParquetByteArrayStatistics.</doc>
-            <type name="ByteArrayStatistics"
-                  c:type="GParquetByteArrayStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="ByteArrayStatisticsClass"
-            c:type="GParquetByteArrayStatisticsClass"
-            glib:is-gtype-struct-for="ByteArrayStatistics">
-      <source-position filename="parquet-glib/statistics.h" line="156"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="ColumnChunkMetadata"
-           c:symbol-prefix="column_chunk_metadata"
-           c:type="GParquetColumnChunkMetadata"
-           parent="GObject.Object"
-           glib:type-name="GParquetColumnChunkMetadata"
-           glib:get-type="gparquet_column_chunk_metadata_get_type"
-           glib:type-struct="ColumnChunkMetadataClass">
-      <source-position filename="parquet-glib/metadata.h" line="35"/>
-      <method name="can_decompress"
-              c:identifier="gparquet_column_chunk_metadata_can_decompress"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="53"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="193">%TRUE if all of the column chunk can be decompressed,
-  %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="191">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="equal"
-              c:identifier="gparquet_column_chunk_metadata_equal"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="39"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="126">%TRUE if both of them have the same data, %FALSE
-  otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="123">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </instance-parameter>
-          <parameter name="other_metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="124">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_file_offset"
-              c:identifier="gparquet_column_chunk_metadata_get_file_offset"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="50"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="177">Byte offset from beginning of file to first page (data or
-  dictionary) in this column chunk.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="175">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_statistics"
-              c:identifier="gparquet_column_chunk_metadata_get_statistics"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="56"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="209">The statistics of this column chunk if
-  it's set, %NULL otherwise.</doc>
-          <type name="Statistics" c:type="GParquetStatistics*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="207">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_total_compressed_size"
-              c:identifier="gparquet_column_chunk_metadata_get_total_compressed_size"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="46"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="160">Total byte size of all the compressed (and potentially
-  encrypted) data in this column chunk.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="158">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_total_size"
-              c:identifier="gparquet_column_chunk_metadata_get_total_size"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="43"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="144">Total byte size of all the uncompressed data in this
-  column chunk.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="142">A #GParquetColumnChunkMetadata.</doc>
-            <type name="ColumnChunkMetadata"
-                  c:type="GParquetColumnChunkMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="metadata"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <property name="owner"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="RowGroupMetadata"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="ColumnChunkMetadataClass"
-            c:type="GParquetColumnChunkMetadataClass"
-            glib:is-gtype-struct-for="ColumnChunkMetadata">
-      <source-position filename="parquet-glib/metadata.h" line="35"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <class name="DoubleStatistics"
-           c:symbol-prefix="double_statistics"
-           c:type="GParquetDoubleStatistics"
-           parent="Statistics"
-           glib:type-name="GParquetDoubleStatistics"
-           glib:get-type="gparquet_double_statistics_get_type"
-           glib:type-struct="DoubleStatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="138"/>
-      <method name="get_max"
-              c:identifier="gparquet_double_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="145"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="460">The maximum value.</doc>
-          <type name="gdouble" c:type="gdouble"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="458">A #GParquetDoubleStatistics.</doc>
-            <type name="DoubleStatistics" c:type="GParquetDoubleStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_double_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="142"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="446">The minimum value.</doc>
-          <type name="gdouble" c:type="gdouble"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="444">A #GParquetDoubleStatistics.</doc>
-            <type name="DoubleStatistics" c:type="GParquetDoubleStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="DoubleStatisticsClass"
-            c:type="GParquetDoubleStatisticsClass"
-            glib:is-gtype-struct-for="DoubleStatistics">
-      <source-position filename="parquet-glib/statistics.h" line="138"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="FileMetadata"
-           c:symbol-prefix="file_metadata"
-           c:type="GParquetFileMetadata"
-           parent="GObject.Object"
-           glib:type-name="GParquetFileMetadata"
-           glib:get-type="gparquet_file_metadata_get_type"
-           glib:type-struct="FileMetadataClass">
-      <source-position filename="parquet-glib/metadata.h" line="103"/>
-      <method name="can_decompress"
-              c:identifier="gparquet_file_metadata_can_decompress"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="134"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="666">%TRUE if all of the row groups can be decompressed, %FALSE
-  otherwise.
-
-  This will return false if any of the RowGroup's page is
-  compressed with a compression format which is not compiled in the
-  current Parquet library.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="664">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="equal"
-              c:identifier="gparquet_file_metadata_equal"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="107"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="518">%TRUE if both of them have the same data, %FALSE
-  otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="515">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-          <parameter name="other_metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="516">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_created_by"
-              c:identifier="gparquet_file_metadata_get_created_by"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="128"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="636">The application's user-agent string of the writer.</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="634">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_columns"
-              c:identifier="gparquet_file_metadata_get_n_columns"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="111"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="536">The number of top-level columns in the schema.
-
-  Parquet thrift definition requires that nested schema elements are
-  flattened. This method returns the number of columns in the un-flattened
-  version.</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="534">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_row_groups"
-              c:identifier="gparquet_file_metadata_get_n_row_groups"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="120"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="589">The number of row groups in the file.</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="587">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_rows"
-              c:identifier="gparquet_file_metadata_get_n_rows"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="117"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="574">The total number of rows.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="572">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_schema_elements"
-              c:identifier="gparquet_file_metadata_get_n_schema_elements"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="114"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="555">The number of flattened schema elements.
-
-  Parquet thrift definition requires that nested schema elements are
-  flattened. This method returns the total number of elements in the
-  flattened list.</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="553">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_row_group"
-              c:identifier="gparquet_file_metadata_get_row_group"
-              version="8.0.0"
-              throws="1">
-        <source-position filename="parquet-glib/metadata.h" line="123"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="606">A #GParquetRowGroupMetadata
-  at @index on success, %NULL on error.</doc>
-          <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="602">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-          <parameter name="index" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="603">An index of the row group to retrieve.</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_size"
-              c:identifier="gparquet_file_metadata_get_size"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="131"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="651">The size of the original thrift encoded metadata footer.</doc>
-          <type name="guint32" c:type="guint32"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="649">A #GParquetFileMetadata.</doc>
-            <type name="FileMetadata" c:type="GParquetFileMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="metadata"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="FileMetadataClass"
-            c:type="GParquetFileMetadataClass"
-            glib:is-gtype-struct-for="FileMetadata">
-      <source-position filename="parquet-glib/metadata.h" line="103"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <class name="FixedLengthByteArrayStatistics"
-           c:symbol-prefix="fixed_length_byte_array_statistics"
-           c:type="GParquetFixedLengthByteArrayStatistics"
-           parent="Statistics"
-           glib:type-name="GParquetFixedLengthByteArrayStatistics"
-           glib:get-type="gparquet_fixed_length_byte_array_statistics_get_type"
-           glib:type-struct="FixedLengthByteArrayStatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="175"/>
-      <method name="get_max"
-              c:identifier="gparquet_fixed_length_byte_array_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="183"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="629">The maximum value.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="627">A #GParquetFixedLengthByteArrayStatistics.</doc>
-            <type name="FixedLengthByteArrayStatistics"
-                  c:type="GParquetFixedLengthByteArrayStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_fixed_length_byte_array_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="179"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="607">The minimum value.</doc>
-          <type name="GLib.Bytes" c:type="GBytes*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="605">A #GParquetFixedLengthByteArrayStatistics.</doc>
-            <type name="FixedLengthByteArrayStatistics"
-                  c:type="GParquetFixedLengthByteArrayStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="FixedLengthByteArrayStatisticsClass"
-            c:type="GParquetFixedLengthByteArrayStatisticsClass"
-            glib:is-gtype-struct-for="FixedLengthByteArrayStatistics">
-      <source-position filename="parquet-glib/statistics.h" line="175"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="FloatStatistics"
-           c:symbol-prefix="float_statistics"
-           c:type="GParquetFloatStatistics"
-           parent="Statistics"
-           glib:type-name="GParquetFloatStatistics"
-           glib:get-type="gparquet_float_statistics_get_type"
-           glib:type-struct="FloatStatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="120"/>
-      <method name="get_max"
-              c:identifier="gparquet_float_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="127"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="418">The maximum value.</doc>
-          <type name="gfloat" c:type="gfloat"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="416">A #GParquetFloatStatistics.</doc>
-            <type name="FloatStatistics" c:type="GParquetFloatStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_float_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="124"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="404">The minimum value.</doc>
-          <type name="gfloat" c:type="gfloat"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="402">A #GParquetFloatStatistics.</doc>
-            <type name="FloatStatistics" c:type="GParquetFloatStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="FloatStatisticsClass"
-            c:type="GParquetFloatStatisticsClass"
-            glib:is-gtype-struct-for="FloatStatistics">
-      <source-position filename="parquet-glib/statistics.h" line="120"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="Int32Statistics"
-           c:symbol-prefix="int32_statistics"
-           c:type="GParquetInt32Statistics"
-           parent="Statistics"
-           glib:type-name="GParquetInt32Statistics"
-           glib:get-type="gparquet_int32_statistics_get_type"
-           glib:type-struct="Int32StatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="84"/>
-      <method name="get_max"
-              c:identifier="gparquet_int32_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="91"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="334">The maximum value.</doc>
-          <type name="gint32" c:type="gint32"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="332">A #GParquetInt32Statistics.</doc>
-            <type name="Int32Statistics" c:type="GParquetInt32Statistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_int32_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="88"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="320">The minimum value.</doc>
-          <type name="gint32" c:type="gint32"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="318">A #GParquetInt32Statistics.</doc>
-            <type name="Int32Statistics" c:type="GParquetInt32Statistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="Int32StatisticsClass"
-            c:type="GParquetInt32StatisticsClass"
-            glib:is-gtype-struct-for="Int32Statistics">
-      <source-position filename="parquet-glib/statistics.h" line="84"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="Int64Statistics"
-           c:symbol-prefix="int64_statistics"
-           c:type="GParquetInt64Statistics"
-           parent="Statistics"
-           glib:type-name="GParquetInt64Statistics"
-           glib:get-type="gparquet_int64_statistics_get_type"
-           glib:type-struct="Int64StatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="102"/>
-      <method name="get_max"
-              c:identifier="gparquet_int64_statistics_get_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="109"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="376">The maximum value.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="374">A #GParquetInt64Statistics.</doc>
-            <type name="Int64Statistics" c:type="GParquetInt64Statistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min"
-              c:identifier="gparquet_int64_statistics_get_min"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="106"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="362">The minimum value.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="360">A #GParquetInt64Statistics.</doc>
-            <type name="Int64Statistics" c:type="GParquetInt64Statistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent_instance">
-        <type name="Statistics" c:type="GParquetStatistics"/>
-      </field>
-    </class>
-    <record name="Int64StatisticsClass"
-            c:type="GParquetInt64StatisticsClass"
-            glib:is-gtype-struct-for="Int64Statistics">
-      <source-position filename="parquet-glib/statistics.h" line="102"/>
-      <field name="parent_class">
-        <type name="StatisticsClass" c:type="GParquetStatisticsClass"/>
-      </field>
-    </record>
-    <class name="RowGroupMetadata"
-           c:symbol-prefix="row_group_metadata"
-           c:type="GParquetRowGroupMetadata"
-           parent="GObject.Object"
-           glib:type-name="GParquetRowGroupMetadata"
-           glib:get-type="gparquet_row_group_metadata_get_type"
-           glib:type-struct="RowGroupMetadataClass">
-      <source-position filename="parquet-glib/metadata.h" line="67"/>
-      <method name="can_decompress"
-              c:identifier="gparquet_row_group_metadata_can_decompress"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="95"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="440">%TRUE if all of the row group's column chunks can be
-  decompressed, %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="438">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="equal"
-              c:identifier="gparquet_row_group_metadata_equal"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="71"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="307">%TRUE if both of them have the same data, %FALSE
-  otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="304">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-          <parameter name="other_metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="305">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_column_chunk"
-              c:identifier="gparquet_row_group_metadata_get_column_chunk"
-              version="8.0.0"
-              throws="1">
-        <source-position filename="parquet-glib/metadata.h" line="78"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="343">A #GParquetColumnChunkMetadata
-  at @index on success, %NULL on error.</doc>
-          <type name="ColumnChunkMetadata"
-                c:type="GParquetColumnChunkMetadata*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="339">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-          <parameter name="index" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="340">An index of the column chunk to retrieve.</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_file_offset"
-              c:identifier="gparquet_row_group_metadata_get_file_offset"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="92"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="420">Byte offset from beginning of file to first page (data or
-  dictionary) in this row group.
-
-  The `file_offset` field that this method exposes is
-  optional. This method will return 0 if that field is not set to a
-  meaningful value.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="418">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_columns"
-              c:identifier="gparquet_row_group_metadata_get_n_columns"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="75"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="325">The number of columns in this row group. The order must
-  match the parent's column ordering.</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="323">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_rows"
-              c:identifier="gparquet_row_group_metadata_get_n_rows"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="83"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="373">The number of rows in this row group.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="371">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_total_compressed_size"
-              c:identifier="gparquet_row_group_metadata_get_total_compressed_size"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="89"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="404">Total byte size of all the compressed (and potentially
-  encrypted) column data in this row group.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="402">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_total_size"
-              c:identifier="gparquet_row_group_metadata_get_total_size"
-              version="8.0.0">
-        <source-position filename="parquet-glib/metadata.h" line="86"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/metadata.cpp"
-               line="388">Total byte size of all the uncompressed column data in
-  this row group.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="metadata" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/metadata.cpp"
-                 line="386">A #GParquetRowGroupMetadata.</doc>
-            <type name="RowGroupMetadata" c:type="GParquetRowGroupMetadata*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="metadata"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <property name="owner"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="FileMetadata"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="RowGroupMetadataClass"
-            c:type="GParquetRowGroupMetadataClass"
-            glib:is-gtype-struct-for="RowGroupMetadata">
-      <source-position filename="parquet-glib/metadata.h" line="67"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <class name="Statistics"
-           c:symbol-prefix="statistics"
-           c:type="GParquetStatistics"
-           parent="GObject.Object"
-           abstract="1"
-           glib:type-name="GParquetStatistics"
-           glib:get-type="gparquet_statistics_get_type"
-           glib:type-struct="StatisticsClass">
-      <source-position filename="parquet-glib/statistics.h" line="32"/>
-      <method name="equal"
-              c:identifier="gparquet_statistics_equal"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="36"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="126">%TRUE if both of them have the same data, %FALSE
-  otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="123">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-          <parameter name="other_statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="124">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_n_distinct_values"
-              c:identifier="gparquet_statistics_get_n_distinct_values"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="49"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="189">The number of distinct values.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="187">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_nulls"
-              c:identifier="gparquet_statistics_get_n_nulls"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="43"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="159">The number of null values.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="157">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_values"
-              c:identifier="gparquet_statistics_get_n_values"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="52"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="204">The number of values.</doc>
-          <type name="gint64" c:type="gint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="202">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="has_min_max"
-              c:identifier="gparquet_statistics_has_min_max"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="55"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="219">%TRUE if the min and max statistics are set, %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="217">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="has_n_distinct_values"
-              c:identifier="gparquet_statistics_has_n_distinct_values"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="46"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="174">%TRUE if the number of distinct values is set, %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="172">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="has_n_nulls"
-              c:identifier="gparquet_statistics_has_n_nulls"
-              version="8.0.0">
-        <source-position filename="parquet-glib/statistics.h" line="40"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="parquet-glib/statistics.cpp"
-               line="144">%TRUE if the number of null values is set, %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="statistics" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="parquet-glib/statistics.cpp"
-                 line="142">A #GParquetStatistics.</doc>
-            <type name="Statistics" c:type="GParquetStatistics*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="statistics"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="gpointer" c:type="gpointer"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-    </class>
-    <record name="StatisticsClass"
-            c:type="GParquetStatisticsClass"
-            glib:is-gtype-struct-for="Statistics">
-      <source-position filename="parquet-glib/statistics.h" line="32"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
+               filename="../parquet-glib/version.h"
+               line="75">A micro version to check for.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_MAJOR"
+              value="3"
+              c:type="GPARQUET_VERSION_MAJOR"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="34">The major version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MICRO"
+              value="0"
+              c:type="GPARQUET_VERSION_MICRO"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="52">The micro version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="59"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MINOR"
+              value="0"
+              c:type="GPARQUET_VERSION_MINOR"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="43">The minor version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="50"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_TAG"
+              value=""
+              c:type="GPARQUET_VERSION_TAG"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="61">The version tag. Normally, it's an empty string. It's "SNAPSHOT"
+for snapshot version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="69"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
     <class name="WriterProperties"
            c:symbol-prefix="writer_properties"
            c:type="GParquetWriterProperties"
@@ -1622,32 +515,33 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GParquetWriterProperties"
            glib:get-type="gparquet_writer_properties_get_type"
            glib:type-struct="WriterPropertiesClass">
-      <source-position filename="parquet-glib/arrow-file-writer.h" line="35"/>
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="38"/>
       <constructor name="new"
                    c:identifier="gparquet_writer_properties_new"
                    version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="39"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="41"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="83">A newly created #GParquetWriterProperties.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="87">A newly created #GParquetWriterProperties.</doc>
           <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
         </return-value>
       </constructor>
       <method name="disable_dictionary"
               c:identifier="gparquet_writer_properties_disable_dictionary"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="55"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="158">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="163">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="path"
@@ -1655,8 +549,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="159">The column path as dot string.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="164">The column path as dot string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1664,16 +558,16 @@ and/or use gtk-doc annotations.  -->
       <method name="enable_dictionary"
               c:identifier="gparquet_writer_properties_enable_dictionary"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="51"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="138">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="143">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="path"
@@ -1681,8 +575,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="139">The column path as dot string.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="144">The column path as dot string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1690,19 +584,19 @@ and/or use gtk-doc annotations.  -->
       <method name="get_batch_size"
               c:identifier="gparquet_writer_properties_get_batch_size"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="75"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="246">The batch size.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="250">The batch size.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="244">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="248">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
         </parameters>
@@ -1710,25 +604,25 @@ and/or use gtk-doc annotations.  -->
       <method name="get_compression_path"
               c:identifier="gparquet_writer_properties_get_compression_path"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="47"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="122">The compression type of #GParquetWriterProperties.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="127">The compression type of #GParquetWriterProperties.</doc>
           <type name="Arrow.CompressionType" c:type="GArrowCompressionType"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="119">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="124">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="120">The path as dot string.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="125">The path as dot string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1736,19 +630,19 @@ and/or use gtk-doc annotations.  -->
       <method name="get_data_page_size"
               c:identifier="gparquet_writer_properties_get_data_page_size"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="89"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="308">The data page size.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="312">The data page size.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="306">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="310">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
         </parameters>
@@ -1756,19 +650,19 @@ and/or use gtk-doc annotations.  -->
       <method name="get_dictionary_page_size_limit"
               c:identifier="gparquet_writer_properties_get_dictionary_page_size_limit"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="67"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="214">The dictionary page size limit.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="219">The dictionary page size limit.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="212">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="217">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
         </parameters>
@@ -1776,19 +670,19 @@ and/or use gtk-doc annotations.  -->
       <method name="get_max_row_group_length"
               c:identifier="gparquet_writer_properties_get_max_row_group_length"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="82"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="277">The max row group length.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="281">The max row group length.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="275">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="279">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
         </parameters>
@@ -1796,25 +690,25 @@ and/or use gtk-doc annotations.  -->
       <method name="is_dictionary_enabled"
               c:identifier="gparquet_writer_properties_is_dictionary_enabled"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="59"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="parquet-glib/arrow-file-writer.cpp"
-               line="181">%TRUE on dictionary enabled, %FALSE on dictionary disabled.</doc>
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="186">%TRUE on dictionary enabled, %FALSE on dictionary disabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="178">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="183">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="179">The path as dot string.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="184">The path as dot string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1822,22 +716,22 @@ and/or use gtk-doc annotations.  -->
       <method name="set_batch_size"
               c:identifier="gparquet_writer_properties_set_batch_size"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="71"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="228">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="232">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="batch_size" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="229">The batch size.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="233">The batch size.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1845,22 +739,22 @@ and/or use gtk-doc annotations.  -->
       <method name="set_compression"
               c:identifier="gparquet_writer_properties_set_compression"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="42"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="96">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="101">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="compression_type" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="97">A #GArrowCompressionType.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="102">A #GArrowCompressionType.</doc>
             <type name="Arrow.CompressionType" c:type="GArrowCompressionType"/>
           </parameter>
           <parameter name="path"
@@ -1868,8 +762,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="98">The column path as dot string.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="103">The column path as dot string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1877,22 +771,22 @@ and/or use gtk-doc annotations.  -->
       <method name="set_data_page_size"
               c:identifier="gparquet_writer_properties_set_data_page_size"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="85"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="290">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="294">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="data_page_size" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="291">The data page size.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="295">The data page size.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1900,22 +794,22 @@ and/or use gtk-doc annotations.  -->
       <method name="set_dictionary_page_size_limit"
               c:identifier="gparquet_writer_properties_set_dictionary_page_size_limit"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="63"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="196">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="201">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="limit" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="197">The dictionary page size limit.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="202">The dictionary page size limit.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1923,22 +817,22 @@ and/or use gtk-doc annotations.  -->
       <method name="set_max_row_group_length"
               c:identifier="gparquet_writer_properties_set_max_row_group_length"
               version="0.17.0">
-        <source-position filename="parquet-glib/arrow-file-writer.h"
-                         line="78"/>
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="properties" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="259">A #GParquetWriterProperties.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="263">A #GParquetWriterProperties.</doc>
             <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
           </instance-parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="parquet-glib/arrow-file-writer.cpp"
-                 line="260">The max row group length.</doc>
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="264">The max row group length.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1950,56 +844,31 @@ and/or use gtk-doc annotations.  -->
     <record name="WriterPropertiesClass"
             c:type="GParquetWriterPropertiesClass"
             glib:is-gtype-struct-for="WriterProperties">
-      <source-position filename="parquet-glib/arrow-file-writer.h" line="35"/>
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="38"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <docsection name="arrow-file-reader">
       <doc xml:space="preserve"
-           filename="parquet-glib/arrow-file-reader.cpp"
-           line="30">#GParquetArrowFileReader is a class for reading Apache Parquet data
+           filename="../parquet-glib/arrow-file-reader.cpp"
+           line="33">#GParquetArrowFileReader is a class for reading Apache Parquet data
 from file and returns them as Apache Arrow data.</doc>
     </docsection>
     <docsection name="arrow-file-writer">
       <doc xml:space="preserve"
-           filename="parquet-glib/arrow-file-writer.cpp"
-           line="26">#GParquetWriterProperties is a class for the writer properties.
+           filename="../parquet-glib/arrow-file-writer.cpp"
+           line="30">#GParquetWriterProperties is a class for the writer properties.
 
 #GParquetArrowFileWriter is a class for writer Apache Arrow data to
 file as Apache Parquet format.</doc>
     </docsection>
-    <docsection name="metadata">
+    <docsection name="version">
       <doc xml:space="preserve"
-           filename="parquet-glib/metadata.cpp"
-           line="27">#GParquetColumnChunkMetadata is a class for column chunk level metadata.
-
-#GParquetRowGroupMetadata is a class for row group level metadata.
-
-#GParquetFileMetadata is a class for file level metadata.</doc>
-    </docsection>
-    <docsection name="statistics">
-      <doc xml:space="preserve"
-           filename="parquet-glib/statistics.cpp"
-           line="28">#GParquetStatistics is a base class for statistics classes such as
-#GParquetInt32Statistics.
-
-#GParquetBooleanStatistics is a class for boolean statistics.
-
-#GParquetInt32Statistics is a class for 32-bit integer statistics.
-
-#GParquetInt64Statistics is a class for 64-bit integer statistics.
-
-#GParquetFloatStatistics is a class for 32-bit floating point
-number statistics.
-
-#GParquetDoubleStatistics is a class for 64-bit floating point
-number statistics.
-
-#GParquetByteArrayStatistics is a class for byte array statistics.
-
-#GParquetFixedLengthByteArrayStatistics is a class for fixed length
-byte array statistics.</doc>
+           filename="../parquet-glib/version.h"
+           line="24">Apache Parquet GLib provides macros that can be used by C pre-processor.
+They are useful to check version related things at compile time.</doc>
     </docsection>
   </namespace>
 </repository>

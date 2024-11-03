@@ -22529,7 +22529,7 @@ linked against at application run time.</doc>
       <source-position filename="glib/gtypes.h" line="76"/>
       <type name="guint8" c:type="guint8"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GLIB_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="GLIB_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="glib/gversion.c"
            line="78">The micro version number of the GLib library.
@@ -72970,8 +72970,6 @@ There can only be one writer function. It is an error to set more than one.</doc
       <parameters>
         <parameter name="func"
                    transfer-ownership="none"
-                   nullable="1"
-                   allow-none="1"
                    scope="notified"
                    closure="1"
                    destroy="2">
@@ -72983,8 +72981,7 @@ There can only be one writer function. It is an error to set more than one.</doc
         <parameter name="user_data"
                    transfer-ownership="none"
                    nullable="1"
-                   allow-none="1"
-                   closure="0">
+                   allow-none="1">
           <doc xml:space="preserve"
                filename="glib/gmessages.c"
                line="1924">user data to pass to @func</doc>

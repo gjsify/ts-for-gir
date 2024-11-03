@@ -678,6 +678,29 @@
 	<type name="gint" c:type="gint"/>
       </field>
     </record>
+    <record name="Glyph" c:type="cairo_glyph_t"
+	    glib:type-name="CairoGlyph"
+	    glib:get-type="cairo_gobject_glyph_get_type">
+      <field name="index" writable="1">
+	<type name="gulong" c:type="unsigned long"/>
+      </field>
+      <field name="x" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="y" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+    </record>
+    <record name="TextCluster" c:type="cairo_text_cluster_t"
+	    glib:type-name="CairoTextCluster"
+	    glib:get-type="cairo_gobject_text_cluster_get_type">
+      <field name="num_bytes" writable="1">
+	<type name="gint" c:type="int"/>
+      </field>
+      <field name="num_glyphs" writable="1">
+	<type name="gint" c:type="int"/>
+      </field>
+    </record>
     <function name="image_surface_create" c:identifier="cairo_image_surface_create">
       <return-value transfer-ownership="none">
 	<type name="none" c:type="void"/>

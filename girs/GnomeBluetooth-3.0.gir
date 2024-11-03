@@ -112,12 +112,12 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="bluetooth_client_new">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1478">Returns a reference to the #BluetoothClient singleton. Use g_object_unref() when done with the object.</doc>
+             line="1484">Returns a reference to the #BluetoothClient singleton. Use g_object_unref() when done with the object.</doc>
         <source-position filename="lib/bluetooth-client.h" line="33"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/bluetooth-client.c"
-               line="1483">a #BluetoothClient object.</doc>
+               line="1489">a #BluetoothClient object.</doc>
           <type name="Client" c:type="BluetoothClient*"/>
         </return-value>
       </constructor>
@@ -126,7 +126,7 @@ and/or use gtk-doc annotations.  -->
               glib:finish-func="connect_service_finish">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1773">This will start the process of connecting to one of the known-connectable
+             line="1779">This will start the process of connecting to one of the known-connectable
 services on the device. This means that it could connect to all the audio
 services on a headset, but just to the input service on a keyboard.
 
@@ -145,19 +145,19 @@ operation.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1775">a #BluetoothClient</doc>
+                 line="1781">a #BluetoothClient</doc>
             <type name="Client" c:type="BluetoothClient*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1776">the object path on which to operate</doc>
+                 line="1782">the object path on which to operate</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="connect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1777">Whether try to connect or disconnect from services on a device</doc>
+                 line="1783">Whether try to connect or disconnect from services on a device</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -166,7 +166,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1778">optional #GCancellable object, %NULL to ignore</doc>
+                 line="1784">optional #GCancellable object, %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -177,7 +177,7 @@ operation.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1779">a #GAsyncReadyCallback to call when the connection is complete</doc>
+                 line="1785">a #GAsyncReadyCallback to call when the connection is complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -186,7 +186,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1780">the data to pass to callback function</doc>
+                 line="1786">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -196,25 +196,25 @@ operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1841">Finishes the connection operation. See bluetooth_client_connect_service().</doc>
+             line="1847">Finishes the connection operation. See bluetooth_client_connect_service().</doc>
         <source-position filename="lib/bluetooth-client.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/bluetooth-client.c"
-               line="1849">%TRUE if the connection operation succeeded, %FALSE otherwise.</doc>
+               line="1855">%TRUE if the connection operation succeeded, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1843">a #BluetoothClient</doc>
+                 line="1849">a #BluetoothClient</doc>
             <type name="Client" c:type="BluetoothClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1844">a #GAsyncResult</doc>
+                 line="1850">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -222,20 +222,20 @@ operation.</doc>
       <method name="get_devices" c:identifier="bluetooth_client_get_devices">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1499">Returns an unfiltered #GListStore representing the devices attached to the default
+             line="1505">Returns an unfiltered #GListStore representing the devices attached to the default
 Bluetooth adapter.</doc>
         <source-position filename="lib/bluetooth-client.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/bluetooth-client.c"
-               line="1506">a #GListStore</doc>
+               line="1512">a #GListStore</doc>
           <type name="Gio.ListStore" c:type="GListStore*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1501">a #BluetoothClient object</doc>
+                 line="1507">a #BluetoothClient object</doc>
             <type name="Client" c:type="BluetoothClient*"/>
           </instance-parameter>
         </parameters>
@@ -244,21 +244,21 @@ Bluetooth adapter.</doc>
               c:identifier="bluetooth_client_has_connected_input_devices">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1865">Returns whether there are connected devices with the input capability.
+             line="1871">Returns whether there are connected devices with the input capability.
 This can be used by an OS user interface to warn the user before disabling
 Bluetooth so that the user isn't stranded without any input devices.</doc>
         <source-position filename="lib/bluetooth-client.h" line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/bluetooth-client.c"
-               line="1873">%TRUE if there are connected input devices.</doc>
+               line="1879">%TRUE if there are connected input devices.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1867">a #BluetoothClient</doc>
+                 line="1873">a #BluetoothClient</doc>
             <type name="Client" c:type="BluetoothClient*"/>
           </instance-parameter>
         </parameters>
@@ -268,7 +268,7 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1419">The D-Bus path of the default Bluetooth adapter or %NULL.</doc>
+             line="1425">The D-Bus path of the default Bluetooth adapter or %NULL.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="default-adapter-address"
@@ -276,7 +276,7 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1467">The address of the default Bluetooth adapter or %NULL.</doc>
+             line="1473">The address of the default Bluetooth adapter or %NULL.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="default-adapter-name"
@@ -284,7 +284,7 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1458">The name of the default Bluetooth adapter or %NULL.</doc>
+             line="1464">The name of the default Bluetooth adapter or %NULL.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="default-adapter-powered"
@@ -293,7 +293,7 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1428">%TRUE if the default Bluetooth adapter is powered.</doc>
+             line="1434">%TRUE if the default Bluetooth adapter is powered.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="default-adapter-setup-mode"
@@ -302,7 +302,7 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1449">%TRUE if the default Bluetooth adapter is in setup mode (discoverable, and discovering).</doc>
+             line="1455">%TRUE if the default Bluetooth adapter is in setup mode (discoverable, and discovering).</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="default-adapter-state"
@@ -310,7 +310,7 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="BLUETOOTH_ADAPTER_STATE_ABSENT">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1437">The #BluetoothAdapterState of the default Bluetooth adapter. More precise than
+             line="1443">The #BluetoothAdapterState of the default Bluetooth adapter. More precise than
 #BluetoothClient:default-adapter-powered.</doc>
         <type name="AdapterState"/>
       </property>
@@ -319,13 +319,13 @@ Bluetooth so that the user isn't stranded without any input devices.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1409">The number of detected Bluetooth adapters.</doc>
+             line="1415">The number of detected Bluetooth adapters.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <glib:signal name="device-added" when="last">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1371">The #BluetoothClient::device-added signal is launched when a
+             line="1377">The #BluetoothClient::device-added signal is launched when a
 device gets added to the model.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -334,7 +334,7 @@ device gets added to the model.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1374">a #BluetoothDevice object</doc>
+                 line="1380">a #BluetoothDevice object</doc>
             <type name="GObject.Object"/>
           </parameter>
         </parameters>
@@ -342,7 +342,7 @@ device gets added to the model.</doc>
       <glib:signal name="device-removed" when="last">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
-             line="1388">The #BluetoothClient::device-removed signal is launched when a
+             line="1394">The #BluetoothClient::device-removed signal is launched when a
 device gets removed from the model.
 
 Note that #BluetoothClient::device-removed will not be called
@@ -355,7 +355,7 @@ for each individual device as the model is cleared when the
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/bluetooth-client.c"
-                 line="1391">the D-Bus object path for the now-removed device</doc>
+                 line="1397">the D-Bus object path for the now-removed device</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>

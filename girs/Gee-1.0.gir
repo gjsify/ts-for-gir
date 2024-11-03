@@ -8,50 +8,32 @@
 	<annotation key="ccode.gir-version" value="1.0"/>
 	<annotation key="ccode.gir-namespace" value="Gee"/>
 	<function name="functions_get_equal_func_for" c:identifier="gee_functions_get_equal_func_for">
-		<return-value transfer-ownership="none">
+		<return-value transfer-ownership="none" scope="call">
 			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
 		</return-value>
 		<parameters>
 			<parameter name="t" transfer-ownership="none">
 				<type name="GObject.Type" c:type="GType"/>
 			</parameter>
-			<parameter name="result_target" direction="out" transfer-ownership="none" allow-none="1">
-				<type name="gpointer" c:type="void*"/>
-			</parameter>
-			<parameter name="result_target_destroy_notify" direction="out" transfer-ownership="none">
-				<type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
-			</parameter>
 		</parameters>
 	</function>
 	<function name="functions_get_hash_func_for" c:identifier="gee_functions_get_hash_func_for">
-		<return-value transfer-ownership="none">
+		<return-value transfer-ownership="none" scope="call">
 			<type name="GLib.HashFunc" c:type="GHashFunc"/>
 		</return-value>
 		<parameters>
 			<parameter name="t" transfer-ownership="none">
 				<type name="GObject.Type" c:type="GType"/>
 			</parameter>
-			<parameter name="result_target" direction="out" transfer-ownership="none" allow-none="1">
-				<type name="gpointer" c:type="void*"/>
-			</parameter>
-			<parameter name="result_target_destroy_notify" direction="out" transfer-ownership="none">
-				<type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
-			</parameter>
 		</parameters>
 	</function>
 	<function name="functions_get_compare_func_for" c:identifier="gee_functions_get_compare_func_for">
-		<return-value transfer-ownership="none">
+		<return-value transfer-ownership="none" scope="call">
 			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
 		</return-value>
 		<parameters>
 			<parameter name="t" transfer-ownership="none">
 				<type name="GObject.Type" c:type="GType"/>
-			</parameter>
-			<parameter name="result_target" direction="out" transfer-ownership="none" allow-none="1">
-				<type name="gpointer" c:type="void*"/>
-			</parameter>
-			<parameter name="result_target_destroy_notify" direction="out" transfer-ownership="none">
-				<type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
 			</parameter>
 		</parameters>
 	</function>
@@ -1305,29 +1287,17 @@
 			</return-value>
 		</virtual-method>
 		<method name="get_value_equal_func" c:identifier="gee_abstract_multi_map_get_value_equal_func">
-			<return-value transfer-ownership="none">
+			<return-value transfer-ownership="none" scope="call">
 				<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
 			</return-value>
 			<parameters>
-				<parameter name="result_target" direction="out" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="result_target_destroy_notify" direction="out" transfer-ownership="none">
-					<type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
-				</parameter>
 			</parameters>
 		</method>
 		<virtual-method name="get_value_equal_func" invoker="get_value_equal_func">
-			<return-value transfer-ownership="none">
+			<return-value transfer-ownership="none" scope="call">
 				<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
 			</return-value>
 			<parameters>
-				<parameter name="result_target" direction="out" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="result_target_destroy_notify" direction="out" transfer-ownership="none">
-					<type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
-				</parameter>
 			</parameters>
 		</virtual-method>
 	</class>
@@ -1365,18 +1335,12 @@
 		</field>
 				<field name="get_value_equal_func">
 			<callback name="get_value_equal_func" c:type="get_value_equal_func">
-				<return-value transfer-ownership="none">
+				<return-value transfer-ownership="none" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
 				</return-value>
 				<parameters>
 					<parameter name="self" transfer-ownership="none">
 						<type name="Gee.AbstractMultiMap" c:type="GeeAbstractMultiMap*"/>
-					</parameter>
-					<parameter name="result_target" direction="out" transfer-ownership="none" allow-none="1">
-						<type name="gpointer" c:type="void*"/>
-					</parameter>
-					<parameter name="result_target_destroy_notify" direction="out" transfer-ownership="none">
-						<type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
 					</parameter>
 				</parameters>
 			</callback>
@@ -1589,11 +1553,8 @@
 				<type name="Gee.ArrayList" c:type="GeeArrayList*"/>
 			</return-value>
 			<parameters>
-				<parameter name="equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1602,7 +1563,7 @@
 				<type name="none"/>
 			</return-value>
 			<parameters>
-				<parameter name="compare" transfer-ownership="none" closure="1">
+				<parameter name="compare" transfer-ownership="none" closure="1" scope="call">
 					<type name="GLib.CompareDataFunc" c:type="GCompareDataFunc"/>
 				</parameter>
 				<parameter name="compare_target" transfer-ownership="none" allow-none="1">
@@ -1632,23 +1593,14 @@
 				<type name="Gee.HashMap" c:type="GeeHashMap*"/>
 			</return-value>
 			<parameters>
-				<parameter name="key_hash_func" transfer-ownership="none" allow-none="1">
+				<parameter name="key_hash_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.HashFunc" c:type="GHashFunc"/>
 				</parameter>
-				<parameter name="key_hash_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="key_equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="key_equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
 				</parameter>
-				<parameter name="key_equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="value_equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1680,29 +1632,17 @@
 				<type name="Gee.HashMultiMap" c:type="GeeHashMultiMap*"/>
 			</return-value>
 			<parameters>
-				<parameter name="key_hash_func" transfer-ownership="none" allow-none="1">
+				<parameter name="key_hash_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.HashFunc" c:type="GHashFunc"/>
 				</parameter>
-				<parameter name="key_hash_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="key_equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="key_equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
 				</parameter>
-				<parameter name="key_equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="value_hash_func" transfer-ownership="none" allow-none="1">
+				<parameter name="value_hash_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.HashFunc" c:type="GHashFunc"/>
 				</parameter>
-				<parameter name="value_hash_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="value_equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1737,17 +1677,11 @@
 				<type name="Gee.HashMultiSet" c:type="GeeHashMultiSet*"/>
 			</return-value>
 			<parameters>
-				<parameter name="hash_func" transfer-ownership="none" allow-none="1">
+				<parameter name="hash_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.HashFunc" c:type="GHashFunc"/>
 				</parameter>
-				<parameter name="hash_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1776,17 +1710,11 @@
 				<type name="Gee.HashSet" c:type="GeeHashSet*"/>
 			</return-value>
 			<parameters>
-				<parameter name="hash_func" transfer-ownership="none" allow-none="1">
+				<parameter name="hash_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.HashFunc" c:type="GHashFunc"/>
 				</parameter>
-				<parameter name="hash_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1817,11 +1745,8 @@
 				<type name="Gee.LinkedList" c:type="GeeLinkedList*"/>
 			</return-value>
 			<parameters>
-				<parameter name="equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1847,11 +1772,8 @@
 				<type name="Gee.PriorityQueue" c:type="GeePriorityQueue*"/>
 			</return-value>
 			<parameters>
-				<parameter name="compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-				</parameter>
-				<parameter name="compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1877,17 +1799,11 @@
 				<type name="Gee.TreeMap" c:type="GeeTreeMap*"/>
 			</return-value>
 			<parameters>
-				<parameter name="key_compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="key_compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
 				</parameter>
-				<parameter name="key_compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1">
+				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
-				</parameter>
-				<parameter name="value_equal_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1916,17 +1832,11 @@
 				<type name="Gee.TreeMultiMap" c:type="GeeTreeMultiMap*"/>
 			</return-value>
 			<parameters>
-				<parameter name="key_compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="key_compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
 				</parameter>
-				<parameter name="key_compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
-				</parameter>
-				<parameter name="value_compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="value_compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-				</parameter>
-				<parameter name="value_compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1955,11 +1865,8 @@
 				<type name="Gee.TreeMultiSet" c:type="GeeTreeMultiSet*"/>
 			</return-value>
 			<parameters>
-				<parameter name="compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-				</parameter>
-				<parameter name="compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -1986,11 +1893,8 @@
 				<type name="Gee.TreeSet" c:type="GeeTreeSet*"/>
 			</return-value>
 			<parameters>
-				<parameter name="compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-				</parameter>
-				<parameter name="compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</constructor>
@@ -3115,11 +3019,8 @@
 				<type name="none"/>
 			</return-value>
 			<parameters>
-				<parameter name="compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-				</parameter>
-				<parameter name="compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</method>
@@ -3128,11 +3029,8 @@
 				<type name="none"/>
 			</return-value>
 			<parameters>
-				<parameter name="compare_func" transfer-ownership="none" allow-none="1">
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
 					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-				</parameter>
-				<parameter name="compare_func_target" transfer-ownership="none" allow-none="1">
-					<type name="gpointer" c:type="void*"/>
 				</parameter>
 			</parameters>
 		</virtual-method>
@@ -3321,11 +3219,8 @@
 					<parameter name="self" transfer-ownership="none">
 						<type name="Gee.List" c:type="GeeList*"/>
 					</parameter>
-					<parameter name="compare_func" transfer-ownership="none" allow-none="1">
+					<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
 						<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
-					</parameter>
-					<parameter name="compare_func_target" transfer-ownership="none" allow-none="1">
-						<type name="gpointer" c:type="void*"/>
 					</parameter>
 				</parameters>
 			</callback>

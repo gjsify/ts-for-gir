@@ -717,8 +717,7 @@ this variant should have type %G_VARIANT_TYPE_STRING.</doc>
       </method>
       <method name="dup_storage_specific_information_vardict_async"
               c:identifier="tp_account_dup_storage_specific_information_vardict_async"
-              version="0.17.6"
-              glib:finish-func="dup_storage_specific_information_vardict_finish">
+              version="0.17.6">
         <doc xml:space="preserve"
              filename="account.c"
              line="4175">Makes an asynchronous request of @self's StorageSpecificInformation
@@ -877,8 +876,7 @@ be put online automatically.</doc>
       </method>
       <method name="get_avatar_async"
               c:identifier="tp_account_get_avatar_async"
-              version="0.9.0"
-              glib:finish-func="get_avatar_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="3620">Requests an asynchronous get of @account's avatar. When
@@ -1570,8 +1568,7 @@ properties.</doc>
       </method>
       <method name="get_storage_specific_information_async"
               c:identifier="tp_account_get_storage_specific_information_async"
-              version="0.13.2"
-              glib:finish-func="get_storage_specific_information_finish">
+              version="0.13.2">
         <doc xml:space="preserve"
              filename="account.c"
              line="4142">Makes an asynchronous request of @self's StorageSpecificInformation
@@ -1783,8 +1780,7 @@ main loop has been re-entered.</doc>
               c:identifier="tp_account_prepare_async"
               version="0.9.0"
               introspectable="0"
-              deprecated="1"
-              glib:finish-func="prepare_finish">
+              deprecated="1">
         <doc xml:space="preserve"
              filename="account.c"
              line="3693">Requests an asynchronous preparation of @account with the features specified
@@ -1875,8 +1871,7 @@ tp_proxy_prepare_async() with the same arguments.</doc>
       </method>
       <method name="reconnect_async"
               c:identifier="tp_account_reconnect_async"
-              version="0.9.0"
-              glib:finish-func="reconnect_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="2726">Requests an asynchronous reconnect of @account. When the operation is
@@ -1946,8 +1941,7 @@ tp_account_reconnect_finish() to get the result of the operation.</doc>
       </method>
       <method name="remove_async"
               c:identifier="tp_account_remove_async"
-              version="0.9.0"
-              glib:finish-func="remove_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="3220">Requests an asynchronous removal of @account. When the operation is
@@ -2017,8 +2011,7 @@ tp_account_remove_finish() to get the result of the operation.</doc>
       </method>
       <method name="request_presence_async"
               c:identifier="tp_account_request_presence_async"
-              version="0.9.0"
-              glib:finish-func="request_presence_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="2841">Requests an asynchronous change of presence on @account. When the
@@ -2107,8 +2100,7 @@ tp_account_request_presence_finish() to get the result of the operation.</doc>
       </method>
       <method name="set_automatic_presence_async"
               c:identifier="tp_account_set_automatic_presence_async"
-              version="0.13.8"
-              glib:finish-func="set_automatic_presence_finish">
+              version="0.13.8">
         <doc xml:space="preserve"
              filename="account.c"
              line="2775">Requests an asynchronous change of @account's automatic presence. When the
@@ -2199,8 +2191,7 @@ operation.</doc>
       </method>
       <method name="set_avatar_async"
               c:identifier="tp_account_set_avatar_async"
-              version="0.11.1"
-              glib:finish-func="set_avatar_finish">
+              version="0.11.1">
         <doc xml:space="preserve"
              filename="account.c"
              line="3895">Requests an asynchronous change of the Avatar parameter on @self. When
@@ -2300,8 +2291,7 @@ If @len equals 0, the avatar is cleared.</doc>
       </method>
       <method name="set_connect_automatically_async"
               c:identifier="tp_account_set_connect_automatically_async"
-              version="0.9.0"
-              glib:finish-func="set_connect_automatically_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="3304">Requests an asynchronous set of the ConnectAutomatically property of
@@ -2378,8 +2368,7 @@ operation.</doc>
       </method>
       <method name="set_display_name_async"
               c:identifier="tp_account_set_display_name_async"
-              version="0.9.0"
-              glib:finish-func="set_display_name_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="3031">Requests an asynchronous set of the DisplayName property of @account. When
@@ -2455,8 +2444,7 @@ tp_account_set_display_name_finish() to get the result of the operation.</doc>
       </method>
       <method name="set_enabled_async"
               c:identifier="tp_account_set_enabled_async"
-              version="0.9.0"
-              glib:finish-func="set_enabled_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="2654">Requests an asynchronous set of the Enabled property of @account. When the
@@ -2532,8 +2520,7 @@ tp_account_set_enabled_finish() to get the result of the operation.</doc>
       </method>
       <method name="set_icon_name_async"
               c:identifier="tp_account_set_icon_name_async"
-              version="0.9.0"
-              glib:finish-func="set_icon_name_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="3156">Requests an asynchronous set of the Icon property of @account. When
@@ -2609,8 +2596,7 @@ tp_account_set_icon_name_finish() to get the result of the operation.</doc>
       </method>
       <method name="set_nickname_async"
               c:identifier="tp_account_set_nickname_async"
-              version="0.9.0"
-              glib:finish-func="set_nickname_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="3510">Requests an asynchronous change of the Nickname parameter on @account. When
@@ -2686,8 +2672,7 @@ tp_account_set_nickname_finish() to get the result of the operation.</doc>
       </method>
       <method name="set_service_async"
               c:identifier="tp_account_set_service_async"
-              version="0.11.9"
-              glib:finish-func="set_service_finish">
+              version="0.11.9">
         <doc xml:space="preserve"
              filename="account.c"
              line="3094">Requests an asynchronous set of the Service property on @self. When
@@ -2765,8 +2750,7 @@ tp_account_set_service_finish() to get the result of the operation.</doc>
       </method>
       <method name="set_uri_scheme_association_async"
               c:identifier="tp_account_set_uri_scheme_association_async"
-              version="0.13.8"
-              glib:finish-func="set_uri_scheme_association_finish">
+              version="0.13.8">
         <doc xml:space="preserve"
              filename="account.c"
              line="4385">Add @scheme to the list of additional URI schemes that would be returned
@@ -2857,8 +2841,7 @@ unless that feature has been enabled.</doc>
       </method>
       <method name="update_parameters_async"
               c:identifier="tp_account_update_parameters_async"
-              version="0.9.0"
-              glib:finish-func="update_parameters_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account.c"
              line="2908">Requests an asynchronous update of parameters of @account. When the
@@ -2956,8 +2939,7 @@ tp_account_update_parameters_finish() to get the result of the operation.</doc>
       </method>
       <method name="update_parameters_vardict_async"
               c:identifier="tp_account_update_parameters_vardict_async"
-              version="0.17.6"
-              glib:finish-func="update_parameters_vardict_finish">
+              version="0.17.6">
         <doc xml:space="preserve"
              filename="account.c"
              line="2967">Requests an asynchronous update of parameters of @account. When the
@@ -4196,8 +4178,7 @@ that function for details.</doc>
       </constructor>
       <method name="create_and_handle_channel_async"
               c:identifier="tp_account_channel_request_create_and_handle_channel_async"
-              version="0.11.12"
-              glib:finish-func="create_and_handle_channel_finish">
+              version="0.11.12">
         <doc xml:space="preserve"
              filename="account-channel-request.c"
              line="1166">Asynchronously calls CreateChannel on the ChannelDispatcher to create a
@@ -4309,8 +4290,7 @@ channel was successfully created and you are handling it, otherwise %NULL.</doc>
       </method>
       <method name="create_and_observe_channel_async"
               c:identifier="tp_account_channel_request_create_and_observe_channel_async"
-              version="0.13.14"
-              glib:finish-func="create_and_observe_channel_finish">
+              version="0.13.14">
         <doc xml:space="preserve"
              filename="account-channel-request.c"
              line="1613">Asynchronously calls CreateChannel on the ChannelDispatcher to create a
@@ -4410,8 +4390,7 @@ successfully created and dispatched, otherwise %NULL.</doc>
       </method>
       <method name="create_channel_async"
               c:identifier="tp_account_channel_request_create_channel_async"
-              version="0.11.12"
-              glib:finish-func="create_channel_finish">
+              version="0.11.12">
         <doc xml:space="preserve"
              filename="account-channel-request.c"
              line="1381">Asynchronously calls CreateChannel on the ChannelDispatcher to create a
@@ -4531,8 +4510,7 @@ property.</doc>
       </method>
       <method name="ensure_and_handle_channel_async"
               c:identifier="tp_account_channel_request_ensure_and_handle_channel_async"
-              version="0.11.12"
-              glib:finish-func="ensure_and_handle_channel_finish">
+              version="0.11.12">
         <doc xml:space="preserve"
              filename="account-channel-request.c"
              line="1233">Asynchronously calls EnsureChannel on the ChannelDispatcher to create a
@@ -4653,8 +4631,7 @@ channel was successfully created and you are handling it, otherwise %NULL.</doc>
       </method>
       <method name="ensure_and_observe_channel_async"
               c:identifier="tp_account_channel_request_ensure_and_observe_channel_async"
-              version="0.13.14"
-              glib:finish-func="ensure_and_observe_channel_finish">
+              version="0.13.14">
         <doc xml:space="preserve"
              filename="account-channel-request.c"
              line="1675">Asynchronously calls EnsureChannel on the ChannelDispatcher to create a
@@ -4761,8 +4738,7 @@ successfully ensure and (re-)dispatched, otherwise %NULL.</doc>
       </method>
       <method name="ensure_channel_async"
               c:identifier="tp_account_channel_request_ensure_channel_async"
-              version="0.11.12"
-              glib:finish-func="ensure_channel_finish">
+              version="0.11.12">
         <doc xml:space="preserve"
              filename="account-channel-request.c"
              line="1446">Asynchronously calls EnsureChannel on the ChannelDispatcher to create a
@@ -6001,8 +5977,7 @@ tp_proxy_or_subclass_hook_on_interface_add() with first argument
       </function>
       <method name="create_account_async"
               c:identifier="tp_account_manager_create_account_async"
-              version="0.9.0"
-              glib:finish-func="create_account_finish">
+              version="0.9.0">
         <doc xml:space="preserve"
              filename="account-manager.c"
              line="1369">Requests an asynchronous create of an account on the account manager
@@ -6371,8 +6346,7 @@ been prepared, an empty list (%NULL) will be returned.</doc>
               c:identifier="tp_account_manager_prepare_async"
               version="0.9.0"
               introspectable="0"
-              deprecated="1"
-              glib:finish-func="prepare_finish">
+              deprecated="1">
         <doc xml:space="preserve"
              filename="account-manager.c"
              line="1475">Requests an asynchronous preparation of @manager with
@@ -6820,8 +6794,7 @@ superseded accounts.</doc>
       </method>
       <method name="create_account_async"
               c:identifier="tp_account_request_create_account_async"
-              version="0.19.1"
-              glib:finish-func="create_account_finish">
+              version="0.19.1">
         <doc xml:space="preserve"
              filename="account-request.c"
              line="1322">Start an asynchronous operation to create the account @self on the
@@ -8311,11 +8284,6 @@ ObserveChannels()</doc>
         </parameters>
       </function>
       <virtual-method name="add_dispatch_operation">
-        <doc xml:space="preserve"
-             filename="base-client.c"
-             line="48">the function called to request user approval of
- unrequested (incoming) channels matching this client's approver filter
- (since 0.11.13)</doc>
         <source-position filename="base-client.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8374,10 +8342,6 @@ ObserveChannels()</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="handle_channels">
-        <doc xml:space="preserve"
-             filename="base-client.c"
-             line="51">the function called to handle channels matching this
- client's handler filter (since 0.11.13)</doc>
         <source-position filename="base-client.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8447,10 +8411,6 @@ ObserveChannels()</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="observe_channels">
-        <doc xml:space="preserve"
-             filename="base-client.c"
-             line="46">the function called to observe newly-created channels
- matching this client's observer filter (since 0.11.13)</doc>
         <source-position filename="base-client.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9100,8 +9060,7 @@ called, and may only be called on objects whose class implements
       </method>
       <method name="delegate_channels_async"
               c:identifier="tp_base_client_delegate_channels_async"
-              version="0.15.0"
-              glib:finish-func="delegate_channels_finish">
+              version="0.15.0">
         <doc xml:space="preserve"
              filename="base-client.c"
              line="3327">Asynchronously calls DelegateChannels on the ChannelDispatcher to try
@@ -10614,10 +10573,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </function>
       <virtual-method name="connected">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="174">If set by subclasses, will be called just after the state
- changes to CONNECTED. May be %NULL if nothing special needs to happen.</doc>
         <source-position filename="base-connection.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10632,10 +10587,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="connecting">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="172">If set by subclasses, will be called just after the state
- changes to CONNECTING. May be %NULL if nothing special needs to happen.</doc>
         <source-position filename="base-connection.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10650,12 +10601,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_channel_factories" introspectable="0">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="163">Create an array of channel factories for this
- Connection. At least one of this or @create_channel_managers must be set by
- subclasses to a non-%NULL value; in new code, setting this to %NULL and
- using channel managers exclusively is recommended.</doc>
         <source-position filename="base-connection.h" line="54"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -10677,11 +10622,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_channel_managers" introspectable="0">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="192">Create an array of channel managers for this
- Connection. At least one of this or @create_channel_factories must be set
- by subclasses to a non-%NULL value. Since: 0.7.15</doc>
         <source-position filename="base-connection.h" line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -10703,10 +10643,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="disconnected">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="176">If set by subclasses, will be called just after the state
- changes to DISCONNECTED. May be %NULL if nothing special needs to happen.</doc>
         <source-position filename="base-connection.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10721,14 +10657,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_interfaces_always_present" introspectable="0">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="186">Returns a #GPtrArray of extra D-Bus
- interfaces which are always implemented by instances of this class,
- which may be filled in by subclasses. The default is to list no
- additional interfaces. Individual instances may detect which
- additional interfaces they support and signal them before going
- to state CONNECTED by calling tp_base_connection_add_interfaces().</doc>
         <source-position filename="base-connection.h" line="63"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
@@ -10749,13 +10677,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_unique_connection_name">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="167">Construct a unique name for this connection
- (for example using the protocol's format for usernames). If %NULL (the
- default), a unique name will be generated. Subclasses should usually
- override this to get more obvious names, to aid debugging and prevent
- multiple connections to the same account.</doc>
         <source-position filename="base-connection.h" line="60"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -10775,13 +10696,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="shut_down">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="178">Called after disconnected() is called, to clean up the
- connection. Must start the shutdown process for the underlying
- network connection, and arrange for tp_base_connection_finish_shutdown()
- to be called after the underlying connection has been closed. May not
- be left as %NULL.</doc>
         <source-position filename="base-connection.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10796,11 +10710,6 @@ reimplementations, but reimplementing the method is now deprecated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start_connecting" throws="1">
-        <doc xml:space="preserve"
-             filename="base-connection.c"
-             line="183">Asynchronously start connecting - called to implement
- the Connect D-Bus method. See #TpBaseConnectionStartConnectingImpl for
- details. May not be left as %NULL.</doc>
         <source-position filename="base-connection.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -12674,8 +12583,7 @@ tp_simple_client_factory_add_contact_features_varargs().</doc>
       </function>
       <method name="accept_async"
               c:identifier="tp_call_channel_accept_async"
-              version="0.17.5"
-              glib:finish-func="accept_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1506">For incoming calls with #TpCallChannel:state set to
@@ -12747,8 +12655,7 @@ changes #TpCallChannel:state to
       </method>
       <method name="add_content_async"
               c:identifier="tp_call_channel_add_content_async"
-              version="0.17.5"
-              glib:finish-func="add_content_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1635">Request that a new Content of type @type is added to @self. Callers should
@@ -12958,8 +12865,7 @@ prepared.</doc>
       </method>
       <method name="hangup_async"
               c:identifier="tp_call_channel_hangup_async"
-              version="0.17.5"
-              glib:finish-func="hangup_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1557">Request that the call is ended. All contents will be removed from @self so
@@ -13205,8 +13111,7 @@ interfaces</doc>
       </method>
       <method name="request_hold_async"
               c:identifier="tp_call_channel_request_hold_async"
-              version="0.17.6"
-              glib:finish-func="request_hold_finish">
+              version="0.17.6">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1789">Requests that the connection manager holds or unholds the call. Watch
@@ -13280,8 +13185,7 @@ can not obtain all the resources needed to restart the call.</doc>
       </method>
       <method name="send_tones_async"
               c:identifier="tp_call_channel_send_tones_async"
-              version="0.17.5"
-              glib:finish-func="send_tones_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1718">Send @tones on every of @self's contents which have the
@@ -13367,8 +13271,7 @@ For more details, see tp_call_content_send_tones_async().</doc>
       </method>
       <method name="set_queued_async"
               c:identifier="tp_call_channel_set_queued_async"
-              version="0.17.5"
-              glib:finish-func="set_queued_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1461">Notifies the CM that the local user is already in a call, so this call has
@@ -13434,8 +13337,7 @@ been put in a call-waiting style queue.</doc>
       </method>
       <method name="set_ringing_async"
               c:identifier="tp_call_channel_set_ringing_async"
-              version="0.17.5"
-              glib:finish-func="set_ringing_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-channel.c"
              line="1417">Indicate that the local user has been alerted about the incoming call.</doc>
@@ -13912,8 +13814,7 @@ tp_proxy_or_subclass_hook_on_interface_add() with first argument
       </method>
       <method name="remove_async"
               c:identifier="tp_call_content_remove_async"
-              version="0.17.5"
-              glib:finish-func="remove_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-content.c"
              line="859">Remove the content from the call. This will cause #TpCallContent::removed
@@ -13979,8 +13880,7 @@ to be emitted.</doc>
       </method>
       <method name="send_tones_async"
               c:identifier="tp_call_content_send_tones_async"
-              version="0.17.5"
-              glib:finish-func="send_tones_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-content.c"
              line="904">Send @tones DTMF code on @self content. @self must have the
@@ -14650,8 +14550,7 @@ It is NOT guaranteed that #TpContact objects have any feature prepared.</doc>
       </method>
       <method name="request_receiving_async"
               c:identifier="tp_call_stream_request_receiving_async"
-              version="0.17.5"
-              glib:finish-func="request_receiving_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-stream.c"
              line="630">Request that a remote contact stops or starts sending on this stream.
@@ -14734,8 +14633,7 @@ If @receive is %FALSE, request that the given contact stops sending media.</doc>
       </method>
       <method name="set_sending_async"
               c:identifier="tp_call_stream_set_sending_async"
-              version="0.17.5"
-              glib:finish-func="set_sending_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="call-stream.c"
              line="578">Set the stream to start or stop sending media from the local user to other
@@ -16013,8 +15911,7 @@ calls @callback from the main loop.)</doc>
       </method>
       <method name="close_async"
               c:identifier="tp_channel_close_async"
-              version="0.13.10"
-              glib:finish-func="close_finish">
+              version="0.13.10">
         <doc xml:space="preserve"
              filename="channel.c"
              line="2755">Close channel @self. In most cases, it's generally cleaner to use
@@ -16088,8 +15985,7 @@ the operation.</doc>
       </method>
       <method name="destroy_async"
               c:identifier="tp_channel_destroy_async"
-              version="0.15.2"
-              glib:finish-func="destroy_finish">
+              version="0.15.2">
         <doc xml:space="preserve"
              filename="channel.c"
              line="2834">Destroy channel @self.
@@ -16390,19 +16286,19 @@ value. It is now non-%NULL in all cases.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="809">&lt;!-- --&gt;</doc>
+             line="806">&lt;!-- --&gt;</doc>
         <source-position filename="channel.h" line="217"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="815">the value of #TpChannel:initiator-contact</doc>
+               line="812">the value of #TpChannel:initiator-contact</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="811">a channel</doc>
+                 line="808">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16488,19 +16384,19 @@ value. It is now non-%NULL in all cases.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="792">&lt;!-- --&gt;</doc>
+             line="789">&lt;!-- --&gt;</doc>
         <source-position filename="channel.h" line="215"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="798">the value of #TpChannel:target-contact</doc>
+               line="795">the value of #TpChannel:target-contact</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="794">a channel</doc>
+                 line="791">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16510,7 +16406,7 @@ value. It is now non-%NULL in all cases.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="868">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
+             line="865">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
 prepared, return a #GPtrArray containing its local-pending members.
 
 If @self is a group but %TP_CHANNEL_FEATURE_CONTACTS has not been prepared,
@@ -16521,7 +16417,7 @@ If @self is not a group, return %NULL.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="880">
+               line="877">
  a new #GPtrArray of #TpContact, free it with g_ptr_array_unref(), or %NULL.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Contact"/>
@@ -16531,7 +16427,7 @@ If @self is not a group, return %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="870">a channel</doc>
+                 line="867">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16541,7 +16437,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="843">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
+             line="840">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
 prepared, return a #GPtrArray containing its members.
 
 If @self is a group but %TP_CHANNEL_FEATURE_CONTACTS has not been prepared,
@@ -16552,7 +16448,7 @@ If @self is not a group, return %NULL.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="855">
+               line="852">
  a new #GPtrArray of #TpContact, free it with g_ptr_array_unref(), or %NULL.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Contact"/>
@@ -16562,7 +16458,7 @@ If @self is not a group, return %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="845">a channel</doc>
+                 line="842">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16572,7 +16468,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="893">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
+             line="890">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
 prepared, return a #GPtrArray containing its remote-pending members.
 
 If @self is a group but %TP_CHANNEL_FEATURE_CONTACTS has not been prepared,
@@ -16583,7 +16479,7 @@ If @self is not a group, return %NULL.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="905">
+               line="902">
  a new #GPtrArray of #TpContact, free it with g_ptr_array_unref(), or %NULL.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Contact"/>
@@ -16593,7 +16489,7 @@ If @self is not a group, return %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="895">a channel</doc>
+                 line="892">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16603,7 +16499,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="999">Synopsis (see below for further explanation):
+             line="996">Synopsis (see below for further explanation):
 
 - if @self is not a group or @contact is not a member of this channel,
   result is undefined;
@@ -16640,7 +16536,7 @@ Group's remote-pending set).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="1038">the global contact that owns the given contact,
+               line="1035">the global contact that owns the given contact,
  or %NULL.</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
@@ -16648,13 +16544,13 @@ Group's remote-pending set).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="1001">a channel</doc>
+                 line="998">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
           <parameter name="contact" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="1002">a contact which is a member of this channel</doc>
+                 line="999">a contact which is a member of this channel</doc>
             <type name="Contact" c:type="TpContact*"/>
           </parameter>
         </parameters>
@@ -16784,7 +16680,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="918">If @local_pending is actually a local-pending contact,
+             line="915">If @local_pending is actually a local-pending contact,
 write additional information into @actor, @reason and @message and return
 %TRUE. The contact and message are not referenced or copied, and can only be
 assumed to remain valid until the main loop is re-entered.
@@ -16796,20 +16692,20 @@ and "" into @message, and return %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="940">%TRUE if the contact is in fact local-pending</doc>
+               line="937">%TRUE if the contact is in fact local-pending</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="920">a channel</doc>
+                 line="917">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
           <parameter name="local_pending" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="921">the #TpContact of a local-pending contact about whom more
+                 line="918">the #TpContact of a local-pending contact about whom more
  information is needed</doc>
             <type name="Contact" c:type="TpContact*"/>
           </parameter>
@@ -16821,7 +16717,7 @@ and "" into @message, and return %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="923">either %NULL or a location to
+                 line="920">either %NULL or a location to
  return the contact who requested the change</doc>
             <type name="Contact" c:type="TpContact**"/>
           </parameter>
@@ -16833,7 +16729,7 @@ and "" into @message, and return %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="925">either %NULL or a location to return the reason
+                 line="922">either %NULL or a location to return the reason
  for the change</doc>
             <type name="ChannelGroupChangeReason"
                   c:type="TpChannelGroupChangeReason*"/>
@@ -16846,7 +16742,7 @@ and "" into @message, and return %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="927">either %NULL or a location to
+                 line="924">either %NULL or a location to
  return the
  user-supplied message</doc>
             <type name="utf8" c:type="const gchar**"/>
@@ -16996,19 +16892,19 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="826">&lt;!-- --&gt;</doc>
+             line="823">&lt;!-- --&gt;</doc>
         <source-position filename="channel.h" line="219"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="832">the value of #TpChannel:group-self-contact</doc>
+               line="829">the value of #TpChannel:group-self-contact</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="828">a channel</doc>
+                 line="825">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -17080,8 +16976,7 @@ invalidated - but tp_proxy_is_prepared() returns %FALSE for all features.</doc>
       </method>
       <method name="join_async"
               c:identifier="tp_channel_join_async"
-              version="0.15.5"
-              glib:finish-func="join_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="channel.c"
              line="2487">Join channel @self with @message as join message.
@@ -17162,8 +17057,7 @@ must be prepared before calling this function.</doc>
       </method>
       <method name="leave_async"
               c:identifier="tp_channel_leave_async"
-              version="0.13.10"
-              glib:finish-func="leave_finish">
+              version="0.13.10">
         <doc xml:space="preserve"
              filename="channel.c"
              line="2679">Leave channel @self with @reason as reason and @message as leave message.
@@ -17277,8 +17171,7 @@ deprecated behaviour.</doc>
       </method>
       <method name="provide_password_async"
               c:identifier="tp_channel_provide_password_async"
-              version="0.15.2"
-              glib:finish-func="provide_password_finish">
+              version="0.15.2">
         <doc xml:space="preserve"
              filename="channel.c"
              line="2958">Provide @password so that @self can be joined.
@@ -18366,8 +18259,7 @@ valid - copy it with g_strdupv if needed.</doc>
       <method name="claim_async"
               c:identifier="tp_channel_dispatch_operation_claim_async"
               version="0.11.5"
-              deprecated="1"
-              glib:finish-func="claim_finish">
+              deprecated="1">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1272">Called by an approver to claim channels for handling internally.
@@ -18453,8 +18345,7 @@ tp_channel_dispatch_operation_claim_with_finish()</doc-deprecated>
       </method>
       <method name="claim_with_async"
               c:identifier="tp_channel_dispatch_operation_claim_with_async"
-              version="0.15.0"
-              glib:finish-func="claim_with_finish">
+              version="0.15.0">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1444">Called by an approver to claim channels for handling internally.
@@ -18548,8 +18439,7 @@ tp_channel_dispatch_operation_claim_with_async().</doc>
       </method>
       <method name="close_channels_async"
               c:identifier="tp_channel_dispatch_operation_close_channels_async"
-              version="0.15.1"
-              glib:finish-func="close_channels_finish">
+              version="0.15.1">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1555">Called by an approver to claim channels and close them all right away.
@@ -18634,8 +18524,7 @@ Close() has at least been attempted on all the channels, otherwise %FALSE</doc>
       </method>
       <method name="destroy_channels_async"
               c:identifier="tp_channel_dispatch_operation_destroy_channels_async"
-              version="0.15.2"
-              glib:finish-func="destroy_channels_finish">
+              version="0.15.2">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1796">Called by an approver to claim channels and destroy them all right away.
@@ -18836,8 +18725,7 @@ valid - copy it with g_strdupv if needed.</doc>
       </method>
       <method name="handle_with_async"
               c:identifier="tp_channel_dispatch_operation_handle_with_async"
-              version="0.11.5"
-              glib:finish-func="handle_with_finish">
+              version="0.11.5">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1184">Called by an approver to accept a channel bundle and request that the
@@ -18934,8 +18822,7 @@ channel, or %NULL if the client has no preferred channel handler</doc>
       </method>
       <method name="handle_with_time_async"
               c:identifier="tp_channel_dispatch_operation_handle_with_time_async"
-              version="0.11.7"
-              glib:finish-func="handle_with_time_finish">
+              version="0.11.7">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1355">A variant of tp_channel_dispatch_operation_handle_with_async()
@@ -19037,8 +18924,7 @@ channel, or %NULL if the client has no preferred channel handler</doc>
       </method>
       <method name="leave_channels_async"
               c:identifier="tp_channel_dispatch_operation_leave_channels_async"
-              version="0.15.2"
-              glib:finish-func="leave_channels_finish">
+              version="0.15.2">
         <doc xml:space="preserve"
              filename="channel-dispatch-operation.c"
              line="1685">Called by an approver to claim channels and leave them all right away.
@@ -19362,8 +19248,7 @@ tp_proxy_or_subclass_hook_on_interface_add() with first argument
       </function>
       <method name="present_channel_async"
               c:identifier="tp_channel_dispatcher_present_channel_async"
-              version="0.15.0"
-              glib:finish-func="present_channel_finish">
+              version="0.15.0">
         <doc xml:space="preserve"
              filename="channel-dispatcher.c"
              line="189">Asynchronously calls PresentChannel on the ChannelDispatcher to ask
@@ -20464,10 +20349,6 @@ invalid (whichever happens first)</doc>
 the %TP_TYPE_CLIENT_CHANNEL_FACTORY interface.</doc>
       <source-position filename="client-channel-factory.h" line="57"/>
       <virtual-method name="obj_create_channel" introspectable="0" throws="1">
-        <doc xml:space="preserve"
-             filename="client-channel-factory.c"
-             line="55">virtual method used to create channels;
- see tp_client_channel_factory_create_channel()</doc>
         <source-position filename="client-channel-factory.h" line="49"/>
         <return-value>
           <type name="Channel" c:type="TpChannel*"/>
@@ -20492,11 +20373,6 @@ the %TP_TYPE_CLIENT_CHANNEL_FACTORY interface.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="obj_dup_channel_features" introspectable="0">
-        <doc xml:space="preserve"
-             filename="client-channel-factory.c"
-             line="57">virtual method returning channel features that
- have to be prepared on newly created channels;
- see tp_client_channel_factory_dup_channel_features()</doc>
         <source-position filename="client-channel-factory.h" line="55"/>
         <return-value>
           <array name="GLib.Array" c:type="GArray*">
@@ -20616,10 +20492,6 @@ parameter was the type of the interface vtable.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="create_channel" introspectable="0">
-        <doc xml:space="preserve"
-             filename="client-channel-factory.c"
-             line="51">obsolete version of @obj_create_channel which does not
- receive the object instance as an argument</doc>
         <callback name="create_channel" introspectable="0" throws="1">
           <source-position filename="client-channel-factory.h" line="40"/>
           <return-value>
@@ -20646,10 +20518,6 @@ parameter was the type of the interface vtable.</doc>
         </callback>
       </field>
       <field name="dup_channel_features" introspectable="0">
-        <doc xml:space="preserve"
-             filename="client-channel-factory.c"
-             line="53">obsolete version of @obj_dup_channel_features which
- does not receive the object instance as an argument</doc>
         <callback name="dup_channel_features" introspectable="0">
           <source-position filename="client-channel-factory.h" line="46"/>
           <return-value>
@@ -20669,10 +20537,6 @@ parameter was the type of the interface vtable.</doc>
         </callback>
       </field>
       <field name="obj_create_channel" introspectable="0">
-        <doc xml:space="preserve"
-             filename="client-channel-factory.c"
-             line="55">virtual method used to create channels;
- see tp_client_channel_factory_create_channel()</doc>
         <callback name="obj_create_channel" introspectable="0" throws="1">
           <source-position filename="client-channel-factory.h" line="49"/>
           <return-value>
@@ -20699,11 +20563,6 @@ parameter was the type of the interface vtable.</doc>
         </callback>
       </field>
       <field name="obj_dup_channel_features" introspectable="0">
-        <doc xml:space="preserve"
-             filename="client-channel-factory.c"
-             line="57">virtual method returning channel features that
- have to be prepared on newly created channels;
- see tp_client_channel_factory_dup_channel_features()</doc>
         <callback name="obj_dup_channel_features" introspectable="0">
           <source-position filename="client-channel-factory.h" line="55"/>
           <return-value>
@@ -21084,8 +20943,7 @@ tp_connection_add_client_interest() for the string value of @interested_in.</doc
       </method>
       <method name="add_to_group_async"
               c:identifier="tp_connection_add_to_group_async"
-              version="0.15.5"
-              glib:finish-func="add_to_group_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1217">Add the given @contacts to the given @group, creating it if necessary.
@@ -21177,8 +21035,7 @@ For this to work properly @self must have interface
       </method>
       <method name="authorize_publication_async"
               c:identifier="tp_connection_authorize_publication_async"
-              version="0.15.5"
-              glib:finish-func="authorize_publication_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="877">For each of the given @contacts, request that the local user's presence is
@@ -21322,8 +21179,7 @@ See g_object_bind_property() for more information.</doc>
       </method>
       <method name="block_contacts_async"
               c:identifier="tp_connection_block_contacts_async"
-              version="0.17.0"
-              glib:finish-func="block_contacts_finish">
+              version="0.17.0">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1427">Direct the server to block @contacts.</doc>
@@ -21500,8 +21356,7 @@ Call tp_cli_connection_call_connect() too, if you want to do that.</doc>
       </method>
       <method name="disconnect_async"
               c:identifier="tp_connection_disconnect_async"
-              version="0.17.5"
-              glib:finish-func="disconnect_finish">
+              version="0.17.5">
         <doc xml:space="preserve"
              filename="connection.c"
              line="3655">Disconnect the connection.
@@ -21575,8 +21430,7 @@ to put the account offline temporarily, or disable it longer-term.</doc>
       </method>
       <method name="dup_contact_by_id_async"
               c:identifier="tp_connection_dup_contact_by_id_async"
-              version="0.19.0"
-              glib:finish-func="dup_contact_by_id_finish">
+              version="0.19.0">
         <doc xml:space="preserve"
              filename="contact.c"
              line="4985">Create a #TpContact object and make any asynchronous method calls necessary
@@ -23108,8 +22962,7 @@ set before its property gets updated.</doc>
       </method>
       <method name="remove_contacts_async"
               c:identifier="tp_connection_remove_contacts_async"
-              version="0.15.5"
-              glib:finish-func="remove_contacts_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="925">Remove the given @contacts from the contact list entirely. It is
@@ -23196,8 +23049,7 @@ For this to work properly @self must have interface
       </method>
       <method name="remove_from_group_async"
               c:identifier="tp_connection_remove_from_group_async"
-              version="0.15.5"
-              glib:finish-func="remove_from_group_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1265">Remove the given @contacts from the given @group. If there are no members
@@ -23290,8 +23142,7 @@ For this to work properly @self must have interface
       </method>
       <method name="remove_group_async"
               c:identifier="tp_connection_remove_group_async"
-              version="0.15.5"
-              glib:finish-func="remove_group_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1314">Remove all members from the given group, then remove the group itself.
@@ -23368,8 +23219,7 @@ For this to work properly @self must have interface
       </method>
       <method name="rename_group_async"
               c:identifier="tp_connection_rename_group_async"
-              version="0.15.5"
-              glib:finish-func="rename_group_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1366">Rename the given @old_name.
@@ -23539,8 +23389,7 @@ an error.</doc>
       </method>
       <method name="request_subscription_async"
               c:identifier="tp_connection_request_subscription_async"
-              version="0.15.5"
-              glib:finish-func="request_subscription_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="826">Request that the given @contacts allow the local user to subscribe to their
@@ -23688,8 +23537,7 @@ and is introspected, or the main loop stored via @loop is cancelled.</doc>
       </method>
       <method name="set_contact_info_async"
               c:identifier="tp_connection_set_contact_info_async"
-              version="0.11.7"
-              glib:finish-func="set_contact_info_finish">
+              version="0.11.7">
         <doc xml:space="preserve"
              filename="connection-contact-info.c"
              line="534">Requests an asynchronous set of the contact info of @self. When
@@ -23772,8 +23620,7 @@ tp_connection_get_contact_info_flags() does not include
       </method>
       <method name="set_group_members_async"
               c:identifier="tp_connection_set_group_members_async"
-              version="0.15.5"
-              glib:finish-func="set_group_members_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1168">Add the given @contacts to the given @group (creating it if necessary), and
@@ -23866,8 +23713,7 @@ For this to work properly @self must have interface
       </method>
       <method name="unblock_contacts_async"
               c:identifier="tp_connection_unblock_contacts_async"
-              version="0.17.0"
-              glib:finish-func="unblock_contacts_finish">
+              version="0.17.0">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1492">Direct the server to unblock @contacts.</doc>
@@ -23950,8 +23796,7 @@ For this to work properly @self must have interface
       </method>
       <method name="unpublish_async"
               c:identifier="tp_connection_unpublish_async"
-              version="0.15.5"
-              glib:finish-func="unpublish_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="1019">Attempt to set the given @contacts' #TpContact:publish-state property to
@@ -24079,8 +23924,7 @@ this released a reference to the handles in @handles.</doc>
       </method>
       <method name="unsubscribe_async"
               c:identifier="tp_connection_unsubscribe_async"
-              version="0.15.5"
-              glib:finish-func="unsubscribe_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="connection-contact-list.c"
              line="972">Attempt to set the given @contacts' #TpContact:subscribe-state property to
@@ -24266,8 +24110,7 @@ connection managers.</doc>
       </method>
       <method name="upgrade_contacts_async"
               c:identifier="tp_connection_upgrade_contacts_async"
-              version="0.19.0"
-              glib:finish-func="upgrade_contacts_finish">
+              version="0.19.0">
         <doc xml:space="preserve"
              filename="contact.c"
              line="5077">Given several #TpContact objects, make asynchronous method calls
@@ -27115,8 +26958,7 @@ tp_connection_get_contact_attributes().</doc>
       <source-position filename="contact.h" line="41"/>
       <method name="add_to_group_async"
               c:identifier="tp_contact_add_to_group_async"
-              version="0.15.5"
-              glib:finish-func="add_to_group_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="295">Convenience wrapper for tp_connection_add_to_group_async()
@@ -27191,8 +27033,7 @@ on a single contact.</doc>
       </method>
       <method name="authorize_publication_async"
               c:identifier="tp_contact_authorize_publication_async"
-              version="0.15.5"
-              glib:finish-func="authorize_publication_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="118">Convenience wrapper for tp_connection_authorize_publication_async()
@@ -27261,8 +27102,7 @@ on a single contact.</doc>
       </method>
       <method name="block_async"
               c:identifier="tp_contact_block_async"
-              version="0.17.0"
-              glib:finish-func="block_finish">
+              version="0.17.0">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="379">Block communications with a contact, optionally reporting the contact as
@@ -27972,8 +27812,7 @@ This is set to %TP_SUBSCRIPTION_STATE_UNKNOWN until
       </method>
       <method name="remove_async"
               c:identifier="tp_contact_remove_async"
-              version="0.15.5"
-              glib:finish-func="remove_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="157">Convenience wrapper for tp_connection_remove_contacts_async()
@@ -28042,8 +27881,7 @@ on a single contact.</doc>
       </method>
       <method name="remove_from_group_async"
               c:identifier="tp_contact_remove_from_group_async"
-              version="0.15.5"
-              glib:finish-func="remove_from_group_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="336">Convenience wrapper for tp_connection_remove_from_group_async()
@@ -28118,8 +27956,7 @@ on a single contact.</doc>
       </method>
       <method name="request_contact_info_async"
               c:identifier="tp_contact_request_contact_info_async"
-              version="0.11.7"
-              glib:finish-func="request_contact_info_finish">
+              version="0.11.7">
         <doc xml:space="preserve"
              filename="contact.c"
              line="3463">Requests an asynchronous request of the contact info of @self. When
@@ -28212,8 +28049,7 @@ the contact's vCard can be accessed using tp_contact_get_contact_info().</doc>
       </method>
       <method name="request_subscription_async"
               c:identifier="tp_contact_request_subscription_async"
-              version="0.15.5"
-              glib:finish-func="request_subscription_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="77">Convenience wrapper for tp_connection_request_subscription_async()
@@ -28288,8 +28124,7 @@ on a single contact.</doc>
       </method>
       <method name="set_contact_groups_async"
               c:identifier="tp_contact_set_contact_groups_async"
-              version="0.13.14"
-              glib:finish-func="set_contact_groups_finish">
+              version="0.13.14">
         <doc xml:space="preserve"
              filename="contact.c"
              line="797">Add @self to the given groups (creating new groups if necessary), and remove
@@ -28386,8 +28221,7 @@ new contact groups inside @callback.</doc>
       </method>
       <method name="unblock_async"
               c:identifier="tp_contact_unblock_async"
-              version="0.17.0"
-              glib:finish-func="unblock_finish">
+              version="0.17.0">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="442">Unblock communications with a contact. To unblock more than one contact
@@ -28456,8 +28290,7 @@ at once, see tp_connection_unblock_contacts_async().</doc>
       </method>
       <method name="unpublish_async"
               c:identifier="tp_contact_unpublish_async"
-              version="0.15.5"
-              glib:finish-func="unpublish_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="235">Convenience wrapper for tp_connection_unpublish_async()
@@ -28526,8 +28359,7 @@ on a single contact.</doc>
       </method>
       <method name="unsubscribe_async"
               c:identifier="tp_contact_unsubscribe_async"
-              version="0.15.5"
-              glib:finish-func="unsubscribe_finish">
+              version="0.15.5">
         <doc xml:space="preserve"
              filename="contact-operations.c"
              line="196">Convenience wrapper for tp_connection_unsubscribe_async()
@@ -29605,8 +29437,7 @@ in case of error.</doc>
       </constructor>
       <function name="new_async"
                 c:identifier="tp_contact_search_new_async"
-                version="0.13.11"
-                glib:finish-func="new_finish">
+                version="0.13.11">
         <doc xml:space="preserve"
              filename="contact-search.c"
              line="495">&lt;!-- --&gt;</doc>
@@ -29758,8 +29589,7 @@ for a list of the special cases.</doc>
       </method>
       <method name="reset_async"
               c:identifier="tp_contact_search_reset_async"
-              version="0.13.11"
-              glib:finish-func="reset_finish">
+              version="0.13.11">
         <doc xml:space="preserve"
              filename="contact-search.c"
              line="559">Resets the contact search object so a new search can be performed.
@@ -31731,8 +31561,7 @@ for future expansion, which must always be initialized to %NULL.</doc>
       </function>
       <method name="accept_async"
               c:identifier="tp_dbus_tube_channel_accept_async"
-              version="0.18.0"
-              glib:finish-func="accept_finish">
+              version="0.18.0">
         <doc xml:space="preserve"
              filename="dbus-tube-channel.c"
              line="771">Accept an incoming D-Bus tube. When the tube has been accepted
@@ -31886,8 +31715,7 @@ the value of #TpDBusTubeChannel:parameters</doc>
       </method>
       <method name="offer_async"
               c:identifier="tp_dbus_tube_channel_offer_async"
-              version="0.18.0"
-              glib:finish-func="offer_finish">
+              version="0.18.0">
         <doc xml:space="preserve"
              filename="dbus-tube-channel.c"
              line="657">Offer an outgoing D-Bus tube. When the tube has been offered and accepted
@@ -32253,8 +32081,7 @@ tp_proxy_or_subclass_hook_on_interface_add() with first argument
       </function>
       <method name="get_messages_async"
               c:identifier="tp_debug_client_get_messages_async"
-              version="0.19.0"
-              glib:finish-func="get_messages_finish">
+              version="0.19.0">
         <doc xml:space="preserve"
              filename="debug-client.c"
              line="506">Retrieve buffered messages from @self. Once @callback is called,
@@ -32349,8 +32176,7 @@ a #GPtrArray of #TpDebugMessage, free with g_ptr_array_unref()</doc>
       </method>
       <method name="set_enabled_async"
               c:identifier="tp_debug_client_set_enabled_async"
-              version="0.19.0"
-              glib:finish-func="set_enabled_finish">
+              version="0.19.0">
         <doc xml:space="preserve"
              filename="debug-client.c"
              line="397">Enable or disable publishing of debug messages on the bus by the component
@@ -33423,8 +33249,7 @@ the trailing '.' character.</doc>
       </function>
       <method name="accept_file_async"
               c:identifier="tp_file_transfer_channel_accept_file_async"
-              version="0.17.1"
-              glib:finish-func="accept_file_finish">
+              version="0.17.1">
         <doc xml:space="preserve"
              filename="file-transfer-channel.c"
              line="1299">Accept an incoming file transfer in the
@@ -33737,8 +33562,7 @@ If @reason is not %NULL it is set to the reason why
       </method>
       <method name="provide_file_async"
               c:identifier="tp_file_transfer_channel_provide_file_async"
-              version="0.17.1"
-              glib:finish-func="provide_file_finish">
+              version="0.17.1">
         <doc xml:space="preserve"
              filename="file-transfer-channel.c"
              line="1416">Provide a file transfer. This should be called when the file
@@ -44495,8 +44319,7 @@ in C code. The returned string is valid for as long as @self exists.</doc>
       </method>
       <method name="identify_account_async"
               c:identifier="tp_protocol_identify_account_async"
-              version="0.23.1"
-              glib:finish-func="identify_account_finish">
+              version="0.23.1">
         <doc xml:space="preserve"
              filename="protocol.c"
              line="2151">Return a string that could identify the account with the given
@@ -44587,8 +44410,7 @@ and must be combined with a server or network name.</doc>
       </method>
       <method name="normalize_contact_async"
               c:identifier="tp_protocol_normalize_contact_async"
-              version="0.23.1"
-              glib:finish-func="normalize_contact_finish">
+              version="0.23.1">
         <doc xml:space="preserve"
              filename="protocol.c"
              line="2091">Perform best-effort offline contact normalization. This does syntactic
@@ -44675,8 +44497,7 @@ but does not query servers or anything similar.</doc>
       </method>
       <method name="normalize_contact_uri_async"
               c:identifier="tp_protocol_normalize_contact_uri_async"
-              version="0.23.1"
-              glib:finish-func="normalize_contact_uri_finish">
+              version="0.23.1">
         <doc xml:space="preserve"
              filename="protocol.c"
              line="2220">Perform best-effort offline contact normalization, for a contact in
@@ -44762,8 +44583,7 @@ scheme supported by this protocol or connection manager.</doc>
       </method>
       <method name="normalize_vcard_address_async"
               c:identifier="tp_protocol_normalize_vcard_address_async"
-              version="0.23.1"
-              glib:finish-func="normalize_vcard_address_finish">
+              version="0.23.1">
         <doc xml:space="preserve"
              filename="protocol.c"
              line="2279">Perform best-effort offline contact normalization, for a contact in
@@ -45364,8 +45184,7 @@ To prepare features, call tp_proxy_prepare_async().</doc>
       </method>
       <method name="prepare_async"
               c:identifier="tp_proxy_prepare_async"
-              version="0.11.3"
-              glib:finish-func="prepare_finish">
+              version="0.11.3">
         <doc xml:space="preserve"
              filename="proxy.c"
              line="1885">#TpProxy itself does not support any features, but subclasses like
@@ -46343,8 +46162,7 @@ in case of error.</doc>
       </constructor>
       <function name="new_async"
                 c:identifier="tp_room_list_new_async"
-                version="0.19.0"
-                glib:finish-func="new_finish">
+                version="0.19.0">
         <doc xml:space="preserve"
              filename="room-list.c"
              line="550">&lt;!-- --&gt;</doc>
@@ -47342,10 +47160,6 @@ tp_dbus_daemon_dup() will be used.</doc>
         </parameters>
       </constructor>
       <virtual-method name="create_account" introspectable="0" throws="1">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="82">create a #TpAccount;
- see tp_simple_client_factory_ensure_account()</doc>
         <source-position filename="simple-client-factory.h" line="48"/>
         <return-value>
           <type name="Account" c:type="TpAccount*"/>
@@ -47366,10 +47180,6 @@ tp_dbus_daemon_dup() will be used.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_channel" introspectable="0" throws="1">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="89">create a #TpChannel;
- see tp_simple_client_factory_ensure_channel()</doc>
         <source-position filename="simple-client-factory.h" line="64"/>
         <return-value>
           <type name="Channel" c:type="TpChannel*"/>
@@ -47393,10 +47203,6 @@ tp_dbus_daemon_dup() will be used.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_connection" introspectable="0" throws="1">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="85">create a #TpConnection;
- see tp_simple_client_factory_ensure_connection()</doc>
         <source-position filename="simple-client-factory.h" line="56"/>
         <return-value>
           <type name="Connection" c:type="TpConnection*"/>
@@ -47417,10 +47223,6 @@ tp_dbus_daemon_dup() will be used.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_contact" introspectable="0">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="92">create a #TpContact;
- see tp_simple_client_factory_ensure_contact()</doc>
         <source-position filename="simple-client-factory.h" line="73"/>
         <return-value>
           <type name="Contact" c:type="TpContact*"/>
@@ -48202,8 +48004,7 @@ must return %TRUE for @connection.</doc>
       </method>
       <method name="ensure_contact_by_id_async"
               c:identifier="tp_simple_client_factory_ensure_contact_by_id_async"
-              version="0.19.1"
-              glib:finish-func="ensure_contact_by_id_finish">
+              version="0.19.1">
         <doc xml:space="preserve"
              filename="simple-client-factory.c"
              line="995">Same as tp_connection_dup_contact_by_id_async(), but prepare the
@@ -48309,8 +48110,7 @@ tp_simple_client_factory_add_contact_features().</doc>
       </method>
       <method name="upgrade_contacts_async"
               c:identifier="tp_simple_client_factory_upgrade_contacts_async"
-              version="0.19.1"
-              glib:finish-func="upgrade_contacts_finish">
+              version="0.19.1">
         <doc xml:space="preserve"
              filename="simple-client-factory.c"
              line="902">Same as tp_connection_upgrade_contacts_async(), but prepare contacts with all
@@ -48461,10 +48261,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="create_account" introspectable="0">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="82">create a #TpAccount;
- see tp_simple_client_factory_ensure_account()</doc>
         <callback name="create_account" introspectable="0" throws="1">
           <source-position filename="simple-client-factory.h" line="48"/>
           <return-value>
@@ -48488,9 +48284,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="dup_account_features">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="84">implementation of tp_simple_client_factory_dup_account_features()</doc>
         <callback name="dup_account_features">
           <source-position filename="simple-client-factory.h" line="52"/>
           <return-value transfer-ownership="full">
@@ -48520,10 +48313,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="create_connection" introspectable="0">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="85">create a #TpConnection;
- see tp_simple_client_factory_ensure_connection()</doc>
         <callback name="create_connection" introspectable="0" throws="1">
           <source-position filename="simple-client-factory.h" line="56"/>
           <return-value>
@@ -48547,10 +48336,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="dup_connection_features">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="87">implementation of
- tp_simple_client_factory_dup_connection_features()</doc>
         <callback name="dup_connection_features">
           <source-position filename="simple-client-factory.h" line="60"/>
           <return-value transfer-ownership="full">
@@ -48580,10 +48365,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="create_channel" introspectable="0">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="89">create a #TpChannel;
- see tp_simple_client_factory_ensure_channel()</doc>
         <callback name="create_channel" introspectable="0" throws="1">
           <source-position filename="simple-client-factory.h" line="64"/>
           <return-value>
@@ -48610,9 +48391,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="dup_channel_features">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="91">implementation of tp_simple_client_factory_dup_channel_features()</doc>
         <callback name="dup_channel_features">
           <source-position filename="simple-client-factory.h" line="69"/>
           <return-value transfer-ownership="full">
@@ -48642,10 +48420,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="create_contact" introspectable="0">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="92">create a #TpContact;
- see tp_simple_client_factory_ensure_contact()</doc>
         <callback name="create_contact" introspectable="0">
           <source-position filename="simple-client-factory.h" line="73"/>
           <return-value>
@@ -48669,9 +48443,6 @@ the other &lt;function&gt;dup_x_features&lt;/function&gt; methods behave similar
         </callback>
       </field>
       <field name="dup_contact_features">
-        <doc xml:space="preserve"
-             filename="simple-client-factory.c"
-             line="94">implementation of tp_simple_client_factory_dup_contact_features()</doc>
         <callback name="dup_contact_features">
           <source-position filename="simple-client-factory.h" line="77"/>
           <return-value transfer-ownership="full">
@@ -49840,8 +49611,7 @@ objects.</doc>
       </constructor>
       <method name="accept_async"
               c:identifier="tp_stream_tube_channel_accept_async"
-              version="0.13.2"
-              glib:finish-func="accept_finish">
+              version="0.13.2">
         <doc xml:space="preserve"
              filename="stream-tube-channel.c"
              line="847">Accept an incoming stream tube. When the tube has been accepted, @callback
@@ -49993,8 +49763,7 @@ the value of #TpStreamTubeChannel:parameters</doc>
       </method>
       <method name="offer_async"
               c:identifier="tp_stream_tube_channel_offer_async"
-              version="0.13.2"
-              glib:finish-func="offer_finish">
+              version="0.13.2">
         <doc xml:space="preserve"
              filename="stream-tube-channel.c"
              line="1412">Offer an outgoing stream tube. When the tube has been offered, @callback
@@ -50461,8 +50230,7 @@ tp_proxy_or_subclass_hook_on_interface_add() with first argument
       </function>
       <method name="accept_async"
               c:identifier="tp_tls_certificate_accept_async"
-              version="0.19.0"
-              glib:finish-func="accept_finish">
+              version="0.19.0">
         <doc xml:space="preserve"
              filename="tls-certificate.c"
              line="631">Accept this certificate, asynchronously. In or after @callback,
@@ -50721,8 +50489,7 @@ it returns %NULL.</doc>
       </method>
       <method name="reject_async"
               c:identifier="tp_tls_certificate_reject_async"
-              version="0.19.0"
-              glib:finish-func="reject_finish">
+              version="0.19.0">
         <doc xml:space="preserve"
              filename="tls-certificate.c"
              line="748">Reject this certificate, asynchronously.
@@ -51500,8 +51267,7 @@ Bitfield/set of flags generated from the Telepathy specification.</doc>
       </function>
       <method name="ack_all_pending_messages_async"
               c:identifier="tp_text_channel_ack_all_pending_messages_async"
-              version="0.15.3"
-              glib:finish-func="ack_all_pending_messages_finish">
+              version="0.15.3">
         <doc xml:space="preserve"
              filename="text-channel.c"
              line="1967">Acknowledge all the pending messages. This is equivalent of calling
@@ -51577,8 +51343,7 @@ See tp_text_channel_ack_message_async() about acknowledging messages.</doc>
       </method>
       <method name="ack_message_async"
               c:identifier="tp_text_channel_ack_message_async"
-              version="0.13.10"
-              glib:finish-func="ack_message_finish">
+              version="0.13.10">
         <doc xml:space="preserve"
              filename="text-channel.c"
              line="1516">Acknowledge @message. Once the message has been acked, @callback will be
@@ -51665,8 +51430,7 @@ tp_text_channel_dup_pending_messages() or the
       </method>
       <method name="ack_messages_async"
               c:identifier="tp_text_channel_ack_messages_async"
-              version="0.13.10"
-              glib:finish-func="ack_messages_finish">
+              version="0.13.10">
         <doc xml:space="preserve"
              filename="text-channel.c"
              line="1423">Acknowledge all the messages in @messages.
@@ -51942,8 +51706,7 @@ a #GList of borrowed #TpSignalledMessage</doc>
       </method>
       <method name="get_sms_length_async"
               c:identifier="tp_text_channel_get_sms_length_async"
-              version="0.15.1"
-              glib:finish-func="get_sms_length_finish">
+              version="0.15.1">
         <doc xml:space="preserve"
              filename="text-channel.c"
              line="1874">Starts an async call to get the number of 140 octet chunks required to
@@ -52112,8 +51875,7 @@ the value of #TpTextChannel:supported-content-types</doc>
       </method>
       <method name="send_message_async"
               c:identifier="tp_text_channel_send_message_async"
-              version="0.13.10"
-              glib:finish-func="send_message_finish">
+              version="0.13.10">
         <doc xml:space="preserve"
              filename="text-channel.c"
              line="1320">Submit a message to the server for sending. Once the message has been
@@ -52212,8 +51974,7 @@ token of the sent message</doc>
       </method>
       <method name="set_chat_state_async"
               c:identifier="tp_text_channel_set_chat_state_async"
-              version="0.13.10"
-              glib:finish-func="set_chat_state_finish">
+              version="0.13.10">
         <doc xml:space="preserve"
              filename="text-channel.c"
              line="1663">Set the local state on channel @self to @state.
@@ -58372,10 +58133,9 @@ disconnects.</doc>
         </parameter>
       </parameters>
     </function>
-    <function-inline name="handle_type_is_valid"
-                     c:identifier="tp_handle_type_is_valid"
-                     introspectable="0"
-                     throws="1">
+    <function name="handle_type_is_valid"
+              c:identifier="tp_handle_type_is_valid"
+              throws="1">
       <doc xml:space="preserve"
            filename="handle.h"
            line="65">If the given handle type is valid, return %TRUE. If not, set @error
@@ -58395,7 +58155,7 @@ and return %FALSE.</doc>
           <type name="HandleType" c:type="TpHandleType"/>
         </parameter>
       </parameters>
-    </function-inline>
+    </function>
     <function name="handle_type_to_string"
               c:identifier="tp_handle_type_to_string">
       <doc xml:space="preserve"
@@ -58595,10 +58355,10 @@ the connection; previously, this function provided refcounting for handles.</doc
         </parameter>
       </parameters>
     </function>
-    <function-inline name="handles_supported_and_valid"
-                     c:identifier="tp_handles_supported_and_valid"
-                     introspectable="0"
-                     throws="1">
+    <function name="handles_supported_and_valid"
+              c:identifier="tp_handles_supported_and_valid"
+              introspectable="0"
+              throws="1">
       <doc xml:space="preserve"
            filename="handle-repo.h"
            line="187">Return %TRUE if the given handle type is supported (i.e. repos[handle_type]
@@ -58642,7 +58402,7 @@ valid.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
-    </function-inline>
+    </function>
     <function name="handles_unref"
               c:identifier="tp_handles_unref"
               introspectable="0"

@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
              version="2.0"
              shared-library="libgmodule-2.0.so.0"
              c:identifier-prefixes="G"
-             c:symbol-prefixes="gmodule,g">
+             c:symbol-prefixes="g">
     <function-macro name="DEPRECATED_ENUMERATOR_IN_2_26_FOR"
                     c:identifier="GMODULE_DEPRECATED_ENUMERATOR_IN_2_26_FOR"
                     introspectable="0">
@@ -261,15 +261,6 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GMODULE_DEPRECATED_ENUMERATOR_IN_2_80_FOR"
                     introspectable="0">
       <source-position filename="gmodule/gmodule-visibility.h" line="960"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DEPRECATED_ENUMERATOR_IN_2_82_FOR"
-                    c:identifier="GMODULE_DEPRECATED_ENUMERATOR_IN_2_82_FOR"
-                    introspectable="0">
-      <source-position filename="gmodule/gmodule-visibility.h" line="994"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -536,15 +527,6 @@ and/or use gtk-doc annotations.  -->
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="DEPRECATED_IN_2_82_FOR"
-                    c:identifier="GMODULE_DEPRECATED_IN_2_82_FOR"
-                    introspectable="0">
-      <source-position filename="gmodule/gmodule-visibility.h" line="990"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="DEPRECATED_MACRO_IN_2_26_FOR"
                     c:identifier="GMODULE_DEPRECATED_MACRO_IN_2_26_FOR"
                     introspectable="0">
@@ -797,15 +779,6 @@ and/or use gtk-doc annotations.  -->
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="DEPRECATED_MACRO_IN_2_82_FOR"
-                    c:identifier="GMODULE_DEPRECATED_MACRO_IN_2_82_FOR"
-                    introspectable="0">
-      <source-position filename="gmodule/gmodule-visibility.h" line="992"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="DEPRECATED_TYPE_IN_2_26_FOR"
                     c:identifier="GMODULE_DEPRECATED_TYPE_IN_2_26_FOR"
                     introspectable="0">
@@ -1053,15 +1026,6 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GMODULE_DEPRECATED_TYPE_IN_2_80_FOR"
                     introspectable="0">
       <source-position filename="gmodule/gmodule-visibility.h" line="962"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DEPRECATED_TYPE_IN_2_82_FOR"
-                    c:identifier="GMODULE_DEPRECATED_TYPE_IN_2_82_FOR"
-                    introspectable="0">
-      <source-position filename="gmodule/gmodule-visibility.h" line="996"/>
       <parameters>
         <parameter name="f">
         </parameter>

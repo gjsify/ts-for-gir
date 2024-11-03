@@ -16,282 +16,6 @@ and/or use gtk-doc annotations.  -->
              shared-library="libwebkitgtk-6.0.so.4,libjavascriptcoregtk-6.0.so.1"
              c:identifier-prefixes="WebKit"
              c:symbol-prefixes="webkit">
-    <record name="ConsoleMessage"
-            c:type="WebKitConsoleMessage"
-            opaque="1"
-            glib:type-name="WebKitConsoleMessage"
-            glib:get-type="webkit_console_message_get_type"
-            c:symbol-prefix="console_message">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                       line="74"/>
-      <method name="copy"
-              c:identifier="webkit_console_message_copy"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="27">Make a copy of @console_message.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="80"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-               line="33">A copy of passed in #WebKitConsoleMessage</doc>
-          <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="29">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="free"
-              c:identifier="webkit_console_message_free"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="45">Free the #WebKitConsoleMessage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="83"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="47">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_level"
-              c:identifier="webkit_console_message_get_level"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="90">Gets the log level of a #WebKitConsoleMessage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="89"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-               line="96">a #WebKitConsoleMessageLevel indicating the log level of @console_message</doc>
-          <type name="ConsoleMessageLevel" c:type="WebKitConsoleMessageLevel"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="92">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_line"
-              c:identifier="webkit_console_message_get_line"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="136">Gets the line number of a #WebKitConsoleMessage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="95"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-               line="142">the line number of @console_message</doc>
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="138">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_source"
-              c:identifier="webkit_console_message_get_source"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="60">Gets the source of a #WebKitConsoleMessage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="86"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-               line="66">a #WebKitConsoleMessageSource indicating the source of @console_message</doc>
-          <type name="ConsoleMessageSource"
-                c:type="WebKitConsoleMessageSource"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="62">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_source_id"
-              c:identifier="webkit_console_message_get_source_id"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="152">Gets the source identifier of a #WebKitConsoleMessage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="98"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-               line="158">the source identifier of @console_message</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="154">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_text"
-              c:identifier="webkit_console_message_get_text"
-              version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-             line="120">Gets the text message of a #WebKitConsoleMessage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-                         line="92"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-               line="126">the text message of @console_message</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitConsoleMessage.cpp"
-                 line="122">a #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage" c:type="WebKitConsoleMessage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-    </record>
-    <enumeration name="ConsoleMessageLevel"
-                 version="2.12"
-                 glib:type-name="WebKitConsoleMessageLevel"
-                 glib:get-type="webkit_console_message_level_get_type"
-                 c:type="WebKitConsoleMessageLevel">
-      <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-           line="54">Enum values used to denote the various levels of console messages.</doc>
-      <member name="info"
-              value="0"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_LEVEL_INFO"
-              glib:nick="info"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_LEVEL_INFO">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="56">Information message.</doc>
-      </member>
-      <member name="log"
-              value="1"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_LEVEL_LOG"
-              glib:nick="log"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_LEVEL_LOG">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="57">Log message.</doc>
-      </member>
-      <member name="warning"
-              value="2"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_LEVEL_WARNING"
-              glib:nick="warning"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_LEVEL_WARNING">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="58">Warning message.</doc>
-      </member>
-      <member name="error"
-              value="3"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_LEVEL_ERROR"
-              glib:nick="error"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_LEVEL_ERROR">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="59">Error message.</doc>
-      </member>
-      <member name="debug"
-              value="4"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_LEVEL_DEBUG"
-              glib:nick="debug"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_LEVEL_DEBUG">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="60">Debug message.</doc>
-      </member>
-    </enumeration>
-    <enumeration name="ConsoleMessageSource"
-                 version="2.12"
-                 glib:type-name="WebKitConsoleMessageSource"
-                 glib:get-type="webkit_console_message_source_get_type"
-                 c:type="WebKitConsoleMessageSource">
-      <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-           line="34">Enum values used to denote the various sources of console messages.</doc>
-      <member name="javascript"
-              value="0"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_SOURCE_JAVASCRIPT"
-              glib:nick="javascript"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_SOURCE_JAVASCRIPT">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="36">Message produced by JavaScript.</doc>
-      </member>
-      <member name="network"
-              value="1"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_SOURCE_NETWORK"
-              glib:nick="network"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_SOURCE_NETWORK">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="37">Network messages.</doc>
-      </member>
-      <member name="console_api"
-              value="2"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_SOURCE_CONSOLE_API"
-              glib:nick="console-api"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_SOURCE_CONSOLE_API">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="38">Messages produced by console API.</doc>
-      </member>
-      <member name="security"
-              value="3"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_SOURCE_SECURITY"
-              glib:nick="security"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_SOURCE_SECURITY">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="39">Security messages.</doc>
-      </member>
-      <member name="other"
-              value="4"
-              c:identifier="WEBKIT_CONSOLE_MESSAGE_SOURCE_OTHER"
-              glib:nick="other"
-              glib:name="WEBKIT_CONSOLE_MESSAGE_SOURCE_OTHER">
-        <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitConsoleMessage.h"
-             line="40">Other messages.</doc>
-      </member>
-    </enumeration>
     <class name="ContextMenu"
            c:symbol-prefix="context_menu"
            c:type="WebKitContextMenu"
@@ -302,7 +26,7 @@ and/or use gtk-doc annotations.  -->
            glib:type-struct="ContextMenuClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-           line="41">Represents the context menu in a #WebKitWebView.
+           line="38">Represents the context menu in a #WebKitWebView.
 
 #WebKitContextMenu represents a context menu containing
 #WebKitContextMenuItem&lt;!-- --&gt;s in a #WebKitWebView.
@@ -315,12 +39,12 @@ new #WebKitContextMenuItem&lt;!-- --&gt;s with
 webkit_context_menu_prepend(), webkit_context_menu_append() or
 webkit_context_menu_insert(), maybe after having removed the
 existing ones with webkit_context_menu_remove_all().</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                        line="35"/>
       <constructor name="new" c:identifier="webkit_context_menu_new">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="135">Creates a new #WebKitContextMenu object.
+             line="130">Creates a new #WebKitContextMenu object.
 
 Creates a new #WebKitContextMenu object to be used as a submenu of an existing
 #WebKitContextMenu. The context menu of a #WebKitWebView is created by the view
@@ -329,12 +53,12 @@ To add items to the menu use webkit_context_menu_prepend(),
 webkit_context_menu_append() or webkit_context_menu_insert().
 See also webkit_context_menu_new_with_items() to create a #WebKitContextMenu with
 a list of initial items.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="148">The newly created #WebKitContextMenu object</doc>
+               line="143">The newly created #WebKitContextMenu object</doc>
           <type name="ContextMenu" c:type="WebKitContextMenu*"/>
         </return-value>
       </constructor>
@@ -342,24 +66,24 @@ a list of initial items.</doc>
                    c:identifier="webkit_context_menu_new_with_items">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="155">Creates a new #WebKitContextMenu object with the given items.
+             line="150">Creates a new #WebKitContextMenu object with the given items.
 
 Creates a new #WebKitContextMenu object to be used as a submenu of an existing
 #WebKitContextMenu with the given initial items.
 See also webkit_context_menu_new()</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="43"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="165">The newly created #WebKitContextMenu object</doc>
+               line="160">The newly created #WebKitContextMenu object</doc>
           <type name="ContextMenu" c:type="WebKitContextMenu*"/>
         </return-value>
         <parameters>
           <parameter name="items" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="157">a #GList of #WebKitContextMenuItem</doc>
+                 line="152">a #GList of #WebKitContextMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="ContextMenuItem"/>
             </type>
@@ -369,8 +93,8 @@ See also webkit_context_menu_new()</doc>
       <method name="append" c:identifier="webkit_context_menu_append">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="188">Adds @item at the end of the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="183">Adds @item at the end of the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -379,13 +103,13 @@ See also webkit_context_menu_new()</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="190">a #WebKitContextMenu</doc>
+                 line="185">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="191">the #WebKitContextMenuItem to add</doc>
+                 line="186">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
         </parameters>
@@ -393,13 +117,13 @@ See also webkit_context_menu_new()</doc>
       <method name="first" c:identifier="webkit_context_menu_first">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="277">Gets the first item in the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="272">Gets the first item in the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="283">the first #WebKitContextMenuItem of @menu,
+               line="278">the first #WebKitContextMenuItem of @menu,
    or %NULL if the #WebKitContextMenu is empty.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
@@ -407,7 +131,7 @@ See also webkit_context_menu_new()</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="279">a #WebKitContextMenu</doc>
+                 line="274">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -417,7 +141,7 @@ See also webkit_context_menu_new()</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="405">Gets the #GdkEvent that triggered the context menu. This function only returns a valid
+             line="400">Gets the #GdkEvent that triggered the context menu. This function only returns a valid
 #GdkEvent when called for a #WebKitContextMenu passed to #WebKitWebView::context-menu
 signal; in all other cases, %NULL is returned.
 
@@ -433,19 +157,19 @@ a #GdkEventKey of type %GDK_KEY_PRESS if the keyboard was used to show the menu.
 a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal was used to show the context menu.
 &lt;/para&gt;&lt;/listitem&gt;
 &lt;/itemizedlist&gt;</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="426">the menu event or %NULL.</doc>
+               line="421">the menu event or %NULL.</doc>
           <type name="Gdk.Event" c:type="GdkEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="407">a #WebKitContextMenu</doc>
+                 line="402">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -454,13 +178,13 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
               c:identifier="webkit_context_menu_get_item_at_position">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="310">Gets the item at the given position in the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="305">Gets the item at the given position in the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="317">the #WebKitContextMenuItem at position @position in @menu,
+               line="312">the #WebKitContextMenuItem at position @position in @menu,
    or %NULL if the position is off the end of the @menu.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
@@ -468,13 +192,13 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="312">a #WebKitContextMenu</doc>
+                 line="307">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="313">the position of the item, counting from 0</doc>
+                 line="308">the position of the item, counting from 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -482,13 +206,13 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
       <method name="get_items" c:identifier="webkit_context_menu_get_items">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="246">Returns the item list of @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="241">Returns the item list of @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="252">a #GList of
+               line="247">a #GList of
    #WebKitContextMenuItem&lt;!-- --&gt;s</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="ContextMenuItem"/>
@@ -498,7 +222,7 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="248">a #WebKitContextMenu</doc>
+                 line="243">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -507,20 +231,20 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
               c:identifier="webkit_context_menu_get_n_items">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="262">Gets the length of the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="257">Gets the length of the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="268">the number of #WebKitContextMenuItem&lt;!-- --&gt;s in @menu</doc>
+               line="263">the number of #WebKitContextMenuItem&lt;!-- --&gt;s in @menu</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="264">a #WebKitContextMenu</doc>
+                 line="259">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -530,23 +254,23 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
               version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="384">Gets the user data of @menu.
+             line="379">Gets the user data of @menu.
 
 This function can be used from the UI Process to get user data previously set
 from the Web Process with webkit_context_menu_set_user_data().</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="393">the user data of @menu, or %NULL if @menu doesn't have user data</doc>
+               line="388">the user data of @menu, or %NULL if @menu doesn't have user data</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="386">a #WebKitContextMenu</doc>
+                 line="381">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -554,12 +278,12 @@ from the Web Process with webkit_context_menu_set_user_data().</doc>
       <method name="insert" c:identifier="webkit_context_menu_insert">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="200">Inserts @item into the @menu at the given position.
+             line="195">Inserts @item into the @menu at the given position.
 
 If @position is negative, or is larger than the number of items
 in the #WebKitContextMenu, the item is added on to the end of
 the @menu. The first position is 0.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -568,19 +292,19 @@ the @menu. The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="202">a #WebKitContextMenu</doc>
+                 line="197">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="203">the #WebKitContextMenuItem to add</doc>
+                 line="198">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="204">the position to insert the item</doc>
+                 line="199">the position to insert the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -588,13 +312,13 @@ the @menu. The first position is 0.</doc>
       <method name="last" c:identifier="webkit_context_menu_last">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="293">Gets the last item in the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="288">Gets the last item in the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="299">the last #WebKitContextMenuItem of @menu,
+               line="294">the last #WebKitContextMenuItem of @menu,
    or %NULL if the #WebKitContextMenu is empty.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
@@ -602,7 +326,7 @@ the @menu. The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="295">a #WebKitContextMenu</doc>
+                 line="290">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -610,13 +334,13 @@ the @menu. The first position is 0.</doc>
       <method name="move_item" c:identifier="webkit_context_menu_move_item">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="221">Moves @item to the given position in the @menu.
+             line="216">Moves @item to the given position in the @menu.
 
 If @position is negative, or is larger than the number of items
 in the #WebKitContextMenu, the item is added on to the end of
 the @menu.
 The first position is 0.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -625,19 +349,19 @@ The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="223">a #WebKitContextMenu</doc>
+                 line="218">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="224">the #WebKitContextMenuItem to add</doc>
+                 line="219">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="225">the new position to move the item</doc>
+                 line="220">the new position to move the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -645,8 +369,8 @@ The first position is 0.</doc>
       <method name="prepend" c:identifier="webkit_context_menu_prepend">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="176">Adds @item at the beginning of the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="171">Adds @item at the beginning of the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -655,13 +379,13 @@ The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="178">a #WebKitContextMenu</doc>
+                 line="173">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="179">the #WebKitContextMenuItem to add</doc>
+                 line="174">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
         </parameters>
@@ -669,10 +393,10 @@ The first position is 0.</doc>
       <method name="remove" c:identifier="webkit_context_menu_remove">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="328">Removes @item from the @menu.
+             line="323">Removes @item from the @menu.
 
 See also webkit_context_menu_remove_all() to remove all items.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -681,13 +405,13 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="330">a #WebKitContextMenu</doc>
+                 line="325">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="331">the #WebKitContextMenuItem to remove</doc>
+                 line="326">the #WebKitContextMenuItem to remove</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
         </parameters>
@@ -695,8 +419,8 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
       <method name="remove_all" c:identifier="webkit_context_menu_remove_all">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="349">Removes all items of the @menu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+             line="344">Removes all items of the @menu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -705,7 +429,7 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="351">a #WebKitContextMenu</doc>
+                 line="346">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -715,12 +439,12 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="363">Sets user data to @menu.
+             line="358">Sets user data to @menu.
 
 This function can be used from a Web Process extension to set user data
 that can be retrieved from the UI Process using webkit_context_menu_get_user_data().
 If the @user_data #GVariant is floating, it is consumed.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -729,13 +453,13 @@ If the @user_data #GVariant is floating, it is consumed.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="365">a #WebKitContextMenu</doc>
+                 line="360">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="user_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="366">a #GVariant</doc>
+                 line="361">a #GVariant</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -743,345 +467,345 @@ If the @user_data #GVariant is floating, it is consumed.</doc>
     </class>
     <enumeration name="ContextMenuAction" c:type="WebKitContextMenuAction">
       <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+           filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
            line="31">Enum values used to denote the stock actions for
 #WebKitContextMenuItem&lt;!-- --&gt;s</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
                        line="134"/>
       <member name="no_action"
               value="0"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_NO_ACTION">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="33">No action, used by separator menu items.</doc>
       </member>
       <member name="open_link"
               value="1"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OPEN_LINK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="34">Open current link.</doc>
       </member>
       <member name="open_link_in_new_window"
               value="2"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OPEN_LINK_IN_NEW_WINDOW">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="35">Open current link in a new window.</doc>
       </member>
       <member name="download_link_to_disk"
               value="3"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_LINK_TO_DISK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="36">Download link destination.</doc>
       </member>
       <member name="copy_link_to_clipboard"
               value="4"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_COPY_LINK_TO_CLIPBOARD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="37">Copy link location to the clipboard.</doc>
       </member>
       <member name="open_image_in_new_window"
               value="5"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OPEN_IMAGE_IN_NEW_WINDOW">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="38">Open current image in a new window.</doc>
       </member>
       <member name="download_image_to_disk"
               value="6"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_IMAGE_TO_DISK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="39">Download current image.</doc>
       </member>
       <member name="copy_image_to_clipboard"
               value="7"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_COPY_IMAGE_TO_CLIPBOARD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="40">Copy current image to the clipboard.</doc>
       </member>
       <member name="copy_image_url_to_clipboard"
               value="8"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_COPY_IMAGE_URL_TO_CLIPBOARD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="41">Copy current image location to the clipboard.</doc>
       </member>
       <member name="open_frame_in_new_window"
               value="9"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OPEN_FRAME_IN_NEW_WINDOW">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="42">Open current frame in a new window.</doc>
       </member>
       <member name="go_back"
               value="10"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_GO_BACK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="43">Load the previous history item.</doc>
       </member>
       <member name="go_forward"
               value="11"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_GO_FORWARD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="44">Load the next history item.</doc>
       </member>
       <member name="stop"
               value="12"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_STOP">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="45">Stop any ongoing loading operation.</doc>
       </member>
       <member name="reload"
               value="13"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_RELOAD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="46">Reload the contents of current view.</doc>
       </member>
       <member name="copy"
               value="14"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_COPY">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="47">Copy current selection the clipboard.</doc>
       </member>
       <member name="cut"
               value="15"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_CUT">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="48">Cut current selection to the clipboard.</doc>
       </member>
       <member name="paste"
               value="16"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_PASTE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="49">Paste clipboard contents.</doc>
       </member>
       <member name="delete"
               value="17"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_DELETE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="50">Delete current selection.</doc>
       </member>
       <member name="select_all"
               value="18"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_SELECT_ALL">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="51">Select all text.</doc>
       </member>
       <member name="input_methods"
               value="19"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_INPUT_METHODS">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="52">Input methods menu.</doc>
       </member>
       <member name="unicode"
               value="20"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_UNICODE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="53">Unicode menu.</doc>
       </member>
       <member name="spelling_guess"
               value="21"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_SPELLING_GUESS">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="54">A proposed replacement for a misspelled word.</doc>
       </member>
       <member name="no_guesses_found"
               value="22"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_NO_GUESSES_FOUND">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="55">An indicator that spellchecking found no proposed replacements.</doc>
       </member>
       <member name="ignore_spelling"
               value="23"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_IGNORE_SPELLING">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="56">Causes the spellchecker to ignore the word for this session.</doc>
       </member>
       <member name="learn_spelling"
               value="24"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_LEARN_SPELLING">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="57">Causes the spellchecker to add the word to the dictionary.</doc>
       </member>
       <member name="ignore_grammar"
               value="25"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_IGNORE_GRAMMAR">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="58">Ignore grammar.</doc>
       </member>
       <member name="font_menu"
               value="26"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_FONT_MENU">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="59">Font options menu.</doc>
       </member>
       <member name="bold"
               value="27"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_BOLD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="60">Bold.</doc>
       </member>
       <member name="italic"
               value="28"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_ITALIC">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="61">Italic.</doc>
       </member>
       <member name="underline"
               value="29"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_UNDERLINE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="62">Underline.</doc>
       </member>
       <member name="outline"
               value="30"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OUTLINE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="63">Outline.</doc>
       </member>
       <member name="inspect_element"
               value="31"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_INSPECT_ELEMENT">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="64">Open current element in the inspector.</doc>
       </member>
       <member name="open_video_in_new_window"
               value="32"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OPEN_VIDEO_IN_NEW_WINDOW">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="65">Open current video element in a new window.</doc>
       </member>
       <member name="open_audio_in_new_window"
               value="33"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_OPEN_AUDIO_IN_NEW_WINDOW">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="66">Open current audio element in a new window.</doc>
       </member>
       <member name="copy_video_link_to_clipboard"
               value="34"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_COPY_VIDEO_LINK_TO_CLIPBOARD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="67">Copy video link location in to the clipboard.</doc>
       </member>
       <member name="copy_audio_link_to_clipboard"
               value="35"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_COPY_AUDIO_LINK_TO_CLIPBOARD">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="68">Copy audio link location in to the clipboard.</doc>
       </member>
       <member name="toggle_media_controls"
               value="36"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_TOGGLE_MEDIA_CONTROLS">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="69">Enable or disable media controls.</doc>
       </member>
       <member name="toggle_media_loop"
               value="37"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_TOGGLE_MEDIA_LOOP">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="70">Enable or disable media loop.</doc>
       </member>
       <member name="enter_video_fullscreen"
               value="38"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_ENTER_VIDEO_FULLSCREEN">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="71">Show current video element in fullscreen mode.</doc>
       </member>
       <member name="media_play"
               value="39"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_MEDIA_PLAY">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="72">Play current media element.</doc>
       </member>
       <member name="media_pause"
               value="40"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_MEDIA_PAUSE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="73">Pause current media element.</doc>
       </member>
       <member name="media_mute"
               value="41"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_MEDIA_MUTE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="74">Mute current media element.</doc>
       </member>
       <member name="download_video_to_disk"
               value="42"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_VIDEO_TO_DISK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="75">Download video to disk. Since 2.2</doc>
       </member>
       <member name="download_audio_to_disk"
               value="43"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_DOWNLOAD_AUDIO_TO_DISK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="76">Download audio to disk. Since 2.2</doc>
       </member>
       <member name="insert_emoji"
               value="44"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_INSERT_EMOJI">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="77">Insert an emoji. Since 2.26</doc>
       </member>
       <member name="paste_as_plain_text"
               value="45"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_PASTE_AS_PLAIN_TEXT">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="78">Paste clipboard contents as plain text. Since 2.30</doc>
       </member>
       <member name="custom"
               value="10000"
               c:identifier="WEBKIT_CONTEXT_MENU_ACTION_CUSTOM">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuActions.h"
              line="79">Custom action defined by applications.</doc>
       </member>
     </enumeration>
     <record name="ContextMenuClass"
             c:type="WebKitContextMenuClass"
             glib:is-gtype-struct-for="ContextMenu">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                        line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -1097,43 +821,43 @@ If the @user_data #GVariant is floating, it is consumed.</doc>
            glib:type-struct="ContextMenuItemClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-           line="41">One item of a #WebKitContextMenu.
+           line="39">One item of a #WebKitContextMenu.
 
 The #WebKitContextMenu is composed of #WebKitContextMenuItem&lt;!--
 --&gt;s. These items can be created from a #GtkAction, from a
 #WebKitContextMenuAction or from a #WebKitContextMenuAction and a
 label. These #WebKitContextMenuAction&lt;!-- --&gt;s denote stock actions
 for the items. You can also create separators and submenus.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                        line="38"/>
       <constructor name="new_from_gaction"
                    c:identifier="webkit_context_menu_item_new_from_gaction"
                    version="2.18">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="159">Creates a new #WebKitContextMenuItem for the given @action and @label.
+             line="149">Creates a new #WebKitContextMenuItem for the given @action and @label.
 
 On activation
 @target will be passed as parameter to the callback.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="170">the newly created #WebKitContextMenuItem object.</doc>
+               line="160">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="161">a #GAction</doc>
+                 line="151">a #GAction</doc>
             <type name="Gio.Action" c:type="GAction*"/>
           </parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="162">the menu item label text</doc>
+                 line="152">the menu item label text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="target"
@@ -1142,7 +866,7 @@ On activation
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="163">a #GVariant to use as the action target</doc>
+                 line="153">a #GVariant to use as the action target</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -1151,7 +875,7 @@ On activation
                    c:identifier="webkit_context_menu_item_new_from_stock_action">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="189">Creates a new #WebKitContextMenuItem for the given stock action.
+             line="177">Creates a new #WebKitContextMenuItem for the given stock action.
 
 Stock actions are handled automatically by WebKit so that, for example,
 when a menu item created with a %WEBKIT_CONTEXT_MENU_ACTION_STOP is
@@ -1161,19 +885,19 @@ load operation will be stopped. You can get the #GAction of a
 webkit_context_menu_item_get_gaction() and connect to the #GSimpleAction::activate signal
 to be notified when the item is activated, but you can't prevent the associated
 action from being performed.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="204">the newly created #WebKitContextMenuItem object.</doc>
+               line="192">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="191">a #WebKitContextMenuAction stock action</doc>
+                 line="179">a #WebKitContextMenuAction stock action</doc>
             <type name="ContextMenuAction" c:type="WebKitContextMenuAction"/>
           </parameter>
         </parameters>
@@ -1182,29 +906,29 @@ action from being performed.</doc>
                    c:identifier="webkit_context_menu_item_new_from_stock_action_with_label">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="219">Creates a new #WebKitContextMenuItem for the given stock action using the given @label.
+             line="205">Creates a new #WebKitContextMenuItem for the given stock action using the given @label.
 
 Stock actions have a predefined label, this method can be used to create a
 #WebKitContextMenuItem for a #WebKitContextMenuAction but using a custom label.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="229">the newly created #WebKitContextMenuItem object.</doc>
+               line="215">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="221">a #WebKitContextMenuAction stock action</doc>
+                 line="207">a #WebKitContextMenuAction stock action</doc>
             <type name="ContextMenuAction" c:type="WebKitContextMenuAction"/>
           </parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="222">a custom label text to use instead of the predefined one</doc>
+                 line="208">a custom label text to use instead of the predefined one</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1213,13 +937,13 @@ Stock actions have a predefined label, this method can be used to create a
                    c:identifier="webkit_context_menu_item_new_separator">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="273">Creates a new #WebKitContextMenuItem representing a separator.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+             line="253">Creates a new #WebKitContextMenuItem representing a separator.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="278">the newly created #WebKitContextMenuItem object.</doc>
+               line="258">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
       </constructor>
@@ -1227,26 +951,26 @@ Stock actions have a predefined label, this method can be used to create a
                    c:identifier="webkit_context_menu_item_new_with_submenu">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="244">Creates a new #WebKitContextMenuItem using the given @label with a submenu.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+             line="228">Creates a new #WebKitContextMenuItem using the given @label with a submenu.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="251">the newly created #WebKitContextMenuItem object.</doc>
+               line="235">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="246">the menu item label text</doc>
+                 line="230">the menu item label text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="submenu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="247">a #WebKitContextMenu to set</doc>
+                 line="231">a #WebKitContextMenu to set</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </parameter>
         </parameters>
@@ -1256,13 +980,13 @@ Stock actions have a predefined label, this method can be used to create a
               version="2.18">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="314">Gets the action associated to @item as a #GAction.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+             line="288">Gets the action associated to @item as a #GAction.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="320">the #GAction associated to the #WebKitContextMenuItem,
+               line="294">the #GAction associated to the #WebKitContextMenuItem,
    or %NULL if @item is a separator.</doc>
           <type name="Gio.Action" c:type="GAction*"/>
         </return-value>
@@ -1270,7 +994,7 @@ Stock actions have a predefined label, this method can be used to create a
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="316">a #WebKitContextMenuItem</doc>
+                 line="290">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1279,25 +1003,25 @@ Stock actions have a predefined label, this method can be used to create a
               c:identifier="webkit_context_menu_item_get_stock_action">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="336">Gets the #WebKitContextMenuAction of @item.
+             line="306">Gets the #WebKitContextMenuAction of @item.
 
 If the #WebKitContextMenuItem was not
 created for a stock action %WEBKIT_CONTEXT_MENU_ACTION_CUSTOM will be
 returned. If the #WebKitContextMenuItem is a separator %WEBKIT_CONTEXT_MENU_ACTION_NO_ACTION
 will be returned.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="347">the #WebKitContextMenuAction of @item</doc>
+               line="317">the #WebKitContextMenuAction of @item</doc>
           <type name="ContextMenuAction" c:type="WebKitContextMenuAction"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="338">a #WebKitContextMenuItem</doc>
+                 line="308">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1306,13 +1030,13 @@ will be returned.</doc>
               c:identifier="webkit_context_menu_item_get_submenu">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="401">Gets the submenu of @item.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+             line="361">Gets the submenu of @item.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="407">the #WebKitContextMenu representing the submenu of
+               line="367">the #WebKitContextMenu representing the submenu of
    @item or %NULL if @item doesn't have a submenu.</doc>
           <type name="ContextMenu" c:type="WebKitContextMenu*"/>
         </return-value>
@@ -1320,7 +1044,7 @@ will be returned.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="403">a #WebKitContextMenuItem</doc>
+                 line="363">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1329,20 +1053,20 @@ will be returned.</doc>
               c:identifier="webkit_context_menu_item_is_separator">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="360">Checks whether @item is a separator.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+             line="326">Checks whether @item is a separator.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="366">%TRUE is @item is a separator or %FALSE otherwise</doc>
+               line="332">%TRUE is @item is a separator or %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="362">a #WebKitContextMenuItem</doc>
+                 line="328">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1351,11 +1075,11 @@ will be returned.</doc>
               c:identifier="webkit_context_menu_item_set_submenu">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="379">Sets or replaces the @item submenu.
+             line="341">Sets or replaces the @item submenu.
 
 If @submenu is %NULL the current
 submenu of @item is removed.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1364,7 +1088,7 @@ submenu of @item is removed.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="381">a #WebKitContextMenuItem</doc>
+                 line="343">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
           <parameter name="submenu"
@@ -1373,7 +1097,7 @@ submenu of @item is removed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="382">a #WebKitContextMenu</doc>
+                 line="344">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </parameter>
         </parameters>
@@ -1382,7 +1106,7 @@ submenu of @item is removed.</doc>
     <record name="ContextMenuItemClass"
             c:type="WebKitContextMenuItemClass"
             glib:is-gtype-struct-for="ContextMenuItem">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                        line="38"/>
       <field name="parent_class">
         <type name="GObject.InitiallyUnownedClass"
@@ -1404,7 +1128,7 @@ submenu of @item is removed.</doc>
 
 Each `WebKitWebPage` has at least one main frame, and can have any number
 of subframes.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                        line="37"/>
       <method name="get_id" c:identifier="webkit_frame_get_id" version="2.26">
         <doc xml:space="preserve"
@@ -1412,7 +1136,7 @@ of subframes.</doc>
              line="126">Gets the process-unique identifier of this #WebKitFrame. No other
 frame in the same web process will have the same ID; however, frames
 in other web processes may.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                          line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1436,7 +1160,7 @@ in other web processes may.</doc>
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitFrame.cpp"
              line="226">Get the JavaScript execution context of @frame. Use this function to bridge
 between the WebKit and JavaScriptCore APIs.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                          line="50"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -1459,7 +1183,7 @@ between the WebKit and JavaScriptCore APIs.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitFrame.cpp"
              line="244">Get the JavaScript execution context of @frame for the given #WebKitScriptWorld.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                          line="53"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -1486,7 +1210,7 @@ between the WebKit and JavaScriptCore APIs.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitFrame.cpp"
              line="162">Gets the current active URI of @frame.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                          line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1510,7 +1234,7 @@ between the WebKit and JavaScriptCore APIs.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitFrame.cpp"
              line="145">Gets whether @frame is the main frame of a #WebKitWebPage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                          line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1531,7 +1255,7 @@ between the WebKit and JavaScriptCore APIs.</doc>
     <record name="FrameClass"
             c:type="WebKitFrameClass"
             glib:is-gtype-struct-for="Frame">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitFrame.h"
                        line="37"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -1567,7 +1291,7 @@ are active at the same time, for example if there's a link containing an image.
 When the mouse is moved over a #WebKitWebView a Hit Test is performed
 for the mouse coordinates and #WebKitWebView::mouse-target-changed
 signal is emitted with a #WebKitHitTestResult.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                        line="34"/>
       <method name="context_is_editable"
               c:identifier="webkit_hit_test_result_context_is_editable">
@@ -1575,7 +1299,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="335">Gets whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE flag is present in
 #WebKitHitTestResult:context.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1599,7 +1323,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="301">Gets whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE flag is present in
 #WebKitHitTestResult:context.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1623,7 +1347,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="284">Gets whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK flag is present in
 #WebKitHitTestResult:context.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1647,7 +1371,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="318">Gets whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA flag is present in
 #WebKitHitTestResult:context.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1671,7 +1395,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="453">Gets whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_SCROLLBAR flag is present in
 #WebKitHitTestResult:context.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1696,7 +1420,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="352">Gets whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION flag is present in
 #WebKitHitTestResult:context.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1720,7 +1444,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="269">Gets the value of the #WebKitHitTestResult:context property.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1743,7 +1467,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="421">Gets the value of the #WebKitHitTestResult:image-uri property.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1767,7 +1491,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="404">Gets the value of the #WebKitHitTestResult:link-label property.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1792,7 +1516,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="387">Gets the value of the #WebKitHitTestResult:link-title property.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1817,7 +1541,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="371">Gets the value of the #WebKitHitTestResult:link-uri property.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1841,7 +1565,7 @@ signal is emitted with a #WebKitHitTestResult.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitHitTestResult.cpp"
              line="437">Gets the value of the #WebKitHitTestResult:media-uri property.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1935,7 +1659,7 @@ is present in #WebKitHitTestResult:context</doc>
     <record name="HitTestResultClass"
             c:type="WebKitHitTestResultClass"
             glib:is-gtype-struct-for="HitTestResult">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                        line="34"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -1943,64 +1667,64 @@ is present in #WebKitHitTestResult:context</doc>
     </record>
     <bitfield name="HitTestResultContext" c:type="WebKitHitTestResultContext">
       <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+           filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
            line="36">Enum values with flags representing the context of a #WebKitHitTestResult.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
                        line="57"/>
       <member name="document"
               value="2"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_DOCUMENT">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="38">anywhere in the document.</doc>
       </member>
       <member name="link"
               value="4"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="39">a hyperlink element.</doc>
       </member>
       <member name="image"
               value="8"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="40">an image element.</doc>
       </member>
       <member name="media"
               value="16"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="41">a video or audio element.</doc>
       </member>
       <member name="editable"
               value="32"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="42">an editable element</doc>
       </member>
       <member name="scrollbar"
               value="64"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_SCROLLBAR">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="43">a scrollbar element.</doc>
       </member>
       <member name="selection"
               value="128"
               c:identifier="WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitHitTestResult.h"
              line="44">a selected element. Since 2.8</doc>
       </member>
     </bitfield>
     <function-macro name="IS_WEB_FORM_MANAGER"
                     c:identifier="WEBKIT_IS_WEB_FORM_MANAGER"
                     introspectable="0">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="35"/>
       <parameters>
         <parameter name="obj">
@@ -2010,7 +1734,7 @@ is present in #WebKitHitTestResult:context</doc>
     <function-macro name="IS_WEB_FORM_MANAGER_CLASS"
                     c:identifier="WEBKIT_IS_WEB_FORM_MANAGER_CLASS"
                     introspectable="0">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="37"/>
       <parameters>
         <parameter name="klass">
@@ -2025,7 +1749,7 @@ is present in #WebKitHitTestResult:context</doc>
            glib:type-name="WebKitScriptWorld"
            glib:get-type="webkit_script_world_get_type"
            glib:type-struct="ScriptWorldClass">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
                        line="34"/>
       <constructor name="new"
                    c:identifier="webkit_script_world_new"
@@ -2040,7 +1764,7 @@ webkit_script_world_new_with_name() if you want to create it with a
 custom name.
 You can get the JavaScript execution context of a #WebKitScriptWorld
 for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_world().</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
                          line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -2059,7 +1783,7 @@ isolated worlds have access to the DOM but not to other variable
 or functions created by the page.
 You can get the JavaScript execution context of a #WebKitScriptWorld
 for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_world().</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
                          line="43"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -2085,7 +1809,7 @@ for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_wor
 where all scripts are executed by default.
 You can get the JavaScript execution context of a #WebKitScriptWorld
 for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_world().</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
                          line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2100,7 +1824,7 @@ for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_wor
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitScriptWorld.cpp"
              line="179">Get the name of a #WebKitScriptWorld.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
                          line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2147,7 +1871,7 @@ webkit_frame_get_js_context_for_script_world().</doc>
     <record name="ScriptWorldClass"
             c:type="WebKitScriptWorldClass"
             glib:is-gtype-struct-for="ScriptWorld">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitScriptWorld.h"
                        line="34"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -2168,13 +1892,13 @@ webkit_frame_get_js_context_for_script_world().</doc>
 A #WebKitURIRequest can be created with a URI using the
 webkit_uri_request_new() method, and you can get the URI of an
 existing request with the webkit_uri_request_get_uri() one.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                        line="35"/>
       <constructor name="new" c:identifier="webkit_uri_request_new">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIRequest.cpp"
              line="105">Creates a new #WebKitURIRequest for the given URI.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                          line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -2196,7 +1920,7 @@ existing request with the webkit_uri_request_get_uri() one.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIRequest.cpp"
              line="156">Get the HTTP headers of a #WebKitURIRequest as a #SoupMessageHeaders.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                          line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2220,7 +1944,7 @@ existing request with the webkit_uri_request_get_uri() one.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIRequest.cpp"
              line="180">Get the HTTP method of the #WebKitURIRequest.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                          line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2244,7 +1968,7 @@ existing request with the webkit_uri_request_get_uri() one.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIRequest.cpp"
              line="120">Obtains the request URI.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2267,7 +1991,7 @@ existing request with the webkit_uri_request_get_uri() one.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIRequest.cpp"
              line="136">Set the URI of @request</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                          line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2303,7 +2027,7 @@ existing request with the webkit_uri_request_get_uri() one.</doc>
     <record name="URIRequestClass"
             c:type="WebKitURIRequestClass"
             glib:is-gtype-struct-for="URIRequest">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIRequest.h"
                        line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -2324,7 +2048,7 @@ existing request with the webkit_uri_request_get_uri() one.</doc>
 A #WebKitURIResponse contains information such as the URI, the
 status code, the content length, the mime type, the HTTP status or
 the suggested filename.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                        line="35"/>
       <method name="get_content_length"
               c:identifier="webkit_uri_response_get_content_length"
@@ -2334,7 +2058,7 @@ the suggested filename.</doc>
              line="207">Get the expected content length of the #WebKitURIResponse.
 
 It can be 0 if the server provided an incorrect or missing Content-Length.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                          line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2358,7 +2082,7 @@ It can be 0 if the server provided an incorrect or missing Content-Length.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIResponse.cpp"
              line="264">Get the HTTP headers of a #WebKitURIResponse as a #SoupMessageHeaders.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                          line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2382,7 +2106,7 @@ It can be 0 if the server provided an incorrect or missing Content-Length.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIResponse.cpp"
              line="224">Gets the MIME type of the response.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2410,7 +2134,7 @@ Get the status code of the #WebKitURIResponse as returned by
 the server. It will normally be a #SoupKnownStatusCode, for
 example %SOUP_STATUS_OK, though the server can respond with any
 unsigned integer.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2437,7 +2161,7 @@ unsigned integer.</doc>
 Get the suggested filename for @response, as specified by
 the 'Content-Disposition' HTTP header, or %NULL if it's not
 present.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2461,7 +2185,7 @@ present.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitURIResponse.cpp"
              line="171">Gets the URI which resulted in the response.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                          line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2536,7 +2260,7 @@ present.</doc>
     <record name="URIResponseClass"
             c:type="WebKitURIResponseClass"
             glib:is-gtype-struct-for="URIResponse">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitURIResponse.h"
                        line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -2561,7 +2285,7 @@ UNIX file descriptors. Messages can be sent from a #WebKitWebContext to all web 
 from a web process extension to its corresponding #WebKitWebContext, and from a #WebKitWebView to its
 corresponding #WebKitWebPage (and vice versa). One to one messages can be replied to directly with
 webkit_user_message_send_reply().</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                        line="34"/>
       <constructor name="new"
                    c:identifier="webkit_user_message_new"
@@ -2569,7 +2293,7 @@ webkit_user_message_send_reply().</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitUserMessage.cpp"
              line="199">Create a new #WebKitUserMessage with @name.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                          line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2601,7 +2325,7 @@ webkit_user_message_send_reply().</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitUserMessage.cpp"
              line="215">Create a new #WebKitUserMessage including also a list of UNIX file descriptors to be sent.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2655,7 +2379,7 @@ webkit_user_message_send_reply().</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitUserMessage.cpp"
              line="269">Get the @message list of file descritpor.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                          line="69"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
@@ -2679,7 +2403,7 @@ webkit_user_message_send_reply().</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitUserMessage.cpp"
              line="235">Get the @message name.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2703,7 +2427,7 @@ webkit_user_message_send_reply().</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitUserMessage.cpp"
              line="252">Get the @message parameters.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                          line="66"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
@@ -2730,7 +2454,7 @@ webkit_user_message_send_reply().</doc>
 If @reply is floating, it's consumed.
 You can only send a reply to a #WebKitUserMessage that has been
 received.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                          line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2790,7 +2514,7 @@ allowed.</doc>
     <record name="UserMessageClass"
             c:type="WebKitUserMessageClass"
             glib:is-gtype-struct-for="UserMessage">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                        line="34"/>
       <field name="parent_class">
         <type name="GObject.InitiallyUnownedClass"
@@ -2801,22 +2525,22 @@ allowed.</doc>
                  version="2.28"
                  c:type="WebKitUserMessageError">
       <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+           filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
            line="38">Enum values used to denote errors happening when sending user messages.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
                        line="48"/>
       <member name="user_message_unhandled_message"
               value="0"
               c:identifier="WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE">
         <doc xml:space="preserve"
-             filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
+             filename="WebKitGTK/DerivedSources/webkit/WebKitUserMessage.h"
              line="40">The message was not handled by the receiver.</doc>
       </member>
     </enumeration>
     <function-macro name="WEB_FORM_MANAGER"
                     c:identifier="WEBKIT_WEB_FORM_MANAGER"
                     introspectable="0">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="34"/>
       <parameters>
         <parameter name="obj">
@@ -2826,7 +2550,7 @@ allowed.</doc>
     <function-macro name="WEB_FORM_MANAGER_CLASS"
                     c:identifier="WEBKIT_WEB_FORM_MANAGER_CLASS"
                     introspectable="0">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="36"/>
       <parameters>
         <parameter name="klass">
@@ -2836,7 +2560,7 @@ allowed.</doc>
     <function-macro name="WEB_FORM_MANAGER_GET_CLASS"
                     c:identifier="WEBKIT_WEB_FORM_MANAGER_GET_CLASS"
                     introspectable="0">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="38"/>
       <parameters>
         <parameter name="obj">
@@ -2859,7 +2583,7 @@ allowed.</doc>
 The WebKitWebEditor provides access to various editing capabilities of
 a #WebKitWebPage such as a possibility to react to the current selection in
 #WebKitWebPage.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebEditor.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebEditor.h"
                        line="35"/>
       <method name="get_page"
               c:identifier="webkit_web_editor_get_page"
@@ -2867,7 +2591,7 @@ a #WebKitWebPage such as a possibility to react to the current selection in
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebEditor.cpp"
              line="102">Gets the #WebKitWebPage that is associated with the #WebKitWebEditor.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebEditor.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebEditor.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2898,7 +2622,7 @@ selection.</doc>
     <record name="WebEditorClass"
             c:type="WebKitWebEditorClass"
             glib:is-gtype-struct-for="WebEditor">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebEditor.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebEditor.h"
                        line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -2915,7 +2639,7 @@ selection.</doc>
       <doc xml:space="preserve"
            filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
            line="33">Form manager of a #WebKitWebPage in a #WebKitScriptWorld</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="49"/>
       <function name="input_element_auto_fill"
                 c:identifier="webkit_web_form_manager_input_element_auto_fill"
@@ -2925,7 +2649,7 @@ selection.</doc>
              line="205">Set the value of an HTML input element as if it had been edited by
 the user, triggering a change event, and set it as filled automatically.
 If @element is not an HTML input element this function does nothing.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2951,7 +2675,7 @@ If @element is not an HTML input element this function does nothing.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
              line="230">Get whether @element is an HTML input element that has been filled automatically.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                          line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -2975,7 +2699,7 @@ If @element is not an HTML input element this function does nothing.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
              line="179">Get whether @element is an HTML text input element that has been edited by a user action.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                          line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3106,7 +2830,7 @@ signal is emitted.</doc>
     <record name="WebFormManagerClass"
             c:type="WebKitWebFormManagerClass"
             glib:is-gtype-struct-for="WebFormManager">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="49"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -3127,7 +2851,7 @@ signal is emitted.</doc>
 
 WebKitWebHitTestResult extends #WebKitHitTestResult to provide information
 about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                        line="37"/>
       <method name="context_is_editable"
               c:identifier="webkit_web_hit_test_result_context_is_editable">
@@ -3137,7 +2861,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE flag is present in
 the context flags.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3163,7 +2887,7 @@ the context flags.</doc>
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE flag is present in
 the context flags.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3189,7 +2913,7 @@ the context flags.</doc>
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK flag is present in
 the context flags.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3215,7 +2939,7 @@ the context flags.</doc>
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA flag is present in
 the context flags.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3241,7 +2965,7 @@ the context flags.</doc>
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_SCROLLBAR flag is present in
 the context flags.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3267,7 +2991,7 @@ the context flags.</doc>
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION flag is present in
 the context flags.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3290,7 +3014,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="189">Gets the the context flags for the hit test result.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3313,7 +3037,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="332">Obtains the URI associated with the image element at the hit test position.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3337,7 +3061,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="398">Get the #JSCValue for the DOM node in @world at the coordinates of the Hit Test.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="78"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
@@ -3369,7 +3093,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="317">Obtains the label associated with the link element at the hit test position.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3393,7 +3117,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="302">Obtains the title associated with the link element at the hit test position.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3417,7 +3141,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="288">Obtains the URI associated with the link element at the hit test position.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3440,7 +3164,7 @@ the context flags.</doc>
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
              line="346">Obtains the URI associated with the media element at the hit test position.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3462,7 +3186,7 @@ the context flags.</doc>
     <record name="WebHitTestResultClass"
             c:type="WebKitWebHitTestResultClass"
             glib:is-gtype-struct-for="WebHitTestResult">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                        line="37"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -3478,28 +3202,28 @@ the context flags.</doc>
            glib:type-struct="WebPageClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-           line="74">A loaded web page.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+           line="72">A loaded web page.</doc>
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                        line="39"/>
       <method name="get_editor"
               c:identifier="webkit_web_page_get_editor"
               version="2.10">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="887">Gets the #WebKitWebEditor of a #WebKitWebPage.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+             line="891">Gets the #WebKitWebEditor of a #WebKitWebPage.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="893">the #WebKitWebEditor</doc>
+               line="897">the #WebKitWebEditor</doc>
           <type name="WebEditor" c:type="WebKitWebEditor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="889">a #WebKitWebPage</doc>
+                 line="893">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3509,20 +3233,20 @@ the context flags.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="972">Get the #WebKitWebFormManager of @web_page in @world.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+             line="976">Get the #WebKitWebFormManager of @web_page in @world.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="979">a #WebKitWebFormManager</doc>
+               line="983">a #WebKitWebFormManager</doc>
           <type name="WebFormManager" c:type="WebKitWebFormManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="974">a #WebKitWebPage</doc>
+                 line="978">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="world"
@@ -3531,7 +3255,7 @@ the context flags.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="975">a #WebKitScriptWorld</doc>
+                 line="979">a #WebKitScriptWorld</doc>
             <type name="ScriptWorld" c:type="WebKitScriptWorld*"/>
           </parameter>
         </parameters>
@@ -3539,20 +3263,20 @@ the context flags.</doc>
       <method name="get_id" c:identifier="webkit_web_page_get_id">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="836">Get the identifier of the #WebKitWebPage</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+             line="840">Get the identifier of the #WebKitWebPage</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="842">the identifier of @web_page</doc>
+               line="846">the identifier of @web_page</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="838">a #WebKitWebPage</doc>
+                 line="842">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3562,20 +3286,20 @@ the context flags.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="870">Returns the main frame of a #WebKitWebPage.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+             line="874">Returns the main frame of a #WebKitWebPage.</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="876">the #WebKitFrame that is the main frame of @web_page</doc>
+               line="880">the #WebKitFrame that is the main frame of @web_page</doc>
           <type name="Frame" c:type="WebKitFrame*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="872">a #WebKitWebPage</doc>
+                 line="876">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3585,16 +3309,16 @@ the context flags.</doc>
               glib:get-property="uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="851">Returns the current active URI of @web_page.
+             line="855">Returns the current active URI of @web_page.
 
 You can monitor the active URI by connecting to the notify::uri
 signal of @web_page.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="860">the current active URI of @web_view or %NULL if nothing has been
+               line="864">the current active URI of @web_view or %NULL if nothing has been
    loaded yet.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3602,23 +3326,22 @@ signal of @web_page.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="853">a #WebKitWebPage</doc>
+                 line="857">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="send_message_to_view"
               c:identifier="webkit_web_page_send_message_to_view"
-              version="2.28"
-              glib:finish-func="send_message_to_view_finish">
+              version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="907">Send @message to the #WebKitWebView corresponding to @web_page. If @message is floating, it's consumed.
+             line="911">Send @message to the #WebKitWebView corresponding to @web_page. If @message is floating, it's consumed.
 
 If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as @callback.
 When the operation is finished, @callback will be called. You can then call
 webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3627,13 +3350,13 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="909">a #WebKitWebPage</doc>
+                 line="913">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="910">a #WebKitUserMessage</doc>
+                 line="914">a #WebKitUserMessage</doc>
             <type name="UserMessage" c:type="WebKitUserMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3642,7 +3365,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="911">a #GCancellable or %NULL to ignore</doc>
+                 line="915">a #GCancellable or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3653,7 +3376,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="912">A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
+                 line="916">A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3662,7 +3385,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="913">the data to pass to callback function</doc>
+                 line="917">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3673,26 +3396,26 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="952">Finish an asynchronous operation started with webkit_web_page_send_message_to_view().</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+             line="956">Finish an asynchronous operation started with webkit_web_page_send_message_to_view().</doc>
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="960">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
+               line="964">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
           <type name="UserMessage" c:type="WebKitUserMessage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="954">a #WebKitWebPage</doc>
+                 line="958">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="955">a #GAsyncResult</doc>
+                 line="959">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3703,32 +3426,13 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="509">The current active URI of the #WebKitWebPage.</doc>
+             line="511">The current active URI of the #WebKitWebPage.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <glib:signal name="console-message-sent" when="last" version="2.12">
-        <doc xml:space="preserve"
-             filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="609">Emitted when a message is sent to the console. This can be a message
-produced by the use of JavaScript console API, a JavaScript exception,
-a security error or other errors, warnings, debug or log messages.
-The @console_message contains information of the message.</doc>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="console_message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="612">the #WebKitConsoleMessage</doc>
-            <type name="ConsoleMessage"/>
-          </parameter>
-        </parameters>
-      </glib:signal>
       <glib:signal name="context-menu" when="last" version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="575">Emitted before a context menu is displayed in the UI Process to
+             line="577">Emitted before a context menu is displayed in the UI Process to
 give the application a chance to customize the proposed menu,
 build its own context menu or pass user data to the UI Process.
 This signal is useful when the information available in the UI Process
@@ -3739,20 +3443,20 @@ signal instead.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="590">%TRUE if the proposed @context_menu has been modified, or %FALSE otherwise.</doc>
+               line="592">%TRUE if the proposed @context_menu has been modified, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="context_menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="578">the proposed #WebKitContextMenu</doc>
+                 line="580">the proposed #WebKitContextMenu</doc>
             <type name="ContextMenu"/>
           </parameter>
           <parameter name="hit_test_result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="579">a #WebKitWebHitTestResult</doc>
+                 line="581">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult"/>
           </parameter>
         </parameters>
@@ -3760,7 +3464,7 @@ signal instead.</doc>
       <glib:signal name="document-loaded" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="523">This signal is emitted when the DOM document of a #WebKitWebPage has been
+             line="525">This signal is emitted when the DOM document of a #WebKitWebPage has been
 loaded.
 
 You can wait for this signal to get the DOM document</doc>
@@ -3771,7 +3475,7 @@ You can wait for this signal to get the DOM document</doc>
       <glib:signal name="send-request" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="540">This signal is emitted when @request is about to be sent to
+             line="542">This signal is emitted when @request is about to be sent to
 the server. This signal can be used to modify the #WebKitURIRequest
 that will be sent to the server. You can also cancel the resource load
 operation by connecting to this signal and returning %TRUE.
@@ -3788,7 +3492,7 @@ is sent over the network.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="561">%TRUE to stop other handlers from being invoked for the event.
+               line="563">%TRUE to stop other handlers from being invoked for the event.
    %FALSE to continue emission of the event.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3796,13 +3500,13 @@ is sent over the network.</doc>
           <parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="543">a #WebKitURIRequest</doc>
+                 line="545">a #WebKitURIRequest</doc>
             <type name="URIRequest"/>
           </parameter>
           <parameter name="redirected_response" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="544">a #WebKitURIResponse, or %NULL</doc>
+                 line="546">a #WebKitURIResponse, or %NULL</doc>
             <type name="URIResponse"/>
           </parameter>
         </parameters>
@@ -3810,7 +3514,7 @@ is sent over the network.</doc>
       <glib:signal name="user-message-received" when="last" version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="755">This signal is emitted when a #WebKitUserMessage is received from the
+             line="759">This signal is emitted when a #WebKitUserMessage is received from the
 #WebKitWebView corresponding to @web_page. You can reply to the message
 using webkit_user_message_send_reply().
 
@@ -3821,14 +3525,14 @@ finish with error %WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="769">%TRUE if the message was handled, or %FALSE otherwise.</doc>
+               line="773">%TRUE if the message was handled, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="758">the #WebKitUserMessage received</doc>
+                 line="762">the #WebKitUserMessage received</doc>
             <type name="UserMessage"/>
           </parameter>
         </parameters>
@@ -3837,7 +3541,7 @@ finish with error %WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE.</doc>
     <record name="WebPageClass"
             c:type="WebKitWebPageClass"
             glib:is-gtype-struct-for="WebPage">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                        line="39"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -3925,7 +3629,7 @@ int main (int argc, char **argv)
   // ...
 }
 ```</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                        line="36"/>
       <method name="get_page"
               c:identifier="webkit_web_process_extension_get_page"
@@ -3933,7 +3637,7 @@ int main (int argc, char **argv)
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebProcessExtension.cpp"
              line="229">Get the web page of the given @page_id.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                          line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3960,8 +3664,7 @@ int main (int argc, char **argv)
       </method>
       <method name="send_message_to_context"
               c:identifier="webkit_web_process_extension_send_message_to_context"
-              version="2.40"
-              glib:finish-func="send_message_to_context_finish">
+              version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebProcessExtension.cpp"
              line="255">Send @message to the #WebKitWebContext corresponding to @extension. If @message is floating, it's consumed.
@@ -3969,7 +3672,7 @@ int main (int argc, char **argv)
 If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as @calback.
 When the operation is finished, @callback will be called. You can then call
 webkit_web_process_extension_send_message_to_context_finish() to get the message reply.</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                          line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4026,7 +3729,7 @@ webkit_web_process_extension_send_message_to_context_finish() to get the message
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebProcessExtension.cpp"
              line="300">Finish an asynchronous operation started with webkit_web_process_extension_send_message_to_context().</doc>
-        <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+        <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                          line="76"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -4090,7 +3793,7 @@ replied to. Calling webkit_user_message_send_reply() will do nothing.</doc>
     <record name="WebProcessExtensionClass"
             c:type="WebKitWebProcessExtensionClass"
             glib:is-gtype-struct-for="WebProcessExtension">
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                        line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -4100,10 +3803,10 @@ replied to. Calling webkit_user_message_send_reply() will do nothing.</doc>
               c:type="WebKitWebProcessExtensionInitializeFunction"
               version="2.40">
       <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+           filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
            line="38">Type definition for a function that will be called to initialize
 the web extension when the web process starts.</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                        line="47"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4111,7 +3814,7 @@ the web extension when the web process starts.</doc>
       <parameters>
         <parameter name="extension" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+               filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                line="40">a #WebKitWebProcessExtension</doc>
           <type name="WebProcessExtension"
                 c:type="WebKitWebProcessExtension*"/>
@@ -4122,12 +3825,12 @@ the web extension when the web process starts.</doc>
               c:type="WebKitWebProcessExtensionInitializeWithUserDataFunction"
               version="2.40">
       <doc xml:space="preserve"
-           filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+           filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
            line="49">Type definition for a function that will be called to initialize
 the web extensions when the web process starts, and which receives
 as additional argument the user data set with
 webkit_web_context_set_web_process_extensions_initialization_user_data().</doc>
-      <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+      <source-position filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                        line="61"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4135,14 +3838,14 @@ webkit_web_context_set_web_process_extensions_initialization_user_data().</doc>
       <parameters>
         <parameter name="extension" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+               filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                line="51">a #WebKitWebProcessExtension</doc>
           <type name="WebProcessExtension"
                 c:type="WebKitWebProcessExtension*"/>
         </parameter>
         <parameter name="user_data" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
+               filename="WebKitGTK/DerivedSources/webkit/WebKitWebProcessExtension.h"
                line="52">a #GVariant</doc>
           <type name="GLib.Variant" c:type="const GVariant*"/>
         </parameter>

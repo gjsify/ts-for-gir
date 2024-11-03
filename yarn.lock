@@ -3688,7 +3688,6 @@ __metadata:
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
-    "@girs/gtksource-300": "workspace:^"
     "@girs/gtksource-4": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
@@ -5984,7 +5983,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtksource-300@workspace:^, @girs/gtksource-300@workspace:types/gtksource-300":
+"@girs/gtksource-300@workspace:types/gtksource-300":
   version: 0.0.0-use.local
   resolution: "@girs/gtksource-300@workspace:types/gtksource-300"
   dependencies:

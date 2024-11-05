@@ -118,6 +118,13 @@ function createAsyncReturn(async_res: IntrospectedClassFunction | IntrospectedCo
             return new PromiseType(output_parameters[0].type);
         }
 
+        // Special case: If return type is boolean and we have multiple output parameters,
+        // GJS drops the boolean from the tuple (as it's used for error handling)
+        if (return_type.equals(BooleanType) && output_parameters.length > 0) {
+            const [firstParam, ...restParams] = output_parameters;
+            return new PromiseType(new TupleType(firstParam.type, ...restParams.map(p => p.type)));
+        }
+
         // Otherwise, return a tuple of [return_value, ...output_parameters]
         return new PromiseType(new TupleType(return_type, ...output_parameters.map(p => p.type)));
     }

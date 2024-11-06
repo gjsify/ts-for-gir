@@ -11,46 +11,13 @@ on:
     branches:
       - "*"
 jobs:
-  examples:
+  ci:
 
     runs-on: ubuntu-22.04
 
     strategy:
       matrix:
-        node-version: [20.x]
-        architecture:
-          - x64
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    # - name: Workaround for bad mirror
-    #   run: sudo gem install apt-spy2; sudo apt-spy2 check; sudo apt-spy2 fix --commit;
-    - name: Update package repository
-      run: sudo apt-get update; # sudo apt-get upgrade
-    - name: Install dependencies
-      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
-    - run: yarn --version
-    - run: node --version
-    - run: gjs --version
-    - run: yarn install
-    - run: yarn build
-    - run: yarn build:examples
-    - run: yarn validate:examples
-    - run: yarn test:examples:cli-apps
-
-  gjs-types-all:
-
-    runs-on: ubuntu-22.04
-
-    strategy:
-      matrix:
-        node-version: [20.x]
+        node-version: [22.x]
         architecture:
           - x64
     steps:
@@ -66,6 +33,9 @@ jobs:
       run: sudo apt-get update; # sudo apt-get upgrade
     - name: Install dependencies
       run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
+    - run: yarn --version
+    - run: node --version
+    - run: gjs --version
     - run: yarn install
     - run: yarn build
     - run: yarn build:types:packages
@@ -73,3 +43,6 @@ jobs:
       run: (cd ./types && git diff | cat)
     - run: yarn validate:types:packages
     - run: yarn test:tests
+    - run: yarn build:examples
+    - run: yarn validate:examples
+    - run: yarn test:examples:cli-apps

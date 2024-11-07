@@ -12702,6 +12702,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/gio-2-iterate@workspace:examples/gio-2-iterate":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gio-2-iterate@workspace:examples/gio-2-iterate"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gio-2-list-model-example@workspace:examples/gio-2-list-model":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gio-2-list-model-example@workspace:examples/gio-2-list-model"

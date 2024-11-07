@@ -33,6 +33,7 @@ export default {
     modifier(namespace: IntrospectedNamespace) {
         // For IterableIterator...
         namespace.___dts___addReference('/// <reference lib="es2015.iterable" />');
+        namespace.___dts___addReference('/// <reference lib="es2018.asynciterable" />');
 
         {
             const DBusNodeInfo = namespace.assertClass("DBusNodeInfo");
@@ -83,6 +84,31 @@ export default {
                     type: new FunctionType(
                         {},
                         new GenerifiedType(new NativeType("IterableIterator"), new GenericType("A"))
+                    )
+                })
+            );
+        }
+
+        {
+            const FileEnumerator = namespace.assertClass("FileEnumerator");
+
+            FileEnumerator.fields.push(
+                new JSField({
+                    name: "Symbol.iterator",
+                    parent: FileEnumerator,
+                    computed: true,
+                    type: new FunctionType(
+                        {},
+                        new GenerifiedType(new NativeType("IterableIterator"), new GenericType("FileInfo"))
+                    )
+                }),
+                new JSField({
+                    name: "Symbol.asyncIterator",
+                    parent: FileEnumerator,
+                    computed: true,
+                    type: new FunctionType(
+                        {},
+                        new GenerifiedType(new NativeType("AsyncIterableIterator"), new GenericType("FileInfo"))
                     )
                 })
             );
@@ -537,6 +563,58 @@ export default {
                             type: new TypeIdentifier("AsyncReadyCallback", "Gio")
                         })
                     ]
+                })
+            );
+        }
+
+        {
+            const InputStream = namespace.assertClass("InputStream");
+            const Bytes = namespace.assertInstalledImport("GLib").assertClass("Bytes");
+
+            InputStream.members.push(
+                new IntrospectedClassFunction({
+                    name: "createAsyncIterator",
+                    parent: InputStream,
+                    parameters: [
+                        new IntrospectedFunctionParameter({
+                            name: "count",
+                            type: new NativeType("number"),
+                            isOptional: true,
+                            direction: GirDirection.In
+                        }),
+                        new IntrospectedFunctionParameter({
+                            name: "priority",
+                            type: new NativeType("number"),
+                            isOptional: true,
+                            direction: GirDirection.In
+                        })
+                    ],
+                    return_type: new GenerifiedType(
+                        new NativeType("AsyncIterableIterator"),
+                        new GenericType(`${Bytes.namespace.namespace}.${Bytes.name}`)
+                    )
+                }),
+                new IntrospectedClassFunction({
+                    name: "createSyncIterator",
+                    parent: InputStream,
+                    parameters: [
+                        new IntrospectedFunctionParameter({
+                            name: "count",
+                            type: new NativeType("number"),
+                            isOptional: true,
+                            direction: GirDirection.In
+                        }),
+                        new IntrospectedFunctionParameter({
+                            name: "priority",
+                            type: new NativeType("number"),
+                            isOptional: true,
+                            direction: GirDirection.In
+                        })
+                    ],
+                    return_type: new GenerifiedType(
+                        new NativeType("IterableIterator"),
+                        new GenericType(`${Bytes.namespace.namespace}.${Bytes.name}`)
+                    )
                 })
             );
         }

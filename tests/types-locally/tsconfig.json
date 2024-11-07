@@ -10,7 +10,8 @@
       "noImplicitAny": true,
       "strictNullChecks": true,
       "noImplicitThis": true,
-      "alwaysStrict": true
+      "alwaysStrict": true,
+      "diagnostics": true
     },
     "include": ["main.ts", "@types/**/*.d.ts"],
     "exclude": []

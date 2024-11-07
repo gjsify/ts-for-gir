@@ -689,8 +689,7 @@ calling this function.
       <method name="play_full"
               c:identifier="gsound_context_play_full"
               shadowed-by="play_fullv"
-              introspectable="0"
-              glib:finish-func="play_full_finish">
+              introspectable="0">
         <doc xml:space="preserve"
              filename="gsound/gsound-context.c"
              line="506">Asynchronously request a sound to be played. When playback is finished

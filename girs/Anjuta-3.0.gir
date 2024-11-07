@@ -100,18 +100,6 @@ and/or use gtk-doc annotations.  -->
         </parameter>
       </parameters>
     </function-macro>
-    <docsection name="AnjutaDock">
-      <doc xml:space="preserve"
-           filename="anjuta-dock.c"
-           line="22">AnjutaDock provides an alternative to the traditional menu and toolbar based
-methodologies used by most GNOME programs. Instead, it focuses on tasks, or
-related sets of tasks. Each pane in the dock corresponds to a different set
-of related tasks.
-
-Optionally, you can also associate an #AnjutaCommandBar with an AnjutaDock to
-provide contextually appropriate sets of commands depending on the currently
-visible pane</doc>
-    </docsection>
     <class name="AsyncCommand"
            c:symbol-prefix="async_command"
            c:type="AnjutaAsyncCommand"
@@ -214,8 +202,7 @@ should free the string</doc>
     </record>
     <record name="AsyncCommandPriv"
             c:type="AnjutaAsyncCommandPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-async-command.h" line="45"/>
     </record>
     <class name="AsyncNotify"
@@ -349,8 +336,7 @@ interface implementations themselves, not by clients.</doc>
     </record>
     <record name="AsyncNotifyPriv"
             c:type="AnjutaAsyncNotifyPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-async-notify.h" line="36"/>
     </record>
     <class name="Autogen"
@@ -663,7 +649,6 @@ is destroyed.</doc>
     <record name="AutogenClass"
             c:type="AnjutaAutogenClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="Autogen">
       <source-position filename="anjuta-autogen.h" line="33"/>
     </record>
@@ -873,7 +858,6 @@ is destroyed.</doc>
     <record name="CModuleClass"
             c:type="AnjutaCModuleClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="CModule">
       <source-position filename="anjuta-c-module.h" line="36"/>
     </record>
@@ -1053,7 +1037,6 @@ is destroyed.</doc>
     <record name="CPluginFactoryClass"
             c:type="AnjutaCPluginFactoryClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="CPluginFactory">
       <source-position filename="anjuta-c-plugin-factory.h" line="36"/>
     </record>
@@ -1131,10 +1114,7 @@ is destroyed.</doc>
       <property name="pixbuf" writable="1" transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="text"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="text" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
@@ -1171,8 +1151,7 @@ is destroyed.</doc>
         </return-value>
       </constructor>
       <method name="set_diff"
-              c:identifier="anjuta_cell_renderer_diff_set_diff"
-              glib:set-property="diff">
+              c:identifier="anjuta_cell_renderer_diff_set_diff">
         <source-position filename="anjuta-cell-renderer-diff.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1189,8 +1168,7 @@ is destroyed.</doc>
       <property name="diff"
                 readable="0"
                 writable="1"
-                transfer-ownership="none"
-                setter="set_diff">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -1211,8 +1189,7 @@ is destroyed.</doc>
     </record>
     <record name="CellRendererDiffPrivate"
             c:type="AnjutaCellRendererDiffPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-cell-renderer-diff.h" line="38"/>
     </record>
     <class name="CloseButton"
@@ -1251,8 +1228,7 @@ is destroyed.</doc>
     </record>
     <record name="CloseButtonClassPrivate"
             c:type="AnjutaCloseButtonClassPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-close-button.h" line="38"/>
     </record>
     <class name="ColumnTextView"
@@ -1313,8 +1289,7 @@ is destroyed.</doc>
     </record>
     <record name="ColumnTextViewPriv"
             c:type="AnjutaColumnTextViewPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-column-text-view.h" line="38"/>
     </record>
     <class name="Command"
@@ -2042,8 +2017,7 @@ previously visible group.</doc>
       <property name="max-text-width"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="25">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <field name="parent_instance">
@@ -2112,8 +2086,7 @@ Buttons are added to the last frame that appears before the button entry</doc>
       <member name="frame"
               value="0"
               c:identifier="ANJUTA_COMMAND_BAR_ENTRY_FRAME"
-              glib:nick="frame"
-              glib:name="ANJUTA_COMMAND_BAR_ENTRY_FRAME">
+              glib:nick="frame">
         <doc xml:space="preserve"
              filename="anjuta-command-bar.h"
              line="42">This entry should create a frame in the
@@ -2123,8 +2096,7 @@ Buttons are added to the last frame that appears before the button entry</doc>
       <member name="button"
               value="1"
               c:identifier="ANJUTA_COMMAND_BAR_ENTRY_BUTTON"
-              glib:nick="button"
-              glib:name="ANJUTA_COMMAND_BAR_ENTRY_BUTTON">
+              glib:nick="button">
         <doc xml:space="preserve"
              filename="anjuta-command-bar.h"
              line="45">This entry adds a button to the action bar,
@@ -2134,10 +2106,7 @@ Buttons are added to the last frame that appears before the button entry</doc>
 								 added.</doc>
       </member>
     </enumeration>
-    <record name="CommandBarPriv"
-            c:type="AnjutaCommandBarPriv"
-            disguised="1"
-            opaque="1">
+    <record name="CommandBarPriv" c:type="AnjutaCommandBarPriv" disguised="1">
       <source-position filename="anjuta-command-bar.h" line="38"/>
     </record>
     <record name="CommandClass"
@@ -2390,10 +2359,7 @@ error.</doc>
         </callback>
       </field>
     </record>
-    <record name="CommandPriv"
-            c:type="AnjutaCommandPriv"
-            disguised="1"
-            opaque="1">
+    <record name="CommandPriv" c:type="AnjutaCommandPriv" disguised="1">
       <source-position filename="anjuta-command.h" line="41"/>
     </record>
     <class name="CommandQueue"
@@ -2502,20 +2468,17 @@ waiting</doc>
       <member name="automatic"
               value="0"
               c:identifier="ANJUTA_COMMAND_QUEUE_EXECUTE_AUTOMATIC"
-              glib:nick="automatic"
-              glib:name="ANJUTA_COMMAND_QUEUE_EXECUTE_AUTOMATIC">
+              glib:nick="automatic">
       </member>
       <member name="manual"
               value="1"
               c:identifier="ANJUTA_COMMAND_QUEUE_EXECUTE_MANUAL"
-              glib:nick="manual"
-              glib:name="ANJUTA_COMMAND_QUEUE_EXECUTE_MANUAL">
+              glib:nick="manual">
       </member>
     </enumeration>
     <record name="CommandQueuePriv"
             c:type="AnjutaCommandQueuePriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-command-queue.h" line="37"/>
     </record>
     <class name="Completion"
@@ -2614,8 +2577,7 @@ waiting</doc>
         </parameters>
       </method>
       <method name="get_case_sensitive"
-              c:identifier="anjuta_completion_get_case_sensitive"
-              glib:get-property="case-sensitive">
+              c:identifier="anjuta_completion_get_case_sensitive">
         <source-position filename="anjuta-completion.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2627,8 +2589,7 @@ waiting</doc>
         </parameters>
       </method>
       <method name="set_case_sensitive"
-              c:identifier="anjuta_completion_set_case_sensitive"
-              glib:set-property="case-sensitive">
+              c:identifier="anjuta_completion_set_case_sensitive">
         <source-position filename="anjuta-completion.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2691,12 +2652,7 @@ the added items when the #AnjutaCompletion object is destroyed.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="case-sensitive"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_case_sensitive"
-                getter="get_case_sensitive"
-                default-value="TRUE">
+      <property name="case-sensitive" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance">
@@ -2751,8 +2707,7 @@ the added items when the #AnjutaCompletion object is destroyed.</doc>
     </callback>
     <record name="CompletionPrivate"
             c:type="AnjutaCompletionPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-completion.h" line="36"/>
     </record>
     <enumeration name="ConvertError"
@@ -2766,8 +2721,7 @@ the added items when the #AnjutaCompletion object is destroyed.</doc>
       <member name="failed"
               value="1100"
               c:identifier="ANJUTA_CONVERT_ERROR_AUTO_DETECTION_FAILED"
-              glib:nick="failed"
-              glib:name="ANJUTA_CONVERT_ERROR_AUTO_DETECTION_FAILED">
+              glib:nick="failed">
         <doc xml:space="preserve"
              filename="anjuta-convert.h"
              line="38">The charset couldn't be autodetected</doc>
@@ -3350,7 +3304,6 @@ needed.</doc>
       </virtual-method>
       <method name="get_plugin"
               c:identifier="anjuta_dock_pane_get_plugin"
-              glib:get-property="plugin"
               introspectable="0">
         <source-position filename="anjuta-dock-pane.h" line="63"/>
         <return-value>
@@ -3442,10 +3395,7 @@ needed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="plugin"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_plugin">
+      <property name="plugin" writable="1" transfer-ownership="none">
         <type name="Plugin"/>
       </property>
       <field name="parent_instance">
@@ -3544,13 +3494,10 @@ owned by the pane and should not be destroyed or modified.</doc>
         </callback>
       </field>
     </record>
-    <record name="DockPanePriv"
-            c:type="AnjutaDockPanePriv"
-            disguised="1"
-            opaque="1">
+    <record name="DockPanePriv" c:type="AnjutaDockPanePriv" disguised="1">
       <source-position filename="anjuta-dock-pane.h" line="38"/>
     </record>
-    <record name="DockPriv" c:type="AnjutaDockPriv" disguised="1" opaque="1">
+    <record name="DockPriv" c:type="AnjutaDockPriv" disguised="1">
       <source-position filename="anjuta-dock.h" line="40"/>
     </record>
     <class name="DropEntry"
@@ -3639,7 +3586,6 @@ owned by the pane and should not be destroyed or modified.</doc>
     </function-macro>
     <record name="Encoding"
             c:type="AnjutaEncoding"
-            opaque="1"
             glib:type-name="AnjutaEncoding"
             glib:get-type="anjuta_encoding_get_type"
             c:symbol-prefix="encoding">
@@ -3871,7 +3817,7 @@ method returns %TRUE, it means that the user has not entered anything.</doc>
         <type name="Gtk.EntryClass" c:type="GtkEntryClass"/>
       </field>
     </record>
-    <record name="EntryPriv" c:type="AnjutaEntryPriv" disguised="1" opaque="1">
+    <record name="EntryPriv" c:type="AnjutaEntryPriv" disguised="1">
       <source-position filename="anjuta-entry.h" line="38"/>
     </record>
     <class name="EnvironmentEditor"
@@ -4062,8 +4008,7 @@ is changed (include deleted variables)</doc>
         </return-value>
       </constructor>
       <method name="set_relative_path"
-              c:identifier="anjuta_file_drop_entry_set_relative_path"
-              glib:set-property="relative-path">
+              c:identifier="anjuta_file_drop_entry_set_relative_path">
         <source-position filename="anjuta-file-drop-entry.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4077,11 +4022,7 @@ is changed (include deleted variables)</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="relative-path"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_relative_path"
-                default-value="NULL">
+      <property name="relative-path" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -4101,8 +4042,7 @@ is changed (include deleted variables)</doc>
     </record>
     <record name="FileDropEntryPriv"
             c:type="AnjutaFileDropEntryPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-file-drop-entry.h" line="38"/>
     </record>
     <class name="FileList"
@@ -4149,8 +4089,7 @@ is changed (include deleted variables)</doc>
         </parameters>
       </method>
       <method name="set_relative_path"
-              c:identifier="anjuta_file_list_set_relative_path"
-              glib:set-property="relative-path">
+              c:identifier="anjuta_file_list_set_relative_path">
         <source-position filename="anjuta-file-list.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4164,16 +4103,10 @@ is changed (include deleted variables)</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="relative-path"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_relative_path">
+      <property name="relative-path" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="show-add-button"
-                writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+      <property name="show-add-button" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance">
@@ -4191,10 +4124,7 @@ is changed (include deleted variables)</doc>
         <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
       </field>
     </record>
-    <record name="FileListPriv"
-            c:type="AnjutaFileListPriv"
-            disguised="1"
-            opaque="1">
+    <record name="FileListPriv" c:type="AnjutaFileListPriv" disguised="1">
       <source-position filename="anjuta-file-list.h" line="38"/>
     </record>
     <function-macro name="IS_ASYNC_COMMAND"
@@ -5334,8 +5264,7 @@ ianjuta_language_provider_populate_completions()</doc>
     </record>
     <record name="LanguageProviderPriv"
             c:type="AnjutaLanguageProviderPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-language-provider.h" line="67"/>
     </record>
     <class name="Launcher"
@@ -5934,26 +5863,20 @@ execution.</doc>
       <member name="stdout"
               value="0"
               c:identifier="ANJUTA_LAUNCHER_OUTPUT_STDOUT"
-              glib:nick="stdout"
-              glib:name="ANJUTA_LAUNCHER_OUTPUT_STDOUT">
+              glib:nick="stdout">
       </member>
       <member name="stderr"
               value="1"
               c:identifier="ANJUTA_LAUNCHER_OUTPUT_STDERR"
-              glib:nick="stderr"
-              glib:name="ANJUTA_LAUNCHER_OUTPUT_STDERR">
+              glib:nick="stderr">
       </member>
       <member name="pty"
               value="2"
               c:identifier="ANJUTA_LAUNCHER_OUTPUT_PTY"
-              glib:nick="pty"
-              glib:name="ANJUTA_LAUNCHER_OUTPUT_PTY">
+              glib:nick="pty">
       </member>
     </enumeration>
-    <record name="LauncherPriv"
-            c:type="AnjutaLauncherPriv"
-            disguised="1"
-            opaque="1">
+    <record name="LauncherPriv" c:type="AnjutaLauncherPriv" disguised="1">
       <source-position filename="anjuta-launcher.h" line="31"/>
     </record>
     <function-macro name="PKG_CONFIG_CHOOSER"
@@ -6482,8 +6405,7 @@ that does not have any interface implementation.</doc>
     </record>
     <record name="PkgConfigChooserPrivate"
             c:type="AnjutaPkgConfigChooserPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-pkg-config-chooser.h" line="36"/>
     </record>
     <class name="PkgScanner"
@@ -6523,9 +6445,7 @@ that does not have any interface implementation.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_package"
-              c:identifier="anjuta_pkg_scanner_get_package"
-              glib:get-property="package">
+      <method name="get_package" c:identifier="anjuta_pkg_scanner_get_package">
         <source-position filename="anjuta-pkg-scanner.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -6536,9 +6456,7 @@ that does not have any interface implementation.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_version"
-              c:identifier="anjuta_pkg_scanner_get_version"
-              glib:get-property="version">
+      <method name="get_version" c:identifier="anjuta_pkg_scanner_get_version">
         <source-position filename="anjuta-pkg-scanner.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -6552,17 +6470,13 @@ that does not have any interface implementation.</doc>
       <property name="package"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                getter="get_package"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="version"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                getter="get_version"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -6582,8 +6496,7 @@ that does not have any interface implementation.</doc>
     </record>
     <record name="PkgScannerPrivate"
             c:type="AnjutaPkgScannerPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-pkg-scanner.h" line="36"/>
     </record>
     <class name="Plugin"
@@ -6763,9 +6676,7 @@ method.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_shell"
-              c:identifier="anjuta_plugin_get_shell"
-              glib:get-property="shell">
+      <method name="get_shell" c:identifier="anjuta_plugin_get_shell">
         <source-position filename="anjuta-plugin.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -6835,8 +6746,7 @@ anjuta_plugin_add_watch()).</doc>
       <property name="shell"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                getter="get_shell">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="anjuta-plugin.c"
              line="310">The #AnjutaShell object associated with this plugin</doc>
@@ -6936,7 +6846,6 @@ anjuta_plugin_add_watch()).</doc>
     </record>
     <record name="PluginDescription"
             c:type="AnjutaPluginDescription"
-            opaque="1"
             glib:type-name="AnjutaPluginDescription"
             glib:get-type="anjuta_plugin_description_get_type"
             c:symbol-prefix="plugin_description">
@@ -7430,8 +7339,7 @@ The returned values must be freed after use.</doc>
       <member name="syntax"
               value="0"
               c:identifier="ANJUTA_PLUGIN_DESCRIPTION_PARSE_ERROR_INVALID_SYNTAX"
-              glib:nick="syntax"
-              glib:name="ANJUTA_PLUGIN_DESCRIPTION_PARSE_ERROR_INVALID_SYNTAX">
+              glib:nick="syntax">
         <doc xml:space="preserve"
              filename="anjuta-plugin-description.h"
              line="47">Syntax of plugin file is invalid</doc>
@@ -7439,8 +7347,7 @@ The returned values must be freed after use.</doc>
       <member name="escapes"
               value="1"
               c:identifier="ANJUTA_PLUGIN_DESCRIPTION_PARSE_ERROR_INVALID_ESCAPES"
-              glib:nick="escapes"
-              glib:name="ANJUTA_PLUGIN_DESCRIPTION_PARSE_ERROR_INVALID_ESCAPES">
+              glib:nick="escapes">
         <doc xml:space="preserve"
              filename="anjuta-plugin-description.h"
              line="48">Invalid escape sequence</doc>
@@ -7448,8 +7355,7 @@ The returned values must be freed after use.</doc>
       <member name="chars"
               value="2"
               c:identifier="ANJUTA_PLUGIN_DESCRIPTION_PARSE_ERROR_INVALID_CHARS"
-              glib:nick="chars"
-              glib:name="ANJUTA_PLUGIN_DESCRIPTION_PARSE_ERROR_INVALID_CHARS">
+              glib:nick="chars">
         <doc xml:space="preserve"
              filename="anjuta-plugin-description.h"
              line="49">Invalid characters</doc>
@@ -7502,9 +7408,7 @@ The returned values must be freed after use.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <method name="get_about"
-              c:identifier="anjuta_plugin_handle_get_about"
-              glib:get-property="about">
+      <method name="get_about" c:identifier="anjuta_plugin_handle_get_about">
         <source-position filename="anjuta-plugin-handle.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -7516,8 +7420,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_can_load"
-              c:identifier="anjuta_plugin_handle_get_can_load"
-              glib:get-property="can-load">
+              c:identifier="anjuta_plugin_handle_get_can_load">
         <source-position filename="anjuta-plugin-handle.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7529,8 +7432,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_can_unload"
-              c:identifier="anjuta_plugin_handle_get_can_unload"
-              glib:get-property="can-unload">
+              c:identifier="anjuta_plugin_handle_get_can_unload">
         <source-position filename="anjuta-plugin-handle.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7542,8 +7444,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_checked"
-              c:identifier="anjuta_plugin_handle_get_checked"
-              glib:get-property="checked">
+              c:identifier="anjuta_plugin_handle_get_checked">
         <source-position filename="anjuta-plugin-handle.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7556,7 +7457,6 @@ The returned values must be freed after use.</doc>
       </method>
       <method name="get_dependencies"
               c:identifier="anjuta_plugin_handle_get_dependencies"
-              glib:get-property="dependencies"
               introspectable="0">
         <source-position filename="anjuta-plugin-handle.h" line="63"/>
         <return-value>
@@ -7573,7 +7473,6 @@ The returned values must be freed after use.</doc>
       </method>
       <method name="get_dependency_names"
               c:identifier="anjuta_plugin_handle_get_dependency_names"
-              glib:get-property="dependency-names"
               introspectable="0">
         <source-position filename="anjuta-plugin-handle.h" line="62"/>
         <return-value>
@@ -7589,7 +7488,6 @@ The returned values must be freed after use.</doc>
       </method>
       <method name="get_dependents"
               c:identifier="anjuta_plugin_handle_get_dependents"
-              glib:get-property="dependents"
               introspectable="0">
         <source-position filename="anjuta-plugin-handle.h" line="64"/>
         <return-value>
@@ -7605,8 +7503,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_description"
-              c:identifier="anjuta_plugin_handle_get_description"
-              glib:get-property="description">
+              c:identifier="anjuta_plugin_handle_get_description">
         <source-position filename="anjuta-plugin-handle.h" line="61"/>
         <return-value transfer-ownership="full">
           <type name="PluginDescription" c:type="AnjutaPluginDescription*"/>
@@ -7618,8 +7515,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_icon_path"
-              c:identifier="anjuta_plugin_handle_get_icon_path"
-              glib:get-property="icon-path">
+              c:identifier="anjuta_plugin_handle_get_icon_path">
         <source-position filename="anjuta-plugin-handle.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -7630,9 +7526,7 @@ The returned values must be freed after use.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_id"
-              c:identifier="anjuta_plugin_handle_get_id"
-              glib:get-property="id">
+      <method name="get_id" c:identifier="anjuta_plugin_handle_get_id">
         <source-position filename="anjuta-plugin-handle.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -7645,7 +7539,6 @@ The returned values must be freed after use.</doc>
       </method>
       <method name="get_interfaces"
               c:identifier="anjuta_plugin_handle_get_interfaces"
-              glib:get-property="interfaces"
               introspectable="0">
         <source-position filename="anjuta-plugin-handle.h" line="65"/>
         <return-value>
@@ -7660,8 +7553,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_language"
-              c:identifier="anjuta_plugin_handle_get_language"
-              glib:get-property="language">
+              c:identifier="anjuta_plugin_handle_get_language">
         <source-position filename="anjuta-plugin-handle.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -7672,9 +7564,7 @@ The returned values must be freed after use.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_name"
-              c:identifier="anjuta_plugin_handle_get_name"
-              glib:get-property="name">
+      <method name="get_name" c:identifier="anjuta_plugin_handle_get_name">
         <source-position filename="anjuta-plugin-handle.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -7685,9 +7575,7 @@ The returned values must be freed after use.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_path"
-              c:identifier="anjuta_plugin_handle_get_path"
-              glib:get-property="path">
+      <method name="get_path" c:identifier="anjuta_plugin_handle_get_path">
         <source-position filename="anjuta-plugin-handle.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -7699,8 +7587,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_resident"
-              c:identifier="anjuta_plugin_handle_get_resident"
-              glib:get-property="resident">
+              c:identifier="anjuta_plugin_handle_get_resident">
         <source-position filename="anjuta-plugin-handle.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7712,8 +7599,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_resolve_pass"
-              c:identifier="anjuta_plugin_handle_get_resolve_pass"
-              glib:get-property="resolve-pass">
+              c:identifier="anjuta_plugin_handle_get_resolve_pass">
         <source-position filename="anjuta-plugin-handle.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
@@ -7725,8 +7611,7 @@ The returned values must be freed after use.</doc>
         </parameters>
       </method>
       <method name="get_user_activatable"
-              c:identifier="anjuta_plugin_handle_get_user_activatable"
-              glib:get-property="user-activatable">
+              c:identifier="anjuta_plugin_handle_get_user_activatable">
         <source-position filename="anjuta-plugin-handle.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7809,101 +7694,55 @@ The returned values must be freed after use.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="about"
-                transfer-ownership="none"
-                getter="get_about"
-                default-value="NULL">
+      <property name="about" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="can-load"
-                transfer-ownership="none"
-                getter="get_can_load"
-                default-value="FALSE">
+      <property name="can-load" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="can-unload"
-                transfer-ownership="none"
-                getter="get_can_unload"
-                default-value="TRUE">
+      <property name="can-unload" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="checked"
-                transfer-ownership="none"
-                getter="get_checked"
-                default-value="FALSE">
+      <property name="checked" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="dependencies"
-                transfer-ownership="none"
-                getter="get_dependencies">
+      <property name="dependencies" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="dependency-names"
-                transfer-ownership="none"
-                getter="get_dependency_names">
+      <property name="dependency-names" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="dependents"
-                transfer-ownership="none"
-                getter="get_dependents">
+      <property name="dependents" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="description"
-                transfer-ownership="none"
-                getter="get_description">
+      <property name="description" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="icon-path"
-                transfer-ownership="none"
-                getter="get_icon_path"
-                default-value="NULL">
+      <property name="icon-path" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="id"
-                transfer-ownership="none"
-                getter="get_id"
-                default-value="NULL">
+      <property name="id" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="interfaces"
-                transfer-ownership="none"
-                getter="get_interfaces">
+      <property name="interfaces" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="language"
-                transfer-ownership="none"
-                getter="get_language"
-                default-value="NULL">
+      <property name="language" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="name"
-                transfer-ownership="none"
-                getter="get_name"
-                default-value="NULL">
+      <property name="name" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="path"
-                transfer-ownership="none"
-                getter="get_path"
-                default-value="NULL">
+      <property name="path" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="resident"
-                transfer-ownership="none"
-                getter="get_resident"
-                default-value="FALSE">
+      <property name="resident" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="resolve-pass"
-                transfer-ownership="none"
-                getter="get_resolve_pass"
-                default-value="0">
+      <property name="resolve-pass" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
-      <property name="user-activatable"
-                transfer-ownership="none"
-                getter="get_user_activatable"
-                default-value="FALSE">
+      <property name="user-activatable" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance">
@@ -7923,8 +7762,7 @@ The returned values must be freed after use.</doc>
     </record>
     <record name="PluginHandlePriv"
             c:type="AnjutaPluginHandlePriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-plugin-handle.h" line="37"/>
     </record>
     <class name="PluginManager"
@@ -8573,8 +8411,7 @@ plugin does not exist or if the plugin cannot be unloaded.</doc>
       <member name="missing_factory"
               value="0"
               c:identifier="ANJUTA_PLUGIN_MANAGER_MISSING_FACTORY"
-              glib:nick="missing-factory"
-              glib:name="ANJUTA_PLUGIN_MANAGER_MISSING_FACTORY">
+              glib:nick="missing-factory">
         <doc xml:space="preserve"
              filename="anjuta-plugin-manager.h"
              line="40">The factory for the plugin couldn't be found</doc>
@@ -8582,8 +8419,7 @@ plugin does not exist or if the plugin cannot be unloaded.</doc>
       <member name="error_unknown"
               value="1"
               c:identifier="ANJUTA_PLUGIN_MANAGER_ERROR_UNKNOWN"
-              glib:nick="error-unknown"
-              glib:name="ANJUTA_PLUGIN_MANAGER_ERROR_UNKNOWN">
+              glib:nick="error-unknown">
         <doc xml:space="preserve"
              filename="anjuta-plugin-manager.h"
              line="41">Unknown error</doc>
@@ -8596,14 +8432,10 @@ plugin does not exist or if the plugin cannot be unloaded.</doc>
     </enumeration>
     <record name="PluginManagerPriv"
             c:type="AnjutaPluginManagerPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-plugin-manager.h" line="52"/>
     </record>
-    <record name="PluginPrivate"
-            c:type="AnjutaPluginPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="PluginPrivate" c:type="AnjutaPluginPrivate" disguised="1">
       <source-position filename="anjuta-plugin.h" line="41"/>
     </record>
     <callback name="PluginValueAdded" c:type="AnjutaPluginValueAdded">
@@ -9007,14 +8839,12 @@ on the left icon list where differnt pages are selected.</doc>
     </record>
     <record name="PreferencesDialogPrivate"
             c:type="AnjutaPreferencesDialogPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-preferences-dialog.h" line="37"/>
     </record>
     <record name="PreferencesPriv"
             c:type="AnjutaPreferencesPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-preferences.h" line="46"/>
     </record>
     <class name="Profile"
@@ -9276,9 +9106,7 @@ on the left icon list where differnt pages are selected.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_sync_file"
-              c:identifier="anjuta_profile_set_sync_file"
-              glib:set-property="sync-file">
+      <method name="set_sync_file" c:identifier="anjuta_profile_set_sync_file">
         <doc xml:space="preserve"
              filename="anjuta-profile.c"
              line="1217">Define the file used to save plugins list.</doc>
@@ -9350,15 +9178,13 @@ on the left icon list where differnt pages are selected.</doc>
       <property name="profile-name"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="sync-file"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                setter="set_sync_file">
+                transfer-ownership="none">
         <type name="Gio.File"/>
       </property>
       <field name="parent_instance">
@@ -9514,8 +9340,7 @@ on the left icon list where differnt pages are selected.</doc>
       <member name="uri_read_failed"
               value="0"
               c:identifier="ANJUTA_PROFILE_ERROR_URI_READ_FAILED"
-              glib:nick="uri-read-failed"
-              glib:name="ANJUTA_PROFILE_ERROR_URI_READ_FAILED">
+              glib:nick="uri-read-failed">
         <doc xml:space="preserve"
              filename="anjuta-profile.h"
              line="57">Fail to read xml plugins list file.</doc>
@@ -9523,8 +9348,7 @@ on the left icon list where differnt pages are selected.</doc>
       <member name="uri_write_failed"
               value="1"
               c:identifier="ANJUTA_PROFILE_ERROR_URI_WRITE_FAILED"
-              glib:nick="uri-write-failed"
-              glib:name="ANJUTA_PROFILE_ERROR_URI_WRITE_FAILED">
+              glib:nick="uri-write-failed">
         <doc xml:space="preserve"
              filename="anjuta-profile.h"
              line="58">Fail to write xml plugins list file.</doc>
@@ -9532,8 +9356,7 @@ on the left icon list where differnt pages are selected.</doc>
       <member name="plugin_missing"
               value="2"
               c:identifier="ANJUTA_PROFILE_ERROR_PLUGIN_MISSING"
-              glib:nick="plugin-missing"
-              glib:name="ANJUTA_PROFILE_ERROR_PLUGIN_MISSING">
+              glib:nick="plugin-missing">
       </member>
       <function name="quark" c:identifier="anjuta_profile_error_quark">
         <return-value transfer-ownership="none">
@@ -9836,14 +9659,10 @@ will be loaded.</doc>
     </record>
     <record name="ProfileManagerPriv"
             c:type="AnjutaProfileManagerPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-profile-manager.h" line="38"/>
     </record>
-    <record name="ProfilePriv"
-            c:type="AnjutaProfilePriv"
-            disguised="1"
-            opaque="1">
+    <record name="ProfilePriv" c:type="AnjutaProfilePriv" disguised="1">
       <source-position filename="anjuta-profile.h" line="72"/>
     </record>
     <class name="ProjectNode"
@@ -9998,9 +9817,7 @@ accessed using the functions below.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_file"
-              c:identifier="anjuta_project_node_get_file"
-              glib:get-property="file">
+      <method name="get_file" c:identifier="anjuta_project_node_get_file">
         <source-position filename="anjuta-project.h" line="222"/>
         <return-value transfer-ownership="none">
           <type name="Gio.File" c:type="GFile*"/>
@@ -10062,9 +9879,7 @@ accessed using the functions below.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_name"
-              c:identifier="anjuta_project_node_get_name"
-              glib:get-property="name">
+      <method name="get_name" c:identifier="anjuta_project_node_get_name">
         <source-position filename="anjuta-project.h" line="221"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -10173,9 +9988,7 @@ accessed using the functions below.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_state"
-              c:identifier="anjuta_project_node_get_state"
-              glib:get-property="state">
+      <method name="get_state" c:identifier="anjuta_project_node_get_state">
         <source-position filename="anjuta-project.h" line="220"/>
         <return-value transfer-ownership="none">
           <type name="ProjectNodeState" c:type="AnjutaProjectNodeState"/>
@@ -10390,9 +10203,7 @@ accessed using the functions below.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="set_state"
-              c:identifier="anjuta_project_node_set_state"
-              glib:set-property="state">
+      <method name="set_state" c:identifier="anjuta_project_node_set_state">
         <source-position filename="anjuta-project.h" line="235"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -10433,30 +10244,16 @@ accessed using the functions below.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="file"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_file">
+      <property name="file" writable="1" transfer-ownership="none">
         <type name="Gio.File"/>
       </property>
-      <property name="name"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_name">
+      <property name="name" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="state"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_state"
-                getter="get_state"
-                default-value="ANJUTA_PROJECT_OK">
+      <property name="state" writable="1" transfer-ownership="none">
         <type name="ProjectNodeState"/>
       </property>
-      <property name="type"
-                writable="1"
-                transfer-ownership="none"
-                default-value="ANJUTA_PROJECT_UNKNOWN">
+      <property name="type" writable="1" transfer-ownership="none">
         <type name="ProjectNodeType"/>
       </property>
       <field name="parent_instance">
@@ -10697,80 +10494,67 @@ accessed using the functions below.</doc>
       <member name="ok"
               value="0"
               c:identifier="ANJUTA_PROJECT_OK"
-              glib:nick="ok"
-              glib:name="ANJUTA_PROJECT_OK">
+              glib:nick="ok">
       </member>
       <member name="modified"
               value="1"
               c:identifier="ANJUTA_PROJECT_MODIFIED"
-              glib:nick="modified"
-              glib:name="ANJUTA_PROJECT_MODIFIED">
+              glib:nick="modified">
       </member>
       <member name="incomplete"
               value="2"
               c:identifier="ANJUTA_PROJECT_INCOMPLETE"
-              glib:nick="incomplete"
-              glib:name="ANJUTA_PROJECT_INCOMPLETE">
+              glib:nick="incomplete">
       </member>
       <member name="loading"
               value="4"
               c:identifier="ANJUTA_PROJECT_LOADING"
-              glib:nick="loading"
-              glib:name="ANJUTA_PROJECT_LOADING">
+              glib:nick="loading">
       </member>
       <member name="removed"
               value="8"
               c:identifier="ANJUTA_PROJECT_REMOVED"
-              glib:nick="removed"
-              glib:name="ANJUTA_PROJECT_REMOVED">
+              glib:nick="removed">
       </member>
       <member name="can_add_group"
               value="256"
               c:identifier="ANJUTA_PROJECT_CAN_ADD_GROUP"
-              glib:nick="can-add-group"
-              glib:name="ANJUTA_PROJECT_CAN_ADD_GROUP">
+              glib:nick="can-add-group">
       </member>
       <member name="can_add_target"
               value="512"
               c:identifier="ANJUTA_PROJECT_CAN_ADD_TARGET"
-              glib:nick="can-add-target"
-              glib:name="ANJUTA_PROJECT_CAN_ADD_TARGET">
+              glib:nick="can-add-target">
       </member>
       <member name="can_add_source"
               value="1024"
               c:identifier="ANJUTA_PROJECT_CAN_ADD_SOURCE"
-              glib:nick="can-add-source"
-              glib:name="ANJUTA_PROJECT_CAN_ADD_SOURCE">
+              glib:nick="can-add-source">
       </member>
       <member name="can_add_module"
               value="2048"
               c:identifier="ANJUTA_PROJECT_CAN_ADD_MODULE"
-              glib:nick="can-add-module"
-              glib:name="ANJUTA_PROJECT_CAN_ADD_MODULE">
+              glib:nick="can-add-module">
       </member>
       <member name="can_add_package"
               value="4096"
               c:identifier="ANJUTA_PROJECT_CAN_ADD_PACKAGE"
-              glib:nick="can-add-package"
-              glib:name="ANJUTA_PROJECT_CAN_ADD_PACKAGE">
+              glib:nick="can-add-package">
       </member>
       <member name="can_remove"
               value="65536"
               c:identifier="ANJUTA_PROJECT_CAN_REMOVE"
-              glib:nick="can-remove"
-              glib:name="ANJUTA_PROJECT_CAN_REMOVE">
+              glib:nick="can-remove">
       </member>
       <member name="can_save"
               value="131072"
               c:identifier="ANJUTA_PROJECT_CAN_SAVE"
-              glib:nick="can-save"
-              glib:name="ANJUTA_PROJECT_CAN_SAVE">
+              glib:nick="can-save">
       </member>
       <member name="remove_file"
               value="262144"
               c:identifier="ANJUTA_PROJECT_REMOVE_FILE"
-              glib:nick="remove-file"
-              glib:name="ANJUTA_PROJECT_REMOVE_FILE">
+              glib:nick="remove-file">
       </member>
     </bitfield>
     <callback name="ProjectNodeTraverseFunc"
@@ -10798,230 +10582,192 @@ accessed using the functions below.</doc>
       <member name="unknown"
               value="0"
               c:identifier="ANJUTA_PROJECT_UNKNOWN"
-              glib:nick="unknown"
-              glib:name="ANJUTA_PROJECT_UNKNOWN">
+              glib:nick="unknown">
       </member>
       <member name="sharedlib"
               value="1"
               c:identifier="ANJUTA_PROJECT_SHAREDLIB"
-              glib:nick="sharedlib"
-              glib:name="ANJUTA_PROJECT_SHAREDLIB">
+              glib:nick="sharedlib">
       </member>
       <member name="staticlib"
               value="2"
               c:identifier="ANJUTA_PROJECT_STATICLIB"
-              glib:nick="staticlib"
-              glib:name="ANJUTA_PROJECT_STATICLIB">
+              glib:nick="staticlib">
       </member>
       <member name="program"
               value="3"
               c:identifier="ANJUTA_PROJECT_PROGRAM"
-              glib:nick="program"
-              glib:name="ANJUTA_PROJECT_PROGRAM">
+              glib:nick="program">
       </member>
       <member name="python"
               value="4"
               c:identifier="ANJUTA_PROJECT_PYTHON"
-              glib:nick="python"
-              glib:name="ANJUTA_PROJECT_PYTHON">
+              glib:nick="python">
       </member>
       <member name="java"
               value="5"
               c:identifier="ANJUTA_PROJECT_JAVA"
-              glib:nick="java"
-              glib:name="ANJUTA_PROJECT_JAVA">
+              glib:nick="java">
       </member>
       <member name="lisp"
               value="6"
               c:identifier="ANJUTA_PROJECT_LISP"
-              glib:nick="lisp"
-              glib:name="ANJUTA_PROJECT_LISP">
+              glib:nick="lisp">
       </member>
       <member name="header"
               value="7"
               c:identifier="ANJUTA_PROJECT_HEADER"
-              glib:nick="header"
-              glib:name="ANJUTA_PROJECT_HEADER">
+              glib:nick="header">
       </member>
       <member name="man"
               value="8"
               c:identifier="ANJUTA_PROJECT_MAN"
-              glib:nick="man"
-              glib:name="ANJUTA_PROJECT_MAN">
+              glib:nick="man">
       </member>
       <member name="info"
               value="9"
               c:identifier="ANJUTA_PROJECT_INFO"
-              glib:nick="info"
-              glib:name="ANJUTA_PROJECT_INFO">
+              glib:nick="info">
       </member>
       <member name="generic"
               value="10"
               c:identifier="ANJUTA_PROJECT_GENERIC"
-              glib:nick="generic"
-              glib:name="ANJUTA_PROJECT_GENERIC">
+              glib:nick="generic">
       </member>
       <member name="data"
               value="11"
               c:identifier="ANJUTA_PROJECT_DATA"
-              glib:nick="data"
-              glib:name="ANJUTA_PROJECT_DATA">
+              glib:nick="data">
       </member>
       <member name="extra"
               value="12"
               c:identifier="ANJUTA_PROJECT_EXTRA"
-              glib:nick="extra"
-              glib:name="ANJUTA_PROJECT_EXTRA">
+              glib:nick="extra">
       </member>
       <member name="intltool"
               value="13"
               c:identifier="ANJUTA_PROJECT_INTLTOOL"
-              glib:nick="intltool"
-              glib:name="ANJUTA_PROJECT_INTLTOOL">
+              glib:nick="intltool">
       </member>
       <member name="configure"
               value="14"
               c:identifier="ANJUTA_PROJECT_CONFIGURE"
-              glib:nick="configure"
-              glib:name="ANJUTA_PROJECT_CONFIGURE">
+              glib:nick="configure">
       </member>
       <member name="idl"
               value="15"
               c:identifier="ANJUTA_PROJECT_IDL"
-              glib:nick="idl"
-              glib:name="ANJUTA_PROJECT_IDL">
+              glib:nick="idl">
       </member>
       <member name="mkenums"
               value="16"
               c:identifier="ANJUTA_PROJECT_MKENUMS"
-              glib:nick="mkenums"
-              glib:name="ANJUTA_PROJECT_MKENUMS">
+              glib:nick="mkenums">
       </member>
       <member name="genmarshal"
               value="17"
               c:identifier="ANJUTA_PROJECT_GENMARSHAL"
-              glib:nick="genmarshal"
-              glib:name="ANJUTA_PROJECT_GENMARSHAL">
+              glib:nick="genmarshal">
       </member>
       <member name="script"
               value="18"
               c:identifier="ANJUTA_PROJECT_SCRIPT"
-              glib:nick="script"
-              glib:name="ANJUTA_PROJECT_SCRIPT">
+              glib:nick="script">
       </member>
       <member name="root_group"
               value="19"
               c:identifier="ANJUTA_PROJECT_ROOT_GROUP"
-              glib:nick="root-group"
-              glib:name="ANJUTA_PROJECT_ROOT_GROUP">
+              glib:nick="root-group">
       </member>
       <member name="lt_module"
               value="20"
               c:identifier="ANJUTA_PROJECT_LT_MODULE"
-              glib:nick="lt-module"
-              glib:name="ANJUTA_PROJECT_LT_MODULE">
+              glib:nick="lt-module">
       </member>
       <member name="proxy"
               value="65536"
               c:identifier="ANJUTA_PROJECT_PROXY"
-              glib:nick="proxy"
-              glib:name="ANJUTA_PROJECT_PROXY">
+              glib:nick="proxy">
       </member>
       <member name="project"
               value="131072"
               c:identifier="ANJUTA_PROJECT_PROJECT"
-              glib:nick="project"
-              glib:name="ANJUTA_PROJECT_PROJECT">
+              glib:nick="project">
       </member>
       <member name="primary"
               value="262144"
               c:identifier="ANJUTA_PROJECT_PRIMARY"
-              glib:nick="primary"
-              glib:name="ANJUTA_PROJECT_PRIMARY">
+              glib:nick="primary">
       </member>
       <member name="executable"
               value="524288"
               c:identifier="ANJUTA_PROJECT_EXECUTABLE"
-              glib:nick="executable"
-              glib:name="ANJUTA_PROJECT_EXECUTABLE">
+              glib:nick="executable">
       </member>
       <member name="read_only"
               value="1048576"
               c:identifier="ANJUTA_PROJECT_READ_ONLY"
-              glib:nick="read-only"
-              glib:name="ANJUTA_PROJECT_READ_ONLY">
+              glib:nick="read-only">
       </member>
       <member name="frame"
               value="2097152"
               c:identifier="ANJUTA_PROJECT_FRAME"
-              glib:nick="frame"
-              glib:name="ANJUTA_PROJECT_FRAME">
+              glib:nick="frame">
       </member>
       <member name="id_mask"
               value="65535"
               c:identifier="ANJUTA_PROJECT_ID_MASK"
-              glib:nick="id-mask"
-              glib:name="ANJUTA_PROJECT_ID_MASK">
+              glib:nick="id-mask">
       </member>
       <member name="flag_mask"
               value="16711680"
               c:identifier="ANJUTA_PROJECT_FLAG_MASK"
-              glib:nick="flag-mask"
-              glib:name="ANJUTA_PROJECT_FLAG_MASK">
+              glib:nick="flag-mask">
       </member>
       <member name="type_mask"
               value="4278190080"
               c:identifier="ANJUTA_PROJECT_TYPE_MASK"
-              glib:nick="type-mask"
-              glib:name="ANJUTA_PROJECT_TYPE_MASK">
+              glib:nick="type-mask">
       </member>
       <member name="root"
               value="16777216"
               c:identifier="ANJUTA_PROJECT_ROOT"
-              glib:nick="root"
-              glib:name="ANJUTA_PROJECT_ROOT">
+              glib:nick="root">
       </member>
       <member name="group"
               value="33554432"
               c:identifier="ANJUTA_PROJECT_GROUP"
-              glib:nick="group"
-              glib:name="ANJUTA_PROJECT_GROUP">
+              glib:nick="group">
       </member>
       <member name="target"
               value="50331648"
               c:identifier="ANJUTA_PROJECT_TARGET"
-              glib:nick="target"
-              glib:name="ANJUTA_PROJECT_TARGET">
+              glib:nick="target">
       </member>
       <member name="source"
               value="67108864"
               c:identifier="ANJUTA_PROJECT_SOURCE"
-              glib:nick="source"
-              glib:name="ANJUTA_PROJECT_SOURCE">
+              glib:nick="source">
       </member>
       <member name="module"
               value="83886080"
               c:identifier="ANJUTA_PROJECT_MODULE"
-              glib:nick="module"
-              glib:name="ANJUTA_PROJECT_MODULE">
+              glib:nick="module">
       </member>
       <member name="package"
               value="100663296"
               c:identifier="ANJUTA_PROJECT_PACKAGE"
-              glib:nick="package"
-              glib:name="ANJUTA_PROJECT_PACKAGE">
+              glib:nick="package">
       </member>
       <member name="variable"
               value="117440512"
               c:identifier="ANJUTA_PROJECT_VARIABLE"
-              glib:nick="variable"
-              glib:name="ANJUTA_PROJECT_VARIABLE">
+              glib:nick="variable">
       </member>
       <member name="object"
               value="134217728"
               c:identifier="ANJUTA_PROJECT_OBJECT"
-              glib:nick="object"
-              glib:name="ANJUTA_PROJECT_OBJECT">
+              glib:nick="object">
       </member>
     </bitfield>
     <record name="ProjectProperty"
@@ -11104,26 +10850,22 @@ accessed using the functions below.</doc>
       <member name="read_only"
               value="1"
               c:identifier="ANJUTA_PROJECT_PROPERTY_READ_ONLY"
-              glib:nick="read-only"
-              glib:name="ANJUTA_PROJECT_PROPERTY_READ_ONLY">
+              glib:nick="read-only">
       </member>
       <member name="read_write"
               value="2"
               c:identifier="ANJUTA_PROJECT_PROPERTY_READ_WRITE"
-              glib:nick="read-write"
-              glib:name="ANJUTA_PROJECT_PROPERTY_READ_WRITE">
+              glib:nick="read-write">
       </member>
       <member name="hidden"
               value="4"
               c:identifier="ANJUTA_PROJECT_PROPERTY_HIDDEN"
-              glib:nick="hidden"
-              glib:name="ANJUTA_PROJECT_PROPERTY_HIDDEN">
+              glib:nick="hidden">
       </member>
       <member name="static"
               value="8"
               c:identifier="ANJUTA_PROJECT_PROPERTY_STATIC"
-              glib:nick="static"
-              glib:name="ANJUTA_PROJECT_PROPERTY_STATIC">
+              glib:nick="static">
       </member>
     </bitfield>
     <record name="ProjectPropertyInfo"
@@ -11241,29 +10983,25 @@ accessed using the functions below.</doc>
       <member name="string"
               value="1"
               c:identifier="ANJUTA_PROJECT_PROPERTY_STRING"
-              glib:nick="string"
-              glib:name="ANJUTA_PROJECT_PROPERTY_STRING">
+              glib:nick="string">
       </member>
       <member name="list"
               value="2"
               c:identifier="ANJUTA_PROJECT_PROPERTY_LIST"
-              glib:nick="list"
-              glib:name="ANJUTA_PROJECT_PROPERTY_LIST">
+              glib:nick="list">
       </member>
       <member name="boolean"
               value="3"
               c:identifier="ANJUTA_PROJECT_PROPERTY_BOOLEAN"
-              glib:nick="boolean"
-              glib:name="ANJUTA_PROJECT_PROPERTY_BOOLEAN">
+              glib:nick="boolean">
       </member>
       <member name="map"
               value="4"
               c:identifier="ANJUTA_PROJECT_PROPERTY_MAP"
-              glib:nick="map"
-              glib:name="ANJUTA_PROJECT_PROPERTY_MAP">
+              glib:nick="map">
       </member>
     </enumeration>
-    <record name="Property" c:type="AnjutaProperty" disguised="1" opaque="1">
+    <record name="Property" c:type="AnjutaProperty" disguised="1">
       <source-position filename="anjuta-preferences.h" line="32"/>
       <method name="get_widget"
               c:identifier="anjuta_property_get_widget"
@@ -11537,8 +11275,7 @@ and member functions definitions.</doc>
     </record>
     <record name="SavePromptPrivate"
             c:type="AnjutaSavePromptPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-save-prompt.h" line="38"/>
     </record>
     <callback name="SavePromptSaveFunc" c:type="AnjutaSavePromptSaveFunc">
@@ -11696,15 +11433,13 @@ and member functions definitions.</doc>
       <property name="filepath"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="mode"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="ANJUTA_SERIALIZER_READ">
+                transfer-ownership="none">
         <type name="SerializerMode"/>
       </property>
       <field name="parent">
@@ -11729,20 +11464,17 @@ and member functions definitions.</doc>
       <member name="read"
               value="0"
               c:identifier="ANJUTA_SERIALIZER_READ"
-              glib:nick="read"
-              glib:name="ANJUTA_SERIALIZER_READ">
+              glib:nick="read">
       </member>
       <member name="write"
               value="1"
               c:identifier="ANJUTA_SERIALIZER_WRITE"
-              glib:nick="write"
-              glib:name="ANJUTA_SERIALIZER_WRITE">
+              glib:nick="write">
       </member>
     </enumeration>
     <record name="SerializerPrivate"
             c:type="AnjutaSerializerPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-serializer.h" line="43"/>
     </record>
     <class name="Session"
@@ -12250,38 +11982,30 @@ to copy the whole project without breaking references.</doc>
       <member name="start"
               value="0"
               c:identifier="ANJUTA_SESSION_PHASE_START"
-              glib:nick="start"
-              glib:name="ANJUTA_SESSION_PHASE_START">
+              glib:nick="start">
       </member>
       <member name="first"
               value="1"
               c:identifier="ANJUTA_SESSION_PHASE_FIRST"
-              glib:nick="first"
-              glib:name="ANJUTA_SESSION_PHASE_FIRST">
+              glib:nick="first">
       </member>
       <member name="normal"
               value="2"
               c:identifier="ANJUTA_SESSION_PHASE_NORMAL"
-              glib:nick="normal"
-              glib:name="ANJUTA_SESSION_PHASE_NORMAL">
+              glib:nick="normal">
       </member>
       <member name="last"
               value="3"
               c:identifier="ANJUTA_SESSION_PHASE_LAST"
-              glib:nick="last"
-              glib:name="ANJUTA_SESSION_PHASE_LAST">
+              glib:nick="last">
       </member>
       <member name="end"
               value="4"
               c:identifier="ANJUTA_SESSION_PHASE_END"
-              glib:nick="end"
-              glib:name="ANJUTA_SESSION_PHASE_END">
+              glib:nick="end">
       </member>
     </enumeration>
-    <record name="SessionPriv"
-            c:type="AnjutaSessionPriv"
-            disguised="1"
-            opaque="1">
+    <record name="SessionPriv" c:type="AnjutaSessionPriv" disguised="1">
       <source-position filename="anjuta-session.h" line="37"/>
     </record>
     <interface name="Shell"
@@ -13901,8 +13625,7 @@ when the count reaches 0.</doc>
       <member name="exist"
               value="0"
               c:identifier="ANJUTA_SHELL_ERROR_DOESNT_EXIST"
-              glib:nick="exist"
-              glib:name="ANJUTA_SHELL_ERROR_DOESNT_EXIST">
+              glib:nick="exist">
       </member>
       <function name="quark" c:identifier="anjuta_shell_error_quark">
         <return-value transfer-ownership="none">
@@ -14517,44 +14240,37 @@ interface or %NULL.</doc>
       <member name="none"
               value="0"
               c:identifier="ANJUTA_SHELL_PLACEMENT_NONE"
-              glib:nick="none"
-              glib:name="ANJUTA_SHELL_PLACEMENT_NONE">
+              glib:nick="none">
       </member>
       <member name="top"
               value="1"
               c:identifier="ANJUTA_SHELL_PLACEMENT_TOP"
-              glib:nick="top"
-              glib:name="ANJUTA_SHELL_PLACEMENT_TOP">
+              glib:nick="top">
       </member>
       <member name="bottom"
               value="2"
               c:identifier="ANJUTA_SHELL_PLACEMENT_BOTTOM"
-              glib:nick="bottom"
-              glib:name="ANJUTA_SHELL_PLACEMENT_BOTTOM">
+              glib:nick="bottom">
       </member>
       <member name="right"
               value="3"
               c:identifier="ANJUTA_SHELL_PLACEMENT_RIGHT"
-              glib:nick="right"
-              glib:name="ANJUTA_SHELL_PLACEMENT_RIGHT">
+              glib:nick="right">
       </member>
       <member name="left"
               value="4"
               c:identifier="ANJUTA_SHELL_PLACEMENT_LEFT"
-              glib:nick="left"
-              glib:name="ANJUTA_SHELL_PLACEMENT_LEFT">
+              glib:nick="left">
       </member>
       <member name="center"
               value="5"
               c:identifier="ANJUTA_SHELL_PLACEMENT_CENTER"
-              glib:nick="center"
-              glib:name="ANJUTA_SHELL_PLACEMENT_CENTER">
+              glib:nick="center">
       </member>
       <member name="floating"
               value="6"
               c:identifier="ANJUTA_SHELL_PLACEMENT_FLOATING"
-              glib:nick="floating"
-              glib:name="ANJUTA_SHELL_PLACEMENT_FLOATING">
+              glib:nick="floating">
       </member>
     </enumeration>
     <class name="Status"
@@ -14904,10 +14620,7 @@ interface or %NULL.</doc>
         </callback>
       </field>
     </record>
-    <record name="StatusPriv"
-            c:type="AnjutaStatusPriv"
-            disguised="1"
-            opaque="1">
+    <record name="StatusPriv" c:type="AnjutaStatusPriv" disguised="1">
       <source-position filename="anjuta-status.h" line="35"/>
     </record>
     <class name="SyncCommand"
@@ -15172,13 +14885,10 @@ without interfaces and doesn't need ANJUTA_TYPE_END</doc>
         <type name="Gtk.ContainerClass" c:type="GtkContainerClass"/>
       </field>
     </record>
-    <record name="TabberPriv"
-            c:type="AnjutaTabberPriv"
-            disguised="1"
-            opaque="1">
+    <record name="TabberPriv" c:type="AnjutaTabberPriv" disguised="1">
       <source-position filename="anjuta-tabber.h" line="36"/>
     </record>
-    <record name="Token" c:type="AnjutaToken" disguised="1" opaque="1">
+    <record name="Token" c:type="AnjutaToken" disguised="1">
       <source-position filename="anjuta-token.h" line="87"/>
       <method name="append_child"
               c:identifier="anjuta_token_append_child"
@@ -16348,7 +16058,6 @@ return an error if the token is not in the file.</doc>
     <record name="TokenFileClass"
             c:type="AnjutaTokenFileClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="TokenFile">
       <source-position filename="anjuta-token-file.h" line="38"/>
     </record>
@@ -16381,10 +16090,7 @@ return an error if the token is not in the file.</doc>
         </parameter>
       </parameters>
     </callback>
-    <record name="TokenStream"
-            c:type="AnjutaTokenStream"
-            disguised="1"
-            opaque="1">
+    <record name="TokenStream" c:type="AnjutaTokenStream" disguised="1">
       <source-position filename="anjuta-token-stream.h" line="29"/>
       <method name="append_token"
               c:identifier="anjuta_token_stream_append_token">
@@ -16634,10 +16340,7 @@ stream, the new token uses the same characters.</doc>
         </parameters>
       </method>
     </record>
-    <record name="TokenStyle"
-            c:type="AnjutaTokenStyle"
-            disguised="1"
-            opaque="1">
+    <record name="TokenStyle" c:type="AnjutaTokenStyle" disguised="1">
       <source-position filename="anjuta-token-list.h" line="29"/>
       <method name="format" c:identifier="anjuta_token_style_format">
         <source-position filename="anjuta-token-list.h" line="46"/>
@@ -16724,284 +16427,237 @@ stream, the new token uses the same characters.</doc>
       <member name="none"
               value="0"
               c:identifier="ANJUTA_TOKEN_NONE"
-              glib:nick="none"
-              glib:name="ANJUTA_TOKEN_NONE">
+              glib:nick="none">
       </member>
       <member name="eol"
               value="92"
               c:identifier="ANJUTA_TOKEN_EOL"
-              glib:nick="eol"
-              glib:name="ANJUTA_TOKEN_EOL">
+              glib:nick="eol">
       </member>
       <member name="comma"
               value="44"
               c:identifier="ANJUTA_TOKEN_COMMA"
-              glib:nick="comma"
-              glib:name="ANJUTA_TOKEN_COMMA">
+              glib:nick="comma">
       </member>
       <member name="type"
               value="65535"
               c:identifier="ANJUTA_TOKEN_TYPE"
-              glib:nick="type"
-              glib:name="ANJUTA_TOKEN_TYPE">
+              glib:nick="type">
       </member>
       <member name="first"
               value="16384"
               c:identifier="ANJUTA_TOKEN_FIRST"
-              glib:nick="first"
-              glib:name="ANJUTA_TOKEN_FIRST">
+              glib:nick="first">
       </member>
       <member name="file"
               value="16385"
               c:identifier="ANJUTA_TOKEN_FILE"
-              glib:nick="file"
-              glib:name="ANJUTA_TOKEN_FILE">
+              glib:nick="file">
       </member>
       <member name="macro"
               value="16386"
               c:identifier="ANJUTA_TOKEN_MACRO"
-              glib:nick="macro"
-              glib:name="ANJUTA_TOKEN_MACRO">
+              glib:nick="macro">
       </member>
       <member name="content"
               value="16387"
               c:identifier="ANJUTA_TOKEN_CONTENT"
-              glib:nick="content"
-              glib:name="ANJUTA_TOKEN_CONTENT">
+              glib:nick="content">
       </member>
       <member name="argument"
               value="16388"
               c:identifier="ANJUTA_TOKEN_ARGUMENT"
-              glib:nick="argument"
-              glib:name="ANJUTA_TOKEN_ARGUMENT">
+              glib:nick="argument">
       </member>
       <member name="value"
               value="16389"
               c:identifier="ANJUTA_TOKEN_VALUE"
-              glib:nick="value"
-              glib:name="ANJUTA_TOKEN_VALUE">
+              glib:nick="value">
       </member>
       <member name="eov"
               value="16390"
               c:identifier="ANJUTA_TOKEN_EOV"
-              glib:nick="eov"
-              glib:name="ANJUTA_TOKEN_EOV">
+              glib:nick="eov">
       </member>
       <member name="parsed"
               value="16391"
               c:identifier="ANJUTA_TOKEN_PARSED"
-              glib:nick="parsed"
-              glib:name="ANJUTA_TOKEN_PARSED">
+              glib:nick="parsed">
       </member>
       <member name="keyword"
               value="16392"
               c:identifier="ANJUTA_TOKEN_KEYWORD"
-              glib:nick="keyword"
-              glib:name="ANJUTA_TOKEN_KEYWORD">
+              glib:nick="keyword">
       </member>
       <member name="operator"
               value="16393"
               c:identifier="ANJUTA_TOKEN_OPERATOR"
-              glib:nick="operator"
-              glib:name="ANJUTA_TOKEN_OPERATOR">
+              glib:nick="operator">
       </member>
       <member name="name"
               value="16394"
               c:identifier="ANJUTA_TOKEN_NAME"
-              glib:nick="name"
-              glib:name="ANJUTA_TOKEN_NAME">
+              glib:nick="name">
       </member>
       <member name="variable"
               value="16395"
               c:identifier="ANJUTA_TOKEN_VARIABLE"
-              glib:nick="variable"
-              glib:name="ANJUTA_TOKEN_VARIABLE">
+              glib:nick="variable">
       </member>
       <member name="definition"
               value="16396"
               c:identifier="ANJUTA_TOKEN_DEFINITION"
-              glib:nick="definition"
-              glib:name="ANJUTA_TOKEN_DEFINITION">
+              glib:nick="definition">
       </member>
       <member name="statement"
               value="16397"
               c:identifier="ANJUTA_TOKEN_STATEMENT"
-              glib:nick="statement"
-              glib:name="ANJUTA_TOKEN_STATEMENT">
+              glib:nick="statement">
       </member>
       <member name="number"
               value="16398"
               c:identifier="ANJUTA_TOKEN_NUMBER"
-              glib:nick="number"
-              glib:name="ANJUTA_TOKEN_NUMBER">
+              glib:nick="number">
       </member>
       <member name="junk"
               value="16399"
               c:identifier="ANJUTA_TOKEN_JUNK"
-              glib:nick="junk"
-              glib:name="ANJUTA_TOKEN_JUNK">
+              glib:nick="junk">
       </member>
       <member name="comment"
               value="16400"
               c:identifier="ANJUTA_TOKEN_COMMENT"
-              glib:nick="comment"
-              glib:name="ANJUTA_TOKEN_COMMENT">
+              glib:nick="comment">
       </member>
       <member name="open_quote"
               value="16401"
               c:identifier="ANJUTA_TOKEN_OPEN_QUOTE"
-              glib:nick="open-quote"
-              glib:name="ANJUTA_TOKEN_OPEN_QUOTE">
+              glib:nick="open-quote">
       </member>
       <member name="close_quote"
               value="16402"
               c:identifier="ANJUTA_TOKEN_CLOSE_QUOTE"
-              glib:nick="close-quote"
-              glib:name="ANJUTA_TOKEN_CLOSE_QUOTE">
+              glib:nick="close-quote">
       </member>
       <member name="escape"
               value="16403"
               c:identifier="ANJUTA_TOKEN_ESCAPE"
-              glib:nick="escape"
-              glib:name="ANJUTA_TOKEN_ESCAPE">
+              glib:nick="escape">
       </member>
       <member name="function"
               value="16404"
               c:identifier="ANJUTA_TOKEN_FUNCTION"
-              glib:nick="function"
-              glib:name="ANJUTA_TOKEN_FUNCTION">
+              glib:nick="function">
       </member>
       <member name="space"
               value="16405"
               c:identifier="ANJUTA_TOKEN_SPACE"
-              glib:nick="space"
-              glib:name="ANJUTA_TOKEN_SPACE">
+              glib:nick="space">
       </member>
       <member name="start"
               value="16406"
               c:identifier="ANJUTA_TOKEN_START"
-              glib:nick="start"
-              glib:name="ANJUTA_TOKEN_START">
+              glib:nick="start">
       </member>
       <member name="next"
               value="16407"
               c:identifier="ANJUTA_TOKEN_NEXT"
-              glib:nick="next"
-              glib:name="ANJUTA_TOKEN_NEXT">
+              glib:nick="next">
       </member>
       <member name="last"
               value="16408"
               c:identifier="ANJUTA_TOKEN_LAST"
-              glib:nick="last"
-              glib:name="ANJUTA_TOKEN_LAST">
+              glib:nick="last">
       </member>
       <member name="item"
               value="16409"
               c:identifier="ANJUTA_TOKEN_ITEM"
-              glib:nick="item"
-              glib:name="ANJUTA_TOKEN_ITEM">
+              glib:nick="item">
       </member>
       <member name="string"
               value="16410"
               c:identifier="ANJUTA_TOKEN_STRING"
-              glib:nick="string"
-              glib:name="ANJUTA_TOKEN_STRING">
+              glib:nick="string">
       </member>
       <member name="error"
               value="16411"
               c:identifier="ANJUTA_TOKEN_ERROR"
-              glib:nick="error"
-              glib:name="ANJUTA_TOKEN_ERROR">
+              glib:nick="error">
       </member>
       <member name="word"
               value="16412"
               c:identifier="ANJUTA_TOKEN_WORD"
-              glib:nick="word"
-              glib:name="ANJUTA_TOKEN_WORD">
+              glib:nick="word">
       </member>
       <member name="list"
               value="16413"
               c:identifier="ANJUTA_TOKEN_LIST"
-              glib:nick="list"
-              glib:name="ANJUTA_TOKEN_LIST">
+              glib:nick="list">
       </member>
       <member name="any"
               value="16414"
               c:identifier="ANJUTA_TOKEN_ANY"
-              glib:nick="any"
-              glib:name="ANJUTA_TOKEN_ANY">
+              glib:nick="any">
       </member>
       <member name="user"
               value="16415"
               c:identifier="ANJUTA_TOKEN_USER"
-              glib:nick="user"
-              glib:name="ANJUTA_TOKEN_USER">
+              glib:nick="user">
       </member>
       <member name="flags"
               value="4294901760"
               c:identifier="ANJUTA_TOKEN_FLAGS"
-              glib:nick="flags"
-              glib:name="ANJUTA_TOKEN_FLAGS">
+              glib:nick="flags">
       </member>
       <member name="public_flags"
               value="16711680"
               c:identifier="ANJUTA_TOKEN_PUBLIC_FLAGS"
-              glib:nick="public-flags"
-              glib:name="ANJUTA_TOKEN_PUBLIC_FLAGS">
+              glib:nick="public-flags">
       </member>
       <member name="irrelevant"
               value="65536"
               c:identifier="ANJUTA_TOKEN_IRRELEVANT"
-              glib:nick="irrelevant"
-              glib:name="ANJUTA_TOKEN_IRRELEVANT">
+              glib:nick="irrelevant">
       </member>
       <member name="open"
               value="131072"
               c:identifier="ANJUTA_TOKEN_OPEN"
-              glib:nick="open"
-              glib:name="ANJUTA_TOKEN_OPEN">
+              glib:nick="open">
       </member>
       <member name="close"
               value="262144"
               c:identifier="ANJUTA_TOKEN_CLOSE"
-              glib:nick="close"
-              glib:name="ANJUTA_TOKEN_CLOSE">
+              glib:nick="close">
       </member>
       <member name="significant"
               value="1048576"
               c:identifier="ANJUTA_TOKEN_SIGNIFICANT"
-              glib:nick="significant"
-              glib:name="ANJUTA_TOKEN_SIGNIFICANT">
+              glib:nick="significant">
       </member>
       <member name="private_flags"
               value="4278190080"
               c:identifier="ANJUTA_TOKEN_PRIVATE_FLAGS"
-              glib:nick="private-flags"
-              glib:name="ANJUTA_TOKEN_PRIVATE_FLAGS">
+              glib:nick="private-flags">
       </member>
       <member name="case_insensitive"
               value="16777216"
               c:identifier="ANJUTA_TOKEN_CASE_INSENSITIVE"
-              glib:nick="case-insensitive"
-              glib:name="ANJUTA_TOKEN_CASE_INSENSITIVE">
+              glib:nick="case-insensitive">
       </member>
       <member name="static"
               value="33554432"
               c:identifier="ANJUTA_TOKEN_STATIC"
-              glib:nick="static"
-              glib:name="ANJUTA_TOKEN_STATIC">
+              glib:nick="static">
       </member>
       <member name="removed"
               value="67108864"
               c:identifier="ANJUTA_TOKEN_REMOVED"
-              glib:nick="removed"
-              glib:name="ANJUTA_TOKEN_REMOVED">
+              glib:nick="removed">
       </member>
       <member name="added"
               value="134217728"
               c:identifier="ANJUTA_TOKEN_ADDED"
-              glib:nick="added"
-              glib:name="ANJUTA_TOKEN_ADDED">
+              glib:nick="added">
       </member>
     </bitfield>
     <class name="TreeComboBox"
@@ -17051,7 +16707,6 @@ stream, the new token uses the same characters.</doc>
       </method>
       <method name="get_model"
               c:identifier="anjuta_tree_combo_box_get_model"
-              glib:get-property="model"
               introspectable="0">
         <source-position filename="anjuta-tree-combo.h" line="65"/>
         <return-value>
@@ -17108,9 +16763,7 @@ stream, the new token uses the same characters.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_model"
-              c:identifier="anjuta_tree_combo_box_set_model"
-              glib:set-property="model">
+      <method name="set_model" c:identifier="anjuta_tree_combo_box_set_model">
         <source-position filename="anjuta-tree-combo.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -17153,11 +16806,7 @@ stream, the new token uses the same characters.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="model"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_model"
-                getter="get_model">
+      <property name="model" writable="1" transfer-ownership="none">
         <type name="Gtk.TreeModel"/>
       </property>
       <field name="parent">
@@ -17205,8 +16854,7 @@ stream, the new token uses the same characters.</doc>
     </record>
     <record name="TreeComboBoxPrivate"
             c:type="AnjutaTreeComboBoxPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-tree-combo.h" line="39"/>
     </record>
     <class name="UI"
@@ -17724,7 +17372,7 @@ it was merged. For more detail, read the documentation for #GtkUIManager.</doc>
         <type name="Gtk.UIManagerClass" c:type="GtkUIManagerClass"/>
       </field>
     </record>
-    <record name="UIPrivate" c:type="AnjutaUIPrivate" disguised="1" opaque="1">
+    <record name="UIPrivate" c:type="AnjutaUIPrivate" disguised="1">
       <source-position filename="anjuta-ui.h" line="48"/>
     </record>
     <function-macro name="UI_CLASS"
@@ -17803,62 +17451,52 @@ it was merged. For more detail, read the documentation for #GtkUIManager.</doc>
       <member name="modified"
               value="1"
               c:identifier="ANJUTA_VCS_STATUS_MODIFIED"
-              glib:nick="modified"
-              glib:name="ANJUTA_VCS_STATUS_MODIFIED">
+              glib:nick="modified">
       </member>
       <member name="added"
               value="2"
               c:identifier="ANJUTA_VCS_STATUS_ADDED"
-              glib:nick="added"
-              glib:name="ANJUTA_VCS_STATUS_ADDED">
+              glib:nick="added">
       </member>
       <member name="deleted"
               value="4"
               c:identifier="ANJUTA_VCS_STATUS_DELETED"
-              glib:nick="deleted"
-              glib:name="ANJUTA_VCS_STATUS_DELETED">
+              glib:nick="deleted">
       </member>
       <member name="conflicted"
               value="8"
               c:identifier="ANJUTA_VCS_STATUS_CONFLICTED"
-              glib:nick="conflicted"
-              glib:name="ANJUTA_VCS_STATUS_CONFLICTED">
+              glib:nick="conflicted">
       </member>
       <member name="uptodate"
               value="16"
               c:identifier="ANJUTA_VCS_STATUS_UPTODATE"
-              glib:nick="uptodate"
-              glib:name="ANJUTA_VCS_STATUS_UPTODATE">
+              glib:nick="uptodate">
       </member>
       <member name="locked"
               value="32"
               c:identifier="ANJUTA_VCS_STATUS_LOCKED"
-              glib:nick="locked"
-              glib:name="ANJUTA_VCS_STATUS_LOCKED">
+              glib:nick="locked">
       </member>
       <member name="missing"
               value="64"
               c:identifier="ANJUTA_VCS_STATUS_MISSING"
-              glib:nick="missing"
-              glib:name="ANJUTA_VCS_STATUS_MISSING">
+              glib:nick="missing">
       </member>
       <member name="unversioned"
               value="128"
               c:identifier="ANJUTA_VCS_STATUS_UNVERSIONED"
-              glib:nick="unversioned"
-              glib:name="ANJUTA_VCS_STATUS_UNVERSIONED">
+              glib:nick="unversioned">
       </member>
       <member name="ignored"
               value="256"
               c:identifier="ANJUTA_VCS_STATUS_IGNORED"
-              glib:nick="ignored"
-              glib:name="ANJUTA_VCS_STATUS_IGNORED">
+              glib:nick="ignored">
       </member>
       <member name="all"
               value="-1"
               c:identifier="ANJUTA_VCS_STATUS_ALL"
-              glib:nick="all"
-              glib:name="ANJUTA_VCS_STATUS_ALL">
+              glib:nick="all">
       </member>
     </bitfield>
     <class name="VcsStatusTreeView"
@@ -17952,21 +17590,16 @@ it was merged. For more detail, read the documentation for #GtkUIManager.</doc>
       <property name="conflicted-selectable"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+                transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="show-status"
-                writable="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+      <property name="show-status" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="status-codes"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="ANJUTA_VCS_STATUS_MODIFIED | ANJUTA_VCS_STATUS_ADDED | ANJUTA_VCS_STATUS_DELETED | ANJUTA_VCS_STATUS_CONFLICTED">
+                transfer-ownership="none">
         <type name="VcsStatus"/>
       </property>
       <field name="parent_instance">
@@ -17987,631 +17620,9 @@ it was merged. For more detail, read the documentation for #GtkUIManager.</doc>
     </record>
     <record name="VcsStatusTreeViewPriv"
             c:type="AnjutaVcsStatusTreeViewPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="anjuta-vcs-status-tree-view.h" line="50"/>
     </record>
-    <docsection name="anjuta-async-command">
-      <doc xml:space="preserve"
-           filename="anjuta-async-command.c"
-           line="30">#AnjutaAsyncCommand provides a simple way for plugins to run tasks that
-are synchronous and usually take several seconds or longer to execute in
-another thread so that such tasks do no block Anjuta's user interface.
-
-#AnjutaAsyncCommand automatically runs and manages the thread when the
-command starts, and destroys it when the command finishes. Aside from
-locking protected data with anjuta_async_command_lock/unlock, clients, and
-even commands themselves need not even be concerned that their tasks are
-rnning on another thread.
-
-For an example of how #AnjutaAsyncCommand is used, see the Subversion plugin.</doc>
-    </docsection>
-    <docsection name="anjuta-async-notify">
-      <doc xml:space="preserve"
-           filename="anjuta-async-notify.c"
-           line="22">#AnjutaAsyncNotify is a way to allow Anjuta interfaces that run
-asynchronously, such as #IAnjutaVCS, to notify clients that a method has
-completed. #AnjutaAsyncNotify also reports errors to the user.
-
-All clients need to do is create an instance of #AnjutaAsyncNotify, connect
-to the finished signal, and pass it in to the interface method to be called.</doc>
-    </docsection>
-    <docsection name="anjuta-autogen">
-      <doc xml:space="preserve"
-           filename="anjuta-autogen.c"
-           line="21">GNU autogen is a program generating a text file from a template and a
-definition file. The template contains fixed text and variables those will
-be replaced under the control of the definition file.
-
-By example from the following definition file
-&lt;programlisting&gt;
-AutoGen Definitions .;
-list = { list_element = alpha;
-         list_info    = "some alpha stuff"; };
-list = { list_info    = "more beta stuff";
-         list_element = beta; };
-list = { list_element = omega;
-         list_info    = "final omega stuff"; }
-&lt;/programlisting&gt;
-And the following template
-&lt;programlisting&gt;
-[+ AutoGen5 template +]
-typedef enum {[+
-   FOR list "," +]
-        IDX_[+ (string-upcase! (get "list_element")) +][+
-   ENDFOR list +] }  list_enum;
-&lt;/programlisting&gt;
-Autogen generates
-&lt;programlisting&gt;
-typedef enum {
-        IDX_ALPHA,
-        IDX_BETA,
-        IDX_OMEGA }  list_enum;
-&lt;/programlisting&gt;
-
-The template file can be quite complex, you can read autogen documentation
-&lt;ulink url="http://www.gnu.org/software/autogen"&gt;here&lt;/ulink&gt;.
-
-The #AnjutaAutogen object takes care of writing the definition file from
-a hash table and call autogen. The output can be written in a file or passed
-to a callback function. Autogen is executed asynchronously, so there is
-another callback function called when the processing is completed.</doc>
-    </docsection>
-    <docsection name="anjuta-c-module">
-      <doc xml:space="preserve"
-           filename="anjuta-c-module.c"
-           line="21">A module is the part of the plugin containing the code. For machine code
-compiled from C sources by example, it is a shared library and contained in
-a .so file on Linux. GLib provides a portable way to load dynamically such
-code with #GModule objects.
-
-In GLib you can register a dynamic type which means that you links a GLib
-type with a module. When the type is used for the first time the module is
-loaded. When the type is not used anymore, the module is unloaded. Most of
-the code necessary to do this is already written in GLib #GTypeModule object
-except the load and unload function.
-
-#AnjutaCModule is used only by a #AnjutaCPluginFactory. It derives from
-#GTypeModule and implements the load and unload function using a #GModule
-object for a module written in C.
-
-Anjuta plugin types are not registered before loading the module.
-The loading of the module is done explicitly and types are registered just
-after in a function included in the plugin. This function is named
-anjuta_glue_register_components and has a #GTypeModule as argument.
-The plugin must registers at the least the plugin type dynamically. It can
-register other types, but this is currently not used.
-
-After loading a module one or more plugin objects will be created using the
-name of the plugin type which has just been registered. The module
-will stay loaded while at least one plugin object is present. If all
-plugins objects are destroyed the unload function will be called and the
-module can be unloaded and removed from memory.
-
-It could be useful that some modules stay in memory even if there is no
-object using it. A typical example is if some plugin code or some code of
-a library used by a plugin registers a GLib type statically. GLib types can
-be registered statically at run time but cannot be unregistered later.
-The code (or rather the data used in the registration) must stay in the
-memory even if the type is not used. In order to avoid this, you must
-register every type dynamically. You could have other situations where a
-module cannot be unloaded. By default, Anjuta plugin modules are not
-unloaded unless it is explicitly allowed.</doc>
-    </docsection>
-    <docsection name="anjuta-c-plugin-factory">
-      <doc xml:space="preserve"
-           filename="anjuta-c-plugin-factory.c"
-           line="21">#AnjutaCPluginFactory implements the #IAnjutaPluginFactory interface. This
-interface is used to create new plugin objects in Anjuta.
-
-This plugin factory creates new plugin objects which have a source code
-written in C. This factory is always available in Anjuta. Other plugin
-factories can be implemented as Anjuta plugins.
-
-This plugin factory uses the GLib dynamic type support implemented in
-#AnjutaCModule object to allow loading and unloading of plugins code. But
-if the plugins itself can be unloaded, the #AnjutaCModule object must stay.
-If the plugin is needed later, it must be registed with the same
-module object. The factory take care of this and of creating the plugin
-object itself.</doc>
-    </docsection>
-    <docsection name="anjuta-command">
-      <doc xml:space="preserve"
-           filename="anjuta-command.c"
-           line="27">#AnjutaCommand is the base class for objects that are designed to provide
-a layer of abstraction between UI code and some other component, like a
-library or child process. AnjutaCommand provides a simple and consistent
-interface for plugins to interact with these components without needing
-to concern themselves with the exact details of how these components work.
-
-To create command objects, plugins derive them from an #AnjutaCommand
-subclass like #AnjutaAsyncCommand, which runs commands in another thread or
-#AnjutaSyncCommand, which runs commands synchronously.
-
-These classes determine how ::run is called and how signals are emitted.
-::run is responsible for actually doing the work of the command. It is the
-responsiblity of the command object that does a certain task to implement
-::run to do its job. Everything else is normally implemented by its parent
-classes at this point
-
-For an example of how to use #AnjutaCommand, see the Subversion and Git
-plugins.</doc>
-    </docsection>
-    <docsection name="anjuta-command-bar">
-      <doc xml:space="preserve"
-           filename="anjuta-command-bar.c"
-           line="25">AnjutaCommandBar provides a convenient way to arrange several sets of
-commands into one widget. It separates commands into different groups of
-actions, with only one group visible at a time.</doc>
-    </docsection>
-    <docsection name="anjuta-command-queue">
-      <doc xml:space="preserve"
-           filename="anjuta-command-queue.c"
-           line="31">#AnjutaCommandQueue always starts the next command in the queue when
-the previous command finishes. That also works for asyncronous commands</doc>
-    </docsection>
-    <docsection name="anjuta-debug">
-      <doc xml:space="preserve"
-           filename="anjuta-debug.h"
-           line="24">Anjuta debug messages are displayed using the g_debug() function from GLib.
-
-To display debug messages, Anjuta must have been compiled with
---enable-debug and the environment variable G_MESSAGES_DEBUG should be set
-to "all" or to a list separated by whitespace of domains to display.
-
-By example
-&lt;programlisting&gt;
-G_MESSAGE_DEBUG=Gtk Anjuta libanjuta-gdb
-&lt;/programlisting&gt;
-will display debug messages from Gtk, Anjuta and gdb plugin only.</doc>
-    </docsection>
-    <docsection name="anjuta-dock-pane">
-      <doc xml:space="preserve"
-           filename="anjuta-dock-pane.c"
-           line="22">AnjutaDockPane is an abstract wrapper class for panes in an
-#AnjutaDock.
-
-Using AnjutaDockPane is especially helpful for those panes that show data
-from extenal sources that must be refreshed frequently, or panes that are
-exceptionally complex.</doc>
-    </docsection>
-    <docsection name="anjuta-entry">
-      <doc xml:space="preserve"
-           filename="anjuta-entry.c"
-           line="22">AnjutaEntry is a  version of a #GtkEntry that displays some text, in
-a lighter color, that describes what is to be entered into it. There is also
-a button on the left to clear the entry's content quickly. AnjutaEntry is
-similar to the serach boxes used in Evolution and Glade, but is more generic
-can can be used in almost any situation.</doc>
-    </docsection>
-    <docsection name="anjuta-pkg-scanner">
-      <doc xml:space="preserve"
-           filename="anjuta-pkg-scanner.c"
-           line="20">#AnjutaPkgScanner is an async command that can be used to query the list
-of files and the version of a package.</doc>
-    </docsection>
-    <docsection name="anjuta-plugin">
-      <doc xml:space="preserve"
-           filename="anjuta-plugin.c"
-           line="22">Anjuta plugins are components which are loaded in Anjuta IDE shell
-either on startup or on demand to perform various subtasks. Plugins are
-specialized in doing only a very specific task and can let other plugins
-interract with it using interfaces.
-
-A plugin class is derived from #AnjutaPlugin class and will be used by
-shell to instanciate any number of plugin objects.
-
-When a plugin class is derived from #AnjutaPlugin, the virtual mehtods
-&lt;emphasis&gt;activate&lt;/emphasis&gt; and &lt;emphasis&gt;deactivate&lt;/emphasis&gt; must
-be implemented. The &lt;emphasis&gt;activate&lt;/emphasis&gt; method is used to
-activate the plugin. Note that plugin activation is different from plugin
-instance initialization. Instance initialization is use to do internal
-initialization, while &lt;emphasis&gt;activate&lt;/emphasis&gt; method is used to
-setup the plugin in shell, UI and preferences. Other plugins can also
-be queried in &lt;emphasis&gt;activate&lt;/emphasis&gt; method.
-
-Following things should be done in &lt;emphasis&gt;activate&lt;/emphasis&gt; method.
-&lt;orderedlist&gt;
-	&lt;listitem&gt;
-		&lt;para&gt;
-			Register UI Actions: Use anjuta_ui_add_action_group_entries() or
-			anjuta_ui_add_toggle_action_group_entries() to add your action
-			groups.
-		&lt;/para&gt;
-	&lt;/listitem&gt;
-	&lt;listitem&gt;
-		&lt;para&gt;
-			Merge UI definition file: Use anjuta_ui_merge() to merge a UI
-			file. See #AnjutaUI for more detail.
-		&lt;/para&gt;
-	&lt;/listitem&gt;
-	&lt;listitem&gt;
-		&lt;para&gt;
-			Add widgets to Anjuta Shell: If the plugin has one or more
-			widgets as its User Interface, they can be added with
-			anjuta_shell_add_widget().
-		&lt;/para&gt;
-	&lt;/listitem&gt;
-	&lt;listitem&gt;
-		&lt;para&gt;
-			Setup value watches with anjuta_plugin_add_watch().
-		&lt;/para&gt;
-	&lt;/listitem&gt;
-&lt;/orderedlist&gt;
-
-&lt;emphasis&gt;deactivate&lt;/emphasis&gt; method undos all the above. That is, it
-removes widgets from the shell, unmerges UI and removes the action groups.
-
-Plugins interact with each other using interfaces. A plugin can expose an
-interface which will let other plugins find it. Any number of interfaces can
-be exposed by a plugin. These exposed interfaces are called
-&lt;emphasis&gt;Primary&lt;/emphasis&gt; interfaces of the plugin. The condition for
-the interfaces to be primary is that they should be independent (i.e.
-an external entity requesting to use a primary interface should not require
-other primary interfaces). For example, an editor plugin can implement
-#IAnjutaEditor, #IAnjutaStream and #IAnjutaFile interfaces and expose them
-as primary interfaces, because they are independent.
-&lt;emphasis&gt;Primary&lt;/emphasis&gt; interfaces exposed by a plugin are exported in
-its plugin meta-data file, so that plugin manager could register them.
-
-Any other interfaces implemented by the plugin are called
-&lt;emphasis&gt;Secondary&lt;/emphasis&gt; interfaces and they generally depend on
-one or more primary interfaces.
-For example, #IAnjutaEditor is the primary interface of anjuta-editor plugin,
-but it also implements secondary interfaces #IAnjutaEditorGutter and
-#IAnjutaEditorBuffer. Notice that secondary interfaces #IAnjutaEditorGutter
-and #IAnjutaEditorBuffer depend on #IAnjutaEditor interface.
-
-The purpose of distinguishing between primary and
-secondary interfaces is only at plugin level. At code level, they behave
-just the same and there is no difference.
-So, a natural sequence for a plugin to communicate with another plugin is:
-&lt;orderedlist&gt;
-	&lt;listitem&gt;
-		&lt;para&gt;
-			Query the shell for a plugin implemeting the primary interface
-			using anjuta_shell_get_interface(). It will return an
-			implemetation of the interface (or %NULL if not found).
-			Do not save this object for longer use, because the implementor
-			plugin can change anytime and a different plugin implementing
-			the same primary interface may be activated.
-				&lt;programlisting&gt;
-GError *err = NULL;
-IAnjutaDocumentManager *docman;
-IAnjutaEditor *editor;
-
-docman = anjuta_shell_get_interface (ANJUTA_PLUGIN(plugin)-&gt;shell,
-                                     IAnjutaDocumentManager, &amp;amp;err);
-if (err)
-{
-	g_warning ("Error encountered: %s", err-&gt;message);
-	g_error_free (err);
-	return;
-}
-
-editor = ianjuta_document_manager_get_current_editor (docman, &amp;amp;err);
-if (err)
-{
-	g_warning ("Error encountered: %s", err-&gt;message);
-	g_error_free (err);
-	return;
-}
-
-ianjuta_editor_goto_line (editor, 200);
-...
-			&lt;/programlisting&gt;
-		&lt;/para&gt;
-&lt;/listitem&gt;
-&lt;listitem&gt;
-	&lt;para&gt;
-	A primary interface of a plugin can be directly used, but
-	to use a secondary interface, make sure to check if the plugin
-	object implements it. For example, to check if editor plugin
-	implements IAnjutaEditorGutter interface, do something like:
-		&lt;programlisting&gt;
-
-if (IANJUTA_IS_EDITOR_GUTTER(editor))
-{
-	ianjuta_editor_gutter_set_marker(IANJUTA_EDITOR_GUTTER (editor),
-	                                 ANJUTA_EDITOR_MARKER_1,
-	                                 line_number, &amp;amp;err);
-}
-			&lt;/programlisting&gt;
-		&lt;/para&gt;
-	&lt;/listitem&gt;
-&lt;/orderedlist&gt;
-
-Plugins can also communicate with outside using Shell's &lt;emphasis&gt;Values
-System&lt;/emphasis&gt;. Values are objects exported by plugins to make them
-available to other plugins. Read #AnjutaShell documentation for more
-detail on &lt;emphasis&gt;Values System&lt;/emphasis&gt;. A plugin can set up watches
-with anjuta_plugin_add_watch() to get notifications for values exported
-by other plugins.
-
-Values are very unreliable way of passing objects between plugins, but are
-nevertheless very useful (and quicker to code). It must be used with care.
-As a rule of thumb, a plugin should only watch values of other trusted
-plugins. For example, a group of plugins forming a subsystem can comfortably
-use values to pass objects and notifications. Use anjuta_plugin_add_watch()
-and anjuta_plugin_remove_watch() to add or remove value watches.</doc>
-    </docsection>
-    <docsection name="anjuta-plugin-handle">
-      <doc xml:space="preserve"
-           filename="anjuta-plugin-handle.c"
-           line="21">Plugin handle is wrapper for installed plugins. For each installed plugin
-there will be one corresponding plugin handle. It is mainly used by
-plugin manager to keep track of loading and unloading of plugins.</doc>
-    </docsection>
-    <docsection name="anjuta-preferences">
-      <doc xml:space="preserve"
-           filename="anjuta-preferences.c"
-           line="21">#AnjutaPreferences is a way to let plugins register their preferences. There
-are mainly two ways a plugin could register its preferences in Anjuta.
-
-First is to not use #AnjutaPreferences at all. Simply register a
-preferences page in #AnjutaPreferencesDialog using the function
-anjuta_preferences_dialog_add_page(). The plugin should take
-care of loading, saving and widgets synchronization of the
-preferences values. This can be done using #GSettings bindings
-for example.
-
-Second is to use anjuta_preferences_add_page(), which will
-automatically register the preferences keys and values from
-a glade xml file. The glade xml file contains a preferences
-page of the plugin. The widget names in the page are
-given in a particular way (see anjuta_preferences_add_page()) to
-let it know property key details. The preference dialog will automatically
-setup the bindings between GSettings and the widgets.</doc>
-    </docsection>
-    <docsection name="anjuta-preferences-dialog">
-      <doc xml:space="preserve"
-           filename="anjuta-preferences-dialog.c"
-           line="21">Plugins can added preferences page with anjuta_preferences_dialog_add_page().
-However, read #AnjutaPreferences for adding proper preferences pages.</doc>
-    </docsection>
-    <docsection name="anjuta-profile">
-      <doc xml:space="preserve"
-           filename="anjuta-profile.c"
-           line="21">A anjuta profile contains the list of all plugins used in one Anjuta session.
-It is possible to add and remove plugins,
-check if one is included or get the whole list. The plugins list can be saved
-into a xml file and loaded from it.
-
-A profile in an Anjuta session includes plugins from up to 3 different xml
-sources:
-&lt;variablelist&gt;
-   &lt;varlistentry&gt;
-   &lt;term&gt;$prefix/share/anjuta/profiles/default.profile&lt;/term&gt;
-   &lt;listitem&gt;
-   &lt;para&gt;
-       This contains the system plugins. It is loaded in special system
-       profile and contains mandatory plugins for Anjuta. These plugins
-       cannot be unloaded. Anjuta can load a different profile using the -P
-       command line option.
-   &lt;/para&gt;
-   &lt;/listitem&gt;
-   &lt;/varlistentry&gt;
-   &lt;varlistentry&gt;
-   &lt;term&gt;$project_dir/$project_name.anjuta&lt;/term&gt;
-   &lt;listitem&gt;
-   &lt;para&gt;
-       This contains the project plugins. It lists mandatory plugins for the
-       project. This file is version controlled and distributed with the source
-       code. Every user working on the project uses the same one. If there
-       is no project loaded, no project plugins are loaded.
-   &lt;/para&gt;
-   &lt;/listitem&gt;
-   &lt;/varlistentry&gt;
-   &lt;varlistentry&gt;
-   &lt;term&gt;$project_dir/.anjuta/default.profile&lt;/term&gt;
-   &lt;listitem&gt;
-   &lt;para&gt;
-       This contains the user plugins. This is the only list of plugins
-       which is updated when the user add or remove one plugin.
-       If there is no project loaded, the user home directory is used
-       instead of the project directory but this list is used only in this case.
-       There is no global user plugins list.
-   &lt;/para&gt;
-   &lt;/listitem&gt;
-   &lt;/varlistentry&gt;
-&lt;/variablelist&gt;</doc>
-    </docsection>
-    <docsection name="anjuta-profile-manager">
-      <doc xml:space="preserve"
-           filename="anjuta-profile-manager.c"
-           line="21">Anjuta uses up to three profiles. A system profile which contains mandatory
-plugins which are never unloaded. A user profile is used when no project is
-loaded and a project profile when one is loaded.
-If a second project is loaded, it is loaded in another instance of Anjuta.
-When a project is closed, Anjuta goes back to the user profile.
-
-The profile manager can be in a frozen state where you can push or
-pop a profile from the stack without triggering a change of the profile.</doc>
-    </docsection>
-    <docsection name="anjuta-project">
-      <doc xml:space="preserve"
-           filename="anjuta-project.c"
-           line="28">A project in Anjuta is represented by a tree. There are six kinds of node.
-
-The root node is the parent of all other nodes, it can implement
-IAnjutaProject interface and represent the project itself but it is not
-mandatory.
-
-A module node represents a module in autotools project, it is a group of
-packages.
-
-A package node represents a package in autotools project, it is library.
-
-A group node is used to group several target or source, it can represent
-a directory by example.
-
-A target node represents an object file defined explicitely.
-There are different kinds of target: program, library...
-A target have as children all source needed to build it.
-
-A source node represents a source file. These are lead of the tree, a source
-node cannot have children.
-
-All these nodes are base objects. They have derived in each project backend
-to provide more specific information.</doc>
-    </docsection>
-    <docsection name="anjuta-session">
-      <doc xml:space="preserve"
-           filename="anjuta-session.c"
-           line="21">A anjuta session contains local user settings, by example the list of files
-open in one project. These settings are stored in
-a .ini-like config file in a directory named session. Other libraries can
-store their own settings in another format in the same directory.</doc>
-    </docsection>
-    <docsection name="anjuta-shell">
-      <doc xml:space="preserve"
-           filename="anjuta-shell.c"
-           line="21">Shell is the playground where plugins are loaded and their UI
-widgets shown. It is also a place where plugins export objects for letting
-other pluings to use. Plugins are loaded into shell on demand, but some
-plugins are loaded on startup (such as help and text editor plugin).
-Demand to load a plugin can be made by requesting for a primary inferface
-using anjuta_shell_get_interface() or anjuta_shell_get_object().
-
-Plugins can add widgets in shell with
-anjuta_shell_add_widget() and remove with anjuta_shell_remove_widget()
-functions.
-
-In Anjuta, shell is implemented using an advanced widget docking system,
-allowing plugin widgets to dock, undock and layout in any fashion. Dock
-layout is also maintained internally and is transparent to plugin
-implementations.
-
-#AnjutaShell allows plugins to export arbitrary objects as &lt;emphasis&gt;
-values&lt;/emphasis&gt; in its &lt;emphasis&gt;Values System&lt;/emphasis&gt;. "value_added"
-and "value_removed" signals are emitted when a value is added to or
-removed from the &lt;emphasis&gt;Values System&lt;/emphasis&gt;, hence notifying
-plugins of its state. However, plugins should really not connect directly
-to these signals, because they are emitted for all values
-and not just for the values the plugin is interested in. Instead,
-to monitor specific &lt;emphasis&gt;Values&lt;/emphasis&gt;, plugins should
-setup watches using anjuta_plugin_add_watch().
-
-&lt;emphasis&gt;Values&lt;/emphasis&gt; are added, get or removed with
-anjuta_shell_add_value() and anjuta_shell_get_value() or
-anjuta_shell_remove_value(). There multi-valued equivalent functions
-can be used to manipulate multiple values at once.
-
-&lt;emphasis&gt;Values&lt;/emphasis&gt; are identified with names. Since &lt;emphasis&gt;
-Values&lt;/emphasis&gt; are effectively variables, their names should follow
-the standard GNOME variable naming convention and should be as descriptive
-as possible (e.g project_root_directory, project_name etc.). It is also
-essential that meaningful prefix be given to names so that &lt;emphasis&gt;
-Values&lt;/emphasis&gt; are easily grouped (e.g all values exported by a
-project manager should start with project_ prefix).
-
-Plugins can find other plugins with anjuta_shell_get_object() or
-anjuta_shell_get_interface() based on their primary interfaces.</doc>
-    </docsection>
-    <docsection name="anjuta-sync-command">
-      <doc xml:space="preserve"
-           filename="anjuta-sync-command.c"
-           line="27">#AnjutaSyncCommand allows plugins to abstract the work of tasks that do not
-need to be run in another thread. This class can provide a base for
-abstratraction between client code and asynchronous facilities such as
-#AnjutaLauncher or GIO, and is especially useful when complicated tasks
-are being performed.
-
-#AnjutaSyncCommand simply calls ::run directly from ::start, and emits the
-command-finished signal as soon as it returns.
-
-For an example of how #AnjutaSyncCommand is used, see the Git plugin.</doc>
-    </docsection>
-    <docsection name="anjuta-token">
-      <doc xml:space="preserve"
-           filename="anjuta-token.c"
-           line="30">A #AnjutaToken represents a token. It is a sequence of characters associated
-with a type representing its meaning. By example, a token can represent
-a keyword, a comment, a variable...
-
-The token can own the string or has only a pointer on some data allocated
-somewhere else with a length.
-
-A token is linked with other tokens using three double linked lists.
-
-The first list using next and prev fields is used to keep the token in the
-order where there are in the file. The first character of the first token is
-the first character in the file.
-
-A second list is used to represent included
-files. Such file is represented by a special token in the first list which
-has a pointer, named children to a token list. Each token in this secondary
-list has a pointer to its parent, it means the token representing the file
-where is the token. It looks like a tree. In fact, every file is represented
-by a special token, so the root node is normally a file token and has as
-children all the token representing the file content. This parent/child list
-is used for expanded variable too.
-
-A third list is used to group several tokens. A token can have a pointer to
-another last token. It means that this token is a group starting from this
-token to the one indicated by the last field. In addition each token in this
-group has a pointer on the first token of the group. This grouping is
-independent of the parent/child list. So a group can start in one file and
-end in another included file. The grouping can be nested too. Typically
-we can have a group representing a command, a sub group representing the
-arguments and then one sub group for each argument.</doc>
-    </docsection>
-    <docsection name="anjuta-token-stream">
-      <doc xml:space="preserve"
-           filename="anjuta-token-stream.c"
-           line="29">A #AnjutaTokenStream object reads and writes a list of tokens. It uses two
-list. The first list is assigned when the object is created. Each token is
-read as characters discarding the separation between tokens. The second list
-is written using the data of the first list, so no new memory is allocated,
-in order to recreate a new list of tokens.
-
-This is used when the lexer needs several passes. At the beginning the file
-is read as a single token containing the whole file content. The first pass
-split this content into tokens. Additional passes are done on some parts of
-the token list to get a more precise splitting.
-
-It is important to not allocate new memory and keep the same character
-pointers in the additional passes because the token list does not own the
-memory. The address of each character is used to find the position of the
-changed data in the file.
-
-Several objects can be linked together to create a stack. It is used for
-included file or variable expansion.</doc>
-    </docsection>
-    <docsection name="anjuta-ui">
-      <doc xml:space="preserve"
-           filename="anjuta-ui.c"
-           line="21">#AnjutaUI subclasses #GtkUIManager, so you should really read #GtkUIManager
-documentation first to know about Actions, UI merging and UI XML file
-format. This documentation will cover only the relevent	APIs.
-
-#AnjutaUI has its own methods for adding action groups, which is differnt
-from #GtkUIManager methods. All #AnjutaPlugin based classes should use
-these methods instead of #GtkUIManager methods. The reason is, in addition
-to adding the actions and groups to the UI manager, it also resgisters
-them for UI customization and accellerators editing. It also keeps
-record of all actions.
-
-An interesting side effect of this is that these
-actions could be conveniently accessed or activated with
-anjuta_ui_get_action() or anjuta_ui_activate_action_by_path(), without
-the need of original action group object. This makes it is possible for
-activating actions remotely from other plugins.
-
-anjuta_ui_get_accel_editor() will return a widget containing the
-UI customization and accellerators editor. All actions and action groups
-are organized into a tree view, which should be added to a visible
-container (e.g. a #GtkDialog based object) and displayed to users.
-
-&lt;note&gt;
-	&lt;para&gt;
-		Any actions additions/removals using #GtkUIManager are not
-		registred with #AnjutaUI and hence their accellerators
-		cannot be edited. Nor will they be listed in UI manager
-		dialog. Hence, use #AnjutaUI methods whenever possible.
-	&lt;/para&gt;
-&lt;/note&gt;</doc>
-    </docsection>
     <function name="apply_modeline"
               c:identifier="anjuta_apply_modeline"
               introspectable="0">

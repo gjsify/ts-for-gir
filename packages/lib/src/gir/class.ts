@@ -4,12 +4,6 @@ import {
     TypeIdentifier,
     NeverType,
     ArrayType,
-    ClosureType,
-    BinaryType,
-    PromiseType,
-    VoidType,
-    TupleType,
-    BooleanType,
     Generic,
     GenericType,
     GenerifiedTypeIdentifier,
@@ -21,12 +15,12 @@ import { TypeExpression } from "../gir.js";
 import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 
 import {
-    GirInterfaceElement,
-    GirClassElement,
-    GirRecordElement,
     GirDirection,
-    GirUnionElement,
-    ClassStructTypeIdentifier
+    ClassStructTypeIdentifier,
+    type GirInterfaceElement,
+    type GirClassElement,
+    type GirRecordElement,
+    type GirUnionElement
 } from "../index.js";
 import {
     IntrospectedClassFunction,
@@ -298,89 +292,6 @@ export function filterFunctionConflict<
 
             return prev;
         }, [] as T[]);
-}
-
-export function promisifyFunctions(functions: IntrospectedClassFunction[]) {
-    return functions
-        .map(node => {
-            if (node.parameters.length > 0) {
-                const last_param = node.parameters[node.parameters.length - 1];
-
-                if (last_param) {
-                    const last_param_unwrapped = last_param.type.unwrap();
-
-                    if (last_param_unwrapped instanceof ClosureType) {
-                        const internal = last_param_unwrapped.type;
-                        if (internal instanceof TypeIdentifier && internal.is("Gio", "AsyncReadyCallback")) {
-                            const parent = node.parent;
-                            const interfaceParent = node.interfaceParent;
-
-                            if (parent instanceof IntrospectedBaseClass) {
-                                const async_res = (
-                                    node instanceof IntrospectedStaticClassFunction
-                                        ? [
-                                              ...parent.constructors,
-                                              ...parent.members.filter(
-                                                  m => m instanceof IntrospectedStaticClassFunction
-                                              )
-                                          ]
-                                        : [
-                                              ...(interfaceParent instanceof IntrospectedInterface
-                                                  ? [...interfaceParent.members]
-                                                  : []),
-                                              ...parent.members.filter(
-                                                  m => !(m instanceof IntrospectedStaticClassFunction)
-                                              )
-                                          ]
-                                ).find(
-                                    m =>
-                                        m.name === `${node.name.replace(/_async$/, "")}_finish` ||
-                                        m.name === `${node.name}_finish`
-                                );
-
-                                if (async_res) {
-                                    const async_parameters = node.parameters
-                                        .slice(0, -1)
-                                        .map(p => p.copy({ parent: null }));
-                                    const sync_parameters = node.parameters.map(p => p.copy({ isOptional: false }));
-                                    const output_parameters =
-                                        async_res instanceof IntrospectedConstructor ? [] : async_res.output_parameters;
-
-                                    let async_return = new PromiseType(async_res.return());
-
-                                    if (output_parameters.length > 0) {
-                                        const raw_return = async_res.return();
-                                        if (raw_return.equals(VoidType) || raw_return.equals(BooleanType)) {
-                                            const [output_type, ...output_types] = output_parameters.map(op => op.type);
-                                            async_return = new PromiseType(new TupleType(output_type, ...output_types));
-                                        } else {
-                                            const [...output_types] = output_parameters.map(op => op.type);
-                                            async_return = new PromiseType(new TupleType(raw_return, ...output_types));
-                                        }
-                                    }
-
-                                    return [
-                                        node.copy({
-                                            parameters: async_parameters,
-                                            returnType: async_return
-                                        }),
-                                        node.copy({
-                                            parameters: sync_parameters
-                                        }),
-                                        node.copy({
-                                            returnType: new BinaryType(async_return, node.return())
-                                        })
-                                    ];
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            return node;
-        })
-        .flat(1);
 }
 
 export const enum ClassInjectionMember {

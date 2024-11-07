@@ -14,48 +14,17 @@ and/or use gtk-doc annotations.  -->
              shared-library="libgconf-2.so.4"
              c:identifier-prefixes="GConf"
              c:symbol-prefixes="gconf">
-    <function-macro name="CLIENT"
-                    c:identifier="GCONF_CLIENT"
-                    introspectable="0">
-      <source-position filename="gconf-client.h" line="83"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CLIENT_CLASS"
-                    c:identifier="GCONF_CLIENT_CLASS"
-                    introspectable="0">
-      <source-position filename="gconf-client.h" line="84"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CLIENT_GET_CLASS"
-                    c:identifier="GCONF_CLIENT_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="gconf-client.h" line="87"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <record name="ChangeSet"
             c:type="GConfChangeSet"
-            opaque="1"
             glib:type-name="GConfChangeSet"
             glib:get-type="gconf_change_set_get_type"
             c:symbol-prefix="change_set">
-      <source-position filename="gconf-changeset.h" line="37"/>
       <constructor name="new" c:identifier="gconf_change_set_new">
-        <source-position filename="gconf-changeset.h" line="72"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
       </constructor>
       <method name="check_value" c:identifier="gconf_change_set_check_value">
-        <source-position filename="gconf-changeset.h" line="93"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -72,7 +41,6 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="clear" c:identifier="gconf_change_set_clear">
-        <source-position filename="gconf-changeset.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -83,31 +51,24 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="foreach" c:identifier="gconf_change_set_foreach">
-        <doc xml:space="preserve"
-             filename="gconf-changeset.c"
-             line="229">Iterates over a #GConfChangeSet by calling a
+        <doc xml:space="preserve">Iterates over a #GConfChangeSet by calling a
 #GConfChangeSetForeachFunc for each change in the set. See the
 description of #GConfChangeSetForeachFunc for details.  You may not
 call gconf_change_set_remove() during the iteration, because you'll
 confuse the internal data structures and cause memory corruption.</doc>
-        <source-position filename="gconf-changeset.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="cs" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="231">a #GConfChangeSet.</doc>
+            <doc xml:space="preserve">a #GConfChangeSet.</doc>
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </instance-parameter>
           <parameter name="func"
                      transfer-ownership="none"
                      scope="call"
                      closure="1">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="232">function to call for each change in the change set.</doc>
+            <doc xml:space="preserve">function to call for each change in the change set.</doc>
             <type name="ChangeSetForeachFunc"
                   c:type="GConfChangeSetForeachFunc"/>
           </parameter>
@@ -115,9 +76,7 @@ confuse the internal data structures and cause memory corruption.</doc>
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="233">user data to pass to the #GConfChangeSetForeachFunc.</doc>
+            <doc xml:space="preserve">user data to pass to the #GConfChangeSetForeachFunc.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -125,27 +84,19 @@ confuse the internal data structures and cause memory corruption.</doc>
       <method name="get_user_data"
               c:identifier="gconf_change_set_get_user_data"
               introspectable="0">
-        <doc xml:space="preserve"
-             filename="gconf-changeset.c"
-             line="132">Returns the user_data field of the #GConfChangeSet.</doc>
-        <source-position filename="gconf-changeset.h" line="133"/>
+        <doc xml:space="preserve">Returns the user_data field of the #GConfChangeSet.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="gconf-changeset.c"
-               line="138">a pointer to the user_data.</doc>
+          <doc xml:space="preserve">a pointer to the user_data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="cs" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="134">a #GConfChangeSet.</doc>
+            <doc xml:space="preserve">a #GConfChangeSet.</doc>
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="ref" c:identifier="gconf_change_set_ref">
-        <source-position filename="gconf-changeset.h" line="73"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -156,7 +107,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="remove" c:identifier="gconf_change_set_remove">
-        <source-position filename="gconf-changeset.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -170,7 +120,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set" c:identifier="gconf_change_set_set">
-        <source-position filename="gconf-changeset.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -187,7 +136,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set_bool" c:identifier="gconf_change_set_set_bool">
-        <source-position filename="gconf-changeset.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -204,7 +152,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set_float" c:identifier="gconf_change_set_set_float">
-        <source-position filename="gconf-changeset.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -221,7 +168,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set_int" c:identifier="gconf_change_set_set_int">
-        <source-position filename="gconf-changeset.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -240,7 +186,6 @@ confuse the internal data structures and cause memory corruption.</doc>
       <method name="set_list"
               c:identifier="gconf_change_set_set_list"
               introspectable="0">
-        <source-position filename="gconf-changeset.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -262,7 +207,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set_nocopy" c:identifier="gconf_change_set_set_nocopy">
-        <source-position filename="gconf-changeset.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -279,7 +223,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set_pair" c:identifier="gconf_change_set_set_pair">
-        <source-position filename="gconf-changeset.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -313,7 +256,6 @@ confuse the internal data structures and cause memory corruption.</doc>
       <method name="set_schema"
               c:identifier="gconf_change_set_set_schema"
               introspectable="0">
-        <source-position filename="gconf-changeset.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -330,7 +272,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="set_string" c:identifier="gconf_change_set_set_string">
-        <source-position filename="gconf-changeset.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -349,40 +290,30 @@ confuse the internal data structures and cause memory corruption.</doc>
       <method name="set_user_data"
               c:identifier="gconf_change_set_set_user_data"
               introspectable="0">
-        <doc xml:space="preserve"
-             filename="gconf-changeset.c"
-             line="111">Sets the user_data and the destroy notification function fields of the
+        <doc xml:space="preserve">Sets the user_data and the destroy notification function fields of the
 #GConfChangeSet.</doc>
-        <source-position filename="gconf-changeset.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="cs" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="113">a #GConfChangeSet.</doc>
+            <doc xml:space="preserve">a #GConfChangeSet.</doc>
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </instance-parameter>
           <parameter name="data"
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="114">a #gpointer.</doc>
+            <doc xml:space="preserve">a #gpointer.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="dnotify" transfer-ownership="none" scope="async">
-            <doc xml:space="preserve"
-                 filename="gconf-changeset.c"
-                 line="115">a pointer to the function to be called during destroy.</doc>
+            <doc xml:space="preserve">a pointer to the function to be called during destroy.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
       </method>
       <method name="size" c:identifier="gconf_change_set_size">
-        <source-position filename="gconf-changeset.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -393,7 +324,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="gconf_change_set_unref">
-        <source-position filename="gconf-changeset.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -404,7 +334,6 @@ confuse the internal data structures and cause memory corruption.</doc>
         </parameters>
       </method>
       <method name="unset" c:identifier="gconf_change_set_unset">
-        <source-position filename="gconf-changeset.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -419,7 +348,6 @@ confuse the internal data structures and cause memory corruption.</doc>
       </method>
     </record>
     <callback name="ChangeSetForeachFunc" c:type="GConfChangeSetForeachFunc">
-      <source-position filename="gconf-changeset.h" line="39"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -449,46 +377,31 @@ confuse the internal data structures and cause memory corruption.</doc>
            glib:type-name="GConfClient"
            glib:get-type="gconf_client_get_type"
            glib:type-struct="ClientClass">
-      <source-position filename="gconf-client.h" line="143"/>
       <function name="get_default" c:identifier="gconf_client_get_default">
-        <doc xml:space="preserve"
-             filename="gconf-client.c"
-             line="437">Creates a new #GConfClient using the default #GConfEngine. Normally this is the
+        <doc xml:space="preserve">Creates a new #GConfClient using the default #GConfEngine. Normally this is the
 engine you want. If someone else is already using the default
 #GConfClient, this function returns the same one they're using, but
-with the reference count incremented. So you have to unref either way.
-
-It's important to call g_type_init() before using this GObject, to initialize the type system.</doc>
-        <source-position filename="gconf-client.h" line="149"/>
+with the reference count incremented. So you have to unref either way.</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf-client.c"
-               line="447">a new #GConfClient. g_object_unref() when you're done.</doc>
+          <doc xml:space="preserve">a new #GConfClient. g_object_unref() when you're done.</doc>
           <type name="Client" c:type="GConfClient*"/>
         </return-value>
       </function>
       <function name="get_for_engine"
                 c:identifier="gconf_client_get_for_engine"
                 introspectable="0">
-        <doc xml:space="preserve"
-             filename="gconf-client.c"
-             line="478">Creates a new #GConfClient with a specific #GConfEngine. Only specialized
+        <doc xml:space="preserve">Creates a new #GConfClient with a specific #GConfEngine. Only specialized
 configuration-related programs should need to call this function. The
 returned #GConfClient should be unref'd when you're done with g_object_unref().
 Remember to avoid using the #GConfEngine directly once you have a #GConfClient
 wrapper.</doc>
-        <source-position filename="gconf-client.h" line="152"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf-client.c"
-               line="488">a new #GConfClient.</doc>
+          <doc xml:space="preserve">a new #GConfClient.</doc>
           <type name="Client" c:type="GConfClient*"/>
         </return-value>
         <parameters>
           <parameter name="engine" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="480">the #GConfEngine to use.</doc>
+            <doc xml:space="preserve">the #GConfEngine to use.</doc>
             <type name="Engine" c:type="GConfEngine*"/>
           </parameter>
         </parameters>
@@ -496,26 +409,20 @@ wrapper.</doc>
       <function name="set_global_default_error_handler"
                 c:identifier="gconf_client_set_global_default_error_handler"
                 introspectable="0">
-        <doc xml:space="preserve"
-             filename="gconf-client.c"
-             line="59">Set @func as the default error handler for the #GConfClient. This handler would be called
+        <doc xml:space="preserve">Set @func as the default error handler for the #GConfClient. This handler would be called
 for all #GConfClient internal errors.</doc>
-        <source-position filename="gconf-client.h" line="208"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="func" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="61">pointer to the function to be called for error handling.</doc>
+            <doc xml:space="preserve">pointer to the function to be called for error handling.</doc>
             <type name="ClientErrorHandlerFunc"
                   c:type="GConfClientErrorHandlerFunc"/>
           </parameter>
         </parameters>
       </function>
       <virtual-method name="error" invoker="error">
-        <source-position filename="gconf-client.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -529,7 +436,6 @@ for all #GConfClient internal errors.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="unreturned_error" invoker="unreturned_error">
-        <source-position filename="gconf-client.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -543,7 +449,6 @@ for all #GConfClient internal errors.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="value_changed" invoker="value_changed">
-        <source-position filename="gconf-client.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -560,7 +465,6 @@ for all #GConfClient internal errors.</doc>
         </parameters>
       </virtual-method>
       <method name="add_dir" c:identifier="gconf_client_add_dir" throws="1">
-        <source-position filename="gconf-client.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -577,33 +481,24 @@ for all #GConfClient internal errors.</doc>
         </parameters>
       </method>
       <method name="all_dirs" c:identifier="gconf_client_all_dirs" throws="1">
-        <doc xml:space="preserve"
-             filename="gconf-client.c"
-             line="1333">Lists the subdirectories in @dir. The returned list contains
+        <doc xml:space="preserve">Lists the subdirectories in @dir. The returned list contains
 allocated strings. Each string is the absolute path of a
 subdirectory. You should g_free() each string in the list, then
 g_slist_free() the list itself.  Just like gconf_engine_all_dirs(),
 but uses #GConfClient caching and error-handling features.</doc>
-        <source-position filename="gconf-client.h" line="268"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf-client.c"
-               line="1345">List of allocated subdirectory names.</doc>
+          <doc xml:space="preserve">List of allocated subdirectory names.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="utf8"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1335">a #GConfClient.</doc>
+            <doc xml:space="preserve">a #GConfClient.</doc>
             <type name="Client" c:type="GConfClient*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1336">directory to get subdirectories from.</doc>
+            <doc xml:space="preserve">directory to get subdirectories from.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -611,35 +506,26 @@ but uses #GConfClient caching and error-handling features.</doc>
       <method name="all_entries"
               c:identifier="gconf_client_all_entries"
               throws="1">
-        <doc xml:space="preserve"
-             filename="gconf-client.c"
-             line="1265">Lists the key-value pairs in @dir. Does not list subdirectories; for
+        <doc xml:space="preserve">Lists the key-value pairs in @dir. Does not list subdirectories; for
 that use gconf_client_all_dirs(). The returned list contains #GConfEntry
 objects. A #GConfEntry contains an &lt;emphasis&gt;absolute&lt;/emphasis&gt; key
 and a value. The list is not recursive, it contains only the immediate
 children of @dir.  To free the returned list, gconf_entry_free()
 each list element, then g_slist_free() the list itself.
 Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-handling features.</doc>
-        <source-position filename="gconf-client.h" line="265"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf-client.c"
-               line="1279">List of #GConfEntry.</doc>
+          <doc xml:space="preserve">List of #GConfEntry.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Entry"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1267">a #GConfClient.</doc>
+            <doc xml:space="preserve">a #GConfClient.</doc>
             <type name="Client" c:type="GConfClient*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1268">directory to list.</doc>
+            <doc xml:space="preserve">directory to list.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -647,7 +533,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="change_set_from_current"
               c:identifier="gconf_client_change_set_from_current"
               introspectable="0">
-        <source-position filename="gconf-client.h" line="381"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -669,7 +554,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="change_set_from_currentv"
               c:identifier="gconf_client_change_set_from_currentv"
               throws="1">
-        <source-position filename="gconf-client.h" line="377"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -683,7 +567,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
         </parameters>
       </method>
       <method name="clear_cache" c:identifier="gconf_client_clear_cache">
-        <source-position filename="gconf-client.h" line="215"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -696,7 +579,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="commit_change_set"
               c:identifier="gconf_client_commit_change_set"
               throws="1">
-        <source-position filename="gconf-client.h" line="362"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -715,7 +597,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="dir_exists"
               c:identifier="gconf_client_dir_exists"
               throws="1">
-        <source-position filename="gconf-client.h" line="274"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -729,7 +610,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
         </parameters>
       </method>
       <method name="error" c:identifier="gconf_client_error">
-        <source-position filename="gconf-client.h" line="350"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -743,7 +623,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
         </parameters>
       </method>
       <method name="get" c:identifier="gconf_client_get" throws="1">
-        <source-position filename="gconf-client.h" line="239"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -757,7 +636,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
         </parameters>
       </method>
       <method name="get_bool" c:identifier="gconf_client_get_bool" throws="1">
-        <source-position filename="gconf-client.h" line="293"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -773,7 +651,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="get_default_from_schema"
               c:identifier="gconf_client_get_default_from_schema"
               throws="1">
-        <source-position filename="gconf-client.h" line="253"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -789,7 +666,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="get_entry"
               c:identifier="gconf_client_get_entry"
               throws="1">
-        <source-position filename="gconf-client.h" line="247"/>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
@@ -811,7 +687,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
       <method name="get_float"
               c:identifier="gconf_client_get_float"
               throws="1">
-        <source-position filename="gconf-client.h" line="283"/>
         <return-value transfer-ownership="none">
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -825,7 +700,6 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
         </parameters>
       </method>
       <method name="get_int" c:identifier="gconf_client_get_int" throws="1">
-        <source-position filename="gconf-client.h" line="286"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -842,9 +716,7 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
               c:identifier="gconf_client_get_list"
               introspectable="0"
               throws="1">
-        <doc xml:space="preserve"
-             filename="gconf-client.c"
-             line="1837">Requests the list (%GCONF_VALUE_LIST) stored at @key.  Automatically
+        <doc xml:space="preserve">Requests the list (%GCONF_VALUE_LIST) stored at @key.  Automatically
 performs type-checking, so if a non-list is stored at @key, or the
 list does not contain elements of type @list_type, an error is
 returned. If no value is set or an error occurs, &lt;symbol&gt;NULL&lt;/symbol&gt;
@@ -900,38 +772,28 @@ gconf_schema_free() each element. In all cases you must free the
 list itself with g_slist_free().
 
 Just like gconf_engine_get_list (), but uses #GConfClient caching and error-handling features.</doc>
-        <source-position filename="gconf-client.h" line="304"/>
         <return-value>
-          <doc xml:space="preserve"
-               filename="gconf-client.c"
-               line="1901">an allocated list, with elements as described above.</doc>
+          <doc xml:space="preserve">an allocated list, with elements as described above.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="gpointer" c:type="gpointer"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1839">a #GConfClient.</doc>
+            <doc xml:space="preserve">a #GConfClient.</doc>
             <type name="Client" c:type="GConfClient*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1840">key you want the value of.</doc>
+            <doc xml:space="preserve">key you want the value of.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="1841">type of each list element.</doc>
+            <doc xml:space="preserve">type of each list element.</doc>
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_pair" c:identifier="gconf_client_get_pair" throws="1">
-        <source-position filename="gconf-client.h" line="307"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -966,7 +828,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
               c:identifier="gconf_client_get_schema"
               introspectable="0"
               throws="1">
-        <source-position filename="gconf-client.h" line="301"/>
         <return-value>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
@@ -982,7 +843,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="get_string"
               c:identifier="gconf_client_get_string"
               throws="1">
-        <source-position filename="gconf-client.h" line="290"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -998,7 +858,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="get_without_default"
               c:identifier="gconf_client_get_without_default"
               throws="1">
-        <source-position filename="gconf-client.h" line="243"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -1014,7 +873,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="key_is_writable"
               c:identifier="gconf_client_key_is_writable"
               throws="1">
-        <source-position filename="gconf-client.h" line="277"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1028,7 +886,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="notify" c:identifier="gconf_client_notify">
-        <source-position filename="gconf-client.h" line="190"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1044,15 +901,12 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="notify_add"
               c:identifier="gconf_client_notify_add"
               throws="1">
-        <source-position filename="gconf-client.h" line="181"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-client.c"
-                 line="781">@namespace_section</doc>
+            <doc xml:space="preserve">@namespace_section</doc>
             <type name="Client" c:type="GConfClient*"/>
           </instance-parameter>
           <parameter name="namespace_section" transfer-ownership="none">
@@ -1079,7 +933,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="notify_remove" c:identifier="gconf_client_notify_remove">
-        <source-position filename="gconf-client.h" line="188"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1093,7 +946,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="preload" c:identifier="gconf_client_preload" throws="1">
-        <source-position filename="gconf-client.h" line="224"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1112,7 +964,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="recursive_unset"
               c:identifier="gconf_client_recursive_unset"
               throws="1">
-        <source-position filename="gconf-client.h" line="260"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1131,7 +982,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="remove_dir"
               c:identifier="gconf_client_remove_dir"
               throws="1">
-        <source-position filename="gconf-client.h" line="167"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1147,7 +997,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="reverse_change_set"
               c:identifier="gconf_client_reverse_change_set"
               throws="1">
-        <source-position filename="gconf-client.h" line="373"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -1161,7 +1010,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="set" c:identifier="gconf_client_set" throws="1">
-        <source-position filename="gconf-client.h" line="234"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1178,7 +1026,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="set_bool" c:identifier="gconf_client_set_bool" throws="1">
-        <source-position filename="gconf-client.h" line="327"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1196,7 +1043,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       </method>
       <method name="set_error_handling"
               c:identifier="gconf_client_set_error_handling">
-        <source-position filename="gconf-client.h" line="203"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1213,7 +1059,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="set_float"
               c:identifier="gconf_client_set_float"
               throws="1">
-        <source-position filename="gconf-client.h" line="318"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1230,7 +1075,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="set_int" c:identifier="gconf_client_set_int" throws="1">
-        <source-position filename="gconf-client.h" line="321"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1250,7 +1094,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
               c:identifier="gconf_client_set_list"
               introspectable="0"
               throws="1">
-        <source-position filename="gconf-client.h" line="334"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1272,7 +1115,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="set_pair" c:identifier="gconf_client_set_pair" throws="1">
-        <source-position filename="gconf-client.h" line="339"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1307,7 +1149,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
               c:identifier="gconf_client_set_schema"
               introspectable="0"
               throws="1">
-        <source-position filename="gconf-client.h" line="330"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1326,7 +1167,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="set_string"
               c:identifier="gconf_client_set_string"
               throws="1">
-        <source-position filename="gconf-client.h" line="324"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1345,7 +1185,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <method name="suggest_sync"
               c:identifier="gconf_client_suggest_sync"
               throws="1">
-        <source-position filename="gconf-client.h" line="271"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1357,7 +1196,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       </method>
       <method name="unreturned_error"
               c:identifier="gconf_client_unreturned_error">
-        <source-position filename="gconf-client.h" line="351"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1371,7 +1209,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="unset" c:identifier="gconf_client_unset" throws="1">
-        <source-position filename="gconf-client.h" line="257"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1385,7 +1222,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         </parameters>
       </method>
       <method name="value_changed" c:identifier="gconf_client_value_changed">
-        <source-position filename="gconf-client.h" line="354"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1495,13 +1331,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
     <record name="ClientClass"
             c:type="GConfClientClass"
             glib:is-gtype-struct-for="Client">
-      <source-position filename="gconf-client.h" line="143"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="value_changed">
         <callback name="value_changed">
-          <source-position filename="gconf-client.h" line="117"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1520,7 +1354,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       </field>
       <field name="unreturned_error">
         <callback name="unreturned_error">
-          <source-position filename="gconf-client.h" line="131"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1536,7 +1369,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       </field>
       <field name="error">
         <callback name="error">
-          <source-position filename="gconf-client.h" line="137"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1562,7 +1394,6 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
     </record>
     <callback name="ClientErrorHandlerFunc"
               c:type="GConfClientErrorHandlerFunc">
-      <source-position filename="gconf-client.h" line="79"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1582,24 +1413,20 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <member name="handle_none"
               value="0"
               c:identifier="GCONF_CLIENT_HANDLE_NONE"
-              glib:nick="handle-none"
-              glib:name="GCONF_CLIENT_HANDLE_NONE">
+              glib:nick="handle-none">
       </member>
       <member name="handle_unreturned"
               value="1"
               c:identifier="GCONF_CLIENT_HANDLE_UNRETURNED"
-              glib:nick="handle-unreturned"
-              glib:name="GCONF_CLIENT_HANDLE_UNRETURNED">
+              glib:nick="handle-unreturned">
       </member>
       <member name="handle_all"
               value="2"
               c:identifier="GCONF_CLIENT_HANDLE_ALL"
-              glib:nick="handle-all"
-              glib:name="GCONF_CLIENT_HANDLE_ALL">
+              glib:nick="handle-all">
       </member>
     </enumeration>
     <callback name="ClientNotifyFunc" c:type="GConfClientNotifyFunc">
-      <source-position filename="gconf-client.h" line="74"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1629,58 +1456,42 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <member name="preload_none"
               value="0"
               c:identifier="GCONF_CLIENT_PRELOAD_NONE"
-              glib:nick="preload-none"
-              glib:name="GCONF_CLIENT_PRELOAD_NONE">
+              glib:nick="preload-none">
       </member>
       <member name="preload_onelevel"
               value="1"
               c:identifier="GCONF_CLIENT_PRELOAD_ONELEVEL"
-              glib:nick="preload-onelevel"
-              glib:name="GCONF_CLIENT_PRELOAD_ONELEVEL">
+              glib:nick="preload-onelevel">
       </member>
       <member name="preload_recursive"
               value="2"
               c:identifier="GCONF_CLIENT_PRELOAD_RECURSIVE"
-              glib:nick="preload-recursive"
-              glib:name="GCONF_CLIENT_PRELOAD_RECURSIVE">
+              glib:nick="preload-recursive">
       </member>
     </enumeration>
     <record name="Engine"
             c:type="GConfEngine"
             disguised="1"
-            opaque="1"
             introspectable="0">
-      <doc xml:space="preserve"
-           filename="gconf-engine.h"
-           line="29">An opaque data type representing one or more configuration sources.</doc>
-      <source-position filename="gconf-engine.h" line="38"/>
+      <doc xml:space="preserve">An opaque data type representing one or more configuration sources.</doc>
       <method name="all_dirs" c:identifier="gconf_engine_all_dirs" throws="1">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="1833">Lists the subdirectories in @dir. The returned list contains
+        <doc xml:space="preserve">Lists the subdirectories in @dir. The returned list contains
 allocated strings. Each string is the absolute path of a
 subdirectory. You should g_free() each string in the list, then
 g_slist_free() the list itself.</doc>
-        <source-position filename="gconf.h" line="102"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="1844">List of allocated subdirectory names.</doc>
+          <doc xml:space="preserve">List of allocated subdirectory names.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="utf8"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="1835">a #GConfEngine.</doc>
+            <doc xml:space="preserve">a #GConfEngine.</doc>
             <type name="Engine" c:type="GConfEngine*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="1836">Directory to get subdirectories from.</doc>
+            <doc xml:space="preserve">Directory to get subdirectories from.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1688,34 +1499,25 @@ g_slist_free() the list itself.</doc>
       <method name="all_entries"
               c:identifier="gconf_engine_all_entries"
               throws="1">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="1648">Lists the key-value pairs in @dir. Does not list subdirectories; for
+        <doc xml:space="preserve">Lists the key-value pairs in @dir. Does not list subdirectories; for
 that use gconf_engine_all_dirs(). The returned list contains #GConfEntry
 objects. A #GConfEntry contains an &lt;emphasis&gt;absolute&lt;/emphasis&gt; key
 and a value. The list is not recursive, it contains only the immediate
 children of @dir.  To free the returned list, gconf_entry_free()
 each list element, then g_slist_free() the list itself.</doc>
-        <source-position filename="gconf.h" line="99"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="1661">List of #GConfEntry.</doc>
+          <doc xml:space="preserve">List of #GConfEntry.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Entry"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="1650">a #GConfEngine.</doc>
+            <doc xml:space="preserve">a #GConfEngine.</doc>
             <type name="Engine" c:type="GConfEngine*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="1651">Directory to list.</doc>
+            <doc xml:space="preserve">Directory to list.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1723,7 +1525,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="associate_schema"
               c:identifier="gconf_engine_associate_schema"
               throws="1">
-        <source-position filename="gconf.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1741,7 +1542,6 @@ each list element, then g_slist_free() the list itself.</doc>
       </method>
       <method name="change_set_from_current"
               c:identifier="gconf_engine_change_set_from_current">
-        <source-position filename="gconf-changeset.h" line="65"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -1763,7 +1563,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="change_set_from_currentv"
               c:identifier="gconf_engine_change_set_from_currentv"
               throws="1">
-        <source-position filename="gconf-changeset.h" line="61"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -1779,7 +1578,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="commit_change_set"
               c:identifier="gconf_engine_commit_change_set"
               throws="1">
-        <source-position filename="gconf-changeset.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1798,7 +1596,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="dir_exists"
               c:identifier="gconf_engine_dir_exists"
               throws="1">
-        <source-position filename="gconf.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1812,7 +1609,6 @@ each list element, then g_slist_free() the list itself.</doc>
         </parameters>
       </method>
       <method name="get" c:identifier="gconf_engine_get" throws="1">
-        <source-position filename="gconf.h" line="52"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -1826,7 +1622,6 @@ each list element, then g_slist_free() the list itself.</doc>
         </parameters>
       </method>
       <method name="get_bool" c:identifier="gconf_engine_get_bool" throws="1">
-        <source-position filename="gconf.h" line="164"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1842,7 +1637,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="get_default_from_schema"
               c:identifier="gconf_engine_get_default_from_schema"
               throws="1">
-        <source-position filename="gconf.h" line="78"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -1858,7 +1652,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="get_entry"
               c:identifier="gconf_engine_get_entry"
               throws="1">
-        <source-position filename="gconf.h" line="60"/>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
@@ -1880,7 +1673,6 @@ each list element, then g_slist_free() the list itself.</doc>
       <method name="get_float"
               c:identifier="gconf_engine_get_float"
               throws="1">
-        <source-position filename="gconf.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -1894,7 +1686,6 @@ each list element, then g_slist_free() the list itself.</doc>
         </parameters>
       </method>
       <method name="get_full" c:identifier="gconf_engine_get_full" throws="1">
-        <source-position filename="gconf.h" line="295"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -1920,7 +1711,6 @@ each list element, then g_slist_free() the list itself.</doc>
         </parameters>
       </method>
       <method name="get_int" c:identifier="gconf_engine_get_int" throws="1">
-        <source-position filename="gconf.h" line="155"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -1937,9 +1727,7 @@ each list element, then g_slist_free() the list itself.</doc>
               c:identifier="gconf_engine_get_list"
               introspectable="0"
               throws="1">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="3377">Requests the list (%GCONF_VALUE_LIST) stored at @key.  Automatically
+        <doc xml:space="preserve">Requests the list (%GCONF_VALUE_LIST) stored at @key.  Automatically
 performs type-checking, so if a non-list is stored at @key, or the
 list does not contain elements of type @list_type, an error is
 returned. If no value is set or an error occurs, &lt;symbol&gt;NULL&lt;/symbol&gt;
@@ -1993,38 +1781,28 @@ In the %GCONF_VALUE_FLOAT and %GCONF_VALUE_STRING cases, you must
 g_free() each list element. In the %GCONF_VALUE_SCHEMA case you must
 gconf_schema_free() each element. In all cases you must free the
 list itself with g_slist_free().</doc>
-        <source-position filename="gconf.h" line="186"/>
         <return-value>
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="3439">an allocated list, with elements as described above.</doc>
+          <doc xml:space="preserve">an allocated list, with elements as described above.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="gpointer" c:type="gpointer"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="3379">a #GConfEngine.</doc>
+            <doc xml:space="preserve">a #GConfEngine.</doc>
             <type name="Engine" c:type="GConfEngine*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="3380">key you want the value of.</doc>
+            <doc xml:space="preserve">key you want the value of.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="3381">type of each list element.</doc>
+            <doc xml:space="preserve">type of each list element.</doc>
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_pair" c:identifier="gconf_engine_get_pair" throws="1">
-        <source-position filename="gconf.h" line="200"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2059,30 +1837,21 @@ list itself with g_slist_free().</doc>
               c:identifier="gconf_engine_get_schema"
               introspectable="0"
               throws="1">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="3331">Requests the schema (%GCONF_VALUE_SCHEMA) stored at @key.
+        <doc xml:space="preserve">Requests the schema (%GCONF_VALUE_SCHEMA) stored at @key.
 Automatically performs type-checking, so if a non-schema is stored at
 @key, an error is returned. If no value is set or an error occurs,
 &lt;symbol&gt;NULL&lt;/symbol&gt; is returned.</doc>
-        <source-position filename="gconf.h" line="174"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="3343">the value of @key as an allocated #GConfSchema, or &lt;symbol&gt;NULL&lt;/symbol&gt; if no value was obtained.</doc>
+          <doc xml:space="preserve">the value of @key as an allocated #GConfSchema, or &lt;symbol&gt;NULL&lt;/symbol&gt; if no value was obtained.</doc>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
         <parameters>
           <instance-parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="3333">a #GConfEngine.</doc>
+            <doc xml:space="preserve">a #GConfEngine.</doc>
             <type name="Engine" c:type="GConfEngine*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="3334">key you want the value of.</doc>
+            <doc xml:space="preserve">key you want the value of.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2090,7 +1859,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="get_string"
               c:identifier="gconf_engine_get_string"
               throws="1">
-        <source-position filename="gconf.h" line="161"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2104,7 +1872,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="get_user_data" c:identifier="gconf_engine_get_user_data">
-        <source-position filename="gconf-engine.h" line="62"/>
         <return-value transfer-ownership="none" nullable="1">
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
@@ -2117,7 +1884,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="get_with_locale"
               c:identifier="gconf_engine_get_with_locale"
               throws="1">
-        <source-position filename="gconf.h" line="71"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -2136,7 +1902,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="get_without_default"
               c:identifier="gconf_engine_get_without_default"
               throws="1">
-        <source-position filename="gconf.h" line="56"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -2152,7 +1917,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="key_is_writable"
               c:identifier="gconf_engine_key_is_writable"
               throws="1">
-        <source-position filename="gconf.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2169,45 +1933,33 @@ Automatically performs type-checking, so if a non-schema is stored at
               c:identifier="gconf_engine_notify_add"
               introspectable="0"
               throws="1">
-        <source-position filename="gconf.h" line="39"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="833">an ID for the notification request, or 0 on error.</doc>
+          <doc xml:space="preserve">an ID for the notification request, or 0 on error.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="815">a #GConfEngine to monitor for changes.</doc>
+            <doc xml:space="preserve">a #GConfEngine to monitor for changes.</doc>
             <type name="Engine" c:type="GConfEngine*"/>
           </instance-parameter>
           <parameter name="namespace_section" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="816">the directory or key to watch; you will be notified of changes at or below this point.</doc>
+            <doc xml:space="preserve">the directory or key to watch; you will be notified of changes at or below this point.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="func" transfer-ownership="none" closure="2">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="817">the callback to invoke when a notification is received from the server.</doc>
+            <doc xml:space="preserve">the callback to invoke when a notification is received from the server.</doc>
             <type name="NotifyFunc" c:type="GConfNotifyFunc"/>
           </parameter>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gconf.c"
-                 line="818">the data to pass to the callback.</doc>
+            <doc xml:space="preserve">the data to pass to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="notify_remove" c:identifier="gconf_engine_notify_remove">
-        <source-position filename="gconf.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2221,7 +1973,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="ref" c:identifier="gconf_engine_ref">
-        <source-position filename="gconf-engine.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2234,7 +1985,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="remove_dir"
               c:identifier="gconf_engine_remove_dir"
               throws="1">
-        <source-position filename="gconf.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2250,7 +2000,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="reverse_change_set"
               c:identifier="gconf_engine_reverse_change_set"
               throws="1">
-        <source-position filename="gconf-changeset.h" line="55"/>
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
@@ -2264,7 +2013,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="set" c:identifier="gconf_engine_set" throws="1">
-        <source-position filename="gconf.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2281,7 +2029,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="set_bool" c:identifier="gconf_engine_set_bool" throws="1">
-        <source-position filename="gconf.h" line="222"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2300,7 +2047,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="set_float"
               c:identifier="gconf_engine_set_float"
               throws="1">
-        <source-position filename="gconf.h" line="210"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2317,7 +2063,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="set_int" c:identifier="gconf_engine_set_int" throws="1">
-        <source-position filename="gconf.h" line="214"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2334,7 +2079,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="set_list" c:identifier="gconf_engine_set_list" throws="1">
-        <source-position filename="gconf.h" line="233"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2356,7 +2100,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="set_pair" c:identifier="gconf_engine_set_pair" throws="1">
-        <source-position filename="gconf.h" line="238"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2391,7 +2134,6 @@ Automatically performs type-checking, so if a non-schema is stored at
               c:identifier="gconf_engine_set_schema"
               introspectable="0"
               throws="1">
-        <source-position filename="gconf.h" line="226"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2410,7 +2152,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="set_string"
               c:identifier="gconf_engine_set_string"
               throws="1">
-        <source-position filename="gconf.h" line="218"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2427,7 +2168,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="set_user_data" c:identifier="gconf_engine_set_user_data">
-        <source-position filename="gconf-engine.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2449,7 +2189,6 @@ Automatically performs type-checking, so if a non-schema is stored at
       <method name="suggest_sync"
               c:identifier="gconf_engine_suggest_sync"
               throws="1">
-        <source-position filename="gconf.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2460,7 +2199,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="unref" c:identifier="gconf_engine_unref">
-        <source-position filename="gconf-engine.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2471,7 +2209,6 @@ Automatically performs type-checking, so if a non-schema is stored at
         </parameters>
       </method>
       <method name="unset" c:identifier="gconf_engine_unset" throws="1">
-        <source-position filename="gconf.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2487,20 +2224,15 @@ Automatically performs type-checking, so if a non-schema is stored at
       <function name="get_default"
                 c:identifier="gconf_engine_get_default"
                 introspectable="0">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="567">Returns the default #GConfEngine. All clients should use this, unless
+        <doc xml:space="preserve">Returns the default #GConfEngine. All clients should use this, unless
 they are special configuration-related tools. The caller of this
 function assumes one reference count, and must call
 gconf_engine_unref() at some point. It's fairly important to unref the
 #GConfEngine, to cleanly close the connection to
 &lt;application&gt;gconfd&lt;/application&gt;. So if possible close the connection
 before exiting your application.</doc>
-        <source-position filename="gconf-engine.h" line="40"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="578">the default #GConfEngine.</doc>
+          <doc xml:space="preserve">the default #GConfEngine.</doc>
           <type name="Engine" c:type="GConfEngine*"/>
         </return-value>
       </function>
@@ -2508,7 +2240,6 @@ before exiting your application.</doc>
                 c:identifier="gconf_engine_get_for_address"
                 introspectable="0"
                 throws="1">
-        <source-position filename="gconf-engine.h" line="42"/>
         <return-value>
           <type name="Engine" c:type="GConfEngine*"/>
         </return-value>
@@ -2522,7 +2253,6 @@ before exiting your application.</doc>
                 c:identifier="gconf_engine_get_for_addresses"
                 introspectable="0"
                 throws="1">
-        <source-position filename="gconf-engine.h" line="44"/>
         <return-value>
           <type name="Engine" c:type="GConfEngine*"/>
         </return-value>
@@ -2538,7 +2268,6 @@ before exiting your application.</doc>
                 c:identifier="gconf_engine_get_local"
                 introspectable="0"
                 throws="1">
-        <source-position filename="gconf-engine.h" line="50"/>
         <return-value>
           <type name="Engine" c:type="GConfEngine*"/>
         </return-value>
@@ -2552,7 +2281,6 @@ before exiting your application.</doc>
                 c:identifier="gconf_engine_get_local_for_addresses"
                 introspectable="0"
                 throws="1">
-        <source-position filename="gconf-engine.h" line="52"/>
         <return-value>
           <type name="Engine" c:type="GConfEngine*"/>
         </return-value>
@@ -2570,7 +2298,6 @@ before exiting your application.</doc>
             glib:type-name="GConfEntry"
             glib:get-type="gconf_entry_get_type"
             c:symbol-prefix="entry">
-      <source-position filename="gconf-value.h" line="171"/>
       <field name="key" writable="1">
         <type name="utf8" c:type="char*"/>
       </field>
@@ -2578,7 +2305,6 @@ before exiting your application.</doc>
         <type name="Value" c:type="GConfValue*"/>
       </field>
       <constructor name="new" c:identifier="gconf_entry_new">
-        <source-position filename="gconf-value.h" line="180"/>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
@@ -2592,7 +2318,6 @@ before exiting your application.</doc>
         </parameters>
       </constructor>
       <constructor name="new_nocopy" c:identifier="gconf_entry_new_nocopy">
-        <source-position filename="gconf-value.h" line="182"/>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
@@ -2606,7 +2331,6 @@ before exiting your application.</doc>
         </parameters>
       </constructor>
       <method name="copy" c:identifier="gconf_entry_copy">
-        <source-position filename="gconf-value.h" line="185"/>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
@@ -2617,7 +2341,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="equal" c:identifier="gconf_entry_equal">
-        <source-position filename="gconf-value.h" line="205"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2631,7 +2354,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="free" c:identifier="gconf_entry_free">
-        <source-position filename="gconf-value.h" line="187"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2642,7 +2364,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="get_is_default" c:identifier="gconf_entry_get_is_default">
-        <source-position filename="gconf-value.h" line="177"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2654,7 +2375,6 @@ before exiting your application.</doc>
       </method>
       <method name="get_is_writable"
               c:identifier="gconf_entry_get_is_writable">
-        <source-position filename="gconf-value.h" line="178"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2665,7 +2385,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="get_key" c:identifier="gconf_entry_get_key">
-        <source-position filename="gconf-value.h" line="174"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2677,7 +2396,6 @@ before exiting your application.</doc>
       </method>
       <method name="get_schema_name"
               c:identifier="gconf_entry_get_schema_name">
-        <source-position filename="gconf-value.h" line="176"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2688,7 +2406,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="get_value" c:identifier="gconf_entry_get_value">
-        <source-position filename="gconf-value.h" line="175"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -2699,7 +2416,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="ref" c:identifier="gconf_entry_ref">
-        <source-position filename="gconf-value.h" line="189"/>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
@@ -2710,7 +2426,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="set_is_default" c:identifier="gconf_entry_set_is_default">
-        <source-position filename="gconf-value.h" line="200"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2725,7 +2440,6 @@ before exiting your application.</doc>
       </method>
       <method name="set_is_writable"
               c:identifier="gconf_entry_set_is_writable">
-        <source-position filename="gconf-value.h" line="202"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2740,7 +2454,6 @@ before exiting your application.</doc>
       </method>
       <method name="set_schema_name"
               c:identifier="gconf_entry_set_schema_name">
-        <source-position filename="gconf-value.h" line="198"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2754,7 +2467,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="set_value" c:identifier="gconf_entry_set_value">
-        <source-position filename="gconf-value.h" line="194"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2769,7 +2481,6 @@ before exiting your application.</doc>
       </method>
       <method name="set_value_nocopy"
               c:identifier="gconf_entry_set_value_nocopy">
-        <source-position filename="gconf-value.h" line="196"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2783,7 +2494,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="steal_value" c:identifier="gconf_entry_steal_value">
-        <source-position filename="gconf-value.h" line="193"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -2794,7 +2504,6 @@ before exiting your application.</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="gconf_entry_unref">
-        <source-position filename="gconf-value.h" line="190"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2806,7 +2515,6 @@ before exiting your application.</doc>
       </method>
     </record>
     <record name="EnumStringPair" c:type="GConfEnumStringPair">
-      <source-position filename="gconf.h" line="253"/>
       <field name="enum_value" writable="1">
         <type name="gint" c:type="gint"/>
       </field>
@@ -2822,104 +2530,87 @@ before exiting your application.</doc>
       <member name="success"
               value="0"
               c:identifier="GCONF_ERROR_SUCCESS"
-              glib:nick="success"
-              glib:name="GCONF_ERROR_SUCCESS">
+              glib:nick="success">
       </member>
       <member name="failed"
               value="1"
               c:identifier="GCONF_ERROR_FAILED"
-              glib:nick="failed"
-              glib:name="GCONF_ERROR_FAILED">
+              glib:nick="failed">
       </member>
       <member name="no_server"
               value="2"
               c:identifier="GCONF_ERROR_NO_SERVER"
-              glib:nick="no-server"
-              glib:name="GCONF_ERROR_NO_SERVER">
+              glib:nick="no-server">
       </member>
       <member name="no_permission"
               value="3"
               c:identifier="GCONF_ERROR_NO_PERMISSION"
-              glib:nick="no-permission"
-              glib:name="GCONF_ERROR_NO_PERMISSION">
+              glib:nick="no-permission">
       </member>
       <member name="bad_address"
               value="4"
               c:identifier="GCONF_ERROR_BAD_ADDRESS"
-              glib:nick="bad-address"
-              glib:name="GCONF_ERROR_BAD_ADDRESS">
+              glib:nick="bad-address">
       </member>
       <member name="bad_key"
               value="5"
               c:identifier="GCONF_ERROR_BAD_KEY"
-              glib:nick="bad-key"
-              glib:name="GCONF_ERROR_BAD_KEY">
+              glib:nick="bad-key">
       </member>
       <member name="parse_error"
               value="6"
               c:identifier="GCONF_ERROR_PARSE_ERROR"
-              glib:nick="parse-error"
-              glib:name="GCONF_ERROR_PARSE_ERROR">
+              glib:nick="parse-error">
       </member>
       <member name="corrupt"
               value="7"
               c:identifier="GCONF_ERROR_CORRUPT"
-              glib:nick="corrupt"
-              glib:name="GCONF_ERROR_CORRUPT">
+              glib:nick="corrupt">
       </member>
       <member name="type_mismatch"
               value="8"
               c:identifier="GCONF_ERROR_TYPE_MISMATCH"
-              glib:nick="type-mismatch"
-              glib:name="GCONF_ERROR_TYPE_MISMATCH">
+              glib:nick="type-mismatch">
       </member>
       <member name="is_dir"
               value="9"
               c:identifier="GCONF_ERROR_IS_DIR"
-              glib:nick="is-dir"
-              glib:name="GCONF_ERROR_IS_DIR">
+              glib:nick="is-dir">
       </member>
       <member name="is_key"
               value="10"
               c:identifier="GCONF_ERROR_IS_KEY"
-              glib:nick="is-key"
-              glib:name="GCONF_ERROR_IS_KEY">
+              glib:nick="is-key">
       </member>
       <member name="overridden"
               value="11"
               c:identifier="GCONF_ERROR_OVERRIDDEN"
-              glib:nick="overridden"
-              glib:name="GCONF_ERROR_OVERRIDDEN">
+              glib:nick="overridden">
       </member>
       <member name="oaf_error"
               value="12"
               c:identifier="GCONF_ERROR_OAF_ERROR"
-              glib:nick="oaf-error"
-              glib:name="GCONF_ERROR_OAF_ERROR">
+              glib:nick="oaf-error">
       </member>
       <member name="local_engine"
               value="13"
               c:identifier="GCONF_ERROR_LOCAL_ENGINE"
-              glib:nick="local-engine"
-              glib:name="GCONF_ERROR_LOCAL_ENGINE">
+              glib:nick="local-engine">
       </member>
       <member name="lock_failed"
               value="14"
               c:identifier="GCONF_ERROR_LOCK_FAILED"
-              glib:nick="lock-failed"
-              glib:name="GCONF_ERROR_LOCK_FAILED">
+              glib:nick="lock-failed">
       </member>
       <member name="no_writable_database"
               value="15"
               c:identifier="GCONF_ERROR_NO_WRITABLE_DATABASE"
-              glib:nick="no-writable-database"
-              glib:name="GCONF_ERROR_NO_WRITABLE_DATABASE">
+              glib:nick="no-writable-database">
       </member>
       <member name="in_shutdown"
               value="16"
               c:identifier="GCONF_ERROR_IN_SHUTDOWN"
-              glib:nick="in-shutdown"
-              glib:name="GCONF_ERROR_IN_SHUTDOWN">
+              glib:nick="in-shutdown">
       </member>
       <function name="quark" c:identifier="gconf_error_quark">
         <return-value transfer-ownership="none">
@@ -2927,39 +2618,16 @@ before exiting your application.</doc>
         </return-value>
       </function>
     </enumeration>
-    <function-macro name="IS_CLIENT"
-                    c:identifier="GCONF_IS_CLIENT"
-                    introspectable="0">
-      <source-position filename="gconf-client.h" line="85"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_CLIENT_CLASS"
-                    c:identifier="GCONF_IS_CLIENT_CLASS"
-                    introspectable="0">
-      <source-position filename="gconf-client.h" line="86"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
     <record name="Listeners"
             c:type="GConfListeners"
             disguised="1"
-            opaque="1"
             introspectable="0">
-      <doc xml:space="preserve"
-           filename="gconf-listeners.h"
-           line="28">The #GConfListeners structure contains nothing other than a dummy pointer. Internally
+      <doc xml:space="preserve">The #GConfListeners structure contains nothing other than a dummy pointer. Internally
 the data about listeners is maintained through a listener table structure,
 LTable which contains data like the namespace, an array to hold the listeners, count of
 active listeners,value to be given to the next connection and the list of connection indices
 to be recycled. There is also a Listener structure maintaining data pertaining to listeners.</doc>
-      <source-position filename="gconf-listeners.h" line="46"/>
       <method name="add" c:identifier="gconf_listeners_add">
-        <source-position filename="gconf-listeners.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -2982,7 +2650,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="count" c:identifier="gconf_listeners_count">
-        <source-position filename="gconf-listeners.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -2993,7 +2660,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="foreach" c:identifier="gconf_listeners_foreach">
-        <source-position filename="gconf-listeners.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3013,7 +2679,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="free" c:identifier="gconf_listeners_free">
-        <source-position filename="gconf-listeners.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3024,7 +2689,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_data" c:identifier="gconf_listeners_get_data">
-        <source-position filename="gconf-listeners.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3047,7 +2711,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="notify" c:identifier="gconf_listeners_notify">
-        <source-position filename="gconf-listeners.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3070,7 +2733,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="remove" c:identifier="gconf_listeners_remove">
-        <source-position filename="gconf-listeners.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3084,7 +2746,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="remove_if" c:identifier="gconf_listeners_remove_if">
-        <source-position filename="gconf-listeners.h" line="93"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3106,7 +2767,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       <function name="new"
                 c:identifier="gconf_listeners_new"
                 introspectable="0">
-        <source-position filename="gconf-listeners.h" line="64"/>
         <return-value>
           <type name="Listeners" c:type="GConfListeners*"/>
         </return-value>
@@ -3115,7 +2775,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
     <callback name="ListenersCallback"
               c:type="GConfListenersCallback"
               introspectable="0">
-      <source-position filename="gconf-listeners.h" line="48"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3145,7 +2804,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </parameters>
     </callback>
     <callback name="ListenersForeach" c:type="GConfListenersForeach">
-      <source-position filename="gconf-listeners.h" line="54"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3172,7 +2830,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </parameters>
     </callback>
     <callback name="ListenersPredicate" c:type="GConfListenersPredicate">
-      <source-position filename="gconf-listeners.h" line="59"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -3199,7 +2856,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </parameters>
     </callback>
     <record name="MetaInfo" c:type="GConfMetaInfo" introspectable="0">
-      <source-position filename="gconf-value.h" line="140"/>
       <field name="schema" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
@@ -3210,7 +2866,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         <type name="GLib.Time" c:type="GTime"/>
       </field>
       <method name="free" c:identifier="gconf_meta_info_free">
-        <source-position filename="gconf-value.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3221,7 +2876,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_mod_user" c:identifier="gconf_meta_info_get_mod_user">
-        <source-position filename="gconf-value.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3232,7 +2886,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_schema" c:identifier="gconf_meta_info_get_schema">
-        <source-position filename="gconf-value.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3243,7 +2896,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="mod_time" c:identifier="gconf_meta_info_mod_time">
-        <source-position filename="gconf-value.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="GLib.Time" c:type="GTime"/>
         </return-value>
@@ -3254,7 +2906,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_mod_time" c:identifier="gconf_meta_info_set_mod_time">
-        <source-position filename="gconf-value.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3268,7 +2919,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_mod_user" c:identifier="gconf_meta_info_set_mod_user">
-        <source-position filename="gconf-value.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3282,7 +2932,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_schema" c:identifier="gconf_meta_info_set_schema">
-        <source-position filename="gconf-value.h" line="148"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3298,14 +2947,12 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       <function name="new"
                 c:identifier="gconf_meta_info_new"
                 introspectable="0">
-        <source-position filename="gconf-value.h" line="146"/>
         <return-value>
           <type name="MetaInfo" c:type="GConfMetaInfo*"/>
         </return-value>
       </function>
     </record>
     <callback name="NotifyFunc" c:type="GConfNotifyFunc" introspectable="0">
-      <source-position filename="gconf.h" line="32"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3331,14 +2978,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
     <record name="Schema"
             c:type="GConfSchema"
             disguised="1"
-            opaque="1"
             introspectable="0">
-      <doc xml:space="preserve"
-           filename="gconf-schema.h"
-           line="31">An opaque data type representing a description of a key-value pair.</doc>
-      <source-position filename="gconf-value.h" line="55"/>
+      <doc xml:space="preserve">An opaque data type representing a description of a key-value pair.</doc>
       <method name="copy" c:identifier="gconf_schema_copy" introspectable="0">
-        <source-position filename="gconf-schema.h" line="46"/>
         <return-value>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
@@ -3349,7 +2991,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="free" c:identifier="gconf_schema_free">
-        <source-position filename="gconf-schema.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3360,7 +3001,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_car_type" c:identifier="gconf_schema_get_car_type">
-        <source-position filename="gconf-schema.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
@@ -3371,7 +3011,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_cdr_type" c:identifier="gconf_schema_get_cdr_type">
-        <source-position filename="gconf-schema.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
@@ -3383,7 +3022,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </method>
       <method name="get_default_value"
               c:identifier="gconf_schema_get_default_value">
-        <source-position filename="gconf-schema.h" line="81"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -3393,20 +3031,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_gettext_domain"
-              c:identifier="gconf_schema_get_gettext_domain">
-        <source-position filename="gconf-schema.h" line="77"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="schema" transfer-ownership="none">
-            <type name="Schema" c:type="const GConfSchema*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="get_list_type" c:identifier="gconf_schema_get_list_type">
-        <source-position filename="gconf-schema.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
@@ -3417,7 +3042,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_locale" c:identifier="gconf_schema_get_locale">
-        <source-position filename="gconf-schema.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3428,7 +3052,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_long_desc" c:identifier="gconf_schema_get_long_desc">
-        <source-position filename="gconf-schema.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3439,7 +3062,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_owner" c:identifier="gconf_schema_get_owner">
-        <source-position filename="gconf-schema.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3450,7 +3072,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_short_desc" c:identifier="gconf_schema_get_short_desc">
-        <source-position filename="gconf-schema.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3461,7 +3082,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_type" c:identifier="gconf_schema_get_type">
-        <source-position filename="gconf-schema.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
@@ -3472,7 +3092,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_car_type" c:identifier="gconf_schema_set_car_type">
-        <source-position filename="gconf-schema.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3486,7 +3105,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_cdr_type" c:identifier="gconf_schema_set_cdr_type">
-        <source-position filename="gconf-schema.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3501,7 +3119,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </method>
       <method name="set_default_value"
               c:identifier="gconf_schema_set_default_value">
-        <source-position filename="gconf-schema.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3516,7 +3133,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </method>
       <method name="set_default_value_nocopy"
               c:identifier="gconf_schema_set_default_value_nocopy">
-        <source-position filename="gconf-schema.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3529,23 +3145,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           </parameter>
         </parameters>
       </method>
-      <method name="set_gettext_domain"
-              c:identifier="gconf_schema_set_gettext_domain">
-        <source-position filename="gconf-schema.h" line="58"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="sc" transfer-ownership="none">
-            <type name="Schema" c:type="GConfSchema*"/>
-          </instance-parameter>
-          <parameter name="domain" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="set_list_type" c:identifier="gconf_schema_set_list_type">
-        <source-position filename="gconf-schema.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3559,7 +3159,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_locale" c:identifier="gconf_schema_set_locale">
-        <source-position filename="gconf-schema.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3573,7 +3172,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_long_desc" c:identifier="gconf_schema_set_long_desc">
-        <source-position filename="gconf-schema.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3587,7 +3185,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_owner" c:identifier="gconf_schema_set_owner">
-        <source-position filename="gconf-schema.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3601,7 +3198,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_short_desc" c:identifier="gconf_schema_set_short_desc">
-        <source-position filename="gconf-schema.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3615,7 +3211,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="set_type" c:identifier="gconf_schema_set_type">
-        <source-position filename="gconf-schema.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3629,7 +3224,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <function name="new" c:identifier="gconf_schema_new" introspectable="0">
-        <source-position filename="gconf-schema.h" line="44"/>
         <return-value>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
@@ -3642,30 +3236,18 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       <member name="names"
               value="1"
               c:identifier="GCONF_UNSET_INCLUDING_SCHEMA_NAMES"
-              glib:nick="names"
-              glib:name="GCONF_UNSET_INCLUDING_SCHEMA_NAMES">
+              glib:nick="names">
       </member>
     </bitfield>
-    <function-macro name="VALUE_TYPE_VALID"
-                    c:identifier="GCONF_VALUE_TYPE_VALID"
-                    introspectable="0">
-      <source-position filename="gconf-value.h" line="52"/>
-      <parameters>
-        <parameter name="x">
-        </parameter>
-      </parameters>
-    </function-macro>
     <record name="Value"
             c:type="GConfValue"
             glib:type-name="GConfValue"
             glib:get-type="gconf_value_get_type"
             c:symbol-prefix="value">
-      <source-position filename="gconf-value.h" line="61"/>
       <field name="type" writable="1">
         <type name="ValueType" c:type="GConfValueType"/>
       </field>
       <constructor name="new" c:identifier="gconf_value_new">
-        <source-position filename="gconf-value.h" line="73"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -3678,7 +3260,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       <constructor name="new_from_string"
                    c:identifier="gconf_value_new_from_string"
                    throws="1">
-        <source-position filename="gconf-value.h" line="76"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -3692,7 +3273,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </constructor>
       <method name="compare" c:identifier="gconf_value_compare">
-        <source-position filename="gconf-value.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -3706,7 +3286,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="copy" c:identifier="gconf_value_copy">
-        <source-position filename="gconf-value.h" line="81"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -3717,7 +3296,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="encode" c:identifier="gconf_value_encode">
-        <source-position filename="gconf-value.h" line="118"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -3728,7 +3306,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="free" c:identifier="gconf_value_free">
-        <source-position filename="gconf-value.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3739,7 +3316,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_bool" c:identifier="gconf_value_get_bool">
-        <source-position filename="gconf-value.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3750,7 +3326,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_car" c:identifier="gconf_value_get_car">
-        <source-position filename="gconf-value.h" line="68"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -3761,7 +3336,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_cdr" c:identifier="gconf_value_get_cdr">
-        <source-position filename="gconf-value.h" line="69"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -3772,7 +3346,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_float" c:identifier="gconf_value_get_float">
-        <source-position filename="gconf-value.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="gdouble" c:type="double"/>
         </return-value>
@@ -3783,7 +3356,6 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_int" c:identifier="gconf_value_get_int">
-        <source-position filename="gconf-value.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -3794,33 +3366,25 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         </parameters>
       </method>
       <method name="get_list" c:identifier="gconf_value_get_list">
-        <doc xml:space="preserve"
-             filename="gconf-value.c"
-             line="898">Returns a #GSList containing #GConfValue objects. Each #GConfValue in
+        <doc xml:space="preserve">Returns a #GSList containing #GConfValue objects. Each #GConfValue in
 the returned list will have the type returned by
 gconf_value_get_list_type(). Remember that the empty #GSList is equal to
 &lt;symbol&gt;NULL&lt;/symbol&gt;.  The list is not a copy; it is "owned" by the
 #GConfValue and will be destroyed when the #GConfValue is destroyed.</doc>
-        <source-position filename="gconf-value.h" line="67"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gconf-value.c"
-               line="908">a #GList.</doc>
+          <doc xml:space="preserve">a #GList.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Value"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gconf-value.c"
-                 line="900">a #GConfValue.</doc>
+            <doc xml:space="preserve">a #GConfValue.</doc>
             <type name="Value" c:type="const GConfValue*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_list_type" c:identifier="gconf_value_get_list_type">
-        <source-position filename="gconf-value.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
@@ -3833,7 +3397,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <method name="get_schema"
               c:identifier="gconf_value_get_schema"
               introspectable="0">
-        <source-position filename="gconf-value.h" line="71"/>
         <return-value>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
@@ -3844,7 +3407,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="get_string" c:identifier="gconf_value_get_string">
-        <source-position filename="gconf-value.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -3855,7 +3417,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_bool" c:identifier="gconf_value_set_bool">
-        <source-position filename="gconf-value.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3869,7 +3430,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_car" c:identifier="gconf_value_set_car">
-        <source-position filename="gconf-value.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3883,7 +3443,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_car_nocopy" c:identifier="gconf_value_set_car_nocopy">
-        <source-position filename="gconf-value.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3897,7 +3456,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_cdr" c:identifier="gconf_value_set_cdr">
-        <source-position filename="gconf-value.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3911,7 +3469,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_cdr_nocopy" c:identifier="gconf_value_set_cdr_nocopy">
-        <source-position filename="gconf-value.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3925,7 +3482,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_float" c:identifier="gconf_value_set_float">
-        <source-position filename="gconf-value.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3939,7 +3495,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_int" c:identifier="gconf_value_set_int">
-        <source-position filename="gconf-value.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3955,7 +3510,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <method name="set_list"
               c:identifier="gconf_value_set_list"
               introspectable="0">
-        <source-position filename="gconf-value.h" line="109"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3973,7 +3527,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <method name="set_list_nocopy"
               c:identifier="gconf_value_set_list_nocopy"
               introspectable="0">
-        <source-position filename="gconf-value.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3989,7 +3542,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_list_type" c:identifier="gconf_value_set_list_type">
-        <source-position filename="gconf-value.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4005,7 +3557,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <method name="set_schema"
               c:identifier="gconf_value_set_schema"
               introspectable="0">
-        <source-position filename="gconf-value.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4021,7 +3572,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <method name="set_schema_nocopy"
               c:identifier="gconf_value_set_schema_nocopy"
               introspectable="0">
-        <source-position filename="gconf-value.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4035,7 +3585,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="set_string" c:identifier="gconf_value_set_string">
-        <source-position filename="gconf-value.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4049,7 +3598,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <method name="to_string" c:identifier="gconf_value_to_string">
-        <source-position filename="gconf-value.h" line="112"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4060,7 +3608,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </parameters>
       </method>
       <function name="decode" c:identifier="gconf_value_decode">
-        <source-position filename="gconf-value.h" line="117"/>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
@@ -4078,57 +3625,48 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <member name="invalid"
               value="0"
               c:identifier="GCONF_VALUE_INVALID"
-              glib:nick="invalid"
-              glib:name="GCONF_VALUE_INVALID">
+              glib:nick="invalid">
       </member>
       <member name="string"
               value="1"
               c:identifier="GCONF_VALUE_STRING"
-              glib:nick="string"
-              glib:name="GCONF_VALUE_STRING">
+              glib:nick="string">
       </member>
       <member name="int"
               value="2"
               c:identifier="GCONF_VALUE_INT"
-              glib:nick="int"
-              glib:name="GCONF_VALUE_INT">
+              glib:nick="int">
       </member>
       <member name="float"
               value="3"
               c:identifier="GCONF_VALUE_FLOAT"
-              glib:nick="float"
-              glib:name="GCONF_VALUE_FLOAT">
+              glib:nick="float">
       </member>
       <member name="bool"
               value="4"
               c:identifier="GCONF_VALUE_BOOL"
-              glib:nick="bool"
-              glib:name="GCONF_VALUE_BOOL">
+              glib:nick="bool">
       </member>
       <member name="schema"
               value="5"
               c:identifier="GCONF_VALUE_SCHEMA"
-              glib:nick="schema"
-              glib:name="GCONF_VALUE_SCHEMA">
+              glib:nick="schema">
       </member>
       <member name="list"
               value="6"
               c:identifier="GCONF_VALUE_LIST"
-              glib:nick="list"
-              glib:name="GCONF_VALUE_LIST">
+              glib:nick="list">
       </member>
       <member name="pair"
               value="7"
               c:identifier="GCONF_VALUE_PAIR"
-              glib:nick="pair"
-              glib:name="GCONF_VALUE_PAIR">
+              glib:nick="pair">
       </member>
     </enumeration>
     <function name="clear_cache"
               c:identifier="gconf_clear_cache"
               introspectable="0"
               throws="1">
-      <source-position filename="gconf.h" line="292"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -4140,7 +3678,6 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
     </function>
     <function name="concat_dir_and_key"
               c:identifier="gconf_concat_dir_and_key">
-      <source-position filename="gconf.h" line="131"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -4154,11 +3691,8 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       </parameters>
     </function>
     <function name="debug_shutdown" c:identifier="gconf_debug_shutdown">
-      <doc xml:space="preserve"
-           filename="gconf-dbus.c"
-           line="2408">Detach from the config server and release
+      <doc xml:space="preserve">Detach from the config server and release
 all related resources</doc>
-      <source-position filename="gconf.h" line="261"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -4167,20 +3701,15 @@ all related resources</doc>
               c:identifier="gconf_engine_get_default"
               moved-to="Engine.get_default"
               introspectable="0">
-      <doc xml:space="preserve"
-           filename="gconf.c"
-           line="567">Returns the default #GConfEngine. All clients should use this, unless
+      <doc xml:space="preserve">Returns the default #GConfEngine. All clients should use this, unless
 they are special configuration-related tools. The caller of this
 function assumes one reference count, and must call
 gconf_engine_unref() at some point. It's fairly important to unref the
 #GConfEngine, to cleanly close the connection to
 &lt;application&gt;gconfd&lt;/application&gt;. So if possible close the connection
 before exiting your application.</doc>
-      <source-position filename="gconf-engine.h" line="40"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="578">the default #GConfEngine.</doc>
+        <doc xml:space="preserve">the default #GConfEngine.</doc>
         <type name="Engine" c:type="GConfEngine*"/>
       </return-value>
     </function>
@@ -4189,7 +3718,6 @@ before exiting your application.</doc>
               moved-to="Engine.get_for_address"
               introspectable="0"
               throws="1">
-      <source-position filename="gconf-engine.h" line="42"/>
       <return-value>
         <type name="Engine" c:type="GConfEngine*"/>
       </return-value>
@@ -4204,7 +3732,6 @@ before exiting your application.</doc>
               moved-to="Engine.get_for_addresses"
               introspectable="0"
               throws="1">
-      <source-position filename="gconf-engine.h" line="44"/>
       <return-value>
         <type name="Engine" c:type="GConfEngine*"/>
       </return-value>
@@ -4221,7 +3748,6 @@ before exiting your application.</doc>
               moved-to="Engine.get_local"
               introspectable="0"
               throws="1">
-      <source-position filename="gconf-engine.h" line="50"/>
       <return-value>
         <type name="Engine" c:type="GConfEngine*"/>
       </return-value>
@@ -4236,7 +3762,6 @@ before exiting your application.</doc>
               moved-to="Engine.get_local_for_addresses"
               introspectable="0"
               throws="1">
-      <source-position filename="gconf-engine.h" line="52"/>
       <return-value>
         <type name="Engine" c:type="GConfEngine*"/>
       </return-value>
@@ -4249,13 +3774,12 @@ before exiting your application.</doc>
       </parameters>
     </function>
     <function name="enum_to_string" c:identifier="gconf_enum_to_string">
-      <source-position filename="gconf.h" line="258"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="lookup_table" transfer-ownership="none">
-          <type name="EnumStringPair" c:type="GConfEnumStringPair*"/>
+          <type name="EnumStringPair" c:type="GConfEnumStringPair"/>
         </parameter>
         <parameter name="enum_value" transfer-ownership="none">
           <type name="gint" c:type="gint"/>
@@ -4270,37 +3794,27 @@ before exiting your application.</doc>
       </return-value>
     </function>
     <function name="escape_key" c:identifier="gconf_escape_key">
-      <doc xml:space="preserve"
-           filename="gconf.c"
-           line="2786">Escape @arbitrary_text such that it's a valid key element (i.e. one
+      <doc xml:space="preserve">Escape @arbitrary_text such that it's a valid key element (i.e. one
 part of the key path). The escaped key won't pass gconf_valid_key()
 because it isn't a whole key (i.e. it doesn't have a preceding
 slash), but prepending a slash to the escaped text should always
 result in a valid key.</doc>
-      <source-position filename="gconf.h" line="141"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="2797">a nul-terminated valid GConf key</doc>
+        <doc xml:space="preserve">a nul-terminated valid GConf key</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="arbitrary_text" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="2788">some text in any encoding or format</doc>
+          <doc xml:space="preserve">some text in any encoding or format</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="len" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="2789">length of @arbitrary_text in bytes, or -1 if @arbitrary_text is nul-terminated</doc>
+          <doc xml:space="preserve">length of @arbitrary_text in bytes, or -1 if @arbitrary_text is nul-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
     <function name="init" c:identifier="gconf_init" throws="1">
-      <source-position filename="gconf.h" line="264"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -4314,13 +3828,11 @@ result in a valid key.</doc>
       </parameters>
     </function>
     <function name="is_initialized" c:identifier="gconf_is_initialized">
-      <source-position filename="gconf.h" line="265"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
     <function name="key_is_below" c:identifier="gconf_key_is_below">
-      <source-position filename="gconf.h" line="126"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -4337,7 +3849,6 @@ result in a valid key.</doc>
               c:identifier="gconf_listeners_new"
               moved-to="Listeners.new"
               introspectable="0">
-      <source-position filename="gconf-listeners.h" line="64"/>
       <return-value>
         <type name="Listeners" c:type="GConfListeners*"/>
       </return-value>
@@ -4346,13 +3857,11 @@ result in a valid key.</doc>
               c:identifier="gconf_meta_info_new"
               moved-to="MetaInfo.new"
               introspectable="0">
-      <source-position filename="gconf-value.h" line="146"/>
       <return-value>
         <type name="MetaInfo" c:type="GConfMetaInfo*"/>
       </return-value>
     </function>
     <function name="postinit" c:identifier="gconf_postinit">
-      <source-position filename="gconf.h" line="278"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -4372,7 +3881,6 @@ result in a valid key.</doc>
       </parameters>
     </function>
     <function name="preinit" c:identifier="gconf_preinit">
-      <source-position filename="gconf.h" line="277"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -4395,19 +3903,17 @@ result in a valid key.</doc>
               c:identifier="gconf_schema_new"
               moved-to="Schema.new"
               introspectable="0">
-      <source-position filename="gconf-schema.h" line="44"/>
       <return-value>
         <type name="Schema" c:type="GConfSchema*"/>
       </return-value>
     </function>
     <function name="string_to_enum" c:identifier="gconf_string_to_enum">
-      <source-position filename="gconf.h" line="255"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="lookup_table" transfer-ownership="none">
-          <type name="EnumStringPair" c:type="GConfEnumStringPair*"/>
+          <type name="EnumStringPair" c:type="GConfEnumStringPair"/>
         </parameter>
         <parameter name="str" transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -4421,7 +3927,6 @@ result in a valid key.</doc>
               c:identifier="gconf_synchronous_sync"
               introspectable="0"
               throws="1">
-      <source-position filename="gconf.h" line="293"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -4432,40 +3937,29 @@ result in a valid key.</doc>
       </parameters>
     </function>
     <function name="unescape_key" c:identifier="gconf_unescape_key">
-      <doc xml:space="preserve"
-           filename="gconf.c"
-           line="2839">Converts a string escaped with gconf_escape_key() back into its original
+      <doc xml:space="preserve">Converts a string escaped with gconf_escape_key() back into its original
 form.</doc>
-      <source-position filename="gconf.h" line="143"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve"
-             filename="gconf.c"
-             line="2847">the original string that was escaped to create @escaped_key</doc>
+        <doc xml:space="preserve">the original string that was escaped to create @escaped_key</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="escaped_key" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="2841">a key created with gconf_escape_key()</doc>
+          <doc xml:space="preserve">a key created with gconf_escape_key()</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="len" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gconf.c"
-               line="2842">length of @escaped_key in bytes, or -1 if @escaped_key is nul-terminated</doc>
+          <doc xml:space="preserve">length of @escaped_key in bytes, or -1 if @escaped_key is nul-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
     <function name="unique_key" c:identifier="gconf_unique_key">
-      <source-position filename="gconf.h" line="138"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>
     </function>
     <function name="valid_key" c:identifier="gconf_valid_key">
-      <source-position filename="gconf.h" line="121"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -4481,7 +3975,6 @@ form.</doc>
     <function name="value_decode"
               c:identifier="gconf_value_decode"
               moved-to="Value.decode">
-      <source-position filename="gconf-value.h" line="117"/>
       <return-value transfer-ownership="full">
         <type name="Value" c:type="GConfValue*"/>
       </return-value>

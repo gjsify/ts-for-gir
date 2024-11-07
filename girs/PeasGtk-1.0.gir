@@ -137,9 +137,6 @@ This method should always return a valid [class@Gtk.Widget] instance, never %NUL
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="create_configure_widget">
-        <doc xml:space="preserve"
-             filename="libpeas-gtk/peas-gtk-configurable.h"
-             line="50">Creates the configure widget for the plugin.</doc>
         <callback name="create_configure_widget">
           <source-position filename="libpeas-gtk/peas-gtk-configurable.h"
                            line="58"/>
@@ -432,10 +429,6 @@ If @engine is %NULL, then the default engine will be used.</doc>
         </parameters>
       </constructor>
       <virtual-method name="populate_popup">
-        <doc xml:space="preserve"
-             filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
-             line="63">Signal class handler for the
-                 #PeasGtkPluginManagerView::populate-popup signal.</doc>
         <source-position filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
                          line="71"/>
         <return-value transfer-ownership="none">
@@ -614,10 +607,6 @@ connect to this signal and add your menuitems to the @menu.</doc>
         <type name="Gtk.TreeViewClass" c:type="GtkTreeViewClass"/>
       </field>
       <field name="populate_popup">
-        <doc xml:space="preserve"
-             filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
-             line="63">Signal class handler for the
-                 #PeasGtkPluginManagerView::populate-popup signal.</doc>
         <callback name="populate_popup">
           <source-position filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
                            line="71"/>

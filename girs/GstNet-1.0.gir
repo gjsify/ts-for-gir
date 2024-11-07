@@ -781,25 +781,25 @@ automatically select one based on the MAC address of interfaces</doc>
     <constant name="PTP_STATISTICS_BEST_MASTER_CLOCK_SELECTED"
               value="GstPtpStatisticsBestMasterClockSelected"
               c:type="GST_PTP_STATISTICS_BEST_MASTER_CLOCK_SELECTED">
-      <source-position filename="libs/gst/net/gstptpclock.h" line="98"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="94"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PTP_STATISTICS_NEW_DOMAIN_FOUND"
               value="GstPtpStatisticsNewDomainFound"
               c:type="GST_PTP_STATISTICS_NEW_DOMAIN_FOUND">
-      <source-position filename="libs/gst/net/gstptpclock.h" line="97"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="93"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PTP_STATISTICS_PATH_DELAY_MEASURED"
               value="GstPtpStatisticsPathDelayMeasured"
               c:type="GST_PTP_STATISTICS_PATH_DELAY_MEASURED">
-      <source-position filename="libs/gst/net/gstptpclock.h" line="99"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="95"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PTP_STATISTICS_TIME_UPDATED"
               value="GstPtpStatisticsTimeUpdated"
               c:type="GST_PTP_STATISTICS_TIME_UPDATED">
-      <source-position filename="libs/gst/net/gstptpclock.h" line="100"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="96"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <class name="PtpClock"
@@ -837,7 +837,7 @@ synchronization.</doc>
       <constructor name="new" c:identifier="gst_ptp_clock_new" version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstptpclock.c"
-             line="3293">Creates a new PTP clock instance that exports the PTP time of the master
+             line="3027">Creates a new PTP clock instance that exports the PTP time of the master
 clock in @domain. This clock can be slaved to other clocks as needed.
 
 If gst_ptp_init() was not called before, this will call gst_ptp_init() with
@@ -848,24 +848,24 @@ times from the PTP master clock on the network. Once this happens the
 GstPtpClock::internal-clock property will become non-NULL. You can
 check this with gst_clock_wait_for_sync(), the GstClock::synced signal and
 gst_clock_is_synced().</doc>
-        <source-position filename="libs/gst/net/gstptpclock.h" line="157"/>
+        <source-position filename="libs/gst/net/gstptpclock.h" line="153"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="3310">A new #GstClock</doc>
+               line="3044">A new #GstClock</doc>
           <type name="Gst.Clock" c:type="GstClock*"/>
         </return-value>
         <parameters>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstptpclock.c"
-                 line="3295">Name of the clock</doc>
+                 line="3029">Name of the clock</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="domain" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstptpclock.c"
-                 line="3296">PTP domain</doc>
+                 line="3030">PTP domain</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -930,7 +930,7 @@ gst_clock_is_synced().</doc>
     <callback name="PtpStatisticsCallback" c:type="GstPtpStatisticsCallback">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.h"
-           line="103">The statistics can be the following structures:
+           line="99">The statistics can be the following structures:
 
 GST_PTP_STATISTICS_NEW_DOMAIN_FOUND:
 "domain"                G_TYPE_UINT          The domain identifier of the domain
@@ -966,7 +966,7 @@ GST_PTP_STATISTICS_TIME_UPDATED:
 "rate"                  G_TYPE_DOUBLE        Internal/external rate
 
 If %FALSE is returned, the callback is removed and never called again.</doc>
-      <source-position filename="libs/gst/net/gstptpclock.h" line="147"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="143"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -974,13 +974,13 @@ If %FALSE is returned, the callback is removed and never called again.</doc>
         <parameter name="domain" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.h"
-               line="105">PTP domain identifier</doc>
+               line="101">PTP domain identifier</doc>
           <type name="guint8" c:type="guint8"/>
         </parameter>
         <parameter name="stats" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.h"
-               line="106">New statistics</doc>
+               line="102">New statistics</doc>
           <type name="Gst.Structure" c:type="const GstStructure*"/>
         </parameter>
         <parameter name="user_data"
@@ -990,7 +990,7 @@ If %FALSE is returned, the callback is removed and never called again.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.h"
-               line="107">Data passed to gst_ptp_statistics_callback_add()</doc>
+               line="103">Data passed to gst_ptp_statistics_callback_add()</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -1188,10 +1188,10 @@ calls, but otherwise returns NULL on error.</doc>
     <function name="ptp_deinit" c:identifier="gst_ptp_deinit" version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.c"
-           line="2992">Deinitialize the GStreamer PTP subsystem and stop the PTP clock. If there
+           line="2727">Deinitialize the GStreamer PTP subsystem and stop the PTP clock. If there
 are any remaining GstPtpClock instances, they won't be further synchronized
 to the PTP network clock.</doc>
-      <source-position filename="libs/gst/net/gstptpclock.h" line="96"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="92"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1199,7 +1199,7 @@ to the PTP network clock.</doc>
     <function name="ptp_init" c:identifier="gst_ptp_init" version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.c"
-           line="2958">Initialize the GStreamer PTP subsystem and create a PTP ordinary clock in
+           line="2482">Initialize the GStreamer PTP subsystem and create a PTP ordinary clock in
 slave-only mode for all domains on the given @interfaces with the
 given @clock_id.
 
@@ -1212,14 +1212,14 @@ parameters if it wasn't called before.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstptpclock.c"
-             line="2973">%TRUE if the GStreamer PTP clock subsystem could be initialized.</doc>
+             line="2497">%TRUE if the GStreamer PTP clock subsystem could be initialized.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="clock_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="2960">PTP clock id of this process' clock or %GST_PTP_CLOCK_ID_NONE</doc>
+               line="2484">PTP clock id of this process' clock or %GST_PTP_CLOCK_ID_NONE</doc>
           <type name="guint64" c:type="guint64"/>
         </parameter>
         <parameter name="interfaces"
@@ -1228,46 +1228,10 @@ parameters if it wasn't called before.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="2961">network interfaces to run the clock on</doc>
+               line="2485">network interfaces to run the clock on</doc>
           <array c:type="gchar**">
             <type name="utf8" c:type="gchar*"/>
           </array>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="ptp_init_full"
-              c:identifier="gst_ptp_init_full"
-              version="1.24">
-      <doc xml:space="preserve"
-           filename="libs/gst/net/gstptpclock.c"
-           line="2694">Initialize the GStreamer PTP subsystem and create a PTP ordinary clock in
-slave-only mode according to the @config.
-
-@config is a #GstStructure with the following optional fields:
-* #guint64 `clock-id`: The clock ID to use for the local clock. If the
-    clock-id is not provided or %GST_PTP_CLOCK_ID_NONE is provided, a clock
-    id is automatically generated from the MAC address of the first network
-    interface.
-* #GStrv `interfaces`: The interface names to listen on for PTP packets. If
-    none are provided then all compatible interfaces will be used.
-* #guint `ttl`: The TTL to use for multicast packets sent out by GStreamer.
-    This defaults to 1, i.e. packets will not leave the local network.
-
-This function is automatically called by gst_ptp_clock_new() with default
-parameters if it wasn't called before.</doc>
-      <source-position filename="libs/gst/net/gstptpclock.h" line="93"/>
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="libs/gst/net/gstptpclock.c"
-             line="2714">%TRUE if the GStreamer PTP clock subsystem could be initialized.</doc>
-        <type name="gboolean" c:type="gboolean"/>
-      </return-value>
-      <parameters>
-        <parameter name="config" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libs/gst/net/gstptpclock.c"
-               line="2696">Configuration for initializing the GStreamer PTP subsystem</doc>
-          <type name="Gst.Structure" c:type="const GstStructure*"/>
         </parameter>
       </parameters>
     </function>
@@ -1276,12 +1240,12 @@ parameters if it wasn't called before.</doc>
               version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.c"
-           line="2520">Check if the GStreamer PTP clock subsystem is initialized.</doc>
+           line="2327">Check if the GStreamer PTP clock subsystem is initialized.</doc>
       <source-position filename="libs/gst/net/gstptpclock.h" line="86"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstptpclock.c"
-             line="2525">%TRUE if the GStreamer PTP clock subsystem is initialized.</doc>
+             line="2332">%TRUE if the GStreamer PTP clock subsystem is initialized.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -1290,13 +1254,13 @@ parameters if it wasn't called before.</doc>
               version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.c"
-           line="2503">Check if PTP clocks are generally supported on this system, and if previous
+           line="2310">Check if PTP clocks are generally supported on this system, and if previous
 initializations did not fail.</doc>
       <source-position filename="libs/gst/net/gstptpclock.h" line="83"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstptpclock.c"
-             line="2509">%TRUE if PTP clocks are generally supported on this system, and
+             line="2316">%TRUE if PTP clocks are generally supported on this system, and
 previous initializations did not fail.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1306,13 +1270,13 @@ previous initializations did not fail.</doc>
               version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.c"
-           line="3361">Installs a new statistics callback for gathering PTP statistics. See
+           line="3095">Installs a new statistics callback for gathering PTP statistics. See
 GstPtpStatisticsCallback for a list of statistics that are provided.</doc>
-      <source-position filename="libs/gst/net/gstptpclock.h" line="151"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="147"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstptpclock.c"
-             line="3370">Id for the callback that can be passed to
+             line="3104">Id for the callback that can be passed to
 gst_ptp_statistics_callback_remove()</doc>
         <type name="gulong" c:type="gulong"/>
       </return-value>
@@ -1324,7 +1288,7 @@ gst_ptp_statistics_callback_remove()</doc>
                    destroy="2">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="3363">GstPtpStatisticsCallback to call</doc>
+               line="3097">GstPtpStatisticsCallback to call</doc>
           <type name="PtpStatisticsCallback"
                 c:type="GstPtpStatisticsCallback"/>
         </parameter>
@@ -1334,13 +1298,13 @@ gst_ptp_statistics_callback_remove()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="3364">Data to pass to the callback</doc>
+               line="3098">Data to pass to the callback</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="destroy_data" transfer-ownership="none" scope="async">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="3365">GDestroyNotify to destroy the data</doc>
+               line="3099">GDestroyNotify to destroy the data</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
       </parameters>
@@ -1350,9 +1314,9 @@ gst_ptp_statistics_callback_remove()</doc>
               version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/net/gstptpclock.c"
-           line="3400">Removes a PTP statistics callback that was previously added with
+           line="3134">Removes a PTP statistics callback that was previously added with
 gst_ptp_statistics_callback_add().</doc>
-      <source-position filename="libs/gst/net/gstptpclock.h" line="154"/>
+      <source-position filename="libs/gst/net/gstptpclock.h" line="150"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1360,7 +1324,7 @@ gst_ptp_statistics_callback_add().</doc>
         <parameter name="id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstptpclock.c"
-               line="3402">Callback id to remove</doc>
+               line="3136">Callback id to remove</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
       </parameters>

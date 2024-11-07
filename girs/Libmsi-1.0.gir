@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="libmsi.h"/>
   <namespace name="Libmsi"
              version="1.0"
-             shared-library="libmsi-1.0.so.0"
+             shared-library="libmsi.so.0"
              c:identifier-prefixes="Libmsi"
              c:symbol-prefixes="libmsi">
     <enumeration name="ColInfo"

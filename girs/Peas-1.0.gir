@@ -207,9 +207,6 @@ at construction time and won't change.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="activate">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-activatable.h"
-             line="51">Activates the plugin.</doc>
         <callback name="activate">
           <source-position filename="libpeas/peas-activatable.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -226,9 +223,6 @@ at construction time and won't change.</doc>
         </callback>
       </field>
       <field name="deactivate">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-activatable.h"
-             line="52">Deactivates the plugin.</doc>
         <callback name="deactivate">
           <source-position filename="libpeas/peas-activatable.h" line="63"/>
           <return-value transfer-ownership="none">
@@ -245,10 +239,6 @@ at construction time and won't change.</doc>
         </callback>
       </field>
       <field name="update_state">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-activatable.h"
-             line="53">Updates the plugin's internal state to take account of
- a change in the target object's state.</doc>
         <callback name="update_state">
           <source-position filename="libpeas/peas-activatable.h" line="64"/>
           <return-value transfer-ownership="none">
@@ -450,9 +440,6 @@ Note: this function should never be used when multiple threads are
         </return-value>
       </function>
       <virtual-method name="load_plugin">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-engine.h"
-             line="60">Signal class handler for the #PeasEngine::load-plugin signal.</doc>
         <source-position filename="libpeas/peas-engine.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -467,9 +454,6 @@ Note: this function should never be used when multiple threads are
         </parameters>
       </virtual-method>
       <virtual-method name="unload_plugin">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-engine.h"
-             line="61">Signal class handler for the #PeasEngine::unload-plugin signal.</doc>
         <source-position filename="libpeas/peas-engine.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1230,9 +1214,6 @@ use [func@GObject.signal_connect_after].</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="load_plugin">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-engine.h"
-             line="60">Signal class handler for the #PeasEngine::load-plugin signal.</doc>
         <callback name="load_plugin">
           <source-position filename="libpeas/peas-engine.h" line="68"/>
           <return-value transfer-ownership="none">
@@ -1249,9 +1230,6 @@ use [func@GObject.signal_connect_after].</doc>
         </callback>
       </field>
       <field name="unload_plugin">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-engine.h"
-             line="61">Signal class handler for the #PeasEngine::unload-plugin signal.</doc>
         <callback name="unload_plugin">
           <source-position filename="libpeas/peas-engine.h" line="71"/>
           <return-value transfer-ownership="none">
@@ -1631,9 +1609,6 @@ See [ctor@ExtensionSet.new] for more information.</doc>
         </parameters>
       </constructor>
       <virtual-method name="call">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-extension-set.h"
-             line="61">The VFunc for peas_extension_set_call().</doc>
         <source-position filename="libpeas/peas-extension-set.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1651,10 +1626,6 @@ See [ctor@ExtensionSet.new] for more information.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="extension_added">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-extension-set.h"
-             line="62">Signal class handler for the
-                  #PeasExtensionSet::extension-added signal.</doc>
         <source-position filename="libpeas/peas-extension-set.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1672,10 +1643,6 @@ See [ctor@ExtensionSet.new] for more information.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="extension_removed">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-extension-set.h"
-             line="64">Signal class handler for the
-                  #PeasExtensionSet::extension-removed signal.</doc>
         <source-position filename="libpeas/peas-extension-set.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1860,9 +1827,6 @@ instance is destroyed. You should clean those up by yourself.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="call">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-extension-set.h"
-             line="61">The VFunc for peas_extension_set_call().</doc>
         <callback name="call">
           <source-position filename="libpeas/peas-extension-set.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -1882,10 +1846,6 @@ instance is destroyed. You should clean those up by yourself.</doc>
         </callback>
       </field>
       <field name="extension_added">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-extension-set.h"
-             line="62">Signal class handler for the
-                  #PeasExtensionSet::extension-added signal.</doc>
         <callback name="extension_added">
           <source-position filename="libpeas/peas-extension-set.h" line="84"/>
           <return-value transfer-ownership="none">
@@ -1905,10 +1865,6 @@ instance is destroyed. You should clean those up by yourself.</doc>
         </callback>
       </field>
       <field name="extension_removed">
-        <doc xml:space="preserve"
-             filename="libpeas/peas-extension-set.h"
-             line="64">Signal class handler for the
-                  #PeasExtensionSet::extension-removed signal.</doc>
         <callback name="extension_removed">
           <source-position filename="libpeas/peas-extension-set.h" line="87"/>
           <return-value transfer-ownership="none">

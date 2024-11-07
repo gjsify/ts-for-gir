@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/glib-2-variant-example",
-  "version": "4.0.0-beta.16",
+  "version": "4.0.0-beta.18",
   "description": "ts-for-gir GVariant example based on https://gjs.guide/guides/glib/gvariant.html",
   "type": "module",
   "private": true,
@@ -18,8 +18,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.23.1",
-    "typescript": "^5.6.2"
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",

@@ -6,92 +6,27 @@ and/or use gtk-doc annotations.  -->
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
   <include name="Clutter" version="1.0"/>
+  <include name="Cogl" version="1.0"/>
+  <include name="CoglPango" version="1.0"/>
+  <include name="GL" version="1.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="PangoCairo" version="1.0"/>
+  <include name="PangoFT2" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <include name="fontconfig" version="2.0"/>
+  <include name="freetype2" version="2.0"/>
   <c:include name="mash/mash.h"/>
   <namespace name="Mash"
              version="0.2"
              shared-library="libmash-0.2.so.0"
              c:identifier-prefixes="Mash"
              c:symbol-prefixes="mash">
-    <function-macro name="DATA" c:identifier="MASH_DATA" introspectable="0">
-      <source-position filename="mash-data.h" line="31"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_CLASS"
-                    c:identifier="MASH_DATA_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-data.h" line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_GET_CLASS"
-                    c:identifier="MASH_DATA_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-data.h" line="45"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_LOADER"
-                    c:identifier="MASH_DATA_LOADER"
-                    introspectable="0">
-      <source-position filename="mash-data-loader.h" line="34"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_LOADER_CLASS"
-                    c:identifier="MASH_DATA_LOADER_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-data-loader.h" line="38"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_LOADER_GET_CLASS"
-                    c:identifier="MASH_DATA_LOADER_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-data-loader.h" line="48"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DIRECTIONAL_LIGHT"
-                    c:identifier="MASH_DIRECTIONAL_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-directional-light.h" line="31"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DIRECTIONAL_LIGHT_CLASS"
-                    c:identifier="MASH_DIRECTIONAL_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-directional-light.h" line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DIRECTIONAL_LIGHT_GET_CLASS"
-                    c:identifier="MASH_DIRECTIONAL_LIGHT_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-directional-light.h" line="45"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="Data"
            c:symbol-prefix="data"
            c:type="MashData"
@@ -99,21 +34,13 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="MashData"
            glib:get-type="mash_data_get_type"
            glib:type-struct="DataClass">
-      <doc xml:space="preserve"
-           filename="mash-data.h"
-           line="73">The #MashData structure contains only private data.</doc>
-      <source-position filename="mash-data.h" line="71"/>
+      <doc xml:whitespace="preserve">The #MashData structure contains only private data.</doc>
       <constructor name="new" c:identifier="mash_data_new">
-        <doc xml:space="preserve"
-             filename="mash-data.c"
-             line="105">Constructs a new #MashData instance. The object initially has
+        <doc xml:whitespace="preserve">Constructs a new #MashData instance. The object initially has
 no data so nothing will be drawn when mash_data_render() is
 called. To load data into the object, call mash_data_load().</doc>
-        <source-position filename="mash-data.h" line="147"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="mash-data.c"
-               line="112">a new #MashData.</doc>
+          <doc xml:whitespace="preserve">a new #MashData.</doc>
           <type name="Data" c:type="MashData*"/>
         </return-value>
       </constructor>
@@ -123,95 +50,56 @@ called. To load data into the object, call mash_data_load().</doc>
         </return-value>
       </function>
       <method name="get_extents" c:identifier="mash_data_get_extents">
-        <doc xml:space="preserve"
-             filename="mash-data.c"
-             line="220">Gets the bounding cuboid of the vertices in @self. The cuboid is
+        <doc xml:whitespace="preserve">Gets the bounding cuboid of the vertices in @self. The cuboid is
 represented by two vertices representing the minimum and maximum
 extents. The x, y and z components of @min_vertex will contain the
 minimum x, y and z values of all the vertices and @max_vertex will
 contain the maximum. The extents of the model are cached so it is
 cheap to call this function.</doc>
-        <source-position filename="mash-data.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="222">A #MashData instance</doc>
-            <type name="Data" c:type="MashData*"/>
-          </instance-parameter>
           <parameter name="min_vertex" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="223">A location to return the minimum vertex</doc>
+            <doc xml:whitespace="preserve">A location to return the minimum vertex</doc>
             <type name="Clutter.Vertex" c:type="ClutterVertex*"/>
           </parameter>
           <parameter name="max_vertex" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="224">A location to return the maximum vertex</doc>
+            <doc xml:whitespace="preserve">A location to return the maximum vertex</doc>
             <type name="Clutter.Vertex" c:type="ClutterVertex*"/>
           </parameter>
         </parameters>
       </method>
       <method name="load" c:identifier="mash_data_load" throws="1">
-        <doc xml:space="preserve"
-             filename="mash-data.c"
-             line="122">Loads the data from the file called @filename into @self. The
+        <doc xml:whitespace="preserve">Loads the data from the file called @filename into @self. The
 model can then be rendered using mash_data_render(). If
 there is an error loading the file it will return %FALSE and @error
 will be set to a GError instance.</doc>
-        <source-position filename="mash-data.h" line="149"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-data.c"
-               line="134">%TRUE if the load succeeded or %FALSE otherwise.</doc>
+          <doc xml:whitespace="preserve">%TRUE if the load succeeded or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="124">The #MashData instance</doc>
-            <type name="Data" c:type="MashData*"/>
-          </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="125">Flags used to specify load-time modifications to the data</doc>
+            <doc xml:whitespace="preserve">Flags used to specify load-time modifications to the data</doc>
             <type name="DataFlags" c:type="MashDataFlags"/>
           </parameter>
           <parameter name="filename" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="126">The name of a file to load</doc>
+            <doc xml:whitespace="preserve">The name of a file to load</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="render" c:identifier="mash_data_render">
-        <doc xml:space="preserve"
-             filename="mash-data.c"
-             line="188">Renders the data contained in the model to the Clutter
+        <doc xml:whitespace="preserve">Renders the data contained in the model to the Clutter
 scene. The current Cogl source material will be used to affect the
 appearance of the model. This function is not usually called
 directly but instead the #MashData instance is added to a
 #MashModel and this function will be automatically called by
 the paint method of the model.</doc>
-        <source-position filename="mash-data.h" line="154"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data.c"
-                 line="190">A #MashData instance</doc>
-            <type name="Data" c:type="MashData*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <field name="parent" readable="0" private="1">
         <type name="GObject.Object" c:type="GObject"/>
@@ -223,60 +111,27 @@ the paint method of the model.</doc>
     <record name="DataClass"
             c:type="MashDataClass"
             glib:is-gtype-struct-for="Data">
-      <doc xml:space="preserve"
-           filename="mash-data.h"
-           line="62">The #MashDataClass structure contains only private data.</doc>
-      <source-position filename="mash-data.h" line="71"/>
+      <doc xml:whitespace="preserve">The #MashDataClass structure contains only private data.</doc>
       <field name="parent_class" readable="0" private="1">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <enumeration name="DataError" c:type="MashDataError">
-      <doc xml:space="preserve"
-           filename="mash-data.h"
-           line="86">Error enumeration for #MashData</doc>
-      <source-position filename="mash-data.h" line="108"/>
+      <doc xml:whitespace="preserve">Error enumeration for #MashData</doc>
       <member name="unknown_format"
               value="0"
-              c:identifier="MASH_DATA_ERROR_UNKNOWN_FORMAT">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="88">The file has an unknown format.</doc>
-      </member>
-      <member name="unknown" value="1" c:identifier="MASH_DATA_ERROR_UNKNOWN">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="89">The underlying library reported an error.</doc>
-      </member>
+              c:identifier="MASH_DATA_ERROR_UNKNOWN_FORMAT"/>
+      <member name="unknown" value="1" c:identifier="MASH_DATA_ERROR_UNKNOWN"/>
       <member name="missing_property"
               value="2"
-              c:identifier="MASH_DATA_ERROR_MISSING_PROPERTY">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="90">A property that is needed
- by #MashData is not present in the file. For example, this
- will happen if the file does not contain the x, y and z properties.</doc>
-      </member>
-      <member name="invalid" value="3" c:identifier="MASH_DATA_ERROR_INVALID">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="93">The file is not valid.</doc>
-      </member>
+              c:identifier="MASH_DATA_ERROR_MISSING_PROPERTY"/>
+      <member name="invalid" value="3" c:identifier="MASH_DATA_ERROR_INVALID"/>
       <member name="unsupported"
               value="4"
-              c:identifier="MASH_DATA_ERROR_UNSUPPORTED">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="94">The file is not supported
- by your GL driver. This will happen if your driver can't support
- GL_UNSIGNED_INT indices but the model has more than 65,536
- vertices.</doc>
-      </member>
+              c:identifier="MASH_DATA_ERROR_UNSUPPORTED"/>
     </enumeration>
     <enumeration name="DataFlags" c:type="MashDataFlags">
-      <doc xml:space="preserve"
-           filename="mash-data.h"
-           line="110">Flags used for modifying the data as it is loaded. These can be
+      <doc xml:whitespace="preserve">Flags used for modifying the data as it is loaded. These can be
 passed to mash_data_load().
 
 If any of the negate flags are set then they cause the vertex and
@@ -294,27 +149,10 @@ faces would be culled with the default Cogl settings.
 
 To avoid these issues when exporting from Blender it is common to
 pass the %MASH_DATA_NEGATE_Y flag.</doc>
-      <source-position filename="mash-data.h" line="143"/>
-      <member name="none" value="0" c:identifier="MASH_DATA_NONE">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="112">No flags</doc>
-      </member>
-      <member name="negate_x" value="1" c:identifier="MASH_DATA_NEGATE_X">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="113">Negate the X axis</doc>
-      </member>
-      <member name="negate_y" value="2" c:identifier="MASH_DATA_NEGATE_Y">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="114">Negate the Y axis</doc>
-      </member>
-      <member name="negate_z" value="4" c:identifier="MASH_DATA_NEGATE_Z">
-        <doc xml:space="preserve"
-             filename="mash-data.h"
-             line="115">Negate the Z axis</doc>
-      </member>
+      <member name="none" value="0" c:identifier="MASH_DATA_NONE"/>
+      <member name="negate_x" value="1" c:identifier="MASH_DATA_NEGATE_X"/>
+      <member name="negate_y" value="2" c:identifier="MASH_DATA_NEGATE_Y"/>
+      <member name="negate_z" value="4" c:identifier="MASH_DATA_NEGATE_Z"/>
     </enumeration>
     <class name="DataLoader"
            c:symbol-prefix="data_loader"
@@ -324,43 +162,24 @@ pass the %MASH_DATA_NEGATE_Y flag.</doc>
            glib:type-name="MashDataLoader"
            glib:get-type="mash_data_loader_get_type"
            glib:type-struct="DataLoaderClass">
-      <doc xml:space="preserve"
-           filename="mash-data-loader.h"
-           line="78">The #MashDataLoader structure contains only private data.</doc>
-      <source-position filename="mash-data-loader.h" line="76"/>
+      <doc xml:whitespace="preserve">The #MashDataLoader structure contains only private data.</doc>
       <virtual-method name="get_data" invoker="get_data">
-        <doc xml:space="preserve"
-             filename="mash-data-loader.h"
-             line="62">Virtual used to get the loaded data</doc>
-        <source-position filename="mash-data-loader.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="data_loader" transfer-ownership="none">
-            <type name="DataLoader" c:type="MashDataLoader*"/>
-          </instance-parameter>
           <parameter name="loader_data" transfer-ownership="none">
             <type name="DataLoaderData" c:type="MashDataLoaderData*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="load" invoker="load" throws="1">
-        <doc xml:space="preserve"
-             filename="mash-data-loader.c"
-             line="82">Obtains the loaded data after calling mash_data_loader_load().
+        <doc xml:whitespace="preserve">Obtains the loaded data after calling mash_data_loader_load().
 This function is not usually called by applications.</doc>
-        <source-position filename="mash-data-loader.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="data_loader" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-data-loader.c"
-                 line="84">The #MashDataLoader instance</doc>
-            <type name="DataLoader" c:type="MashDataLoader*"/>
-          </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <type name="DataFlags" c:type="MashDataFlags"/>
           </parameter>
@@ -370,32 +189,22 @@ This function is not usually called by applications.</doc>
         </parameters>
       </virtual-method>
       <method name="get_data" c:identifier="mash_data_loader_get_data">
-        <source-position filename="mash-data-loader.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="DataLoader" c:type="MashDataLoader*"/>
-          </instance-parameter>
           <parameter name="loader_data" transfer-ownership="none">
             <type name="DataLoaderData" c:type="MashDataLoaderData*"/>
           </parameter>
         </parameters>
       </method>
       <method name="load" c:identifier="mash_data_loader_load" throws="1">
-        <doc xml:space="preserve"
-             filename="mash-data-loader.c"
-             line="82">Obtains the loaded data after calling mash_data_loader_load().
+        <doc xml:whitespace="preserve">Obtains the loaded data after calling mash_data_loader_load().
 This function is not usually called by applications.</doc>
-        <source-position filename="mash-data-loader.h" line="109"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="DataLoader" c:type="MashDataLoader*"/>
-          </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <type name="DataFlags" c:type="MashDataFlags"/>
           </parameter>
@@ -414,24 +223,16 @@ This function is not usually called by applications.</doc>
     <record name="DataLoaderClass"
             c:type="MashDataLoaderClass"
             glib:is-gtype-struct-for="DataLoader">
-      <source-position filename="mash-data-loader.h" line="76"/>
       <field name="parent_class" readable="0" private="1">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="load">
-        <doc xml:space="preserve"
-             filename="mash-data-loader.h"
-             line="61">Virtual used for loading the model from the file</doc>
         <callback name="load" throws="1">
-          <source-position filename="mash-data-loader.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="data_loader" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="mash-data-loader.c"
-                   line="84">The #MashDataLoader instance</doc>
               <type name="DataLoader" c:type="MashDataLoader*"/>
             </parameter>
             <parameter name="flags" transfer-ownership="none">
@@ -444,11 +245,7 @@ This function is not usually called by applications.</doc>
         </callback>
       </field>
       <field name="get_data">
-        <doc xml:space="preserve"
-             filename="mash-data-loader.h"
-             line="62">Virtual used to get the loaded data</doc>
         <callback name="get_data">
-          <source-position filename="mash-data-loader.h" line="74"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -464,10 +261,7 @@ This function is not usually called by applications.</doc>
       </field>
     </record>
     <record name="DataLoaderData" c:type="MashDataLoaderData">
-      <doc xml:space="preserve"
-           filename="mash-data-loader.h"
-           line="91">The #MashDataLoaderData structure contains the loaded data.</doc>
-      <source-position filename="mash-data-loader.h" line="105"/>
+      <doc xml:whitespace="preserve">The #MashDataLoaderData structure contains the loaded data.</doc>
       <field name="vertices_vbo" writable="1">
         <type name="Cogl.Handle" c:type="CoglHandle"/>
       </field>
@@ -492,15 +286,9 @@ This function is not usually called by applications.</doc>
     </record>
     <record name="DataLoaderPrivate"
             c:type="MashDataLoaderPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-data-loader.h" line="56"/>
+            disguised="1">
     </record>
-    <record name="DataPrivate"
-            c:type="MashDataPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-data.h" line="60"/>
+    <record name="DataPrivate" c:type="MashDataPrivate" disguised="1">
     </record>
     <class name="DirectionalLight"
            c:symbol-prefix="directional_light"
@@ -509,23 +297,15 @@ This function is not usually called by applications.</doc>
            glib:type-name="MashDirectionalLight"
            glib:get-type="mash_directional_light_get_type"
            glib:type-struct="DirectionalLightClass">
-      <doc xml:space="preserve"
-           filename="mash-directional-light.h"
-           line="66">The #MashDirectionalLight structure contains only private data.</doc>
-      <source-position filename="mash-directional-light.h" line="64"/>
+      <doc xml:whitespace="preserve">The #MashDirectionalLight structure contains only private data.</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Clutter.Animatable"/>
       <implements name="Clutter.Container"/>
       <implements name="Clutter.Scriptable"/>
       <constructor name="new" c:identifier="mash_directional_light_new">
-        <doc xml:space="preserve"
-             filename="mash-directional-light.c"
-             line="119">Constructs a new directional light actor.</doc>
-        <source-position filename="mash-directional-light.h" line="81"/>
+        <doc xml:whitespace="preserve">Constructs a new directional light actor.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-directional-light.c"
-               line="124">the new light.</doc>
+          <doc xml:whitespace="preserve">the new light.</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
       </constructor>
@@ -540,231 +320,14 @@ This function is not usually called by applications.</doc>
     <record name="DirectionalLightClass"
             c:type="MashDirectionalLightClass"
             glib:is-gtype-struct-for="DirectionalLight">
-      <source-position filename="mash-directional-light.h" line="64"/>
       <field name="parent_class" readable="0" private="1">
         <type name="LightClass" c:type="MashLightClass"/>
       </field>
     </record>
     <record name="DirectionalLightPrivate"
             c:type="MashDirectionalLightPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-directional-light.h" line="53"/>
+            disguised="1">
     </record>
-    <function-macro name="IS_DATA"
-                    c:identifier="MASH_IS_DATA"
-                    introspectable="0">
-      <source-position filename="mash-data.h" line="39"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DATA_CLASS"
-                    c:identifier="MASH_IS_DATA_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-data.h" line="42"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DATA_LOADER"
-                    c:identifier="MASH_IS_DATA_LOADER"
-                    introspectable="0">
-      <source-position filename="mash-data-loader.h" line="42"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DATA_LOADER_CLASS"
-                    c:identifier="MASH_IS_DATA_LOADER_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-data-loader.h" line="45"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DIRECTIONAL_LIGHT"
-                    c:identifier="MASH_IS_DIRECTIONAL_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-directional-light.h" line="39"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DIRECTIONAL_LIGHT_CLASS"
-                    c:identifier="MASH_IS_DIRECTIONAL_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-directional-light.h" line="42"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_LIGHT"
-                    c:identifier="MASH_IS_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-light.h" line="39"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_LIGHT_CLASS"
-                    c:identifier="MASH_IS_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-light.h" line="42"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_LIGHT_SET"
-                    c:identifier="MASH_IS_LIGHT_SET"
-                    introspectable="0">
-      <source-position filename="mash-light-set.h" line="40"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_LIGHT_SET_CLASS"
-                    c:identifier="MASH_IS_LIGHT_SET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-light-set.h" line="43"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_MODEL"
-                    c:identifier="MASH_IS_MODEL"
-                    introspectable="0">
-      <source-position filename="mash-model.h" line="42"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_MODEL_CLASS"
-                    c:identifier="MASH_IS_MODEL_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-model.h" line="45"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_PLY_LOADER"
-                    c:identifier="MASH_IS_PLY_LOADER"
-                    introspectable="0">
-      <source-position filename="mash-ply-loader.h" line="40"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_PLY_LOADER_CLASS"
-                    c:identifier="MASH_IS_PLY_LOADER_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-ply-loader.h" line="43"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_POINT_LIGHT"
-                    c:identifier="MASH_IS_POINT_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-point-light.h" line="39"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_POINT_LIGHT_CLASS"
-                    c:identifier="MASH_IS_POINT_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-point-light.h" line="42"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_SPOT_LIGHT"
-                    c:identifier="MASH_IS_SPOT_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-spot-light.h" line="39"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_SPOT_LIGHT_CLASS"
-                    c:identifier="MASH_IS_SPOT_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-spot-light.h" line="42"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="LIGHT" c:identifier="MASH_LIGHT" introspectable="0">
-      <source-position filename="mash-light.h" line="31"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="LIGHT_CLASS"
-                    c:identifier="MASH_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-light.h" line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="LIGHT_GET_CLASS"
-                    c:identifier="MASH_LIGHT_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-light.h" line="45"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="LIGHT_SET"
-                    c:identifier="MASH_LIGHT_SET"
-                    introspectable="0">
-      <source-position filename="mash-light-set.h" line="32"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="LIGHT_SET_CLASS"
-                    c:identifier="MASH_LIGHT_SET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-light-set.h" line="36"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="LIGHT_SET_GET_CLASS"
-                    c:identifier="MASH_LIGHT_SET_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-light-set.h" line="46"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="Light"
            c:symbol-prefix="light"
            c:type="MashLight"
@@ -773,18 +336,13 @@ This function is not usually called by applications.</doc>
            glib:type-name="MashLight"
            glib:get-type="mash_light_get_type"
            glib:type-struct="LightClass">
-      <doc xml:space="preserve"
-           filename="mash-light.h"
-           line="73">The #MashLight structure contains only private data.</doc>
-      <source-position filename="mash-light.h" line="71"/>
+      <doc xml:whitespace="preserve">The #MashLight structure contains only private data.</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Clutter.Animatable"/>
       <implements name="Clutter.Container"/>
       <implements name="Clutter.Scriptable"/>
       <virtual-method name="generate_shader" invoker="generate_shader">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="408">This function is used to generate the shader code required to
+        <doc xml:whitespace="preserve">This function is used to generate the shader code required to
 implement a paraticular. It would not usually need to be called
 from an application. Instead it is called automatically by
 #MashLightSet.
@@ -853,35 +411,22 @@ documentation for a description of these.
 
 The implementation should always chain up to the #MashLight
 implementation so that it can declare the built-in uniforms.</doc>
-        <source-position filename="mash-light.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="410">A #MashLight</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="uniform_source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="411">A location to append uniforms declarations to</doc>
+            <doc xml:whitespace="preserve">A location to append uniforms declarations to</doc>
             <type name="GLib.String" c:type="GString*"/>
           </parameter>
           <parameter name="main_source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="412">A location to append lighting algorithm snippets to</doc>
+            <doc xml:whitespace="preserve">A location to append lighting algorithm snippets to</doc>
             <type name="GLib.String" c:type="GString*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="update_uniforms" invoker="update_uniforms">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="496">This function is used by #MashLightSet to implement the lights. It
+        <doc xml:whitespace="preserve">This function is used by #MashLightSet to implement the lights. It
 should not need to be called by an application directly.
 
 This function is virtual and can be overriden by subclasses to
@@ -899,29 +444,18 @@ queried to the locations of named
 uniforms. mash_light_get_uniform_location() can be used to make
 this easier when a uniform is named uniquely using the ‘$’ symbol
 in mash_light_append_shader().</doc>
-        <source-position filename="mash-light.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="498">The #MashLight that needs updating</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="program" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="499">A #CoglProgram containing the uniforms</doc>
+            <doc xml:whitespace="preserve">A #CoglProgram containing the uniforms</doc>
             <type name="Cogl.Handle" c:type="CoglHandle"/>
           </parameter>
         </parameters>
       </virtual-method>
       <method name="append_shader" c:identifier="mash_light_append_shader">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="528">This is a convenience intended to be used within
+        <doc xml:whitespace="preserve">This is a convenience intended to be used within
 mash_light_generate_shader() to generate shader snippets with
 actor-specific variable names. It should not generally need to be
 called by an application unless it is implementing its own lighting
@@ -941,35 +475,22 @@ following:
 
 The ‘position’ will get translated to something like
 ‘positiong00000002’.</doc>
-        <source-position filename="mash-light.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="530">The #MashLight which is generating the shader</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="shader_source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="531">The string to append to</doc>
+            <doc xml:whitespace="preserve">The string to append to</doc>
             <type name="GLib.String" c:type="GString*"/>
           </parameter>
           <parameter name="snippet" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="532">A snippet of GLSL</doc>
+            <doc xml:whitespace="preserve">A snippet of GLSL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <method name="generate_shader" c:identifier="mash_light_generate_shader">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="408">This function is used to generate the shader code required to
+        <doc xml:whitespace="preserve">This function is used to generate the shader code required to
 implement a paraticular. It would not usually need to be called
 from an application. Instead it is called automatically by
 #MashLightSet.
@@ -1038,138 +559,75 @@ documentation for a description of these.
 
 The implementation should always chain up to the #MashLight
 implementation so that it can declare the built-in uniforms.</doc>
-        <source-position filename="mash-light.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="410">A #MashLight</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="uniform_source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="411">A location to append uniforms declarations to</doc>
+            <doc xml:whitespace="preserve">A location to append uniforms declarations to</doc>
             <type name="GLib.String" c:type="GString*"/>
           </parameter>
           <parameter name="main_source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="412">A location to append lighting algorithm snippets to</doc>
+            <doc xml:whitespace="preserve">A location to append lighting algorithm snippets to</doc>
             <type name="GLib.String" c:type="GString*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_ambient"
-              c:identifier="mash_light_get_ambient"
-              glib:get-property="ambient">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="303">Retrieves the ‘ambient’ color emitted by the light.</doc>
-        <source-position filename="mash-light.h" line="89"/>
+      <method name="get_ambient" c:identifier="mash_light_get_ambient">
+        <doc xml:whitespace="preserve">Retrieves the ‘ambient’ color emitted by the light.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="305">The #MashLight to query</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="ambient" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="306">A return location for the color</doc>
+            <doc xml:whitespace="preserve">A return location for the color</doc>
             <type name="Clutter.Color" c:type="ClutterColor*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_diffuse"
-              c:identifier="mash_light_get_diffuse"
-              glib:get-property="diffuse">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="347">Retrieves the ‘diffuse’ color emitted by the light.</doc>
-        <source-position filename="mash-light.h" line="92"/>
+      <method name="get_diffuse" c:identifier="mash_light_get_diffuse">
+        <doc xml:whitespace="preserve">Retrieves the ‘diffuse’ color emitted by the light.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="349">The #MashLight to query</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="diffuse" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="350">A return location for the color</doc>
+            <doc xml:whitespace="preserve">A return location for the color</doc>
             <type name="Clutter.Color" c:type="ClutterColor*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_modelview_matrix"
               c:identifier="mash_light_get_modelview_matrix">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="635">Gets the modelview matrix for the light including all of the
+        <doc xml:whitespace="preserve">Gets the modelview matrix for the light including all of the
 transformations for its parent actors. This should be used for
 updating uniforms that depend on the actor's transformation or
 position.</doc>
-        <source-position filename="mash-light.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="637">A #MashLight</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="matrix" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="638">The return location for the matrix</doc>
+            <doc xml:whitespace="preserve">The return location for the matrix</doc>
             <type name="Cogl.Matrix" c:type="CoglMatrix*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_specular"
-              c:identifier="mash_light_get_specular"
-              glib:get-property="specular">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="393">Retrieves the ‘specular’ color emitted by the light.</doc>
-        <source-position filename="mash-light.h" line="95"/>
+      <method name="get_specular" c:identifier="mash_light_get_specular">
+        <doc xml:whitespace="preserve">Retrieves the ‘specular’ color emitted by the light.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="395">The #MashLight to query</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="specular" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="396">A return location for the color</doc>
+            <doc xml:whitespace="preserve">A return location for the color</doc>
             <type name="Clutter.Color" c:type="ClutterColor*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_uniform_location"
               c:identifier="mash_light_get_uniform_location">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="580">This is a convenience intended to be used within
+        <doc xml:whitespace="preserve">This is a convenience intended to be used within
 mash_light_update_uniforms() to help query uniform locations. It
 should not generally need to be called by an application unless it
 is implementing its own lighting algorithms.
@@ -1178,37 +636,22 @@ This is a wrapper around cogl_program_get_uniform_location() which
 appends an actor specific string to the uniform name. This is
 useful when uniforms have been declared like ‘position$’ within
 mash_light_append_shader().</doc>
-        <source-position filename="mash-light.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="582">The #MashLight which is generating the shader</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="program" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="583">The program passed in from mash_light_update_uniforms().</doc>
+            <doc xml:whitespace="preserve">The program passed in from mash_light_update_uniforms().</doc>
             <type name="Cogl.Handle" c:type="CoglHandle"/>
           </parameter>
           <parameter name="uniform_name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="584">The name of a uniform</doc>
+            <doc xml:whitespace="preserve">The name of a uniform</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="set_ambient"
-              c:identifier="mash_light_set_ambient"
-              glib:set-property="ambient">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="271">Sets the ‘ambient’ color emitted by the light. If the light reaches
+      <method name="set_ambient" c:identifier="mash_light_set_ambient">
+        <doc xml:whitespace="preserve">Sets the ‘ambient’ color emitted by the light. If the light reaches
 a vertex at all then the ambient color affects the vertex
 regardless of its orientation or distance from the light. In
 real-world lighting, even if an object isn't in a direct line of
@@ -1216,59 +659,35 @@ sight to a light it can still be partially lit due to the fact that
 light can bounce off other objects to reach it. The Mash lighting
 model doesn't simulate this bouncing so the ambient color is often
 used to give an approximation of the effect.</doc>
-        <source-position filename="mash-light.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="273">The #MashLight to modify</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="ambient" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="274">The new color value</doc>
+            <doc xml:whitespace="preserve">The new color value</doc>
             <type name="Clutter.Color" c:type="const ClutterColor*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="set_diffuse"
-              c:identifier="mash_light_set_diffuse"
-              glib:set-property="diffuse">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="318">Sets the ‘diffuse’ color emitted by the light. The diffuse color is
+      <method name="set_diffuse" c:identifier="mash_light_set_diffuse">
+        <doc xml:whitespace="preserve">Sets the ‘diffuse’ color emitted by the light. The diffuse color is
 only visible on an object if is facing the light. The orientation
 of the object is determined per-vertex using the vertex's
 normal. The diffuse color will be darkened depending on how
 directly the object faces the light.</doc>
-        <source-position filename="mash-light.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="320">The #MashLight to modify</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="diffuse" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="321">The new color value</doc>
+            <doc xml:whitespace="preserve">The new color value</doc>
             <type name="Clutter.Color" c:type="const ClutterColor*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_direction_uniform"
               c:identifier="mash_light_set_direction_uniform">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="686">This is a convenience intended to be used within
+        <doc xml:whitespace="preserve">This is a convenience intended to be used within
 mash_light_update_uniforms() to help set uniforms. It
 should not generally need to be called by an application unless it
 is implementing its own lighting algorithms.
@@ -1278,69 +697,43 @@ uniform. @direction_in should be an untransformed array of 3 floats
 representing a vector. The vector will be transformed into eye
 space according to the inverse transposed matrix of @light so that
 it won't change direction for non-uniform scaling transformations.</doc>
-        <source-position filename="mash-light.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="688">The #MashLight which is generating the shader</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="program" transfer-ownership="none">
             <type name="Cogl.Handle" c:type="CoglHandle"/>
           </parameter>
           <parameter name="uniform_location" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="689">The location of the uniform</doc>
+            <doc xml:whitespace="preserve">The location of the uniform</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="direction_in" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="690">The untransformed direction uniform</doc>
+            <doc xml:whitespace="preserve">The untransformed direction uniform</doc>
             <type name="gfloat" c:type="const float*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="set_specular"
-              c:identifier="mash_light_set_specular"
-              glib:set-property="specular">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="362">Sets the ‘specular’ color emitted by the light. The specular color
+      <method name="set_specular" c:identifier="mash_light_set_specular">
+        <doc xml:whitespace="preserve">Sets the ‘specular’ color emitted by the light. The specular color
 is used to add highlights to an object wherever the angle to the
 light is close to the angle that the object is being viewed
 from. For example, if you were modelling a snooker ball with a
 bright light above it, this property will allow you add a bright
 part where the light can directly reflect off the ball into the
 eye. It is common to set this to a bright white value.</doc>
-        <source-position filename="mash-light.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="364">The #MashLight to modify</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="specular" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="365">The new color value</doc>
+            <doc xml:whitespace="preserve">The new color value</doc>
             <type name="Clutter.Color" c:type="const ClutterColor*"/>
           </parameter>
         </parameters>
       </method>
       <method name="update_uniforms" c:identifier="mash_light_update_uniforms">
-        <doc xml:space="preserve"
-             filename="mash-light.c"
-             line="496">This function is used by #MashLightSet to implement the lights. It
+        <doc xml:whitespace="preserve">This function is used by #MashLightSet to implement the lights. It
 should not need to be called by an application directly.
 
 This function is virtual and can be overriden by subclasses to
@@ -1358,47 +751,23 @@ queried to the locations of named
 uniforms. mash_light_get_uniform_location() can be used to make
 this easier when a uniform is named uniquely using the ‘$’ symbol
 in mash_light_append_shader().</doc>
-        <source-position filename="mash-light.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="498">The #MashLight that needs updating</doc>
-            <type name="Light" c:type="MashLight*"/>
-          </instance-parameter>
           <parameter name="program" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light.c"
-                 line="499">A #CoglProgram containing the uniforms</doc>
+            <doc xml:whitespace="preserve">A #CoglProgram containing the uniforms</doc>
             <type name="Cogl.Handle" c:type="CoglHandle"/>
           </parameter>
         </parameters>
       </method>
-      <property name="ambient"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_ambient"
-                getter="get_ambient"
-                default-value="#ffffffff">
+      <property name="ambient" writable="1" transfer-ownership="none">
         <type name="Clutter.Color"/>
       </property>
-      <property name="diffuse"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_diffuse"
-                getter="get_diffuse"
-                default-value="#ffffffff">
+      <property name="diffuse" writable="1" transfer-ownership="none">
         <type name="Clutter.Color"/>
       </property>
-      <property name="specular"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_specular"
-                getter="get_specular"
-                default-value="#ffffffff">
+      <property name="specular" writable="1" transfer-ownership="none">
         <type name="Clutter.Color"/>
       </property>
       <field name="parent" readable="0" private="1">
@@ -1411,72 +780,47 @@ in mash_light_append_shader().</doc>
     <record name="LightClass"
             c:type="MashLightClass"
             glib:is-gtype-struct-for="Light">
-      <source-position filename="mash-light.h" line="71"/>
       <field name="parent_class" readable="0" private="1">
         <type name="Clutter.ActorClass" c:type="ClutterActorClass"/>
       </field>
       <field name="generate_shader">
-        <doc xml:space="preserve"
-             filename="mash-light.h"
-             line="57">Virtual used for creating custom light types</doc>
         <callback name="generate_shader">
-          <source-position filename="mash-light.h" line="66"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="light" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="mash-light.c"
-                   line="410">A #MashLight</doc>
               <type name="Light" c:type="MashLight*"/>
             </parameter>
             <parameter name="uniform_source" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="mash-light.c"
-                   line="411">A location to append uniforms declarations to</doc>
+              <doc xml:whitespace="preserve">A location to append uniforms declarations to</doc>
               <type name="GLib.String" c:type="GString*"/>
             </parameter>
             <parameter name="main_source" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="mash-light.c"
-                   line="412">A location to append lighting algorithm snippets to</doc>
+              <doc xml:whitespace="preserve">A location to append lighting algorithm snippets to</doc>
               <type name="GLib.String" c:type="GString*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="update_uniforms">
-        <doc xml:space="preserve"
-             filename="mash-light.h"
-             line="58">Virtual used for creating custom light types</doc>
         <callback name="update_uniforms">
-          <source-position filename="mash-light.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="light" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="mash-light.c"
-                   line="498">The #MashLight that needs updating</doc>
               <type name="Light" c:type="MashLight*"/>
             </parameter>
             <parameter name="program" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="mash-light.c"
-                   line="499">A #CoglProgram containing the uniforms</doc>
+              <doc xml:whitespace="preserve">A #CoglProgram containing the uniforms</doc>
               <type name="Cogl.Handle" c:type="CoglHandle"/>
             </parameter>
           </parameters>
         </callback>
       </field>
     </record>
-    <record name="LightPrivate"
-            c:type="MashLightPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-light.h" line="53"/>
+    <record name="LightPrivate" c:type="MashLightPrivate" disguised="1">
     </record>
     <class name="LightSet"
            c:symbol-prefix="light_set"
@@ -1485,53 +829,33 @@ in mash_light_append_shader().</doc>
            glib:type-name="MashLightSet"
            glib:get-type="mash_light_set_get_type"
            glib:type-struct="LightSetClass">
-      <doc xml:space="preserve"
-           filename="mash-light-set.h"
-           line="67">The #MashLightSet structure contains only private data.</doc>
-      <source-position filename="mash-light-set.h" line="65"/>
+      <doc xml:whitespace="preserve">The #MashLightSet structure contains only private data.</doc>
       <constructor name="new" c:identifier="mash_light_set_new">
-        <doc xml:space="preserve"
-             filename="mash-light-set.c"
-             line="195">Constructs a new #MashLightSet.</doc>
-        <source-position filename="mash-light-set.h" line="82"/>
+        <doc xml:whitespace="preserve">Constructs a new #MashLightSet.</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="mash-light-set.c"
-               line="200">a new #MashLightSet.</doc>
+          <doc xml:whitespace="preserve">a new #MashLightSet.</doc>
           <type name="LightSet" c:type="MashLightSet*"/>
         </return-value>
       </constructor>
       <method name="add_light" c:identifier="mash_light_set_add_light">
-        <doc xml:space="preserve"
-             filename="mash-light-set.c"
-             line="471">This adds a light to the set. Lights need to be added to the light
+        <doc xml:whitespace="preserve">This adds a light to the set. Lights need to be added to the light
 set as well as to a container somewhere in the Clutter actor
 hierarchy in order to be useful.</doc>
-        <source-position filename="mash-light-set.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light_set" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light-set.c"
-                 line="473">A #MashLightSet instance</doc>
-            <type name="LightSet" c:type="MashLightSet*"/>
-          </instance-parameter>
           <parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light-set.c"
-                 line="474">A #MashLight</doc>
+            <doc xml:whitespace="preserve">A #MashLight</doc>
             <type name="Light" c:type="MashLight*"/>
           </parameter>
         </parameters>
       </method>
       <method name="begin_paint"
               c:identifier="mash_light_set_begin_paint"
-              version="0.2">
-        <doc xml:space="preserve"
-             filename="mash-light-set.c"
-             line="321">This function should only be needed by custom actors that wish to
+              version="0.2"
+              introspectable="0">
+        <doc xml:whitespace="preserve">This function should only be needed by custom actors that wish to
 use the lighting model of Mash. The function should be called every
 time the actor is painted. The @material parameter is used to
 specify the lighting material properties. The material is not
@@ -1545,47 +869,25 @@ cogl_material_set_user_program().
 
 #MashModel&lt;!-- --&gt;s are already designed to use this function when
 a light set is passed to mash_model_set_light_set().</doc>
-        <source-position filename="mash-light-set.h" line="90"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-light-set.c"
-               line="341">a CoglProgram to use for rendering.</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">a CoglProgram to use for rendering.</doc>
           <type name="Cogl.Handle" c:type="CoglHandle"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light_set" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light-set.c"
-                 line="323">A #MashLightSet instance</doc>
-            <type name="LightSet" c:type="MashLightSet*"/>
-          </instance-parameter>
           <parameter name="material" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light-set.c"
-                 line="324">The material that will be used to paint</doc>
+            <doc xml:whitespace="preserve">The material that will be used to paint</doc>
             <type name="Cogl.Handle" c:type="CoglHandle"/>
           </parameter>
         </parameters>
       </method>
       <method name="remove_light" c:identifier="mash_light_set_remove_light">
-        <doc xml:space="preserve"
-             filename="mash-light-set.c"
-             line="496">Removes a light from the set.</doc>
-        <source-position filename="mash-light-set.h" line="87"/>
+        <doc xml:whitespace="preserve">Removes a light from the set.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light_set" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light-set.c"
-                 line="498">A #MashLightSet instance</doc>
-            <type name="LightSet" c:type="MashLightSet*"/>
-          </instance-parameter>
           <parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-light-set.c"
-                 line="499">A #MashLight</doc>
+            <doc xml:whitespace="preserve">A #MashLight</doc>
             <type name="Light" c:type="MashLight*"/>
           </parameter>
         </parameters>
@@ -1600,45 +902,13 @@ a light set is passed to mash_model_set_light_set().</doc>
     <record name="LightSetClass"
             c:type="MashLightSetClass"
             glib:is-gtype-struct-for="LightSet">
-      <doc xml:space="preserve"
-           filename="mash-light-set.h"
-           line="56">The #MashLightSetClass structure contains only private data.</doc>
-      <source-position filename="mash-light-set.h" line="65"/>
+      <doc xml:whitespace="preserve">The #MashLightSetClass structure contains only private data.</doc>
       <field name="parent_class" readable="0" private="1">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <record name="LightSetPrivate"
-            c:type="MashLightSetPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-light-set.h" line="54"/>
+    <record name="LightSetPrivate" c:type="MashLightSetPrivate" disguised="1">
     </record>
-    <function-macro name="MODEL" c:identifier="MASH_MODEL" introspectable="0">
-      <source-position filename="mash-model.h" line="34"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="MODEL_CLASS"
-                    c:identifier="MASH_MODEL_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-model.h" line="38"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="MODEL_GET_CLASS"
-                    c:identifier="MASH_MODEL_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-model.h" line="48"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="Model"
            c:symbol-prefix="model"
            c:type="MashModel"
@@ -1646,183 +916,98 @@ a light set is passed to mash_model_set_light_set().</doc>
            glib:type-name="MashModel"
            glib:get-type="mash_model_get_type"
            glib:type-struct="ModelClass">
-      <doc xml:space="preserve"
-           filename="mash-model.h"
-           line="69">The #MashModel structure contains only private data.</doc>
-      <source-position filename="mash-model.h" line="67"/>
+      <doc xml:whitespace="preserve">The #MashModel structure contains only private data.</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Clutter.Animatable"/>
       <implements name="Clutter.Container"/>
       <implements name="Clutter.Scriptable"/>
       <constructor name="new" c:identifier="mash_model_new">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="218">Constructs a new #MashModel. Nothing will be rendered by the
+        <doc xml:whitespace="preserve">Constructs a new #MashModel. Nothing will be rendered by the
 model until a #MashData is attached using
 mash_model_set_data().</doc>
-        <source-position filename="mash-model.h" line="84"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-model.c"
-               line="225">a new #MashModel.</doc>
+          <doc xml:whitespace="preserve">a new #MashModel.</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
       </constructor>
       <constructor name="new_from_file"
                    c:identifier="mash_model_new_from_file"
                    throws="1">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="236">This is a convenience function that creates a new #MashData
+        <doc xml:whitespace="preserve">This is a convenience function that creates a new #MashData
 and immediately loads the data in @filename. If the load succeeds a
 new #MashModel will be created for the data. The model has a
 default white material so that if vertices of the model have any
 color attributes they will be used directly. The material does not
 have textures by default so if you want the model to be textured
 you will need to modify the material.</doc>
-        <source-position filename="mash-model.h" line="86"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-model.c"
-               line="250">a new #MashModel or %NULL if the load failed.</doc>
+          <doc xml:whitespace="preserve">a new #MashModel or %NULL if the load failed.</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="238">Flags for loading the data.</doc>
+            <doc xml:whitespace="preserve">Flags for loading the data.</doc>
             <type name="DataFlags" c:type="MashDataFlags"/>
           </parameter>
           <parameter name="filename" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="239">The name of a PLY file to load.</doc>
+            <doc xml:whitespace="preserve">The name of a PLY file to load.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="get_data"
               c:identifier="mash_model_get_data"
-              glib:get-property="data"
               introspectable="0">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="442">Gets the model data that will be used to render the actor.</doc>
-        <source-position filename="mash-model.h" line="94"/>
+        <doc xml:whitespace="preserve">Gets the model data that will be used to render the actor.</doc>
         <return-value>
-          <doc xml:space="preserve"
-               filename="mash-model.c"
-               line="448">A pointer to a #MashData instance or %NULL if
-no data has been set yet.</doc>
+          <doc xml:whitespace="preserve">A pointer to a #MashData instance or %NULL if no data has been set yet.</doc>
           <type name="Data" c:type="MashData*"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="444">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="get_fit_to_allocation"
-              c:identifier="mash_model_get_fit_to_allocation"
-              glib:get-property="fit-to-allocation">
-        <source-position filename="mash-model.h" line="102"/>
+              c:identifier="mash_model_get_fit_to_allocation">
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-model.c"
-               line="552">whether the actor will try to scale the model to fit
-within the allocation.</doc>
+          <doc xml:whitespace="preserve">whether the actor will try to scale the model to fit within the allocation.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="550">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="get_light_set"
               c:identifier="mash_model_get_light_set"
-              glib:get-property="light-set"
               version="0.2"
               introspectable="0">
-        <source-position filename="mash-model.h" line="98"/>
         <return-value>
-          <doc xml:space="preserve"
-               filename="mash-model.c"
-               line="496">the #MashLightSet previously set with
-mash_model_set_light_set().</doc>
+          <doc xml:whitespace="preserve">the #MashLightSet previously set with mash_model_set_light_set().</doc>
           <type name="LightSet" c:type="MashLightSet*"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="494">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
-        </parameters>
       </method>
-      <method name="get_material" c:identifier="mash_model_get_material">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="336">Gets the material that will be used to render the model. The
+      <method name="get_material"
+              c:identifier="mash_model_get_material"
+              introspectable="0">
+        <doc xml:whitespace="preserve">Gets the material that will be used to render the model. The
 material can be modified to affect the appearence of the model. By
 default the material will be solid white.</doc>
-        <source-position filename="mash-model.h" line="90"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-model.c"
-               line="344">a handle to the Cogl material used by the model.</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">a handle to the Cogl material used by the model.</doc>
           <type name="Cogl.Handle" c:type="CoglHandle"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="338">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
-        </parameters>
       </method>
-      <method name="set_data"
-              c:identifier="mash_model_set_data"
-              glib:set-property="data">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="459">Replaces the data used by the actor with @data. A reference is
+      <method name="set_data" c:identifier="mash_model_set_data">
+        <doc xml:whitespace="preserve">Replaces the data used by the actor with @data. A reference is
 taken on @data so if you no longer need it you should unref it with
 g_object_unref().</doc>
-        <source-position filename="mash-model.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="461">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
           <parameter name="data" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="462">The new #MashData</doc>
+            <doc xml:whitespace="preserve">The new #MashData</doc>
             <type name="Data" c:type="MashData*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_fit_to_allocation"
-              c:identifier="mash_model_set_fit_to_allocation"
-              glib:set-property="fit-to-allocation">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="563">This sets whether the actor should scale the model to fit the
+              c:identifier="mash_model_set_fit_to_allocation">
+        <doc xml:whitespace="preserve">This sets whether the actor should scale the model to fit the
 actor's allocation. If it's %TRUE then all of the axes of the model
 will be scaled by the same amount to fill the allocation as much as
 possible without distorting the aspect ratio. The model is also
@@ -1846,58 +1031,35 @@ model extends past the allocated size then it will draw outside the
 allocation.
 
 The default value is %TRUE.</doc>
-        <source-position filename="mash-model.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="565">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
           <parameter name="fit_to_allocation" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="566">New value</doc>
+            <doc xml:whitespace="preserve">New value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_light_set"
               c:identifier="mash_model_set_light_set"
-              glib:set-property="light-set"
               version="0.2">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="509">This sets the #MashLightSet that will be used to render the
+        <doc xml:whitespace="preserve">This sets the #MashLightSet that will be used to render the
 model. Alternatively %NULL can be passed to disable lighting for
 this model. The light set represents a collection of #MashLight&lt;!--
 --&gt;s that will affect the appearance of the model.</doc>
-        <source-position filename="mash-model.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="511">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
           <parameter name="light_set" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="512">A new #MashLightSet</doc>
+            <doc xml:whitespace="preserve">A new #MashLightSet</doc>
             <type name="LightSet" c:type="MashLightSet*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_material" c:identifier="mash_model_set_material">
-        <doc xml:space="preserve"
-             filename="mash-model.c"
-             line="291">Replaces the material that will be used to render the model with
+        <doc xml:whitespace="preserve">Replaces the material that will be used to render the model with
 the given one. By default a #MashModel will use a solid white
 material. However the color of the material is still blended with
 the vertex colors so the white material will cause the vertex
@@ -1911,45 +1073,25 @@ set. If multiple models are expected to use the same material with
 different light sets, it would be better to use a different copy of
 the same material for each set of models so that they don't
 repeatedly change the program on the material during paint.</doc>
-        <source-position filename="mash-model.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="293">A #MashModel instance</doc>
-            <type name="Model" c:type="MashModel*"/>
-          </instance-parameter>
           <parameter name="material" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-model.c"
-                 line="294">A handle to a Cogl material</doc>
+            <doc xml:whitespace="preserve">A handle to a Cogl material</doc>
             <type name="Cogl.Handle" c:type="CoglHandle"/>
           </parameter>
         </parameters>
       </method>
-      <property name="data"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_data"
-                getter="get_data">
+      <property name="data" writable="1" transfer-ownership="none">
         <type name="Data"/>
       </property>
       <property name="fit-to-allocation"
                 writable="1"
-                transfer-ownership="none"
-                setter="set_fit_to_allocation"
-                getter="get_fit_to_allocation"
-                default-value="TRUE">
-        <type name="gboolean" c:type="gboolean"/>
+                transfer-ownership="none">
+        <type name="gboolean"/>
       </property>
-      <property name="light-set"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_light_set"
-                getter="get_light_set">
+      <property name="light-set" writable="1" transfer-ownership="none">
         <type name="LightSet"/>
       </property>
       <property name="material"
@@ -1968,74 +1110,13 @@ repeatedly change the program on the material during paint.</doc>
     <record name="ModelClass"
             c:type="MashModelClass"
             glib:is-gtype-struct-for="Model">
-      <doc xml:space="preserve"
-           filename="mash-model.h"
-           line="58">The #MashModelClass structure contains only private data.</doc>
-      <source-position filename="mash-model.h" line="67"/>
+      <doc xml:whitespace="preserve">The #MashModelClass structure contains only private data.</doc>
       <field name="parent_class" readable="0" private="1">
         <type name="Clutter.ActorClass" c:type="ClutterActorClass"/>
       </field>
     </record>
-    <record name="ModelPrivate"
-            c:type="MashModelPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-model.h" line="56"/>
+    <record name="ModelPrivate" c:type="MashModelPrivate" disguised="1">
     </record>
-    <function-macro name="PLY_LOADER"
-                    c:identifier="MASH_PLY_LOADER"
-                    introspectable="0">
-      <source-position filename="mash-ply-loader.h" line="32"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="PLY_LOADER_CLASS"
-                    c:identifier="MASH_PLY_LOADER_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-ply-loader.h" line="36"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="PLY_LOADER_GET_CLASS"
-                    c:identifier="MASH_PLY_LOADER_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-ply-loader.h" line="46"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="POINT_LIGHT"
-                    c:identifier="MASH_POINT_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-point-light.h" line="31"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="POINT_LIGHT_CLASS"
-                    c:identifier="MASH_POINT_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-point-light.h" line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="POINT_LIGHT_GET_CLASS"
-                    c:identifier="MASH_POINT_LIGHT_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-point-light.h" line="45"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="PlyLoader"
            c:symbol-prefix="ply_loader"
            c:type="MashPlyLoader"
@@ -2043,7 +1124,6 @@ repeatedly change the program on the material during paint.</doc>
            glib:type-name="MashPlyLoader"
            glib:get-type="mash_ply_loader_get_type"
            glib:type-struct="PlyLoaderClass">
-      <source-position filename="mash-ply-loader.h" line="60"/>
       <field name="parent" readable="0" private="1">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
@@ -2054,16 +1134,13 @@ repeatedly change the program on the material during paint.</doc>
     <record name="PlyLoaderClass"
             c:type="MashPlyLoaderClass"
             glib:is-gtype-struct-for="PlyLoader">
-      <source-position filename="mash-ply-loader.h" line="60"/>
       <field name="parent_class" readable="0" private="1">
         <type name="DataLoaderClass" c:type="MashDataLoaderClass"/>
       </field>
     </record>
     <record name="PlyLoaderPrivate"
             c:type="MashPlyLoaderPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-ply-loader.h" line="54"/>
+            disguised="1">
     </record>
     <class name="PointLight"
            c:symbol-prefix="point_light"
@@ -2072,189 +1149,100 @@ repeatedly change the program on the material during paint.</doc>
            glib:type-name="MashPointLight"
            glib:get-type="mash_point_light_get_type"
            glib:type-struct="PointLightClass">
-      <doc xml:space="preserve"
-           filename="mash-point-light.h"
-           line="66">The #MashLightClass structure contains only private data.</doc>
-      <source-position filename="mash-point-light.h" line="64"/>
+      <doc xml:whitespace="preserve">The #MashLightClass structure contains only private data.</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Clutter.Animatable"/>
       <implements name="Clutter.Container"/>
       <implements name="Clutter.Scriptable"/>
       <constructor name="new" c:identifier="mash_point_light_new">
-        <doc xml:space="preserve"
-             filename="mash-point-light.c"
-             line="293">Constructs a new #MashPointLight.</doc>
-        <source-position filename="mash-point-light.h" line="81"/>
+        <doc xml:whitespace="preserve">Constructs a new #MashPointLight.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-point-light.c"
-               line="298">the new light.</doc>
+          <doc xml:whitespace="preserve">the new light.</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
       </constructor>
       <method name="get_constant_attenuation"
-              c:identifier="mash_point_light_get_constant_attenuation"
-              glib:get-property="constant-attenuation">
-        <source-position filename="mash-point-light.h" line="85"/>
+              c:identifier="mash_point_light_get_constant_attenuation">
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-point-light.c"
-               line="339">the constant light attenuation value.</doc>
+          <doc xml:whitespace="preserve">the constant light attenuation value.</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="337">The light to query</doc>
-            <type name="PointLight" c:type="MashPointLight*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="get_linear_attenuation"
-              c:identifier="mash_point_light_get_linear_attenuation"
-              glib:get-property="linear-attenuation">
-        <source-position filename="mash-point-light.h" line="89"/>
+              c:identifier="mash_point_light_get_linear_attenuation">
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-point-light.c"
-               line="381">the linear light attenuation value.</doc>
+          <doc xml:whitespace="preserve">the linear light attenuation value.</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="379">The light to query</doc>
-            <type name="PointLight" c:type="MashPointLight*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="get_quadratic_attenuation"
-              c:identifier="mash_point_light_get_quadratic_attenuation"
-              glib:get-property="quadratic-attenuation">
-        <source-position filename="mash-point-light.h" line="93"/>
+              c:identifier="mash_point_light_get_quadratic_attenuation">
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-point-light.c"
-               line="423">the quadratic light attenuation value.</doc>
+          <doc xml:whitespace="preserve">the quadratic light attenuation value.</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="421">The light to query</doc>
-            <type name="PointLight" c:type="MashPointLight*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="set_constant_attenuation"
-              c:identifier="mash_point_light_set_constant_attenuation"
-              glib:set-property="constant-attenuation">
-        <doc xml:space="preserve"
-             filename="mash-point-light.c"
-             line="308">Sets the constant attenuation value on a light. The light intensity
+              c:identifier="mash_point_light_set_constant_attenuation">
+        <doc xml:whitespace="preserve">Sets the constant attenuation value on a light. The light intensity
 is divided by this value. Setting a higher value will cause the
 light to appear dimmer.</doc>
-        <source-position filename="mash-point-light.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="310">The light to modify</doc>
-            <type name="PointLight" c:type="MashPointLight*"/>
-          </instance-parameter>
           <parameter name="attenuation" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="311">The new value</doc>
+            <doc xml:whitespace="preserve">The new value</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_linear_attenuation"
-              c:identifier="mash_point_light_set_linear_attenuation"
-              glib:set-property="linear-attenuation">
-        <doc xml:space="preserve"
-             filename="mash-point-light.c"
-             line="349">Sets the linear attenuation value on a light. The light intensity
+              c:identifier="mash_point_light_set_linear_attenuation">
+        <doc xml:whitespace="preserve">Sets the linear attenuation value on a light. The light intensity
 is divided by this value multiplied by the distance to the
 light. Setting a higher value will cause the intensity to dim faster
 as the vertex moves away from the light.</doc>
-        <source-position filename="mash-point-light.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="351">The light to modify</doc>
-            <type name="PointLight" c:type="MashPointLight*"/>
-          </instance-parameter>
           <parameter name="attenuation" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="352">The new value</doc>
+            <doc xml:whitespace="preserve">The new value</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_quadratic_attenuation"
-              c:identifier="mash_point_light_set_quadratic_attenuation"
-              glib:set-property="quadratic-attenuation">
-        <doc xml:space="preserve"
-             filename="mash-point-light.c"
-             line="391">Sets the quadratic attenuation value on a light. The light
+              c:identifier="mash_point_light_set_quadratic_attenuation">
+        <doc xml:whitespace="preserve">Sets the quadratic attenuation value on a light. The light
 intensity is divided by this value multiplied by the square of the
 distance to the light. Setting a higher value will cause the
 intensity to dim sharply as the vertex moves away from the light.</doc>
-        <source-position filename="mash-point-light.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="393">The light to modify</doc>
-            <type name="PointLight" c:type="MashPointLight*"/>
-          </instance-parameter>
           <parameter name="attenuation" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-point-light.c"
-                 line="394">The new value</doc>
+            <doc xml:whitespace="preserve">The new value</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
       </method>
       <property name="constant-attenuation"
                 writable="1"
-                transfer-ownership="none"
-                setter="set_constant_attenuation"
-                getter="get_constant_attenuation"
-                default-value="1.000000">
-        <type name="gfloat" c:type="gfloat"/>
+                transfer-ownership="none">
+        <type name="gfloat"/>
       </property>
       <property name="linear-attenuation"
                 writable="1"
-                transfer-ownership="none"
-                setter="set_linear_attenuation"
-                getter="get_linear_attenuation"
-                default-value="0.000000">
-        <type name="gfloat" c:type="gfloat"/>
+                transfer-ownership="none">
+        <type name="gfloat"/>
       </property>
       <property name="quadratic-attenuation"
                 writable="1"
-                transfer-ownership="none"
-                setter="set_quadratic_attenuation"
-                getter="get_quadratic_attenuation"
-                default-value="0.000000">
-        <type name="gfloat" c:type="gfloat"/>
+                transfer-ownership="none">
+        <type name="gfloat"/>
       </property>
       <field name="parent" readable="0" private="1">
         <type name="Light" c:type="MashLight"/>
@@ -2266,47 +1254,15 @@ intensity to dim sharply as the vertex moves away from the light.</doc>
     <record name="PointLightClass"
             c:type="MashPointLightClass"
             glib:is-gtype-struct-for="PointLight">
-      <doc xml:space="preserve"
-           filename="mash-point-light.h"
-           line="55">The #MashPointLightClass structure contains only private data.</doc>
-      <source-position filename="mash-point-light.h" line="64"/>
+      <doc xml:whitespace="preserve">The #MashPointLightClass structure contains only private data.</doc>
       <field name="parent_class" readable="0" private="1">
         <type name="LightClass" c:type="MashLightClass"/>
       </field>
     </record>
     <record name="PointLightPrivate"
             c:type="MashPointLightPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-point-light.h" line="53"/>
+            disguised="1">
     </record>
-    <function-macro name="SPOT_LIGHT"
-                    c:identifier="MASH_SPOT_LIGHT"
-                    introspectable="0">
-      <source-position filename="mash-spot-light.h" line="31"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="SPOT_LIGHT_CLASS"
-                    c:identifier="MASH_SPOT_LIGHT_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-spot-light.h" line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="SPOT_LIGHT_GET_CLASS"
-                    c:identifier="MASH_SPOT_LIGHT_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mash-spot-light.h" line="45"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="SpotLight"
            c:symbol-prefix="spot_light"
            c:type="MashSpotLight"
@@ -2314,134 +1270,68 @@ intensity to dim sharply as the vertex moves away from the light.</doc>
            glib:type-name="MashSpotLight"
            glib:get-type="mash_spot_light_get_type"
            glib:type-struct="SpotLightClass">
-      <doc xml:space="preserve"
-           filename="mash-spot-light.h"
-           line="66">The #MashSpotLight structure contains only private data.</doc>
-      <source-position filename="mash-spot-light.h" line="64"/>
+      <doc xml:whitespace="preserve">The #MashSpotLight structure contains only private data.</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Clutter.Animatable"/>
       <implements name="Clutter.Container"/>
       <implements name="Clutter.Scriptable"/>
       <constructor name="new" c:identifier="mash_spot_light_new">
-        <doc xml:space="preserve"
-             filename="mash-spot-light.c"
-             line="270">Constructs a new #MashSpotLight.</doc>
-        <source-position filename="mash-spot-light.h" line="81"/>
+        <doc xml:whitespace="preserve">Constructs a new #MashSpotLight.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-spot-light.c"
-               line="275">the new light.</doc>
+          <doc xml:whitespace="preserve">the new light.</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
       </constructor>
       <method name="get_spot_cutoff"
-              c:identifier="mash_spot_light_get_spot_cutoff"
-              glib:get-property="spot-cutoff">
-        <source-position filename="mash-spot-light.h" line="85"/>
+              c:identifier="mash_spot_light_get_spot_cutoff">
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-spot-light.c"
-               line="316">the spot cut off value</doc>
+          <doc xml:whitespace="preserve">the spot cut off value</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-spot-light.c"
-                 line="314">The light to query</doc>
-            <type name="SpotLight" c:type="MashSpotLight*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="get_spot_exponent"
-              c:identifier="mash_spot_light_get_spot_exponent"
-              glib:get-property="spot-exponent">
-        <source-position filename="mash-spot-light.h" line="89"/>
+              c:identifier="mash_spot_light_get_spot_exponent">
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mash-spot-light.c"
-               line="358">the spot exponent value</doc>
+          <doc xml:whitespace="preserve">the spot exponent value</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
-        <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-spot-light.c"
-                 line="356">The light to query</doc>
-            <type name="SpotLight" c:type="MashSpotLight*"/>
-          </instance-parameter>
-        </parameters>
       </method>
       <method name="set_spot_cutoff"
-              c:identifier="mash_spot_light_set_spot_cutoff"
-              glib:set-property="spot-cutoff">
-        <doc xml:space="preserve"
-             filename="mash-spot-light.c"
-             line="285">Sets the spot cut off value on a light. This is an angle in degrees
+              c:identifier="mash_spot_light_set_spot_cutoff">
+        <doc xml:whitespace="preserve">Sets the spot cut off value on a light. This is an angle in degrees
 which defines the shape of the cone of light emitted from the
 light. It should be within the range 0° to 90°</doc>
-        <source-position filename="mash-spot-light.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-spot-light.c"
-                 line="287">The light to modify</doc>
-            <type name="SpotLight" c:type="MashSpotLight*"/>
-          </instance-parameter>
           <parameter name="cutoff" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-spot-light.c"
-                 line="288">The new value</doc>
+            <doc xml:whitespace="preserve">The new value</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_spot_exponent"
-              c:identifier="mash_spot_light_set_spot_exponent"
-              glib:set-property="spot-exponent">
-        <doc xml:space="preserve"
-             filename="mash-spot-light.c"
-             line="326">Sets the spot exponent value on a light. The light intensity is
+              c:identifier="mash_spot_light_set_spot_exponent">
+        <doc xml:whitespace="preserve">Sets the spot exponent value on a light. The light intensity is
 multiplied by the angle between the light direction and the vector
 to the vertex raised to the power of the exponent. A higher
 exponent value makes the cone of the light appear smaller.</doc>
-        <source-position filename="mash-spot-light.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="light" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-spot-light.c"
-                 line="328">The light to modify</doc>
-            <type name="SpotLight" c:type="MashSpotLight*"/>
-          </instance-parameter>
           <parameter name="exponent" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mash-spot-light.c"
-                 line="329">The new value</doc>
+            <doc xml:whitespace="preserve">The new value</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
       </method>
-      <property name="spot-cutoff"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_spot_cutoff"
-                getter="get_spot_cutoff"
-                default-value="45.000000">
-        <type name="gfloat" c:type="gfloat"/>
+      <property name="spot-cutoff" writable="1" transfer-ownership="none">
+        <type name="gfloat"/>
       </property>
-      <property name="spot-exponent"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_spot_exponent"
-                getter="get_spot_exponent"
-                default-value="0.000000">
-        <type name="gfloat" c:type="gfloat"/>
+      <property name="spot-exponent" writable="1" transfer-ownership="none">
+        <type name="gfloat"/>
       </property>
       <field name="parent" readable="0" private="1">
         <type name="PointLight" c:type="MashPointLight"/>
@@ -2453,194 +1343,14 @@ exponent value makes the cone of the light appear smaller.</doc>
     <record name="SpotLightClass"
             c:type="MashSpotLightClass"
             glib:is-gtype-struct-for="SpotLight">
-      <doc xml:space="preserve"
-           filename="mash-spot-light.h"
-           line="55">The #MashSpotLightClass structure contains only private data.</doc>
-      <source-position filename="mash-spot-light.h" line="64"/>
+      <doc xml:whitespace="preserve">The #MashSpotLightClass structure contains only private data.</doc>
       <field name="parent_class" readable="0" private="1">
         <type name="PointLightClass" c:type="MashPointLightClass"/>
       </field>
     </record>
     <record name="SpotLightPrivate"
             c:type="MashSpotLightPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mash-spot-light.h" line="53"/>
+            disguised="1">
     </record>
-    <docsection name="mash-data">
-      <doc xml:space="preserve"
-           filename="mash-data.c"
-           line="20">#MashData is an object that can represent the data contained
-in a 3D model file. The data is internally converted to a
-Cogl vertex buffer so that it can be rendered efficiently.
-
-The #MashData object is usually associated with a
-#MashModel so that it can be animated as a regular actor. The
-data is separated from the actor in this way to make it easy to
-share data with multiple actors without having to keep two copies
-of the data.</doc>
-    </docsection>
-    <docsection name="mash-directional-light">
-      <doc xml:space="preserve"
-           filename="mash-directional-light.c"
-           line="19">#MashDirectionalLight is the simplest light type implemented in
-Mash. It is intended to model a light that has a direction but it
-is infinitely far away. This means that the light will always reach
-the model regardless of its position. The light does however have a
-direction so the light intensity will be altered depending on the
-orientation of the vertex. Directional lights are useful for
-example to model the light emitted from the sun in an outdoor
-scene.
-
-The actor position of a #MashDirectionalLight is ignored. The
-direction of the light is always along the positive y axis (which
-is towards the bottom of the stage by default in Clutter). However
-the direction of the light is affected by the actor's
-transformation so it can be modified using the rotation properties.</doc>
-    </docsection>
-    <docsection name="mash-light">
-      <doc xml:space="preserve"
-           filename="mash-light.c"
-           line="19">#MashLight is the abstract base class of all lights in Mash. It can
-not be instantiated directly. Instead one of its subclasses should
-be used such as #MashPointLight, #MashSpotLight or
-#MashDirectionalLight.
-
-#MashLight&lt;!-- --&gt;s must be added to a #MashLightSet and a parent
-container before they will have any effect.
-
-#MashLight contains three light colors that are common to all
-three light types that Mash supports. These are ambient, diffuse
-and specular. The colors are of the lights are combined with the
-corresponding colors of the #CoglMaterial to give a final fragment
-color. The material colors can be changed for a #MashModel by
-extracting the #CoglMaterial with mash_model_get_material() and
-then calling functions such as cogl_material_set_diffuse().
-
-#MashLight can be subclassed in an application to provide custom
-lighting algorithms.</doc>
-    </docsection>
-    <docsection name="mash-light-set">
-      <doc xml:space="preserve"
-           filename="mash-light-set.c"
-           line="19">#MashLightSet is a toplevel object that contains a list of
-#MashLight&lt;!-- --&gt;s. The set which a light belongs to is separate
-from its parent actor. For a light to be useful it needs to be
-added to both a light set and a parent container.
-
-The #MashLightSet can only be used with actors that are
-specifically designed to support it. #MashModel is one such
-actor. It can be told to use a light set with
-mash_model_set_light_set().
-
-The light set implements the Blinn-Phong lighting model which is
-the standard model used in fixed function version of OpenGL and
-Direct3D. The lighting calculations are performed per-vertex and
-then interpolated across the surface of the primitives.
-
-Lights are positioned as normal actors by adding #MashLight&lt;!--
---&gt;s them to a container and moving them. The lights do not have to
-be in any particular position relative to the models in the
-hierarchy of actors, although it wouldn't make much sense if they
-were on different stages. The lights are subclasses of
-#ClutterActor so they can be positioned and animated using the
-usual Clutter animation framework.
-
-The lighting implementation requires GLSL support from Clutter. If
-the application can still work without lighting it would be worth
-checking for shader support by passing %COGL_FEATURE_SHADERS_GLSL
-to cogl_features_available().
-
-It should be possible to extend the lighting model and implement
-application-specific lighting algorithms by subclassing #MashLight
-and adding shader snippets by overriding
-mash_light_generate_shader().</doc>
-    </docsection>
-    <docsection name="mash-model">
-      <doc xml:space="preserve"
-           filename="mash-model.c"
-           line="19">#MashModel is an actor subclass that can be used to render a
-3D model. The model is a normal #ClutterActor that can be animated
-and positioned with the methods of #ClutterActor.
-
-By default the model will be scaled to best fit within the size of
-the actor. Therefore it is possible to take a small model that may
-have positions ranging between -1 and 1 and draw it at a larger
-size just by setting the size on the actor. This behaviour can be
-disabled with mash_model_set_fit_to_allocation().
-
-The actual data for the model is stored in a separate object called
-#MashData. This can be used to share the data for a model
-between multiple actors without having to duplicate resources of
-the data. Alternatively mash_model_new_from_file() can be
-used as a convenience wrapper to easily make an actor out of a PLY
-without having to worry about #MashData. To share the data
-with another actor, call mash_model_get_data() on an
-existing actor then call mash_model_set_data() with the
-return value on a new actor.
-
-The model can be rendered with any Cogl material. By default the
-model will use a solid white material. The material color is
-blended with the model's vertex colors so the white material will
-cause the vertex colors to be used directly. #MashData is
-able to load texture coordinates from the PLY file so it is
-possible to render a textured model by setting a texture layer on
-the material, like so:
-
-|[
-  /&amp;ast; Create an actor out of a PLY model file &amp;ast;/
-  ClutterActor *model
-    = mash_model_new_from_file ("some-model.ply", NULL);
-  /&amp;ast; Get a handle to the default material for the actor &amp;ast;/
-  CoglHandle material
-    = mash_model_get_material (MASH_MODEL (model));
-  /&amp;ast; Load a texture image from a file &amp;ast;/
-  CoglHandle texture
-    = cogl_texture_new_from_file ("some-image.png", COGL_TEXTURE_NONE,
-                                  COGL_PIXEL_FORMAT_ANY, NULL);
-  /&amp;ast; Set a texture layer on the material &amp;ast;/
-  cogl_material_set_layer (material, 0, texture);
-  /&amp;ast; The texture is now referenced by the material so we can
-    drop the reference we have &amp;ast;/
-  cogl_handle_unref (texture);
-]|</doc>
-    </docsection>
-    <docsection name="mash-point-light">
-      <doc xml:space="preserve"
-           filename="mash-point-light.c"
-           line="19">A #MashPointLight models a light that has a position and emits
-light evenly in all directions. The position of the light is taken
-from the actor's position so it can be easily modified and even
-animated using the #ClutterActor properties. The intensity of the
-light can be attenuated using the attenuation properties to make
-objects that are further from the light receive less intensity. The
-intensity of the light is divided by ad² + bd + c, where d is the
-distance between the light and the vertex and a, b and c are the
-following properties which can be modified on the light:
-quadratic-attenuation, linear-attenuation and constant-attenuation.
-
-By default the attenuation values are all zero except for the
-constant attenuation. This causes the light to never be attenuated
-so that the light intensity is not affected by the distance from
-the light.</doc>
-    </docsection>
-    <docsection name="mash-spot-light">
-      <doc xml:space="preserve"
-           filename="mash-spot-light.c"
-           line="19">A #MashSpotLight is a subclass of #MashPointLight which
-additionally restricts the light emitted to a cone shape eminating
-from the light's position. The same attenuation properties provided
-by #MashPointLight can be used to modify the intensity based on the
-distance to the light. The angle of the cone can be modified with
-the spot-cutoff property and the spot-exponent property. The cutoff
-sets a hard restriction on the maximum angle which light will be
-emitted. The exponent sets the rate at which light dims as the
-angle expands out.
-
-The direction of a spot light is always along the positive y axis
-which is towards the bottom of the stage in a default Clutter
-scene. The direction is affected by the actor's transformation so
-it can be modified or animated by rotating the actor.</doc>
-    </docsection>
   </namespace>
 </repository>

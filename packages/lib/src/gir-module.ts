@@ -215,6 +215,13 @@ export class GirModule {
             }
         }
 
+        // Filter out the dependency with the same namespace among each other
+        transitiveDependencies = transitiveDependencies.filter((dep, index, self) => {
+            const samePackage = self.findIndex((t) => t.namespace === dep.namespace)
+            this.log.debug(`Filtering out dependency with same namespace: ${dep.namespace} ${index} ${samePackage}`)
+            return index === samePackage
+        })
+
         return transitiveDependencies
     }
 

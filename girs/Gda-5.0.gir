@@ -93,7 +93,6 @@ and/or use gtk-doc annotations.  -->
     <record name="AttributesManager"
             c:type="GdaAttributesManager"
             disguised="1"
-            opaque="1"
             introspectable="0">
       <source-position filename="gda-attributes-manager.h" line="32"/>
       <method name="clear" c:identifier="gda_attributes_manager_clear">
@@ -623,10 +622,7 @@ times in @batch's statements' list, then only the first one is removed.</doc>
               c:identifier="GDA_BATCH_CONFLICTING_PARAMETER_ERROR">
       </member>
     </enumeration>
-    <record name="BatchPrivate"
-            c:type="GdaBatchPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="BatchPrivate" c:type="GdaBatchPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="85"/>
     </record>
     <record name="Binary"
@@ -1851,10 +1847,7 @@ data model.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="id"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="id" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -1977,10 +1970,7 @@ data model.</doc>
         </callback>
       </field>
     </record>
-    <record name="ColumnPrivate"
-            c:type="GdaColumnPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="ColumnPrivate" c:type="GdaColumnPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="59"/>
     </record>
     <class name="Config"
@@ -2317,19 +2307,13 @@ This method may fail with a %GDA_CONFIG_ERROR domain error (see the #GdaConfigEr
           </parameter>
         </parameters>
       </virtual-method>
-      <property name="system-filename"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="system-filename" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-config.c"
              line="328">File to use for system-wide DSN list. When changed, the whole list of DSN will be reloaded.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="user-filename"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="user-filename" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-config.c"
              line="317">File to use for per-user DSN list. When changed, the whole list of DSN will be reloaded.</doc>
@@ -2541,10 +2525,7 @@ This method may fail with a %GDA_CONFIG_ERROR domain error (see the #GdaConfigEr
               c:identifier="GDA_CONFIG_PROVIDER_CREATION_ERROR">
       </member>
     </enumeration>
-    <record name="ConfigPrivate"
-            c:type="GdaConfigPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="ConfigPrivate" c:type="GdaConfigPrivate" disguised="1">
       <source-position filename="gda-config.h" line="41"/>
     </record>
     <class name="Connection"
@@ -3678,8 +3659,7 @@ returned value, see gda_connection_statement_execute_non_select()'s documentatio
         </parameters>
       </method>
       <method name="get_cnc_string"
-              c:identifier="gda_connection_get_cnc_string"
-              glib:get-property="cnc-string">
+              c:identifier="gda_connection_get_cnc_string">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="1901">Gets the connection string used to open this connection.
@@ -3770,9 +3750,7 @@ to open a connection on the underlying data source.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_dsn"
-              c:identifier="gda_connection_get_dsn"
-              glib:get-property="dsn">
+      <method name="get_dsn" c:identifier="gda_connection_get_dsn">
         <source-position filename="gda-connection.h" line="299"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3816,8 +3794,7 @@ Warning: the @cnc object may change the list if connection events occur</doc>
         </parameters>
       </method>
       <method name="get_meta_store"
-              c:identifier="gda_connection_get_meta_store"
-              glib:get-property="meta-store">
+              c:identifier="gda_connection_get_meta_store">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="6589">Get or initializes the #GdaMetaStore associated to @cnc</doc>
@@ -3987,9 +3964,7 @@ association must have been done using gda_connection_add_prepared_statement().</
           </parameter>
         </parameters>
       </method>
-      <method name="get_provider"
-              c:identifier="gda_connection_get_provider"
-              glib:get-property="provider">
+      <method name="get_provider" c:identifier="gda_connection_get_provider">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="1852">Gets a pointer to the #GdaServerProvider object used to access the database</doc>
@@ -5528,31 +5503,19 @@ The equivalent SQL command is: UPDATE &amp;lt;table&amp;gt; SET &amp;lt;column_n
           </parameter>
         </parameters>
       </method>
-      <property name="auth-string"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="auth-string" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="cnc-string"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_cnc_string"
-                default-value="NULL">
+      <property name="cnc-string" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="dsn"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_dsn"
-                default-value="NULL">
+      <property name="dsn" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="events-history-size"
                 version="4.2"
                 writable="1"
-                transfer-ownership="none"
-                default-value="5">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="404">Defines the number of #GdaConnectionEvent objects kept in memory which can
@@ -5562,8 +5525,7 @@ be fetched using gda_connection_get_events().</doc>
       <property name="execution-slowdown"
                 version="5.2.0"
                 writable="1"
-                transfer-ownership="none"
-                default-value="0">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="430">Artificially slows down the execution of queries. This property can be used to
@@ -5574,8 +5536,7 @@ executing each query.</doc>
       <property name="execution-timer"
                 version="4.2.9"
                 writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="418">Computes execution times for each statement executed.</doc>
@@ -5584,8 +5545,7 @@ executing each query.</doc>
       <property name="is-wrapper"
                 version="4.2"
                 writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="370">This property, if set to %TRUE, specifies that the connection is not a real connection, but rather
@@ -5596,17 +5556,13 @@ Note: this property is used internally by Libgda and should not be directly used
 this property has no effect, reading it is supported, though.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="meta-store"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_meta_store">
+      <property name="meta-store" writable="1" transfer-ownership="none">
         <type name="MetaStore"/>
       </property>
       <property name="monitor-wrapped-in-mainloop"
                 version="4.2"
                 writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-connection.c"
              line="388">Useful only when there is a mainloop and when the connection acts as a thread wrapper around another connection,
@@ -5618,14 +5574,10 @@ If the connection is not a thread wrapper, then this property has no effect.</do
       <property name="options"
                 introspectable="0"
                 writable="1"
-                transfer-ownership="none"
-                default-value="GDA_CONNECTION_OPTIONS_NONE">
+                transfer-ownership="none">
         <type/>
       </property>
-      <property name="provider"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_provider">
+      <property name="provider" writable="1" transfer-ownership="none">
         <type name="ServerProvider"/>
       </property>
       <property name="thread-owner" writable="1" transfer-ownership="none">
@@ -6157,10 +6109,7 @@ Sets @event's SQL state.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="type"
-                writable="1"
-                transfer-ownership="none"
-                default-value="2">
+      <property name="type" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <field name="object">
@@ -6292,8 +6241,7 @@ Sets @event's SQL state.</doc>
     </enumeration>
     <record name="ConnectionEventPrivate"
             c:type="GdaConnectionEventPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="36"/>
     </record>
     <enumeration name="ConnectionEventType" c:type="GdaConnectionEventType">
@@ -6589,8 +6537,7 @@ Note about the @GDA_CONNECTION_OPTIONS_AUTO_META_DATA flag:
     </bitfield>
     <record name="ConnectionPrivate"
             c:type="GdaConnectionPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="32"/>
     </record>
     <function-macro name="DATA_ACCESS_WRAPPER"
@@ -6669,24 +6616,6 @@ Note about the @GDA_CONNECTION_OPTIONS_AUTO_META_DATA flag:
                     c:identifier="GDA_DATA_MODEL_ARRAY_CLASS"
                     introspectable="0">
       <source-position filename="gda-data-model-array.h" line="33"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_MODEL_BDB"
-                    c:identifier="GDA_DATA_MODEL_BDB"
-                    introspectable="0">
-      <source-position filename="gda-data-model-bdb.h" line="28"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DATA_MODEL_BDB_CLASS"
-                    c:identifier="GDA_DATA_MODEL_BDB_CLASS"
-                    introspectable="0">
-      <source-position filename="gda-data-model-bdb.h" line="29"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -6968,8 +6897,7 @@ and the columns of the wrapped data model</doc>
     </record>
     <record name="DataAccessWrapperPrivate"
             c:type="GdaDataAccessWrapperPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-access-wrapper.h" line="35"/>
     </record>
     <class name="DataComparator"
@@ -7237,8 +7165,7 @@ will speed things up as less data will be processed.</doc>
     </enumeration>
     <record name="DataComparatorPrivate"
             c:type="GdaDataComparatorPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-comparator.h" line="37"/>
     </record>
     <interface name="DataHandler"
@@ -10574,8 +10501,7 @@ specified.</doc>
         </parameters>
       </method>
       <method name="set_n_columns"
-              c:identifier="gda_data_model_array_set_n_columns"
-              glib:set-property="n-columns">
+              c:identifier="gda_data_model_array_set_n_columns">
         <doc xml:space="preserve"
              filename="gda-data-model-array.c"
              line="519">Sets the number of columns for rows inserted in this model.
@@ -10601,17 +10527,10 @@ Also clears @model's contents.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="n-columns"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_n_columns"
-                default-value="0">
+      <property name="n-columns" writable="1" transfer-ownership="none">
         <type name="guint" c:type="guint"/>
       </property>
-      <property name="read-only"
-                writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+      <property name="read-only" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="object">
@@ -10663,415 +10582,8 @@ Also clears @model's contents.</doc>
     </record>
     <record name="DataModelArrayPrivate"
             c:type="GdaDataModelArrayPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-model-array.h" line="39"/>
-    </record>
-    <class name="DataModelBdb"
-           c:symbol-prefix="data_model_bdb"
-           c:type="GdaDataModelBdb"
-           parent="GObject.Object"
-           glib:type-name="GdaDataModelBdb"
-           glib:get-type="gda_data_model_bdb_get_type"
-           glib:type-struct="DataModelBdbClass">
-      <source-position filename="gda-data-model-bdb.h" line="65"/>
-      <implements name="DataModel"/>
-      <function name="new" c:identifier="gda_data_model_bdb_new">
-        <doc xml:space="preserve"
-             filename="gda-data-model-bdb.c"
-             line="466">Creates a new #GdaDataModel object to access the contents of the Berkeley DB file @file,
-for the database @db_name if not %NULL</doc>
-        <source-position filename="gda-data-model-bdb.h" line="86"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gda-data-model-bdb.c"
-               line="474">a new #GdaDataModel</doc>
-          <type name="DataModel" c:type="GdaDataModel*"/>
-        </return-value>
-        <parameters>
-          <parameter name="filename" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gda-data-model-bdb.c"
-                 line="468">name of the file containing the database</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="db_name"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gda-data-model-bdb.c"
-                 line="469">the name of the database within @filename, or %NULL</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </function>
-      <virtual-method name="create_data_columns" introspectable="0">
-        <source-position filename="gda-data-model-bdb.h" line="47"/>
-        <return-value>
-          <type name="GLib.SList" c:type="GSList*">
-            <type name="gpointer" c:type="gpointer"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="create_key_columns" introspectable="0">
-        <source-position filename="gda-data-model-bdb.h" line="46"/>
-        <return-value>
-          <type name="GLib.SList" c:type="GSList*">
-            <type name="gpointer" c:type="gpointer"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="get_data_part">
-        <source-position filename="gda-data-model-bdb.h" line="51"/>
-        <return-value transfer-ownership="full">
-          <type name="GObject.Value" c:type="GValue*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-          <parameter name="data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-          <parameter name="length" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="part" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="get_key_part">
-        <source-position filename="gda-data-model-bdb.h" line="48"/>
-        <return-value transfer-ownership="full">
-          <type name="GObject.Value" c:type="GValue*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-          <parameter name="data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-          <parameter name="length" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="part" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="update_data_part" throws="1">
-        <source-position filename="gda-data-model-bdb.h" line="56"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-          <parameter name="data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-          <parameter name="length" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="part" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <type name="GObject.Value" c:type="const GValue*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="update_key_part" throws="1">
-        <source-position filename="gda-data-model-bdb.h" line="53"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-          <parameter name="data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-          <parameter name="length" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="part" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <type name="GObject.Value" c:type="const GValue*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <method name="clean_errors"
-              c:identifier="gda_data_model_bdb_clean_errors">
-        <doc xml:space="preserve"
-             filename="gda-data-model-bdb.c"
-             line="506">Reset the list of errors which have occurred while using @model</doc>
-        <source-position filename="gda-data-model-bdb.h" line="89"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gda-data-model-bdb.c"
-                 line="508">a #GdaDataModelBdb object</doc>
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_errors" c:identifier="gda_data_model_bdb_get_errors">
-        <doc xml:space="preserve"
-             filename="gda-data-model-bdb.c"
-             line="489">Get the list of errors which have occurred while using @model</doc>
-        <source-position filename="gda-data-model-bdb.h" line="88"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gda-data-model-bdb.c"
-               line="495">a read-only list of #GError pointers, or %NULL if no error has occurred</doc>
-          <type name="GLib.SList" c:type="const GSList*">
-            <type name="GLib.Error"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="model" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gda-data-model-bdb.c"
-                 line="491">a #GdaDataModelBdb object</doc>
-            <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="db-name"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="filename"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <field name="object">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="DataModelBdbPrivate" c:type="GdaDataModelBdbPrivate*"/>
-      </field>
-    </class>
-    <record name="DataModelBdbClass"
-            c:type="GdaDataModelBdbClass"
-            glib:is-gtype-struct-for="DataModelBdb">
-      <source-position filename="gda-data-model-bdb.h" line="65"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-      <field name="create_key_columns" introspectable="0">
-        <callback name="create_key_columns" introspectable="0">
-          <source-position filename="gda-data-model-bdb.h" line="46"/>
-          <return-value>
-            <type name="GLib.SList" c:type="GSList*">
-              <type name="gpointer" c:type="gpointer"/>
-            </type>
-          </return-value>
-          <parameters>
-            <parameter name="model" transfer-ownership="none">
-              <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="create_data_columns" introspectable="0">
-        <callback name="create_data_columns" introspectable="0">
-          <source-position filename="gda-data-model-bdb.h" line="47"/>
-          <return-value>
-            <type name="GLib.SList" c:type="GSList*">
-              <type name="gpointer" c:type="gpointer"/>
-            </type>
-          </return-value>
-          <parameters>
-            <parameter name="model" transfer-ownership="none">
-              <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="get_key_part">
-        <callback name="get_key_part">
-          <source-position filename="gda-data-model-bdb.h" line="48"/>
-          <return-value transfer-ownership="full">
-            <type name="GObject.Value" c:type="GValue*"/>
-          </return-value>
-          <parameters>
-            <parameter name="model" transfer-ownership="none">
-              <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-            </parameter>
-            <parameter name="data"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <type name="gpointer" c:type="gpointer"/>
-            </parameter>
-            <parameter name="length" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="part" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="get_data_part">
-        <callback name="get_data_part">
-          <source-position filename="gda-data-model-bdb.h" line="51"/>
-          <return-value transfer-ownership="full">
-            <type name="GObject.Value" c:type="GValue*"/>
-          </return-value>
-          <parameters>
-            <parameter name="model" transfer-ownership="none">
-              <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-            </parameter>
-            <parameter name="data"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <type name="gpointer" c:type="gpointer"/>
-            </parameter>
-            <parameter name="length" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="part" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="update_key_part">
-        <callback name="update_key_part" throws="1">
-          <source-position filename="gda-data-model-bdb.h" line="53"/>
-          <return-value transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </return-value>
-          <parameters>
-            <parameter name="model" transfer-ownership="none">
-              <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-            </parameter>
-            <parameter name="data"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <type name="gpointer" c:type="gpointer"/>
-            </parameter>
-            <parameter name="length" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="part" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="value" transfer-ownership="none">
-              <type name="GObject.Value" c:type="const GValue*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="update_data_part">
-        <callback name="update_data_part" throws="1">
-          <source-position filename="gda-data-model-bdb.h" line="56"/>
-          <return-value transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </return-value>
-          <parameters>
-            <parameter name="model" transfer-ownership="none">
-              <type name="DataModelBdb" c:type="GdaDataModelBdb*"/>
-            </parameter>
-            <parameter name="data"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <type name="gpointer" c:type="gpointer"/>
-            </parameter>
-            <parameter name="length" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="part" transfer-ownership="none">
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="value" transfer-ownership="none">
-              <type name="GObject.Value" c:type="const GValue*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="_gda_reserved1" introspectable="0">
-        <callback name="_gda_reserved1">
-          <source-position filename="gda-data-model-bdb.h" line="61"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-      <field name="_gda_reserved2" introspectable="0">
-        <callback name="_gda_reserved2">
-          <source-position filename="gda-data-model-bdb.h" line="62"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-      <field name="_gda_reserved3" introspectable="0">
-        <callback name="_gda_reserved3">
-          <source-position filename="gda-data-model-bdb.h" line="63"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-      <field name="_gda_reserved4" introspectable="0">
-        <callback name="_gda_reserved4">
-          <source-position filename="gda-data-model-bdb.h" line="64"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-    </record>
-    <record name="DataModelBdbPrivate"
-            c:type="GdaDataModelBdbPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="gda-data-model-bdb.h" line="35"/>
     </record>
     <class name="DataModelDir"
            c:symbol-prefix="data_model_dir"
@@ -11145,8 +10657,7 @@ for the database @db_name if not %NULL</doc>
       <property name="basedir"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -11198,8 +10709,7 @@ for the database @db_name if not %NULL</doc>
     </record>
     <record name="DataModelDirPrivate"
             c:type="GdaDataModelDirPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-model-dir.h" line="35"/>
     </record>
     <enumeration name="DataModelError"
@@ -12119,8 +11629,7 @@ can be accessed in a random way.</doc>
       <property name="data-string"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-data-model-import.c"
              line="256">Data to import, as a string.</doc>
@@ -12129,8 +11638,7 @@ can be accessed in a random way.</doc>
       <property name="filename"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-data-model-import.c"
              line="247">Name of the file to import.</doc>
@@ -12148,8 +11656,7 @@ can be accessed in a random way.</doc>
       <property name="random-access"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-data-model-import.c"
              line="235">Defines if the data model will be accessed randomly or through a cursor. If set to %FALSE,
@@ -12160,8 +11667,7 @@ access will have to be done using a cursor.</doc>
                 version="4.2.1"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-data-model-import.c"
              line="284">Defines the behaviour in case the imported data contains recoverable errors (usually too
@@ -12228,8 +11734,7 @@ will stop, and if set to %FALSE, then the error will be reported but the import 
     </record>
     <record name="DataModelImportPrivate"
             c:type="GdaDataModelImportPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-model-import.h" line="37"/>
     </record>
     <class name="DataModelIter"
@@ -12610,10 +12115,7 @@ correcsponding #GdaHolder will be left invalid.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="current-row"
-                writable="1"
-                transfer-ownership="none"
-                default-value="-1">
+      <property name="current-row" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="data-model"
@@ -12625,10 +12127,7 @@ correcsponding #GdaHolder will be left invalid.</doc>
       <property name="forced-model" writable="1" transfer-ownership="none">
         <type name="DataModel"/>
       </property>
-      <property name="update-model"
-                writable="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+      <property name="update-model" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="object">
@@ -12741,8 +12240,7 @@ row it was on was the last one).</doc>
     </enumeration>
     <record name="DataModelIterPrivate"
             c:type="GdaDataModelIterPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="63"/>
     </record>
     <class name="DataModelLdap"
@@ -12953,15 +12451,13 @@ gda_data_model_iter_get_value_at() will return %NULL when using an iterator.</do
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="base"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="cnc"
@@ -12973,15 +12469,13 @@ gda_data_model_iter_get_value_at() will return %NULL when using an iterator.</do
       <property name="filter"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="scope"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="1">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <field name="object">
@@ -13033,8 +12527,7 @@ gda_data_model_iter_get_value_at() will return %NULL when using an iterator.</do
     </record>
     <record name="DataModelLdapPrivate"
             c:type="GdaDataModelLdapPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-model-ldap.h" line="36"/>
     </record>
     <class name="DataPivot"
@@ -13315,10 +12808,7 @@ still forming a valid SQL syntax).</doc>
               c:identifier="GDA_DATA_PIVOT_FIELD_COLUMN">
       </member>
     </enumeration>
-    <record name="DataPivotPrivate"
-            c:type="GdaDataPivotPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="DataPivotPrivate" c:type="GdaDataPivotPrivate" disguised="1">
       <source-position filename="gda-data-pivot.h" line="35"/>
     </record>
     <class name="DataProxy"
@@ -13840,8 +13330,7 @@ the proxied data model.</doc>
         </parameters>
       </method>
       <method name="get_sample_size"
-              c:identifier="gda_data_proxy_get_sample_size"
-              glib:get-property="sample-size">
+              c:identifier="gda_data_proxy_get_sample_size">
         <doc xml:space="preserve"
              filename="gda-data-proxy.c"
              line="2364">Get the size of each chunk of data displayed at a time.</doc>
@@ -14150,8 +13639,7 @@ Note that any previous filter expression is replaced with the new @filter_expr i
         </parameters>
       </method>
       <method name="set_sample_size"
-              c:identifier="gda_data_proxy_set_sample_size"
-              glib:set-property="sample-size">
+              c:identifier="gda_data_proxy_set_sample_size">
         <doc xml:space="preserve"
              filename="gda-data-proxy.c"
              line="2323">Sets the size of each chunk of data to display: the maximum number of rows which
@@ -14234,8 +13722,7 @@ To remove the chunking of the data to display, simply pass @sample_size the %0 v
       <property name="cache-changes"
                 version="5.2"
                 writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-data-proxy.c"
              line="704">Defines how changes kept in the data proxy are handled when the proxied data model
@@ -14250,10 +13737,7 @@ the change's number of columns match the proxied data model's number of columns 
 &lt;/itemizedlist&gt;</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="defer-sync"
-                writable="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+      <property name="defer-sync" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="model"
@@ -14264,17 +13748,13 @@ the change's number of columns match the proxied data model's number of columns 
       </property>
       <property name="prepend-null-entry"
                 writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="sample-size"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                setter="set_sample_size"
-                getter="get_sample_size"
-                default-value="300">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <field name="object">
@@ -14569,10 +14049,7 @@ callback returns a non %NULL value, then the change commit fails with the return
               c:identifier="GDA_DATA_PROXY_FILTER_ERROR">
       </member>
     </enumeration>
-    <record name="DataProxyPrivate"
-            c:type="GdaDataProxyPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="DataProxyPrivate" c:type="GdaDataProxyPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="55"/>
     </record>
     <class name="DataSelect"
@@ -14790,8 +14267,7 @@ if the table used does not have any primary key, then this method will fail</doc
         </parameters>
       </method>
       <method name="get_connection"
-              c:identifier="gda_data_select_get_connection"
-              glib:get-property="connection">
+              c:identifier="gda_data_select_get_connection">
         <doc xml:space="preserve"
              filename="gda-data-select.c"
              line="875">Get a pointer to the #GdaConnection object which was used when @model was created
@@ -15045,17 +14521,13 @@ gda_data_select_set_modification_statement().</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="auto-reset"
-                writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+      <property name="auto-reset" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="connection"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                getter="get_connection">
+                transfer-ownership="none">
         <type name="Connection"/>
       </property>
       <property name="delete-stmt" writable="1" transfer-ownership="none">
@@ -15070,8 +14542,7 @@ gda_data_select_set_modification_statement().</doc>
       <property name="execution-delay"
                 version="4.2.9"
                 writable="1"
-                transfer-ownership="none"
-                default-value="0.000000">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-data-select.c"
              line="296">This property stores the execution delay which has been necessary to obtain the data</doc>
@@ -15083,8 +14554,7 @@ gda_data_select_set_modification_statement().</doc>
       <property name="model-usage"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="1">
+                transfer-ownership="none">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="prepared-stmt" writable="1" transfer-ownership="none">
@@ -15093,10 +14563,7 @@ gda_data_select_set_modification_statement().</doc>
       <property name="select-stmt" transfer-ownership="none">
         <type name="Statement"/>
       </property>
-      <property name="store-all-rows"
-                writable="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+      <property name="store-all-rows" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="update-stmt" writable="1" transfer-ownership="none">
@@ -15321,8 +14788,7 @@ to uniquely identify a single row in a table when creating modification statemen
     </enumeration>
     <record name="DataSelectPrivate"
             c:type="GdaDataSelectPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-data-select.h" line="38"/>
     </record>
     <glib:boxed glib:name="Default"
@@ -15733,10 +15199,7 @@ occurrence of "'" with "''" and "\" with "\\"</doc>
         </callback>
       </field>
     </record>
-    <record name="HandlerBinPriv"
-            c:type="GdaHandlerBinPriv"
-            disguised="1"
-            opaque="1">
+    <record name="HandlerBinPriv" c:type="GdaHandlerBinPriv" disguised="1">
       <source-position filename="handlers/gda-handler-bin.h" line="37"/>
     </record>
     <class name="HandlerBoolean"
@@ -15795,8 +15258,7 @@ occurrence of "'" with "''" and "\" with "\\"</doc>
     </record>
     <record name="HandlerBooleanPriv"
             c:type="GdaHandlerBooleanPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="handlers/gda-handler-boolean.h" line="36"/>
     </record>
     <class name="HandlerNumerical"
@@ -15856,8 +15318,7 @@ occurrence of "'" with "''" and "\" with "\\"</doc>
     </record>
     <record name="HandlerNumericalPriv"
             c:type="GdaHandlerNumericalPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="handlers/gda-handler-numerical.h" line="36"/>
     </record>
     <class name="HandlerString"
@@ -15945,8 +15406,7 @@ by the @prov object (possibly also @cnc).</doc>
     </record>
     <record name="HandlerStringPriv"
             c:type="GdaHandlerStringPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="handlers/gda-handler-string.h" line="37"/>
     </record>
     <class name="HandlerTime"
@@ -16174,10 +15634,7 @@ using gda_handler_time_new_no_locale().</doc>
         </callback>
       </field>
     </record>
-    <record name="HandlerTimePriv"
-            c:type="GdaHandlerTimePriv"
-            disguised="1"
-            opaque="1">
+    <record name="HandlerTimePriv" c:type="GdaHandlerTimePriv" disguised="1">
       <source-position filename="handlers/gda-handler-time.h" line="36"/>
     </record>
     <class name="HandlerType"
@@ -16232,10 +15689,7 @@ using gda_handler_time_new_no_locale().</doc>
         </callback>
       </field>
     </record>
-    <record name="HandlerTypePriv"
-            c:type="GdaHandlerTypePriv"
-            disguised="1"
-            opaque="1">
+    <record name="HandlerTypePriv" c:type="GdaHandlerTypePriv" disguised="1">
       <source-position filename="handlers/gda-handler-type.h" line="36"/>
     </record>
     <class name="Holder"
@@ -16535,9 +15989,7 @@ the same type as the one required by @holder.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_g_type"
-              c:identifier="gda_holder_get_g_type"
-              glib:get-property="g-type">
+      <method name="get_g_type" c:identifier="gda_holder_get_g_type">
         <source-position filename="gda-holder.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="GType" c:type="GType"/>
@@ -16548,9 +16000,7 @@ the same type as the one required by @holder.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_id"
-              c:identifier="gda_holder_get_id"
-              glib:get-property="id">
+      <method name="get_id" c:identifier="gda_holder_get_id">
         <doc xml:space="preserve"
              filename="gda-holder.c"
              line="757">Get the ID of @holder. The ID can be set using @holder's "id" property</doc>
@@ -16570,9 +16020,7 @@ the same type as the one required by @holder.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_not_null"
-              c:identifier="gda_holder_get_not_null"
-              glib:get-property="not-null">
+      <method name="get_not_null" c:identifier="gda_holder_get_not_null">
         <doc xml:space="preserve"
              filename="gda-holder.c"
              line="1585">Get wether the holder can be NULL or not</doc>
@@ -16593,8 +16041,7 @@ the same type as the one required by @holder.</doc>
         </parameters>
       </method>
       <method name="get_source_model"
-              c:identifier="gda_holder_get_source_model"
-              glib:get-property="source-model">
+              c:identifier="gda_holder_get_source_model">
         <doc xml:space="preserve"
              filename="gda-holder.c"
              line="1680">If gda_holder_set_source_model() has been used to provide a hint that @holder's value
@@ -16830,9 +16277,7 @@ NOTE: the default value does not need to be of the same type as the one required
           </parameter>
         </parameters>
       </method>
-      <method name="set_not_null"
-              c:identifier="gda_holder_set_not_null"
-              glib:set-property="not-null">
+      <method name="set_not_null" c:identifier="gda_holder_set_not_null">
         <doc xml:space="preserve"
              filename="gda-holder.c"
              line="1569">Sets if the holder can have a NULL value. If @not_null is TRUE, then that won't be allowed</doc>
@@ -16857,7 +16302,6 @@ NOTE: the default value does not need to be of the same type as the one required
       </method>
       <method name="set_source_model"
               c:identifier="gda_holder_set_source_model"
-              glib:set-property="source-model"
               throws="1">
         <doc xml:space="preserve"
              filename="gda-holder.c"
@@ -17117,10 +16561,7 @@ take care of the 'old' static GValue.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="description"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="description" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="full-bind" writable="1" transfer-ownership="none">
@@ -17129,52 +16570,31 @@ take care of the 'old' static GValue.</doc>
       <property name="g-type"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                getter="get_g_type">
+                transfer-ownership="none">
         <type name="GType" c:type="GType"/>
       </property>
-      <property name="id"
-                writable="1"
-                transfer-ownership="none"
-                getter="get_id"
-                default-value="NULL">
+      <property name="id" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="name"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="name" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="not-null"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_not_null"
-                getter="get_not_null"
-                default-value="FALSE">
+      <property name="not-null" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="simple-bind" writable="1" transfer-ownership="none">
         <type name="Holder"/>
       </property>
-      <property name="source-column"
-                writable="1"
-                transfer-ownership="none"
-                default-value="0">
+      <property name="source-column" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
-      <property name="source-model"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_source_model"
-                getter="get_source_model">
+      <property name="source-model" writable="1" transfer-ownership="none">
         <type name="DataModel"/>
       </property>
       <property name="validate-changes"
                 version="5.2.0"
                 writable="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-holder.c"
              line="320">Defines if the "validate-change" signal gets emitted when
@@ -17363,10 +16783,7 @@ otherwise.</doc>
               c:identifier="GDA_HOLDER_VALUE_NULL_ERROR">
       </member>
     </enumeration>
-    <record name="HolderPrivate"
-            c:type="GdaHolderPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="HolderPrivate" c:type="GdaHolderPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="67"/>
     </record>
     <function-macro name="IS_BATCH"
@@ -17526,24 +16943,6 @@ otherwise.</doc>
                     c:identifier="GDA_IS_DATA_MODEL_ARRAY_CLASS"
                     introspectable="0">
       <source-position filename="gda-data-model-array.h" line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DATA_MODEL_BDB"
-                    c:identifier="GDA_IS_DATA_MODEL_BDB"
-                    introspectable="0">
-      <source-position filename="gda-data-model-bdb.h" line="30"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DATA_MODEL_BDB_CLASS"
-                    c:identifier="GDA_IS_DATA_MODEL_BDB_CLASS"
-                    introspectable="0">
-      <source-position filename="gda-data-model-bdb.h" line="31"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -19920,8 +19319,7 @@ See gda_meta_store_declare_foreign_key() for more information anout the @catalog
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="cnc"
@@ -19934,16 +19332,14 @@ See gda_meta_store_declare_foreign_key() for more information anout the @catalog
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="schema"
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -20118,8 +19514,7 @@ signal, or %NULL if signal propagation should continue</doc>
     </record>
     <record name="MetaStoreClassPrivate"
             c:type="GdaMetaStoreClassPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="104"/>
     </record>
     <enumeration name="MetaStoreError" c:type="GdaMetaStoreError">
@@ -20173,10 +19568,7 @@ signal, or %NULL if signal propagation should continue</doc>
               c:identifier="GDA_META_STORE_TRANSACTION_ALREADY_STARTED_ERROR">
       </member>
     </enumeration>
-    <record name="MetaStorePrivate"
-            c:type="GdaMetaStorePrivate"
-            disguised="1"
-            opaque="1">
+    <record name="MetaStorePrivate" c:type="GdaMetaStorePrivate" disguised="1">
       <source-position filename="gda-decl.h" line="103"/>
     </record>
     <class name="MetaStruct"
@@ -20633,8 +20025,7 @@ the XML file structure is given, and no guarantee that it will remain as it is g
       <property name="features"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="3">
+                transfer-ownership="none">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="meta-store"
@@ -20743,8 +20134,7 @@ the XML file structure is given, and no guarantee that it will remain as it is g
     </bitfield>
     <record name="MetaStructPrivate"
             c:type="GdaMetaStructPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="108"/>
     </record>
     <record name="MetaTable" c:type="GdaMetaTable">
@@ -21549,10 +20939,7 @@ will return %NULL</doc>
         </callback>
       </field>
     </record>
-    <record name="PStmtPrivate"
-            c:type="GdaPStmtPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="PStmtPrivate" c:type="GdaPStmtPrivate" disguised="1">
       <source-position filename="providers-support/gda-pstmt.h" line="36"/>
     </record>
     <record name="ProviderInfo" c:type="GdaProviderInfo">
@@ -21605,7 +20992,6 @@ will return %NULL</doc>
     </record>
     <record name="QuarkList"
             c:type="GdaQuarkList"
-            opaque="1"
             glib:type-name="GdaQuarkList"
             glib:get-type="gda_quark_list_get_type"
             c:symbol-prefix="quark_list">
@@ -22241,8 +21627,7 @@ providers' implementations to report any error while reading a value from the da
       <property name="nb-values"
                 readable="0"
                 writable="1"
-                transfer-ownership="none"
-                default-value="1">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <field name="object">
@@ -22292,7 +21677,7 @@ providers' implementations to report any error while reading a value from the da
         </callback>
       </field>
     </record>
-    <record name="RowPrivate" c:type="GdaRowPrivate" disguised="1" opaque="1">
+    <record name="RowPrivate" c:type="GdaRowPrivate" disguised="1">
       <source-position filename="gda-row.h" line="43"/>
     </record>
     <function-macro name="SERVER_OPERATION"
@@ -22936,8 +22321,7 @@ copied but not modified; it may change or cease to exist if @op changes</doc>
         </parameters>
       </method>
       <method name="get_op_type"
-              c:identifier="gda_server_operation_get_op_type"
-              glib:get-property="op-type">
+              c:identifier="gda_server_operation_get_op_type">
         <doc xml:space="preserve"
              filename="gda-server-operation.c"
              line="1203">Get the type of operation @op is for</doc>
@@ -23639,9 +23023,7 @@ Here are the possible formats of @path_format:
       <property name="op-type"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                getter="get_op_type"
-                default-value="0">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="provider"
@@ -23654,8 +23036,7 @@ Here are the possible formats of @path_format:
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -23911,8 +23292,7 @@ Here are the possible formats of @path_format:
     </enumeration>
     <record name="ServerOperationPrivate"
             c:type="GdaServerOperationPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="48"/>
     </record>
     <enumeration name="ServerOperationType" c:type="GdaServerOperationType">
@@ -26625,8 +26005,7 @@ otherwise.</doc>
     </record>
     <record name="ServerProviderInfo"
             c:type="GdaServerProviderInfo"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="44"/>
     </record>
     <record name="ServerProviderMeta" c:type="GdaServerProviderMeta">
@@ -28773,10 +28152,7 @@ the source by the new model</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="description"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="description" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="holders"
@@ -28786,23 +28162,16 @@ the source by the new model</doc>
                 transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="id"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="id" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="name"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="name" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="validate-changes"
                 version="5.2.0"
                 writable="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-set.c"
              line="989">Defines if the "validate-set" signal gets emitted when
@@ -29598,7 +28967,7 @@ then column is set to invalid (-1);</doc>
         </parameters>
       </method>
     </record>
-    <record name="SetPrivate" c:type="GdaSetPrivate" disguised="1" opaque="1">
+    <record name="SetPrivate" c:type="GdaSetPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="74"/>
     </record>
     <record name="SetSource"
@@ -31420,8 +30789,7 @@ Sets the WHERE condition of the statement</doc>
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="GDA_SQL_STATEMENT_UNKNOWN">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-sql-builder.c"
              line="122">Specifies the type of statement to be built, can only be
@@ -31489,8 +30857,7 @@ or GDA_SQL_STATEMENT_DELETE</doc>
     </enumeration>
     <record name="SqlBuilderPrivate"
             c:type="GdaSqlBuilderPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-sql-builder.h" line="39"/>
     </record>
     <record name="SqlCase" c:type="GdaSqlCase" introspectable="0">
@@ -32425,24 +31792,18 @@ To include variables in the @sql string, see the
           </instance-parameter>
         </parameters>
       </method>
-      <property name="column-error"
-                transfer-ownership="none"
-                default-value="0">
+      <property name="column-error" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
-      <property name="line-error" transfer-ownership="none" default-value="0">
+      <property name="line-error" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
-      <property name="mode"
-                writable="1"
-                transfer-ownership="none"
-                default-value="0">
+      <property name="mode" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="tokenizer-flavour"
                 writable="1"
-                transfer-ownership="none"
-                default-value="0">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <field name="object">
@@ -32694,10 +32055,7 @@ To include variables in the @sql string, see the
               c:identifier="GDA_SQL_PARSER_MODE_DELIMIT">
       </member>
     </enumeration>
-    <record name="SqlParserPrivate"
-            c:type="GdaSqlParserPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="SqlParserPrivate" c:type="GdaSqlParserPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="96"/>
     </record>
     <record name="SqlRenderingContext" c:type="GdaSqlRenderingContext">
@@ -33749,10 +33107,7 @@ set the value of @expr-&gt;value instead.</doc>
         </parameters>
       </function>
     </record>
-    <record name="SqlStatement"
-            c:type="GdaSqlStatement"
-            disguised="1"
-            opaque="1">
+    <record name="SqlStatement" c:type="GdaSqlStatement" disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="64"/>
       <method name="compound_set_type"
@@ -33958,29 +33313,25 @@ set the value of @expr-&gt;value instead.</doc>
     </record>
     <record name="SqlStatementDelete"
             c:type="GdaSqlStatementDelete"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="89"/>
     </record>
     <record name="SqlStatementInsert"
             c:type="GdaSqlStatementInsert"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="84"/>
     </record>
     <record name="SqlStatementSelect"
             c:type="GdaSqlStatementSelect"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="79"/>
     </record>
     <record name="SqlStatementTransaction"
             c:type="GdaSqlStatementTransaction"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="74"/>
     </record>
@@ -34070,15 +33421,13 @@ set the value of @expr-&gt;value instead.</doc>
     </enumeration>
     <record name="SqlStatementUnknown"
             c:type="GdaSqlStatementUnknown"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="69"/>
     </record>
     <record name="SqlStatementUpdate"
             c:type="GdaSqlStatementUpdate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="sql-parser/gda-statement-struct-decl.h"
                        line="94"/>
     </record>
@@ -34753,10 +34102,7 @@ of the statement have been verified (emitted after gda_statement_check_validity(
              line="66">specifies that the data model's contents will be fully loaded into the client side (the memory of the process using Libgda), not requiring the server any more to access the data (the default behaviour is to access the server any time data is to be read, and data is cached in memory). This flag is useful only if used in conjunction with the GDA_STATEMENT_MODEL_RANDOM_ACCESS flag (otherwise an error will be returned).</doc>
       </member>
     </bitfield>
-    <record name="StatementPrivate"
-            c:type="GdaStatementPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="StatementPrivate" c:type="GdaStatementPrivate" disguised="1">
       <source-position filename="gda-decl.h" line="89"/>
     </record>
     <bitfield name="StatementSqlFlag" c:type="GdaStatementSqlFlag">
@@ -35858,8 +35204,7 @@ was called.</doc>
     </callback>
     <record name="ThreadWrapperPrivate"
             c:type="GdaThreadWrapperPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="thread-wrapper/gda-thread-wrapper.h"
                        line="36"/>
     </record>
@@ -36839,7 +36184,7 @@ gda_tree_update_part()). If @node is %NULL then the top level nodes are updated.
           </parameter>
         </parameters>
       </method>
-      <property name="is-list" transfer-ownership="none" default-value="FALSE">
+      <property name="is-list" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-tree.c"
              line="169">Tells if the GdaTree is a list or a tree.</doc>
@@ -37298,8 +36643,7 @@ managed has to be updated</doc>
       <property name="recursive"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-tree-manager.c"
              line="82">This property specifies if, when initially creating nodes or updating the list of nodes,
@@ -37438,8 +36782,7 @@ and needs to be postponed while an event occurs.</doc>
     </callback>
     <record name="TreeManagerPrivate"
             c:type="GdaTreeManagerPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-decl.h" line="124"/>
     </record>
     <class name="TreeMgrColumns"
@@ -37511,8 +36854,7 @@ priority over the GdaTreeMgrColumns:connection property.</doc>
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-tree-mgr-columns.c"
              line="107">If no set, then the table name will be fetched from the parent node using the "schema" attribute</doc>
@@ -37522,8 +36864,7 @@ priority over the GdaTreeMgrColumns:connection property.</doc>
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-tree-mgr-columns.c"
              line="117">If no set, then the table name will be fetched from the parent node using the "table_name" attribute</doc>
@@ -37546,8 +36887,7 @@ priority over the GdaTreeMgrColumns:connection property.</doc>
     </record>
     <record name="TreeMgrColumnsPriv"
             c:type="GdaTreeMgrColumnsPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-tree-mgr-columns.h" line="36"/>
     </record>
     <class name="TreeMgrLabel"
@@ -37584,8 +36924,7 @@ priority over the GdaTreeMgrColumns:connection property.</doc>
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -37603,10 +36942,7 @@ priority over the GdaTreeMgrColumns:connection property.</doc>
         <type name="TreeManagerClass" c:type="GdaTreeManagerClass"/>
       </field>
     </record>
-    <record name="TreeMgrLabelPriv"
-            c:type="GdaTreeMgrLabelPriv"
-            disguised="1"
-            opaque="1">
+    <record name="TreeMgrLabelPriv" c:type="GdaTreeMgrLabelPriv" disguised="1">
       <source-position filename="gda-tree-mgr-label.h" line="36"/>
     </record>
     <class name="TreeMgrLdap"
@@ -37663,8 +36999,7 @@ use it.</doc>
       <property name="dn"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-tree-mgr-ldap.c"
              line="84">Defines the Distinguised Name of the LDAP entry to list children from</doc>
@@ -37685,10 +37020,7 @@ use it.</doc>
         <type name="TreeManagerClass" c:type="GdaTreeManagerClass"/>
       </field>
     </record>
-    <record name="TreeMgrLdapPriv"
-            c:type="GdaTreeMgrLdapPriv"
-            disguised="1"
-            opaque="1">
+    <record name="TreeMgrLdapPriv" c:type="GdaTreeMgrLdapPriv" disguised="1">
       <source-position filename="gda-tree-mgr-ldap.h" line="36"/>
     </record>
     <class name="TreeMgrSchemas"
@@ -37761,8 +37093,7 @@ priority over the GdaTreeMgrSchema:connection property.</doc>
     </record>
     <record name="TreeMgrSchemasPriv"
             c:type="GdaTreeMgrSchemasPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-tree-mgr-schemas.h" line="36"/>
     </record>
     <class name="TreeMgrSelect"
@@ -37843,8 +37174,7 @@ the #GdaDataModel resulting from the execution of @stmt.</doc>
     </record>
     <record name="TreeMgrSelectPriv"
             c:type="GdaTreeMgrSelectPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-tree-mgr-select.h" line="36"/>
     </record>
     <class name="TreeMgrTables"
@@ -37913,8 +37243,7 @@ priority over the GdaTreeMgrTables:connection property.</doc>
                 readable="0"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gda-tree-mgr-tables.c"
              line="106">If no set, then the table name will be fetched from the parent node using the "schema" attribute. If not
@@ -37939,8 +37268,7 @@ a schema) will be used</doc>
     </record>
     <record name="TreeMgrTablesPriv"
             c:type="GdaTreeMgrTablesPriv"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-tree-mgr-tables.h" line="36"/>
     </record>
     <class name="TreeNode"
@@ -38287,10 +37615,7 @@ copied), except if @value is %NULL, in which case the attribute is removed.</doc
           </parameter>
         </parameters>
       </method>
-      <property name="name"
-                writable="1"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="name" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -38509,16 +37834,10 @@ does not have a ny children anymore when it had some</doc>
               c:identifier="GDA_TREE_NODE_UNKNOWN_ERROR">
       </member>
     </enumeration>
-    <record name="TreeNodePrivate"
-            c:type="GdaTreeNodePrivate"
-            disguised="1"
-            opaque="1">
+    <record name="TreeNodePrivate" c:type="GdaTreeNodePrivate" disguised="1">
       <source-position filename="gda-decl.h" line="128"/>
     </record>
-    <record name="TreePrivate"
-            c:type="GdaTreePrivate"
-            disguised="1"
-            opaque="1">
+    <record name="TreePrivate" c:type="GdaTreePrivate" disguised="1">
       <source-position filename="gda-decl.h" line="120"/>
     </record>
     <class name="UShort"
@@ -38934,15 +38253,13 @@ the opposite of gda_xa_transaction_register_connection().</doc>
       <property name="format-id"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="1">
+                transfer-ownership="none">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="transaction-id"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object">
@@ -39057,8 +38374,7 @@ are converted to "%ab" where ab is the hexadecimal representation of the charact
     </record>
     <record name="XaTransactionPrivate"
             c:type="GdaXaTransactionPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gda-xa-transaction.h" line="38"/>
     </record>
     <function name="alphanum_to_text" c:identifier="gda_alphanum_to_text">
@@ -39897,19 +39213,6 @@ as #GdaRow objects). In this data model, all the data is stored in memory, which
 of rows is huge.
 This type of data model is easy to use to store some temporary data, and has a random access mode (any value can be accessed
 at any time without the need for an iterator).</doc>
-    </docsection>
-    <docsection name="gda-data-model-bdb">
-      <doc xml:space="preserve"
-           filename="gda-data-model-bdb.h"
-           line="67">The #GdaDataModelBdb object allows to access the contents of a Berkeley DB database as a
-#GdaDataModel object.
-
-By default the resulting GdaDataModel contains only two columns (named "key" and "data") of type
-GDA_TYPE_BINARY, but this object can be subclassed to convert the key or data part of a BDB record
-into several columns (implement the create_key_columns(), create_data_columns(), get_key_part(), and get_data_part()
-virtual methods).
-
-Note: this type of data model is available only if the Berkeley DB library was found at compilation time.</doc>
     </docsection>
     <docsection name="gda-data-model-dir">
       <doc xml:space="preserve"
@@ -42967,7 +42270,7 @@ Free-function: gda_value_free</doc>
           <doc xml:space="preserve"
                filename="gda-value.c"
                line="1663">value to set for the new #GValue.</doc>
-          <type name="time_t" c:type="time_t"/>
+          <type name="glong" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>

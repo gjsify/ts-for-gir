@@ -644,25 +644,25 @@ object with [ctor@Portal.new] and use it throughout its lifetime.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="345">Creates a new [class@Portal] object.</doc>
+             line="334">Creates a new [class@Portal] object.</doc>
         <source-position filename="libportal/portal-helpers.h" line="39"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="351">a newly created [class@Portal] object or NULL on error</doc>
+               line="340">a newly created [class@Portal] object or NULL on error</doc>
           <type name="Portal" c:type="XdpPortal*"/>
         </return-value>
       </constructor>
       <constructor name="new" c:identifier="xdp_portal_new">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="359">Creates a new [class@Portal] object. If D-Bus is unavailable this API will abort.
+             line="348">Creates a new [class@Portal] object. If D-Bus is unavailable this API will abort.
 We recommend using xdp_portal_initable_new() to safely handle this failure.</doc>
         <source-position filename="libportal/portal-helpers.h" line="36"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="365">a newly created [class@Portal] object</doc>
+               line="354">a newly created [class@Portal] object</doc>
           <type name="Portal" c:type="XdpPortal*"/>
         </return-value>
       </constructor>
@@ -670,14 +670,14 @@ We recommend using xdp_portal_initable_new() to safely handle this failure.</doc
                 c:identifier="xdp_portal_running_under_flatpak">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="469">Detects if running inside of a Flatpak or WebKit sandbox.
+             line="458">Detects if running inside of a Flatpak or WebKit sandbox.
 
 See also: [func@Portal.running_under_sandbox].</doc>
         <source-position filename="libportal/portal-helpers.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="476">%TRUE if the current process is running under a Flatpak sandbox</doc>
+               line="465">%TRUE if the current process is running under a Flatpak sandbox</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
@@ -685,7 +685,7 @@ See also: [func@Portal.running_under_sandbox].</doc>
                 c:identifier="xdp_portal_running_under_sandbox">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="526">This function tries to determine if the current process is running under a
+             line="515">This function tries to determine if the current process is running under a
 sandbox that requires the use of portals.
 
 If you need to check error conditions see [func@Portal.running_under_snap].
@@ -695,7 +695,7 @@ Note that these functions are all cached and will always return the same result.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="536">%TRUE if the current process should use portals to access resources
+               line="525">%TRUE if the current process should use portals to access resources
   on the host system, or %FALSE if either an error was encountered or the
   process is running unsandboxed</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -706,22 +706,20 @@ Note that these functions are all cached and will always return the same result.
                 throws="1">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="499">Detects if you are running inside of a Snap sandbox.
+             line="488">Detects if you are running inside of a Snap sandbox.
 
 See also: [func@Portal.running_under_sandbox].</doc>
         <source-position filename="libportal/portal-helpers.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="507">%TRUE if the current process is running under a Snap sandbox, or
+               line="496">%TRUE if the current process is running under a Snap sandbox, or
   %FALSE if either unsandboxed or an error was encountered in which case
   @error will be set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
-      <method name="access_camera"
-              c:identifier="xdp_portal_access_camera"
-              glib:finish-func="access_camera_finish">
+      <method name="access_camera" c:identifier="xdp_portal_access_camera">
         <doc xml:space="preserve"
              filename="libportal/camera.c"
              line="211">Request access to a camera.
@@ -821,8 +819,7 @@ to obtain a pipewire remote.</doc>
         </parameters>
       </method>
       <method name="add_notification"
-              c:identifier="xdp_portal_add_notification"
-              glib:finish-func="add_notification_finish">
+              c:identifier="xdp_portal_add_notification">
         <doc xml:space="preserve"
              filename="libportal/notification.c"
              line="81">Sends a desktop notification.
@@ -946,9 +943,7 @@ Returns the result as a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="compose_email"
-              c:identifier="xdp_portal_compose_email"
-              glib:finish-func="compose_email_finish">
+      <method name="compose_email" c:identifier="xdp_portal_compose_email">
         <doc xml:space="preserve"
              filename="libportal/email.c"
              line="295">Presents a window that lets the user compose an email,
@@ -1104,8 +1099,7 @@ call [method@Portal.compose_email_finish] to get the results.</doc>
         </parameters>
       </method>
       <method name="create_remote_desktop_session"
-              c:identifier="xdp_portal_create_remote_desktop_session"
-              glib:finish-func="create_remote_desktop_session_finish">
+              c:identifier="xdp_portal_create_remote_desktop_session">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
              line="529">Creates a session for remote desktop.
@@ -1207,8 +1201,7 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
         </parameters>
       </method>
       <method name="create_screencast_session"
-              c:identifier="xdp_portal_create_screencast_session"
-              glib:finish-func="create_screencast_session_finish">
+              c:identifier="xdp_portal_create_screencast_session">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
              line="455">Creates a session for a screencast.
@@ -1472,8 +1465,7 @@ the app.</doc>
         </parameters>
       </method>
       <method name="dynamic_launcher_prepare_install"
-              c:identifier="xdp_portal_dynamic_launcher_prepare_install"
-              glib:finish-func="dynamic_launcher_prepare_install_finish">
+              c:identifier="xdp_portal_dynamic_launcher_prepare_install">
         <doc xml:space="preserve"
              filename="libportal/dynamic-launcher.c"
              line="224">Presents a dialog to the user so they can confirm they want to install a
@@ -1680,8 +1672,7 @@ The @desktop_file_id must be prefixed with the caller's app ID followed by a
         </parameters>
       </method>
       <method name="get_user_information"
-              c:identifier="xdp_portal_get_user_information"
-              glib:finish-func="get_user_information_finish">
+              c:identifier="xdp_portal_get_user_information">
         <doc xml:space="preserve"
              filename="libportal/account.c"
              line="200">Gets information about the user.
@@ -1813,8 +1804,7 @@ containing the following fields:
         </parameters>
       </method>
       <method name="location_monitor_start"
-              c:identifier="xdp_portal_location_monitor_start"
-              glib:finish-func="location_monitor_start_finish">
+              c:identifier="xdp_portal_location_monitor_start">
         <doc xml:space="preserve"
              filename="libportal/location.c"
              line="320">Makes `XdpPortal` start monitoring location changes.
@@ -1954,9 +1944,7 @@ Returns result in the form of boolean.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_directory"
-              c:identifier="xdp_portal_open_directory"
-              glib:finish-func="open_directory_finish">
+      <method name="open_directory" c:identifier="xdp_portal_open_directory">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
              line="336">Opens the directory containing the file specified by the @uri.
@@ -2053,9 +2041,7 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="open_file"
-              c:identifier="xdp_portal_open_file"
-              glib:finish-func="open_file_finish">
+      <method name="open_file" c:identifier="xdp_portal_open_file">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="234">Asks the user to open one or more files.
@@ -2236,9 +2222,7 @@ pipewire node.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_uri"
-              c:identifier="xdp_portal_open_uri"
-              glib:finish-func="open_uri_finish">
+      <method name="open_uri" c:identifier="xdp_portal_open_uri">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
              line="269">Opens @uri with an external handler.</doc>
@@ -2332,9 +2316,7 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="pick_color"
-              c:identifier="xdp_portal_pick_color"
-              glib:finish-func="pick_color_finish">
+      <method name="pick_color" c:identifier="xdp_portal_pick_color">
         <doc xml:space="preserve"
              filename="libportal/screenshot.c"
              line="282">Lets the user pick a color from the screen.
@@ -2423,9 +2405,7 @@ red, green and blue components in the range [0,1].</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="prepare_print"
-              c:identifier="xdp_portal_prepare_print"
-              glib:finish-func="prepare_print_finish">
+      <method name="prepare_print" c:identifier="xdp_portal_prepare_print">
         <doc xml:space="preserve"
              filename="libportal/print.c"
              line="270">Presents a print dialog to the user and returns print settings and page setup.
@@ -2548,9 +2528,7 @@ Returns a [struct@GLib.Variant] dictionary with the following information:
           </parameter>
         </parameters>
       </method>
-      <method name="print_file"
-              c:identifier="xdp_portal_print_file"
-              glib:finish-func="print_file_finish">
+      <method name="print_file" c:identifier="xdp_portal_print_file">
         <doc xml:space="preserve"
              filename="libportal/print.c"
              line="348">Prints a file.
@@ -2689,8 +2667,7 @@ call [method@Portal.print_file_finish] to get the results.</doc>
         </parameters>
       </method>
       <method name="request_background"
-              c:identifier="xdp_portal_request_background"
-              glib:finish-func="request_background_finish">
+              c:identifier="xdp_portal_request_background">
         <doc xml:space="preserve"
              filename="libportal/background.c"
              line="320">Requests background permissions.
@@ -2801,9 +2778,7 @@ Returns `TRUE` if successful.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_file"
-              c:identifier="xdp_portal_save_file"
-              glib:finish-func="save_file_finish">
+      <method name="save_file" c:identifier="xdp_portal_save_file">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="342">Asks the user for a location to save a file.
@@ -2967,9 +2942,7 @@ containing the following fields:
           </parameter>
         </parameters>
       </method>
-      <method name="save_files"
-              c:identifier="xdp_portal_save_files"
-              glib:finish-func="save_files_finish">
+      <method name="save_files" c:identifier="xdp_portal_save_files">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="440">Asks for a folder as a location to save one or more files.
@@ -3118,9 +3091,7 @@ containing the following fields:
           </parameter>
         </parameters>
       </method>
-      <method name="session_inhibit"
-              c:identifier="xdp_portal_session_inhibit"
-              glib:finish-func="session_inhibit_finish">
+      <method name="session_inhibit" c:identifier="xdp_portal_session_inhibit">
         <doc xml:space="preserve"
              filename="libportal/inhibit.c"
              line="210">Inhibits various session status changes.
@@ -3254,8 +3225,7 @@ ready for the session to end.</doc>
         </parameters>
       </method>
       <method name="session_monitor_start"
-              c:identifier="xdp_portal_session_monitor_start"
-              glib:finish-func="session_monitor_start_finish">
+              c:identifier="xdp_portal_session_monitor_start">
         <doc xml:space="preserve"
              filename="libportal/inhibit.c"
              line="562">Makes [class@Portal] start monitoring the login session state.
@@ -3396,8 +3366,7 @@ to [method@Portal.session_inhibit].</doc>
         </parameters>
       </method>
       <method name="set_background_status"
-              c:identifier="xdp_portal_set_background_status"
-              glib:finish-func="set_background_status_finish">
+              c:identifier="xdp_portal_set_background_status">
         <doc xml:space="preserve"
              filename="libportal/background.c"
              line="393">Sets the status information of the application, for when it's running
@@ -3481,9 +3450,7 @@ in background.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_wallpaper"
-              c:identifier="xdp_portal_set_wallpaper"
-              glib:finish-func="set_wallpaper_finish">
+      <method name="set_wallpaper" c:identifier="xdp_portal_set_wallpaper">
         <doc xml:space="preserve"
              filename="libportal/wallpaper.c"
              line="278">Sets a desktop background image, given by a uri.</doc>
@@ -3580,9 +3547,7 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="spawn"
-              c:identifier="xdp_portal_spawn"
-              glib:finish-func="spawn_finish">
+      <method name="spawn" c:identifier="xdp_portal_spawn">
         <doc xml:space="preserve"
              filename="libportal/spawn.c"
              line="188">Creates a new copy of the applications sandbox, and runs
@@ -3781,9 +3746,7 @@ by [method@Portal.spawn].</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="take_screenshot"
-              c:identifier="xdp_portal_take_screenshot"
-              glib:finish-func="take_screenshot_finish">
+      <method name="take_screenshot" c:identifier="xdp_portal_take_screenshot">
         <doc xml:space="preserve"
              filename="libportal/screenshot.c"
              line="217">Takes a screenshot.
@@ -3877,9 +3840,7 @@ Returns the result in the form of a URI pointing to an image file.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="trash_file"
-              c:identifier="xdp_portal_trash_file"
-              glib:finish-func="trash_file_finish">
+      <method name="trash_file" c:identifier="xdp_portal_trash_file">
         <doc xml:space="preserve"
              filename="libportal/trash.c"
              line="122">Sends the file at @path to the trash can.</doc>
@@ -3961,9 +3922,7 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="update_install"
-              c:identifier="xdp_portal_update_install"
-              glib:finish-func="update_install_finish">
+      <method name="update_install" c:identifier="xdp_portal_update_install">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
              line="384">Installs an available software update.
@@ -4063,8 +4022,7 @@ to learn when the installation is complete.</doc>
         </parameters>
       </method>
       <method name="update_monitor_start"
-              c:identifier="xdp_portal_update_monitor_start"
-              glib:finish-func="update_monitor_start_finish">
+              c:identifier="xdp_portal_update_monitor_start">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
              line="202">Makes `XdpPortal` start monitoring for available software updates.
@@ -4173,7 +4131,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="location-updated" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="223">Emitted when location monitoring is enabled and the location changes.</doc>
+             line="221">Emitted when location monitoring is enabled and the location changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4181,55 +4139,55 @@ Returns the result in the form of boolean.</doc>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="226">the latitude, in degrees</doc>
+                 line="224">the latitude, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="227">the longitude, in degrees</doc>
+                 line="225">the longitude, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="altitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="228">the altitude, in meters</doc>
+                 line="226">the altitude, in meters</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="accuracy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="229">the accuracy, in meters</doc>
+                 line="227">the accuracy, in meters</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="speed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="230">the speed, in meters per second</doc>
+                 line="228">the speed, in meters per second</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="heading" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="231">the heading, in degrees</doc>
+                 line="229">the heading, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="232">the description</doc>
+                 line="230">the description</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="timestamp_s" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="233">the timestamp seconds since the Unix epoch</doc>
+                 line="231">the timestamp seconds since the Unix epoch</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="timestamp_ms" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="234">the microseconds fraction of the timestamp</doc>
+                 line="232">the microseconds fraction of the timestamp</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -4237,7 +4195,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="notification-action-invoked" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="256">Emitted when a non-exported action is activated on a notification.</doc>
+             line="254">Emitted when a non-exported action is activated on a notification.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4245,13 +4203,13 @@ Returns the result in the form of boolean.</doc>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="259">the notification ID</doc>
+                 line="257">the notification ID</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="260">the action name</doc>
+                 line="258">the action name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="parameter"
@@ -4260,7 +4218,7 @@ Returns the result in the form of boolean.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="261">the target parameter for the action</doc>
+                 line="259">the target parameter for the action</doc>
             <type name="GLib.Variant"/>
           </parameter>
         </parameters>
@@ -4268,7 +4226,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="session-state-changed" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="145">Emitted when session state monitoring is
+             line="143">Emitted when session state monitoring is
 enabled and the state of the login session changes or
 the screensaver is activated or deactivated.</doc>
         <return-value transfer-ownership="none">
@@ -4278,13 +4236,13 @@ the screensaver is activated or deactivated.</doc>
           <parameter name="screensaver_active" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="148">whether the screensaver is active</doc>
+                 line="146">whether the screensaver is active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="session_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="149">the current state of the login session</doc>
+                 line="147">the current state of the login session</doc>
             <type name="LoginSessionState"/>
           </parameter>
         </parameters>
@@ -4292,7 +4250,7 @@ the screensaver is activated or deactivated.</doc>
       <glib:signal name="spawn-exited" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="127">Emitted when a process that was spawned with [method@Portal.spawn] exits.</doc>
+             line="125">Emitted when a process that was spawned with [method@Portal.spawn] exits.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4300,13 +4258,13 @@ the screensaver is activated or deactivated.</doc>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="130">the pid of the process</doc>
+                 line="128">the pid of the process</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="exit_status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="131">the exit status of the process</doc>
+                 line="129">the exit status of the process</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4314,7 +4272,7 @@ the screensaver is activated or deactivated.</doc>
       <glib:signal name="update-available" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="165">Emitted when updates monitoring is enabled
+             line="163">Emitted when updates monitoring is enabled
 and a new update is available.
 
 It is only sent once with the same information, but it can be sent many
@@ -4326,20 +4284,20 @@ times if new updates appear.</doc>
           <parameter name="running_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="168">the commit that the sandbox is running with</doc>
+                 line="166">the commit that the sandbox is running with</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="local_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="169">the commit that is currently deployed. Restarting
+                 line="167">the commit that is currently deployed. Restarting
     the app will use this commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="remote_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="171">the commit that is available as an update.
+                 line="169">the commit that is available as an update.
     Updating the app will deloy this commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
@@ -4348,7 +4306,7 @@ times if new updates appear.</doc>
       <glib:signal name="update-progress" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="191">Emitted to indicate progress of an update installation.
+             line="189">Emitted to indicate progress of an update installation.
 
 It is undefined exactly how often it is sent, but it will be emitted at
 least once at the end with a non-zero @status. For each successful
@@ -4361,38 +4319,38 @@ with @progress 100.</doc>
           <parameter name="n_ops" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="194">the number of operations that the update consists of</doc>
+                 line="192">the number of operations that the update consists of</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="op" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="195">the position of the currently active operation</doc>
+                 line="193">the position of the currently active operation</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="196">the progress of the currently active operation, as
+                 line="194">the progress of the currently active operation, as
   a number between 0 and 100</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="198">the overall status of the update</doc>
+                 line="196">the overall status of the update</doc>
             <type name="UpdateStatus"/>
           </parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="199">the error name if the status is 'failed'</doc>
+                 line="197">the error name if the status is 'failed'</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="error_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="200">the error message if the status is 'failed'</doc>
+                 line="198">the error message if the status is 'failed'</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -4959,9 +4917,7 @@ with `XDP_DEVICE_POINTER` access.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="start"
-              c:identifier="xdp_session_start"
-              glib:finish-func="start_finish">
+      <method name="start" c:identifier="xdp_session_start">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
              line="772">Starts the session.

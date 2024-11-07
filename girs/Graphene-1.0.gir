@@ -889,7 +889,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_0_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="137"/>
+                       line="138"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -899,7 +899,17 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_10_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="203"/>
+                       line="204"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_12_FOR"
+                    c:identifier="GRAPHENE_DEPRECATED_IN_1_12_FOR"
+                    introspectable="0">
+      <source-position filename="include/graphene-version-macros.h"
+                       line="219"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -909,7 +919,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_2_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="143"/>
+                       line="144"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -919,7 +929,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_4_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="158"/>
+                       line="159"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -929,7 +939,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_6_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="173"/>
+                       line="174"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -939,7 +949,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_8_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="188"/>
+                       line="189"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2170,7 +2180,7 @@ The algorithm for decomposing a matrix is taken from the
 [CSS3 Transforms specification](http://dev.w3.org/csswg/css-transforms/);
 specifically, the decomposition code is based on the equivalent code
 published in "Graphics Gems II", edited by Jim Arvo, and
-[available online](http://tog.acm.org/resources/GraphicsGems/gemsii/unmatrix.c).</doc>
+[available online](http://web.archive.org/web/20150512160205/http://tog.acm.org/resources/GraphicsGems/gemsii/unmatrix.c).</doc>
         <source-position filename="include/graphene-matrix.h" line="306"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -5103,6 +5113,34 @@ or graphene_point_init_from_point(), e.g.:
           </parameter>
         </parameters>
       </method>
+      <method name="distance_squared"
+              c:identifier="graphene_point_distance_squared"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-point.c"
+             line="231">Computes the squared distance between @a and @b.</doc>
+        <source-position filename="include/graphene-point.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-point.c"
+               line="238">the distance between the two points, squared</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-point.c"
+                 line="233">a #graphene_point_t</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-point.c"
+                 line="234">a #graphene_point_t</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="equal" c:identifier="graphene_point_equal" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
@@ -5246,9 +5284,9 @@ It's safe to call this function multiple times.</doc>
               version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="260">Linearly interpolates the coordinates of @a and @b using the
+             line="285">Linearly interpolates the coordinates of @a and @b using the
 given @factor.</doc>
-        <source-position filename="include/graphene-point.h" line="107"/>
+        <source-position filename="include/graphene-point.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5256,19 +5294,19 @@ given @factor.</doc>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="262">a #graphene_point_t</doc>
+                 line="287">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="263">a #graphene_point_t</doc>
+                 line="288">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </parameter>
           <parameter name="factor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="264">the linear interpolation factor</doc>
+                 line="289">the linear interpolation factor</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="res"
@@ -5277,7 +5315,7 @@ given @factor.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="265">return location for the interpolated
+                 line="290">return location for the interpolated
   point</doc>
             <type name="Point" c:type="graphene_point_t*"/>
           </parameter>
@@ -5286,32 +5324,32 @@ given @factor.</doc>
       <method name="near" c:identifier="graphene_point_near" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="231">Checks whether the two points @a and @b are within
+             line="256">Checks whether the two points @a and @b are within
 the threshold of @epsilon.</doc>
-        <source-position filename="include/graphene-point.h" line="102"/>
+        <source-position filename="include/graphene-point.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-point.c"
-               line="240">`true` if the distance is within @epsilon</doc>
+               line="265">`true` if the distance is within @epsilon</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="233">a #graphene_point_t</doc>
+                 line="258">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="234">a #graphene_point_t</doc>
+                 line="259">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </parameter>
           <parameter name="epsilon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="235">threshold between the two points</doc>
+                 line="260">threshold between the two points</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -5321,9 +5359,9 @@ the threshold of @epsilon.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="283">Stores the coordinates of the given #graphene_point_t into a
+             line="308">Stores the coordinates of the given #graphene_point_t into a
 #graphene_vec2_t.</doc>
-        <source-position filename="include/graphene-point.h" line="113"/>
+        <source-position filename="include/graphene-point.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5331,7 +5369,7 @@ the threshold of @epsilon.</doc>
           <instance-parameter name="p" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="285">a #graphene_point_t</doc>
+                 line="310">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </instance-parameter>
           <parameter name="v"
@@ -5340,7 +5378,7 @@ the threshold of @epsilon.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="286">return location for the vertex</doc>
+                 line="311">return location for the vertex</doc>
             <type name="Vec2" c:type="graphene_vec2_t*"/>
           </parameter>
         </parameters>
@@ -5348,12 +5386,12 @@ the threshold of @epsilon.</doc>
       <function name="zero" c:identifier="graphene_point_zero" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="302">Returns a point fixed at (0, 0).</doc>
-        <source-position filename="include/graphene-point.h" line="117"/>
+             line="327">Returns a point fixed at (0, 0).</doc>
+        <source-position filename="include/graphene-point.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-point.c"
-               line="307">a fixed point</doc>
+               line="332">a fixed point</doc>
           <type name="Point" c:type="const graphene_point_t*"/>
         </return-value>
       </function>
@@ -7023,14 +7061,14 @@ be modified directly.</doc>
                    version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="60">Allocates a new #graphene_ray_t structure.
+             line="55">Allocates a new #graphene_ray_t structure.
 
 The contents of the returned structure are undefined.</doc>
         <source-position filename="include/graphene-ray.h" line="73"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="67">the newly allocated #graphene_ray_t.
+               line="62">the newly allocated #graphene_ray_t.
   Use graphene_ray_free() to free the resources allocated by
   this function</doc>
           <type name="Ray" c:type="graphene_ray_t*"/>
@@ -7039,25 +7077,25 @@ The contents of the returned structure are undefined.</doc>
       <method name="equal" c:identifier="graphene_ray_equal" version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="325">Checks whether the two given #graphene_ray_t are equal.</doc>
+             line="320">Checks whether the two given #graphene_ray_t are equal.</doc>
         <source-position filename="include/graphene-ray.h" line="107"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="332">`true` if the given rays are equal</doc>
+               line="327">`true` if the given rays are equal</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="327">a #graphene_ray_t</doc>
+                 line="322">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="328">a #graphene_ray_t</doc>
+                 line="323">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </parameter>
         </parameters>
@@ -7065,7 +7103,7 @@ The contents of the returned structure are undefined.</doc>
       <method name="free" c:identifier="graphene_ray_free" version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="79">Frees the resources allocated by graphene_ray_alloc().</doc>
+             line="74">Frees the resources allocated by graphene_ray_alloc().</doc>
         <source-position filename="include/graphene-ray.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7074,7 +7112,7 @@ The contents of the returned structure are undefined.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="81">a #graphene_ray_t</doc>
+                 line="76">a #graphene_ray_t</doc>
             <type name="Ray" c:type="graphene_ray_t*"/>
           </instance-parameter>
         </parameters>
@@ -7084,7 +7122,7 @@ The contents of the returned structure are undefined.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="343">Computes the point on the given #graphene_ray_t that is closest to the
+             line="338">Computes the point on the given #graphene_ray_t that is closest to the
 given point @p.</doc>
         <source-position filename="include/graphene-ray.h" line="111"/>
         <return-value transfer-ownership="none">
@@ -7094,13 +7132,13 @@ given point @p.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="345">a #graphene_ray_t</doc>
+                 line="340">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="p" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="346">a #graphene_point3d_t</doc>
+                 line="341">a #graphene_point3d_t</doc>
             <type name="Point3D" c:type="const graphene_point3d_t*"/>
           </parameter>
           <parameter name="res"
@@ -7109,7 +7147,7 @@ given point @p.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="347">return location for the closest point3d</doc>
+                 line="342">return location for the closest point3d</doc>
             <type name="Point3D" c:type="graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -7119,7 +7157,7 @@ given point @p.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="189">Retrieves the direction of the given #graphene_ray_t.</doc>
+             line="184">Retrieves the direction of the given #graphene_ray_t.</doc>
         <source-position filename="include/graphene-ray.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7128,7 +7166,7 @@ given point @p.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="191">a #graphene_ray_t</doc>
+                 line="186">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="direction"
@@ -7137,7 +7175,7 @@ given point @p.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="192">return location for the direction</doc>
+                 line="187">return location for the direction</doc>
             <type name="Vec3" c:type="graphene_vec3_t*"/>
           </parameter>
         </parameters>
@@ -7147,7 +7185,7 @@ given point @p.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="274">Computes the distance of the origin of the given #graphene_ray_t from the
+             line="269">Computes the distance of the origin of the given #graphene_ray_t from the
 given plane.
 
 If the ray does not intersect the plane, this function returns `INFINITY`.</doc>
@@ -7155,20 +7193,20 @@ If the ray does not intersect the plane, this function returns `INFINITY`.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="284">the distance of the origin of the ray from the plane</doc>
+               line="279">the distance of the origin of the ray from the plane</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="276">a #graphene_ray_t</doc>
+                 line="271">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="p" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="277">a #graphene_plane_t</doc>
+                 line="272">a #graphene_plane_t</doc>
             <type name="Plane" c:type="const graphene_plane_t*"/>
           </parameter>
         </parameters>
@@ -7178,7 +7216,7 @@ If the ray does not intersect the plane, this function returns `INFINITY`.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="229">Computes the distance of the closest approach between the
+             line="224">Computes the distance of the closest approach between the
 given #graphene_ray_t @r and the point @p.
 
 The closest approach to a ray from a point is the distance
@@ -7188,20 +7226,20 @@ ray itself.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="241">the distance of the point</doc>
+               line="236">the distance of the point</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="231">a #graphene_ray_t</doc>
+                 line="226">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="p" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="232">a #graphene_point3d_t</doc>
+                 line="227">a #graphene_point3d_t</doc>
             <type name="Point3D" c:type="const graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -7211,7 +7249,7 @@ ray itself.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="173">Retrieves the origin of the given #graphene_ray_t.</doc>
+             line="168">Retrieves the origin of the given #graphene_ray_t.</doc>
         <source-position filename="include/graphene-ray.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7220,7 +7258,7 @@ ray itself.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="175">a #graphene_ray_t</doc>
+                 line="170">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="origin"
@@ -7229,7 +7267,7 @@ ray itself.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="176">return location for the origin</doc>
+                 line="171">return location for the origin</doc>
             <type name="Point3D" c:type="graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -7239,7 +7277,7 @@ ray itself.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="205">Retrieves the coordinates of a point at the distance @t along the
+             line="200">Retrieves the coordinates of a point at the distance @t along the
 given #graphene_ray_t.</doc>
         <source-position filename="include/graphene-ray.h" line="96"/>
         <return-value transfer-ownership="none">
@@ -7249,13 +7287,13 @@ given #graphene_ray_t.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="207">a #graphene_ray_t</doc>
+                 line="202">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="208">the distance along the ray</doc>
+                 line="203">the distance along the ray</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="position"
@@ -7264,7 +7302,7 @@ given #graphene_ray_t.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="209">return location for the position</doc>
+                 line="204">return location for the position</doc>
             <type name="Point3D" c:type="graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -7272,20 +7310,20 @@ given #graphene_ray_t.</doc>
       <method name="init" c:identifier="graphene_ray_init" version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="93">Initializes the given #graphene_ray_t using the given @origin
+             line="88">Initializes the given #graphene_ray_t using the given @origin
 and @direction values.</doc>
         <source-position filename="include/graphene-ray.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="102">the initialized ray</doc>
+               line="97">the initialized ray</doc>
           <type name="Ray" c:type="graphene_ray_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="95">the #graphene_ray_t to initialize</doc>
+                 line="90">the #graphene_ray_t to initialize</doc>
             <type name="Ray" c:type="graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="origin"
@@ -7294,7 +7332,7 @@ and @direction values.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="96">the origin of the ray</doc>
+                 line="91">the origin of the ray</doc>
             <type name="Point3D" c:type="const graphene_point3d_t*"/>
           </parameter>
           <parameter name="direction"
@@ -7303,7 +7341,7 @@ and @direction values.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="97">the direction vector</doc>
+                 line="92">the direction vector</doc>
             <type name="Vec3" c:type="const graphene_vec3_t*"/>
           </parameter>
         </parameters>
@@ -7313,26 +7351,26 @@ and @direction values.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="124">Initializes the given #graphene_ray_t using the origin and direction
+             line="119">Initializes the given #graphene_ray_t using the origin and direction
 values of another #graphene_ray_t.</doc>
         <source-position filename="include/graphene-ray.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="132">the initialized ray</doc>
+               line="127">the initialized ray</doc>
           <type name="Ray" c:type="graphene_ray_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="126">the #graphene_ray_t to initialize</doc>
+                 line="121">the #graphene_ray_t to initialize</doc>
             <type name="Ray" c:type="graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="127">a #graphene_ray_t</doc>
+                 line="122">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </parameter>
         </parameters>
@@ -7342,19 +7380,19 @@ values of another #graphene_ray_t.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="143">Initializes the given #graphene_ray_t using the given vectors.</doc>
+             line="138">Initializes the given #graphene_ray_t using the given vectors.</doc>
         <source-position filename="include/graphene-ray.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="151">the initialized ray</doc>
+               line="146">the initialized ray</doc>
           <type name="Ray" c:type="graphene_ray_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="145">the #graphene_ray_t to initialize</doc>
+                 line="140">the #graphene_ray_t to initialize</doc>
             <type name="Ray" c:type="graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="origin"
@@ -7363,7 +7401,7 @@ values of another #graphene_ray_t.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="146">a #graphene_vec3_t</doc>
+                 line="141">a #graphene_vec3_t</doc>
             <type name="Vec3" c:type="const graphene_vec3_t*"/>
           </parameter>
           <parameter name="direction"
@@ -7372,7 +7410,7 @@ values of another #graphene_ray_t.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="147">a #graphene_vec3_t</doc>
+                 line="142">a #graphene_vec3_t</doc>
             <type name="Vec3" c:type="const graphene_vec3_t*"/>
           </parameter>
         </parameters>
@@ -7382,13 +7420,13 @@ values of another #graphene_ray_t.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="486">Intersects the given #graphene_ray_t @r with the given
+             line="465">Intersects the given #graphene_ray_t @r with the given
 #graphene_box_t @b.</doc>
         <source-position filename="include/graphene-ray.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="495">the type of intersection</doc>
+               line="474">the type of intersection</doc>
           <type name="RayIntersectionKind"
                 c:type="graphene_ray_intersection_kind_t"/>
         </return-value>
@@ -7396,13 +7434,13 @@ values of another #graphene_ray_t.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="488">a #graphene_ray_t</doc>
+                 line="467">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="489">a #graphene_box_t</doc>
+                 line="468">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </parameter>
           <parameter name="t_out"
@@ -7411,7 +7449,7 @@ values of another #graphene_ray_t.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="490">the distance of the point on the ray that intersects the box</doc>
+                 line="469">the distance of the point on the ray that intersects the box</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
         </parameters>
@@ -7421,13 +7459,13 @@ values of another #graphene_ray_t.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="377">Intersects the given #graphene_ray_t @r with the given
+             line="372">Intersects the given #graphene_ray_t @r with the given
 #graphene_sphere_t @s.</doc>
         <source-position filename="include/graphene-ray.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="386">the type of intersection</doc>
+               line="381">the type of intersection</doc>
           <type name="RayIntersectionKind"
                 c:type="graphene_ray_intersection_kind_t"/>
         </return-value>
@@ -7435,13 +7473,13 @@ values of another #graphene_ray_t.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="379">a #graphene_ray_t</doc>
+                 line="374">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="s" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="380">a #graphene_sphere_t</doc>
+                 line="375">a #graphene_sphere_t</doc>
             <type name="Sphere" c:type="const graphene_sphere_t*"/>
           </parameter>
           <parameter name="t_out"
@@ -7450,7 +7488,7 @@ values of another #graphene_ray_t.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="381">the distance of the point on the ray that intersects the sphere</doc>
+                 line="376">the distance of the point on the ray that intersects the sphere</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
         </parameters>
@@ -7460,13 +7498,13 @@ values of another #graphene_ray_t.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="636">Intersects the given #graphene_ray_t @r with the given
+             line="593">Intersects the given #graphene_ray_t @r with the given
 #graphene_triangle_t @t.</doc>
         <source-position filename="include/graphene-ray.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="645">the type of intersection</doc>
+               line="602">the type of intersection</doc>
           <type name="RayIntersectionKind"
                 c:type="graphene_ray_intersection_kind_t"/>
         </return-value>
@@ -7474,13 +7512,13 @@ values of another #graphene_ray_t.</doc>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="638">a #graphene_ray_t</doc>
+                 line="595">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="639">a #graphene_triangle_t</doc>
+                 line="596">a #graphene_triangle_t</doc>
             <type name="Triangle" c:type="const graphene_triangle_t*"/>
           </parameter>
           <parameter name="t_out"
@@ -7489,7 +7527,7 @@ values of another #graphene_ray_t.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="640">the distance of the point on the ray that intersects the triangle</doc>
+                 line="597">the distance of the point on the ray that intersects the triangle</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
         </parameters>
@@ -7499,7 +7537,7 @@ values of another #graphene_ray_t.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="615">Checks whether the given #graphene_ray_t @r intersects the
+             line="572">Checks whether the given #graphene_ray_t @r intersects the
 given #graphene_box_t @b.
 
 See also: graphene_ray_intersect_box()</doc>
@@ -7507,20 +7545,20 @@ See also: graphene_ray_intersect_box()</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="625">`true` if the ray intersects the box</doc>
+               line="582">`true` if the ray intersects the box</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="617">a #graphene_ray_t</doc>
+                 line="574">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="618">a #graphene_box_t</doc>
+                 line="575">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </parameter>
         </parameters>
@@ -7530,7 +7568,7 @@ See also: graphene_ray_intersect_box()</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="449">Checks if the given #graphene_ray_t @r intersects the
+             line="444">Checks if the given #graphene_ray_t @r intersects the
 given #graphene_sphere_t @s.
 
 See also: graphene_ray_intersect_sphere()</doc>
@@ -7538,20 +7576,20 @@ See also: graphene_ray_intersect_sphere()</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="459">`true` if the ray intersects the sphere</doc>
+               line="454">`true` if the ray intersects the sphere</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="451">a #graphene_ray_t</doc>
+                 line="446">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="s" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="452">a #graphene_sphere_t</doc>
+                 line="447">a #graphene_sphere_t</doc>
             <type name="Sphere" c:type="const graphene_sphere_t*"/>
           </parameter>
         </parameters>
@@ -7561,7 +7599,7 @@ See also: graphene_ray_intersect_sphere()</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-ray.c"
-             line="736">Checks whether the given #graphene_ray_t @r intersects the
+             line="693">Checks whether the given #graphene_ray_t @r intersects the
 given #graphene_triangle_t @b.
 
 See also: graphene_ray_intersect_triangle()</doc>
@@ -7569,20 +7607,20 @@ See also: graphene_ray_intersect_triangle()</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
-               line="746">`true` if the ray intersects the triangle</doc>
+               line="703">`true` if the ray intersects the triangle</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="738">a #graphene_ray_t</doc>
+                 line="695">a #graphene_ray_t</doc>
             <type name="Ray" c:type="const graphene_ray_t*"/>
           </instance-parameter>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-ray.c"
-                 line="739">a #graphene_triangle_t</doc>
+                 line="696">a #graphene_triangle_t</doc>
             <type name="Triangle" c:type="const graphene_triangle_t*"/>
           </parameter>
         </parameters>
@@ -8713,7 +8751,7 @@ declaring it, e.g.:
       </parameters>
     </function-macro>
     <record name="Simd4F" c:type="graphene_simd4f_t">
-      <source-position filename="include/graphene-config.h" line="90"/>
+      <source-position filename="include/graphene-config.h" line="102"/>
       <field name="x" readable="0" private="1">
         <type name="gfloat" c:type="float"/>
       </field>
@@ -8728,7 +8766,7 @@ declaring it, e.g.:
       </field>
     </record>
     <record name="Simd4X4F" c:type="graphene_simd4x4f_t">
-      <source-position filename="include/graphene-config.h" line="96"/>
+      <source-position filename="include/graphene-config.h" line="108"/>
       <field name="x" readable="0" private="1">
         <type name="Simd4F" c:type="graphene_simd4f_t"/>
       </field>
@@ -13077,12 +13115,12 @@ Each vector type should be treated as an opaque data type.</doc>
               version="1.0">
       <doc xml:space="preserve"
            filename="src/graphene-point.c"
-           line="302">Returns a point fixed at (0, 0).</doc>
-      <source-position filename="include/graphene-point.h" line="117"/>
+           line="327">Returns a point fixed at (0, 0).</doc>
+      <source-position filename="include/graphene-point.h" line="121"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="307">a fixed point</doc>
+             line="332">a fixed point</doc>
         <type name="Point" c:type="const graphene_point_t*"/>
       </return-value>
     </function>

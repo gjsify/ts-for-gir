@@ -7198,7 +7198,7 @@ exists, then %TRUE is returned and no backup is made.</doc>
               c:identifier="glade_project_get_file_mtime">
         <source-position filename="gladeui/glade-project.h" line="260"/>
         <return-value transfer-ownership="none">
-          <type name="time_t" c:type="time_t"/>
+          <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="project" transfer-ownership="none">
@@ -23527,7 +23527,7 @@ to @findme which should be freed with gtk_tree_iter_free()</doc>
              filename="gladeui/glade-utils.c"
              line="1274">The mtime of the file, or %0 if the file attributes
          could not be read.</doc>
-        <type name="time_t" c:type="time_t"/>
+        <type name="glong" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">

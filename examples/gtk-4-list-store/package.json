@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-4-list-store-example",
-  "version": "4.0.0-beta.16",
+  "version": "4.0.0-beta.18",
   "description": "It takes the hassle away from building Gtk4 application in Python So you can create a cool application, without all the boilerplate code",
   "type": "module",
   "private": true,
@@ -18,8 +18,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.23.1",
-    "typescript": "^5.6.2"
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",

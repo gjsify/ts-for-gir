@@ -11,7 +11,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="gspell/gspell.h"/>
   <namespace name="Gspell"
              version="1"
-             shared-library="libgspell-1.so.3"
+             shared-library="libgspell-1.so.2"
              c:identifier-prefixes="Gspell"
              c:symbol-prefixes="gspell">
     <class name="Checker"
@@ -21,17 +21,17 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GspellChecker"
            glib:get-type="gspell_checker_get_type"
            glib:type-struct="CheckerClass">
-      <source-position filename="gspell/gspell-checker.h" line="80"/>
+      <source-position filename="gspell-checker.h" line="80"/>
       <constructor name="new" c:identifier="gspell_checker_new">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="232">Creates a new #GspellChecker. If @language is %NULL, the default language is
+             filename="gspell-checker.c"
+             line="235">Creates a new #GspellChecker. If @language is %NULL, the default language is
 picked with gspell_language_get_default().</doc>
-        <source-position filename="gspell/gspell-checker.h" line="86"/>
+        <source-position filename="gspell-checker.h" line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker.c"
-               line="239">a new #GspellChecker object.</doc>
+               filename="gspell-checker.c"
+               line="242">a new #GspellChecker object.</doc>
           <type name="Checker" c:type="GspellChecker*"/>
         </return-value>
         <parameters>
@@ -40,14 +40,14 @@ picked with gspell_language_get_default().</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="234">the #GspellLanguage to use, or %NULL.</doc>
+                 filename="gspell-checker.c"
+                 line="237">the #GspellLanguage to use, or %NULL.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
         </parameters>
       </constructor>
       <virtual-method name="session_cleared">
-        <source-position filename="gspell/gspell-checker.h" line="76"/>
+        <source-position filename="gspell-checker.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -58,7 +58,7 @@ picked with gspell_language_get_default().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="word_added_to_personal">
-        <source-position filename="gspell/gspell-checker.h" line="70"/>
+        <source-position filename="gspell-checker.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -72,7 +72,7 @@ picked with gspell_language_get_default().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="word_added_to_session">
-        <source-position filename="gspell/gspell-checker.h" line="73"/>
+        <source-position filename="gspell-checker.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -88,30 +88,30 @@ picked with gspell_language_get_default().</doc>
       <method name="add_word_to_personal"
               c:identifier="gspell_checker_add_word_to_personal">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="481">Adds a word to the personal dictionary. It is typically saved in the user's
+             filename="gspell-checker.c"
+             line="484">Adds a word to the personal dictionary. It is typically saved in the user's
 home directory.</doc>
-        <source-position filename="gspell/gspell-checker.h" line="108"/>
+        <source-position filename="gspell-checker.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="483">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="486">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="484">a word.</doc>
+                 filename="gspell-checker.c"
+                 line="487">a word.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="word_length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="485">the byte length of @word, or -1 if @word is nul-terminated.</doc>
+                 filename="gspell-checker.c"
+                 line="488">the byte length of @word, or -1 if @word is nul-terminated.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -119,34 +119,34 @@ home directory.</doc>
       <method name="add_word_to_session"
               c:identifier="gspell_checker_add_word_to_session">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="528">Adds a word to the session dictionary. Each #GspellChecker instance has a
+             filename="gspell-checker.c"
+             line="531">Adds a word to the session dictionary. Each #GspellChecker instance has a
 different session dictionary. The session dictionary is lost when the
 #GspellChecker:language property changes or when @checker is destroyed or
 when gspell_checker_clear_session() is called.
 
 This function is typically called for an “Ignore All” action.</doc>
-        <source-position filename="gspell/gspell-checker.h" line="113"/>
+        <source-position filename="gspell-checker.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="530">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="533">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="531">a word.</doc>
+                 filename="gspell-checker.c"
+                 line="534">a word.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="word_length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="532">the byte length of @word, or -1 if @word is nul-terminated.</doc>
+                 filename="gspell-checker.c"
+                 line="535">the byte length of @word, or -1 if @word is nul-terminated.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -155,50 +155,50 @@ This function is typically called for an “Ignore All” action.</doc>
               c:identifier="gspell_checker_check_word"
               throws="1">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="346">If the #GspellChecker:language is %NULL, i.e. when no dictonaries are
+             filename="gspell-checker.c"
+             line="349">If the #GspellChecker:language is %NULL, i.e. when no dictonaries are
 available, this function returns %TRUE to limit the damage.</doc>
-        <source-position filename="gspell/gspell-checker.h" line="97"/>
+        <source-position filename="gspell-checker.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker.c"
-               line="356">%TRUE if @word is correctly spelled, %FALSE otherwise.</doc>
+               filename="gspell-checker.c"
+               line="359">%TRUE if @word is correctly spelled, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="348">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="351">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="349">the word to check.</doc>
+                 filename="gspell-checker.c"
+                 line="352">the word to check.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="word_length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="350">the byte length of @word, or -1 if @word is nul-terminated.</doc>
+                 filename="gspell-checker.c"
+                 line="353">the byte length of @word, or -1 if @word is nul-terminated.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
       </method>
       <method name="clear_session" c:identifier="gspell_checker_clear_session">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="579">Clears the session dictionary.</doc>
-        <source-position filename="gspell/gspell-checker.h" line="118"/>
+             filename="gspell-checker.c"
+             line="582">Clears the session dictionary.</doc>
+        <source-position filename="gspell-checker.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="581">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="584">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
         </parameters>
@@ -208,26 +208,26 @@ available, this function returns %TRUE to limit the damage.</doc>
               version="1.6"
               introspectable="0">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="634">Gets the EnchantDict currently used by @checker. It permits to extend
+             filename="gspell-checker.c"
+             line="637">Gets the EnchantDict currently used by @checker. It permits to extend
 #GspellChecker with more features. Note that by doing so, the other classes
 in gspell may no longer work well.
 
 #GspellChecker re-creates a new EnchantDict when the #GspellChecker:language
 is changed and when the session is cleared.</doc>
-        <source-position filename="gspell/gspell-checker.h" line="128"/>
+        <source-position filename="gspell-checker.h" line="128"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker.c"
-               line="645">the EnchantDict currently used by
+               filename="gspell-checker.c"
+               line="648">the EnchantDict currently used by
 @checker.</doc>
           <type c:type="EnchantDict*"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="636">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="639">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
         </parameters>
@@ -235,19 +235,19 @@ is changed and when the session is cleared.</doc>
       <method name="get_language"
               c:identifier="gspell_checker_get_language"
               glib:get-property="language">
-        <source-position filename="gspell/gspell-checker.h" line="94"/>
+        <source-position filename="gspell-checker.h" line="94"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker.c"
-               line="331">the #GspellLanguage currently used, or %NULL
+               filename="gspell-checker.c"
+               line="334">the #GspellLanguage currently used, or %NULL
 if no dictionaries are available.</doc>
           <type name="Language" c:type="const GspellLanguage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="329">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="332">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
         </parameters>
@@ -255,14 +255,14 @@ if no dictionaries are available.</doc>
       <method name="get_suggestions"
               c:identifier="gspell_checker_get_suggestions">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="422">Gets the suggestions for @word. Free the return value with
+             filename="gspell-checker.c"
+             line="425">Gets the suggestions for @word. Free the return value with
 g_slist_free_full(suggestions, g_free).</doc>
-        <source-position filename="gspell/gspell-checker.h" line="103"/>
+        <source-position filename="gspell-checker.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker.c"
-               line="431">the list of suggestions.</doc>
+               filename="gspell-checker.c"
+               line="434">the list of suggestions.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="utf8"/>
           </type>
@@ -270,20 +270,20 @@ g_slist_free_full(suggestions, g_free).</doc>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="424">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="427">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="425">a misspelled word.</doc>
+                 filename="gspell-checker.c"
+                 line="428">a misspelled word.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="word_length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="426">the byte length of @word, or -1 if @word is nul-terminated.</doc>
+                 filename="gspell-checker.c"
+                 line="429">the byte length of @word, or -1 if @word is nul-terminated.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -291,41 +291,41 @@ g_slist_free_full(suggestions, g_free).</doc>
       <method name="set_correction"
               c:identifier="gspell_checker_set_correction">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="596">Informs the spell checker that @word is replaced/corrected by @replacement.</doc>
-        <source-position filename="gspell/gspell-checker.h" line="121"/>
+             filename="gspell-checker.c"
+             line="599">Informs the spell checker that @word is replaced/corrected by @replacement.</doc>
+        <source-position filename="gspell-checker.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="598">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="601">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="599">a word.</doc>
+                 filename="gspell-checker.c"
+                 line="602">a word.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="word_length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="600">the byte length of @word, or -1 if @word is nul-terminated.</doc>
+                 filename="gspell-checker.c"
+                 line="603">the byte length of @word, or -1 if @word is nul-terminated.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
           <parameter name="replacement" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="601">the replacement word.</doc>
+                 filename="gspell-checker.c"
+                 line="604">the replacement word.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="replacement_length" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="602">the byte length of @replacement, or -1 if @replacement
+                 filename="gspell-checker.c"
+                 line="605">the byte length of @replacement, or -1 if @replacement
   is nul-terminated.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
@@ -335,18 +335,18 @@ g_slist_free_full(suggestions, g_free).</doc>
               c:identifier="gspell_checker_set_language"
               glib:set-property="language">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="305">Sets the language to use for the spell checking. If @language is %NULL, the
+             filename="gspell-checker.c"
+             line="308">Sets the language to use for the spell checking. If @language is %NULL, the
 default language is picked with gspell_language_get_default().</doc>
-        <source-position filename="gspell/gspell-checker.h" line="89"/>
+        <source-position filename="gspell-checker.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="checker" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="307">a #GspellChecker.</doc>
+                 filename="gspell-checker.c"
+                 line="310">a #GspellChecker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </instance-parameter>
           <parameter name="language"
@@ -354,8 +354,8 @@ default language is picked with gspell_language_get_default().</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="308">the #GspellLanguage to use, or %NULL.</doc>
+                 filename="gspell-checker.c"
+                 line="311">the #GspellLanguage to use, or %NULL.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
         </parameters>
@@ -367,8 +367,8 @@ default language is picked with gspell_language_get_default().</doc>
                 setter="set_language"
                 getter="get_language">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="154">The #GspellLanguage used.</doc>
+             filename="gspell-checker.c"
+             line="157">The #GspellLanguage used.</doc>
         <type name="Language"/>
       </property>
       <field name="parent_instance">
@@ -376,32 +376,32 @@ default language is picked with gspell_language_get_default().</doc>
       </field>
       <glib:signal name="session-cleared" when="last">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="204">Emitted when the session dictionary is cleared.</doc>
+             filename="gspell-checker.c"
+             line="207">Emitted when the session dictionary is cleared.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
       </glib:signal>
       <glib:signal name="word-added-to-personal" when="last">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="169">Emitted when a word is added to the personal dictionary.</doc>
+             filename="gspell-checker.c"
+             line="172">Emitted when a word is added to the personal dictionary.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="172">the added word.</doc>
+                 filename="gspell-checker.c"
+                 line="175">the added word.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="word-added-to-session" when="last">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.c"
-             line="186">Emitted when a word is added to the session dictionary. See
+             filename="gspell-checker.c"
+             line="189">Emitted when a word is added to the session dictionary. See
 gspell_checker_add_word_to_session().</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -409,8 +409,8 @@ gspell_checker_add_word_to_session().</doc>
         <parameters>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker.c"
-                 line="189">the added word.</doc>
+                 filename="gspell-checker.c"
+                 line="192">the added word.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -419,13 +419,13 @@ gspell_checker_add_word_to_session().</doc>
     <record name="CheckerClass"
             c:type="GspellCheckerClass"
             glib:is-gtype-struct-for="Checker">
-      <source-position filename="gspell/gspell-checker.h" line="80"/>
+      <source-position filename="gspell-checker.h" line="80"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="word_added_to_personal">
         <callback name="word_added_to_personal">
-          <source-position filename="gspell/gspell-checker.h" line="70"/>
+          <source-position filename="gspell-checker.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -441,7 +441,7 @@ gspell_checker_add_word_to_session().</doc>
       </field>
       <field name="word_added_to_session">
         <callback name="word_added_to_session">
-          <source-position filename="gspell/gspell-checker.h" line="73"/>
+          <source-position filename="gspell-checker.h" line="73"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -457,7 +457,7 @@ gspell_checker_add_word_to_session().</doc>
       </field>
       <field name="session_cleared">
         <callback name="session_cleared">
-          <source-position filename="gspell/gspell-checker.h" line="76"/>
+          <source-position filename="gspell-checker.h" line="76"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -481,28 +481,28 @@ gspell_checker_add_word_to_session().</doc>
            glib:type-name="GspellCheckerDialog"
            glib:get-type="gspell_checker_dialog_get_type"
            glib:type-struct="CheckerDialogClass">
-      <source-position filename="gspell/gspell-checker-dialog.h" line="46"/>
+      <source-position filename="gspell-checker-dialog.h" line="46"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="gspell_checker_dialog_new">
-        <source-position filename="gspell/gspell-checker-dialog.h" line="49"/>
+        <source-position filename="gspell-checker-dialog.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker-dialog.c"
-               line="708">a new #GspellCheckerDialog widget.</doc>
+               filename="gspell-checker-dialog.c"
+               line="711">a new #GspellCheckerDialog widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker-dialog.c"
-                 line="705">transient parent of the dialog.</doc>
+                 filename="gspell-checker-dialog.c"
+                 line="708">transient parent of the dialog.</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
           <parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker-dialog.c"
-                 line="706">the #GspellNavigator to use.</doc>
+                 filename="gspell-checker-dialog.c"
+                 line="709">the #GspellNavigator to use.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </parameter>
         </parameters>
@@ -510,18 +510,18 @@ gspell_checker_add_word_to_session().</doc>
       <method name="get_spell_navigator"
               c:identifier="gspell_checker_dialog_get_spell_navigator"
               glib:get-property="spell-navigator">
-        <source-position filename="gspell/gspell-checker-dialog.h" line="53"/>
+        <source-position filename="gspell-checker-dialog.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-checker-dialog.c"
-               line="728">the #GspellNavigator used.</doc>
+               filename="gspell-checker-dialog.c"
+               line="731">the #GspellNavigator used.</doc>
           <type name="Navigator" c:type="GspellNavigator*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-checker-dialog.c"
-                 line="726">a #GspellCheckerDialog.</doc>
+                 filename="gspell-checker-dialog.c"
+                 line="729">a #GspellCheckerDialog.</doc>
             <type name="CheckerDialog" c:type="GspellCheckerDialog*"/>
           </instance-parameter>
         </parameters>
@@ -532,8 +532,8 @@ gspell_checker_add_word_to_session().</doc>
                 transfer-ownership="none"
                 getter="get_spell_navigator">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker-dialog.c"
-             line="391">The #GspellNavigator to use.</doc>
+             filename="gspell-checker-dialog.c"
+             line="394">The #GspellNavigator to use.</doc>
         <type name="Navigator"/>
       </property>
       <field name="parent_instance">
@@ -543,7 +543,7 @@ gspell_checker_add_word_to_session().</doc>
     <record name="CheckerDialogClass"
             c:type="GspellCheckerDialogClass"
             glib:is-gtype-struct-for="CheckerDialog">
-      <source-position filename="gspell/gspell-checker-dialog.h" line="46"/>
+      <source-position filename="gspell-checker-dialog.h" line="46"/>
       <field name="parent_class">
         <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
       </field>
@@ -559,7 +559,7 @@ gspell_checker_add_word_to_session().</doc>
                  c:type="GspellCheckerError"
                  glib:error-domain="gspell-checker-error-quark">
       <doc xml:space="preserve"
-           filename="gspell/gspell-checker.h"
+           filename="gspell-checker.h"
            line="51">An error code used with %GSPELL_CHECKER_ERROR in a #GError returned
 from a spell-checker-related function.</doc>
       <member name="dictionary"
@@ -568,7 +568,7 @@ from a spell-checker-related function.</doc>
               glib:nick="dictionary"
               glib:name="GSPELL_CHECKER_ERROR_DICTIONARY">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.h"
+             filename="gspell-checker.h"
              line="53">dictionary error.</doc>
       </member>
       <member name="no_language_set"
@@ -577,7 +577,7 @@ from a spell-checker-related function.</doc>
               glib:nick="no-language-set"
               glib:name="GSPELL_CHECKER_ERROR_NO_LANGUAGE_SET">
         <doc xml:space="preserve"
-             filename="gspell/gspell-checker.h"
+             filename="gspell-checker.h"
              line="54">no language set.</doc>
       </member>
       <function name="quark" c:identifier="gspell_checker_error_quark">
@@ -593,26 +593,26 @@ from a spell-checker-related function.</doc>
            glib:type-name="GspellEntry"
            glib:get-type="gspell_entry_get_type"
            glib:type-struct="EntryClass">
-      <source-position filename="gspell/gspell-entry.h" line="34"/>
+      <source-position filename="gspell-entry.h" line="34"/>
       <function name="get_from_gtk_entry"
                 c:identifier="gspell_entry_get_from_gtk_entry"
                 version="1.4">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry.c"
-             line="1074">Returns the #GspellEntry of @gtk_entry. The returned object is guaranteed
+             filename="gspell-entry.c"
+             line="1077">Returns the #GspellEntry of @gtk_entry. The returned object is guaranteed
 to be the same for the lifetime of @gtk_entry.</doc>
-        <source-position filename="gspell/gspell-entry.h" line="39"/>
+        <source-position filename="gspell-entry.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-entry.c"
-               line="1081">the #GspellEntry of @gtk_entry.</doc>
+               filename="gspell-entry.c"
+               line="1084">the #GspellEntry of @gtk_entry.</doc>
           <type name="Entry" c:type="GspellEntry*"/>
         </return-value>
         <parameters>
           <parameter name="gtk_entry" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry.c"
-                 line="1076">a #GtkEntry.</doc>
+                 filename="gspell-entry.c"
+                 line="1079">a #GtkEntry.</doc>
             <type name="Gtk.Entry" c:type="GtkEntry*"/>
           </parameter>
         </parameters>
@@ -621,8 +621,8 @@ to be the same for the lifetime of @gtk_entry.</doc>
               c:identifier="gspell_entry_basic_setup"
               version="1.4">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry.c"
-             line="1109">This function is a convenience function that does the following:
+             filename="gspell-entry.c"
+             line="1112">This function is a convenience function that does the following:
 - Set a spell checker. The language chosen is the one returned by
   gspell_language_get_default().
 - Set the #GspellEntry:inline-spell-checking property to %TRUE.
@@ -653,15 +653,15 @@ g_object_unref (checker);
 gspell_entry = gspell_entry_get_from_gtk_entry (gtk_entry);
 gspell_entry_set_inline_spell_checking (gspell_entry, TRUE);
 ]|</doc>
-        <source-position filename="gspell/gspell-entry.h" line="42"/>
+        <source-position filename="gspell-entry.h" line="42"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_entry" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry.c"
-                 line="1111">a #GspellEntry.</doc>
+                 filename="gspell-entry.c"
+                 line="1114">a #GspellEntry.</doc>
             <type name="Entry" c:type="GspellEntry*"/>
           </instance-parameter>
         </parameters>
@@ -670,18 +670,18 @@ gspell_entry_set_inline_spell_checking (gspell_entry, TRUE);
               c:identifier="gspell_entry_get_entry"
               glib:get-property="entry"
               version="1.4">
-        <source-position filename="gspell/gspell-entry.h" line="45"/>
+        <source-position filename="gspell-entry.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-entry.c"
-               line="1169">the #GtkEntry of @gspell_entry.</doc>
+               filename="gspell-entry.c"
+               line="1172">the #GtkEntry of @gspell_entry.</doc>
           <type name="Gtk.Entry" c:type="GtkEntry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_entry" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry.c"
-                 line="1167">a #GspellEntry.</doc>
+                 filename="gspell-entry.c"
+                 line="1170">a #GspellEntry.</doc>
             <type name="Entry" c:type="GspellEntry*"/>
           </instance-parameter>
         </parameters>
@@ -690,18 +690,18 @@ gspell_entry_set_inline_spell_checking (gspell_entry, TRUE);
               c:identifier="gspell_entry_get_inline_spell_checking"
               glib:get-property="inline-spell-checking"
               version="1.4">
-        <source-position filename="gspell/gspell-entry.h" line="48"/>
+        <source-position filename="gspell-entry.h" line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-entry.c"
-               line="1184">the value of the #GspellEntry:inline-spell-checking property.</doc>
+               filename="gspell-entry.c"
+               line="1187">the value of the #GspellEntry:inline-spell-checking property.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_entry" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry.c"
-                 line="1182">a #GspellEntry.</doc>
+                 filename="gspell-entry.c"
+                 line="1185">a #GspellEntry.</doc>
             <type name="Entry" c:type="GspellEntry*"/>
           </instance-parameter>
         </parameters>
@@ -711,23 +711,23 @@ gspell_entry_set_inline_spell_checking (gspell_entry, TRUE);
               glib:set-property="inline-spell-checking"
               version="1.4">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry.c"
-             line="1195">Sets the #GspellEntry:inline-spell-checking property.</doc>
-        <source-position filename="gspell/gspell-entry.h" line="51"/>
+             filename="gspell-entry.c"
+             line="1198">Sets the #GspellEntry:inline-spell-checking property.</doc>
+        <source-position filename="gspell-entry.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_entry" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry.c"
-                 line="1197">a #GspellEntry.</doc>
+                 filename="gspell-entry.c"
+                 line="1200">a #GspellEntry.</doc>
             <type name="Entry" c:type="GspellEntry*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry.c"
-                 line="1198">the new state.</doc>
+                 filename="gspell-entry.c"
+                 line="1201">the new state.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -739,8 +739,8 @@ gspell_entry_set_inline_spell_checking (gspell_entry, TRUE);
                 transfer-ownership="none"
                 getter="get_entry">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry.c"
-             line="1030">The #GtkEntry.</doc>
+             filename="gspell-entry.c"
+             line="1033">The #GtkEntry.</doc>
         <type name="Gtk.Entry"/>
       </property>
       <property name="inline-spell-checking"
@@ -751,8 +751,8 @@ gspell_entry_set_inline_spell_checking (gspell_entry, TRUE);
                 getter="get_inline_spell_checking"
                 default-value="FALSE">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry.c"
-             line="1047">Whether the inline spell checking is enabled.
+             filename="gspell-entry.c"
+             line="1050">Whether the inline spell checking is enabled.
 
 Even if this property is %TRUE, #GspellEntry disables internally the
 inline spell checking in case the #GtkEntry:visibility property is
@@ -767,26 +767,26 @@ inline spell checking in case the #GtkEntry:visibility property is
            glib:type-name="GspellEntryBuffer"
            glib:get-type="gspell_entry_buffer_get_type"
            glib:type-struct="EntryBufferClass">
-      <source-position filename="gspell/gspell-entry-buffer.h" line="35"/>
+      <source-position filename="gspell-entry-buffer.h" line="35"/>
       <function name="get_from_gtk_entry_buffer"
                 c:identifier="gspell_entry_buffer_get_from_gtk_entry_buffer"
                 version="1.4">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry-buffer.c"
-             line="159">Returns the #GspellEntryBuffer of @gtk_buffer. The returned object is
+             filename="gspell-entry-buffer.c"
+             line="162">Returns the #GspellEntryBuffer of @gtk_buffer. The returned object is
 guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
-        <source-position filename="gspell/gspell-entry-buffer.h" line="40"/>
+        <source-position filename="gspell-entry-buffer.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-entry-buffer.c"
-               line="166">the #GspellEntryBuffer of @gtk_buffer.</doc>
+               filename="gspell-entry-buffer.c"
+               line="169">the #GspellEntryBuffer of @gtk_buffer.</doc>
           <type name="EntryBuffer" c:type="GspellEntryBuffer*"/>
         </return-value>
         <parameters>
           <parameter name="gtk_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry-buffer.c"
-                 line="161">a #GtkEntryBuffer.</doc>
+                 filename="gspell-entry-buffer.c"
+                 line="164">a #GtkEntryBuffer.</doc>
             <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer*"/>
           </parameter>
         </parameters>
@@ -795,18 +795,18 @@ guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
               c:identifier="gspell_entry_buffer_get_buffer"
               glib:get-property="buffer"
               version="1.4">
-        <source-position filename="gspell/gspell-entry-buffer.h" line="43"/>
+        <source-position filename="gspell-entry-buffer.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-entry-buffer.c"
-               line="198">the #GtkEntryBuffer of @gspell_buffer.</doc>
+               filename="gspell-entry-buffer.c"
+               line="201">the #GtkEntryBuffer of @gspell_buffer.</doc>
           <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry-buffer.c"
-                 line="196">a #GspellEntryBuffer.</doc>
+                 filename="gspell-entry-buffer.c"
+                 line="199">a #GspellEntryBuffer.</doc>
             <type name="EntryBuffer" c:type="GspellEntryBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -815,19 +815,19 @@ guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
               c:identifier="gspell_entry_buffer_get_spell_checker"
               glib:get-property="spell-checker"
               version="1.4">
-        <source-position filename="gspell/gspell-entry-buffer.h" line="46"/>
+        <source-position filename="gspell-entry-buffer.h" line="46"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-entry-buffer.c"
-               line="213">the #GspellChecker if one has been set,
+               filename="gspell-entry-buffer.c"
+               line="216">the #GspellChecker if one has been set,
   or %NULL.</doc>
           <type name="Checker" c:type="GspellChecker*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry-buffer.c"
-                 line="211">a #GspellEntryBuffer.</doc>
+                 filename="gspell-entry-buffer.c"
+                 line="214">a #GspellEntryBuffer.</doc>
             <type name="EntryBuffer" c:type="GspellEntryBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -837,19 +837,19 @@ guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
               glib:set-property="spell-checker"
               version="1.4">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry-buffer.c"
-             line="225">Sets a #GspellChecker to a #GspellEntryBuffer. The @gspell_buffer will own a
+             filename="gspell-entry-buffer.c"
+             line="228">Sets a #GspellChecker to a #GspellEntryBuffer. The @gspell_buffer will own a
 reference to @spell_checker, so you can release your reference to
 @spell_checker if you no longer need it.</doc>
-        <source-position filename="gspell/gspell-entry-buffer.h" line="49"/>
+        <source-position filename="gspell-entry-buffer.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry-buffer.c"
-                 line="227">a #GspellEntryBuffer.</doc>
+                 filename="gspell-entry-buffer.c"
+                 line="230">a #GspellEntryBuffer.</doc>
             <type name="EntryBuffer" c:type="GspellEntryBuffer*"/>
           </instance-parameter>
           <parameter name="spell_checker"
@@ -857,8 +857,8 @@ reference to @spell_checker, so you can release your reference to
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-entry-buffer.c"
-                 line="228">a #GspellChecker, or %NULL to unset the spell
+                 filename="gspell-entry-buffer.c"
+                 line="231">a #GspellChecker, or %NULL to unset the spell
   checker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </parameter>
@@ -871,8 +871,8 @@ reference to @spell_checker, so you can release your reference to
                 transfer-ownership="none"
                 getter="get_buffer">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry-buffer.c"
-             line="120">The #GtkEntryBuffer.</doc>
+             filename="gspell-entry-buffer.c"
+             line="123">The #GtkEntryBuffer.</doc>
         <type name="Gtk.EntryBuffer"/>
       </property>
       <property name="spell-checker"
@@ -882,15 +882,15 @@ reference to @spell_checker, so you can release your reference to
                 setter="set_spell_checker"
                 getter="get_spell_checker">
         <doc xml:space="preserve"
-             filename="gspell/gspell-entry-buffer.c"
-             line="137">The #GspellChecker.</doc>
+             filename="gspell-entry-buffer.c"
+             line="140">The #GspellChecker.</doc>
         <type name="Checker"/>
       </property>
     </class>
     <record name="EntryBufferClass"
             c:type="GspellEntryBufferClass"
             glib:is-gtype-struct-for="EntryBuffer">
-      <source-position filename="gspell/gspell-entry-buffer.h" line="35"/>
+      <source-position filename="gspell-entry-buffer.h" line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -898,7 +898,7 @@ reference to @spell_checker, so you can release your reference to
     <record name="EntryClass"
             c:type="GspellEntryClass"
             glib:is-gtype-struct-for="Entry">
-      <source-position filename="gspell/gspell-entry.h" line="34"/>
+      <source-position filename="gspell-entry.h" line="34"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -909,118 +909,118 @@ reference to @spell_checker, so you can release your reference to
             glib:type-name="GspellLanguage"
             glib:get-type="gspell_language_get_type"
             c:symbol-prefix="language">
-      <source-position filename="gspell/gspell-language.h" line="39"/>
+      <source-position filename="gspell-language.h" line="39"/>
       <method name="compare" c:identifier="gspell_language_compare">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="260">Compares alphabetically two languages by their name, as returned by
+             filename="gspell-language.c"
+             line="263">Compares alphabetically two languages by their name, as returned by
 gspell_language_get_name().</doc>
-        <source-position filename="gspell/gspell-language.h" line="64"/>
+        <source-position filename="gspell-language.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="268">an integer less than, equal to, or greater than zero, if @language_a
+               filename="gspell-language.c"
+               line="271">an integer less than, equal to, or greater than zero, if @language_a
 is &lt;, == or &gt; than @language_b.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="language_a" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="262">a #GspellLanguage.</doc>
+                 filename="gspell-language.c"
+                 line="265">a #GspellLanguage.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </instance-parameter>
           <parameter name="language_b" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="263">another #GspellLanguage.</doc>
+                 filename="gspell-language.c"
+                 line="266">another #GspellLanguage.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
         </parameters>
       </method>
       <method name="copy" c:identifier="gspell_language_copy">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="281">Used by language bindings.</doc>
-        <source-position filename="gspell/gspell-language.h" line="68"/>
+             filename="gspell-language.c"
+             line="284">Used by language bindings.</doc>
+        <source-position filename="gspell-language.h" line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="287">a copy of @lang.</doc>
+               filename="gspell-language.c"
+               line="290">a copy of @lang.</doc>
           <type name="Language" c:type="GspellLanguage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="language" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="283">a #GspellLanguage.</doc>
+                 filename="gspell-language.c"
+                 line="286">a #GspellLanguage.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="free" c:identifier="gspell_language_free">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="297">Used by language bindings.</doc>
-        <source-position filename="gspell/gspell-language.h" line="71"/>
+             filename="gspell-language.c"
+             line="300">Used by language bindings.</doc>
+        <source-position filename="gspell-language.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="language" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="299">a #GspellLanguage.</doc>
+                 filename="gspell-language.c"
+                 line="302">a #GspellLanguage.</doc>
             <type name="Language" c:type="GspellLanguage*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_code" c:identifier="gspell_language_get_code">
-        <source-position filename="gspell/gspell-language.h" line="58"/>
+        <source-position filename="gspell-language.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="232">the @language code, for example fr_BE.</doc>
+               filename="gspell-language.c"
+               line="235">the @language code, for example fr_BE.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="language" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="230">a #GspellLanguage.</doc>
+                 filename="gspell-language.c"
+                 line="233">a #GspellLanguage.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_name" c:identifier="gspell_language_get_name">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="242">Returns the @language name translated to the current locale. For example
+             filename="gspell-language.c"
+             line="245">Returns the @language name translated to the current locale. For example
 "French (Belgium)" is returned if the current locale is in English and the
 @language code is fr_BE.</doc>
-        <source-position filename="gspell/gspell-language.h" line="61"/>
+        <source-position filename="gspell-language.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="250">the @language name.</doc>
+               filename="gspell-language.c"
+               line="253">the @language name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="language" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="244">a #GspellLanguage.</doc>
+                 filename="gspell-language.c"
+                 line="247">a #GspellLanguage.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </instance-parameter>
         </parameters>
       </method>
       <function name="get_available"
                 c:identifier="gspell_language_get_available">
-        <source-position filename="gspell/gspell-language.h" line="47"/>
+        <source-position filename="gspell-language.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="97">the list of available
+               filename="gspell-language.c"
+               line="100">the list of available
 languages, sorted with gspell_language_compare().</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="Language"/>
@@ -1029,31 +1029,31 @@ languages, sorted with gspell_language_compare().</doc>
       </function>
       <function name="get_default" c:identifier="gspell_language_get_default">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="126">Finds the best available language based on the current locale.</doc>
-        <source-position filename="gspell/gspell-language.h" line="51"/>
+             filename="gspell-language.c"
+             line="129">Finds the best available language based on the current locale.</doc>
+        <source-position filename="gspell-language.h" line="51"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="131">the default #GspellLanguage, or %NULL if no dictionaries
+               filename="gspell-language.c"
+               line="134">the default #GspellLanguage, or %NULL if no dictionaries
 are available.</doc>
           <type name="Language" c:type="const GspellLanguage*"/>
         </return-value>
       </function>
       <function name="lookup" c:identifier="gspell_language_lookup">
-        <source-position filename="gspell/gspell-language.h" line="55"/>
+        <source-position filename="gspell-language.h" line="55"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="194">a #GspellLanguage corresponding to @language_code, or
+               filename="gspell-language.c"
+               line="197">a #GspellLanguage corresponding to @language_code, or
 %NULL if not found.</doc>
           <type name="Language" c:type="const GspellLanguage*"/>
         </return-value>
         <parameters>
           <parameter name="language_code" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language.c"
-                 line="192">a language code.</doc>
+                 filename="gspell-language.c"
+                 line="195">a language code.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1065,10 +1065,9 @@ are available.</doc>
                glib:type-name="GspellLanguageChooser"
                glib:get-type="gspell_language_chooser_get_type"
                glib:type-struct="LanguageChooserInterface">
-      <source-position filename="gspell/gspell-language-chooser.h" line="51"/>
+      <source-position filename="gspell-language-chooser.h" line="51"/>
       <virtual-method name="get_language_full">
-        <source-position filename="gspell/gspell-language-chooser.h"
-                         line="46"/>
+        <source-position filename="gspell-language-chooser.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="Language" c:type="const GspellLanguage*"/>
         </return-value>
@@ -1083,18 +1082,17 @@ are available.</doc>
       </virtual-method>
       <virtual-method name="set_language" invoker="set_language">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language-chooser.c"
-             line="107">Sets the selected language.</doc>
-        <source-position filename="gspell/gspell-language-chooser.h"
-                         line="49"/>
+             filename="gspell-language-chooser.c"
+             line="110">Sets the selected language.</doc>
+        <source-position filename="gspell-language-chooser.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="109">a #GspellLanguageChooser.</doc>
+                 filename="gspell-language-chooser.c"
+                 line="112">a #GspellLanguageChooser.</doc>
             <type name="LanguageChooser" c:type="GspellLanguageChooser*"/>
           </instance-parameter>
           <parameter name="language"
@@ -1102,8 +1100,8 @@ are available.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="110">a #GspellLanguage or %NULL to pick the default
+                 filename="gspell-language-chooser.c"
+                 line="113">a #GspellLanguage or %NULL to pick the default
   language.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
@@ -1112,20 +1110,19 @@ are available.</doc>
       <method name="get_language"
               c:identifier="gspell_language_chooser_get_language"
               glib:get-property="language">
-        <source-position filename="gspell/gspell-language-chooser.h"
-                         line="54"/>
+        <source-position filename="gspell-language-chooser.h" line="54"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language-chooser.c"
-               line="96">the selected #GspellLanguage, or %NULL if no
+               filename="gspell-language-chooser.c"
+               line="99">the selected #GspellLanguage, or %NULL if no
 dictionaries are available.</doc>
           <type name="Language" c:type="const GspellLanguage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="94">a #GspellLanguageChooser.</doc>
+                 filename="gspell-language-chooser.c"
+                 line="97">a #GspellLanguageChooser.</doc>
             <type name="LanguageChooser" c:type="GspellLanguageChooser*"/>
           </instance-parameter>
         </parameters>
@@ -1133,19 +1130,18 @@ dictionaries are available.</doc>
       <method name="get_language_code"
               c:identifier="gspell_language_chooser_get_language_code"
               glib:get-property="language-code">
-        <source-position filename="gspell/gspell-language-chooser.h"
-                         line="61"/>
+        <source-position filename="gspell-language-chooser.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language-chooser.c"
-               line="128">the #GspellLanguageChooser:language-code. It cannot be %NULL.</doc>
+               filename="gspell-language-chooser.c"
+               line="131">the #GspellLanguageChooser:language-code. It cannot be %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="126">a #GspellLanguageChooser.</doc>
+                 filename="gspell-language-chooser.c"
+                 line="129">a #GspellLanguageChooser.</doc>
             <type name="LanguageChooser" c:type="GspellLanguageChooser*"/>
           </instance-parameter>
         </parameters>
@@ -1154,18 +1150,17 @@ dictionaries are available.</doc>
               c:identifier="gspell_language_chooser_set_language"
               glib:set-property="language">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language-chooser.c"
-             line="107">Sets the selected language.</doc>
-        <source-position filename="gspell/gspell-language-chooser.h"
-                         line="57"/>
+             filename="gspell-language-chooser.c"
+             line="110">Sets the selected language.</doc>
+        <source-position filename="gspell-language-chooser.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="109">a #GspellLanguageChooser.</doc>
+                 filename="gspell-language-chooser.c"
+                 line="112">a #GspellLanguageChooser.</doc>
             <type name="LanguageChooser" c:type="GspellLanguageChooser*"/>
           </instance-parameter>
           <parameter name="language"
@@ -1173,8 +1168,8 @@ dictionaries are available.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="110">a #GspellLanguage or %NULL to pick the default
+                 filename="gspell-language-chooser.c"
+                 line="113">a #GspellLanguage or %NULL to pick the default
   language.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
@@ -1183,16 +1178,15 @@ dictionaries are available.</doc>
       <method name="set_language_code"
               c:identifier="gspell_language_chooser_set_language_code"
               glib:set-property="language-code">
-        <source-position filename="gspell/gspell-language-chooser.h"
-                         line="64"/>
+        <source-position filename="gspell-language-chooser.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="154">a #GspellLanguageChooser.</doc>
+                 filename="gspell-language-chooser.c"
+                 line="157">a #GspellLanguageChooser.</doc>
             <type name="LanguageChooser" c:type="GspellLanguageChooser*"/>
           </instance-parameter>
           <parameter name="language_code"
@@ -1200,8 +1194,8 @@ dictionaries are available.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser.c"
-                 line="155">a language code, or the empty string or %NULL to
+                 filename="gspell-language-chooser.c"
+                 line="158">a language code, or the empty string or %NULL to
   pick the default language.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1213,8 +1207,8 @@ dictionaries are available.</doc>
                 setter="set_language"
                 getter="get_language">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language-chooser.c"
-             line="63">The selected #GspellLanguage.</doc>
+             filename="gspell-language-chooser.c"
+             line="66">The selected #GspellLanguage.</doc>
         <type name="Language"/>
       </property>
       <property name="language-code"
@@ -1223,8 +1217,8 @@ dictionaries are available.</doc>
                 setter="set_language_code"
                 getter="get_language_code">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language-chooser.c"
-             line="76">The empty string if the default language was set and the selection
+             filename="gspell-language-chooser.c"
+             line="79">The empty string if the default language was set and the selection
 hasn't changed. Or the language code if an explicit language was set
 or if the selection has changed.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1237,8 +1231,7 @@ or if the selection has changed.</doc>
            glib:type-name="GspellLanguageChooserButton"
            glib:get-type="gspell_language_chooser_button_get_type"
            glib:type-struct="LanguageChooserButtonClass">
-      <source-position filename="gspell/gspell-language-chooser-button.h"
-                       line="45"/>
+      <source-position filename="gspell-language-chooser-button.h" line="45"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="LanguageChooser"/>
       <implements name="Gtk.Actionable"/>
@@ -1246,12 +1239,12 @@ or if the selection has changed.</doc>
       <implements name="Gtk.Buildable"/>
       <constructor name="new"
                    c:identifier="gspell_language_chooser_button_new">
-        <source-position filename="gspell/gspell-language-chooser-button.h"
+        <source-position filename="gspell-language-chooser-button.h"
                          line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language-chooser-button.c"
-               line="315">a new #GspellLanguageChooserButton widget.</doc>
+               filename="gspell-language-chooser-button.c"
+               line="318">a new #GspellLanguageChooserButton widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -1260,8 +1253,8 @@ or if the selection has changed.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser-button.c"
-                 line="312">a #GspellLanguage, or %NULL to pick the
+                 filename="gspell-language-chooser-button.c"
+                 line="315">a #GspellLanguage, or %NULL to pick the
   default language.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
@@ -1274,8 +1267,7 @@ or if the selection has changed.</doc>
     <record name="LanguageChooserButtonClass"
             c:type="GspellLanguageChooserButtonClass"
             glib:is-gtype-struct-for="LanguageChooserButton">
-      <source-position filename="gspell/gspell-language-chooser-button.h"
-                       line="45"/>
+      <source-position filename="gspell-language-chooser-button.h" line="45"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
@@ -1292,26 +1284,25 @@ or if the selection has changed.</doc>
            glib:type-name="GspellLanguageChooserDialog"
            glib:get-type="gspell_language_chooser_dialog_get_type"
            glib:type-struct="LanguageChooserDialogClass">
-      <source-position filename="gspell/gspell-language-chooser-dialog.h"
-                       line="46"/>
+      <source-position filename="gspell-language-chooser-dialog.h" line="46"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="LanguageChooser"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new"
                    c:identifier="gspell_language_chooser_dialog_new">
-        <source-position filename="gspell/gspell-language-chooser-dialog.h"
+        <source-position filename="gspell-language-chooser-dialog.h"
                          line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language-chooser-dialog.c"
-               line="477">a new #GspellLanguageChooserDialog widget.</doc>
+               filename="gspell-language-chooser-dialog.c"
+               line="480">a new #GspellLanguageChooserDialog widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser-dialog.c"
-                 line="472">transient parent of the dialog.</doc>
+                 filename="gspell-language-chooser-dialog.c"
+                 line="475">transient parent of the dialog.</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
           <parameter name="current_language"
@@ -1319,15 +1310,15 @@ or if the selection has changed.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser-dialog.c"
-                 line="473">the #GspellLanguage to select initially, or
+                 filename="gspell-language-chooser-dialog.c"
+                 line="476">the #GspellLanguage to select initially, or
   %NULL to pick the default language.</doc>
             <type name="Language" c:type="const GspellLanguage*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-language-chooser-dialog.c"
-                 line="475">#GtkDialogFlags</doc>
+                 filename="gspell-language-chooser-dialog.c"
+                 line="478">#GtkDialogFlags</doc>
             <type name="Gtk.DialogFlags" c:type="GtkDialogFlags"/>
           </parameter>
         </parameters>
@@ -1339,8 +1330,7 @@ or if the selection has changed.</doc>
     <record name="LanguageChooserDialogClass"
             c:type="GspellLanguageChooserDialogClass"
             glib:is-gtype-struct-for="LanguageChooserDialog">
-      <source-position filename="gspell/gspell-language-chooser-dialog.h"
-                       line="46"/>
+      <source-position filename="gspell-language-chooser-dialog.h" line="46"/>
       <field name="parent_class">
         <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
       </field>
@@ -1353,14 +1343,13 @@ or if the selection has changed.</doc>
     <record name="LanguageChooserInterface"
             c:type="GspellLanguageChooserInterface"
             glib:is-gtype-struct-for="LanguageChooser">
-      <source-position filename="gspell/gspell-language-chooser.h" line="51"/>
+      <source-position filename="gspell-language-chooser.h" line="51"/>
       <field name="parent_interface">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_language_full">
         <callback name="get_language_full">
-          <source-position filename="gspell/gspell-language-chooser.h"
-                           line="46"/>
+          <source-position filename="gspell-language-chooser.h" line="46"/>
           <return-value transfer-ownership="none">
             <type name="Language" c:type="const GspellLanguage*"/>
           </return-value>
@@ -1376,16 +1365,15 @@ or if the selection has changed.</doc>
       </field>
       <field name="set_language">
         <callback name="set_language">
-          <source-position filename="gspell/gspell-language-chooser.h"
-                           line="49"/>
+          <source-position filename="gspell-language-chooser.h" line="49"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="chooser" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-language-chooser.c"
-                   line="109">a #GspellLanguageChooser.</doc>
+                   filename="gspell-language-chooser.c"
+                   line="112">a #GspellLanguageChooser.</doc>
               <type name="LanguageChooser" c:type="GspellLanguageChooser*"/>
             </parameter>
             <parameter name="language"
@@ -1393,8 +1381,8 @@ or if the selection has changed.</doc>
                        nullable="1"
                        allow-none="1">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-language-chooser.c"
-                   line="110">a #GspellLanguage or %NULL to pick the default
+                   filename="gspell-language-chooser.c"
+                   line="113">a #GspellLanguage or %NULL to pick the default
   language.</doc>
               <type name="Language" c:type="const GspellLanguage*"/>
             </parameter>
@@ -1408,93 +1396,93 @@ or if the selection has changed.</doc>
                glib:type-name="GspellNavigator"
                glib:get-type="gspell_navigator_get_type"
                glib:type-struct="NavigatorInterface">
-      <source-position filename="gspell/gspell-navigator.h" line="55"/>
+      <source-position filename="gspell-navigator.h" line="55"/>
       <prerequisite name="GObject.InitiallyUnowned"/>
       <virtual-method name="change" invoker="change">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator.c"
-             line="123">Changes the current @word by @change_to in the text. @word must be the same
+             filename="gspell-navigator.c"
+             line="126">Changes the current @word by @change_to in the text. @word must be the same
 as returned by the last call to gspell_navigator_goto_next().
 
 This function doesn't call gspell_checker_set_correction(). A widget using a
 #GspellNavigator should call gspell_checker_set_correction() in addition to
 this function.</doc>
-        <source-position filename="gspell/gspell-navigator.h" line="48"/>
+        <source-position filename="gspell-navigator.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="125">a #GspellNavigator.</doc>
+                 filename="gspell-navigator.c"
+                 line="128">a #GspellNavigator.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="126">the word to change.</doc>
+                 filename="gspell-navigator.c"
+                 line="129">the word to change.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="change_to" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="127">the replacement.</doc>
+                 filename="gspell-navigator.c"
+                 line="130">the replacement.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="change_all" invoker="change_all">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator.c"
-             line="146">Changes all occurrences of @word by @change_to in the text.
+             filename="gspell-navigator.c"
+             line="149">Changes all occurrences of @word by @change_to in the text.
 
 This function doesn't call gspell_checker_set_correction(). A widget using a
 #GspellNavigator should call gspell_checker_set_correction() in addition to
 this function.</doc>
-        <source-position filename="gspell/gspell-navigator.h" line="52"/>
+        <source-position filename="gspell-navigator.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="148">a #GspellNavigator.</doc>
+                 filename="gspell-navigator.c"
+                 line="151">a #GspellNavigator.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="149">the word to change.</doc>
+                 filename="gspell-navigator.c"
+                 line="152">the word to change.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="change_to" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="150">the replacement.</doc>
+                 filename="gspell-navigator.c"
+                 line="153">the replacement.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="goto_next" invoker="goto_next" throws="1">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator.c"
-             line="82">Goes to the next misspelled word. When called the first time, goes to the
+             filename="gspell-navigator.c"
+             line="85">Goes to the next misspelled word. When called the first time, goes to the
 first misspelled word.</doc>
-        <source-position filename="gspell/gspell-navigator.h" line="43"/>
+        <source-position filename="gspell-navigator.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-navigator.c"
-               line="95">%TRUE if a next misspelled word has been found, %FALSE if the spell
+               filename="gspell-navigator.c"
+               line="98">%TRUE if a next misspelled word has been found, %FALSE if the spell
 checking is finished or if an error occurred.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="84">a #GspellNavigator.</doc>
+                 filename="gspell-navigator.c"
+                 line="87">a #GspellNavigator.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </instance-parameter>
           <parameter name="word"
@@ -1504,8 +1492,8 @@ checking is finished or if an error occurred.</doc>
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="85">a location to store an allocated string, or %NULL.
+                 filename="gspell-navigator.c"
+                 line="88">a location to store an allocated string, or %NULL.
   Use g_free() to free the returned string.</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
@@ -1516,8 +1504,8 @@ checking is finished or if an error occurred.</doc>
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="87">a location to store the
+                 filename="gspell-navigator.c"
+                 line="90">a location to store the
   #GspellChecker used, or %NULL. Use g_object_unref() when no longer
   needed.</doc>
             <type name="Checker" c:type="GspellChecker**"/>
@@ -1526,67 +1514,67 @@ checking is finished or if an error occurred.</doc>
       </virtual-method>
       <method name="change" c:identifier="gspell_navigator_change">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator.c"
-             line="123">Changes the current @word by @change_to in the text. @word must be the same
+             filename="gspell-navigator.c"
+             line="126">Changes the current @word by @change_to in the text. @word must be the same
 as returned by the last call to gspell_navigator_goto_next().
 
 This function doesn't call gspell_checker_set_correction(). A widget using a
 #GspellNavigator should call gspell_checker_set_correction() in addition to
 this function.</doc>
-        <source-position filename="gspell/gspell-navigator.h" line="64"/>
+        <source-position filename="gspell-navigator.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="125">a #GspellNavigator.</doc>
+                 filename="gspell-navigator.c"
+                 line="128">a #GspellNavigator.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="126">the word to change.</doc>
+                 filename="gspell-navigator.c"
+                 line="129">the word to change.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="change_to" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="127">the replacement.</doc>
+                 filename="gspell-navigator.c"
+                 line="130">the replacement.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="change_all" c:identifier="gspell_navigator_change_all">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator.c"
-             line="146">Changes all occurrences of @word by @change_to in the text.
+             filename="gspell-navigator.c"
+             line="149">Changes all occurrences of @word by @change_to in the text.
 
 This function doesn't call gspell_checker_set_correction(). A widget using a
 #GspellNavigator should call gspell_checker_set_correction() in addition to
 this function.</doc>
-        <source-position filename="gspell/gspell-navigator.h" line="69"/>
+        <source-position filename="gspell-navigator.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="148">a #GspellNavigator.</doc>
+                 filename="gspell-navigator.c"
+                 line="151">a #GspellNavigator.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </instance-parameter>
           <parameter name="word" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="149">the word to change.</doc>
+                 filename="gspell-navigator.c"
+                 line="152">the word to change.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="change_to" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="150">the replacement.</doc>
+                 filename="gspell-navigator.c"
+                 line="153">the replacement.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1595,22 +1583,22 @@ this function.</doc>
               c:identifier="gspell_navigator_goto_next"
               throws="1">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator.c"
-             line="82">Goes to the next misspelled word. When called the first time, goes to the
+             filename="gspell-navigator.c"
+             line="85">Goes to the next misspelled word. When called the first time, goes to the
 first misspelled word.</doc>
-        <source-position filename="gspell/gspell-navigator.h" line="58"/>
+        <source-position filename="gspell-navigator.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-navigator.c"
-               line="95">%TRUE if a next misspelled word has been found, %FALSE if the spell
+               filename="gspell-navigator.c"
+               line="98">%TRUE if a next misspelled word has been found, %FALSE if the spell
 checking is finished or if an error occurred.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="84">a #GspellNavigator.</doc>
+                 filename="gspell-navigator.c"
+                 line="87">a #GspellNavigator.</doc>
             <type name="Navigator" c:type="GspellNavigator*"/>
           </instance-parameter>
           <parameter name="word"
@@ -1620,8 +1608,8 @@ checking is finished or if an error occurred.</doc>
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="85">a location to store an allocated string, or %NULL.
+                 filename="gspell-navigator.c"
+                 line="88">a location to store an allocated string, or %NULL.
   Use g_free() to free the returned string.</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
@@ -1632,8 +1620,8 @@ checking is finished or if an error occurred.</doc>
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="87">a location to store the
+                 filename="gspell-navigator.c"
+                 line="90">a location to store the
   #GspellChecker used, or %NULL. Use g_object_unref() when no longer
   needed.</doc>
             <type name="Checker" c:type="GspellChecker**"/>
@@ -1644,25 +1632,25 @@ checking is finished or if an error occurred.</doc>
     <record name="NavigatorInterface"
             c:type="GspellNavigatorInterface"
             glib:is-gtype-struct-for="Navigator">
-      <source-position filename="gspell/gspell-navigator.h" line="55"/>
+      <source-position filename="gspell-navigator.h" line="55"/>
       <field name="parent_interface">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="goto_next">
         <callback name="goto_next" throws="1">
-          <source-position filename="gspell/gspell-navigator.h" line="43"/>
+          <source-position filename="gspell-navigator.h" line="43"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator.c"
-                 line="95">%TRUE if a next misspelled word has been found, %FALSE if the spell
+                 filename="gspell-navigator.c"
+                 line="98">%TRUE if a next misspelled word has been found, %FALSE if the spell
 checking is finished or if an error occurred.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="navigator" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="84">a #GspellNavigator.</doc>
+                   filename="gspell-navigator.c"
+                   line="87">a #GspellNavigator.</doc>
               <type name="Navigator" c:type="GspellNavigator*"/>
             </parameter>
             <parameter name="word"
@@ -1672,8 +1660,8 @@ checking is finished or if an error occurred.</doc>
                        optional="1"
                        allow-none="1">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="85">a location to store an allocated string, or %NULL.
+                   filename="gspell-navigator.c"
+                   line="88">a location to store an allocated string, or %NULL.
   Use g_free() to free the returned string.</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
@@ -1684,8 +1672,8 @@ checking is finished or if an error occurred.</doc>
                        optional="1"
                        allow-none="1">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="87">a location to store the
+                   filename="gspell-navigator.c"
+                   line="90">a location to store the
   #GspellChecker used, or %NULL. Use g_object_unref() when no longer
   needed.</doc>
               <type name="Checker" c:type="GspellChecker**"/>
@@ -1695,27 +1683,27 @@ checking is finished or if an error occurred.</doc>
       </field>
       <field name="change">
         <callback name="change">
-          <source-position filename="gspell/gspell-navigator.h" line="48"/>
+          <source-position filename="gspell-navigator.h" line="48"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="navigator" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="125">a #GspellNavigator.</doc>
+                   filename="gspell-navigator.c"
+                   line="128">a #GspellNavigator.</doc>
               <type name="Navigator" c:type="GspellNavigator*"/>
             </parameter>
             <parameter name="word" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="126">the word to change.</doc>
+                   filename="gspell-navigator.c"
+                   line="129">the word to change.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="change_to" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="127">the replacement.</doc>
+                   filename="gspell-navigator.c"
+                   line="130">the replacement.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -1723,27 +1711,27 @@ checking is finished or if an error occurred.</doc>
       </field>
       <field name="change_all">
         <callback name="change_all">
-          <source-position filename="gspell/gspell-navigator.h" line="52"/>
+          <source-position filename="gspell-navigator.h" line="52"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="navigator" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="148">a #GspellNavigator.</doc>
+                   filename="gspell-navigator.c"
+                   line="151">a #GspellNavigator.</doc>
               <type name="Navigator" c:type="GspellNavigator*"/>
             </parameter>
             <parameter name="word" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="149">the word to change.</doc>
+                   filename="gspell-navigator.c"
+                   line="152">the word to change.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="change_to" transfer-ownership="none">
               <doc xml:space="preserve"
-                   filename="gspell/gspell-navigator.c"
-                   line="150">the replacement.</doc>
+                   filename="gspell-navigator.c"
+                   line="153">the replacement.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -1757,23 +1745,21 @@ checking is finished or if an error occurred.</doc>
            glib:type-name="GspellNavigatorTextView"
            glib:get-type="gspell_navigator_text_view_get_type"
            glib:type-struct="NavigatorTextViewClass">
-      <source-position filename="gspell/gspell-navigator-text-view.h"
-                       line="46"/>
+      <source-position filename="gspell-navigator-text-view.h" line="46"/>
       <implements name="Navigator"/>
       <function name="new" c:identifier="gspell_navigator_text_view_new">
-        <source-position filename="gspell/gspell-navigator-text-view.h"
-                         line="49"/>
+        <source-position filename="gspell-navigator-text-view.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-navigator-text-view.c"
-               line="521">a new #GspellNavigatorTextView floating object.</doc>
+               filename="gspell-navigator-text-view.c"
+               line="524">a new #GspellNavigatorTextView floating object.</doc>
           <type name="Navigator" c:type="GspellNavigator*"/>
         </return-value>
         <parameters>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator-text-view.c"
-                 line="519">a #GtkTextView.</doc>
+                 filename="gspell-navigator-text-view.c"
+                 line="522">a #GtkTextView.</doc>
             <type name="Gtk.TextView" c:type="GtkTextView*"/>
           </parameter>
         </parameters>
@@ -1781,19 +1767,18 @@ checking is finished or if an error occurred.</doc>
       <method name="get_view"
               c:identifier="gspell_navigator_text_view_get_view"
               glib:get-property="view">
-        <source-position filename="gspell/gspell-navigator-text-view.h"
-                         line="52"/>
+        <source-position filename="gspell-navigator-text-view.h" line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-navigator-text-view.c"
-               line="537">the #GtkTextView.</doc>
+               filename="gspell-navigator-text-view.c"
+               line="540">the #GtkTextView.</doc>
           <type name="Gtk.TextView" c:type="GtkTextView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="navigator" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-navigator-text-view.c"
-                 line="535">a #GspellNavigatorTextView.</doc>
+                 filename="gspell-navigator-text-view.c"
+                 line="538">a #GspellNavigatorTextView.</doc>
             <type name="NavigatorTextView" c:type="GspellNavigatorTextView*"/>
           </instance-parameter>
         </parameters>
@@ -1804,8 +1789,8 @@ checking is finished or if an error occurred.</doc>
                 transfer-ownership="none"
                 getter="get_view">
         <doc xml:space="preserve"
-             filename="gspell/gspell-navigator-text-view.c"
-             line="224">The #GtkTextView. The buffer is not sufficient, the view is needed to
+             filename="gspell-navigator-text-view.c"
+             line="227">The #GtkTextView. The buffer is not sufficient, the view is needed to
 scroll to the misspelled words.</doc>
         <type name="Gtk.TextView"/>
       </property>
@@ -1816,8 +1801,7 @@ scroll to the misspelled words.</doc>
     <record name="NavigatorTextViewClass"
             c:type="GspellNavigatorTextViewClass"
             glib:is-gtype-struct-for="NavigatorTextView">
-      <source-position filename="gspell/gspell-navigator-text-view.h"
-                       line="46"/>
+      <source-position filename="gspell-navigator-text-view.h" line="46"/>
       <field name="parent_class">
         <type name="GObject.InitiallyUnownedClass"
               c:type="GInitiallyUnownedClass"/>
@@ -1835,25 +1819,25 @@ scroll to the misspelled words.</doc>
            glib:type-name="GspellTextBuffer"
            glib:get-type="gspell_text_buffer_get_type"
            glib:type-struct="TextBufferClass">
-      <source-position filename="gspell/gspell-text-buffer.h" line="35"/>
+      <source-position filename="gspell-text-buffer.h" line="35"/>
       <function name="get_from_gtk_text_buffer"
                 c:identifier="gspell_text_buffer_get_from_gtk_text_buffer">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-buffer.c"
-             line="181">Returns the #GspellTextBuffer of @gtk_buffer. The returned object is
+             filename="gspell-text-buffer.c"
+             line="184">Returns the #GspellTextBuffer of @gtk_buffer. The returned object is
 guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
-        <source-position filename="gspell/gspell-text-buffer.h" line="40"/>
+        <source-position filename="gspell-text-buffer.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-buffer.c"
-               line="188">the #GspellTextBuffer of @gtk_buffer.</doc>
+               filename="gspell-text-buffer.c"
+               line="191">the #GspellTextBuffer of @gtk_buffer.</doc>
           <type name="TextBuffer" c:type="GspellTextBuffer*"/>
         </return-value>
         <parameters>
           <parameter name="gtk_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-buffer.c"
-                 line="183">a #GtkTextBuffer.</doc>
+                 filename="gspell-text-buffer.c"
+                 line="186">a #GtkTextBuffer.</doc>
             <type name="Gtk.TextBuffer" c:type="GtkTextBuffer*"/>
           </parameter>
         </parameters>
@@ -1861,18 +1845,18 @@ guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
       <method name="get_buffer"
               c:identifier="gspell_text_buffer_get_buffer"
               glib:get-property="buffer">
-        <source-position filename="gspell/gspell-text-buffer.h" line="43"/>
+        <source-position filename="gspell-text-buffer.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-buffer.c"
-               line="224">the #GtkTextBuffer of @gspell_buffer.</doc>
+               filename="gspell-text-buffer.c"
+               line="227">the #GtkTextBuffer of @gspell_buffer.</doc>
           <type name="Gtk.TextBuffer" c:type="GtkTextBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-buffer.c"
-                 line="222">a #GspellTextBuffer.</doc>
+                 filename="gspell-text-buffer.c"
+                 line="225">a #GspellTextBuffer.</doc>
             <type name="TextBuffer" c:type="GspellTextBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -1880,19 +1864,19 @@ guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
       <method name="get_spell_checker"
               c:identifier="gspell_text_buffer_get_spell_checker"
               glib:get-property="spell-checker">
-        <source-position filename="gspell/gspell-text-buffer.h" line="46"/>
+        <source-position filename="gspell-text-buffer.h" line="46"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-buffer.c"
-               line="238">the #GspellChecker if one has been set,
+               filename="gspell-text-buffer.c"
+               line="241">the #GspellChecker if one has been set,
   or %NULL.</doc>
           <type name="Checker" c:type="GspellChecker*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-buffer.c"
-                 line="236">a #GspellTextBuffer.</doc>
+                 filename="gspell-text-buffer.c"
+                 line="239">a #GspellTextBuffer.</doc>
             <type name="TextBuffer" c:type="GspellTextBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -1901,19 +1885,19 @@ guaranteed to be the same for the lifetime of @gtk_buffer.</doc>
               c:identifier="gspell_text_buffer_set_spell_checker"
               glib:set-property="spell-checker">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-buffer.c"
-             line="249">Sets a #GspellChecker to a #GspellTextBuffer. The @gspell_buffer will own a
+             filename="gspell-text-buffer.c"
+             line="252">Sets a #GspellChecker to a #GspellTextBuffer. The @gspell_buffer will own a
 reference to @spell_checker, so you can release your reference to
 @spell_checker if you no longer need it.</doc>
-        <source-position filename="gspell/gspell-text-buffer.h" line="49"/>
+        <source-position filename="gspell-text-buffer.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-buffer.c"
-                 line="251">a #GspellTextBuffer.</doc>
+                 filename="gspell-text-buffer.c"
+                 line="254">a #GspellTextBuffer.</doc>
             <type name="TextBuffer" c:type="GspellTextBuffer*"/>
           </instance-parameter>
           <parameter name="spell_checker"
@@ -1921,8 +1905,8 @@ reference to @spell_checker, so you can release your reference to
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-buffer.c"
-                 line="252">a #GspellChecker, or %NULL to unset the spell
+                 filename="gspell-text-buffer.c"
+                 line="255">a #GspellChecker, or %NULL to unset the spell
   checker.</doc>
             <type name="Checker" c:type="GspellChecker*"/>
           </parameter>
@@ -1934,8 +1918,8 @@ reference to @spell_checker, so you can release your reference to
                 transfer-ownership="none"
                 getter="get_buffer">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-buffer.c"
-             line="146">The #GtkTextBuffer.</doc>
+             filename="gspell-text-buffer.c"
+             line="149">The #GtkTextBuffer.</doc>
         <type name="Gtk.TextBuffer"/>
       </property>
       <property name="spell-checker"
@@ -1944,15 +1928,15 @@ reference to @spell_checker, so you can release your reference to
                 setter="set_spell_checker"
                 getter="get_spell_checker">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-buffer.c"
-             line="161">The #GspellChecker.</doc>
+             filename="gspell-text-buffer.c"
+             line="164">The #GspellChecker.</doc>
         <type name="Checker"/>
       </property>
     </class>
     <record name="TextBufferClass"
             c:type="GspellTextBufferClass"
             glib:is-gtype-struct-for="TextBuffer">
-      <source-position filename="gspell/gspell-text-buffer.h" line="35"/>
+      <source-position filename="gspell-text-buffer.h" line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1964,25 +1948,25 @@ reference to @spell_checker, so you can release your reference to
            glib:type-name="GspellTextView"
            glib:get-type="gspell_text_view_get_type"
            glib:type-struct="TextViewClass">
-      <source-position filename="gspell/gspell-text-view.h" line="44"/>
+      <source-position filename="gspell-text-view.h" line="44"/>
       <function name="get_from_gtk_text_view"
                 c:identifier="gspell_text_view_get_from_gtk_text_view">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="400">Returns the #GspellTextView of @gtk_view. The returned object is guaranteed
+             filename="gspell-text-view.c"
+             line="403">Returns the #GspellTextView of @gtk_view. The returned object is guaranteed
 to be the same for the lifetime of @gtk_view.</doc>
-        <source-position filename="gspell/gspell-text-view.h" line="47"/>
+        <source-position filename="gspell-text-view.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-view.c"
-               line="407">the #GspellTextView of @gtk_view.</doc>
+               filename="gspell-text-view.c"
+               line="410">the #GspellTextView of @gtk_view.</doc>
           <type name="TextView" c:type="GspellTextView*"/>
         </return-value>
         <parameters>
           <parameter name="gtk_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="402">a #GtkTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="405">a #GtkTextView.</doc>
             <type name="Gtk.TextView" c:type="GtkTextView*"/>
           </parameter>
         </parameters>
@@ -1991,8 +1975,8 @@ to be the same for the lifetime of @gtk_view.</doc>
               c:identifier="gspell_text_view_basic_setup"
               version="1.2">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="434">This function is a convenience function that does the following:
+             filename="gspell-text-view.c"
+             line="437">This function is a convenience function that does the following:
 - Set a spell checker. The language chosen is the one returned by
   gspell_language_get_default().
 - Set the #GspellTextView:inline-spell-checking property to %TRUE.
@@ -2025,15 +2009,15 @@ gspell_view = gspell_text_view_get_from_gtk_text_view (gtk_view);
 gspell_text_view_set_inline_spell_checking (gspell_view, TRUE);
 gspell_text_view_set_enable_language_menu (gspell_view, TRUE);
 ]|</doc>
-        <source-position filename="gspell/gspell-text-view.h" line="50"/>
+        <source-position filename="gspell-text-view.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="436">a #GspellTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="439">a #GspellTextView.</doc>
             <type name="TextView" c:type="GspellTextView*"/>
           </instance-parameter>
         </parameters>
@@ -2042,18 +2026,18 @@ gspell_text_view_set_enable_language_menu (gspell_view, TRUE);
               c:identifier="gspell_text_view_get_enable_language_menu"
               glib:get-property="enable-language-menu"
               version="1.2">
-        <source-position filename="gspell/gspell-text-view.h" line="63"/>
+        <source-position filename="gspell-text-view.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-view.c"
-               line="566">whether the language context menu is enabled.</doc>
+               filename="gspell-text-view.c"
+               line="569">whether the language context menu is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="564">a #GspellTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="567">a #GspellTextView.</doc>
             <type name="TextView" c:type="GspellTextView*"/>
           </instance-parameter>
         </parameters>
@@ -2061,18 +2045,18 @@ gspell_text_view_set_enable_language_menu (gspell_view, TRUE);
       <method name="get_inline_spell_checking"
               c:identifier="gspell_text_view_get_inline_spell_checking"
               glib:get-property="inline-spell-checking">
-        <source-position filename="gspell/gspell-text-view.h" line="56"/>
+        <source-position filename="gspell-text-view.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-view.c"
-               line="517">whether the inline spell checking is enabled.</doc>
+               filename="gspell-text-view.c"
+               line="520">whether the inline spell checking is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="515">a #GspellTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="518">a #GspellTextView.</doc>
             <type name="TextView" c:type="GspellTextView*"/>
           </instance-parameter>
         </parameters>
@@ -2080,18 +2064,18 @@ gspell_text_view_set_enable_language_menu (gspell_view, TRUE);
       <method name="get_view"
               c:identifier="gspell_text_view_get_view"
               glib:get-property="view">
-        <source-position filename="gspell/gspell-text-view.h" line="53"/>
+        <source-position filename="gspell-text-view.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-text-view.c"
-               line="500">the #GtkTextView of @gspell_view.</doc>
+               filename="gspell-text-view.c"
+               line="503">the #GtkTextView of @gspell_view.</doc>
           <type name="Gtk.TextView" c:type="GtkTextView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="498">a #GspellTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="501">a #GspellTextView.</doc>
             <type name="TextView" c:type="GspellTextView*"/>
           </instance-parameter>
         </parameters>
@@ -2101,27 +2085,27 @@ gspell_text_view_set_enable_language_menu (gspell_view, TRUE);
               glib:set-property="enable-language-menu"
               version="1.2">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="580">Sets whether to enable the language context menu. If enabled, doing a right
+             filename="gspell-text-view.c"
+             line="583">Sets whether to enable the language context menu. If enabled, doing a right
 click on the #GtkTextView will show a sub-menu to choose the language for the
 spell checking. If another language is chosen, it changes the
 #GspellChecker:language property of the #GspellTextBuffer:spell-checker of
 the #GtkTextView:buffer of the #GspellTextView:view.</doc>
-        <source-position filename="gspell/gspell-text-view.h" line="66"/>
+        <source-position filename="gspell-text-view.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="582">a #GspellTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="585">a #GspellTextView.</doc>
             <type name="TextView" c:type="GspellTextView*"/>
           </instance-parameter>
           <parameter name="enable_language_menu" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="583">whether to enable the language context menu.</doc>
+                 filename="gspell-text-view.c"
+                 line="586">whether to enable the language context menu.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2130,23 +2114,23 @@ the #GtkTextView:buffer of the #GspellTextView:view.</doc>
               c:identifier="gspell_text_view_set_inline_spell_checking"
               glib:set-property="inline-spell-checking">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="530">Enables or disables the inline spell checking.</doc>
-        <source-position filename="gspell/gspell-text-view.h" line="59"/>
+             filename="gspell-text-view.c"
+             line="533">Enables or disables the inline spell checking.</doc>
+        <source-position filename="gspell-text-view.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="gspell_view" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="532">a #GspellTextView.</doc>
+                 filename="gspell-text-view.c"
+                 line="535">a #GspellTextView.</doc>
             <type name="TextView" c:type="GspellTextView*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="gspell/gspell-text-view.c"
-                 line="533">the new state.</doc>
+                 filename="gspell-text-view.c"
+                 line="536">the new state.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2159,8 +2143,8 @@ the #GtkTextView:buffer of the #GspellTextView:view.</doc>
                 getter="get_enable_language_menu"
                 default-value="FALSE">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="377">When the context menu is shown, whether to add a sub-menu to select
+             filename="gspell-text-view.c"
+             line="380">When the context menu is shown, whether to add a sub-menu to select
 the language for the spell checking.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -2171,8 +2155,8 @@ the language for the spell checking.</doc>
                 getter="get_inline_spell_checking"
                 default-value="FALSE">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="363">Whether the inline spell checking is enabled.</doc>
+             filename="gspell-text-view.c"
+             line="366">Whether the inline spell checking is enabled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="view"
@@ -2181,8 +2165,8 @@ the language for the spell checking.</doc>
                 transfer-ownership="none"
                 getter="get_view">
         <doc xml:space="preserve"
-             filename="gspell/gspell-text-view.c"
-             line="348">The #GtkTextView.</doc>
+             filename="gspell-text-view.c"
+             line="351">The #GtkTextView.</doc>
         <type name="Gtk.TextView"/>
       </property>
       <field name="parent_instance">
@@ -2192,7 +2176,7 @@ the language for the spell checking.</doc>
     <record name="TextViewClass"
             c:type="GspellTextViewClass"
             glib:is-gtype-struct-for="TextView">
-      <source-position filename="gspell/gspell-text-view.h" line="44"/>
+      <source-position filename="gspell-text-view.h" line="44"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2204,8 +2188,8 @@ the language for the spell checking.</doc>
     </record>
     <docsection name="checker">
       <doc xml:space="preserve"
-           filename="gspell/gspell-checker.c"
-           line="28">#GspellChecker is a spell checker.
+           filename="gspell-checker.c"
+           line="31">#GspellChecker is a spell checker.
 
 If the #GspellChecker:language property is %NULL, it means that no
 dictonaries are available, in which case the #GspellChecker is in a
@@ -2217,8 +2201,8 @@ EnchantDict with the gspell_checker_get_enchant_dict() function.</doc>
     </docsection>
     <docsection name="checker-dialog">
       <doc xml:space="preserve"
-           filename="gspell/gspell-checker-dialog.c"
-           line="26">#GspellCheckerDialog is a #GtkDialog to spell check a document one word
+           filename="gspell-checker-dialog.c"
+           line="29">#GspellCheckerDialog is a #GtkDialog to spell check a document one word
 at a time. It uses a #GspellNavigator.</doc>
     </docsection>
     <function name="checker_error_quark"
@@ -2230,8 +2214,8 @@ at a time. It uses a #GspellNavigator.</doc>
     </function>
     <docsection name="entry">
       <doc xml:space="preserve"
-           filename="gspell/gspell-entry.c"
-           line="29">#GspellEntry extends the #GtkEntry class with inline spell checking.
+           filename="gspell-entry.c"
+           line="32">#GspellEntry extends the #GtkEntry class with inline spell checking.
 Misspelled words are highlighted with a red %PANGO_UNDERLINE_SINGLE.
 Right-clicking a misspelled word pops up a context menu of suggested
 replacements. The context menu also contains an “Ignore All” item to add the
@@ -2254,20 +2238,20 @@ If you want a %PANGO_UNDERLINE_ERROR instead (a wavy underline), please fix
     </docsection>
     <docsection name="entry-buffer">
       <doc xml:space="preserve"
-           filename="gspell/gspell-entry-buffer.c"
-           line="23">#GspellEntryBuffer extends the #GtkEntryBuffer class with spell checking
+           filename="gspell-entry-buffer.c"
+           line="26">#GspellEntryBuffer extends the #GtkEntryBuffer class with spell checking
 support.</doc>
     </docsection>
     <docsection name="language">
       <doc xml:space="preserve"
-           filename="gspell/gspell-language.c"
-           line="33">#GspellLanguage represents a language that can be used for the spell
+           filename="gspell-language.c"
+           line="36">#GspellLanguage represents a language that can be used for the spell
 checking, i.e. a language for which a dictionary is installed.</doc>
     </docsection>
     <docsection name="language-chooser">
       <doc xml:space="preserve"
-           filename="gspell/gspell-language-chooser.c"
-           line="23">#GspellLanguageChooser is an interface that is implemented by widgets for
+           filename="gspell-language-chooser.c"
+           line="26">#GspellLanguageChooser is an interface that is implemented by widgets for
 choosing a #GspellLanguage.
 
 There are two properties: #GspellLanguageChooser:language and
@@ -2297,8 +2281,8 @@ But once the user has chosen a language, that language is kept in the
     </docsection>
     <docsection name="language-chooser-button">
       <doc xml:space="preserve"
-           filename="gspell/gspell-language-chooser-button.c"
-           line="26">#GspellLanguageChooserButton is a #GtkButton to choose an available
+           filename="gspell-language-chooser-button.c"
+           line="29">#GspellLanguageChooserButton is a #GtkButton to choose an available
 #GspellLanguage. #GspellLanguageChooserButton implements the
 #GspellLanguageChooser interface.
 
@@ -2308,8 +2292,8 @@ returned by gspell_language_get_name(). When the button is clicked, a
     </docsection>
     <docsection name="language-chooser-dialog">
       <doc xml:space="preserve"
-           filename="gspell/gspell-language-chooser-dialog.c"
-           line="25">#GspellLanguageChooserDialog is a #GtkDialog to choose an available
+           filename="gspell-language-chooser-dialog.c"
+           line="28">#GspellLanguageChooserDialog is a #GtkDialog to choose an available
 #GspellLanguage. #GspellLanguageChooserDialog implements the
 #GspellLanguageChooser interface.
 
@@ -2324,11 +2308,11 @@ returned.</doc>
     <function name="language_get_available"
               c:identifier="gspell_language_get_available"
               moved-to="Language.get_available">
-      <source-position filename="gspell/gspell-language.h" line="47"/>
+      <source-position filename="gspell-language.h" line="47"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="97">the list of available
+             filename="gspell-language.c"
+             line="100">the list of available
 languages, sorted with gspell_language_compare().</doc>
         <type name="GLib.List" c:type="const GList*">
           <type name="Language"/>
@@ -2339,13 +2323,13 @@ languages, sorted with gspell_language_compare().</doc>
               c:identifier="gspell_language_get_default"
               moved-to="Language.get_default">
       <doc xml:space="preserve"
-           filename="gspell/gspell-language.c"
-           line="126">Finds the best available language based on the current locale.</doc>
-      <source-position filename="gspell/gspell-language.h" line="51"/>
+           filename="gspell-language.c"
+           line="129">Finds the best available language based on the current locale.</doc>
+      <source-position filename="gspell-language.h" line="51"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="131">the default #GspellLanguage, or %NULL if no dictionaries
+             filename="gspell-language.c"
+             line="134">the default #GspellLanguage, or %NULL if no dictionaries
 are available.</doc>
         <type name="Language" c:type="const GspellLanguage*"/>
       </return-value>
@@ -2353,27 +2337,27 @@ are available.</doc>
     <function name="language_lookup"
               c:identifier="gspell_language_lookup"
               moved-to="Language.lookup">
-      <source-position filename="gspell/gspell-language.h" line="55"/>
+      <source-position filename="gspell-language.h" line="55"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
-             filename="gspell/gspell-language.c"
-             line="194">a #GspellLanguage corresponding to @language_code, or
+             filename="gspell-language.c"
+             line="197">a #GspellLanguage corresponding to @language_code, or
 %NULL if not found.</doc>
         <type name="Language" c:type="const GspellLanguage*"/>
       </return-value>
       <parameters>
         <parameter name="language_code" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="gspell/gspell-language.c"
-               line="192">a language code.</doc>
+               filename="gspell-language.c"
+               line="195">a language code.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
     <docsection name="navigator">
       <doc xml:space="preserve"
-           filename="gspell/gspell-navigator.c"
-           line="23">#GspellNavigator is an interface to navigate through misspelled words,
+           filename="gspell-navigator.c"
+           line="26">#GspellNavigator is an interface to navigate through misspelled words,
 and correct the mistakes.
 
 It is used by widgets like #GspellCheckerDialog. The purpose is to
@@ -2394,8 +2378,8 @@ different #GspellNavigator's.</doc>
     </docsection>
     <docsection name="navigator-text-view">
       <doc xml:space="preserve"
-           filename="gspell/gspell-navigator-text-view.c"
-           line="27">#GspellNavigatorTextView is a simple implementation of the
+           filename="gspell-navigator-text-view.c"
+           line="30">#GspellNavigatorTextView is a simple implementation of the
 #GspellNavigator interface for the #GtkTextView widget.
 
 If a selection exists in the #GtkTextView, only the selected text is spell
@@ -2413,8 +2397,8 @@ You need to call gspell_text_buffer_set_spell_checker() to associate a
     </docsection>
     <docsection name="text-buffer">
       <doc xml:space="preserve"
-           filename="gspell/gspell-text-buffer.c"
-           line="23">#GspellTextBuffer extends the #GtkTextBuffer class but without subclassing
+           filename="gspell-text-buffer.c"
+           line="26">#GspellTextBuffer extends the #GtkTextBuffer class but without subclassing
 it, because the GtkSourceView library has already a #GtkTextBuffer subclass.
 
 # Support of the no-spell-check tag defined by GtkSourceView
@@ -2445,8 +2429,8 @@ context classes.</doc>
     </docsection>
     <docsection name="text-view">
       <doc xml:space="preserve"
-           filename="gspell/gspell-text-view.c"
-           line="29">#GspellTextView extends the #GtkTextView class with inline spell checking.
+           filename="gspell-text-view.c"
+           line="32">#GspellTextView extends the #GtkTextView class with inline spell checking.
 Misspelled words are highlighted with a red %PANGO_UNDERLINE_SINGLE.
 Right-clicking a misspelled word pops up a context menu of suggested
 replacements. The context menu also contains an “Ignore All” item to add the

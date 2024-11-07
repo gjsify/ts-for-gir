@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-3-hello-example",
-  "version": "4.0.0-beta.16",
+  "version": "4.0.0-beta.18",
   "type": "module",
   "private": true,
   "scripts": {
@@ -19,9 +19,9 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.22.4",
-    "typescript": "^5.6.2"
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rollup": "^4.24.3",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@girs/gjs": "workspace:^",

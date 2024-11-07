@@ -2752,26 +2752,26 @@ keys.</doc>
               version="1.8">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="4623">Mapping of attributes of #GstSDPMedia to #GstCaps</doc>
+             line="4621">Mapping of attributes of #GstSDPMedia to #GstCaps</doc>
         <source-position filename="gst-libs/gst/sdp/gstsdpmessage.h"
                          line="759"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="4630">a #GstSDPResult.</doc>
+               line="4628">a #GstSDPResult.</doc>
           <type name="SDPResult" c:type="GstSDPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="media" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4625">a #GstSDPMedia</doc>
+                 line="4623">a #GstSDPMedia</doc>
             <type name="SDPMedia" c:type="const GstSDPMedia*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4626">a #GstCaps</doc>
+                 line="4624">a #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -3379,21 +3379,21 @@ the format is appended.</doc>
               version="1.8.1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="4201">Creates a new #GstMIKEYMessage after parsing the key-mgmt attribute
+             line="4199">Creates a new #GstMIKEYMessage after parsing the key-mgmt attribute
 from a #GstSDPMedia.</doc>
         <source-position filename="gst-libs/gst/sdp/gstsdpmessage.h"
                          line="753"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="4209">a #GstSDPResult.</doc>
+               line="4207">a #GstSDPResult.</doc>
           <type name="SDPResult" c:type="GstSDPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="media" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4203">a #GstSDPMedia</doc>
+                 line="4201">a #GstSDPMedia</doc>
             <type name="SDPMedia" c:type="const GstSDPMedia*"/>
           </instance-parameter>
           <parameter name="mikey"
@@ -3402,7 +3402,7 @@ from a #GstSDPMedia.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4204">pointer to new #GstMIKEYMessage</doc>
+                 line="4202">pointer to new #GstMIKEYMessage</doc>
             <type name="MIKEYMessage" c:type="GstMIKEYMessage**"/>
           </parameter>
         </parameters>
@@ -3892,7 +3892,7 @@ stack), its contents should be set to 0 before calling this function.</doc>
                 version="1.8">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="3795">Mapping of caps to SDP fields:
+             line="3793">Mapping of caps to SDP fields:
 
 a=rtpmap:(payload) (encoding_name) or (clock_rate)[or (encoding_params)]
 
@@ -3908,14 +3908,14 @@ a=extmap:(id)[/direction] (extensionname) (extensionattributes)</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="3812">a #GstSDPResult.</doc>
+               line="3810">a #GstSDPResult.</doc>
           <type name="SDPResult" c:type="GstSDPResult"/>
         </return-value>
         <parameters>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="3797">a #GstCaps</doc>
+                 line="3795">a #GstCaps</doc>
             <type name="Gst.Caps" c:type="const GstCaps*"/>
           </parameter>
           <parameter name="media"
@@ -3924,7 +3924,7 @@ a=extmap:(id)[/direction] (extensionname) (extensionattributes)</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="3798">a #GstSDPMedia</doc>
+                 line="3796">a #GstSDPMedia</doc>
             <type name="SDPMedia" c:type="GstSDPMedia*"/>
           </parameter>
         </parameters>
@@ -4314,26 +4314,26 @@ gst_sdp_media_init() before it can be used again.</doc>
               version="1.8">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="4582">Mapping of attributes of #GstSDPMessage to #GstCaps</doc>
+             line="4580">Mapping of attributes of #GstSDPMessage to #GstCaps</doc>
         <source-position filename="gst-libs/gst/sdp/gstsdpmessage.h"
                          line="756"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="4589">a #GstSDPResult.</doc>
+               line="4587">a #GstSDPResult.</doc>
           <type name="SDPResult" c:type="GstSDPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4584">a #GstSDPMessage</doc>
+                 line="4582">a #GstSDPMessage</doc>
             <type name="SDPMessage" c:type="const GstSDPMessage*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4585">a #GstCaps</doc>
+                 line="4583">a #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -5105,21 +5105,21 @@ When -1 is given as @idx, the zone is inserted at the end.</doc>
               version="1.8.1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="4180">Creates a new #GstMIKEYMessage after parsing the key-mgmt attribute
+             line="4178">Creates a new #GstMIKEYMessage after parsing the key-mgmt attribute
 from a #GstSDPMessage.</doc>
         <source-position filename="gst-libs/gst/sdp/gstsdpmessage.h"
                          line="750"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="4188">a #GstSDPResult.</doc>
+               line="4186">a #GstSDPResult.</doc>
           <type name="SDPResult" c:type="GstSDPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4182">a #GstSDPMessage</doc>
+                 line="4180">a #GstSDPMessage</doc>
             <type name="SDPMessage" c:type="const GstSDPMessage*"/>
           </instance-parameter>
           <parameter name="mikey"
@@ -5128,7 +5128,7 @@ from a #GstSDPMessage.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstsdpmessage.c"
-                 line="4183">pointer to new #GstMIKEYMessage</doc>
+                 line="4181">pointer to new #GstMIKEYMessage</doc>
             <type name="MIKEYMessage" c:type="GstMIKEYMessage**"/>
           </parameter>
         </parameters>
@@ -6411,25 +6411,25 @@ messages.</doc>
               version="1.8">
       <doc xml:space="preserve"
            filename="gst-libs/gst/sdp/gstsdpmessage.c"
-           line="4107">Makes key management data</doc>
+           line="4105">Makes key management data</doc>
       <source-position filename="gst-libs/gst/sdp/gstsdpmessage.h" line="747"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="4114">a #gchar key-mgmt data,</doc>
+             line="4112">a #gchar key-mgmt data,</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="4109">a #gchar URI</doc>
+               line="4107">a #gchar URI</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="base64" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="4110">a #gchar base64-encoded key data</doc>
+               line="4108">a #gchar base64-encoded key data</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -6495,7 +6495,7 @@ stack), its contents should be set to 0 before calling this function.</doc>
               version="1.8">
       <doc xml:space="preserve"
            filename="gst-libs/gst/sdp/gstsdpmessage.c"
-           line="3795">Mapping of caps to SDP fields:
+           line="3793">Mapping of caps to SDP fields:
 
 a=rtpmap:(payload) (encoding_name) or (clock_rate)[or (encoding_params)]
 
@@ -6510,14 +6510,14 @@ a=extmap:(id)[/direction] (extensionname) (extensionattributes)</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstsdpmessage.c"
-             line="3812">a #GstSDPResult.</doc>
+             line="3810">a #GstSDPResult.</doc>
         <type name="SDPResult" c:type="GstSDPResult"/>
       </return-value>
       <parameters>
         <parameter name="caps" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="3797">a #GstCaps</doc>
+               line="3795">a #GstCaps</doc>
           <type name="Gst.Caps" c:type="const GstCaps*"/>
         </parameter>
         <parameter name="media"
@@ -6526,7 +6526,7 @@ a=extmap:(id)[/direction] (extensionname) (extensionattributes)</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstsdpmessage.c"
-               line="3798">a #GstSDPMedia</doc>
+               line="3796">a #GstSDPMedia</doc>
           <type name="SDPMedia" c:type="GstSDPMedia*"/>
         </parameter>
       </parameters>

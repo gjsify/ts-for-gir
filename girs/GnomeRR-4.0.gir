@@ -1705,9 +1705,7 @@ If the monitor is a tiled monitor, it sets the geometry for the complete monitor
           </parameter>
         </parameters>
       </constructor>
-      <function name="new_async"
-                c:identifier="gnome_rr_screen_new_async"
-                glib:finish-func="new_finish">
+      <function name="new_async" c:identifier="gnome_rr_screen_new_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-rr/gnome-rr-screen.c"
              line="1021">Asynchronously creates a new #GnomeRRScreen instance.

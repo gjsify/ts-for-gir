@@ -217,7 +217,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         ]
     }
     generateInterfaceDeclaration(node: IntrospectedInterface): string[] {
-        return [`\n\nexport const ${node.name}: ${node.name}Namespace;\n`]
+        return [
+            `\n\nexport const ${node.name}: ${node.name}Namespace & {
+        new (): ${node.name} // This allows \`obj instanceof ${node.name}\`
+    }\n`,
+        ]
     }
     generateError(node: IntrospectedError): string[] {
         const { namespace } = this

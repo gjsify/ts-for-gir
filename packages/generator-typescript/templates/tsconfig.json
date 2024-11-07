@@ -24,7 +24,9 @@ _%>
     "removeComments": false,
     "inlineSourceMap": false,
     "inlineSources": false,
-    "newLine": "LF"
+    "newLine": "LF",
+    // Show diagnostics
+    "diagnostics": true
   },
   "include": <%- JSON.stringify(includes) %>
 }

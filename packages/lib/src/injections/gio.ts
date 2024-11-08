@@ -93,19 +93,23 @@ export default {
             const FileEnumerator = namespace.assertClass("FileEnumerator");
 
             FileEnumerator.fields.push(
+                // Implementation of the override [Gio.FileEnumerator[Symbol.iterator](https://gjs-docs.gnome.org/gjs/overrides.md#gio-fileenumerator-symbol-iterator)
                 new JSField({
                     name: "Symbol.iterator",
                     parent: FileEnumerator,
                     computed: true,
+                    doc: 'Gio.FileEnumerator are sync iterators.\nEach iteration returns a Gio.FileInfo:\n\n```js\nimport Gio from "gi://Gio";\n\nconst dir = Gio.File.new_for_path("/");\nconst enumerator = dir.enumerate_children(\n  "standard::name",\n  Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,\n  null\n);\n\nfor (const file_info of enumerator) {\n  console.log(file_info.get_name());\n}\n```\n',
                     type: new FunctionType(
                         {},
                         new GenerifiedType(new NativeType("IterableIterator"), new GenericType("FileInfo"))
                     )
                 }),
+                // Implementation of the override [Gio.FileEnumerator[Symbol.asyncIterator]](https://gjs-docs.gnome.org/gjs/overrides.md#gio-fileenumerator-symbol-asynciterator)
                 new JSField({
                     name: "Symbol.asyncIterator",
                     parent: FileEnumerator,
                     computed: true,
+                    doc: 'Gio.FileEnumerator are async iterators.\nEach iteration returns a Gio.FileInfo:\n\n```js\nimport Gio from "gi://Gio";\n\nconst dir = Gio.File.new_for_path("/");\nconst enumerator = dir.enumerate_children(\n  "standard::name",\n  Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,\n  null\n);\n\nfor await (const file_info of enumerator) {\n  console.log(file_info.get_name());\n}\n```\n',
                     type: new FunctionType(
                         {},
                         new GenerifiedType(new NativeType("AsyncIterableIterator"), new GenericType("FileInfo"))
@@ -572,21 +576,25 @@ export default {
             const Bytes = namespace.assertInstalledImport("GLib").assertClass("Bytes");
 
             InputStream.members.push(
+                // Implementation of the override [Gio.InputStream.prototype.createAsyncIterator](https://gjs-docs.gnome.org/gjs/overrides.md#gio-inputstream-createasynciterator)
                 new IntrospectedClassFunction({
                     name: "createAsyncIterator",
                     parent: InputStream,
+                    doc: 'Creates an asynchronous iterator for a Gio.InputStream that reads the stream in chunks.\n\nEach iteration will return a GLib.Bytes object containing at most `count` bytes (default 4096). The iterator will end when the stream is exhausted.\n\nExample:\n```js\nimport Gio from "gi://Gio";\n\nconst textDecoder = new TextDecoder("utf-8");\n\nconst file = Gio.File.new_for_path("/etc/os-release");\nconst inputStream = file.read(null);\n\nfor await (const bytes of inputStream.createAsyncIterator(4)) {\n  log(textDecoder.decode(bytes.toArray()));\n}\n```\n\n@returns An async iterator yielding GLib.Bytes objects',
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: "count",
                             type: new NativeType("number"),
                             isOptional: true,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Maximum number of bytes to read per chunk (default: 4096)"
                         }),
                         new IntrospectedFunctionParameter({
                             name: "priority",
                             type: new NativeType("number"),
                             isOptional: true,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "I/O priority of the request (default: GLib.PRIORITY_DEFAULT)"
                         })
                     ],
                     return_type: new GenerifiedType(
@@ -594,21 +602,25 @@ export default {
                         new GenericType(`${Bytes.namespace.namespace}.${Bytes.name}`)
                     )
                 }),
+                // Implementation of the override [Gio.InputStream.prototype.createSyncIterator](https://gjs-docs.gnome.org/gjs/overrides.md#gio-inputstream-createsynciterator)
                 new IntrospectedClassFunction({
                     name: "createSyncIterator",
                     parent: InputStream,
+                    doc: 'Creates a synchronous iterator for a Gio.InputStream that reads the stream in chunks.\n\nEach iteration will return a GLib.Bytes object containing at most `count` bytes (default 4096). The iterator will end when the stream is exhausted.\n\nExample:\n```js\nimport Gio from "gi://Gio";\n\nconst textDecoder = new TextDecoder("utf-8");\n\nconst file = Gio.File.new_for_path("/etc/os-release");\nconst inputStream = file.read(null);\n\nfor (const bytes of inputStream.createSyncIterator(4)) {\n  log(textDecoder.decode(bytes.toArray()));\n}\n```\n\n@returns An iterable yielding GLib.Bytes objects',
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: "count",
                             type: new NativeType("number"),
                             isOptional: true,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Maximum number of bytes to read per chunk (default: 4096)"
                         }),
                         new IntrospectedFunctionParameter({
                             name: "priority",
                             type: new NativeType("number"),
                             isOptional: true,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "I/O priority of the request (default: GLib.PRIORITY_DEFAULT)"
                         })
                     ],
                     return_type: new GenerifiedType(

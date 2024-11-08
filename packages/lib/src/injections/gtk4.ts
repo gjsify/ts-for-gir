@@ -1,6 +1,6 @@
 import { IntrospectedNamespace } from "../gir/namespace.js";
-import { NativeType, FunctionType } from "../gir.js";
-import { IntrospectedField, JSField } from "../gir/property.js";
+import { NativeType, FunctionType, GenericType, GenerifiedType } from "../gir.js";
+import { JSField } from "../gir/property.js";
 
 export default {
     namespace: "Gtk",
@@ -10,24 +10,15 @@ export default {
             const Widget = namespace.assertClass("Widget");
 
             Widget.fields.push(
-                new IntrospectedField({
+                new JSField({
                     name: "Symbol.iterator",
                     parent: Widget,
                     computed: true,
-                    type: new FunctionType({}, new NativeType("IterableIterator"))
-                })
-            );
-        }
-
-        {
-            const ListBox = namespace.assertClass("ListBox");
-
-            ListBox.fields.push(
-                new JSField({
-                    name: "Symbol.iterator",
-                    parent: ListBox,
-                    computed: true,
-                    type: new FunctionType({}, new NativeType("IterableIterator"))
+                    doc: "Gtk.Widget is an iterable of its children.",
+                    type: new FunctionType(
+                        {},
+                        new GenerifiedType(new NativeType("IterableIterator"), new GenericType("Widget"))
+                    )
                 })
             );
         }

@@ -160,7 +160,7 @@ export class TypeIdentifier extends TypeExpression {
         return new TypeIdentifier(name, namespace)
     }
 
-    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+     
     print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
         if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
             // TODO: Move to TypeScript generator...
@@ -211,12 +211,12 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
         )
     }
 
-    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+     
     protected _resolve(namespace: IntrospectedNamespace, options: OptionsBase): ModuleTypeIdentifier | null {
         return this
     }
 
-    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+     
     print(namespace: IntrospectedNamespace, options: OptionsBase): string {
         if (namespace.namespace === this.namespace) {
             return `${this.moduleName}.${this.name}`
@@ -238,7 +238,7 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
         return type instanceof ClassStructTypeIdentifier && super.equals(type)
     }
 
-    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+     
     print(namespace: IntrospectedNamespace, options: OptionsBase): string {
         if (namespace.namespace === this.namespace) {
             // TODO: Mapping to invalid names should happen at the generator level...

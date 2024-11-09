@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+ 
 /**
  * Default values, parse the config file and handle CLI flags
  */
@@ -261,7 +261,7 @@ export class Config {
             loaders: {
                 // ESM loader
                 '.js': async (filepath) => {
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                     
                     const file = await import(filepath)
 
                     // Files with `exports.default = { ... }`

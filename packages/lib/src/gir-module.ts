@@ -1,5 +1,5 @@
 // TODO move this class into a web-worker? https://www.npmjs.com/package/web-worker
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
 import { DependencyManager } from './dependency-manager.js'

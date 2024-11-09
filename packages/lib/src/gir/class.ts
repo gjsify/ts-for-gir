@@ -425,11 +425,11 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     }
 
     static fromXML(
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         element: GirClassElement | GirInterfaceElement | GirRecordElement,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         ns: IntrospectedNamespace,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         options: OptionsLoad
     ): IntrospectedBaseClass {
         throw new Error("fromXML is not implemented on GirBaseClass");

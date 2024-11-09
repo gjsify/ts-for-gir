@@ -17,7 +17,7 @@ const command = 'generate [modules..]'
 
 const description = 'Generates Typescript type definition .d.ts files from GIR for GJS'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.generateOptions)
     for (const optionName of optionNames) {
@@ -26,7 +26,7 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     return yargs.example(examples) as Argv<ConfigFlags>
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 

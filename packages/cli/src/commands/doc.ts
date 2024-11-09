@@ -15,7 +15,7 @@ const command = 'doc [modules..]'
 
 const description = 'The HTML documentation generator is not yet implemented, but feel free to implement it 🤗'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.docOptions)
     for (const optionName of optionNames) {
@@ -24,7 +24,7 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     return yargs.example(examples) as Argv<ConfigFlags>
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 

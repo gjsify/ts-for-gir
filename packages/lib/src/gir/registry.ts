@@ -25,7 +25,7 @@ export interface NSLoader {
 }
 
 type GeneratorConstructor<T> = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     new (namespace: IntrospectedNamespace, options: OptionsGeneration, ...args: any[]): FormatGenerator<T>;
 };
 

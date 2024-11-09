@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/unbound-method */
+ 
 import lodash from 'lodash'
 export { inspect } from 'util'
 

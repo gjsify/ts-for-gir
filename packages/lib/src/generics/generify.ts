@@ -1,5 +1,6 @@
 import gio from "./gio.js";
 import glib from "./glib.js";
+import gtk from "./gtk.js";
 import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.js";
 import { st1, st12, st13, st14, st15 } from "./st.js";
 import { meta10, meta11, meta12, meta13, meta14, meta15 } from "./meta.js";
@@ -31,7 +32,7 @@ export function generify(registry: NSRegistry, inferGenerics: boolean) {
 
     $(gio);
     $(glib);
-
+    $(gtk);
     const $_ = generifyDefinitions(registry, inferGenerics, false);
 
     $_(clutter10);

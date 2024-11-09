@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/generator-base",
-  "version": "4.0.0-beta.18",
+  "version": "4.0.0-beta.19",
   "description": "Base generator for ts-for-gir",
   "module": "lib/index.js",
   "main": "lib/index.js",

@@ -15,7 +15,7 @@ const command = 'copy [modules..]'
 
 const description = 'Scan for *.gir files and copy them to a new directory'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.copyOptions)
     for (const optionName of optionNames) {
@@ -43,7 +43,7 @@ const copyGirFile = async (config: UserConfig, depModule: GirModuleResolvedBy) =
     await copyFile(depModule.path, dest)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
     const generateConfig = Config.getOptionsGeneration(config)

@@ -620,7 +620,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         }));
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     generateCallbackType(node: IntrospectedCallback | IntrospectedClassCallback): [Json, Json] {
         return [{}, {}];
     }

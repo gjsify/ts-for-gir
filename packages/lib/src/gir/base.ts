@@ -20,7 +20,7 @@ export interface BaseOptions {
 
 export type Options<T> = BaseOptions & T;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export type AnyIntrospectedType = IntrospectedBase<any>;
 
 export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | AnyIntrospectedType | null> {
@@ -102,11 +102,11 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
     abstract accept(visitor: GirVisitor): IntrospectedBase<Parent>;
 
     static fromXML(
-        // eslint-disable-next-line
+         
         element: Record<string, any>,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         parent: IntrospectedNamespace | AnyIntrospectedType,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         options: OptionsLoad
     ): AnyIntrospectedType | null {
         throw new Error("GirBase cannot be instantiated");
@@ -128,11 +128,11 @@ export abstract class IntrospectedNamespaceMember extends IntrospectedBase<Intro
     }
 
     static fromXML(
-        // eslint-disable-next-line
+         
         element: Record<string, any>,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         parent: IntrospectedNamespace,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         options: OptionsLoad
     ): IntrospectedNamespaceMember | null {
         throw new Error("GirBase cannot be instantiated");

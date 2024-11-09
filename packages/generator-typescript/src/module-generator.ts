@@ -1758,7 +1758,7 @@ function promisifyIfEnabled(
 ): IntrospectedClassFunction[] {
     if (options.promisify) {
         // TODO: Remove this once the type is fixed
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
+         
         return promisifyFunctions(functions)
     }
 

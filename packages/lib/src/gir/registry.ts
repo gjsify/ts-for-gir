@@ -17,6 +17,7 @@ import { ParsedGir } from "../types/parsed-gir.js";
 import { GirModule } from "../index.js";
 
 import type { OptionsGeneration, OptionsTransform } from "../types/index.js";
+import { FunctionParametersVisitor } from "../validators/function-parameters.js";
 
 export interface NSLoader {
     load(namespace: string, version: string): ParsedGir | null;
@@ -147,12 +148,13 @@ export class NSRegistry {
         GObject.package_version = [...GLib.package_version];
 
         const interfaceVisitor = new InterfaceVisitor();
-
         this.registerTransformation(interfaceVisitor);
 
         const classVisitor = new ClassVisitor();
-
         this.registerTransformation(classVisitor);
+
+        const enumParamsVisitor = new FunctionParametersVisitor();
+        this.registerTransformation(enumParamsVisitor);
 
         console.log("Adding generics...");
         generify(this, options.inferGenerics);

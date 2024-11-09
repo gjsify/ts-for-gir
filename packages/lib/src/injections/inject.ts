@@ -4,6 +4,7 @@ import gio from "./gio.js";
 import tracker1 from "./tracker1.js";
 import gee08 from "./gee08.js";
 import gee1 from "./gee1.js";
+import gtk4 from "./gtk4.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 import { NSRegistry } from "../gir/registry.js";
 
@@ -35,4 +36,5 @@ export function inject(registry: NSRegistry) {
     $_(tracker1);
     $_(gee08);
     $_(gee1);
+    $_(gtk4);
 }

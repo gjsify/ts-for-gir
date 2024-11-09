@@ -13156,7 +13156,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/generator-typescript@workspace:packages/generator-typescript"
   dependencies:
-    "@eslint/js": "npm:^9.14.0"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
@@ -13179,7 +13178,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/lib@workspace:packages/lib"
   dependencies:
-    "@eslint/js": "npm:^9.14.0"
     "@gi.ts/parser": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/eslint": "npm:9.6.1"

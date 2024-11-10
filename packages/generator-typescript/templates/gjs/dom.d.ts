@@ -27,7 +27,7 @@ declare global {
          *
          * @see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/doc/ESModules.md#importmetaurl
          */
-        readonly url: string;
+        url: string; // with readonly this type is incompatible with e.g. https://github.com/vitejs/vite/blob/main/packages/vite/types/importMeta.d.ts
     }
 
     // Timers

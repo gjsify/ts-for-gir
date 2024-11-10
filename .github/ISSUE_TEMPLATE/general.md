@@ -1,3 +1,4 @@
+---
 name: 🚀 Feature Request/Bug Report
 about: Create a report for a bug or feature request related to the generator
 title: ''

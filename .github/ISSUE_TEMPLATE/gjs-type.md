@@ -1,3 +1,4 @@
+---
 name: 🐛 Bug Report
 about: Report a bug or incorrect type definition
 title: ''

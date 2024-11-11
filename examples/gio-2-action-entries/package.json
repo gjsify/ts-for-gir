@@ -1,7 +1,7 @@
 {
-    "name": "@ts-for-gir-example/gio-2-async",
+    "name": "@ts-for-gir-example/gio-2-action-entries",
     "version": "4.0.0-beta.19",
-    "description": "Example demonstrating promisified GIO async operations",
+    "description": "Example demonstrating Gio.ActionEntry",
     "type": "module",
     "private": true,
     "scripts": {

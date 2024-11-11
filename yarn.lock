@@ -12723,12 +12723,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/gio-2-action-entries@workspace:examples/gio-2-action-entries":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gio-2-action-entries@workspace:examples/gio-2-action-entries"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gio-2-async@workspace:examples/gio-2-async":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gio-2-async@workspace:examples/gio-2-async"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft

@@ -21,7 +21,8 @@ import {
     Uint8ArrayType,
     BooleanType,
     TypeIdentifier,
-    ThisType
+    ThisType,
+    IntrospectedAlias
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.js";
@@ -629,6 +630,73 @@ export default {
                     )
                 })
             );
+        }
+
+        // Add ActionEntry type
+        const SimpleAction = namespace.assertClass("SimpleAction");
+        const GLib = namespace.assertInstalledImport("GLib");
+        const Variant = GLib.assertClass("Variant");
+
+        /**
+         * Type for action entries used in {@link ActionMap.add_action_entries}
+         * 
+         * This type definition matches the GJS override implementation at:
+         * @see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/Gio.js#L827
+         * 
+         * The add_action_entries method is overridden by GJS to provide a more convenient API
+         * for adding multiple actions at once. This type definition provides proper TypeScript
+         * typing for that override.
+         * 
+         * @see https://gitlab.gnome.org/GNOME/gjs/-/issues/407 for the original discussion
+         * @see https://github.com/gjsify/ts-for-gir/issues/153 for the related issue in ts-for-gir
+         */
+        const ActionEntryObj = new IntrospectedAlias({
+            name: "ActionEntryObj",
+            namespace,
+            type: new NativeType(`{
+                /** The name of the action */
+                name: string;
+                /** The type of the parameter that must match the parameter_type specified in the entry */
+                parameter_type?: string;
+                /** The initial state of the action */
+                state?: string;
+                /** The callback to connect to the "activate" signal of the action */
+                activate?: (_source: ${SimpleAction.name}, parameter: ${Variant.namespace.namespace}.${Variant.name} | null) => void;
+                /** The callback to connect to the "change-state" signal of the action */
+                change_state?: (_source: ${SimpleAction.name}, value: ${Variant.namespace.namespace}.${Variant.name} | null) => void;
+            }`),
+            doc: "Type for action entries used in the overridden {@link ActionMap.add_action_entries}"
+        });
+        
+        namespace.members.set("ActionEntryObj", ActionEntryObj);
+
+        // Create new method with updated signature
+        const ActionMap = namespace.assertClass("ActionMap") as IntrospectedInterface;
+        const newMethod = new IntrospectedClassFunction({
+            name: "add_action_entries",
+            parent: ActionMap,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: "entries",
+                    type: new ArrayType(new TypeIdentifier("ActionEntryObj", "Gio")),
+                    direction: GirDirection.In,
+                    doc: "Array of action entries to add"
+                }),
+            ],
+            return_type: VoidType,
+            doc: "A convenience function for creating multiple simple actions. \nSee Gio.ActionEntryObj for the structure of the action entry."
+        });
+
+        // Find and replace the existing method
+        const existingMethodIndex = ActionMap.members.findIndex(
+            member => member.name === "add_action_entries"
+        );
+
+        if (existingMethodIndex !== -1) {
+            ActionMap.members[existingMethodIndex] = newMethod;
+        } else {
+            console.warn("Could not find existing add_action_entries method to override");
+            ActionMap.members.push(newMethod);
         }
     }
 };

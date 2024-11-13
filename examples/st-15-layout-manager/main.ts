@@ -10,57 +10,49 @@
 import Clutter from 'gi://Clutter';
 import St from 'gi://St';
 import GObject from 'gi://GObject';
-import GLib from 'gi://GLib';
 
-// Define a custom widget class with GridLayout
-const GridLayoutWidget = GObject.registerClass(
-    class GridLayoutWidget extends St.Widget<Clutter.GridLayout> {
-        constructor() {
-            super({
-                layout_manager: new Clutter.GridLayout()
-            });
-
-            // Create and add labels in a grid pattern
-            const labels = [
-                'Top Left', 'Top Right',
-                'Bottom Left', 'Bottom Right'
-            ];
-
-            labels.forEach((text, index) => {
-                const label = new St.Label({ text });
-                this.layout_manager.attach(
-                    label,
-                    index % 2,  // column
-                    Math.floor(index / 2),  // row
-                    1, 1
-                );
-            });
-        }
+export class GridLayoutWidget extends St.Widget<Clutter.GridLayout> {
+    static {
+        GObject.registerClass({
+            GTypeName: 'GridLayoutWidget',
+        }, this);
     }
-);
 
-// Main loop
-const loop = new GLib.MainLoop(null, false);
+    constructor() {
+        super({
+            layout_manager: new Clutter.GridLayout()
+        });
 
-// Create main window
-const stage = new Clutter.Stage({
-    width: 300,
-    height: 200,
-});
+        // Create and add labels in a grid pattern
+        const labels = [
+            'Top Left', 'Top Right',
+            'Bottom Left', 'Bottom Right'
+        ];
 
-// Add our widget
-const widget = new GridLayoutWidget();
-stage.add_child(widget);
+        labels.forEach((text, index) => {
+            const label = new St.Label({ text });
+            this.layout_manager.attach(
+                label,
+                index % 2,  // column
+                Math.floor(index / 2),  // row
+                1, 1
+            );
+        });
+    }
+}
 
-// Center the widget
-widget.set_position(
-    stage.width / 2 - widget.width / 2,
-    stage.height / 2 - widget.height / 2
-);
-
-// Connect signals
-stage.connect('destroy', () => loop.quit());
-stage.show();
-
-// Start the main loop
-loop.run(); 
+/**
+ * Example usage in your extension:
+ * 
+ * class Extension {
+ *     enable() {
+ *         this._widget = new GridLayoutWidget();
+ *         Main.uiGroup.add_child(this._widget);
+ *     }
+ * 
+ *     disable() {
+ *         this._widget.destroy();
+ *         this._widget = null;
+ *     }
+ * }
+ */

@@ -22,7 +22,7 @@
     "test:girs:packages": "yarn build:types:packages && yarn validate:types:packages",
     "test:girs:packages:gtk4": "yarn build:types:packages:gtk4 && yarn validate:types:packages",
     "test:examples": "yarn build:examples && yarn validate:examples && yarn test:examples:cli-apps",
-    "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start",
+    "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start && yarn workspace @ts-for-gir-example/gobject-param-spec run start && yarn workspace @ts-for-gir-example/gio-2-async run start && yarn workspace @ts-for-gir-example/gio-2-action-entries run start && yarn workspace @ts-for-gir-example/gio-2-iterate run start",
     "test:tests": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' run test",
     "build": "yarn workspaces foreach --recursive --topological-dev --parallel --verbose --from @ts-for-gir/cli run build",
     "build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",

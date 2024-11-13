@@ -1,4 +1,12 @@
 import GObject from 'gi://GObject';
+import System from 'system';
+
+console.log('GJS Version:', System.version);
+
+if(System.version < 18200) {
+    console.log('GJS version 1.82.0 or higher is required for nullable nick and blurb in GObject.ParamSpec, skipping example');
+    System.exit(0);
+}
 
 // Example class demonstrating different ParamSpec usages
 class ExampleObject extends GObject.Object {

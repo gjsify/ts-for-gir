@@ -13077,6 +13077,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/st-15-layout-manager@workspace:examples/st-15-layout-manager":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/st-15-layout-manager@workspace:examples/st-15-layout-manager"
+  dependencies:
+    "@girs/clutter-15": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/st-15": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/timers-example@workspace:examples/timers":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/timers-example@workspace:examples/timers"

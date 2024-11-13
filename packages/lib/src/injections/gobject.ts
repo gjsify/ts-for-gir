@@ -138,7 +138,8 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
                 type: string | null = null,
                 defaultValue = false,
                 defaultValueType: TypeExpression = AnyType,
-                addGeneric = false
+                addGeneric = false,
+                doc: string
             ) {
                 const params = [
                     stringParam("name", {
@@ -191,6 +192,8 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
                 if (addGeneric) {
                     fn.generics.push(new Generic(new GenericType("T")));
                 }
+
+                fn.doc = doc;
 
                 return fn;
             }
@@ -281,56 +284,55 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
             }
 
             ParamSpec.members.push(
-                //   "char": "static char(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("char", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "uchar": "static uchar(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any):ParamSpec;",
-                generateParamSpec("uchar", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "int": "static int(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("int", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "uint": "static uint(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("uint", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "long": "static long(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("long", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "ulong": "static ulong(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("ulong", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "int64": "static int64(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("int64", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "uint64": "static uint64(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("uint64", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "float": "static float(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("float", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "boolean": "static boolean(name: any, nick: any, blurb: any, flags: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("boolean", ParamSpecWithGenerics(BooleanType), false, null, true, BooleanType),
-                //   "flags": "static flags(name: any, nick: any, blurb: any, flags: any, flagsType: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("flags", ParamSpecWithGenerics(NumberType), false, "flags", true),
-                //   "enum": "static enum(name: any, nick: any, blurb: any, flags: any, enumType: any, defaultValue: any): ParamSpec;",
-                generateParamSpec(
-                    "enum",
-                    ParamSpecWithGenerics(new NativeType("T")),
-                    false,
-                    "enum",
-                    true,
-                    undefined,
-                    true
+                generateParamSpec("char", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecChar instance specifying a G_TYPE_CHAR property."
                 ),
-                //   "double": "static double(name: any, nick: any, blurb: any, flags: any, minimum: any, maximum: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("double", ParamSpecWithGenerics(NumberType), true, null, true, NumberType),
-                //   "string": "static string(name: any, nick: any, blurb: any, flags: any, defaultValue: any): ParamSpec;",
-                generateParamSpec("string", ParamSpecWithGenerics(StringType), false, null, true, StringType),
-                //   "boxed": "static boxed(name: any, nick: any, blurb: any, flags: any, boxedType: any): ParamSpec;",
-                generateParamSpec(
-                    "boxed",
-                    ParamSpecWithGenerics(new NativeType("T")),
-                    false,
-                    "boxed",
-                    false,
-                    undefined,
-                    true
+                generateParamSpec("uchar", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecUChar instance specifying a G_TYPE_UCHAR property."
                 ),
-                //   "object": "static object(name: any, nick: any, blurb: any, flags: any, objectType: any): ParamSpec;",
+                generateParamSpec("int", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecInt instance specifying a G_TYPE_INT property."
+                ),
+                generateParamSpec("uint", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecUInt instance specifying a G_TYPE_UINT property."
+                ),
+                generateParamSpec("long", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecLong instance specifying a G_TYPE_LONG property."
+                ),
+                generateParamSpec("ulong", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecULong instance specifying a G_TYPE_ULONG property."
+                ),
+                generateParamSpec("int64", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecInt64 instance specifying a G_TYPE_INT64 property."
+                ),
+                generateParamSpec("uint64", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecUInt64 instance specifying a G_TYPE_UINT64 property."
+                ),
+                generateParamSpec("float", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecFloat instance specifying a G_TYPE_FLOAT property."
+                ),
+                generateParamSpec("boolean", ParamSpecWithGenerics(BooleanType), false, null, true, BooleanType, false,
+                    "Creates a new GParamSpecBoolean instance specifying a G_TYPE_BOOLEAN property. In many cases, it may be more appropriate to use an enum with g_param_spec_enum(), both to improve code clarity by using explicitly named values, and to allow for more values to be added in future without breaking API."
+                ),
+                generateParamSpec("flags", ParamSpecWithGenerics(NumberType), false, "flags", true, undefined, false,
+                    "Creates a new GParamSpecFlags instance specifying a G_TYPE_FLAGS property."
+                ),
+                generateParamSpec("enum", ParamSpecWithGenerics(new NativeType("T")), false, "enum", true, undefined, true,
+                    "Creates a new GParamSpecEnum instance specifying a G_TYPE_ENUM property."
+                ),
+                generateParamSpec("double", ParamSpecWithGenerics(NumberType), true, null, true, NumberType, false,
+                    "Creates a new GParamSpecDouble instance specifying a G_TYPE_DOUBLE property."
+                ),
+                generateParamSpec("string", ParamSpecWithGenerics(StringType), false, null, true, StringType, false,
+                    "Creates a new GParamSpecString instance specifying a G_TYPE_STRING property."
+                ),
+                generateParamSpec("boxed", ParamSpecWithGenerics(new NativeType("T")), false, "boxed", false, undefined, true,
+                    "Creates a new GParamSpecBoxed instance specifying a G_TYPE_BOXED derived property."
+                ),
                 object,
-                //   "param": "static param(name: any, nick: any, blurb: any, flags: any, paramType: any): ParamSpec;",
-                generateParamSpec("param", ParamSpec.getType(), false, "param", false),
+                generateParamSpec("param", ParamSpec.getType(), false, "param", false, undefined, false,
+                    "Creates a new GParamSpecParam instance specifying a G_TYPE_PARAM property."
+                ),
                 jsobject,
                 override
             );

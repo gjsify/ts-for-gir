@@ -1,5 +1,4 @@
 import GObject from 'gi://GObject';
-import GLib from 'gi://GLib';
 
 // Example class demonstrating different ParamSpec usages
 class ExampleObject extends GObject.Object {

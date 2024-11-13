@@ -12832,6 +12832,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/gobject-param-spec@workspace:examples/gobject-param-spec":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gobject-param-spec@workspace:examples/gobject-param-spec"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gtk-3-browser":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gtk-3-browser"

@@ -46,6 +46,10 @@ function stringParam(name: string) {
     return typeParam(name, StringType);
 }
 
+function nullableStringParam(name: string) {
+    return typeParam(name, new NullableType(StringType));
+}
+
 export default {
     namespace: "GObject",
     version: "2.0",
@@ -109,9 +113,9 @@ export default {
                 const fn = new IntrospectedStaticClassFunction({
                     name,
                     parameters: [
-                        typeParam("name", StringType),
-                        typeParam("nick", StringType),
-                        typeParam("blurb", StringType),
+                        stringParam("name"),
+                        nullableStringParam("nick"),
+                        nullableStringParam("blurb"),
                         typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType)),
                         ...(minMax ? [typeParam("minimum", NumberType), typeParam("maximum", NumberType)] : []),
                         ...(type
@@ -172,8 +176,8 @@ export default {
                 name: "object",
                 parameters: [
                     stringParam("name"),
-                    stringParam("nick"),
-                    stringParam("blurb"),
+                    nullableStringParam("nick"),
+                    nullableStringParam("blurb"),
                     stringParam("flags"),
                     new IntrospectedFunctionParameter({
                         name: "objectType",
@@ -190,7 +194,7 @@ export default {
             // static jsobject(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpecBoxed
             const jsobject = new IntrospectedStaticClassFunction({
                 name: "jsobject",
-                parameters: [stringParam("name"), stringParam("nick"), stringParam("blurb"), anyParam("flags")],
+                parameters: [stringParam("name"), nullableStringParam("nick"), nullableStringParam("blurb"), anyParam("flags")],
                 parent: ParamSpec,
                 return_type: new NativeType("ParamSpec<T>")
             });

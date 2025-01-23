@@ -1,6 +1,14 @@
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
+import System from 'system';
+
+console.log('GJS Version:', System.version);
+
+if(System.version < 18200) {
+    console.log('GJS version 1.82.0 or higher is required for this example, skipping example');
+    System.exit(0);
+}
 
 export class ExampleApplication extends Gio.Application {
     static {

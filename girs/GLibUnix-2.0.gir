@@ -13,8 +13,8 @@ and/or use gtk-doc annotations.  -->
   <namespace name="GLibUnix"
              version="2.0"
              shared-library="libgobject-2.0.so.0,libglib-2.0.so.0"
-             c:identifier-prefixes="G"
-             c:symbol-prefixes="g">
+             c:identifier-prefixes="GUnix,G"
+             c:symbol-prefixes="glib,g_unix,g">
     <callback name="FDSourceFunc" c:type="GUnixFDSourceFunc">
       <doc xml:space="preserve"
            filename="glib/glib-unix.h"

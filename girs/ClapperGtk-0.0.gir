@@ -22,7 +22,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="CLAPPER_GTK_BILLBOARD_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                       line="35"/>
+                       line="36"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -49,7 +49,7 @@ If automatic volume/speed change notifications when their values do
 change are desired, functions for announcing them can be run in callbacks
 to corresponding property notify signals on the [class@Clapper.Player].</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                       line="37"/>
+                       line="39"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -58,7 +58,7 @@ to corresponding property notify signals on the [class@Clapper.Player].</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-billboard.c"
              line="217">Creates a new #ClapperGtkBillboard instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                         line="39"/>
+                         line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-billboard.c"
@@ -75,7 +75,7 @@ side of @billboard.
 
 Use this if you want to present current speed value to the user.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                         line="49"/>
+                         line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -97,7 +97,7 @@ side of @billboard.
 
 Use this if you want to present current volume level to the user.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                         line="47"/>
+                         line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -119,7 +119,7 @@ Use this if you want to present current volume level to the user.</doc>
 The message will stay on the @billboard until a
 [method@ClapperGtk.Billboard.unpin_pinned_message] is called.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                         line="43"/>
+                         line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -153,7 +153,7 @@ The message will stay on the @billboard until a
 Duration how long a message will stay is automatically
 calculated based on amount of text.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                         line="41"/>
+                         line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -187,7 +187,7 @@ calculated based on amount of text.</doc>
 If no message was pinned this function will do nothing,
 so it is safe to call when unsure.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                         line="45"/>
+                         line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -205,7 +205,7 @@ so it is safe to call when unsure.</doc>
             c:type="ClapperGtkBillboardClass"
             glib:is-gtype-struct-for="Billboard">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
-                       line="37"/>
+                       line="39"/>
       <field name="parent_class">
         <type name="ContainerClass" c:type="ClapperGtkContainerClass"/>
       </field>
@@ -228,7 +228,7 @@ so it is safe to call when unsure.</doc>
                     c:identifier="CLAPPER_GTK_CONTAINER_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                       line="33"/>
+                       line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -257,7 +257,7 @@ If you need to have more then single widget as child, place a widget that
 can hold multiple children such as [class@Gtk.Box] as a single conatiner child
 and then your widgets into that child.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                       line="43"/>
+                       line="46"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -266,7 +266,7 @@ and then your widgets into that child.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="73">Creates a new #ClapperGtkContainer instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="45"/>
+                         line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-container.c"
@@ -281,7 +281,7 @@ and then your widgets into that child.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="258">Get a @container adaptive height threshold.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="65"/>
+                         line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-container.c"
@@ -304,7 +304,7 @@ and then your widgets into that child.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="217">Get a @container adaptive width threshold.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="61"/>
+                         line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-container.c"
@@ -325,7 +325,7 @@ and then your widgets into that child.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="103">Get a child #GtkWidget of @container.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="49"/>
+                         line="55"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-container.c"
@@ -348,7 +348,7 @@ and then your widgets into that child.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="176">Get a @container height target.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="57"/>
+                         line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-container.c"
@@ -371,7 +371,7 @@ and then your widgets into that child.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="139">Get a @container width target.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="53"/>
+                         line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-container.c"
@@ -397,7 +397,7 @@ an [signal@ClapperGtk.Container::adapt] signal will be emitted with %TRUE to
 notify implementation about mobile adaptation request, otherwise %FALSE when
 both threshold values are exceeded.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="63"/>
+                         line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -426,7 +426,7 @@ an [signal@ClapperGtk.Container::adapt] signal will be emitted with %TRUE to
 notify implementation about mobile adaptation request, otherwise %FALSE when
 both threshold values are exceeded.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="59"/>
+                         line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -450,7 +450,7 @@ both threshold values are exceeded.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="86">Set a child #GtkWidget of @container.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="47"/>
+                         line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -476,7 +476,7 @@ both threshold values are exceeded.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-container.c"
              line="158">Same as clapper_gtk_container_set_width_target() but for widget height.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="55"/>
+                         line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -504,7 +504,7 @@ both threshold values are exceeded.</doc>
 will not stretch beyond set @width while still expanding into
 possible boundaries trying to reach its target.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                         line="51"/>
+                         line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -592,7 +592,7 @@ behavior on descendants.</doc>
             c:type="ClapperGtkContainerClass"
             glib:is-gtype-struct-for="Container">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-container.h"
-                       line="43"/>
+                       line="46"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
@@ -602,6 +602,16 @@ behavior on descendants.</doc>
         </array>
       </field>
     </record>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="CLAPPER_GTK_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="src/lib/clapper-gtk/clapper-gtk-visibility.h"
+                       line="45"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="ENCODE_VERSION"
                     c:identifier="CLAPPER_GTK_ENCODE_VERSION"
                     introspectable="0">
@@ -620,7 +630,7 @@ behavior on descendants.</doc>
                     c:identifier="CLAPPER_GTK_EXTRA_MENU_BUTTON_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                       line="33"/>
+                       line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -637,7 +647,7 @@ behavior on descendants.</doc>
            filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
            line="20">A menu button with extra options.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                       line="35"/>
+                       line="38"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -646,7 +656,7 @@ behavior on descendants.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
              line="320">Creates a new #ClapperGtkExtraMenuButton instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="37"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
@@ -661,7 +671,7 @@ behavior on descendants.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
              line="433">Get whether an option to open external subtitle stream inside popover is visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="49"/>
+                         line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
@@ -684,7 +694,7 @@ behavior on descendants.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
              line="389">Get whether speed control inside popover is visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="45"/>
+                         line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
@@ -707,7 +717,7 @@ behavior on descendants.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
              line="353">Get whether volume control inside popover is visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="41"/>
+                         line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
@@ -734,7 +744,7 @@ Note that this [class@Gtk.Widget] can only add subtitles to currently playing
 [class@Clapper.MediaItem]. When no media is selected, option to open subtitles
 will not be shown regardless how this option is set.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="47"/>
+                         line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -760,7 +770,7 @@ will not be shown regardless how this option is set.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
              line="369">Set whether speed control inside popover should be visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="43"/>
+                         line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -786,7 +796,7 @@ will not be shown regardless how this option is set.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
              line="333">Set whether volume control inside popover should be visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                         line="39"/>
+                         line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -813,7 +823,7 @@ will not be shown regardless how this option is set.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="729">Visibility of open subtitles option inside popover.</doc>
+             line="736">Visibility of open subtitles option inside popover.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="speed-visible"
@@ -824,7 +834,7 @@ will not be shown regardless how this option is set.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="720">Visibility of speed control inside popover.</doc>
+             line="727">Visibility of speed control inside popover.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="volume-visible"
@@ -835,7 +845,7 @@ will not be shown regardless how this option is set.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="711">Visibility of volume control inside popover.</doc>
+             line="718">Visibility of volume control inside popover.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="open-subtitles"
@@ -844,7 +854,7 @@ will not be shown regardless how this option is set.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="738">A signal that user wants to open subtitles file.
+             line="745">A signal that user wants to open subtitles file.
 
 Implementation should add a way for user to select subtitles to open
 such as by e.g. using [class@Gtk.FileDialog] and then add them to the
@@ -867,7 +877,7 @@ so you do not have to implement handler for it otherwise.</doc>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="741">a #ClapperMediaItem</doc>
+                 line="748">a #ClapperMediaItem</doc>
             <type name="Clapper.MediaItem"/>
           </parameter>
         </parameters>
@@ -877,7 +887,7 @@ so you do not have to implement handler for it otherwise.</doc>
             c:type="ClapperGtkExtraMenuButtonClass"
             glib:is-gtype-struct-for="ExtraMenuButton">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
-                       line="35"/>
+                       line="38"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
@@ -886,7 +896,7 @@ so you do not have to implement handler for it otherwise.</doc>
                     c:identifier="CLAPPER_GTK_LEAD_CONTAINER_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                       line="36"/>
+                       line="37"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -914,7 +924,7 @@ triggering default actions such as toggle play on click or revealing fading over
 
 For more info how container widget works see [class@ClapperGtk.Container] documentation.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                       line="46"/>
+                       line="48"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -923,7 +933,7 @@ For more info how container widget works see [class@ClapperGtk.Container] docume
              filename="src/lib/clapper-gtk/clapper-gtk-lead-container.c"
              line="63">Creates a new #ClapperGtkLeadContainer instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                         line="48"/>
+                         line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-lead-container.c"
@@ -938,7 +948,7 @@ For more info how container widget works see [class@ClapperGtk.Container] docume
              filename="src/lib/clapper-gtk/clapper-gtk-lead-container.c"
              line="138">Get @actions that were set for this @lead_container to block.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                         line="56"/>
+                         line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-lead-container.c"
@@ -961,7 +971,7 @@ For more info how container widget works see [class@ClapperGtk.Container] docume
              filename="src/lib/clapper-gtk/clapper-gtk-lead-container.c"
              line="98">Get a whenever @lead_container has leadership set.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                         line="52"/>
+                         line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-lead-container.c"
@@ -985,7 +995,7 @@ For more info how container widget works see [class@ClapperGtk.Container] docume
              line="118">Set @actions that #ClapperGtkVideo should skip when #GdkEvent which
 would normally trigger them happens inside @lead_container.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                         line="54"/>
+                         line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1014,7 +1024,7 @@ would normally trigger them happens inside @lead_container.</doc>
 When enabled, interactions with @lead_container will not trigger
 their default behavior, instead container and its contents will take priority.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                         line="50"/>
+                         line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1063,7 +1073,7 @@ their default behavior, instead container and its contents will take priority.</
             c:type="ClapperGtkLeadContainerClass"
             glib:is-gtype-struct-for="LeadContainer">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-lead-container.h"
-                       line="46"/>
+                       line="48"/>
       <field name="parent_class">
         <type name="ContainerClass" c:type="ClapperGtkContainerClass"/>
       </field>
@@ -1084,7 +1094,7 @@ their default behavior, instead container and its contents will take priority.</
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="1"
+              value="0"
               c:type="CLAPPER_GTK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/lib/clapper-gtk/clapper-gtk-version.h"
@@ -1094,7 +1104,7 @@ their default behavior, instead container and its contents will take priority.</
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="6"
+              value="8"
               c:type="CLAPPER_GTK_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/lib/clapper-gtk/clapper-gtk-version.h"
@@ -1107,7 +1117,7 @@ their default behavior, instead container and its contents will take priority.</
                     c:identifier="CLAPPER_GTK_NEXT_ITEM_BUTTON_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.h"
-                       line="33"/>
+                       line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1124,7 +1134,7 @@ their default behavior, instead container and its contents will take priority.</
            filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.c"
            line="20">A #GtkButton for selecting next queue item.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.h"
-                       line="35"/>
+                       line="38"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Actionable"/>
       <implements name="Gtk.Buildable"/>
@@ -1134,7 +1144,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.c"
              line="68">Creates a new #ClapperGtkNextItemButton to play next #ClapperMediaItem.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.h"
-                         line="37"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.c"
@@ -1147,7 +1157,7 @@ their default behavior, instead container and its contents will take priority.</
             c:type="ClapperGtkNextItemButtonClass"
             glib:is-gtype-struct-for="NextItemButton">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-next-item-button.h"
-                       line="35"/>
+                       line="38"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
@@ -1156,7 +1166,7 @@ their default behavior, instead container and its contents will take priority.</
                     c:identifier="CLAPPER_GTK_PREVIOUS_ITEM_BUTTON_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.h"
-                       line="33"/>
+                       line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1173,7 +1183,7 @@ their default behavior, instead container and its contents will take priority.</
            filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.c"
            line="20">A #GtkButton for selecting previous queue item.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.h"
-                       line="35"/>
+                       line="38"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Actionable"/>
       <implements name="Gtk.Buildable"/>
@@ -1184,7 +1194,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.c"
              line="68">Creates a new #ClapperGtkPreviousItemButton to play previous #ClapperMediaItem.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.h"
-                         line="37"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.c"
@@ -1197,7 +1207,7 @@ their default behavior, instead container and its contents will take priority.</
             c:type="ClapperGtkPreviousItemButtonClass"
             glib:is-gtype-struct-for="PreviousItemButton">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-previous-item-button.h"
-                       line="35"/>
+                       line="38"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
@@ -1206,7 +1216,7 @@ their default behavior, instead container and its contents will take priority.</
                     c:identifier="CLAPPER_GTK_SEEK_BAR_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                       line="34"/>
+                       line="36"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1216,7 +1226,7 @@ their default behavior, instead container and its contents will take priority.</
                     c:identifier="CLAPPER_GTK_SIMPLE_CONTROLS_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                       line="35"/>
+                       line="37"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1233,7 +1243,7 @@ their default behavior, instead container and its contents will take priority.</
            filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
            line="20">A bar for seeking and displaying playback position.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                       line="36"/>
+                       line="39"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -1242,7 +1252,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
              line="491">Creates a new #ClapperGtkSeekBar instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                         line="38"/>
+                         line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
@@ -1257,7 +1267,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
              line="523">Get whether the position and duration labels are going to be revealed.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                         line="42"/>
+                         line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
@@ -1280,7 +1290,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
              line="558">Get [enum@Clapper.PlayerSeekMethod] used when seeking with seek bar.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                         line="46"/>
+                         line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
@@ -1304,7 +1314,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
              line="504">Set whether the position and duration labels should be revealed.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                         line="40"/>
+                         line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1330,7 +1340,7 @@ their default behavior, instead container and its contents will take priority.</
              filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.c"
              line="539">Set [enum@Clapper.PlayerSeekMethod] to use when seeking with seek bar.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                         line="44"/>
+                         line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1377,7 +1387,7 @@ their default behavior, instead container and its contents will take priority.</
             c:type="ClapperGtkSeekBarClass"
             glib:is-gtype-struct-for="SeekBar">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-seek-bar.h"
-                       line="36"/>
+                       line="39"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
@@ -1400,7 +1410,7 @@ as-is, providing minimal yet universal playback controls for your app.
 If you need a further customized controls, please use individual widgets this
 widget consists of to build your own controls implementation instead.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                       line="37"/>
+                       line="40"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -1409,7 +1419,7 @@ widget consists of to build your own controls implementation instead.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
              line="128">Creates a new #ClapperGtkSimpleControls instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                         line="39"/>
+                         line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
@@ -1424,7 +1434,7 @@ widget consists of to build your own controls implementation instead.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
              line="212">Get [class@ClapperGtk.ExtraMenuButton] that resides within @controls.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                         line="49"/>
+                         line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
@@ -1448,7 +1458,7 @@ widget consists of to build your own controls implementation instead.</doc>
              line="163">Get whether [class@ClapperGtk.ToggleFullscreenButton] button in the @controls
 is set to be visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                         line="43"/>
+                         line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
@@ -1471,7 +1481,7 @@ is set to be visible.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
              line="196">Get [enum@Clapper.PlayerSeekMethod] used when seeking with progress bar.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                         line="47"/>
+                         line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
@@ -1499,7 +1509,7 @@ should be visible.
 You might want to consider setting this to %FALSE, if your application
 does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                         line="41"/>
+                         line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1525,7 +1535,7 @@ does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.c"
              line="180">Set [enum@Clapper.PlayerSeekMethod] to use when seeking with progress bar.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                         line="45"/>
+                         line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1580,7 +1590,7 @@ does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
             c:type="ClapperGtkSimpleControlsClass"
             glib:is-gtype-struct-for="SimpleControls">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-simple-controls.h"
-                       line="37"/>
+                       line="40"/>
       <field name="parent_class">
         <type name="ContainerClass" c:type="ClapperGtkContainerClass"/>
       </field>
@@ -1589,7 +1599,7 @@ does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
                     c:identifier="CLAPPER_GTK_TITLE_HEADER_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                       line="34"/>
+                       line="36"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1599,7 +1609,7 @@ does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
                     c:identifier="CLAPPER_GTK_TITLE_LABEL_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                       line="34"/>
+                       line="36"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1609,7 +1619,7 @@ does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
                     c:identifier="CLAPPER_GTK_TOGGLE_FULLSCREEN_BUTTON_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.h"
-                       line="33"/>
+                       line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1619,7 +1629,7 @@ does not implement [signal@ClapperGtk.Video::toggle-fullscreen] signal.</doc>
                     c:identifier="CLAPPER_GTK_TOGGLE_PLAY_BUTTON_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.h"
-                       line="33"/>
+                       line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1643,7 +1653,7 @@ overlay (either fading or not).
 If you need a further customized header, you can use [class@ClapperGtk.TitleLabel]
 which is used by this widget to build your own implementation instead.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                       line="36"/>
+                       line="39"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -1652,7 +1662,7 @@ which is used by this widget to build your own implementation instead.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-title-header.c"
              line="73">Creates a new #ClapperGtkTitleHeader instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                         line="38"/>
+                         line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-header.c"
@@ -1667,7 +1677,7 @@ which is used by this widget to build your own implementation instead.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-title-header.c"
              line="86">Get currently displayed title by @header.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                         line="40"/>
+                         line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-header.c"
@@ -1691,7 +1701,7 @@ which is used by this widget to build your own implementation instead.</doc>
              line="118">Get whether a [property@Clapper.MediaItem:uri] property is going
 be displayed as a header text when no other title could be determined.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                         line="44"/>
+                         line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-header.c"
@@ -1715,7 +1725,7 @@ be displayed as a header text when no other title could be determined.</doc>
              line="102">Set whether a [property@Clapper.MediaItem:uri] property should
 be displayed as a header text when no other title could be determined.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                         line="42"/>
+                         line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1759,7 +1769,7 @@ be displayed as a header text when no other title could be determined.</doc>
             c:type="ClapperGtkTitleHeaderClass"
             glib:is-gtype-struct-for="TitleHeader">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-header.h"
-                       line="36"/>
+                       line="39"/>
       <field name="parent_class">
         <type name="LeadContainerClass" c:type="ClapperGtkLeadContainerClass"/>
       </field>
@@ -1784,7 +1794,7 @@ make it show title of that particular [class@Clapper.MediaItem]
 instead. Providing an item to read title from also allows using
 this [class@Gtk.Widget] outside of [class@ClapperGtk.Video].</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                       line="36"/>
+                       line="39"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -1793,7 +1803,7 @@ this [class@Gtk.Widget] outside of [class@ClapperGtk.Video].</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
              line="173">Creates a new #ClapperGtkTitleLabel instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                         line="38"/>
+                         line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
@@ -1808,7 +1818,7 @@ this [class@Gtk.Widget] outside of [class@ClapperGtk.Video].</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
              line="243">Get currently displayed title by @label.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                         line="44"/>
+                         line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
@@ -1832,7 +1842,7 @@ this [class@Gtk.Widget] outside of [class@ClapperGtk.Video].</doc>
              line="280">Get whether a [property@Clapper.MediaItem:uri] property is going
 be displayed as a label text when no other title could be determined.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                         line="48"/>
+                         line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
@@ -1855,7 +1865,7 @@ be displayed as a label text when no other title could be determined.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
              line="227">Get currently set media item to display title of.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                         line="42"/>
+                         line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-title-label.c"
@@ -1879,7 +1889,7 @@ be displayed as a label text when no other title could be determined.</doc>
              line="259">Set whether a [property@Clapper.MediaItem:uri] property should
 be displayed as a label text when no other title could be determined.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                         line="46"/>
+                         line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1906,7 +1916,7 @@ be displayed as a label text when no other title could be determined.</doc>
              line="186">Set a media item to display title of as label. When set to %NULL,
 @label will use default behavior (showing title of current queue item).</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                         line="40"/>
+                         line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1963,7 +1973,7 @@ be displayed as a label text when no other title could be determined.</doc>
             c:type="ClapperGtkTitleLabelClass"
             glib:is-gtype-struct-for="TitleLabel">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-title-label.h"
-                       line="36"/>
+                       line="39"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
@@ -1979,7 +1989,7 @@ be displayed as a label text when no other title could be determined.</doc>
            filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.c"
            line="20">A #GtkButton for toggling fullscreen state.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.h"
-                       line="35"/>
+                       line="38"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Actionable"/>
       <implements name="Gtk.Buildable"/>
@@ -1990,7 +2000,7 @@ be displayed as a label text when no other title could be determined.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.c"
              line="66">Creates a new #ClapperGtkToggleFullscreenButton instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.h"
-                         line="37"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.c"
@@ -2003,7 +2013,7 @@ be displayed as a label text when no other title could be determined.</doc>
             c:type="ClapperGtkToggleFullscreenButtonClass"
             glib:is-gtype-struct-for="ToggleFullscreenButton">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-fullscreen-button.h"
-                       line="35"/>
+                       line="38"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
@@ -2019,7 +2029,7 @@ be displayed as a label text when no other title could be determined.</doc>
            filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.c"
            line="20">A #GtkButton for toggling play/pause of playback.</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.h"
-                       line="35"/>
+                       line="38"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Actionable"/>
       <implements name="Gtk.Buildable"/>
@@ -2030,7 +2040,7 @@ be displayed as a label text when no other title could be determined.</doc>
              filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.c"
              line="70">Creates a new #ClapperGtkTogglePlayButton instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.h"
-                         line="37"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.c"
@@ -2043,12 +2053,12 @@ be displayed as a label text when no other title could be determined.</doc>
             c:type="ClapperGtkTogglePlayButtonClass"
             glib:is-gtype-struct-for="TogglePlayButton">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-toggle-play-button.h"
-                       line="35"/>
+                       line="38"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
     </record>
-    <constant name="VERSION_S" value="0.6.1" c:type="CLAPPER_GTK_VERSION_S">
+    <constant name="VERSION_S" value="0.8.0" c:type="CLAPPER_GTK_VERSION_S">
       <doc xml:space="preserve"
            filename="src/lib/clapper-gtk/clapper-gtk-version.h"
            line="54">ClapperGtk version, encoded as a string</doc>
@@ -2060,7 +2070,7 @@ be displayed as a label text when no other title could be determined.</doc>
                     c:identifier="CLAPPER_GTK_VIDEO_CAST"
                     introspectable="0">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                       line="34"/>
+                       line="36"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -2146,25 +2156,25 @@ Position of overlaid content is determined by `valign/halign` properties.
 &lt;/object&gt;
 ```</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                       line="36"/>
+                       line="39"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
       <constructor name="new" c:identifier="clapper_gtk_video_new">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1106">Creates a new #ClapperGtkVideo instance.
+             line="1105">Creates a new #ClapperGtkVideo instance.
 
 Newly created video widget will also set some default GStreamer elements
 on its [class@Clapper.Player]. This includes Clapper own video sink and
 a "scaletempo" element as audio filter. Both can still be changed after
 construction by setting corresponding player properties.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="38"/>
+                         line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1116">a new video #GtkWidget.</doc>
+               line="1115">a new video #GtkWidget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -2172,12 +2182,12 @@ construction by setting corresponding player properties.</doc>
               c:identifier="clapper_gtk_video_add_fading_overlay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1150">Similiar as clapper_gtk_video_add_overlay() but will also automatically
+             line="1149">Similiar as clapper_gtk_video_add_overlay() but will also automatically
 add fading functionality to overlaid #GtkWidget for convenience. This will
 make widget reveal itself when interacting with @video and fade otherwise.
 Useful when placing widgets such as playback controls panels.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="42"/>
+                         line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2185,13 +2195,13 @@ Useful when placing widgets such as playback controls panels.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1152">a #ClapperGtkVideo</doc>
+                 line="1151">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1153">a #GtkWidget</doc>
+                 line="1152">a #GtkWidget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -2199,7 +2209,7 @@ Useful when placing widgets such as playback controls panels.</doc>
       <method name="add_overlay" c:identifier="clapper_gtk_video_add_overlay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1124">Add another #GtkWidget to be overlaid on top of video.
+             line="1123">Add another #GtkWidget to be overlaid on top of video.
 
 The position at which @widget is placed is determined from
 [property@Gtk.Widget:halign] and [property@Gtk.Widget:valign] properties.
@@ -2210,7 +2220,7 @@ that will reveal and fade itself automatically when interacting with @video
 (e.g. controls panel) you can use clapper_gtk_video_add_fading_overlay()
 function for convenience.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="40"/>
+                         line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2218,13 +2228,13 @@ function for convenience.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1126">a #ClapperGtkVideo</doc>
+                 line="1125">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1127">a #GtkWidget</doc>
+                 line="1126">a #GtkWidget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -2234,20 +2244,20 @@ function for convenience.</doc>
               glib:get-property="auto-inhibit">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1303">Get whether automatic session inhibit is enabled.</doc>
+             line="1302">Get whether automatic session inhibit is enabled.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="56"/>
+                         line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1309">%TRUE if enabled, %FALSE otherwise.</doc>
+               line="1308">%TRUE if enabled, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1305">a #ClapperGtkVideo</doc>
+                 line="1304">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2257,20 +2267,20 @@ function for convenience.</doc>
               glib:get-property="fade-delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1224">Get time in milliseconds after which fading overlays should fade.</doc>
+             line="1223">Get time in milliseconds after which fading overlays should fade.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="48"/>
+                         line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1230">currently set fade delay.</doc>
+               line="1229">currently set fade delay.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1226">a #ClapperGtkVideo</doc>
+                 line="1225">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2280,21 +2290,21 @@ function for convenience.</doc>
               glib:get-property="inhibited">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1319">Get whether session is currently inhibited by
+             line="1318">Get whether session is currently inhibited by
 [property@ClapperGtk.Video:auto-inhibit].</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="58"/>
+                         line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1326">%TRUE if inhibited, %FALSE otherwise.</doc>
+               line="1325">%TRUE if inhibited, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1321">a #ClapperGtkVideo</doc>
+                 line="1320">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2304,20 +2314,20 @@ function for convenience.</doc>
               glib:get-property="player">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1191">Get #ClapperPlayer used by this #ClapperGtkVideo instance.</doc>
+             line="1190">Get #ClapperPlayer used by this #ClapperGtkVideo instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="44"/>
+                         line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1197">a #ClapperPlayer used by video.</doc>
+               line="1196">a #ClapperPlayer used by video.</doc>
           <type name="Clapper.Player" c:type="ClapperPlayer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1193">a #ClapperGtkVideo</doc>
+                 line="1192">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2327,21 +2337,21 @@ function for convenience.</doc>
               glib:get-property="touch-fade-delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1262">Get time in milliseconds after which fading overlays should fade
+             line="1261">Get time in milliseconds after which fading overlays should fade
 when revealed using touch device.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="52"/>
+                         line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1269">currently set touch fade delay.</doc>
+               line="1268">currently set touch fade delay.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1264">a #ClapperGtkVideo</doc>
+                 line="1263">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2351,8 +2361,34 @@ when revealed using touch device.</doc>
               glib:set-property="auto-inhibit">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1279">Set whether video should try to automatically inhibit session
+             line="1278">Set whether video should try to automatically inhibit session
 from idling (and possibly screen going black) when video is playing.</doc>
+        <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="video" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper-gtk/clapper-gtk-video.c"
+                 line="1280">a #ClapperGtkVideo</doc>
+            <type name="Video" c:type="ClapperGtkVideo*"/>
+          </instance-parameter>
+          <parameter name="inhibit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper-gtk/clapper-gtk-video.c"
+                 line="1281">whether to enable automatic session inhibit</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fade_delay"
+              c:identifier="clapper_gtk_video_set_fade_delay"
+              glib:set-property="fade-delay">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper-gtk/clapper-gtk-video.c"
+             line="1206">Set time in milliseconds after which fading overlays should fade.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="54"/>
         <return-value transfer-ownership="none">
@@ -2362,54 +2398,30 @@ from idling (and possibly screen going black) when video is playing.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1281">a #ClapperGtkVideo</doc>
-            <type name="Video" c:type="ClapperGtkVideo*"/>
-          </instance-parameter>
-          <parameter name="inhibit" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1282">whether to enable automatic session inhibit</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_fade_delay"
-              c:identifier="clapper_gtk_video_set_fade_delay">
-        <doc xml:space="preserve"
-             filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1207">Set time in milliseconds after which fading overlays should fade.</doc>
-        <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="46"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="video" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1209">a #ClapperGtkVideo</doc>
+                 line="1208">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="delay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1210">a fade delay</doc>
+                 line="1209">a fade delay</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_touch_fade_delay"
-              c:identifier="clapper_gtk_video_set_touch_fade_delay">
+              c:identifier="clapper_gtk_video_set_touch_fade_delay"
+              glib:set-property="touch-fade-delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1240">Set time in milliseconds after which fading overlays should fade
+             line="1239">Set time in milliseconds after which fading overlays should fade
 when using touchscreen.
 
 It is often useful to set this higher then normal fade delay property,
 as in case of touch events user do not have a moving pointer that would
 extend fade timeout, so he can have more time to decide what to press next.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                         line="50"/>
+                         line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2417,13 +2429,13 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1242">a #ClapperGtkVideo</doc>
+                 line="1241">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="delay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1243">a touch fade delay</doc>
+                 line="1242">a touch fade delay</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2436,16 +2448,18 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1598">Try to automatically inhibit session when video is playing.</doc>
+             line="1597">Try to automatically inhibit session when video is playing.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="fade-delay"
+                writable="1"
                 transfer-ownership="none"
+                setter="set_fade_delay"
                 getter="get_fade_delay"
                 default-value="3000">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1579">A delay in milliseconds before trying to fade all fading overlays.</doc>
+             line="1578">A delay in milliseconds before trying to fade all fading overlays.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="inhibited"
@@ -2454,29 +2468,31 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1607">Get whether session is currently inhibited by the video.</doc>
+             line="1606">Get whether session is currently inhibited by the video.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="player" transfer-ownership="none" getter="get_player">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1570">A #ClapperPlayer used by video.</doc>
+             line="1569">A #ClapperPlayer used by video.</doc>
         <type name="Clapper.Player"/>
       </property>
       <property name="touch-fade-delay"
+                writable="1"
                 transfer-ownership="none"
+                setter="set_touch_fade_delay"
                 getter="get_touch_fade_delay"
                 default-value="5000">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1588">A delay in milliseconds before trying to fade all fading overlays
+             line="1587">A delay in milliseconds before trying to fade all fading overlays
 after revealed using touchscreen.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <glib:signal name="seek-request" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1630">A helper signal for implementing common seeking by double tap
+             line="1629">A helper signal for implementing common seeking by double tap
 on screen side for touchscreen devices.
 
 Note that @forward already takes into account RTL direction,
@@ -2488,7 +2504,7 @@ so implementation does not have to check.</doc>
           <parameter name="forward" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1633">%TRUE if seek should be forward, %FALSE if backward</doc>
+                 line="1632">%TRUE if seek should be forward, %FALSE if backward</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2499,7 +2515,7 @@ so implementation does not have to check.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1616">A signal that user requested a change in fullscreen state of the video.
+             line="1615">A signal that user requested a change in fullscreen state of the video.
 
 Note that when going fullscreen from this signal, user will expect
 for only video to be fullscreened and not the whole app window.
@@ -2572,7 +2588,7 @@ It is up to implementation to decide how to handle that.</doc>
             c:type="ClapperGtkVideoClass"
             glib:is-gtype-struct-for="Video">
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
-                       line="36"/>
+                       line="39"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
@@ -2594,7 +2610,7 @@ underlying parent [class@Clapper.Player] object. If you want to get the player f
 Rememeber that this function will return %NULL when widget does not have
 a [class@ClapperGtk.Video] ancestor in widget hierarchy (widget is not yet placed).</doc>
       <source-position filename="src/lib/clapper-gtk/clapper-gtk-utils.h"
-                       line="32"/>
+                       line="35"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-utils.c"

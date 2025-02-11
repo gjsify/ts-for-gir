@@ -18,7 +18,7 @@ sudo apt-get update && sudo apt-get install \
     libadwaita-1-dev
 
 # Fedora
-sudo dnf update && sudo dnf install \
+sudo dnf install \
     libappindicator-gtk3-devel \
     libgda-devel \
     gobject-introspection-devel \

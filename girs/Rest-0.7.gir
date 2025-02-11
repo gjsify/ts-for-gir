@@ -2176,9 +2176,6 @@ using rest_proxy_bind() before invoking the proxy.</doc>
         </parameters>
       </constructor>
       <virtual-method name="authenticate">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="67">class handler for the #RestProxy::authenticate signal</doc>
         <source-position filename="rest-proxy.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2198,9 +2195,6 @@ using rest_proxy_bind() before invoking the proxy.</doc>
       <virtual-method name="bind_valist"
                       invoker="bind_valist"
                       introspectable="0">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="64">Virtual function called to bind parameters.</doc>
         <source-position filename="rest-proxy.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2238,9 +2232,6 @@ is one-shot and should not be re-used for making multiple calls.</doc>
       <virtual-method name="simple_run_valist"
                       invoker="simple_run_valist"
                       introspectable="0">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="66">Virtual function called when making a "simple" call.</doc>
         <source-position filename="rest-proxy.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2629,10 +2620,6 @@ do anything.</doc>
            line="51">#RestProxyCall has no publicly available members.</doc>
       <source-position filename="rest-proxy-call.h" line="85"/>
       <virtual-method name="prepare" throws="1">
-        <doc xml:space="preserve"
-             filename="rest-proxy-call.h"
-             line="63">Virtual function called before making the request, This allows the
-call to be modified, for example to add a signature.</doc>
         <source-position filename="rest-proxy-call.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3167,9 +3154,7 @@ should not be freed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="invoke_async"
-              c:identifier="rest_proxy_call_invoke_async"
-              glib:finish-func="invoke_finish">
+      <method name="invoke_async" c:identifier="rest_proxy_call_invoke_async">
         <doc xml:space="preserve"
              filename="rest-proxy-call.c"
              line="1039">A GIO-style version of rest_proxy_call_async().</doc>
@@ -3596,10 +3581,6 @@ behaviour.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="prepare">
-        <doc xml:space="preserve"
-             filename="rest-proxy-call.h"
-             line="63">Virtual function called before making the request, This allows the
-call to be modified, for example to add a signature.</doc>
         <callback name="prepare" throws="1">
           <source-position filename="rest-proxy-call.h" line="75"/>
           <return-value transfer-ownership="none">
@@ -3613,10 +3594,6 @@ call to be modified, for example to add a signature.</doc>
         </callback>
       </field>
       <field name="serialize_params">
-        <doc xml:space="preserve"
-             filename="rest-proxy-call.h"
-             line="65">Virtual function allowing custom serialization of the
-parameters, for example when the API doesn't expect standard form content.</doc>
         <callback name="serialize_params" throws="1">
           <source-position filename="rest-proxy-call.h" line="76"/>
           <return-value transfer-ownership="none">
@@ -3772,9 +3749,6 @@ Typically subclasses will override @new_call to construct a subclass of
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="bind_valist" introspectable="0">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="64">Virtual function called to bind parameters.</doc>
         <callback name="bind_valist" introspectable="0">
           <source-position filename="rest-proxy.h" line="79"/>
           <return-value transfer-ownership="none">
@@ -3791,9 +3765,6 @@ Typically subclasses will override @new_call to construct a subclass of
         </callback>
       </field>
       <field name="new_call">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="65">Virtual function called to construct a new #RestProxyCall.</doc>
         <callback name="new_call">
           <source-position filename="rest-proxy.h" line="80"/>
           <return-value transfer-ownership="full">
@@ -3813,9 +3784,6 @@ Typically subclasses will override @new_call to construct a subclass of
         </callback>
       </field>
       <field name="simple_run_valist" introspectable="0">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="66">Virtual function called when making a "simple" call.</doc>
         <callback name="simple_run_valist" introspectable="0">
           <source-position filename="rest-proxy.h" line="81"/>
           <return-value transfer-ownership="none">
@@ -3841,9 +3809,6 @@ Typically subclasses will override @new_call to construct a subclass of
         </callback>
       </field>
       <field name="authenticate">
-        <doc xml:space="preserve"
-             filename="rest-proxy.h"
-             line="67">class handler for the #RestProxy::authenticate signal</doc>
         <callback name="authenticate">
           <source-position filename="rest-proxy.h" line="83"/>
           <return-value transfer-ownership="none">

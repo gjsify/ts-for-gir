@@ -14,6 +14,7 @@ const stTemplate = (version: string) => ({
         const ScrollView = namespace.assertClass("ScrollView");
         const ScrollBar = namespace.assertClass("ScrollBar");
         const Widget = namespace.assertClass("Widget");
+        // TODO: Create a way to propagate this generic to child classes.
         const Viewport = namespace.assertClass("Viewport");
         const StBoxLayout = namespace.assertClass("BoxLayout");
 
@@ -21,6 +22,7 @@ const stTemplate = (version: string) => ({
 
         const Actor = Clutter.assertClass("Actor");
         const Content = Clutter.assertClass("Content");
+        // Container was removed in Clutter-14
         const Container = Number(version) < 14 ? Clutter.assertClass("Container") : null;
         const LayoutManager = Clutter.assertClass("LayoutManager");
         const ClutterBoxLayout = Clutter.assertClass("BoxLayout");
@@ -36,12 +38,6 @@ const stTemplate = (version: string) => ({
             default: Content.getType(),
             constraint: Content.getType()
         });
-
-        Widget.props
-            .filter(p => p.name === "layout_manager")
-            .forEach(prop => {
-                prop.type = new GenericType("A", LayoutManager.getType());
-            });
 
         Viewport.addGeneric({
             deriveFrom: Widget.getType(),
@@ -92,6 +88,7 @@ const stTemplate = (version: string) => ({
 
         if (get_hscroll_bar) {
             const fixed_get_h = get_hscroll_bar?.copy({ returnType: ScrollBar.getType() });
+
             const index = ScrollView.members.indexOf(get_hscroll_bar);
             ScrollView.members.splice(index, 1, fixed_get_h);
         }
@@ -111,6 +108,7 @@ const stTemplate = (version: string) => ({
         Bin.props
             .filter(p => p.name === "child")
             .forEach(prop => {
+                // TODO Automatically infer such changes.
                 prop.type = new GenericType("A", Actor.getType());
             });
     }

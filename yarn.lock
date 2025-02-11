@@ -12922,6 +12922,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/gobject-param-spec@workspace:examples/gobject-param-spec":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gobject-param-spec@workspace:examples/gobject-param-spec"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gtk-3-browser":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gtk-3-browser"
@@ -17539,7 +17550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.7.3":
+"typescript@npm:^5.6.3, typescript@npm:^5.7.3":
   version: 5.7.3
   resolution: "typescript@npm:5.7.3"
   bin:
@@ -17559,7 +17570,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
   version: 5.7.3
   resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
   bin:

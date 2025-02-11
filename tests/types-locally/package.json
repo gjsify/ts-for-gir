@@ -12,6 +12,6 @@
     "devDependencies": {
         "@ts-for-gir/cli": "workspace:^",
         "esbuild": "^0.25.0",
-        "typescript": "^5.6.3"
+        "typescript": "^5.7.3"
     }
 }

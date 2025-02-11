@@ -32,7 +32,7 @@ jobs:
     - name: Update package repository
       run: sudo apt-get update; # sudo apt-get upgrade
     - name: Install dependencies
-      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
+      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.1-dev libadwaita-1-dev gnome-shell-common libmutter-11-dev libgcr-3-dev libgnome-desktop-4-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
     - run: yarn --version
     - run: node --version
     - run: gjs --version

@@ -1,5 +1,13 @@
 import GLib from 'gi://GLib'
 import Gio from 'gi://Gio'
+import System from 'system';
+
+console.log('GJS Version:', System.version);
+
+if(System.version < 18200) {
+    console.log('GJS version 1.82.0 or higher is required for this example, skipping example');
+    System.exit(0);
+}
 
 Gio._promisify(Gio.File.prototype, 'enumerate_children_async', 'enumerate_children_finish')
 

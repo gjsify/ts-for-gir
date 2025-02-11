@@ -2642,8 +2642,7 @@ NOTE: This command is available on hardware version: 2</doc>
       <method name="process"
               c:identifier="ch_device_queue_process"
               version="0.1.29"
-              throws="1"
-              glib:async-func="process_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="lib/colorhug/ch-device-queue.c"
              line="423">Processes all commands in the command queue.
@@ -2682,9 +2681,7 @@ WARNING: this function is synchronous and will block.</doc>
       </method>
       <method name="process_async"
               c:identifier="ch_device_queue_process_async"
-              version="0.1.29"
-              glib:finish-func="process_finish"
-              glib:sync-func="process">
+              version="0.1.29">
         <doc xml:space="preserve"
              filename="lib/colorhug/ch-device-queue.c"
              line="334">Processes all commands in the command queue.</doc>

@@ -52,22 +52,22 @@
     "devDependencies": {
         "@types/ejs": "^3.1.5",
         "@types/eslint": "9.6.1",
-        "@types/lodash": "^4.17.13",
-        "@types/node": "^22.9.0",
-        "@typescript-eslint/eslint-plugin": "^8.13.0",
-        "@typescript-eslint/parser": "^8.13.0",
-        "eslint": "^9.14.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "prettier": "^3.3.3",
+        "@types/lodash": "^4.17.15",
+        "@types/node": "^22.13.1",
+        "@typescript-eslint/eslint-plugin": "^8.24.0",
+        "@typescript-eslint/parser": "^8.24.0",
+        "eslint": "^9.20.0",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-plugin-prettier": "^5.2.3",
+        "prettier": "^3.5.0",
         "rimraf": "^6.0.1",
-        "typescript": "^5.6.3"
+        "typescript": "^5.7.3"
     },
     "dependencies": {
         "@gi.ts/parser": "workspace:^",
         "colorette": "^2.0.20",
         "ejs": "^3.1.10",
-        "glob": "^11.0.0",
+        "glob": "^11.0.1",
         "lodash": "^4.17.21"
     }
 }

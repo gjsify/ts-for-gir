@@ -26,14 +26,12 @@ export const clutterTemplate = (version: string) => ({
         Actor.props
             .filter(p => p.name === "layout_manager" || p.name === "layoutManager")
             .forEach(prop => {
-                // TODO Automatically infer such changes.
-                prop.type = new GenericType("A", Content.getType());
+                prop.type = new GenericType("A", LayoutManager.getType());
             });
 
         Actor.props
             .filter(p => p.name === "content")
             .forEach(prop => {
-                // TODO Automatically infer such changes.
                 prop.type = new GenericType("B", Content.getType());
             });
 
@@ -47,7 +45,6 @@ export const clutterTemplate = (version: string) => ({
         Clone.props
             .filter(p => p.name === "source")
             .forEach(prop => {
-                // TODO Automatically infer such changes.
                 prop.type = new GenericType("A", Content.getType());
             });
     }

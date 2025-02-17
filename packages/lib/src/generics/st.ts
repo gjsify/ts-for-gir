@@ -119,3 +119,4 @@ export const st12 = stTemplate("12");
 export const st13 = stTemplate("13");
 export const st14 = stTemplate("14");
 export const st15 = stTemplate("15");
+export const st16 = stTemplate("16");

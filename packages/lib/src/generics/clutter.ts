@@ -59,3 +59,4 @@ export const clutter12 = clutterTemplate("12");
 export const clutter13 = clutterTemplate("13");
 export const clutter14 = clutterTemplate("14");
 export const clutter15 = clutterTemplate("15");
+export const clutter16 = clutterTemplate("16");

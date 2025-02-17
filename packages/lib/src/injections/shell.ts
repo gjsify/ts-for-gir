@@ -41,5 +41,8 @@ const shellTemplate = (version: string) => ({
 /** Shell 14 was introduced with GNOME 45 */
 export const shell14 = shellTemplate("14");
 
-/** Shell 15 was introduced with GNOME 48 */
+/** Shell 15 was introduced with GNOME 47 */
 export const shell15 = shellTemplate("15");
+
+/** Shell 16 was introduced with GNOME 48 */
+export const shell16 = shellTemplate("16");

@@ -178,7 +178,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         const hasNamespace = isGObject || hasStaticFunctions || node.callbacks.length > 0
 
         return [
-            ...this.generateClassModules(node),
+            ...this.generateClassNamespaces(node),
             ...(hasNamespace ? this.generateInterfaceNamespace(node) : []),
             ...this.generateImplementationInterface(node),
             ...(hasNamespace ? this.generateInterfaceDeclaration(node) : []),
@@ -1264,7 +1264,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
-    generateClassModules(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 0) {
+    generateClassNamespaces(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 0) {
         const def: string[] = []
         const bodyDef: string[] = []
         if (!girClass) return def
@@ -1289,7 +1289,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         // START BODY
         {
-            def.push(`${indent}${exp}module ${girClass.name} {`)
+            def.push(`${indent}${exp}namespace ${girClass.name} {`)
 
             // Properties interface for construction
             def.push(...bodyDef)
@@ -1415,7 +1415,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     generateClass(girClass: IntrospectedClass | IntrospectedRecord) {
         const def: string[] = []
 
-        def.push(...this.generateClassModules(girClass))
+        def.push(...this.generateClassNamespaces(girClass))
 
         def.push(...this.addGirDocComment(girClass.doc, [], 0))
 
@@ -1758,7 +1758,7 @@ function promisifyIfEnabled(
 ): IntrospectedClassFunction[] {
     if (options.promisify) {
         // TODO: Remove this once the type is fixed
-         
+
         return promisifyFunctions(functions)
     }
 

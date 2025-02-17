@@ -1,5 +1,3 @@
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-
 export default {
     mode: 'production',
     entry: ['./main.ts'],
@@ -38,8 +36,5 @@ export default {
           return callback(null, 'module ' +request);
         }
         callback();
-    },
-    plugins: [
-        new ForkTsCheckerWebpackPlugin(),
-    ],
+    }
 };

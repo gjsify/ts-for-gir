@@ -4660,8 +4660,8 @@ called.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefile.c"
-                 line="398">a #GtkSourceMountOperationFactory to call when a
-  #GMountOperation is needed.</doc>
+                 line="398">a
+  #GtkSourceMountOperationFactory to call when a #GMountOperation is needed.</doc>
             <type name="MountOperationFactory"
                   c:type="GtkSourceMountOperationFactory"/>
           </parameter>
@@ -4873,14 +4873,14 @@ the @buffer is emptied.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcefileloader.c"
-               line="1324">the detected compression type.</doc>
+               line="1325">the detected compression type.</doc>
           <type name="CompressionType" c:type="GtkSourceCompressionType"/>
         </return-value>
         <parameters>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1322">a #GtkSourceFileLoader.</doc>
+                 line="1323">a #GtkSourceFileLoader.</doc>
             <type name="FileLoader" c:type="GtkSourceFileLoader*"/>
           </instance-parameter>
         </parameters>
@@ -4892,14 +4892,14 @@ the @buffer is emptied.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcefileloader.c"
-               line="1295">the detected file encoding.</doc>
+               line="1296">the detected file encoding.</doc>
           <type name="Encoding" c:type="const GtkSourceEncoding*"/>
         </return-value>
         <parameters>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1293">a #GtkSourceFileLoader.</doc>
+                 line="1294">a #GtkSourceFileLoader.</doc>
             <type name="FileLoader" c:type="GtkSourceFileLoader*"/>
           </instance-parameter>
         </parameters>
@@ -4973,14 +4973,14 @@ if an input stream is used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcefileloader.c"
-               line="1309">the detected newline type.</doc>
+               line="1310">the detected newline type.</doc>
           <type name="NewlineType" c:type="GtkSourceNewlineType"/>
         </return-value>
         <parameters>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1307">a #GtkSourceFileLoader.</doc>
+                 line="1308">a #GtkSourceFileLoader.</doc>
             <type name="FileLoader" c:type="GtkSourceFileLoader*"/>
           </instance-parameter>
         </parameters>
@@ -5031,8 +5031,9 @@ function.</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1069">function to call back with
-  progress information, or %NULL if progress information is not needed.</doc>
+                 line="1069">
+  function to call back with progress information, or %NULL if progress
+  information is not needed.</doc>
             <type name="Gio.FileProgressCallback"
                   c:type="GFileProgressCallback"/>
           </parameter>
@@ -5042,7 +5043,7 @@ function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1071">user data to pass to @progress_callback.</doc>
+                 line="1072">user data to pass to @progress_callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="progress_callback_notify"
@@ -5052,7 +5053,7 @@ function.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1072">function to call on
+                 line="1073">function to call on
   @progress_callback_data when the @progress_callback is no longer needed, or
   %NULL.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
@@ -5065,7 +5066,7 @@ function.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1075">a #GAsyncReadyCallback to call when the request is
+                 line="1076">a #GAsyncReadyCallback to call when the request is
   satisfied.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -5075,7 +5076,7 @@ function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1077">user data to pass to @callback.</doc>
+                 line="1078">user data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5085,7 +5086,7 @@ function.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcefileloader.c"
-             line="1178">Finishes a file loading started with [method@FileLoader.load_async].
+             line="1179">Finishes a file loading started with [method@FileLoader.load_async].
 
 If the contents has been loaded, the following [class@File] properties will
 be updated: the location, the encoding, the newline type and the compression
@@ -5095,20 +5096,20 @@ type.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcefileloader.c"
-               line="1190">whether the contents has been loaded successfully.</doc>
+               line="1191">whether the contents has been loaded successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1180">a #GtkSourceFileLoader.</doc>
+                 line="1181">a #GtkSourceFileLoader.</doc>
             <type name="FileLoader" c:type="GtkSourceFileLoader*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefileloader.c"
-                 line="1181">a #GAsyncResult.</doc>
+                 line="1182">a #GAsyncResult.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5525,8 +5526,9 @@ See the [iface@Gio.AsyncResult] documentation to know how to use this function.<
                      destroy="4">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1341">function to call back with
-  progress information, or %NULL if progress information is not needed.</doc>
+                 line="1341">
+  function to call back with progress information, or %NULL if progress
+  information is not needed.</doc>
             <type name="Gio.FileProgressCallback"
                   c:type="GFileProgressCallback"/>
           </parameter>
@@ -5536,7 +5538,7 @@ See the [iface@Gio.AsyncResult] documentation to know how to use this function.<
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1343">user data to pass to @progress_callback.</doc>
+                 line="1344">user data to pass to @progress_callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="progress_callback_notify"
@@ -5546,7 +5548,7 @@ See the [iface@Gio.AsyncResult] documentation to know how to use this function.<
                      scope="async">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1344">function to call on
+                 line="1345">function to call on
   @progress_callback_data when the @progress_callback is no longer needed, or
   %NULL.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
@@ -5559,7 +5561,7 @@ See the [iface@Gio.AsyncResult] documentation to know how to use this function.<
                      closure="6">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1347">a #GAsyncReadyCallback to call when the request is
+                 line="1348">a #GAsyncReadyCallback to call when the request is
   satisfied.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -5569,7 +5571,7 @@ See the [iface@Gio.AsyncResult] documentation to know how to use this function.<
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1349">user data to pass to @callback.</doc>
+                 line="1350">user data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5579,7 +5581,7 @@ See the [iface@Gio.AsyncResult] documentation to know how to use this function.<
               throws="1">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcefilesaver.c"
-             line="1423">Finishes a file saving started with [method@FileSaver.save_async].
+             line="1424">Finishes a file saving started with [method@FileSaver.save_async].
 
 If the file has been saved successfully, the following [class@File]
 properties will be updated: the location, the encoding, the newline type and
@@ -5592,20 +5594,20 @@ if the file has been saved successfully.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcefilesaver.c"
-               line="1438">whether the file was saved successfully.</doc>
+               line="1439">whether the file was saved successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="saver" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1425">a #GtkSourceFileSaver.</doc>
+                 line="1426">a #GtkSourceFileSaver.</doc>
             <type name="FileSaver" c:type="GtkSourceFileSaver*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcefilesaver.c"
-                 line="1426">a #GAsyncResult.</doc>
+                 line="1427">a #GAsyncResult.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -8770,16 +8772,16 @@ This can be changed by implementing `GtkSourceIndenter` and setting the
 [property@View:indenter] property.
 
 Implementors of this interface should implement both
-[vfunc@Indenter.is_trigger] and [vfunc@Indenter.indent].
+[vfunc@GtkSource.Indenter.is_trigger] and [vfunc@GtkSource.Indenter.indent].
 
-[vfunc@Indenter.is_trigger] is called upon key-press to
+[vfunc@GtkSource.Indenter.is_trigger] is called upon key-press to
 determine of the key press should trigger an indentation.  The default
 implementation of the interface checks to see if the key was
 [const@Gdk.KEY_Return] or [const@Gdk.KEY_KP_Enter] without %GDK_SHIFT_MASK set.
 
-[vfunc@Indenter.indent] is called after text has been
+[vfunc@GtkSource.Indenter.indent] is called after text has been
 inserted into [class@Buffer] when
-[vfunc@Indenter.is_trigger] returned %TRUE. The [struct@Gtk.TextIter]
+[vfunc@GtkSource.Indenter.is_trigger] returned %TRUE. The [struct@Gtk.TextIter]
 is placed directly after the inserted character or characters.
 
 It may be beneficial to move the insertion mark using
@@ -8801,7 +8803,7 @@ within the view.
 is after having just inserted a newline (\n) character but can be other
 situations such as a manually requested indentation or reformatting.
 
-See [iface@Indenter.is_trigger] for how to trigger indentation on
+See [vfunc@GtkSource.Indenter.is_trigger] for how to trigger indentation on
 various characters inserted into the buffer.
 
 The implementor of this function is expected to keep @iter valid across
@@ -8904,7 +8906,7 @@ within the view.
 is after having just inserted a newline (\n) character but can be other
 situations such as a manually requested indentation or reformatting.
 
-See [iface@Indenter.is_trigger] for how to trigger indentation on
+See [vfunc@GtkSource.Indenter.is_trigger] for how to trigger indentation on
 various characters inserted into the buffer.
 
 The implementor of this function is expected to keep @iter valid across
@@ -9776,7 +9778,7 @@ against at application run time.</doc>
       <source-position filename="gtksourceview/gtksourceversion.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="GTK_SOURCE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="GTK_SOURCE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceversion.h"
            line="45">Like gtk_source_get_micro_version(), but from the headers used at
@@ -19327,7 +19329,7 @@ This may be executed in relation to the user running the `:write` or `:w` comman
 at runtime instead of compile time. This is useful for compiling
 against older versions of GtkSourceView, but using features from newer
 versions.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="272"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="288"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -19486,7 +19488,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MAJOR_VERSION
 macro, which represents the major version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="266"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="282"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -19505,7 +19507,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MICRO_VERSION
 macro, which represents the micro version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="270"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="286"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -19524,7 +19526,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MINOR_VERSION
 macro, which represents the minor version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="268"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="284"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -19546,6 +19548,7 @@ beginning of main(), before any other GtkSourceView function call.</doc>
     </function>
     <function name="scheduler_add"
               c:identifier="gtk_source_scheduler_add"
+              shadowed-by="scheduler_add_full"
               version="5.2">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourcescheduler.c"
@@ -19558,7 +19561,7 @@ beginning of main(), before any other GtkSourceView function call.</doc>
       <parameters>
         <parameter name="callback"
                    transfer-ownership="none"
-                   scope="async"
+                   scope="notified"
                    closure="1">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcescheduler.c"
@@ -19578,6 +19581,7 @@ beginning of main(), before any other GtkSourceView function call.</doc>
     </function>
     <function name="scheduler_add_full"
               c:identifier="gtk_source_scheduler_add_full"
+              shadows="scheduler_add"
               version="5.2">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourcescheduler.c"

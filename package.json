@@ -22,7 +22,7 @@
     "test:girs:packages": "yarn build:types:packages && yarn validate:types:packages",
     "test:girs:packages:gtk4": "yarn build:types:packages:gtk4 && yarn validate:types:packages",
     "test:examples": "yarn build:examples && yarn validate:examples && yarn test:examples:cli-apps",
-    "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start",
+    "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start && yarn workspace @ts-for-gir-example/gobject-param-spec run start && yarn workspace @ts-for-gir-example/gio-2-async run start && yarn workspace @ts-for-gir-example/gio-2-action-entries run start && yarn workspace @ts-for-gir-example/gio-2-iterate run start",
     "test:tests": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' run test",
     "build": "yarn workspaces foreach --recursive --topological-dev --parallel --verbose --from @ts-for-gir/cli run build",
     "build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
@@ -72,17 +72,17 @@
     "type definitions"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.14.0",
+    "@eslint/js": "^9.20.0",
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^8.13.0",
-    "@typescript-eslint/parser": "^8.13.0",
-    "concurrently": "^9.1.0",
-    "eslint": "^9.14.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.3.3",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.20.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.5.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.3"
   },
   "workspaces": [
     "examples/*",
@@ -90,5 +90,5 @@
     "packages/*",
     "types/*"
   ],
-  "packageManager": "yarn@4.5.1"
+  "packageManager": "yarn@4.6.0"
 }

@@ -1,0 +1,26 @@
+{
+    "name": "@ts-for-gir-example/st-15-layout-manager",
+    "version": "4.0.0-beta.19",
+    "description": "Example demonstrating St.Widget with Layout Manager Generics",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build:app": "tsc",
+        "build": "yarn build:app",
+        "start:app": "gjs -m dist/main.js",
+        "start": "yarn build && yarn start:app",
+        "validate": "yarn validate:types",
+        "validate:types": "tsc --noEmit",
+        "clear": "rm -rf dist"
+    },
+    "devDependencies": {
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "@girs/clutter-15": "workspace:^",
+        "@girs/gjs": "workspace:^",
+        "@girs/glib-2.0": "workspace:^",
+        "@girs/gobject-2.0": "workspace:^",
+        "@girs/st-15": "workspace:^"
+    }
+}

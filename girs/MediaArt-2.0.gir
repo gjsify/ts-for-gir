@@ -144,8 +144,7 @@ This function initializes cache hash tables and backend plugins,</doc>
       <method name="buffer"
               c:identifier="media_art_process_buffer"
               version="0.5.0"
-              throws="1"
-              glib:async-func="buffer_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1459">Processes a memory buffer represented by @buffer and @len. If you
@@ -247,9 +246,7 @@ ignore</doc>
       </method>
       <method name="buffer_async"
               c:identifier="media_art_process_buffer_async"
-              version="0.7.0"
-              glib:finish-func="buffer_finish"
-              glib:sync-func="buffer">
+              version="0.7.0">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1604">Processes media art. Precisely the same operation as
@@ -412,8 +409,7 @@ media_art_process_file_async().</doc>
       <method name="file"
               c:identifier="media_art_process_file"
               version="0.3.0"
-              throws="1"
-              glib:async-func="file_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1692">Process @file and check if media art exists and if it is up to date
@@ -507,9 +503,7 @@ ignore</doc>
       </method>
       <method name="file_async"
               c:identifier="media_art_process_file_async"
-              version="0.7.0"
-              glib:finish-func="file_finish"
-              glib:sync-func="file">
+              version="0.7.0">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1836">Processes media art. Precisely the same operation as
@@ -648,8 +642,7 @@ media_art_process_file_async().</doc>
       <method name="uri"
               c:identifier="media_art_process_uri"
               version="0.5.0"
-              throws="1"
-              glib:async-func="uri_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1917">This function calls media_art_process_file(), but takes the @uri as
@@ -719,9 +712,7 @@ ignore</doc>
       </method>
       <method name="uri_async"
               c:identifier="media_art_process_uri_async"
-              version="0.7.0"
-              glib:finish-func="uri_finish"
-              glib:sync-func="uri">
+              version="0.7.0">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1971">Processes media art. Precisely the same operation as

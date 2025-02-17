@@ -7,12 +7,11 @@ and/or use gtk-doc annotations.  -->
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
-  <include name="GtkSource" version="300"/>
-  <include name="Tepl" version="6"/>
-  <package name="gedit-46"/>
+  <include name="GtkSource" version="4"/>
+  <package name="gedit-3.38"/>
   <namespace name="Gedit"
              version="3.0"
-             shared-library="libgedit-46.so"
+             shared-library="libgedit-3.38.so"
              c:identifier-prefixes="Gedit"
              c:symbol-prefixes="gedit">
     <class name="App"
@@ -36,7 +35,7 @@ and/or use gtk-doc annotations.  -->
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="get_help_uri">
+      <virtual-method name="help_link_id">
         <source-position filename="gedit/gedit-app.h" line="42"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
@@ -45,11 +44,10 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="app" transfer-ownership="none">
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
-          <parameter name="name_of_user_manual" transfer-ownership="none">
+          <parameter name="name" transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter name="link_id_within_user_manual"
-                     transfer-ownership="none">
+          <parameter name="link_id" transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -90,68 +88,21 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="show_help" invoker="show_help">
-        <doc xml:space="preserve"
-             filename="gedit/gedit-app.c"
-             line="1445">To show the user manual.
-
-As a useful information to know, the gedit user documentation is currently
-written in Mallard. As such, this functionality can easily be tested with
-Yelp on Linux:
-
-With @name_of_user_manual and @link_id_within_user_manual both %NULL, it is
-equivalent to:
-
-`$ yelp 'help:gedit'`
-
-With @link_id_within_user_manual set to `"gedit-replace"` (a Mallard page
-id):
-
-`$ yelp 'help:gedit/gedit-replace'`
-
-It is also possible to refer to a section id within a page id, for example:
-
-`$ yelp 'help:gedit/gedit-spellcheck#dict'`</doc>
         <source-position filename="gedit/gedit-app.h" line="37"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gedit/gedit-app.c"
-               line="1474">whether the operation was successful.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1447">a #GeditApp.</doc>
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
-          <parameter name="parent_window"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1448">the #GtkWindow where the request originates from.</doc>
+          <parameter name="parent" transfer-ownership="none">
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
-          <parameter name="name_of_user_manual"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1449">%NULL for gedit's user manual, otherwise
-  the name of another user manual (e.g., one from another application).</doc>
+          <parameter name="name" transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter name="link_id_within_user_manual"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1451">a link ID within the user manual, or
-  %NULL to show the start page.</doc>
+          <parameter name="link_id" transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -159,19 +110,19 @@ It is also possible to refer to a section id within a page id, for example:
       <method name="create_window" c:identifier="gedit_app_create_window">
         <doc xml:space="preserve"
              filename="gedit/gedit-app.c"
-             line="1295">Create a new #GeditWindow part of @app.</doc>
+             line="1267">Create a new #GeditWindow part of @app.</doc>
         <source-position filename="gedit/gedit-app.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-app.c"
-               line="1302">the new #GeditWindow</doc>
+               line="1274">the new #GeditWindow</doc>
           <type name="Window" c:type="GeditWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-app.c"
-                 line="1297">the #GeditApp</doc>
+                 line="1269">the #GeditApp</doc>
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
           <parameter name="screen"
@@ -185,12 +136,12 @@ It is also possible to refer to a section id within a page id, for example:
       <method name="get_documents" c:identifier="gedit_app_get_documents">
         <doc xml:space="preserve"
              filename="gedit/gedit-app.c"
-             line="1385">Returns all the documents currently open in #GeditApp.</doc>
+             line="1357">Returns all the documents currently open in #GeditApp.</doc>
         <source-position filename="gedit/gedit-app.h" line="62"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gedit/gedit-app.c"
-               line="1391">
+               line="1363">
 a newly allocated list of #GeditDocument objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -200,7 +151,7 @@ a newly allocated list of #GeditDocument objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-app.c"
-                 line="1387">the #GeditApp</doc>
+                 line="1359">the #GeditApp</doc>
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
         </parameters>
@@ -209,14 +160,14 @@ a newly allocated list of #GeditDocument objects</doc>
               c:identifier="gedit_app_get_main_windows">
         <doc xml:space="preserve"
              filename="gedit/gedit-app.c"
-             line="1354">Returns all #GeditWindows currently open in #GeditApp.
+             line="1326">Returns all #GeditWindows currently open in #GeditApp.
 This differs from gtk_application_get_windows() since it does not
 include the preferences dialog and other auxiliary windows.</doc>
         <source-position filename="gedit/gedit-app.h" line="60"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gedit/gedit-app.c"
-               line="1362">
+               line="1334">
 a newly allocated list of #GeditWindow objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
@@ -226,7 +177,7 @@ a newly allocated list of #GeditWindow objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-app.c"
-                 line="1356">the #GeditApp</doc>
+                 line="1328">the #GeditApp</doc>
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
         </parameters>
@@ -234,12 +185,12 @@ a newly allocated list of #GeditWindow objects</doc>
       <method name="get_views" c:identifier="gedit_app_get_views">
         <doc xml:space="preserve"
              filename="gedit/gedit-app.c"
-             line="1415">Returns all the views currently present in #GeditApp.</doc>
+             line="1387">Returns all the views currently present in #GeditApp.</doc>
         <source-position filename="gedit/gedit-app.h" line="64"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gedit/gedit-app.c"
-               line="1421">
+               line="1393">
 a newly allocated list of #GeditView objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -249,7 +200,7 @@ a newly allocated list of #GeditView objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-app.c"
-                 line="1417">the #GeditApp</doc>
+                 line="1389">the #GeditApp</doc>
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
         </parameters>
@@ -291,68 +242,21 @@ a newly allocated list of #GeditView objects</doc>
         </parameters>
       </method>
       <method name="show_help" c:identifier="gedit_app_show_help">
-        <doc xml:space="preserve"
-             filename="gedit/gedit-app.c"
-             line="1445">To show the user manual.
-
-As a useful information to know, the gedit user documentation is currently
-written in Mallard. As such, this functionality can easily be tested with
-Yelp on Linux:
-
-With @name_of_user_manual and @link_id_within_user_manual both %NULL, it is
-equivalent to:
-
-`$ yelp 'help:gedit'`
-
-With @link_id_within_user_manual set to `"gedit-replace"` (a Mallard page
-id):
-
-`$ yelp 'help:gedit/gedit-replace'`
-
-It is also possible to refer to a section id within a page id, for example:
-
-`$ yelp 'help:gedit/gedit-spellcheck#dict'`</doc>
         <source-position filename="gedit/gedit-app.h" line="66"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gedit/gedit-app.c"
-               line="1474">whether the operation was successful.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1447">a #GeditApp.</doc>
             <type name="App" c:type="GeditApp*"/>
           </instance-parameter>
-          <parameter name="parent_window"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1448">the #GtkWindow where the request originates from.</doc>
+          <parameter name="parent" transfer-ownership="none">
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
-          <parameter name="name_of_user_manual"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1449">%NULL for gedit's user manual, otherwise
-  the name of another user manual (e.g., one from another application).</doc>
+          <parameter name="name" transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter name="link_id_within_user_manual"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1451">a link ID within the user manual, or
-  %NULL to show the start page.</doc>
+          <parameter name="link_id" transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -529,52 +433,26 @@ or %NULL if not found.</doc>
         <callback name="show_help">
           <source-position filename="gedit/gedit-app.h" line="37"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-app.c"
-                 line="1474">whether the operation was successful.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="app" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="gedit/gedit-app.c"
-                   line="1447">a #GeditApp.</doc>
               <type name="App" c:type="GeditApp*"/>
             </parameter>
-            <parameter name="parent_window"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <doc xml:space="preserve"
-                   filename="gedit/gedit-app.c"
-                   line="1448">the #GtkWindow where the request originates from.</doc>
+            <parameter name="parent" transfer-ownership="none">
               <type name="Gtk.Window" c:type="GtkWindow*"/>
             </parameter>
-            <parameter name="name_of_user_manual"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <doc xml:space="preserve"
-                   filename="gedit/gedit-app.c"
-                   line="1449">%NULL for gedit's user manual, otherwise
-  the name of another user manual (e.g., one from another application).</doc>
+            <parameter name="name" transfer-ownership="none">
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
-            <parameter name="link_id_within_user_manual"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <doc xml:space="preserve"
-                   filename="gedit/gedit-app.c"
-                   line="1451">a link ID within the user manual, or
-  %NULL to show the start page.</doc>
+            <parameter name="link_id" transfer-ownership="none">
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
-      <field name="get_help_uri">
-        <callback name="get_help_uri">
+      <field name="help_link_id">
+        <callback name="help_link_id">
           <source-position filename="gedit/gedit-app.h" line="42"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="gchar*"/>
@@ -583,11 +461,10 @@ or %NULL if not found.</doc>
             <parameter name="app" transfer-ownership="none">
               <type name="App" c:type="GeditApp*"/>
             </parameter>
-            <parameter name="name_of_user_manual" transfer-ownership="none">
+            <parameter name="name" transfer-ownership="none">
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
-            <parameter name="link_id_within_user_manual"
-                       transfer-ownership="none">
+            <parameter name="link_id" transfer-ownership="none">
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -728,7 +605,7 @@ enables output for all sections.</doc>
     <class name="Document"
            c:symbol-prefix="document"
            c:type="GeditDocument"
-           parent="Tepl.Buffer"
+           parent="GtkSource.Buffer"
            glib:type-name="GeditDocument"
            glib:get-type="gedit_document_get_type"
            glib:type-struct="DocumentClass">
@@ -786,7 +663,7 @@ enables output for all sections.</doc>
       <method name="get_content_type"
               c:identifier="gedit_document_get_content_type"
               glib:get-property="content-type">
-        <source-position filename="gedit/gedit-document.h" line="54"/>
+        <source-position filename="gedit/gedit-document.h" line="56"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -801,7 +678,7 @@ enables output for all sections.</doc>
               version="3.14">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="1223">Gets the associated #GtkSourceFile. You should use it only for reading
+             line="1351">Gets the associated #GtkSourceFile. You should use it only for reading
 purposes, not for creating a #GtkSourceFileLoader or #GtkSourceFileSaver,
 because gedit does some extra work when loading or saving a file and
 maintains an internal state. If you use in a plugin a file loader or saver on
@@ -813,14 +690,25 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-document.c"
-               line="1236">the associated #GtkSourceFile.</doc>
+               line="1364">the associated #GtkSourceFile.</doc>
           <type name="GtkSource.File" c:type="GtkSourceFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1225">a #GeditDocument.</doc>
+                 line="1353">a #GeditDocument.</doc>
+            <type name="Document" c:type="GeditDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language" c:identifier="gedit_document_get_language">
+        <source-position filename="gedit/gedit-document.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="GtkSource.Language" c:type="GtkSourceLanguage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
             <type name="Document" c:type="GeditDocument*"/>
           </instance-parameter>
         </parameters>
@@ -828,25 +716,25 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
       <method name="get_metadata" c:identifier="gedit_document_get_metadata">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="1005">Gets the metadata assigned to @key.</doc>
-        <source-position filename="gedit/gedit-document.h" line="61"/>
+             line="1133">Gets the metadata assigned to @key.</doc>
+        <source-position filename="gedit/gedit-document.h" line="67"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gedit/gedit-document.c"
-               line="1012">the value assigned to @key. Free with g_free().</doc>
+               line="1140">the value assigned to @key. Free with g_free().</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1007">a #GeditDocument</doc>
+                 line="1135">a #GeditDocument</doc>
             <type name="Document" c:type="GeditDocument*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1008">name of the key</doc>
+                 line="1136">name of the key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -856,8 +744,8 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
               glib:get-property="mime-type">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="749">Note: this never returns %NULL.</doc>
-        <source-position filename="gedit/gedit-document.h" line="56"/>
+             line="864">Note: this never returns %NULL.</doc>
+        <source-position filename="gedit/gedit-document.h" line="58"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -865,7 +753,7 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="751">a #GeditDocument.</doc>
+                 line="866">a #GeditDocument.</doc>
             <type name="Document" c:type="GeditDocument*"/>
           </instance-parameter>
         </parameters>
@@ -874,16 +762,16 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
               c:identifier="gedit_document_get_search_context">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="1186">Gets the search context. Use this function only if you have used
+             line="1314">Gets the search context. Use this function only if you have used
 gedit_document_set_search_context() before. You should not alter other search
 contexts, so you have to verify that the returned search context is yours.
 One way to verify that is to compare the search settings object, or to mark
 the search context with g_object_set_data().</doc>
-        <source-position filename="gedit/gedit-document.h" line="72"/>
+        <source-position filename="gedit/gedit-document.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-document.c"
-               line="1196">the current search context of the document, or NULL
+               line="1324">the current search context of the document, or NULL
 if there is no current search context.</doc>
           <type name="GtkSource.SearchContext"
                 c:type="GtkSourceSearchContext*"/>
@@ -892,13 +780,42 @@ if there is no current search context.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1188">a #GeditDocument</doc>
+                 line="1316">a #GeditDocument</doc>
+            <type name="Document" c:type="GeditDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_name_for_display"
+              c:identifier="gedit_document_get_short_name_for_display">
+        <doc xml:space="preserve"
+             filename="gedit/gedit-document.c"
+             line="835">Note: this never returns %NULL.</doc>
+        <source-position filename="gedit/gedit-document.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-document.c"
+                 line="837">a #GeditDocument.</doc>
+            <type name="Document" c:type="GeditDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_untitled" c:identifier="gedit_document_is_untitled">
+        <source-position filename="gedit/gedit-document.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
             <type name="Document" c:type="GeditDocument*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="set_language" c:identifier="gedit_document_set_language">
-        <source-position filename="gedit/gedit-document.h" line="58"/>
+        <source-position filename="gedit/gedit-document.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -919,8 +836,8 @@ if there is no current search context.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="1033">Sets metadata on a document.</doc>
-        <source-position filename="gedit/gedit-document.h" line="64"/>
+             line="1161">Sets metadata on a document.</doc>
+        <source-position filename="gedit/gedit-document.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -928,13 +845,13 @@ if there is no current search context.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1035">a #GeditDocument</doc>
+                 line="1163">a #GeditDocument</doc>
             <type name="Document" c:type="GeditDocument*"/>
           </instance-parameter>
           <parameter name="first_key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1036">name of the first key to set</doc>
+                 line="1164">name of the first key to set</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..."
@@ -943,7 +860,7 @@ if there is no current search context.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1037">value for the first key, followed optionally by more key/value pairs,
+                 line="1165">value for the first key, followed optionally by more key/value pairs,
 followed by %NULL.</doc>
             <varargs/>
           </parameter>
@@ -953,7 +870,7 @@ followed by %NULL.</doc>
               c:identifier="gedit_document_set_search_context">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="1124">Sets the new search context for the document. Use this function only when the
+             line="1252">Sets the new search context for the document. Use this function only when the
 search occurrences are highlighted. So this function should not be used for
 background searches. The purpose is to have only one highlighted search
 context at a time in the document.
@@ -962,7 +879,7 @@ After using this function, you should unref the @search_context. The @doc
 should be the only owner of the @search_context, so that the Clear Highlight
 action works. If you need the @search_context after calling this function,
 use gedit_document_get_search_context().</doc>
-        <source-position filename="gedit/gedit-document.h" line="68"/>
+        <source-position filename="gedit/gedit-document.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -970,7 +887,7 @@ use gedit_document_get_search_context().</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1126">a #GeditDocument</doc>
+                 line="1254">a #GeditDocument</doc>
             <type name="Document" c:type="GeditDocument*"/>
           </instance-parameter>
           <parameter name="search_context"
@@ -979,7 +896,7 @@ use gedit_document_get_search_context().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gedit/gedit-document.c"
-                 line="1127">the new #GtkSourceSearchContext</doc>
+                 line="1255">the new #GtkSourceSearchContext</doc>
             <type name="GtkSource.SearchContext"
                   c:type="GtkSourceSearchContext*"/>
           </parameter>
@@ -988,42 +905,36 @@ use gedit_document_get_search_context().</doc>
       <property name="content-type"
                 writable="1"
                 transfer-ownership="none"
-                getter="get_content_type"
-                default-value="NULL">
+                getter="get_content_type">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="309">The document's content type.</doc>
+             line="312">The document's content type.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="empty-search"
-                transfer-ownership="none"
-                default-value="TRUE">
+      <property name="empty-search" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="333">&lt;warning&gt;
+             line="336">&lt;warning&gt;
 The property is used internally by gedit. It must not be used in a
 gedit plugin. The property can be modified or removed at any time.
-&lt;/warning&gt;
-
-Whether the search is empty.</doc>
+&lt;/warning&gt;</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="mime-type"
                 transfer-ownership="none"
-                getter="get_mime_type"
-                default-value="text/plain">
+                getter="get_mime_type">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="321">The document's MIME type.</doc>
+             line="324">The document's MIME type.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <field name="parent_instance">
-        <type name="Tepl.Buffer" c:type="TeplBuffer"/>
+      <field name="parent_instance" introspectable="0">
+        <type c:type="TeplBuffer"/>
       </field>
       <glib:signal name="load" when="last">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="352">The "load" signal is emitted at the beginning of a file loading.
+             line="353">The "load" signal is emitted at the beginning of a file loading.
 
 Before gedit 3.14 this signal contained parameters to configure the
 file loading (the location, encoding, etc). Plugins should not need
@@ -1035,7 +946,7 @@ those parameters.</doc>
       <glib:signal name="loaded" when="first">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="370">The "loaded" signal is emitted at the end of a successful file
+             line="371">The "loaded" signal is emitted at the end of a successful file
 loading.
 
 Before gedit 3.14 this signal contained a #GError parameter, and the
@@ -1048,7 +959,7 @@ the error parameter.</doc>
       <glib:signal name="save" when="last">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="389">The "save" signal is emitted at the beginning of a file saving.
+             line="390">The "save" signal is emitted at the beginning of a file saving.
 
 Before gedit 3.14 this signal contained parameters to configure the
 file saving (the location, encoding, etc). Plugins should not need
@@ -1060,7 +971,7 @@ those parameters.</doc>
       <glib:signal name="saved" when="first">
         <doc xml:space="preserve"
              filename="gedit/gedit-document.c"
-             line="407">The "saved" signal is emitted at the end of a successful file saving.
+             line="408">The "saved" signal is emitted at the end of a successful file saving.
 
 Before gedit 3.14 this signal contained a #GError parameter, and the
 signal was also emitted if an error occurred. To save a document, a
@@ -1076,8 +987,8 @@ gedit_commands_save_document_finish().</doc>
             c:type="GeditDocumentClass"
             glib:is-gtype-struct-for="Document">
       <source-position filename="gedit/gedit-document.h" line="48"/>
-      <field name="parent_class">
-        <type name="Tepl.BufferClass" c:type="TeplBufferClass"/>
+      <field name="parent_class" introspectable="0">
+        <type c:type="TeplBufferClass"/>
       </field>
       <field name="load">
         <callback name="load">
@@ -1216,8 +1127,7 @@ auto-detected (only for loading mode, not for saving).</doc>
       <property name="save-mode"
                 writable="1"
                 construct="1"
-                transfer-ownership="none"
-                default-value="FALSE">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gedit/gedit-encodings-combo-box.c"
              line="143">Whether the combo box should be used for saving a content. If
@@ -1291,7 +1201,7 @@ and the row "Automatically Detected" is added.</doc>
     <function-macro name="IS_WINDOW"
                     c:identifier="GEDIT_IS_WINDOW"
                     introspectable="0">
-      <source-position filename="gedit/gedit-window.h" line="42"/>
+      <source-position filename="gedit/gedit-window.h" line="45"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1300,7 +1210,7 @@ and the row "Automatically Detected" is added.</doc>
     <function-macro name="IS_WINDOW_CLASS"
                     c:identifier="GEDIT_IS_WINDOW_CLASS"
                     introspectable="0">
-      <source-position filename="gedit/gedit-window.h" line="43"/>
+      <source-position filename="gedit/gedit-window.h" line="46"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1624,8 +1534,7 @@ and the row "Automatically Detected" is added.</doc>
                 writable="1"
                 construct="1"
                 transfer-ownership="none"
-                getter="get_method"
-                default-value="NULL">
+                getter="get_method">
         <doc xml:space="preserve"
              filename="gedit/gedit-message.c"
              line="142">The messages method.</doc>
@@ -1635,8 +1544,7 @@ and the row "Automatically Detected" is added.</doc>
                 writable="1"
                 construct="1"
                 transfer-ownership="none"
-                getter="get_object_path"
-                default-value="NULL">
+                getter="get_object_path">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
@@ -2523,8 +2431,7 @@ unregistered from the bus.</doc>
     </callback>
     <record name="MessageBusPrivate"
             c:type="GeditMessageBusPrivate"
-            disguised="1"
-            opaque="1">
+            disguised="1">
       <source-position filename="gedit/gedit-message-bus.h" line="41"/>
     </record>
     <callback name="MessageCallback" c:type="GeditMessageCallback">
@@ -2569,10 +2476,7 @@ when a message is received (see gedit_message_bus_connect()).</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <record name="MessagePrivate"
-            c:type="GeditMessagePrivate"
-            disguised="1"
-            opaque="1">
+    <record name="MessagePrivate" c:type="GeditMessagePrivate" disguised="1">
       <source-position filename="gedit/gedit-message.h" line="40"/>
     </record>
     <class name="Statusbar"
@@ -2586,13 +2490,37 @@ when a message is received (see gedit_message_bus_connect()).</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gedit_statusbar_new">
+        <doc xml:space="preserve"
+             filename="gedit/gedit-statusbar.c"
+             line="108">Creates a new #GeditStatusbar.</doc>
+        <source-position filename="gedit/gedit-statusbar.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gedit/gedit-statusbar.c"
+               line="113">the new #GeditStatusbar object</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="clear_overwrite"
+              c:identifier="gedit_statusbar_clear_overwrite">
+        <source-position filename="gedit/gedit-statusbar.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="statusbar" transfer-ownership="none">
+            <type name="Statusbar" c:type="GeditStatusbar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="flash_message"
               c:identifier="gedit_statusbar_flash_message"
               introspectable="0">
         <doc xml:space="preserve"
              filename="gedit/gedit-statusbar.c"
-             line="206">Flash a temporary message on the statusbar.</doc>
-        <source-position filename="gedit/gedit-statusbar.h" line="40"/>
+             line="162">Flash a temporary message on the statusbar.</doc>
+        <source-position filename="gedit/gedit-statusbar.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2600,26 +2528,68 @@ when a message is received (see gedit_message_bus_connect()).</doc>
           <instance-parameter name="statusbar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-statusbar.c"
-                 line="208">a #GeditStatusbar</doc>
+                 line="164">a #GeditStatusbar</doc>
             <type name="Statusbar" c:type="GeditStatusbar*"/>
           </instance-parameter>
           <parameter name="context_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-statusbar.c"
-                 line="209">message context_id</doc>
+                 line="165">message context_id</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-statusbar.c"
-                 line="210">message to flash on the statusbar</doc>
+                 line="166">message to flash on the statusbar</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-statusbar.c"
-                 line="211">the arguments to insert in @format</doc>
+                 line="167">the arguments to insert in @format</doc>
             <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_overwrite"
+              c:identifier="gedit_statusbar_set_overwrite">
+        <doc xml:space="preserve"
+             filename="gedit/gedit-statusbar.c"
+             line="121">Sets the overwrite mode on the statusbar.</doc>
+        <source-position filename="gedit/gedit-statusbar.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="statusbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-statusbar.c"
+                 line="123">a #GeditStatusbar</doc>
+            <type name="Statusbar" c:type="GeditStatusbar*"/>
+          </instance-parameter>
+          <parameter name="overwrite" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-statusbar.c"
+                 line="124">if the overwrite mode is set</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_window_state"
+              c:identifier="gedit_statusbar_set_window_state">
+        <source-position filename="gedit/gedit-statusbar.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="statusbar" transfer-ownership="none">
+            <type name="Statusbar" c:type="GeditStatusbar*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="WindowState" c:type="GeditWindowState"/>
+          </parameter>
+          <parameter name="num_of_errors" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
@@ -2647,19 +2617,19 @@ when a message is received (see gedit_message_bus_connect()).</doc>
                 c:identifier="gedit_tab_get_from_document">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="1584">Gets the #GeditTab associated with @doc.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="69"/>
+             line="1597">Gets the #GeditTab associated with @doc.</doc>
+        <source-position filename="gedit/gedit-tab.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-tab.c"
-               line="1590">the #GeditTab associated with @doc</doc>
+               line="1603">the #GeditTab associated with @doc</doc>
           <type name="Tab" c:type="GeditTab*"/>
         </return-value>
         <parameters>
           <parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="1586">a #GeditDocument</doc>
+                 line="1599">a #GeditDocument</doc>
             <type name="Document" c:type="GeditDocument*"/>
           </parameter>
         </parameters>
@@ -2668,19 +2638,19 @@ when a message is received (see gedit_message_bus_connect()).</doc>
               c:identifier="gedit_tab_get_auto_save_enabled">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="3009">Gets the current state for the autosave feature</doc>
-        <source-position filename="gedit/gedit-tab.h" line="73"/>
+             line="2969">Gets the current state for the autosave feature</doc>
+        <source-position filename="gedit/gedit-tab.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-tab.c"
-               line="3015">%TRUE if the autosave is enabled, else %FALSE</doc>
+               line="2975">%TRUE if the autosave is enabled, else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="3011">a #GeditTab</doc>
+                 line="2971">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </instance-parameter>
         </parameters>
@@ -2689,19 +2659,19 @@ when a message is received (see gedit_message_bus_connect()).</doc>
               c:identifier="gedit_tab_get_auto_save_interval">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="3053">Gets the current interval for the autosaves</doc>
-        <source-position filename="gedit/gedit-tab.h" line="78"/>
+             line="3013">Gets the current interval for the autosaves</doc>
+        <source-position filename="gedit/gedit-tab.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-tab.c"
-               line="3059">the value of the autosave</doc>
+               line="3019">the value of the autosave</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="3055">a #GeditTab</doc>
+                 line="3015">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </instance-parameter>
         </parameters>
@@ -2709,19 +2679,19 @@ when a message is received (see gedit_message_bus_connect()).</doc>
       <method name="get_document" c:identifier="gedit_tab_get_document">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="1402">Gets the #GeditDocument associated to @tab.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="67"/>
+             line="1404">Gets the #GeditDocument associated to @tab.</doc>
+        <source-position filename="gedit/gedit-tab.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-tab.c"
-               line="1408">the #GeditDocument associated to @tab</doc>
+               line="1410">the #GeditDocument associated to @tab</doc>
           <type name="Document" c:type="GeditDocument*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="1404">a #GeditTab</doc>
+                 line="1406">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </instance-parameter>
         </parameters>
@@ -2732,7 +2702,7 @@ when a message is received (see gedit_message_bus_connect()).</doc>
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
              line="442">Gets the #GeditTabState of @tab.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="71"/>
+        <source-position filename="gedit/gedit-tab.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-tab.c"
@@ -2751,139 +2721,30 @@ when a message is received (see gedit_message_bus_connect()).</doc>
       <method name="get_view" c:identifier="gedit_tab_get_view">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="1386">Gets the #GeditView inside @tab.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="64"/>
+             line="1388">Gets the #GeditView inside @tab.</doc>
+        <source-position filename="gedit/gedit-tab.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-tab.c"
-               line="1392">the #GeditView inside @tab</doc>
+               line="1394">the #GeditView inside @tab</doc>
           <type name="View" c:type="GeditView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="1388">a #GeditTab</doc>
+                 line="1390">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </instance-parameter>
-        </parameters>
-      </method>
-      <method name="load_file" c:identifier="gedit_tab_load_file" version="45">
-        <doc xml:space="preserve"
-             filename="gedit/gedit-tab.c"
-             line="2083">This function tries to load @location into @tab. It is usually called only on
-a newly-created tab.
-
-If @location doesn't exist, the behavior depends on @create:
-- If @create is %FALSE, an error is shown.
-- If @create is %TRUE, an empty #GeditDocument is created without error (but
-  the file is not yet created on disk).
-
-The @tab needs to be in %GEDIT_TAB_STATE_NORMAL. The previous
-#GtkTextBuffer's content is lost.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="51"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="tab" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2085">a #GeditTab.</doc>
-            <type name="Tab" c:type="GeditTab*"/>
-          </instance-parameter>
-          <parameter name="location" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2086">the #GFile to load.</doc>
-            <type name="Gio.File" c:type="GFile*"/>
-          </parameter>
-          <parameter name="encoding"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2087">a #GtkSourceEncoding, or %NULL.</doc>
-            <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
-          </parameter>
-          <parameter name="line_pos" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2088">the line position to visualize.</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="column_pos" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2089">the column position to visualize.</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="create" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2090">%TRUE to show no errors if @location doesn't exist.</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="load_stream"
-              c:identifier="gedit_tab_load_stream"
-              version="45">
-        <doc xml:space="preserve"
-             filename="gedit/gedit-tab.c"
-             line="2180">Loads @stream into @tab. This function is usually called only on a
-newly-created tab.
-
-The @tab needs to be in %GEDIT_TAB_STATE_NORMAL. The previous
-#GtkTextBuffer's content is lost.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="58"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="tab" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2182">a #GeditTab.</doc>
-            <type name="Tab" c:type="GeditTab*"/>
-          </instance-parameter>
-          <parameter name="stream" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2183">the #GInputStream to load, e.g. stdin.</doc>
-            <type name="Gio.InputStream" c:type="GInputStream*"/>
-          </parameter>
-          <parameter name="encoding"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2184">a #GtkSourceEncoding, or %NULL.</doc>
-            <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
-          </parameter>
-          <parameter name="line_pos" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2185">the line position to visualize.</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="column_pos" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gedit/gedit-tab.c"
-                 line="2186">the column position to visualize.</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
         </parameters>
       </method>
       <method name="set_auto_save_enabled"
               c:identifier="gedit_tab_set_auto_save_enabled">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="3027">Enables or disables the autosave feature. It does not install an
+             line="2987">Enables or disables the autosave feature. It does not install an
 autosave timeout if the document is new or is read-only</doc>
-        <source-position filename="gedit/gedit-tab.h" line="75"/>
+        <source-position filename="gedit/gedit-tab.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2891,13 +2752,13 @@ autosave timeout if the document is new or is read-only</doc>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="3029">a #GeditTab</doc>
+                 line="2989">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="3030">enable (%TRUE) or disable (%FALSE) auto save</doc>
+                 line="2990">enable (%TRUE) or disable (%FALSE) auto save</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2906,8 +2767,8 @@ autosave timeout if the document is new or is read-only</doc>
               c:identifier="gedit_tab_set_auto_save_interval">
         <doc xml:space="preserve"
              filename="gedit/gedit-tab.c"
-             line="3071">Sets the interval for the autosave feature.</doc>
-        <source-position filename="gedit/gedit-tab.h" line="80"/>
+             line="3031">Sets the interval for the autosave feature.</doc>
+        <source-position filename="gedit/gedit-tab.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2915,19 +2776,19 @@ autosave timeout if the document is new or is read-only</doc>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="3073">a #GeditTab</doc>
+                 line="3033">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </instance-parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-tab.c"
-                 line="3074">the new interval</doc>
+                 line="3034">the new interval</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_info_bar" c:identifier="gedit_tab_set_info_bar">
-        <source-position filename="gedit/gedit-tab.h" line="83"/>
+        <source-position filename="gedit/gedit-tab.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2940,30 +2801,21 @@ autosave timeout if the document is new or is read-only</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="autosave"
-                writable="1"
-                transfer-ownership="none"
-                default-value="TRUE">
+      <property name="autosave" writable="1" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="autosave-interval"
                 writable="1"
-                transfer-ownership="none"
-                default-value="0">
+                transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
-      <property name="can-close"
-                transfer-ownership="none"
-                default-value="TRUE">
+      <property name="can-close" transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="name" transfer-ownership="none" default-value="NULL">
+      <property name="name" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="state"
-                transfer-ownership="none"
-                getter="get_state"
-                default-value="GEDIT_TAB_STATE_NORMAL">
+      <property name="state" transfer-ownership="none" getter="get_state">
         <type name="TabState"/>
       </property>
       <glib:signal name="drop-uris" when="last" action="1">
@@ -3098,7 +2950,7 @@ autosave timeout if the document is new or is read-only</doc>
     <class name="View"
            c:symbol-prefix="view"
            c:type="GeditView"
-           parent="Tepl.View"
+           parent="GtkSource.View"
            glib:type-name="GeditView"
            glib:get-type="gedit_view_get_type"
            glib:type-struct="ViewClass">
@@ -3109,20 +2961,20 @@ autosave timeout if the document is new or is read-only</doc>
       <constructor name="new" c:identifier="gedit_view_new">
         <doc xml:space="preserve"
              filename="gedit/gedit-view.c"
-             line="586">Creates a new #GeditView object displaying the @doc document.
+             line="582">Creates a new #GeditView object displaying the @doc document.
 @doc cannot be %NULL.</doc>
         <source-position filename="gedit/gedit-view.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-view.c"
-               line="593">a new #GeditView.</doc>
+               line="589">a new #GeditView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-view.c"
-                 line="588">a #GeditDocument</doc>
+                 line="584">a #GeditDocument</doc>
             <type name="Document" c:type="GeditDocument*"/>
           </parameter>
         </parameters>
@@ -3141,8 +2993,8 @@ autosave timeout if the document is new or is read-only</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <field name="view">
-        <type name="Tepl.View" c:type="TeplView"/>
+      <field name="view" introspectable="0">
+        <type c:type="TeplView"/>
       </field>
       <field name="priv" readable="0" private="1">
         <type name="ViewPrivate" c:type="GeditViewPrivate*"/>
@@ -3150,7 +3002,7 @@ autosave timeout if the document is new or is read-only</doc>
       <glib:signal name="drop-uris" when="last" action="1">
         <doc xml:space="preserve"
              filename="gedit/gedit-view.c"
-             line="524">The #GeditView::drop-uris signal allows plugins to intercept the
+             line="520">The #GeditView::drop-uris signal allows plugins to intercept the
 default drag-and-drop behaviour of 'text/uri-list'. #GeditView
 handles drag-and-drop in the default handlers of
 #GtkWidget::drag-drop, #GtkWidget::drag-motion and
@@ -3168,7 +3020,7 @@ loading the URI.</doc>
           <parameter name="uri_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-view.c"
-                 line="527">a %NULL-terminated list of URIs.</doc>
+                 line="523">a %NULL-terminated list of URIs.</doc>
             <array>
               <type name="utf8"/>
             </array>
@@ -3309,8 +3161,8 @@ loading the URI.</doc>
             c:type="GeditViewClass"
             glib:is-gtype-struct-for="View">
       <source-position filename="gedit/gedit-view.h" line="57"/>
-      <field name="parent_class">
-        <type name="Tepl.ViewClass" c:type="TeplViewClass"/>
+      <field name="parent_class" introspectable="0">
+        <type c:type="TeplViewClass"/>
       </field>
       <field name="drop_uris">
         <callback name="drop_uris">
@@ -3332,16 +3184,13 @@ loading the URI.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </field>
     </record>
-    <record name="ViewPrivate"
-            c:type="GeditViewPrivate"
-            disguised="1"
-            opaque="1">
+    <record name="ViewPrivate" c:type="GeditViewPrivate" disguised="1">
       <source-position filename="gedit/gedit-view.h" line="39"/>
     </record>
     <function-macro name="WINDOW"
                     c:identifier="GEDIT_WINDOW"
                     introspectable="0">
-      <source-position filename="gedit/gedit-window.h" line="40"/>
+      <source-position filename="gedit/gedit-window.h" line="43"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -3350,7 +3199,7 @@ loading the URI.</doc>
     <function-macro name="WINDOW_CLASS"
                     c:identifier="GEDIT_WINDOW_CLASS"
                     introspectable="0">
-      <source-position filename="gedit/gedit-window.h" line="41"/>
+      <source-position filename="gedit/gedit-window.h" line="44"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -3359,7 +3208,7 @@ loading the URI.</doc>
     <function-macro name="WINDOW_GET_CLASS"
                     c:identifier="GEDIT_WINDOW_GET_CLASS"
                     introspectable="0">
-      <source-position filename="gedit/gedit-window.h" line="44"/>
+      <source-position filename="gedit/gedit-window.h" line="47"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -3372,13 +3221,13 @@ loading the URI.</doc>
            glib:type-name="GeditWindow"
            glib:get-type="gedit_window_get_type"
            glib:type-struct="WindowClass">
-      <source-position filename="gedit/gedit-window.h" line="72"/>
+      <source-position filename="gedit/gedit-window.h" line="75"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gio.ActionGroup"/>
       <implements name="Gio.ActionMap"/>
       <implements name="Gtk.Buildable"/>
       <virtual-method name="active_tab_changed">
-        <source-position filename="gedit/gedit-window.h" line="68"/>
+        <source-position filename="gedit/gedit-window.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3392,7 +3241,7 @@ loading the URI.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="active_tab_state_changed">
-        <source-position filename="gedit/gedit-window.h" line="70"/>
+        <source-position filename="gedit/gedit-window.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3403,7 +3252,7 @@ loading the URI.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="tab_added">
-        <source-position filename="gedit/gedit-window.h" line="63"/>
+        <source-position filename="gedit/gedit-window.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3417,7 +3266,7 @@ loading the URI.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="tab_removed">
-        <source-position filename="gedit/gedit-window.h" line="65"/>
+        <source-position filename="gedit/gedit-window.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3431,7 +3280,7 @@ loading the URI.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="tabs_reordered">
-        <source-position filename="gedit/gedit-window.h" line="67"/>
+        <source-position filename="gedit/gedit-window.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3444,8 +3293,8 @@ loading the URI.</doc>
       <method name="close_all_tabs" c:identifier="gedit_window_close_all_tabs">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="2993">Closes all opened tabs.</doc>
-        <source-position filename="gedit/gedit-window.h" line="83"/>
+             line="3226">Closes all opened tabs.</doc>
+        <source-position filename="gedit/gedit-window.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3453,7 +3302,7 @@ loading the URI.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2995">a #GeditWindow</doc>
+                 line="3228">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3461,8 +3310,8 @@ loading the URI.</doc>
       <method name="close_tab" c:identifier="gedit_window_close_tab">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="2970">Closes the @tab.</doc>
-        <source-position filename="gedit/gedit-window.h" line="80"/>
+             line="3203">Closes the @tab.</doc>
+        <source-position filename="gedit/gedit-window.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3470,13 +3319,13 @@ loading the URI.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2972">a #GeditWindow</doc>
+                 line="3205">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2973">the #GeditTab to close</doc>
+                 line="3206">the #GeditTab to close</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </parameter>
         </parameters>
@@ -3484,8 +3333,8 @@ loading the URI.</doc>
       <method name="close_tabs" c:identifier="gedit_window_close_tabs">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3012">Closes all tabs specified by @tabs.</doc>
-        <source-position filename="gedit/gedit-window.h" line="85"/>
+             line="3245">Closes all tabs specified by @tabs.</doc>
+        <source-position filename="gedit/gedit-window.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3493,13 +3342,13 @@ loading the URI.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3014">a #GeditWindow</doc>
+                 line="3247">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
           <parameter name="tabs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3015">a list of #GeditTab</doc>
+                 line="3248">a list of #GeditTab</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="Tab"/>
             </type>
@@ -3509,43 +3358,161 @@ loading the URI.</doc>
       <method name="create_tab" c:identifier="gedit_window_create_tab">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="2846">Creates a new #GeditTab and adds it to the #GtkNotebook.</doc>
-        <source-position filename="gedit/gedit-window.h" line="77"/>
+             line="2997">Creates a new #GeditTab and adds the new tab to the #GtkNotebook.
+In case @jump_to is %TRUE the #GtkNotebook switches to that new #GeditTab.</doc>
+        <source-position filename="gedit/gedit-window.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="2853">the new #GeditTab.</doc>
+               line="3005">a new #GeditTab</doc>
           <type name="Tab" c:type="GeditTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2848">a #GeditWindow.</doc>
+                 line="2999">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
           <parameter name="jump_to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2849">if %TRUE, the #GtkNotebook switches to the new #GeditTab.</doc>
+                 line="3000">%TRUE to set the new #GeditTab as active</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_tab_from_location"
+              c:identifier="gedit_window_create_tab_from_location">
+        <doc xml:space="preserve"
+             filename="gedit/gedit-window.c"
+             line="3025">Creates a new #GeditTab loading the document specified by @uri.
+In case @jump_to is %TRUE the #GtkNotebook swithes to that new #GeditTab.
+Whether @create is %TRUE, creates a new empty document if location does
+not refer to an existing file</doc>
+        <source-position filename="gedit/gedit-window.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gedit/gedit-window.c"
+               line="3040">a new #GeditTab</doc>
+          <type name="Tab" c:type="GeditTab*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3027">a #GeditWindow</doc>
+            <type name="Window" c:type="GeditWindow*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3028">the location of the document</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="encoding"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3029">a #GtkSourceEncoding, or %NULL</doc>
+            <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
+          </parameter>
+          <parameter name="line_pos" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3030">the line position to visualize</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="column_pos" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3031">the column position to visualize</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="create" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3032">%TRUE to create a new document in case @uri does exist</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="jump_to" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3033">%TRUE to set the new #GeditTab as active</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_tab_from_stream"
+              c:identifier="gedit_window_create_tab_from_stream">
+        <source-position filename="gedit/gedit-window.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gedit/gedit-window.c"
+               line="3082">a new #GeditTab</doc>
+          <type name="Tab" c:type="GeditTab*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3075">a #GeditWindow</doc>
+            <type name="Window" c:type="GeditWindow*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3076">a #GInputStream</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+          <parameter name="encoding"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3077">a #GtkSourceEncoding, or %NULL</doc>
+            <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
+          </parameter>
+          <parameter name="line_pos" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3078">the line position to visualize</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="column_pos" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3079">the column position to visualize</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="jump_to" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gedit/gedit-window.c"
+                 line="3080">%TRUE to set the new #GeditTab as active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_active_document"
               c:identifier="gedit_window_get_active_document">
-        <source-position filename="gedit/gedit-window.h" line="95"/>
+        <doc xml:space="preserve"
+             filename="gedit/gedit-window.c"
+             line="2932">Gets the active #GeditDocument.</doc>
+        <source-position filename="gedit/gedit-window.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="2811">the active #GeditDocument.</doc>
+               line="2938">the active #GeditDocument</doc>
           <type name="Document" c:type="GeditDocument*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2809">a #GeditWindow.</doc>
+                 line="2934">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3553,37 +3520,40 @@ loading the URI.</doc>
       <method name="get_active_tab" c:identifier="gedit_window_get_active_tab">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="2880">Gets the active #GeditTab in the @window.</doc>
-        <source-position filename="gedit/gedit-window.h" line="88"/>
+             line="3113">Gets the active #GeditTab in the @window.</doc>
+        <source-position filename="gedit/gedit-window.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="2886">the active #GeditTab in the @window.</doc>
+               line="3119">the active #GeditTab in the @window.</doc>
           <type name="Tab" c:type="GeditTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2882">a GeditWindow</doc>
+                 line="3115">a GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_active_view"
               c:identifier="gedit_window_get_active_view">
-        <source-position filename="gedit/gedit-window.h" line="94"/>
+        <doc xml:space="preserve"
+             filename="gedit/gedit-window.c"
+             line="2906">Gets the active #GeditView.</doc>
+        <source-position filename="gedit/gedit-window.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="2788">the active #GeditView.</doc>
+               line="2912">the active #GeditView</doc>
           <type name="View" c:type="GeditView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2786">a #GeditWindow.</doc>
+                 line="2908">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3592,19 +3562,19 @@ loading the URI.</doc>
               c:identifier="gedit_window_get_bottom_panel">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3139">Gets the bottom panel of the @window.</doc>
-        <source-position filename="gedit/gedit-window.h" line="111"/>
+             line="3365">Gets the bottom panel of the @window.</doc>
+        <source-position filename="gedit/gedit-window.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3145">the bottom panel's #GtkStack.</doc>
+               line="3371">the bottom panel's #GtkStack.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3141">a #GeditWindow</doc>
+                 line="3367">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3612,13 +3582,13 @@ loading the URI.</doc>
       <method name="get_documents" c:identifier="gedit_window_get_documents">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="2908">Gets a newly allocated list with all the documents in the window.
+             line="3141">Gets a newly allocated list with all the documents in the window.
 This list must be freed.</doc>
-        <source-position filename="gedit/gedit-window.h" line="98"/>
+        <source-position filename="gedit/gedit-window.h" line="116"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="2915">a newly
+               line="3148">a newly
 allocated list with all the documents in the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -3628,7 +3598,7 @@ allocated list with all the documents in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2910">a #GeditWindow</doc>
+                 line="3143">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3636,19 +3606,19 @@ allocated list with all the documents in the window</doc>
       <method name="get_group" c:identifier="gedit_window_get_group">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3092">Gets the #GtkWindowGroup in which @window resides.</doc>
-        <source-position filename="gedit/gedit-window.h" line="107"/>
+             line="3325">Gets the #GtkWindowGroup in which @window resides.</doc>
+        <source-position filename="gedit/gedit-window.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3098">the #GtkWindowGroup</doc>
+               line="3331">the #GtkWindowGroup</doc>
           <type name="Gtk.WindowGroup" c:type="GtkWindowGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3094">a #GeditWindow</doc>
+                 line="3327">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3657,39 +3627,40 @@ allocated list with all the documents in the window</doc>
               c:identifier="gedit_window_get_message_bus">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3379">Gets the #GeditMessageBus associated with @window. The returned reference
+             line="3605">Gets the #GeditMessageBus associated with @window. The returned reference
 is owned by the window and should not be unreffed.</doc>
-        <source-position filename="gedit/gedit-window.h" line="121"/>
+        <source-position filename="gedit/gedit-window.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3386">the #GeditMessageBus associated with @window</doc>
+               line="3612">the #GeditMessageBus associated with @window</doc>
           <type name="MessageBus" c:type="GeditMessageBus*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3381">a #GeditWindow</doc>
+                 line="3607">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_side_panel"
-              c:identifier="gedit_window_get_side_panel"
-              version="46">
-        <source-position filename="gedit/gedit-window.h" line="109"/>
+      <method name="get_side_panel" c:identifier="gedit_window_get_side_panel">
+        <doc xml:space="preserve"
+             filename="gedit/gedit-window.c"
+             line="3349">Gets the side panel of the @window.</doc>
+        <source-position filename="gedit/gedit-window.h" line="127"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3128">the side panel.</doc>
-          <type name="Tepl.Panel" c:type="TeplPanel*"/>
+               line="3355">the side panel's #GtkStack.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3126">a #GeditWindow</doc>
+                 line="3351">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3699,19 +3670,19 @@ is owned by the window and should not be unreffed.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3171">Retrieves the state of the @window.</doc>
-        <source-position filename="gedit/gedit-window.h" line="115"/>
+             line="3397">Retrieves the state of the @window.</doc>
+        <source-position filename="gedit/gedit-window.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3177">the current #GeditWindowState of the @window.</doc>
+               line="3403">the current #GeditWindowState of the @window.</doc>
           <type name="WindowState" c:type="GeditWindowState"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3173">a #GeditWindow</doc>
+                 line="3399">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3719,19 +3690,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_statusbar" c:identifier="gedit_window_get_statusbar">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3155">Gets the #GeditStatusbar of the @window.</doc>
-        <source-position filename="gedit/gedit-window.h" line="113"/>
+             line="3381">Gets the #GeditStatusbar of the @window.</doc>
+        <source-position filename="gedit/gedit-window.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3161">the #GeditStatusbar of the @window.</doc>
+               line="3387">the #GeditStatusbar of the @window.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3157">a #GeditWindow</doc>
+                 line="3383">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3740,25 +3711,25 @@ is owned by the window and should not be unreffed.</doc>
               c:identifier="gedit_window_get_tab_from_location">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3328">Gets the #GeditTab that matches with the given @location.</doc>
-        <source-position filename="gedit/gedit-window.h" line="117"/>
+             line="3554">Gets the #GeditTab that matches with the given @location.</doc>
+        <source-position filename="gedit/gedit-window.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3335">the #GeditTab that matches with the given @location.</doc>
+               line="3561">the #GeditTab that matches with the given @location.</doc>
           <type name="Tab" c:type="GeditTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3330">a #GeditWindow</doc>
+                 line="3556">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3331">a #GFile</doc>
+                 line="3557">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -3767,12 +3738,12 @@ is owned by the window and should not be unreffed.</doc>
               c:identifier="gedit_window_get_unsaved_documents">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3261">Gets the list of documents that need to be saved before closing the window.</doc>
-        <source-position filename="gedit/gedit-window.h" line="102"/>
+             line="3487">Gets the list of documents that need to be saved before closing the window.</doc>
+        <source-position filename="gedit/gedit-window.h" line="120"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="3267">a list of
+               line="3493">a list of
 #GeditDocument that need to be saved before closing the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -3782,7 +3753,7 @@ is owned by the window and should not be unreffed.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3263">a #GeditWindow</doc>
+                 line="3489">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3790,12 +3761,12 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_views" c:identifier="gedit_window_get_views">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="2945">Gets a list with all the views in the window. This list must be freed.</doc>
-        <source-position filename="gedit/gedit-window.h" line="105"/>
+             line="3178">Gets a list with all the views in the window. This list must be freed.</doc>
+        <source-position filename="gedit/gedit-window.h" line="123"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gedit/gedit-window.c"
-               line="2951">a newly allocated
+               line="3184">a newly allocated
 list with all the views in the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -3805,7 +3776,7 @@ list with all the views in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="2947">a #GeditWindow</doc>
+                 line="3180">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3813,8 +3784,8 @@ list with all the views in the window</doc>
       <method name="set_active_tab" c:identifier="gedit_window_set_active_tab">
         <doc xml:space="preserve"
              filename="gedit/gedit-window.c"
-             line="3075">Switches to the tab that matches with @tab.</doc>
-        <source-position filename="gedit/gedit-window.h" line="90"/>
+             line="3308">Switches to the tab that matches with @tab.</doc>
+        <source-position filename="gedit/gedit-window.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3822,24 +3793,18 @@ list with all the views in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3077">a #GeditWindow</doc>
+                 line="3310">a #GeditWindow</doc>
             <type name="Window" c:type="GeditWindow*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gedit/gedit-window.c"
-                 line="3078">a #GeditTab</doc>
+                 line="3311">a #GeditTab</doc>
             <type name="Tab" c:type="GeditTab*"/>
           </parameter>
         </parameters>
       </method>
-      <property name="state"
-                transfer-ownership="none"
-                getter="get_state"
-                default-value="GEDIT_WINDOW_STATE_NORMAL">
-        <doc xml:space="preserve"
-             filename="gedit/gedit-window.c"
-             line="451">The state of the #GeditWindow.</doc>
+      <property name="state" transfer-ownership="none" getter="get_state">
         <type name="WindowState"/>
       </property>
       <field name="window">
@@ -4081,14 +4046,14 @@ state changes in the window, due to some event or user action.</doc>
     <record name="WindowClass"
             c:type="GeditWindowClass"
             glib:is-gtype-struct-for="Window">
-      <source-position filename="gedit/gedit-window.h" line="72"/>
+      <source-position filename="gedit/gedit-window.h" line="75"/>
       <field name="parent_class">
         <type name="Gtk.ApplicationWindowClass"
               c:type="GtkApplicationWindowClass"/>
       </field>
       <field name="tab_added">
         <callback name="tab_added">
-          <source-position filename="gedit/gedit-window.h" line="63"/>
+          <source-position filename="gedit/gedit-window.h" line="66"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -4104,7 +4069,7 @@ state changes in the window, due to some event or user action.</doc>
       </field>
       <field name="tab_removed">
         <callback name="tab_removed">
-          <source-position filename="gedit/gedit-window.h" line="65"/>
+          <source-position filename="gedit/gedit-window.h" line="68"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -4120,7 +4085,7 @@ state changes in the window, due to some event or user action.</doc>
       </field>
       <field name="tabs_reordered">
         <callback name="tabs_reordered">
-          <source-position filename="gedit/gedit-window.h" line="67"/>
+          <source-position filename="gedit/gedit-window.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -4133,7 +4098,7 @@ state changes in the window, due to some event or user action.</doc>
       </field>
       <field name="active_tab_changed">
         <callback name="active_tab_changed">
-          <source-position filename="gedit/gedit-window.h" line="68"/>
+          <source-position filename="gedit/gedit-window.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -4149,7 +4114,7 @@ state changes in the window, due to some event or user action.</doc>
       </field>
       <field name="active_tab_state_changed">
         <callback name="active_tab_state_changed">
-          <source-position filename="gedit/gedit-window.h" line="70"/>
+          <source-position filename="gedit/gedit-window.h" line="73"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -4161,11 +4126,8 @@ state changes in the window, due to some event or user action.</doc>
         </callback>
       </field>
     </record>
-    <record name="WindowPrivate"
-            c:type="GeditWindowPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="gedit/gedit-window.h" line="48"/>
+    <record name="WindowPrivate" c:type="GeditWindowPrivate" disguised="1">
+      <source-position filename="gedit/gedit-window.h" line="51"/>
     </record>
     <bitfield name="WindowState"
               glib:type-name="GeditWindowState"
@@ -4206,7 +4168,7 @@ state changes in the window, due to some event or user action.</doc>
               c:identifier="gedit_commands_load_location">
       <doc xml:space="preserve"
            filename="gedit/gedit-commands-file.c"
-           line="274">Loads @location. Ignores non-existing locations.</doc>
+           line="277">Loads @location. Ignores non-existing locations.</doc>
       <source-position filename="gedit/gedit-commands.h" line="33"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4215,13 +4177,13 @@ state changes in the window, due to some event or user action.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="276">a #GeditWindow</doc>
+               line="279">a #GeditWindow</doc>
           <type name="Window" c:type="GeditWindow*"/>
         </parameter>
         <parameter name="location" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="277">a #GFile to load</doc>
+               line="280">a #GFile to load</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="encoding"
@@ -4230,19 +4192,19 @@ state changes in the window, due to some event or user action.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="278">the #GtkSourceEncoding of @location</doc>
+               line="281">the #GtkSourceEncoding of @location</doc>
           <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
         </parameter>
         <parameter name="line_pos" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="279">the line position to place the cursor</doc>
+               line="282">the line position to place the cursor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="column_pos" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="280">the line column to place the cursor</doc>
+               line="283">the line column to place the cursor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -4251,12 +4213,12 @@ state changes in the window, due to some event or user action.</doc>
               c:identifier="gedit_commands_load_locations">
       <doc xml:space="preserve"
            filename="gedit/gedit-commands-file.c"
-           line="311">Loads @locations. Ignore non-existing locations.</doc>
+           line="314">Loads @locations. Ignore non-existing locations.</doc>
       <source-position filename="gedit/gedit-commands.h" line="40"/>
       <return-value transfer-ownership="container">
         <doc xml:space="preserve"
              filename="gedit/gedit-commands-file.c"
-             line="321">the locations
+             line="324">the locations
 that were loaded.</doc>
         <type name="GLib.SList" c:type="GSList*">
           <type name="Document"/>
@@ -4266,13 +4228,13 @@ that were loaded.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="313">a #GeditWindow</doc>
+               line="316">a #GeditWindow</doc>
           <type name="Window" c:type="GeditWindow*"/>
         </parameter>
         <parameter name="locations" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="314">the locations to load</doc>
+               line="317">the locations to load</doc>
           <type name="GLib.SList" c:type="const GSList*">
             <type name="Gio.File"/>
           </type>
@@ -4283,19 +4245,19 @@ that were loaded.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="315">the #GtkSourceEncoding</doc>
+               line="318">the #GtkSourceEncoding</doc>
           <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
         </parameter>
         <parameter name="line_pos" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="316">the line position to place the cursor</doc>
+               line="319">the line position to place the cursor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="column_pos" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="317">the line column to place the cursor</doc>
+               line="320">the line column to place the cursor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -4350,7 +4312,7 @@ the result of the operation, use gedit_commands_save_document_async().</doc>
               version="3.14">
       <doc xml:space="preserve"
            filename="gedit/gedit-commands-file.c"
-           line="905">Asynchronously save the @document. @document must belong to @window. The
+           line="907">Asynchronously save the @document. @document must belong to @window. The
 source object of the async task is @document (which will be the first
 parameter of the #GAsyncReadyCallback).
 
@@ -4364,13 +4326,13 @@ gedit_commands_save_document_finish() to get the result of the operation.</doc>
         <parameter name="document" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="907">the #GeditDocument to save.</doc>
+               line="909">the #GeditDocument to save.</doc>
           <type name="Document" c:type="GeditDocument*"/>
         </parameter>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="908">a #GeditWindow.</doc>
+               line="910">a #GeditWindow.</doc>
           <type name="Window" c:type="GeditWindow*"/>
         </parameter>
         <parameter name="cancellable"
@@ -4379,7 +4341,7 @@ gedit_commands_save_document_finish() to get the result of the operation.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="909">optional #GCancellable object, %NULL to ignore.</doc>
+               line="911">optional #GCancellable object, %NULL to ignore.</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
         <parameter name="callback"
@@ -4390,7 +4352,7 @@ gedit_commands_save_document_finish() to get the result of the operation.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="910">a #GAsyncReadyCallback to call when the operation
+               line="912">a #GAsyncReadyCallback to call when the operation
   is finished.</doc>
           <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
         </parameter>
@@ -4400,7 +4362,7 @@ gedit_commands_save_document_finish() to get the result of the operation.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gedit/gedit-commands-file.c"
-               line="912">the data to pass to the @callback function.</doc>
+               line="914">the data to pass to the @callback function.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -4702,18 +4664,18 @@ extensions that should be activated on a gedit main window.</doc>
     </docsection>
     <function name="utils_basename_for_display"
               c:identifier="gedit_utils_basename_for_display">
-      <source-position filename="gedit/gedit-utils.h" line="36"/>
+      <source-position filename="gedit/gedit-utils.h" line="41"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gedit/gedit-utils.c"
-             line="285">the basename of a file suitable for display to users.</doc>
+             line="314">the basename of a file suitable for display to users.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="location" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-utils.c"
-               line="283">location for which the basename should be displayed</doc>
+               line="312">location for which the basename should be displayed</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
@@ -4722,12 +4684,12 @@ extensions that should be activated on a gedit main window.</doc>
               c:identifier="gedit_utils_drop_get_uris">
       <doc xml:space="preserve"
            filename="gedit/gedit-utils.c"
-           line="369">Create a list of valid uri's from a uri-list drop.</doc>
-      <source-position filename="gedit/gedit-utils.h" line="39"/>
+           line="398">Create a list of valid uri's from a uri-list drop.</doc>
+      <source-position filename="gedit/gedit-utils.h" line="44"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gedit/gedit-utils.c"
-             line="375">a string array which will hold the uris or
+             line="404">a string array which will hold the uris or
           %NULL if there were no valid uris. g_strfreev should be used when
           the string array is no longer used</doc>
         <array c:type="gchar**">
@@ -4738,14 +4700,14 @@ extensions that should be activated on a gedit main window.</doc>
         <parameter name="selection_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-utils.c"
-               line="371">the #GtkSelectionData from drag_data_received</doc>
+               line="400">the #GtkSelectionData from drag_data_received</doc>
           <type name="Gtk.SelectionData" c:type="GtkSelectionData*"/>
         </parameter>
       </parameters>
     </function>
     <function name="utils_get_compression_type_from_content_type"
               c:identifier="gedit_utils_get_compression_type_from_content_type">
-      <source-position filename="gedit/gedit-utils.h" line="43"/>
+      <source-position filename="gedit/gedit-utils.h" line="48"/>
       <return-value transfer-ownership="none">
         <type name="GtkSource.CompressionType"
               c:type="GtkSourceCompressionType"/>
@@ -4758,7 +4720,7 @@ extensions that should be activated on a gedit main window.</doc>
     </function>
     <function name="utils_is_valid_location"
               c:identifier="gedit_utils_is_valid_location">
-      <source-position filename="gedit/gedit-utils.h" line="34"/>
+      <source-position filename="gedit/gedit-utils.h" line="39"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -4772,29 +4734,29 @@ extensions that should be activated on a gedit main window.</doc>
               c:identifier="gedit_utils_location_get_dirname_for_display">
       <doc xml:space="preserve"
            filename="gedit/gedit-utils.c"
-           line="87">Returns a string suitable to be displayed in the UI indicating
+           line="116">Returns a string suitable to be displayed in the UI indicating
 the name of the directory where the file is located.
 For remote files it may also contain the hostname etc.
 For local files it tries to replace the home dir with ~.</doc>
-      <source-position filename="gedit/gedit-utils.h" line="32"/>
+      <source-position filename="gedit/gedit-utils.h" line="37"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gedit/gedit-utils.c"
-             line="96">a string to display the dirname</doc>
+             line="125">a string to display the dirname</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="location" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gedit/gedit-utils.c"
-               line="89">the location</doc>
+               line="118">the location</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
     </function>
     <function name="utils_menu_position_under_tree_view"
               c:identifier="gedit_utils_menu_position_under_tree_view">
-      <source-position filename="gedit/gedit-utils.h" line="29"/>
+      <source-position filename="gedit/gedit-utils.h" line="30"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -4809,7 +4771,7 @@ For local files it tries to replace the home dir with ~.</doc>
     </function>
     <function name="utils_newline_type_to_string"
               c:identifier="gedit_utils_newline_type_to_string">
-      <source-position filename="gedit/gedit-utils.h" line="45"/>
+      <source-position filename="gedit/gedit-utils.h" line="50"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -4819,9 +4781,40 @@ For local files it tries to replace the home dir with ~.</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="utils_set_atk_name_description"
+              c:identifier="gedit_utils_set_atk_name_description">
+      <doc xml:space="preserve"
+           filename="gedit/gedit-utils.c"
+           line="62">This function sets up name and description
+for a specified gtk widget.</doc>
+      <source-position filename="gedit/gedit-utils.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gedit/gedit-utils.c"
+               line="64">The Gtk widget for which name/description to be set</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gedit/gedit-utils.c"
+               line="65">Atk name string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="description" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gedit/gedit-utils.c"
+               line="66">Atk description string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="utils_set_direct_save_filename"
               c:identifier="gedit_utils_set_direct_save_filename">
-      <source-position filename="gedit/gedit-utils.h" line="41"/>
+      <source-position filename="gedit/gedit-utils.h" line="46"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>

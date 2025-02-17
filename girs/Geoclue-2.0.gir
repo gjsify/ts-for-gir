@@ -328,9 +328,6 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
         </parameters>
       </virtual-method>
       <virtual-method name="handle_start">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="606">Handler for the #GClueClient::handle-start signal.</doc>
         <source-position filename="libgeoclue/gclue-client.h" line="35"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -346,9 +343,6 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
         </parameters>
       </virtual-method>
       <virtual-method name="handle_stop">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="607">Handler for the #GClueClient::handle-stop signal.</doc>
         <source-position filename="libgeoclue/gclue-client.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -364,9 +358,6 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
         </parameters>
       </virtual-method>
       <virtual-method name="location_updated">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="614">Handler for the #GClueClient::location-updated signal.</doc>
         <source-position filename="libgeoclue/gclue-client.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -383,10 +374,7 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
           </parameter>
         </parameters>
       </virtual-method>
-      <method name="call_start"
-              c:identifier="gclue_client_call_start"
-              glib:finish-func="call_start_finish"
-              glib:sync-func="call_start_sync">
+      <method name="call_start" c:identifier="gclue_client_call_start">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-client.c"
              line="1004">Asynchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Client.Start"&gt;Start()&lt;/link&gt; D-Bus method on @proxy.
@@ -466,8 +454,7 @@ See gclue_client_call_start_sync() for the synchronous, blocking version of this
       </method>
       <method name="call_start_sync"
               c:identifier="gclue_client_call_start_sync"
-              throws="1"
-              glib:async-func="call_start">
+              throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-client.c"
              line="1061">Synchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Client.Start"&gt;Start()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -498,10 +485,7 @@ See gclue_client_call_start() for the asynchronous version of this method.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="call_stop"
-              c:identifier="gclue_client_call_stop"
-              glib:finish-func="call_stop_finish"
-              glib:sync-func="call_stop_sync">
+      <method name="call_stop" c:identifier="gclue_client_call_stop">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-client.c"
              line="1096">Asynchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Client.Stop"&gt;Stop()&lt;/link&gt; D-Bus method on @proxy.
@@ -581,8 +565,7 @@ See gclue_client_call_stop_sync() for the synchronous, blocking version of this 
       </method>
       <method name="call_stop_sync"
               c:identifier="gclue_client_call_stop_sync"
-              throws="1"
-              glib:async-func="call_stop">
+              throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-client.c"
              line="1153">Synchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Client.Stop"&gt;Stop()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -1224,9 +1207,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_start">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="606">Handler for the #GClueClient::handle-start signal.</doc>
         <callback name="handle_start">
           <source-position filename="libgeoclue/gclue-client.h" line="35"/>
           <return-value transfer-ownership="none">
@@ -1244,9 +1224,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="handle_stop">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="607">Handler for the #GClueClient::handle-stop signal.</doc>
         <callback name="handle_stop">
           <source-position filename="libgeoclue/gclue-client.h" line="39"/>
           <return-value transfer-ownership="none">
@@ -1264,9 +1241,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="get_active">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="608">Getter for the #GClueClient:active property.</doc>
         <callback name="get_active">
           <source-position filename="libgeoclue/gclue-client.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -1286,9 +1260,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="get_desktop_id">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="609">Getter for the #GClueClient:desktop-id property.</doc>
         <callback name="get_desktop_id">
           <source-position filename="libgeoclue/gclue-client.h" line="45"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -1308,9 +1279,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="get_distance_threshold">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="610">Getter for the #GClueClient:distance-threshold property.</doc>
         <callback name="get_distance_threshold">
           <source-position filename="libgeoclue/gclue-client.h" line="47"/>
           <return-value transfer-ownership="none">
@@ -1330,9 +1298,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="get_location">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="611">Getter for the #GClueClient:location property.</doc>
         <callback name="get_location">
           <source-position filename="libgeoclue/gclue-client.h" line="49"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -1352,9 +1317,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="get_requested_accuracy_level">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="612">Getter for the #GClueClient:requested-accuracy-level property.</doc>
         <callback name="get_requested_accuracy_level">
           <source-position filename="libgeoclue/gclue-client.h" line="51"/>
           <return-value transfer-ownership="none">
@@ -1374,9 +1336,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="get_time_threshold">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="613">Getter for the #GClueClient:time-threshold property.</doc>
         <callback name="get_time_threshold">
           <source-position filename="libgeoclue/gclue-client.h" line="53"/>
           <return-value transfer-ownership="none">
@@ -1396,9 +1355,6 @@ On the service-side, this signal can be used with e.g. g_signal_emit_by_name() t
         </callback>
       </field>
       <field name="location_updated">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-client.c"
-             line="614">Handler for the #GClueClient::location-updated signal.</doc>
         <callback name="location_updated">
           <source-position filename="libgeoclue/gclue-client.h" line="55"/>
           <return-value transfer-ownership="none">
@@ -1586,10 +1542,7 @@ See gclue_client_proxy_new() for the asynchronous version of this constructor.</
           </parameter>
         </parameters>
       </constructor>
-      <function name="create"
-                c:identifier="gclue_client_proxy_create"
-                glib:finish-func="create_finish"
-                glib:sync-func="create_sync">
+      <function name="create" c:identifier="gclue_client_proxy_create">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-helpers.c"
              line="230">A utility function to create a #GClueClientProxy without having to deal with
@@ -1674,9 +1627,7 @@ object or %NULL if @error is set.</doc>
         </parameters>
       </function>
       <function name="create_full"
-                c:identifier="gclue_client_proxy_create_full"
-                glib:finish-func="create_full_finish"
-                glib:sync-func="create_full_sync">
+                c:identifier="gclue_client_proxy_create_full">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-helpers.c"
              line="318">A utility function to create a #GClueClientProxy without having to deal with
@@ -1770,8 +1721,7 @@ object or %NULL if @error is set.</doc>
       </function>
       <function name="create_full_sync"
                 c:identifier="gclue_client_proxy_create_full_sync"
-                throws="1"
-                glib:async-func="create_full">
+                throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-helpers.c"
              line="404">The synchronous and blocking version of #gclue_client_proxy_create_full().
@@ -1821,8 +1771,7 @@ object or %NULL if @error is set.</doc>
       </function>
       <function name="create_sync"
                 c:identifier="gclue_client_proxy_create_sync"
-                throws="1"
-                glib:async-func="create">
+                throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-helpers.c"
              line="287">The synchronous and blocking version of #gclue_client_proxy_create().
@@ -1863,9 +1812,7 @@ object or %NULL if @error is set.</doc>
           </parameter>
         </parameters>
       </function>
-      <function name="new"
-                c:identifier="gclue_client_proxy_new"
-                glib:finish-func="new_finish">
+      <function name="new" c:identifier="gclue_client_proxy_new">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-client.c"
              line="1536">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-freedesktop-GeoClue2-Client.top_of_page"&gt;org.freedesktop.GeoClue2.Client&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -1938,8 +1885,7 @@ See gclue_client_proxy_new_sync() for the synchronous, blocking version of this 
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="gclue_client_proxy_new_for_bus"
-                glib:finish-func="new_for_bus_finish">
+                c:identifier="gclue_client_proxy_new_for_bus">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-client.c"
              line="1626">Like gclue_client_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -3186,9 +3132,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_accuracy">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="402">Getter for the #GClueLocation:accuracy property.</doc>
         <callback name="get_accuracy">
           <source-position filename="libgeoclue/gclue-location.h" line="33"/>
           <return-value transfer-ownership="none">
@@ -3208,9 +3151,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_altitude">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="403">Getter for the #GClueLocation:altitude property.</doc>
         <callback name="get_altitude">
           <source-position filename="libgeoclue/gclue-location.h" line="35"/>
           <return-value transfer-ownership="none">
@@ -3230,9 +3170,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_description">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="404">Getter for the #GClueLocation:description property.</doc>
         <callback name="get_description">
           <source-position filename="libgeoclue/gclue-location.h" line="37"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -3252,9 +3189,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_heading">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="405">Getter for the #GClueLocation:heading property.</doc>
         <callback name="get_heading">
           <source-position filename="libgeoclue/gclue-location.h" line="39"/>
           <return-value transfer-ownership="none">
@@ -3274,9 +3208,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_latitude">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="406">Getter for the #GClueLocation:latitude property.</doc>
         <callback name="get_latitude">
           <source-position filename="libgeoclue/gclue-location.h" line="41"/>
           <return-value transfer-ownership="none">
@@ -3296,9 +3227,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_longitude">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="407">Getter for the #GClueLocation:longitude property.</doc>
         <callback name="get_longitude">
           <source-position filename="libgeoclue/gclue-location.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -3318,9 +3246,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_speed">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="408">Getter for the #GClueLocation:speed property.</doc>
         <callback name="get_speed">
           <source-position filename="libgeoclue/gclue-location.h" line="45"/>
           <return-value transfer-ownership="none">
@@ -3340,9 +3265,6 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_timestamp">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-location.c"
-             line="409">Getter for the #GClueLocation:timestamp property.</doc>
         <callback name="get_timestamp">
           <source-position filename="libgeoclue/gclue-location.h" line="47"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -3530,9 +3452,7 @@ See gclue_location_proxy_new() for the asynchronous version of this constructor.
           </parameter>
         </parameters>
       </constructor>
-      <function name="new"
-                c:identifier="gclue_location_proxy_new"
-                glib:finish-func="new_finish">
+      <function name="new" c:identifier="gclue_location_proxy_new">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-location.c"
              line="1141">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-freedesktop-GeoClue2-Location.top_of_page"&gt;org.freedesktop.GeoClue2.Location&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -3605,8 +3525,7 @@ See gclue_location_proxy_new_sync() for the synchronous, blocking version of thi
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="gclue_location_proxy_new_for_bus"
-                glib:finish-func="new_for_bus_finish">
+                c:identifier="gclue_location_proxy_new_for_bus">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-location.c"
              line="1231">Like gclue_location_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -3929,9 +3848,6 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_add_agent">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="575">Handler for the #GClueManager::handle-add-agent signal.</doc>
         <source-position filename="libgeoclue/gclue-manager.h" line="34"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3950,9 +3866,6 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_create_client">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="576">Handler for the #GClueManager::handle-create-client signal.</doc>
         <source-position filename="libgeoclue/gclue-manager.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3968,9 +3881,6 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_delete_client">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="577">Handler for the #GClueManager::handle-delete-client signal.</doc>
         <source-position filename="libgeoclue/gclue-manager.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3989,9 +3899,6 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <virtual-method name="handle_get_client">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="578">Handler for the #GClueManager::handle-get-client signal.</doc>
         <source-position filename="libgeoclue/gclue-manager.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4007,9 +3914,7 @@ Since this D-Bus property is readable, it is meaningful to use this function on 
         </parameters>
       </virtual-method>
       <method name="call_add_agent"
-              c:identifier="gclue_manager_call_add_agent"
-              glib:finish-func="call_add_agent_finish"
-              glib:sync-func="call_add_agent_sync">
+              c:identifier="gclue_manager_call_add_agent">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="1063">Asynchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.AddAgent"&gt;AddAgent()&lt;/link&gt; D-Bus method on @proxy.
@@ -4095,8 +4000,7 @@ See gclue_manager_call_add_agent_sync() for the synchronous, blocking version of
       </method>
       <method name="call_add_agent_sync"
               c:identifier="gclue_manager_call_add_agent_sync"
-              throws="1"
-              glib:async-func="call_add_agent">
+              throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="1123">Synchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.AddAgent"&gt;AddAgent()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -4134,9 +4038,7 @@ See gclue_manager_call_add_agent() for the asynchronous version of this method.<
         </parameters>
       </method>
       <method name="call_create_client"
-              c:identifier="gclue_manager_call_create_client"
-              glib:finish-func="call_create_client_finish"
-              glib:sync-func="call_create_client_sync">
+              c:identifier="gclue_manager_call_create_client">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="867">Asynchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.CreateClient"&gt;CreateClient()&lt;/link&gt; D-Bus method on @proxy.
@@ -4227,8 +4129,7 @@ See gclue_manager_call_create_client_sync() for the synchronous, blocking versio
       </method>
       <method name="call_create_client_sync"
               c:identifier="gclue_manager_call_create_client_sync"
-              throws="1"
-              glib:async-func="call_create_client">
+              throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="927">Synchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.CreateClient"&gt;CreateClient()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -4271,9 +4172,7 @@ See gclue_manager_call_create_client() for the asynchronous version of this meth
         </parameters>
       </method>
       <method name="call_delete_client"
-              c:identifier="gclue_manager_call_delete_client"
-              glib:finish-func="call_delete_client_finish"
-              glib:sync-func="call_delete_client_sync">
+              c:identifier="gclue_manager_call_delete_client">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="965">Asynchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.DeleteClient"&gt;DeleteClient()&lt;/link&gt; D-Bus method on @proxy.
@@ -4359,8 +4258,7 @@ See gclue_manager_call_delete_client_sync() for the synchronous, blocking versio
       </method>
       <method name="call_delete_client_sync"
               c:identifier="gclue_manager_call_delete_client_sync"
-              throws="1"
-              glib:async-func="call_delete_client">
+              throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="1025">Synchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.DeleteClient"&gt;DeleteClient()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -4398,9 +4296,7 @@ See gclue_manager_call_delete_client() for the asynchronous version of this meth
         </parameters>
       </method>
       <method name="call_get_client"
-              c:identifier="gclue_manager_call_get_client"
-              glib:finish-func="call_get_client_finish"
-              glib:sync-func="call_get_client_sync">
+              c:identifier="gclue_manager_call_get_client">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="769">Asynchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.GetClient"&gt;GetClient()&lt;/link&gt; D-Bus method on @proxy.
@@ -4491,8 +4387,7 @@ See gclue_manager_call_get_client_sync() for the synchronous, blocking version o
       </method>
       <method name="call_get_client_sync"
               c:identifier="gclue_manager_call_get_client_sync"
-              throws="1"
-              glib:async-func="call_get_client">
+              throws="1">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="829">Synchronously invokes the &lt;link linkend="gdbus-method-org-freedesktop-GeoClue2-Manager.GetClient"&gt;GetClient()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -4897,9 +4792,6 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_add_agent">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="575">Handler for the #GClueManager::handle-add-agent signal.</doc>
         <callback name="handle_add_agent">
           <source-position filename="libgeoclue/gclue-manager.h" line="34"/>
           <return-value transfer-ownership="none">
@@ -4920,9 +4812,6 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_create_client">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="576">Handler for the #GClueManager::handle-create-client signal.</doc>
         <callback name="handle_create_client">
           <source-position filename="libgeoclue/gclue-manager.h" line="39"/>
           <return-value transfer-ownership="none">
@@ -4940,9 +4829,6 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_delete_client">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="577">Handler for the #GClueManager::handle-delete-client signal.</doc>
         <callback name="handle_delete_client">
           <source-position filename="libgeoclue/gclue-manager.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -4963,9 +4849,6 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_get_client">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="578">Handler for the #GClueManager::handle-get-client signal.</doc>
         <callback name="handle_get_client">
           <source-position filename="libgeoclue/gclue-manager.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -4983,9 +4866,6 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_available_accuracy_level">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="579">Getter for the #GClueManager:available-accuracy-level property.</doc>
         <callback name="get_available_accuracy_level">
           <source-position filename="libgeoclue/gclue-manager.h" line="52"/>
           <return-value transfer-ownership="none">
@@ -5005,9 +4885,6 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_in_use">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-manager.c"
-             line="580">Getter for the #GClueManager:in-use property.</doc>
         <callback name="get_in_use">
           <source-position filename="libgeoclue/gclue-manager.h" line="54"/>
           <return-value transfer-ownership="none">
@@ -5195,9 +5072,7 @@ See gclue_manager_proxy_new() for the asynchronous version of this constructor.<
           </parameter>
         </parameters>
       </constructor>
-      <function name="new"
-                c:identifier="gclue_manager_proxy_new"
-                glib:finish-func="new_finish">
+      <function name="new" c:identifier="gclue_manager_proxy_new">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="1487">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-freedesktop-GeoClue2-Manager.top_of_page"&gt;org.freedesktop.GeoClue2.Manager&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -5270,8 +5145,7 @@ See gclue_manager_proxy_new_sync() for the synchronous, blocking version of this
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="gclue_manager_proxy_new_for_bus"
-                glib:finish-func="new_for_bus_finish">
+                c:identifier="gclue_manager_proxy_new_for_bus">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-manager.c"
              line="1577">Like gclue_manager_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -5594,9 +5468,7 @@ object or %NULL if @error is set.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new"
-                c:identifier="gclue_simple_new"
-                glib:finish-func="new_finish">
+      <function name="new" c:identifier="gclue_simple_new">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-simple.c"
              line="738">Asynchronously creates a #GClueSimple instance. Use
@@ -5653,8 +5525,7 @@ of this function.</doc>
         </parameters>
       </function>
       <function name="new_with_thresholds"
-                c:identifier="gclue_simple_new_with_thresholds"
-                glib:finish-func="new_with_thresholds_finish">
+                c:identifier="gclue_simple_new_with_thresholds">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-simple.c"
              line="883">Asynchronously creates a #GClueSimple instance. Use

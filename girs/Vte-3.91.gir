@@ -242,7 +242,10 @@ keys.</doc>
             c:type="VteEventContext"
             disguised="1"
             opaque="1"
-            version="0.76">
+            version="0.76"
+            glib:type-name="VteEventContext"
+            glib:get-type="vte_event_context_get_type"
+            c:symbol-prefix="event_context">
       <doc xml:space="preserve"
            filename="src/vtegtk.cc"
            line="8294">Provides context information for a context menu event.</doc>
@@ -394,7 +397,7 @@ should be copied to the clipboard in.</doc>
       <source-position filename="src/vte/vteversion.h" line="43"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="91" c:type="VTE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="VTE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/vte/vteversion.h"
            line="53">The micro version number of the VTE library
@@ -402,7 +405,7 @@ should be copied to the clipboard in.</doc>
       <source-position filename="src/vte/vteversion.h" line="59"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="77" c:type="VTE_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="78" c:type="VTE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/vte/vteversion.h"
            line="45">The minor version number of the VTE library
@@ -995,8 +998,7 @@ for more information.</doc>
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="4">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="src/vtepty.cc"
                  line="853">user data for @child_setup, or %NULL</doc>
@@ -1042,8 +1044,7 @@ for more information.</doc>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="9">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtepty.cc"
                  line="858">user data for @callback</doc>
@@ -1168,8 +1169,7 @@ See vte_pty_new(), and vte_terminal_watch_child() for more information.</doc>
           <parameter name="fds"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     scope="call">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtepty.cc"
                  line="728">an array of file descriptors, or %NULL</doc>
@@ -1186,8 +1186,7 @@ See vte_pty_new(), and vte_terminal_watch_child() for more information.</doc>
           <parameter name="map_fds"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     scope="call">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtepty.cc"
                  line="730">an array of integers, or %NULL</doc>
@@ -1224,8 +1223,7 @@ See vte_pty_new(), and vte_terminal_watch_child() for more information.</doc>
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="8">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="src/vtepty.cc"
                  line="734">user data for @child_setup, or %NULL</doc>
@@ -1271,8 +1269,7 @@ See vte_pty_new(), and vte_terminal_watch_child() for more information.</doc>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="13">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtepty.cc"
                  line="739">user data for @callback</doc>
@@ -1427,7 +1424,7 @@ enumeration. See #GError for more information on error domains.</doc>
     <constant name="REGEX_FLAGS_DEFAULT"
               value="1075314688"
               c:type="VTE_REGEX_FLAGS_DEFAULT">
-      <source-position filename="src/vte/vteregex.h" line="44"/>
+      <source-position filename="src/vte/vteregex.h" line="45"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <record name="Regex"
@@ -1436,7 +1433,7 @@ enumeration. See #GError for more information on error domains.</doc>
             glib:type-name="VteRegex"
             glib:get-type="vte_regex_get_type"
             c:symbol-prefix="regex">
-      <source-position filename="src/vte/vteregex.h" line="31"/>
+      <source-position filename="src/vte/vteregex.h" line="32"/>
       <constructor name="new_for_match"
                    c:identifier="vte_regex_new_for_match"
                    throws="1">
@@ -1452,7 +1449,7 @@ information about the supported @flags.
 
 The regex will be compiled using &lt;literal&gt;PCRE2_UTF&lt;/literal&gt; and
 possibly other flags, in addition to the flags supplied in @flags.</doc>
-        <source-position filename="src/vte/vteregex.h" line="53"/>
+        <source-position filename="src/vte/vteregex.h" line="54"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1500,7 +1497,7 @@ possibly other flags, in addition to the flags supplied in @flags.
 
 If regex compilation fails, @error will be set and @error_offset point
 to error as an offset into @pattern.</doc>
-        <source-position filename="src/vte/vteregex.h" line="59"/>
+        <source-position filename="src/vte/vteregex.h" line="60"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1560,7 +1557,7 @@ information about the supported @flags.
 
 The regex will be compiled using &lt;literal&gt;PCRE2_UTF&lt;/literal&gt; and
 possibly other flags, in addition to the flags supplied in @flags.</doc>
-        <source-position filename="src/vte/vteregex.h" line="67"/>
+        <source-position filename="src/vte/vteregex.h" line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1607,7 +1604,7 @@ possibly other flags, in addition to the flags supplied in @flags.
 
 If regex compilation fails, @error will be set and @error_offset point
 to error as an offset into @pattern.</doc>
-        <source-position filename="src/vte/vteregex.h" line="73"/>
+        <source-position filename="src/vte/vteregex.h" line="74"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1654,7 +1651,7 @@ to error as an offset into @pattern.</doc>
         <doc xml:space="preserve"
              filename="src/vteregex.cc"
              line="267">If the platform supports JITing, JIT compiles @regex.</doc>
-        <source-position filename="src/vte/vteregex.h" line="81"/>
+        <source-position filename="src/vte/vteregex.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1681,7 +1678,7 @@ to error as an offset into @pattern.</doc>
         <doc xml:space="preserve"
              filename="src/vteregex.cc"
              line="52">Increases the reference count of @regex by one.</doc>
-        <source-position filename="src/vte/vteregex.h" line="47"/>
+        <source-position filename="src/vte/vteregex.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1704,7 +1701,7 @@ to error as an offset into @pattern.</doc>
         <doc xml:space="preserve"
              filename="src/vteregex.cc"
              line="310">See man:pcre2api(3) and man:pcre2_substitute(3) for more information.</doc>
-        <source-position filename="src/vte/vteregex.h" line="86"/>
+        <source-position filename="src/vte/vteregex.h" line="87"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1744,7 +1741,7 @@ to error as an offset into @pattern.</doc>
              filename="src/vteregex.cc"
              line="68">Decreases the reference count of @regex by one, and frees @regex
 if the refcount reaches zero.</doc>
-        <source-position filename="src/vte/vteregex.h" line="50"/>
+        <source-position filename="src/vte/vteregex.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vteregex.cc"
@@ -1994,9 +1991,9 @@ by vte_install_termprop().</doc>
               version="0.78">
       <doc xml:space="preserve"
            filename="src/vte/vteglobals.h"
-           line="172">A %VTE_PROPERTY_VALUELESS termprop that signals that the shell
+           line="172">An ephemeral %VTE_PROPERTY_UINT termprop that signals that the shell
 has executed the commands entered at the prompt and these commands
-have returned.</doc>
+have returned. The termprop value is the exit code.</doc>
       <source-position filename="src/vte/vteglobals.h" line="181"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
@@ -4453,9 +4450,9 @@ by ID. See that function for more information.</doc>
               version="0.78">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="9303">Returns %TRUE with the value of @prop stored in @value, or %FALSE if
-  @prop is unset, or @prop is not a registered property; in that
-  case @value will not be set.
+             line="9326">Returns %TRUE with the value of @prop stored in @value (if not %NULL) if,
+  the termprop has a value, or %FALSE if @prop is unset, or @prop is not
+  a registered property; in that case @value will not be set.
 
 The value type returned depends on the termprop type:
 * A %VTE_PROPERTY_VALUELESS termprop stores no value, and returns %FALSE
@@ -4476,7 +4473,7 @@ The value type returned depends on the termprop type:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="9329">%TRUE iff the property has a value, with @gvalue containig
+               line="9352">%TRUE iff the property has a value, with @gvalue containig
   the property's value.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4484,22 +4481,24 @@ The value type returned depends on the termprop type:
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9305">a #VteTerminal</doc>
+                 line="9328">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="prop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9306">a termprop name</doc>
+                 line="9329">a termprop name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="gvalue"
                      direction="out"
                      caller-allocates="1"
-                     transfer-ownership="none">
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9307">a #GValue to be filled in</doc>
+                 line="9330">a #GValue to be filled in, or %NULL</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
         </parameters>
@@ -4535,7 +4534,9 @@ by ID. See that function for more information.</doc>
           <parameter name="gvalue"
                      direction="out"
                      caller-allocates="1"
-                     transfer-ownership="none">
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="9178">a #GValue to be filled in</doc>
@@ -4956,7 +4957,7 @@ Since 0.72, this function also supports %VTE_FORMAT_HTML format.</doc>
               glib:get-property="window-title"
               deprecated="1"
               deprecated-version="0.78">
-        <doc-deprecated xml:space="preserve">Use the %VTE_TERMPROP_TITLE termprop.</doc-deprecated>
+        <doc-deprecated xml:space="preserve">Use the %VTE_TERMPROP_XTERM_TITLE termprop.</doc-deprecated>
         <source-position filename="src/vte/vtedeprecated.h" line="217"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
@@ -5516,7 +5517,7 @@ by ID. See that function for more information.</doc>
               version="0.78">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="9454">Returns the value of @prop as a #GVariant, or %NULL if
+             line="9477">Returns the value of @prop as a #GVariant, or %NULL if
   @prop unset, or @prop is not a registered property.
 
 The #GVariantType of the returned #GVariant depends on the termprop type:
@@ -5538,20 +5539,20 @@ The #GVariantType of the returned #GVariant depends on the termprop type:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="9478">a floating #GVariant, or %NULL</doc>
+               line="9501">a floating #GVariant, or %NULL</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9456">a #VteTerminal</doc>
+                 line="9479">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="prop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9457">a termprop name</doc>
+                 line="9480">a termprop name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5561,26 +5562,26 @@ The #GVariantType of the returned #GVariant depends on the termprop type:
               version="0.78">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="9346">Like vte_terminal_ref_termprop_variant() except that it takes the termprop
+             line="9369">Like vte_terminal_ref_termprop_variant() except that it takes the termprop
 by ID. See that function for more information.</doc>
         <source-position filename="src/vte/vteterminal.h" line="799"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="9354">a floating #GVariant, or %NULL</doc>
+               line="9377">a floating #GVariant, or %NULL</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9348">a #VteTerminal</doc>
+                 line="9371">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="prop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="9349">a termprop ID</doc>
+                 line="9372">a termprop ID</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -7301,8 +7302,7 @@ information.</doc>
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="5">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="5214">user data for @child_setup, or %NULL</doc>
@@ -7349,8 +7349,7 @@ information.</doc>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="10">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="5219">user data for @callback, or %NULL</doc>
@@ -7587,8 +7586,7 @@ e.g. by using vte_terminal_get_current_directory_uri(), g_get_current_dir() or g
           <parameter name="fds"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     scope="call">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="5093">an array of file descriptors, or %NULL</doc>
@@ -7605,8 +7603,7 @@ e.g. by using vte_terminal_get_current_directory_uri(), g_get_current_dir() or g
           <parameter name="map_fds"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     scope="call">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="5095">an array of integers, or %NULL</doc>
@@ -7643,8 +7640,7 @@ e.g. by using vte_terminal_get_current_directory_uri(), g_get_current_dir() or g
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="9">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="5099">user data for @child_setup, or %NULL</doc>
@@ -7691,8 +7687,7 @@ e.g. by using vte_terminal_get_current_directory_uri(), g_get_current_dir() or g
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="14">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
                  line="5104">user data for @callback, or %NULL</doc>
@@ -8280,7 +8275,7 @@ allowed on the alternate screen buffer.</doc>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
              line="2822">The terminal's title.</doc>
-        <doc-deprecated xml:space="preserve">Use the %VTE_TERMPROP_TITLE termprop.</doc-deprecated>
+        <doc-deprecated xml:space="preserve">Use the %VTE_TERMPROP_XTERM_TITLE termprop.</doc-deprecated>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="word-char-exceptions"
@@ -8805,7 +8800,7 @@ call *any* other API on @terminal, including API of its parent classes.</doc>
              filename="src/vtegtk.cc"
              line="1669">Emitted when the #VteTerminal:window-title property is modified.</doc>
         <doc-deprecated xml:space="preserve">Use the #VteTerminal:termprop-changed signal
-  for the %VTE_TERMPROP_TITLE termprop.</doc-deprecated>
+  for the %VTE_TERMPROP_XTERM_TITLE termprop.</doc-deprecated>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -9509,13 +9504,6 @@ to an output stream.</doc>
              line="134">Write contents as UTF-8 text.  This is the default.</doc>
       </member>
     </enumeration>
-    <function name="event_context_get_type"
-              c:identifier="vte_event_context_get_type">
-      <source-position filename="src/vte/vteterminal.h" line="665"/>
-      <return-value transfer-ownership="none">
-        <type name="GType" c:type="GType"/>
-      </return-value>
-    </function>
     <function name="get_encoding_supported"
               c:identifier="vte_get_encoding_supported"
               version="0.60"

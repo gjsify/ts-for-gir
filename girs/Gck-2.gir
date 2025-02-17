@@ -2935,7 +2935,7 @@ member of the error then contains the raw PKCS#11 `CK_RV` result value.</doc>
       <source-position filename="gck/gck-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GCK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="91" c:type="GCK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gck/gck-misc.c"
            line="68">The micro version number of the Gck library.</doc>
@@ -9591,7 +9591,8 @@ then this may be a recycled session with the same flags.</doc>
       <method name="open_session_full"
               c:identifier="gck_slot_open_session_full"
               introspectable="0"
-              throws="1">
+              throws="1"
+              glib:async-func="open_session_full_async">
         <doc xml:space="preserve"
              filename="gck/gck-slot.c"
              line="965">Open a session on the slot. If the 'auto reuse' setting is set,
@@ -9661,7 +9662,9 @@ This call may block for an indefinite period.</doc>
       </method>
       <method name="open_session_full_async"
               c:identifier="gck_slot_open_session_full_async"
-              introspectable="0">
+              introspectable="0"
+              glib:finish-func="open_session_finish"
+              glib:sync-func="open_session_full">
         <doc xml:space="preserve"
              filename="gck/gck-slot.c"
              line="1045">Open a session on the slot. If the 'auto reuse' setting is set,

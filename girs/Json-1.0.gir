@@ -2228,7 +2228,7 @@ stream.</doc>
       <source-position filename="json-glib/json-version.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="JSON_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="7" c:type="JSON_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="46">Json micro version component (e.g. 3 if `JSON_VERSION` is "1.2.3")</doc>
@@ -7573,7 +7573,7 @@ the given property.</doc>
              line="42">Asks a `JsonSerializable` implementation to serialize an object
 property into a JSON node.</doc>
         <source-position filename="json-glib/json-gobject.h" line="67"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="json-glib/json-serializable.c"
                line="52">a node containing the serialized property</doc>
@@ -7929,7 +7929,7 @@ properties.</doc>
              line="42">Asks a `JsonSerializable` implementation to serialize an object
 property into a JSON node.</doc>
         <source-position filename="json-glib/json-gobject.h" line="93"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="json-glib/json-serializable.c"
                line="52">a node containing the serialized property</doc>
@@ -8019,7 +8019,7 @@ sequence.</doc>
   into JSON</doc>
         <callback name="serialize_property">
           <source-position filename="json-glib/json-gobject.h" line="67"/>
-          <return-value transfer-ownership="full">
+          <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-serializable.c"
                  line="52">a node containing the serialized property</doc>
@@ -8229,7 +8229,7 @@ sequence.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.10.0" c:type="JSON_VERSION_S">
+    <constant name="VERSION_S" value="1.10.7" c:type="JSON_VERSION_S">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="60">The version of JSON-GLib, encoded as a string, useful for printing and

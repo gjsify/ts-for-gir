@@ -686,7 +686,7 @@ drops to 0, the info is freed.</doc>
            filename="girepository/giversion.c"
            line="53">Checks the version of the girepository library that is being compiled
 against.</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="32"/>
       <parameters>
         <parameter name="major">
@@ -1187,29 +1187,29 @@ against.</doc>
       <doc xml:space="preserve"
            filename="girepository/giversion.c"
            line="29">The major version number of the girepository library.</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="28"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="1"
               c:type="GI_MICRO_VERSION"
               version="1.60">
       <doc xml:space="preserve"
            filename="girepository/giversion.c"
            line="45">The micro version number of the girepository library.</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="30"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="82"
+              value="83"
               c:type="GI_MINOR_VERSION"
               version="1.60">
       <doc xml:space="preserve"
            filename="girepository/giversion.c"
            line="37">The minor version number of the girepository library.</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -3923,7 +3923,7 @@ have been g_module_symbol()&lt;!-- --&gt;ed before calling this function.</doc>
            filename="girepository/giversion.c"
            line="68">Returns the major version number of the girepository library.
 (e.g. in version 1.58.2 this is 1.)</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="39"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -3939,7 +3939,7 @@ have been g_module_symbol()&lt;!-- --&gt;ed before calling this function.</doc>
            filename="girepository/giversion.c"
            line="100">Returns the micro version number of the girepository library.
 (e.g. in version 1.58.2 this is 2.)</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="43"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -3955,7 +3955,7 @@ have been g_module_symbol()&lt;!-- --&gt;ed before calling this function.</doc>
            filename="girepository/giversion.c"
            line="84">Returns the minor version number of the girepository library.
 (e.g. in version 1.58.2 this is 58.)</doc>
-      <source-position filename="redhat-linux-build/girepository/giversion.h"
+      <source-position filename="_builddir/girepository/giversion.h"
                        line="41"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -4709,25 +4709,25 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_find_signal">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="586">TODO</doc>
+           line="611">TODO</doc>
       <source-position filename="girepository/giobjectinfo.h" line="147"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="593">Info for the signal with name @name in @info, or %NULL on failure.</doc>
+             line="618">Info for the signal with name @name in @info, or %NULL on failure.</doc>
         <type name="SignalInfo" c:type="GISignalInfo*"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="588">a #GIObjectInfo</doc>
+               line="613">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="589">Name of signal</doc>
+               line="614">Name of signal</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4736,7 +4736,7 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_find_vfunc">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="679">Locate a virtual function slot with name @name. Note that the namespace
+           line="694">Locate a virtual function slot with name @name. Note that the namespace
 for virtuals is distinct from that of methods; there may or may not be
 a concrete method associated for a virtual. If there is one, it may
 be retrieved using g_vfunc_info_get_invoker(), otherwise %NULL will be
@@ -4747,7 +4747,7 @@ information on invoking virtuals.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="692">the #GIVFuncInfo, or %NULL. Free it with
+             line="707">the #GIVFuncInfo, or %NULL. Free it with
 g_base_info_unref() when done.</doc>
         <type name="VFuncInfo" c:type="GIVFuncInfo*"/>
       </return-value>
@@ -4755,13 +4755,13 @@ g_base_info_unref() when done.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="681">a #GIObjectInfo</doc>
+               line="696">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="682">The name of a virtual function to find.</doc>
+               line="697">The name of a virtual function to find.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4770,7 +4770,7 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_find_vfunc_using_interfaces">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="721">Locate a virtual function slot with name @name, searching both the object
+           line="736">Locate a virtual function slot with name @name, searching both the object
 @info and any interfaces it implements.  Note that the namespace for
 virtuals is distinct from that of methods; there may or may not be a
 concrete method associated for a virtual. If there is one, it may be
@@ -4783,7 +4783,7 @@ to chain up if that's desired.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="737">the #GIVFuncInfo. Free the struct by calling
+             line="752">the #GIVFuncInfo. Free the struct by calling
 g_base_info_unref() when done.</doc>
         <type name="VFuncInfo" c:type="GIVFuncInfo*"/>
       </return-value>
@@ -4791,13 +4791,13 @@ g_base_info_unref() when done.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="723">a #GIObjectInfo</doc>
+               line="738">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="724">name of vfunc to obtain</doc>
+               line="739">name of vfunc to obtain</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="implementor"
@@ -4806,7 +4806,7 @@ g_base_info_unref() when done.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="725">The implementor of the interface</doc>
+               line="740">The implementor of the interface</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo**"/>
         </parameter>
       </parameters>
@@ -4837,13 +4837,13 @@ instantiated</doc>
               c:identifier="g_object_info_get_class_struct">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="842">Every #GObject has two structures; an instance structure and a class
+           line="857">Every #GObject has two structures; an instance structure and a class
 structure.  This function returns the metadata for the class structure.</doc>
       <source-position filename="girepository/giobjectinfo.h" line="175"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="849">the #GIStructInfo or %NULL. Free with
+             line="864">the #GIStructInfo or %NULL. Free with
 g_base_info_unref() when done.</doc>
         <type name="StructInfo" c:type="GIStructInfo*"/>
       </return-value>
@@ -4851,7 +4851,7 @@ g_base_info_unref() when done.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="844">a #GIObjectInfo</doc>
+               line="859">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -4860,12 +4860,12 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_get_constant">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="803">Obtain an object type constant at index @n.</doc>
+           line="818">Obtain an object type constant at index @n.</doc>
       <source-position filename="girepository/giobjectinfo.h" line="171"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="810">the #GIConstantInfo. Free the struct by calling
+             line="825">the #GIConstantInfo. Free the struct by calling
 g_base_info_unref() when done.</doc>
         <type name="ConstantInfo" c:type="GIConstantInfo*"/>
       </return-value>
@@ -4873,13 +4873,13 @@ g_base_info_unref() when done.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="805">a #GIObjectInfo</doc>
+               line="820">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
         <parameter name="n" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="806">index of constant to get</doc>
+               line="821">index of constant to get</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -4961,7 +4961,7 @@ G_TYPE_OBJECT. This is mostly for supporting GstMiniObject.</doc>
               c:identifier="g_object_info_get_get_value_function">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="1049">Obtain the symbol name of the function that should be called to convert
+           line="1064">Obtain the symbol name of the function that should be called to convert
 an object instance pointer of this object type to a GValue.
 I's mainly used fundamental types. The type signature for the symbol
 is %GIObjectInfoGetValueFunction, to fetch the function pointer
@@ -4970,14 +4970,14 @@ see g_object_info_get_get_value_function().</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="1059">the symbol or %NULL</doc>
+             line="1074">the symbol or %NULL</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="1051">a #GIObjectInfo</doc>
+               line="1066">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -4987,7 +4987,7 @@ see g_object_info_get_get_value_function().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="1078">Obtain a pointer to a function which can be used to
+           line="1093">Obtain a pointer to a function which can be used to
 extract an instance of this object type out of a GValue.
 This takes derivation into account and will reversely traverse
 the base classes of this type, starting at the top type.</doc>
@@ -4995,7 +4995,7 @@ the base classes of this type, starting at the top type.</doc>
       <return-value nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="1087">the function pointer or %NULL</doc>
+             line="1102">the function pointer or %NULL</doc>
         <type name="ObjectInfoGetValueFunction"
               c:type="GIObjectInfoGetValueFunction"/>
       </return-value>
@@ -5003,7 +5003,7 @@ the base classes of this type, starting at the top type.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="1080">a #GIObjectInfo</doc>
+               line="1095">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5068,19 +5068,19 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_get_n_constants">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="781">Obtain the number of constants that this object type has.</doc>
+           line="796">Obtain the number of constants that this object type has.</doc>
       <source-position filename="girepository/giobjectinfo.h" line="168"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="787">number of constants</doc>
+             line="802">number of constants</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="783">a #GIObjectInfo</doc>
+               line="798">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5194,19 +5194,19 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_get_n_vfuncs">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="619">Obtain the number of virtual functions that this object type has.</doc>
+           line="634">Obtain the number of virtual functions that this object type has.</doc>
       <source-position filename="girepository/giobjectinfo.h" line="152"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="625">number of virtual functions</doc>
+             line="640">number of virtual functions</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="621">a #GIObjectInfo</doc>
+               line="636">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5265,7 +5265,7 @@ g_base_info_unref() when done.</doc>
               c:identifier="g_object_info_get_ref_function">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="904">Obtain the symbol name of the function that should be called to ref this
+           line="919">Obtain the symbol name of the function that should be called to ref this
 object type. It's mainly used fundamental types. The type signature for
 the symbol is %GIObjectInfoRefFunction, to fetch the function pointer
 see g_object_info_get_ref_function().</doc>
@@ -5273,14 +5273,14 @@ see g_object_info_get_ref_function().</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="913">the symbol or %NULL</doc>
+             line="928">the symbol or %NULL</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="906">a #GIObjectInfo</doc>
+               line="921">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5290,7 +5290,7 @@ see g_object_info_get_ref_function().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="932">Obtain a pointer to a function which can be used to
+           line="947">Obtain a pointer to a function which can be used to
 increase the reference count an instance of this object type.
 This takes derivation into account and will reversely traverse
 the base classes of this type, starting at the top type.</doc>
@@ -5298,14 +5298,14 @@ the base classes of this type, starting at the top type.</doc>
       <return-value nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="941">the function pointer or %NULL</doc>
+             line="956">the function pointer or %NULL</doc>
         <type name="ObjectInfoRefFunction" c:type="GIObjectInfoRefFunction"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="934">a #GIObjectInfo</doc>
+               line="949">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5314,7 +5314,7 @@ the base classes of this type, starting at the top type.</doc>
               c:identifier="g_object_info_get_set_value_function">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="1000">Obtain the symbol name of the function that should be called to convert
+           line="1015">Obtain the symbol name of the function that should be called to convert
 set a GValue giving an object instance pointer of this object type.
 I's mainly used fundamental types. The type signature for the symbol
 is %GIObjectInfoSetValueFunction, to fetch the function pointer
@@ -5323,14 +5323,14 @@ see g_object_info_get_set_value_function().</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="1010">the symbol or %NULL</doc>
+             line="1025">the symbol or %NULL</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="1002">a #GIObjectInfo</doc>
+               line="1017">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5340,7 +5340,7 @@ see g_object_info_get_set_value_function().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="1029">Obtain a pointer to a function which can be used to
+           line="1044">Obtain a pointer to a function which can be used to
 set a GValue given an instance of this object type.
 This takes derivation into account and will reversely traverse
 the base classes of this type, starting at the top type.</doc>
@@ -5348,7 +5348,7 @@ the base classes of this type, starting at the top type.</doc>
       <return-value nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="1038">the function pointer or %NULL</doc>
+             line="1053">the function pointer or %NULL</doc>
         <type name="ObjectInfoSetValueFunction"
               c:type="GIObjectInfoSetValueFunction"/>
       </return-value>
@@ -5356,7 +5356,7 @@ the base classes of this type, starting at the top type.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="1031">a #GIObjectInfo</doc>
+               line="1046">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5365,12 +5365,12 @@ the base classes of this type, starting at the top type.</doc>
               c:identifier="g_object_info_get_signal">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="549">Obtain an object type signal at index @n.</doc>
+           line="565">Obtain an object type signal at index @n.</doc>
       <source-position filename="girepository/giobjectinfo.h" line="142"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="556">the #GISignalInfo. Free the struct by calling
+             line="572">the #GISignalInfo. Free the struct by calling
 g_base_info_unref() when done.</doc>
         <type name="SignalInfo" c:type="GISignalInfo*"/>
       </return-value>
@@ -5378,13 +5378,13 @@ g_base_info_unref() when done.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="551">a #GIObjectInfo</doc>
+               line="567">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
         <parameter name="n" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="552">index of signal to get</doc>
+               line="568">index of signal to get</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -5436,7 +5436,7 @@ function for which this object type is registered.</doc>
               c:identifier="g_object_info_get_unref_function">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="952">Obtain the symbol name of the function that should be called to unref this
+           line="967">Obtain the symbol name of the function that should be called to unref this
 object type. It's mainly used fundamental types. The type signature for
 the symbol is %GIObjectInfoUnrefFunction, to fetch the function pointer
 see g_object_info_get_unref_function().</doc>
@@ -5444,14 +5444,14 @@ see g_object_info_get_unref_function().</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="961">the symbol or %NULL</doc>
+             line="976">the symbol or %NULL</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="954">a #GIObjectInfo</doc>
+               line="969">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5461,7 +5461,7 @@ see g_object_info_get_unref_function().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="980">Obtain a pointer to a function which can be used to
+           line="995">Obtain a pointer to a function which can be used to
 decrease the reference count an instance of this object type.
 This takes derivation into account and will reversely traverse
 the base classes of this type, starting at the top type.</doc>
@@ -5469,7 +5469,7 @@ the base classes of this type, starting at the top type.</doc>
       <return-value nullable="1">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="989">the function pointer or %NULL</doc>
+             line="1004">the function pointer or %NULL</doc>
         <type name="ObjectInfoUnrefFunction"
               c:type="GIObjectInfoUnrefFunction"/>
       </return-value>
@@ -5477,7 +5477,7 @@ the base classes of this type, starting at the top type.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="982">a #GIObjectInfo</doc>
+               line="997">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
       </parameters>
@@ -5486,12 +5486,12 @@ the base classes of this type, starting at the top type.</doc>
               c:identifier="g_object_info_get_vfunc">
       <doc xml:space="preserve"
            filename="girepository/giobjectinfo.c"
-           line="641">Obtain an object type virtual function at index @n.</doc>
+           line="656">Obtain an object type virtual function at index @n.</doc>
       <source-position filename="girepository/giobjectinfo.h" line="155"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="girepository/giobjectinfo.c"
-             line="648">the #GIVFuncInfo. Free the struct by calling
+             line="663">the #GIVFuncInfo. Free the struct by calling
 g_base_info_unref() when done.</doc>
         <type name="VFuncInfo" c:type="GIVFuncInfo*"/>
       </return-value>
@@ -5499,13 +5499,13 @@ g_base_info_unref() when done.</doc>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="643">a #GIObjectInfo</doc>
+               line="658">a #GIObjectInfo</doc>
           <type name="ObjectInfo" c:type="GIObjectInfo*"/>
         </parameter>
         <parameter name="n" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/giobjectinfo.c"
-               line="644">index of virtual function to get</doc>
+               line="659">index of virtual function to get</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>

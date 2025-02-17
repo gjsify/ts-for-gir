@@ -1,6 +1,6 @@
 {
     "name": "@ts-for-gir-example/gio-2-action-entries",
-    "version": "4.0.0-beta.20",
+    "version": "4.0.0-beta.21",
     "description": "Example demonstrating Gio.ActionEntry",
     "type": "module",
     "private": true,

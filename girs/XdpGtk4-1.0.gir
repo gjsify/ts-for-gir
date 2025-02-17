@@ -18,19 +18,19 @@ and/or use gtk-doc annotations.  -->
     <function name="parent_new_gtk" c:identifier="xdp_parent_new_gtk">
       <doc xml:space="preserve"
            filename="libportal/portal-gtk4.c"
-           line="86">Creates a new [struct@Parent] from @window.</doc>
+           line="99">Creates a new [struct@Parent] from @window.</doc>
       <source-position filename="libportal/portal-gtk4.h" line="32"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libportal/portal-gtk4.c"
-             line="92">a [struct@Parent]</doc>
+             line="105">a [struct@Parent]</doc>
         <type name="Xdp.Parent" c:type="XdpParent*"/>
       </return-value>
       <parameters>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal-gtk4.c"
-               line="88">a [class@Gtk.Window]</doc>
+               line="101">a [class@Gtk.Window]</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
       </parameters>

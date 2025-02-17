@@ -223,7 +223,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ENTRY_GROUP"
                     c:identifier="GA_ENTRY_GROUP"
                     introspectable="0">
-      <source-position filename="ga-entry-group.h" line="68"/>
+      <source-position filename="ga-entry-group.h" line="66"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -232,7 +232,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ENTRY_GROUP_CLASS"
                     c:identifier="GA_ENTRY_GROUP_CLASS"
                     introspectable="0">
-      <source-position filename="ga-entry-group.h" line="70"/>
+      <source-position filename="ga-entry-group.h" line="68"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -241,7 +241,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ENTRY_GROUP_GET_CLASS"
                     c:identifier="GA_ENTRY_GROUP_GET_CLASS"
                     introspectable="0">
-      <source-position filename="ga-entry-group.h" line="76"/>
+      <source-position filename="ga-entry-group.h" line="74"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -254,9 +254,9 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GaEntryGroup"
            glib:get-type="ga_entry_group_get_type"
            glib:type-struct="EntryGroupClass">
-      <source-position filename="ga-entry-group.h" line="58"/>
+      <source-position filename="ga-entry-group.h" line="56"/>
       <constructor name="new" c:identifier="ga_entry_group_new">
-        <source-position filename="ga-entry-group.h" line="80"/>
+        <source-position filename="ga-entry-group.h" line="78"/>
         <return-value transfer-ownership="full">
           <type name="EntryGroup" c:type="GaEntryGroup*"/>
         </return-value>
@@ -264,7 +264,7 @@ and/or use gtk-doc annotations.  -->
       <method name="add_record"
               c:identifier="ga_entry_group_add_record"
               throws="1">
-        <source-position filename="ga-entry-group.h" line="131"/>
+        <source-position filename="ga-entry-group.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -298,7 +298,7 @@ and/or use gtk-doc annotations.  -->
       <method name="add_record_full"
               c:identifier="ga_entry_group_add_record_full"
               throws="1">
-        <source-position filename="ga-entry-group.h" line="137"/>
+        <source-position filename="ga-entry-group.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -341,7 +341,7 @@ and/or use gtk-doc annotations.  -->
       <method name="add_service"
               c:identifier="ga_entry_group_add_service"
               introspectable="0">
-        <source-position filename="ga-entry-group.h" line="113"/>
+        <source-position filename="ga-entry-group.h" line="111"/>
         <return-value>
           <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
         </return-value>
@@ -369,7 +369,7 @@ and/or use gtk-doc annotations.  -->
       <method name="add_service_full"
               c:identifier="ga_entry_group_add_service_full"
               introspectable="0">
-        <source-position filename="ga-entry-group.h" line="119"/>
+        <source-position filename="ga-entry-group.h" line="117"/>
         <return-value>
           <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
         </return-value>
@@ -412,7 +412,7 @@ and/or use gtk-doc annotations.  -->
       <method name="add_service_full_strlist"
               c:identifier="ga_entry_group_add_service_full_strlist"
               introspectable="0">
-        <source-position filename="ga-entry-group.h" line="93"/>
+        <source-position filename="ga-entry-group.h" line="91"/>
         <return-value>
           <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
         </return-value>
@@ -455,7 +455,7 @@ and/or use gtk-doc annotations.  -->
       <method name="add_service_strlist"
               c:identifier="ga_entry_group_add_service_strlist"
               introspectable="0">
-        <source-position filename="ga-entry-group.h" line="85"/>
+        <source-position filename="ga-entry-group.h" line="83"/>
         <return-value>
           <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
         </return-value>
@@ -481,7 +481,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="attach" c:identifier="ga_entry_group_attach" throws="1">
-        <source-position filename="ga-entry-group.h" line="82"/>
+        <source-position filename="ga-entry-group.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -495,7 +495,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="commit" c:identifier="ga_entry_group_commit" throws="1">
-        <source-position filename="ga-entry-group.h" line="170"/>
+        <source-position filename="ga-entry-group.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -506,7 +506,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="reset" c:identifier="ga_entry_group_reset" throws="1">
-        <source-position filename="ga-entry-group.h" line="173"/>
+        <source-position filename="ga-entry-group.h" line="171"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -538,13 +538,13 @@ and/or use gtk-doc annotations.  -->
     <record name="EntryGroupClass"
             c:type="GaEntryGroupClass"
             glib:is-gtype-struct-for="EntryGroup">
-      <source-position filename="ga-entry-group.h" line="58"/>
+      <source-position filename="ga-entry-group.h" line="56"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <record name="EntryGroupService" c:type="GaEntryGroupService">
-      <source-position filename="ga-entry-group.h" line="54"/>
+      <source-position filename="ga-entry-group.h" line="52"/>
       <field name="interface" writable="1">
         <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
       </field>
@@ -570,7 +570,7 @@ and/or use gtk-doc annotations.  -->
         <type name="guint16" c:type="guint16"/>
       </field>
       <method name="freeze" c:identifier="ga_entry_group_service_freeze">
-        <source-position filename="ga-entry-group.h" line="150"/>
+        <source-position filename="ga-entry-group.h" line="148"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -583,7 +583,7 @@ and/or use gtk-doc annotations.  -->
       <method name="remove_key"
               c:identifier="ga_entry_group_service_remove_key"
               throws="1">
-        <source-position filename="ga-entry-group.h" line="163"/>
+        <source-position filename="ga-entry-group.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -597,7 +597,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="set" c:identifier="ga_entry_group_service_set" throws="1">
-        <source-position filename="ga-entry-group.h" line="154"/>
+        <source-position filename="ga-entry-group.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -616,7 +616,7 @@ and/or use gtk-doc annotations.  -->
       <method name="set_arbitrary"
               c:identifier="ga_entry_group_service_set_arbitrary"
               throws="1">
-        <source-position filename="ga-entry-group.h" line="158"/>
+        <source-position filename="ga-entry-group.h" line="156"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -638,7 +638,7 @@ and/or use gtk-doc annotations.  -->
       <method name="thaw"
               c:identifier="ga_entry_group_service_thaw"
               throws="1">
-        <source-position filename="ga-entry-group.h" line="167"/>
+        <source-position filename="ga-entry-group.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -671,11 +671,11 @@ and/or use gtk-doc annotations.  -->
               glib:nick="GA_ENTRY_GROUP_STATE_ESTABLISHED"
               glib:name="GA_ENTRY_GROUP_STATE_ESTABLISHED">
       </member>
-      <member name="GA_ENTRY_GROUP_STATE_COLLISION"
+      <member name="GA_ENTRY_GROUP_STATE_COLLISTION"
               value="3"
-              c:identifier="GA_ENTRY_GROUP_STATE_COLLISION"
-              glib:nick="GA_ENTRY_GROUP_STATE_COLLISION"
-              glib:name="GA_ENTRY_GROUP_STATE_COLLISION">
+              c:identifier="GA_ENTRY_GROUP_STATE_COLLISTION"
+              glib:nick="GA_ENTRY_GROUP_STATE_COLLISTION"
+              glib:name="GA_ENTRY_GROUP_STATE_COLLISTION">
       </member>
       <member name="GA_ENTRY_GROUP_STATE_FAILURE"
               value="4"

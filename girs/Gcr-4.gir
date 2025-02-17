@@ -16,10 +16,92 @@ and/or use gtk-doc annotations.  -->
              shared-library="libgcr-4.so.4"
              c:identifier-prefixes="Gcr"
              c:symbol-prefixes="gcr">
+    <class name="AccessDescription"
+           c:symbol-prefix="access_description"
+           c:type="GcrAccessDescription"
+           version="4.3.91"
+           parent="GObject.Object"
+           glib:type-name="GcrAccessDescription"
+           glib:get-type="gcr_access_description_get_type"
+           glib:type-struct="AccessDescriptionClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-authority-info-access.c"
+           line="37">Describes a location for fetching extra information from the Certificate Authority.
+
+This object is usually part of a
+[class@Gcr.CertificateExtensionAuthorityInfoAccess] object.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="167"/>
+      <method name="get_location"
+              c:identifier="gcr_access_description_get_location">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-info-access.c"
+             line="109">Returns the location, described by a [class@Gcr.GeneralName].</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="176"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-info-access.c"
+               line="114">the location</doc>
+          <type name="GeneralName" c:type="GcrGeneralName*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="AccessDescription" c:type="GcrAccessDescription*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_method_name"
+              c:identifier="gcr_access_description_get_method_name">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-info-access.c"
+             line="94">Returns a user-friendly name of the method for accesssing the resource, if
+known.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="174"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-info-access.c"
+               line="100">A method name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="AccessDescription" c:type="GcrAccessDescription*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_method_oid"
+              c:identifier="gcr_access_description_get_method_oid">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-info-access.c"
+             line="80">Returns the OID string that describes the method for accessing the resource.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="172"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-info-access.c"
+               line="85">The method OID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="AccessDescription" c:type="GcrAccessDescription*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="AccessDescriptionClass"
+            c:type="GcrAccessDescriptionClass"
+            glib:is-gtype-struct-for="AccessDescription">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="167"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <function-macro name="CERTIFICATE"
                     c:identifier="GCR_CERTIFICATE"
                     introspectable="0">
-      <source-position filename="gcr/gcr-certificate.h" line="35"/>
+      <source-position filename="gcr/gcr-certificate.h" line="38"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -55,7 +137,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="CERTIFICATE_GET_INTERFACE"
                     c:identifier="GCR_CERTIFICATE_GET_INTERFACE"
                     introspectable="0">
-      <source-position filename="gcr/gcr-certificate.h" line="37"/>
+      <source-position filename="gcr/gcr-certificate.h" line="40"/>
       <parameters>
         <parameter name="inst">
         </parameter>
@@ -101,7 +183,7 @@ against.
                glib:type-struct="CertificateIface">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate.c"
-           line="41">An interface that represents an X.509 certificate.
+           line="43">An interface that represents an X.509 certificate.
 
 Objects can implement this interface to make a certificate usable with the
 GCR library.
@@ -115,20 +197,20 @@ you already have the raw certificate data.
 
 The #GcrCertificate interface has several properties that must be implemented.
 You can use a mixin to implement these properties if desired. See the
-gcr_certificate_mixin_class_init() and gcr_certificate_mixin_get_property()
+[func@Certificate.mixin_class_init] and [func@Certificate.mixin_get_property]
 functions.</doc>
-      <source-position filename="gcr/gcr-certificate.h" line="67"/>
+      <source-position filename="gcr/gcr-certificate.h" line="70"/>
       <function name="mixin_class_init"
                 c:identifier="gcr_certificate_mixin_class_init"
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1356">Initialize the certificate mixin for the class. This mixin implements the
+             line="1532">Initialize the certificate mixin for the class. This mixin implements the
 various required properties for the certificate.
 
 Call this function near the end of your derived class_init function. The
 derived class must implement the #GcrCertificate interface.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="129"/>
+        <source-position filename="gcr/gcr-certificate.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -136,7 +218,7 @@ derived class must implement the #GcrCertificate interface.</doc>
           <parameter name="object_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1358">The GObjectClass for this class</doc>
+                 line="1534">The GObjectClass for this class</doc>
             <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
           </parameter>
         </parameters>
@@ -146,7 +228,7 @@ derived class must implement the #GcrCertificate interface.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1383">Implementation to get various required certificate properties. This should
+             line="1559">Implementation to get various required certificate properties. This should
 be called from your derived class get_property function, or used as a
 get_property virtual function.
 
@@ -179,7 +261,7 @@ my_class_init (MyClass *klass)
 	...
 }
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="131"/>
+        <source-position filename="gcr/gcr-certificate.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -187,25 +269,25 @@ my_class_init (MyClass *klass)
           <parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1385">The object</doc>
+                 line="1561">The object</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
           <parameter name="prop_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1386">The property id</doc>
+                 line="1562">The property id</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1387">The value to fill in.</doc>
+                 line="1563">The value to fill in.</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
           <parameter name="pspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1388">The param specification.</doc>
+                 line="1564">The param specification.</doc>
             <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
           </parameter>
         </parameters>
@@ -213,12 +295,12 @@ my_class_init (MyClass *klass)
       <virtual-method name="get_der_data" invoker="get_der_data">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="252">Gets the raw DER data for an X.509 certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="56"/>
+             line="258">Gets the raw DER data for an X.509 certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="259">raw DER data of the X.509 certificate</doc>
+               line="265">raw DER data of the X.509 certificate</doc>
           <array length="0" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -227,7 +309,7 @@ my_class_init (MyClass *klass)
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="254">a #GcrCertificate</doc>
+                 line="260">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="n_data"
@@ -236,7 +318,7 @@ my_class_init (MyClass *klass)
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="255">a pointer to a location to store the size of the resulting DER data.</doc>
+                 line="261">a pointer to a location to store the size of the resulting DER data.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -245,21 +327,21 @@ my_class_init (MyClass *klass)
               c:identifier="gcr_certificate_get_basic_constraints">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="857">Get the basic constraints for the certificate if present. If %FALSE is
+             line="894">Get the basic constraints for the certificate if present. If %FALSE is
 returned then no basic constraints are present and the @is_ca and
 @path_len arguments are not changed.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="121"/>
+        <source-position filename="gcr/gcr-certificate.h" line="127"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="867">whether basic constraints are present or not</doc>
+               line="904">whether basic constraints are present or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="859">the certificate</doc>
+                 line="896">the certificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="is_ca"
@@ -270,7 +352,7 @@ returned then no basic constraints are present and the @is_ca and
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="860">location to place a %TRUE if is an authority</doc>
+                 line="897">location to place a %TRUE if is an authority</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="path_len"
@@ -281,7 +363,7 @@ returned then no basic constraints are present and the @is_ca and
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="861">location to place the max path length</doc>
+                 line="898">location to place the max path length</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -289,12 +371,12 @@ returned then no basic constraints are present and the @is_ca and
       <method name="get_der_data" c:identifier="gcr_certificate_get_der_data">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="252">Gets the raw DER data for an X.509 certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="71"/>
+             line="258">Gets the raw DER data for an X.509 certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="259">raw DER data of the X.509 certificate</doc>
+               line="265">raw DER data of the X.509 certificate</doc>
           <array length="0" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -303,7 +385,7 @@ returned then no basic constraints are present and the @is_ca and
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="254">a #GcrCertificate</doc>
+                 line="260">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="n_data"
@@ -312,7 +394,7 @@ returned then no basic constraints are present and the @is_ca and
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="255">a pointer to a location to store the size of the resulting DER data.</doc>
+                 line="261">a pointer to a location to store the size of the resulting DER data.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -322,19 +404,19 @@ returned then no basic constraints are present and the @is_ca and
               glib:get-property="expiry-date">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="629">Get the expiry date of this certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="103"/>
+             line="635">Get the expiry date of this certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="106"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="635">An expiry date of this certificate.</doc>
+               line="641">An expiry date of this certificate.</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="631">a #GcrCertificate</doc>
+                 line="637">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -343,15 +425,15 @@ returned then no basic constraints are present and the @is_ca and
               c:identifier="gcr_certificate_get_fingerprint">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="681">Calculate the fingerprint for this certificate.
+             line="718">Calculate the fingerprint for this certificate.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="114"/>
+        <source-position filename="gcr/gcr-certificate.h" line="120"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="692">the raw binary fingerprint</doc>
+               line="729">the raw binary fingerprint</doc>
           <array length="1" zero-terminated="0" c:type="guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
@@ -360,13 +442,13 @@ it is no longer required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="683">a #GcrCertificate</doc>
+                 line="720">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="684">the type of algorithm for the fingerprint.</doc>
+                 line="721">the type of algorithm for the fingerprint.</doc>
             <type name="GLib.ChecksumType" c:type="GChecksumType"/>
           </parameter>
           <parameter name="n_length"
@@ -375,7 +457,7 @@ it is no longer required.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="685">The length of the resulting fingerprint.</doc>
+                 line="722">The length of the resulting fingerprint.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -384,29 +466,29 @@ it is no longer required.</doc>
               c:identifier="gcr_certificate_get_fingerprint_hex">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="720">Calculate the fingerprint for this certificate, and return it
+             line="757">Calculate the fingerprint for this certificate, and return it
 as a hex string.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="118"/>
+        <source-position filename="gcr/gcr-certificate.h" line="124"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="731">an allocated hex string which contains the fingerprint.</doc>
+               line="768">an allocated hex string which contains the fingerprint.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="722">a #GcrCertificate</doc>
+                 line="759">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="723">the type of algorithm for the fingerprint.</doc>
+                 line="760">the type of algorithm for the fingerprint.</doc>
             <type name="GLib.ChecksumType" c:type="GChecksumType"/>
           </parameter>
         </parameters>
@@ -415,13 +497,13 @@ it is no longer required.</doc>
               c:identifier="gcr_certificate_get_interface_elements">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1176">Get the list of sections from the certificate that can be shown to the user
+             line="1302">Get the list of sections from the certificate that can be shown to the user
 interface.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="125"/>
+        <source-position filename="gcr/gcr-certificate.h" line="131"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1183">A #GList of
+               line="1309">A #GList of
 #GcrCertificateSection</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="CertificateSection"/>
@@ -431,7 +513,7 @@ interface.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1178">the #GcrCertificate</doc>
+                 line="1304">the #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -440,19 +522,19 @@ interface.</doc>
               c:identifier="gcr_certificate_get_issued_date">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="607">Get the issued date of this certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="101"/>
+             line="613">Get the issued date of this certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="104"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="613">A issued date of this certificate.</doc>
+               line="619">A issued date of this certificate.</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="609">a #GcrCertificate</doc>
+                 line="615">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -461,22 +543,22 @@ interface.</doc>
               c:identifier="gcr_certificate_get_issuer_cn">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="296">Get the common name of the issuer of this certificate.
+             line="302">Get the common name of the issuer of this certificate.
 
 The string returned should be freed by the caller when no longer
 required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="76"/>
+        <source-position filename="gcr/gcr-certificate.h" line="79"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="305">The allocated issuer CN, or %NULL if no issuer CN present.</doc>
+               line="311">The allocated issuer CN, or %NULL if no issuer CN present.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="298">a #GcrCertificate</doc>
+                 line="304">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -485,23 +567,23 @@ required.</doc>
               c:identifier="gcr_certificate_get_issuer_dn">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="432">Get the full issuer DN of the certificate as a (mostly)
+             line="438">Get the full issuer DN of the certificate as a (mostly)
 readable string.
 
 The string returned should be freed by the caller when no longer
 required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="78"/>
+        <source-position filename="gcr/gcr-certificate.h" line="81"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="442">The allocated issuer DN of the certificate.</doc>
+               line="448">The allocated issuer DN of the certificate.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="434">a #GcrCertificate</doc>
+                 line="440">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -511,22 +593,22 @@ required.</doc>
               glib:get-property="issuer-name">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="271">Get a name to represent the issuer of this certificate.
+             line="277">Get a name to represent the issuer of this certificate.
 
 This will try to lookup the common name, orianizational unit,
 organization in that order.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="74"/>
+        <source-position filename="gcr/gcr-certificate.h" line="77"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="280">the allocated issuer name, or %NULL if no issuer name</doc>
+               line="286">the allocated issuer name, or %NULL if no issuer name</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="273">a #GcrCertificate</doc>
+                 line="279">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -535,7 +617,7 @@ organization in that order.</doc>
               c:identifier="gcr_certificate_get_issuer_part">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="313">Get a part of the DN of the issuer of this certificate.
+             line="319">Get a part of the DN of the issuer of this certificate.
 
 Examples of a @part might be the 'OU' (organizational unit)
 or the 'CN' (common name). Only the value of that part
@@ -543,11 +625,11 @@ of the DN is returned.
 
 The string returned should be freed by the caller when no longer
 required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="80"/>
+        <source-position filename="gcr/gcr-certificate.h" line="83"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="327">the allocated part of the issuer DN, or %NULL if no
+               line="333">the allocated part of the issuer DN, or %NULL if no
          such part is present</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -555,13 +637,13 @@ required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="315">a #GcrCertificate</doc>
+                 line="321">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="part" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="316">a DN type string or OID.</doc>
+                 line="322">a DN type string or OID.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -570,14 +652,14 @@ required.</doc>
               c:identifier="gcr_certificate_get_issuer_raw">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="359">Get the raw DER data for the issuer DN of the certificate.
+             line="365">Get the raw DER data for the issuer DN of the certificate.
 
 The data should be freed by using g_free() when no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="83"/>
+        <source-position filename="gcr/gcr-certificate.h" line="86"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="368">allocated memory
+               line="374">allocated memory
          containing the raw issuer</doc>
           <array length="0" zero-terminated="0" c:type="guchar*">
             <type name="guint8" c:type="guchar"/>
@@ -587,7 +669,7 @@ The data should be freed by using g_free() when no longer required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="361">a #GcrCertificate</doc>
+                 line="367">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="n_data"
@@ -596,7 +678,7 @@ The data should be freed by using g_free() when no longer required.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="362">The length of the returned data.</doc>
+                 line="368">The length of the returned data.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -604,20 +686,41 @@ The data should be freed by using g_free() when no longer required.</doc>
       <method name="get_key_size" c:identifier="gcr_certificate_get_key_size">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="651">Get the key size in bits of the public key represented
+             line="687">Get the key size in bits of the public key represented
 by this certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="112"/>
+        <source-position filename="gcr/gcr-certificate.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="658">The key size of the certificate.</doc>
+               line="694">The key size of the certificate.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="653">a #GcrCertificate</doc>
+                 line="689">a #GcrCertificate</doc>
+            <type name="Certificate" c:type="GcrCertificate*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_public_key_info"
+              c:identifier="gcr_certificate_get_public_key_info">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate.c"
+             line="657">Returns the subject public key info (SPKI) of the certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate.c"
+               line="663">The SPKI of the certificate.</doc>
+          <type name="SubjectPublicKeyInfo" c:type="GcrSubjectPublicKeyInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate.c"
+                 line="659">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -626,15 +729,15 @@ by this certificate.</doc>
               c:identifier="gcr_certificate_get_serial_number">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="790">Get the raw binary serial number of the certificate.
+             line="827">Get the raw binary serial number of the certificate.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="107"/>
+        <source-position filename="gcr/gcr-certificate.h" line="110"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="800">the raw binary serial number.</doc>
+               line="837">the raw binary serial number.</doc>
           <array length="0" zero-terminated="0" c:type="guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
@@ -643,7 +746,7 @@ it is no longer required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="792">a #GcrCertificate</doc>
+                 line="829">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="n_length"
@@ -652,7 +755,7 @@ it is no longer required.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="793">the length of the returned data.</doc>
+                 line="830">the length of the returned data.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -661,22 +764,22 @@ it is no longer required.</doc>
               c:identifier="gcr_certificate_get_serial_number_hex">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="828">Get the serial number of the certificate as a hex string.
+             line="865">Get the serial number of the certificate as a hex string.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="110"/>
+        <source-position filename="gcr/gcr-certificate.h" line="113"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="837">an allocated string containing the serial number as hex.</doc>
+               line="874">an allocated string containing the serial number as hex.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="830">a #GcrCertificate</doc>
+                 line="867">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -685,22 +788,22 @@ it is no longer required.</doc>
               c:identifier="gcr_certificate_get_subject_cn">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="458">Get the common name of the subject of this certificate.
+             line="464">Get the common name of the subject of this certificate.
 
 The string returned should be freed by the caller when no longer
 required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="91"/>
+        <source-position filename="gcr/gcr-certificate.h" line="94"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="467">The allocated subject CN, or %NULL if no subject CN present.</doc>
+               line="473">The allocated subject CN, or %NULL if no subject CN present.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="460">a #GcrCertificate</doc>
+                 line="466">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -709,23 +812,23 @@ required.</doc>
               c:identifier="gcr_certificate_get_subject_dn">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="532">Get the full subject DN of the certificate as a (mostly)
+             line="538">Get the full subject DN of the certificate as a (mostly)
 readable string.
 
 The string returned should be freed by the caller when no longer
 required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="93"/>
+        <source-position filename="gcr/gcr-certificate.h" line="96"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="542">The allocated subject DN of the certificate.</doc>
+               line="548">The allocated subject DN of the certificate.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="534">a #GcrCertificate</doc>
+                 line="540">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -735,22 +838,22 @@ required.</doc>
               glib:get-property="subject-name">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="475">Get a name to represent the subject of this certificate.
+             line="481">Get a name to represent the subject of this certificate.
 
 This will try to lookup the common name, orianizational unit,
 organization in that order.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="89"/>
+        <source-position filename="gcr/gcr-certificate.h" line="92"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="484">the allocated subject name, or %NULL if no subject name</doc>
+               line="490">the allocated subject name, or %NULL if no subject name</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="477">a #GcrCertificate</doc>
+                 line="483">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -759,7 +862,7 @@ organization in that order.</doc>
               c:identifier="gcr_certificate_get_subject_part">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="500">Get a part of the DN of the subject of this certificate.
+             line="506">Get a part of the DN of the subject of this certificate.
 
 Examples of a @part might be the 'OU' (organizational unit)
 or the 'CN' (common name). Only the value of that part
@@ -767,11 +870,11 @@ of the DN is returned.
 
 The string returned should be freed by the caller when no longer
 required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="95"/>
+        <source-position filename="gcr/gcr-certificate.h" line="98"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="514">the allocated part of the subject DN, or %NULL if no
+               line="520">the allocated part of the subject DN, or %NULL if no
          such part is present.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -779,13 +882,13 @@ required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="502">a #GcrCertificate</doc>
+                 line="508">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="part" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="503">a DN type string or OID.</doc>
+                 line="509">a DN type string or OID.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -794,14 +897,14 @@ required.</doc>
               c:identifier="gcr_certificate_get_subject_raw">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="572">Get the raw DER data for the subject DN of the certificate.
+             line="578">Get the raw DER data for the subject DN of the certificate.
 
 The data should be freed by using g_free() when no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="98"/>
+        <source-position filename="gcr/gcr-certificate.h" line="101"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="581">allocated memory
+               line="587">allocated memory
          containing the raw subject</doc>
           <array length="0" zero-terminated="0" c:type="guchar*">
             <type name="guint8" c:type="guchar"/>
@@ -811,7 +914,7 @@ The data should be freed by using g_free() when no longer required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="574">a #GcrCertificate</doc>
+                 line="580">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="n_data"
@@ -820,7 +923,7 @@ The data should be freed by using g_free() when no longer required.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="575">The length of the returned data.</doc>
+                 line="581">The length of the returned data.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -828,19 +931,19 @@ The data should be freed by using g_free() when no longer required.</doc>
       <method name="get_version" c:identifier="gcr_certificate_get_version">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="759">Get the version of the X.509 certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="105"/>
+             line="796">Get the version of the X.509 certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="765">the version of the certificate</doc>
+               line="802">the version of the certificate</doc>
           <type name="gulong" c:type="gulong"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="761">a #GcrCertificate</doc>
+                 line="798">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -848,40 +951,61 @@ The data should be freed by using g_free() when no longer required.</doc>
       <method name="is_issuer" c:identifier="gcr_certificate_is_issuer">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="394">Check if @issuer could be the issuer of this certificate. This is done by
+             line="400">Check if @issuer could be the issuer of this certificate. This is done by
 comparing the relevant subject and issuer fields. No signature check is
 done. Proper verification of certificates must be done via a crypto
 library.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="86"/>
+        <source-position filename="gcr/gcr-certificate.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="404">whether @issuer could be the issuer of the certificate.</doc>
+               line="410">whether @issuer could be the issuer of the certificate.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="396">a #GcrCertificate</doc>
+                 line="402">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="issuer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="397">a possible issuer #GcrCertificate</doc>
+                 line="403">a possible issuer #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="list_extensions"
+              c:identifier="gcr_certificate_list_extensions"
+              version="4.3.90">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate.c"
+             line="1459">Creates a [class@CertificateExtensionList] that can be used to inspect the
+extensions of this certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="134"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate.c"
+               line="1465">The certificate's extensions</doc>
+          <type name="CertificateExtensionList"
+                c:type="GcrCertificateExtensionList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Certificate" c:type="GcrCertificate*"/>
+          </instance-parameter>
         </parameters>
       </method>
       <method name="mixin_emit_notify"
               c:identifier="gcr_certificate_mixin_emit_notify">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1334">Implementers of the #GcrCertificate mixin should call this function to notify
+             line="1510">Implementers of the #GcrCertificate mixin should call this function to notify
 when the certificate has changed to emit notifications on the various
 properties.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="127"/>
+        <source-position filename="gcr/gcr-certificate.h" line="136"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -889,7 +1013,7 @@ properties.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1336">the #GcrCertificate</doc>
+                 line="1512">the #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -897,7 +1021,7 @@ properties.</doc>
       <property name="description" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="203">A readable description for this certificate</doc>
+             line="209">A readable description for this certificate</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="expiry-date"
@@ -905,7 +1029,7 @@ properties.</doc>
                 getter="get_expiry_date">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="230">The expiry date of the certificate</doc>
+             line="236">The expiry date of the certificate</doc>
         <type name="GLib.DateTime"/>
       </property>
       <property name="issuer-name"
@@ -913,13 +1037,13 @@ properties.</doc>
                 getter="get_issuer_name">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="221">Common name part of the certificate issuer</doc>
+             line="227">Common name part of the certificate issuer</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="label" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="194">A readable label for this certificate.</doc>
+             line="200">A readable label for this certificate.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="subject-name"
@@ -988,7 +1112,7 @@ then come the signers (certificate authorities) each in turn. If a root
 certificate authority is present, it should come last.
 
 Adding a certificate an already built chain (see
-gcr_certificate_chain_build()) resets the type of the certificate chain
+[method@Gcr.CertificateChain.build]) resets the type of the certificate chain
 to %GCR_CERTIFICATE_CHAIN_UNKNOWN</doc>
         <source-position filename="gcr/gcr-certificate-chain.h" line="76"/>
         <return-value transfer-ownership="none">
@@ -1042,7 +1166,7 @@ lookups for anchors or pinned certificates are done, and the resulting chain
 will be neither anchored or pinned. Additionally no missing certificate
 authorities are looked up in PKCS#11
 
-This call will block, see gcr_certificate_chain_build_async() for the
+This call will block, see [method@Gcr.CertificateChain.build_async] for the
 asynchronous version.</doc>
         <source-position filename="gcr/gcr-certificate-chain.h" line="90"/>
         <return-value transfer-ownership="none">
@@ -1390,7 +1514,7 @@ found.</doc>
     <bitfield name="CertificateChainFlags" c:type="GcrCertificateChainFlags">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate-chain.c"
-           line="506">Flags to be used with the gcr_certificate_chain_build() operation.</doc>
+           line="506">Flags to be used with the [method@Gcr.CertificateChain.build] operation.</doc>
       <source-position filename="gcr/gcr-certificate-chain.h" line="48"/>
       <member name="none" value="0" c:identifier="GCR_CERTIFICATE_CHAIN_NONE">
         <doc xml:space="preserve"
@@ -1475,6 +1599,807 @@ explicitly for a purpose and communication with a certain peer.</doc>
 certificate. The anchored certificate is not necessarily self-signed.</doc>
       </member>
     </enumeration>
+    <class name="CertificateExtension"
+           c:symbol-prefix="certificate_extension"
+           c:type="GcrCertificateExtension"
+           version="4.3.90"
+           parent="GObject.Object"
+           glib:type-name="GcrCertificateExtension"
+           glib:get-type="gcr_certificate_extension_get_type"
+           glib:type-struct="CertificateExtensionClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension.c"
+           line="33">An object that describes a certificate extension.
+
+By default, a certificate extension exposes 3 things: an OID,
+whether it's marked as critical, and the raw value.
+
+For known extensions, gcr tries to provide subclasses with the appropriate
+API.
+
+See also [method@Certificate.list_extensions].</doc>
+      <source-position filename="gcr/gcr-certificate-extension.h" line="42"/>
+      <method name="get_description"
+              c:identifier="gcr_certificate_extension_get_description"
+              version="4.3.90">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="234">Returns a user-displayable description of the OID that identifies the
+extension, if known.</doc>
+        <source-position filename="gcr/gcr-certificate-extension.h" line="46"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension.c"
+               line="240">A user-facing description, or `null` if
+  unknown</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtension"
+                  c:type="GcrCertificateExtension*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_oid"
+              c:identifier="gcr_certificate_extension_get_oid"
+              glib:get-property="oid"
+              version="4.3.90">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="185">Returns the OID that identifies the extension</doc>
+        <source-position filename="gcr/gcr-certificate-extension.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtension"
+                  c:type="GcrCertificateExtension*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="gcr_certificate_extension_get_value"
+              glib:get-property="value"
+              version="4.3.90">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="256">Returns the raw value in bytes of the extension.</doc>
+        <source-position filename="gcr/gcr-certificate-extension.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension.c"
+               line="261">The raw value date</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtension"
+                  c:type="GcrCertificateExtension*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_critical"
+              c:identifier="gcr_certificate_extension_is_critical"
+              glib:get-property="critical">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="276">Returns wether the certificate extension is marked critical.</doc>
+        <source-position filename="gcr/gcr-certificate-extension.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension.c"
+               line="281">`true` if the extension is marked critical</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtension"
+                  c:type="GcrCertificateExtension*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="critical"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="is_critical"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="160">Whether this certificate is critical.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="oid"
+                transfer-ownership="none"
+                getter="get_oid"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="150">The Object Identifier (OID) that identifies the extension.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="value"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_value">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension.c"
+             line="170">The raw value in bytes of the extension.</doc>
+        <type name="GLib.Bytes"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <class name="CertificateExtensionAuthorityInfoAccess"
+           c:symbol-prefix="certificate_extension_authority_info_access"
+           c:type="GcrCertificateExtensionAuthorityInfoAccess"
+           version="4.3.91"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionAuthorityInfoAccess"
+           glib:get-type="gcr_certificate_extension_authority_info_access_get_type"
+           glib:type-struct="CertificateExtensionAuthorityInfoAccessClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-authority-info-access.c"
+           line="124">A certificate extension describing the Authority Information Access (AIA).
+
+This extensions specifies a list of resources of a certificate's issuer that
+one may use to retrieve extra information, such as missing intermediate
+certificates in a certificate chain, or to determine certifiate revocation
+status.
+
+Each access point is exposed as a [class@Gcr.AccessDescription] object.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="179"/>
+      <implements name="Gio.ListModel"/>
+      <method name="get_description"
+              c:identifier="gcr_certificate_extension_authority_info_access_get_description">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-info-access.c"
+             line="253">Returns the description at a given position</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="184"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-info-access.c"
+               line="258">The description at position @position</doc>
+          <type name="AccessDescription" c:type="GcrAccessDescription*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionAuthorityInfoAccess"
+                  c:type="GcrCertificateExtensionAuthorityInfoAccess*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="n-items" transfer-ownership="none" default-value="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-info-access.c"
+             line="232">The number of items. See [method@Gio.ListModel.get_n_items].</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="CertificateExtensionAuthorityInfoAccessClass"
+            c:type="GcrCertificateExtensionAuthorityInfoAccessClass"
+            glib:is-gtype-struct-for="CertificateExtensionAuthorityInfoAccess">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="179"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionAuthorityKeyIdentifier"
+           c:symbol-prefix="certificate_extension_authority_key_identifier"
+           c:type="GcrCertificateExtensionAuthorityKeyIdentifier"
+           version="4.3.91"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionAuthorityKeyIdentifier"
+           glib:get-type="gcr_certificate_extension_authority_key_identifier_get_type"
+           glib:type-struct="CertificateExtensionAuthorityKeyIdentifierClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+           line="37">A certificate extension that contains the authority key identifier (SKI).
+
+This extension may expose the authority key identifier directly, which
+should match the subject key identifier of the parent certificate.
+
+It _may_ also expose a combination of issuer name and serial number of the
+used certificate instead. This is rare however.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="109"/>
+      <method name="get_authority_cert_issuer"
+              c:identifier="gcr_certificate_extension_authority_key_identifier_get_authority_cert_issuer">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+             line="108">Returns the issuer, described by a list of [class@Gcr.GeneralName]s.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="116"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+               line="113">The names of issuer, if set</doc>
+          <type name="GeneralNames" c:type="GcrGeneralNames*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionAuthorityKeyIdentifier"
+                  c:type="GcrCertificateExtensionAuthorityKeyIdentifier*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_authority_cert_serial_number"
+              c:identifier="gcr_certificate_extension_authority_key_identifier_get_authority_cert_serial_number">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+             line="123">Returns the serial number of the certificate that was used to sign this
+certificate.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="118"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+               line="129">The serial number, if set</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionAuthorityKeyIdentifier"
+                  c:type="GcrCertificateExtensionAuthorityKeyIdentifier*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_key_id"
+              c:identifier="gcr_certificate_extension_authority_key_identifier_get_key_id">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+             line="93">Returns the raw bytes containing the authority key identifier, if present.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="114"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-authority-key-identifier.c"
+               line="98">The authority key identifier if present.</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionAuthorityKeyIdentifier"
+                  c:type="GcrCertificateExtensionAuthorityKeyIdentifier*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificateExtensionAuthorityKeyIdentifierClass"
+            c:type="GcrCertificateExtensionAuthorityKeyIdentifierClass"
+            glib:is-gtype-struct-for="CertificateExtensionAuthorityKeyIdentifier">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="109"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionBasicConstraints"
+           c:symbol-prefix="certificate_extension_basic_constraints"
+           c:type="GcrCertificateExtensionBasicConstraints"
+           version="4.3.90"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionBasicConstraints"
+           glib:get-type="gcr_certificate_extension_basic_constraints_get_type"
+           glib:type-struct="CertificateExtensionBasicConstraintsClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-basic-constraints.c"
+           line="37">A certificate extension that can be used to identify the type of the
+certificate subject (whether it is a certificate authority or not).</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="62"/>
+      <method name="get_path_len_constraint"
+              c:identifier="gcr_certificate_extension_basic_constraints_get_path_len_constraint">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-basic-constraints.c"
+             line="84">Returns the maximum number of CAs that are allowed in the chain below this
+certificate.
+
+If this is not set, this method returns -1.
+
+Note that this field doesn't really make sense if
+[method@Gcr.CertificateExtensionBasicConstraints.is_ca] is false.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-basic-constraints.c"
+               line="95">The value of "pathLenConstraint", or -1 if not set.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionBasicConstraints"
+                  c:type="GcrCertificateExtensionBasicConstraints*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_ca"
+              c:identifier="gcr_certificate_extension_basic_constraints_is_ca">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-basic-constraints.c"
+             line="68">Returns whether the certificate us a certificate authority (CA) certificate
+or an end entity certificate.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-basic-constraints.c"
+               line="74">The value of "cA".</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionBasicConstraints"
+                  c:type="GcrCertificateExtensionBasicConstraints*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificateExtensionBasicConstraintsClass"
+            c:type="GcrCertificateExtensionBasicConstraintsClass"
+            glib:is-gtype-struct-for="CertificateExtensionBasicConstraints">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="62"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionCertificatePolicies"
+           c:symbol-prefix="certificate_extension_certificate_policies"
+           c:type="GcrCertificateExtensionCertificatePolicies"
+           version="4.3.91"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionCertificatePolicies"
+           glib:get-type="gcr_certificate_extension_certificate_policies_get_type"
+           glib:type-struct="CertificateExtensionCertificatePoliciesClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-certificate-policies.c"
+           line="208">A certificate extension that lists certificate policies.
+
+Each certificate policy is exposed as a [class@Gcr.CertificatePolicy]
+object.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="156"/>
+      <implements name="Gio.ListModel"/>
+      <method name="get_policy"
+              c:identifier="gcr_certificate_extension_certificate_policies_get_policy">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-certificate-policies.c"
+             line="333">Returns the policy at a given position</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="161"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-certificate-policies.c"
+               line="338">The policy at position @position</doc>
+          <type name="CertificatePolicy" c:type="GcrCertificatePolicy*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionCertificatePolicies"
+                  c:type="GcrCertificateExtensionCertificatePolicies*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="n-items" transfer-ownership="none" default-value="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-certificate-policies.c"
+             line="312">The number of items. See [method@Gio.ListModel.get_n_items].</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="CertificateExtensionCertificatePoliciesClass"
+            c:type="GcrCertificateExtensionCertificatePoliciesClass"
+            glib:is-gtype-struct-for="CertificateExtensionCertificatePolicies">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="156"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <record name="CertificateExtensionClass"
+            c:type="GcrCertificateExtensionClass"
+            glib:is-gtype-struct-for="CertificateExtension">
+      <source-position filename="gcr/gcr-certificate-extension.h" line="42"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="CertificateExtensionCrlDistributionPoints"
+           c:symbol-prefix="certificate_extension_crl_distribution_points"
+           c:type="GcrCertificateExtensionCrlDistributionPoints"
+           version="4.3.91"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionCrlDistributionPoints"
+           glib:get-type="gcr_certificate_extension_crl_distribution_points_get_type"
+           glib:type-struct="CertificateExtensionCrlDistributionPointsClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+           line="206">A certificate extension that lists CRL distribution points.
+
+Each distribution point is exposed as a [class@Gcr.DistributionPoint]
+object.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="202"/>
+      <implements name="Gio.ListModel"/>
+      <method name="get_distribution_point"
+              c:identifier="gcr_certificate_extension_crl_distribution_points_get_distribution_point">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+             line="331">Returns the CRL distribution point at a given position.
+
+It is illegal to call this on an invalid position.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="207"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+               line="338">The distribution point at position @position</doc>
+          <type name="DistributionPoint" c:type="GcrDistributionPoint*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionCrlDistributionPoints"
+                  c:type="GcrCertificateExtensionCrlDistributionPoints*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="n-items" transfer-ownership="none" default-value="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+             line="310">The number of items. See [method@Gio.ListModel.get_n_items].</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="CertificateExtensionCrlDistributionPointsClass"
+            c:type="GcrCertificateExtensionCrlDistributionPointsClass"
+            glib:is-gtype-struct-for="CertificateExtensionCrlDistributionPoints">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="202"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionExtendedKeyUsage"
+           c:symbol-prefix="certificate_extension_extended_key_usage"
+           c:type="GcrCertificateExtensionExtendedKeyUsage"
+           version="4.3.90"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionExtendedKeyUsage"
+           glib:get-type="gcr_certificate_extension_extended_key_usage_get_type"
+           glib:type-struct="CertificateExtensionExtendedKeyUsageClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-extended-key-usage.c"
+           line="37">A certificate extension that can be used to restrict an extended set of
+usages of a given certificate.
+
+Similar to [class@Gcr.CertificateExtensionKeyUsage], this extension defined
+an additional set of purposes for which this certificate may be used.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="87"/>
+      <method name="get_descriptions"
+              c:identifier="gcr_certificate_extension_extended_key_usage_get_descriptions">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-extended-key-usage.c"
+             line="109">Returns a user-friendly list of description of the key usages.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-extended-key-usage.c"
+               line="114">The descriptions.</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionExtendedKeyUsage"
+                  c:type="GcrCertificateExtensionExtendedKeyUsage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_oids"
+              c:identifier="gcr_certificate_extension_extended_key_usage_get_oids">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-extended-key-usage.c"
+             line="84">Returns the list of OIDs of the extended key usages.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="92"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-extended-key-usage.c"
+               line="89">The OIDs.</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionExtendedKeyUsage"
+                  c:type="GcrCertificateExtensionExtendedKeyUsage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificateExtensionExtendedKeyUsageClass"
+            c:type="GcrCertificateExtensionExtendedKeyUsageClass"
+            glib:is-gtype-struct-for="CertificateExtensionExtendedKeyUsage">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="87"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionKeyUsage"
+           c:symbol-prefix="certificate_extension_key_usage"
+           c:type="GcrCertificateExtensionKeyUsage"
+           version="4.3.90"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionKeyUsage"
+           glib:get-type="gcr_certificate_extension_key_usage_get_type"
+           glib:type-struct="CertificateExtensionKeyUsageClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-key-usage.c"
+           line="37">A certificate extension that can be used to restrict the usages of a given
+certificate.
+
+See also [class@Gcr.CertificateExtensionExtendedKeyUsage] for an additional
+set of usages.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="75"/>
+      <method name="get_descriptions"
+              c:identifier="gcr_certificate_extension_key_usage_get_descriptions">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-key-usage.c"
+             line="98">Returns a user-friendly list of description of the key usages.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="82"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-key-usage.c"
+               line="103">The descriptions.</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionKeyUsage"
+                  c:type="GcrCertificateExtensionKeyUsage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_usages"
+              c:identifier="gcr_certificate_extension_key_usage_get_usages">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-key-usage.c"
+             line="85">Returns the bit string describing the usages.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="gulong" c:type="unsigned long"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionKeyUsage"
+                  c:type="GcrCertificateExtensionKeyUsage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificateExtensionKeyUsageClass"
+            c:type="GcrCertificateExtensionKeyUsageClass"
+            glib:is-gtype-struct-for="CertificateExtensionKeyUsage">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="75"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionList"
+           c:symbol-prefix="certificate_extension_list"
+           c:type="GcrCertificateExtensionList"
+           version="4.3.90"
+           parent="GObject.Object"
+           glib:type-name="GcrCertificateExtensionList"
+           glib:get-type="gcr_certificate_extension_list_get_type"
+           glib:type-struct="CertificateExtensionListClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-list.c"
+           line="33">A wrapper type for a list of [class@CertificateExtension]s.</doc>
+      <source-position filename="gcr/gcr-certificate-extension-list.h"
+                       line="35"/>
+      <implements name="Gio.ListModel"/>
+      <method name="find_by_oid"
+              c:identifier="gcr_certificate_extension_list_find_by_oid"
+              version="4.3.90">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-list.c"
+             line="169">Looks for an extension with the given OID.</doc>
+        <source-position filename="gcr/gcr-certificate-extension-list.h"
+                         line="42"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-list.c"
+               line="176">The certificate extension with
+ the given OID, or %NULL if not found.</doc>
+          <type name="CertificateExtension" c:type="GcrCertificateExtension*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-list.c"
+                 line="171">A #GcrCertificateExtensionList</doc>
+            <type name="CertificateExtensionList"
+                  c:type="GcrCertificateExtensionList*"/>
+          </instance-parameter>
+          <parameter name="oid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-list.c"
+                 line="172">The OID of the certificate extension</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_extension"
+              c:identifier="gcr_certificate_extension_list_get_extension">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-list.c"
+             line="148">Returns the extension at the given position.
+
+It is illegal to call this function with an invalid position.</doc>
+        <source-position filename="gcr/gcr-certificate-extension-list.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-list.c"
+               line="157">The certificate extension with the given OID</doc>
+          <type name="CertificateExtension" c:type="GcrCertificateExtension*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-list.c"
+                 line="150">A #GcrCertificateExtensionList</doc>
+            <type name="CertificateExtensionList"
+                  c:type="GcrCertificateExtensionList*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-list.c"
+                 line="151">The position of the extension in the list</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="n-items" transfer-ownership="none" default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="CertificateExtensionListClass"
+            c:type="GcrCertificateExtensionListClass"
+            glib:is-gtype-struct-for="CertificateExtensionList">
+      <source-position filename="gcr/gcr-certificate-extension-list.h"
+                       line="35"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionSubjectAltName"
+           c:symbol-prefix="certificate_extension_subject_alt_name"
+           c:type="GcrCertificateExtensionSubjectAltName"
+           version="4.3.90"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionSubjectAltName"
+           glib:get-type="gcr_certificate_extension_subject_alt_name_get_type"
+           glib:type-struct="CertificateExtensionSubjectAltNameClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-subject-alt-name.c"
+           line="37">A certificate extension describing the Subject Alternative Name (SAN).
+
+This kind of extension is used for example to specify multiple domains for
+the same certificate.
+
+The object exposes the different names with the [iface@Gio.ListModel] API.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="124"/>
+      <implements name="Gio.ListModel"/>
+      <method name="get_name"
+              c:identifier="gcr_certificate_extension_subject_alt_name_get_name">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-subject-alt-name.c"
+             line="123">Returns the name at the given position.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-subject-alt-name.c"
+               line="130">The name at position @position</doc>
+          <type name="GeneralName" c:type="GcrGeneralName*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-subject-alt-name.c"
+                 line="125">A #GcrCertificateExtensionSubjectAltName</doc>
+            <type name="CertificateExtensionSubjectAltName"
+                  c:type="GcrCertificateExtensionSubjectAltName*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-subject-alt-name.c"
+                 line="126">The position of the name</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificateExtensionSubjectAltNameClass"
+            c:type="GcrCertificateExtensionSubjectAltNameClass"
+            glib:is-gtype-struct-for="CertificateExtensionSubjectAltName">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="124"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
+    <class name="CertificateExtensionSubjectKeyIdentifier"
+           c:symbol-prefix="certificate_extension_subject_key_identifier"
+           c:type="GcrCertificateExtensionSubjectKeyIdentifier"
+           version="4.3.90"
+           parent="CertificateExtension"
+           glib:type-name="GcrCertificateExtensionSubjectKeyIdentifier"
+           glib:get-type="gcr_certificate_extension_subject_key_identifier_get_type"
+           glib:type-struct="CertificateExtensionSubjectKeyIdentifierClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-subject-key-identifier.c"
+           line="37">A certificate extension that contains the subject key identifier (SKI).</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="99"/>
+      <method name="get_key_id"
+              c:identifier="gcr_certificate_extension_subject_key_identifier_get_key_id">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-subject-key-identifier.c"
+             line="80">Returns the raw bytes containing the subject key identifier.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="104"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-subject-key-identifier.c"
+               line="85">The subject key identifier.</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificateExtensionSubjectKeyIdentifier"
+                  c:type="GcrCertificateExtensionSubjectKeyIdentifier*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificateExtensionSubjectKeyIdentifierClass"
+            c:type="GcrCertificateExtensionSubjectKeyIdentifierClass"
+            glib:is-gtype-struct-for="CertificateExtensionSubjectKeyIdentifier">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="99"/>
+      <field name="parent_class">
+        <type name="CertificateExtensionClass"
+              c:type="GcrCertificateExtensionClass"/>
+      </field>
+    </record>
     <class name="CertificateField"
            c:symbol-prefix="certificate_field"
            c:type="GcrCertificateField"
@@ -1615,24 +2540,24 @@ provided in.</doc>
             glib:is-gtype-struct-for="Certificate">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate.c"
-           line="62">The interface that implementors of #GcrCertificate must implement.</doc>
-      <source-position filename="gcr/gcr-certificate.h" line="67"/>
+           line="64">The interface that implementors of #GcrCertificate must implement.</doc>
+      <source-position filename="gcr/gcr-certificate.h" line="70"/>
       <field name="parent">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="64">the parent interface type</doc>
+             line="66">the parent interface type</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_der_data">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="65">a method which returns the RAW der data of the certificate</doc>
+             line="67">a method which returns the RAW der data of the certificate</doc>
         <callback name="get_der_data">
-          <source-position filename="gcr/gcr-certificate.h" line="56"/>
+          <source-position filename="gcr/gcr-certificate.h" line="59"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="259">raw DER data of the X.509 certificate</doc>
+                 line="265">raw DER data of the X.509 certificate</doc>
             <array length="1" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -1641,7 +2566,7 @@ provided in.</doc>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gcr/gcr-certificate.c"
-                   line="254">a #GcrCertificate</doc>
+                   line="260">a #GcrCertificate</doc>
               <type name="Certificate" c:type="GcrCertificate*"/>
             </parameter>
             <parameter name="n_data"
@@ -1650,7 +2575,7 @@ provided in.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gcr/gcr-certificate.c"
-                   line="255">a pointer to a location to store the size of the resulting DER data.</doc>
+                   line="261">a pointer to a location to store the size of the resulting DER data.</doc>
               <type name="gsize" c:type="gsize*"/>
             </parameter>
           </parameters>
@@ -1676,6 +2601,134 @@ provided in.</doc>
       </field>
       <field name="dummy8" readable="0" private="1">
         <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <class name="CertificatePolicy"
+           c:symbol-prefix="certificate_policy"
+           c:type="GcrCertificatePolicy"
+           version="4.3.91"
+           parent="GObject.Object"
+           glib:type-name="GcrCertificatePolicy"
+           glib:get-type="gcr_certificate_policy_get_type"
+           glib:type-struct="CertificatePolicyClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-certificate-policies.c"
+           line="95">An object describing a certificate policy.
+
+These policies are listed as part of a
+[class@Gcr.CertificateExtensionCertificatePolicies] object.
+
+A policy can optionally also include qualifiers, which are exposed through
+the [iface@Gio.ListModel] API.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="146"/>
+      <implements name="Gio.ListModel"/>
+      <method name="get_name" c:identifier="gcr_certificate_policy_get_name">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-certificate-policies.c"
+             line="193">Returns a user-friendly name of this certificate policy, if known.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="153"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-certificate-policies.c"
+               line="198">A name describing the policy OID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificatePolicy" c:type="GcrCertificatePolicy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_oid" c:identifier="gcr_certificate_policy_get_oid">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-certificate-policies.c"
+             line="179">Returns the OID string that describes this certificate policy.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="151"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-certificate-policies.c"
+               line="184">The policy OID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificatePolicy" c:type="GcrCertificatePolicy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificatePolicyClass"
+            c:type="GcrCertificatePolicyClass"
+            glib:is-gtype-struct-for="CertificatePolicy">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="146"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="CertificatePolicyQualifier"
+           c:symbol-prefix="certificate_policy_qualifier"
+           c:type="GcrCertificatePolicyQualifier"
+           version="4.3.91"
+           parent="GObject.Object"
+           glib:type-name="GcrCertificatePolicyQualifier"
+           glib:get-type="gcr_certificate_policy_qualifier_get_type"
+           glib:type-struct="CertificatePolicyQualifierClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-certificate-policies.c"
+           line="37">An object describing a certificate policy qualifier.
+
+These policies are (optionally) part of a [class@Gcr.CertificatePolicy]
+object.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="135"/>
+      <method name="get_name"
+              c:identifier="gcr_certificate_policy_qualifier_get_name">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-certificate-policies.c"
+             line="80">Returns a user-friendly name of this certificate policy qualifier, if known.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="142"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-certificate-policies.c"
+               line="85">A name describing the policy qualifier OID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificatePolicyQualifier"
+                  c:type="GcrCertificatePolicyQualifier*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_oid"
+              c:identifier="gcr_certificate_policy_qualifier_get_oid">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-certificate-policies.c"
+             line="66">Returns the OID string that describes this certificate policy qualifier.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="140"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-certificate-policies.c"
+               line="71">The policy qualifier OID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CertificatePolicyQualifier"
+                  c:type="GcrCertificatePolicyQualifier*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CertificatePolicyQualifierClass"
+            c:type="GcrCertificatePolicyQualifierClass"
+            glib:is-gtype-struct-for="CertificatePolicyQualifier">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="135"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <class name="CertificateRequest"
@@ -2453,10 +3506,204 @@ this is done using the OpenSSL style PEM encoding.</doc>
              line="1407">An OpenSSL style PEM file containing a SubjectPublicKeyInfo</doc>
       </member>
     </enumeration>
+    <class name="DistributionPoint"
+           c:symbol-prefix="distribution_point"
+           c:type="GcrDistributionPoint"
+           version="4.3.91"
+           parent="GObject.Object"
+           glib:type-name="GcrDistributionPoint"
+           glib:get-type="gcr_distribution_point_get_type"
+           glib:type-struct="DistributionPointClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+           line="37">An object describing a CRL distribution point.
+
+A certificate user can use such a Certifiate Revocation List (CLR)
+distribution point to check if the certificate has been revoked.
+
+These distribution poitns are for example listed as part of a
+[class@Gcr.CertificateExtensionCrlDistributionPoints] object.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="191"/>
+      <method name="get_full_name"
+              c:identifier="gcr_distribution_point_get_full_name">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+             line="88">Returns the full name of the CRL distribution point, if set.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="196"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+               line="93">The full name of the distribution point</doc>
+          <type name="GeneralNames" c:type="GcrGeneralNames*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DistributionPoint" c:type="GcrDistributionPoint*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_relative_name_part"
+              c:identifier="gcr_distribution_point_get_relative_name_part">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+             line="103">Returns a part of the relative name of @self, if set.
+
+Note that the relative name might not be set, nor the specific part.
+
+Examples of a @part might be the 'OU' (organizational unit) or the 'CN'
+(common name). Only the value of that part of the RDN is returned.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="198"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+               line="114">The relative name part if set, or NULL</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DistributionPoint" c:type="GcrDistributionPoint*"/>
+          </instance-parameter>
+          <parameter name="part" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extension-crl-distribution-points.c"
+                 line="105">a RDN type string or OID.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DistributionPointClass"
+            c:type="GcrDistributionPointClass"
+            glib:is-gtype-struct-for="DistributionPoint">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="191"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="GeneralName"
+           c:symbol-prefix="general_name"
+           c:type="GcrGeneralName"
+           version="4.3.90"
+           parent="GObject.Object"
+           glib:type-name="GcrGeneralName"
+           glib:get-type="gcr_general_name_get_type"
+           glib:type-struct="GeneralNameClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extensions-common.c"
+           line="37">An object describing a name as part of the Subject Alternative Name (SAN)
+extension.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="38"/>
+      <method name="get_description"
+              c:identifier="gcr_general_name_get_description">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extensions-common.c"
+             line="81">Returns a user-friendly string describing the name.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="GeneralName" c:type="GcrGeneralName*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value" c:identifier="gcr_general_name_get_value">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extensions-common.c"
+             line="94">Returns the actual value of the name.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="GeneralName" c:type="GcrGeneralName*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value_raw"
+              c:identifier="gcr_general_name_get_value_raw">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extensions-common.c"
+             line="107">Returns the raw bytes describing the value of the name.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="47"/>
+        <return-value transfer-ownership="full">
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="GeneralName" c:type="GcrGeneralName*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="GeneralNameClass"
+            c:type="GcrGeneralNameClass"
+            glib:is-gtype-struct-for="GeneralName">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="GeneralNames"
+           c:symbol-prefix="general_names"
+           c:type="GcrGeneralNames"
+           version="4.3.91"
+           parent="GObject.Object"
+           glib:type-name="GcrGeneralNames"
+           glib:get-type="gcr_general_names_get_type"
+           glib:type-struct="GeneralNamesClass">
+      <doc xml:space="preserve"
+           filename="gcr/gcr-certificate-extensions-common.c"
+           line="310">A list of [class@Gcr.GeneralName]s.</doc>
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="51"/>
+      <implements name="Gio.ListModel"/>
+      <method name="get_name" c:identifier="gcr_general_names_get_name">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate-extensions-common.c"
+             line="397">Returns the name at the given position.
+
+It is illegal to call this function with a position larger than the number
+of elements in this list.</doc>
+        <source-position filename="gcr/gcr-certificate-extensions.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate-extensions-common.c"
+               line="406">The name at the given position</doc>
+          <type name="GeneralName" c:type="GcrGeneralName*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="GeneralNames" c:type="GcrGeneralNames*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate-extensions-common.c"
+                 line="399">The position in the list</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="GeneralNamesClass"
+            c:type="GcrGeneralNamesClass"
+            glib:is-gtype-struct-for="GeneralNames">
+      <source-position filename="gcr/gcr-certificate-extensions.h" line="51"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <function-macro name="IS_CERTIFICATE"
                     c:identifier="GCR_IS_CERTIFICATE"
                     introspectable="0">
-      <source-position filename="gcr/gcr-certificate.h" line="36"/>
+      <source-position filename="gcr/gcr-certificate.h" line="39"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -3129,13 +4376,14 @@ To start the import, use [method@Importer.import_async].</doc>
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
              line="168">Create a set of importers which can import this parsed item.
-The parsed item is represented by the state of the GcrParser at the
+
+The parsed item is represented by the state of the [class@Gcr.Parser] at the
 time of calling this method.</doc>
         <source-position filename="gcr/gcr-importer.h" line="61"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="176">a list of importers
+               line="177">a list of importers
          which can import the parsed item, which should be freed with
          g_object_unref(), or %NULL if no types of importers can be created</doc>
           <type name="GLib.List" c:type="GList*">
@@ -3155,7 +4403,7 @@ time of calling this method.</doc>
                 c:identifier="gcr_importer_queue_and_filter_for_parsed">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="285">Queues an additional item to be imported in all compattible importers
+             line="286">Queues an additional item to be imported in all compattible importers
 in the set. The parsed item is represented by the state of the #GcrParser
 at the time of calling this method.
 
@@ -3165,7 +4413,7 @@ will not be queued on that importer.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="297">a new set of importers
+               line="298">a new set of importers
          that queued the item.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Importer"/>
@@ -3175,7 +4423,7 @@ will not be queued on that importer.</doc>
           <parameter name="importers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="287">a set of importers</doc>
+                 line="288">a set of importers</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Importer"/>
             </type>
@@ -3183,7 +4431,7 @@ will not be queued on that importer.</doc>
           <parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="288">a parsed item</doc>
+                 line="289">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </parameter>
         </parameters>
@@ -3215,7 +4463,7 @@ will not be queued on that importer.</doc>
                 c:identifier="gcr_importer_register_well_known">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="411">Register built-in PKCS#11 and GnuPG importers.</doc>
+             line="412">Register built-in PKCS#11 and GnuPG importers.</doc>
         <source-position filename="gcr/gcr-importer.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3226,7 +4474,7 @@ will not be queued on that importer.</doc>
                       glib:finish-func="import_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="315">Import the queued items in the importer. This function returns immediately
+             line="316">Import the queued items in the importer. This function returns immediately
 and completes asynchronously.</doc>
         <source-position filename="gcr/gcr-importer.h" line="48"/>
         <return-value transfer-ownership="none">
@@ -3236,7 +4484,7 @@ and completes asynchronously.</doc>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="317">the importer</doc>
+                 line="318">the importer</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -3245,7 +4493,7 @@ and completes asynchronously.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="318">a #GCancellable, or %NULL</doc>
+                 line="319">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3256,7 +4504,7 @@ and completes asynchronously.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="319">called when the operation completes</doc>
+                 line="320">called when the operation completes</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3266,7 +4514,7 @@ and completes asynchronously.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="320">data to be passed to the callback</doc>
+                 line="321">data to be passed to the callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3274,25 +4522,25 @@ and completes asynchronously.</doc>
       <virtual-method name="import_finish" invoker="import_finish" throws="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="343">Complete an asynchronous operation to import queued items.</doc>
+             line="344">Complete an asynchronous operation to import queued items.</doc>
         <source-position filename="gcr/gcr-importer.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="351">whether the import succeeded or failed</doc>
+               line="352">whether the import succeeded or failed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="345">the importer</doc>
+                 line="346">the importer</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="346">an asynchronous result</doc>
+                 line="347">an asynchronous result</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3300,7 +4548,7 @@ and completes asynchronously.</doc>
       <virtual-method name="queue_for_parsed" invoker="queue_for_parsed">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="256">Queues an additional item to be imported. The parsed item is represented
+             line="257">Queues an additional item to be imported. The parsed item is represented
 by the state of the [class@Parser] at the time of calling this method.
 
 If the parsed item is incompatible with the importer, then this will
@@ -3309,20 +4557,20 @@ fail and the item will not be queued.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="267">whether the item was queued or not</doc>
+               line="268">whether the item was queued or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="258">an importer to add additional items to</doc>
+                 line="259">an importer to add additional items to</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="259">a parsed item to import</doc>
+                 line="260">a parsed item to import</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </parameter>
         </parameters>
@@ -3332,20 +4580,20 @@ fail and the item will not be queued.</doc>
               glib:get-property="interaction">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="371">Get the interaction used to prompt the user when needed by this
+             line="372">Get the interaction used to prompt the user when needed by this
 importer.</doc>
         <source-position filename="gcr/gcr-importer.h" line="78"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="378">the interaction or %NULL</doc>
+               line="379">the interaction or %NULL</doc>
           <type name="Gio.TlsInteraction" c:type="GTlsInteraction*"/>
         </return-value>
         <parameters>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="373">the importer</doc>
+                 line="374">the importer</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
         </parameters>
@@ -3355,7 +4603,7 @@ importer.</doc>
               glib:finish-func="import_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="315">Import the queued items in the importer. This function returns immediately
+             line="316">Import the queued items in the importer. This function returns immediately
 and completes asynchronously.</doc>
         <source-position filename="gcr/gcr-importer.h" line="69"/>
         <return-value transfer-ownership="none">
@@ -3365,7 +4613,7 @@ and completes asynchronously.</doc>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="317">the importer</doc>
+                 line="318">the importer</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -3374,7 +4622,7 @@ and completes asynchronously.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="318">a #GCancellable, or %NULL</doc>
+                 line="319">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3385,7 +4633,7 @@ and completes asynchronously.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="319">called when the operation completes</doc>
+                 line="320">called when the operation completes</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3394,7 +4642,7 @@ and completes asynchronously.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="320">data to be passed to the callback</doc>
+                 line="321">data to be passed to the callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3404,25 +4652,25 @@ and completes asynchronously.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="343">Complete an asynchronous operation to import queued items.</doc>
+             line="344">Complete an asynchronous operation to import queued items.</doc>
         <source-position filename="gcr/gcr-importer.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="351">whether the import succeeded or failed</doc>
+               line="352">whether the import succeeded or failed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="345">the importer</doc>
+                 line="346">the importer</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="346">an asynchronous result</doc>
+                 line="347">an asynchronous result</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3431,7 +4679,7 @@ and completes asynchronously.</doc>
               c:identifier="gcr_importer_queue_for_parsed">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="256">Queues an additional item to be imported. The parsed item is represented
+             line="257">Queues an additional item to be imported. The parsed item is represented
 by the state of the [class@Parser] at the time of calling this method.
 
 If the parsed item is incompatible with the importer, then this will
@@ -3440,20 +4688,20 @@ fail and the item will not be queued.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="267">whether the item was queued or not</doc>
+               line="268">whether the item was queued or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="258">an importer to add additional items to</doc>
+                 line="259">an importer to add additional items to</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="259">a parsed item to import</doc>
+                 line="260">a parsed item to import</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </parameter>
         </parameters>
@@ -3463,7 +4711,7 @@ fail and the item will not be queued.</doc>
               glib:set-property="interaction">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="395">Set the interaction used to prompt the user when needed by this
+             line="396">Set the interaction used to prompt the user when needed by this
 importer.</doc>
         <source-position filename="gcr/gcr-importer.h" line="80"/>
         <return-value transfer-ownership="none">
@@ -3473,13 +4721,13 @@ importer.</doc>
           <instance-parameter name="importer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="397">the importer</doc>
+                 line="398">the importer</doc>
             <type name="Importer" c:type="GcrImporter*"/>
           </instance-parameter>
           <parameter name="interaction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="398">the interaction used by the importer</doc>
+                 line="399">the interaction used by the importer</doc>
             <type name="Gio.TlsInteraction" c:type="GTlsInteraction*"/>
           </parameter>
         </parameters>
@@ -3547,20 +4795,20 @@ importer.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="267">whether the item was queued or not</doc>
+                 line="268">whether the item was queued or not</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="importer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="258">an importer to add additional items to</doc>
+                   line="259">an importer to add additional items to</doc>
               <type name="Importer" c:type="GcrImporter*"/>
             </parameter>
             <parameter name="parsed" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="259">a parsed item to import</doc>
+                   line="260">a parsed item to import</doc>
               <type name="Parsed" c:type="GcrParsed*"/>
             </parameter>
           </parameters>
@@ -3579,7 +4827,7 @@ importer.</doc>
             <parameter name="importer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="317">the importer</doc>
+                   line="318">the importer</doc>
               <type name="Importer" c:type="GcrImporter*"/>
             </parameter>
             <parameter name="cancellable"
@@ -3588,7 +4836,7 @@ importer.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="318">a #GCancellable, or %NULL</doc>
+                   line="319">a #GCancellable, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
             <parameter name="callback"
@@ -3599,7 +4847,7 @@ importer.</doc>
                        closure="3">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="319">called when the operation completes</doc>
+                   line="320">called when the operation completes</doc>
               <type name="Gio.AsyncReadyCallback"
                     c:type="GAsyncReadyCallback"/>
             </parameter>
@@ -3610,7 +4858,7 @@ importer.</doc>
                        closure="3">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="320">data to be passed to the callback</doc>
+                   line="321">data to be passed to the callback</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -3625,20 +4873,20 @@ importer.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-importer.c"
-                 line="351">whether the import succeeded or failed</doc>
+                 line="352">whether the import succeeded or failed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="importer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="345">the importer</doc>
+                   line="346">the importer</doc>
               <type name="Importer" c:type="GcrImporter*"/>
             </parameter>
             <parameter name="result" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gcr/gcr-importer.c"
-                   line="346">an asynchronous result</doc>
+                   line="347">an asynchronous result</doc>
               <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
             </parameter>
           </parameters>
@@ -3657,7 +4905,7 @@ importer.</doc>
       <source-position filename="gcr/gcr-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GCR_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="91" c:type="GCR_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
            line="71">The micro version number of the Gcr library.</doc>
@@ -3982,7 +5230,7 @@ A `GcrParser` can parse various certificate and key files such as OpenSSL
 PEM files, DER encoded certifictes, PKCS#8 keys and so on. Each various
 format is identified by a value in the [enum@DataFormat] enumeration.
 
-In order to parse data, a new parser is created with gcr_parser_new() and
+In order to parse data, a new parser is created with [ctor@Parser.new] and
 then the [signal@Parser::authenticate] and [signal@Parser::parsed] signals
 should be connected to. Data is then fed to the parser via
 [method@Parser.parse_data] or [method@Parser.parse_stream].
@@ -4694,11 +5942,11 @@ functions.</doc>
            line="34">A certificate loaded from a PKCS#11 storage.
 It is also a valid [class@Gck.Object] and can be used as such.
 
-Use gcr_pkcs11_certificate_lookup_issuer() to lookup the issuer of a given
-certificate in the PKCS#11 store.
+Use [func@Gcr.Pkcs11Certificate.lookup_issuer] to lookup the issuer of a
+given certificate in the PKCS#11 store.
 
 Various common PKCS#11 certificate attributes are automatically loaded and
-are available via gcr_pkcs11_certificate_get_attributes().</doc>
+are available via [method@Gcr.Pkcs11Certificate.get_attributes].</doc>
       <source-position filename="gcr/gcr-pkcs11-certificate.h" line="57"/>
       <implements name="Certificate"/>
       <function name="lookup_issuer"
@@ -4711,13 +5959,13 @@ are available via gcr_pkcs11_certificate_get_attributes().</doc>
 lookup is done using the issuer DN of the certificate. No certificate chain
 verification is done. Use a crypto library to make trust decisions.
 
-This call may block, see gcr_pkcs11_certificate_lookup_issuer() for the
+This call may block, see [func@Gcr.Pkcs11Certificate.lookup_issuer] for the
 non-blocking version.
 
 Will return %NULL if no issuer certificate is found. Use @error to determine
 if an error occurred.</doc>
         <source-position filename="gcr/gcr-pkcs11-certificate.h" line="63"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-pkcs11-certificate.c"
                line="328">a new #GcrPkcs11Certificate, or %NULL</doc>
@@ -4736,7 +5984,7 @@ if an error occurred.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-pkcs11-certificate.c"
-                 line="315">a #GCancellable</doc>
+                 line="315">a cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4752,7 +6000,7 @@ lookup is done using the issuer DN of the certificate. No certificate chain
 verification is done. Use a crypto library to make trust decisions.
 
 When the operation is finished, callback will be called. You can then call
-gcr_pkcs11_certificate_lookup_issuer_finish() to get the result of the
+[func@Gcr.Pkcs11Certificate.lookup_issuer_finish] to get the result of the
 operation.</doc>
         <source-position filename="gcr/gcr-pkcs11-certificate.h" line="67"/>
         <return-value transfer-ownership="none">
@@ -4771,7 +6019,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-pkcs11-certificate.c"
-                 line="354">a #GCancellable</doc>
+                 line="354">a cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4802,12 +6050,12 @@ operation.</doc>
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="387">Finishes an asynchronous operation started by
-gcr_pkcs11_certificate_lookup_issuer_async().
+[func@Gcr.Pkcs11Certificate.lookup_issuer_async].
 
 Will return %NULL if no issuer certificate is found. Use @error to determine
 if an error occurred.</doc>
         <source-position filename="gcr/gcr-pkcs11-certificate.h" line="72"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-pkcs11-certificate.c"
                line="398">a new #GcrPkcs11Certificate, or %NULL</doc>
@@ -4830,8 +6078,8 @@ if an error occurred.</doc>
              filename="gcr/gcr-pkcs11-certificate.c"
              line="413">Lookup a certificate in the PKCS#11 storage by the given URI.
 
-This call may block, see gcr_pkcs11_certificate_new_from_uri_async() for the
-non-blocking version.
+This call may block, see gcr_pkcs11_certificate_new_from_uri_async() for
+the non-blocking version.
 
 Will return %NULL if no certificate is found. Use @error to determine
 if an error occurred.</doc>
@@ -6575,7 +7823,7 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
               c:type="GCR_SECRET_EXCHANGE_PROTOCOL_1">
       <doc xml:space="preserve"
            filename="gcr/gcr-secret-exchange.c"
-           line="62">The current secret exchange protocol. Key agreement is done using DH with the
+           line="63">The current secret exchange protocol. Key agreement is done using DH with the
 1536 bit IKE parameter group. Keys are derived using SHA256 with HKDF. The
 transport encryption is done with 128 bit AES.</doc>
       <source-position filename="gcr/gcr-secret-exchange.h" line="35"/>
@@ -6671,7 +7919,7 @@ transport encryption is done with 128 bit AES.</doc>
            glib:type-struct="SecretExchangeClass">
       <doc xml:space="preserve"
            filename="gcr/gcr-secret-exchange.c"
-           line="35">Allows exchange of secrets between two processes on the same system without
+           line="36">Allows exchange of secrets between two processes on the same system without
 exposing those secrets to things like loggers, non-pageable memory etc.
 
 This does not protect against active attacks like MITM attacks.
@@ -6697,7 +7945,7 @@ Caveat: Information about the approximate length (rounded up to the nearest
       <constructor name="new" c:identifier="gcr_secret_exchange_new">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="206">Create a new secret exchange object.
+             line="207">Create a new secret exchange object.
 
 Specify a protocol of %NULL to allow any protocol. This is especially
 relevant on the side of the exchange that does not call
@@ -6707,7 +7955,7 @@ protocol supported is %GCR_SECRET_EXCHANGE_PROTOCOL_1.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-secret-exchange.c"
-               line="217">A new #GcrSecretExchange object</doc>
+               line="218">A new #GcrSecretExchange object</doc>
           <type name="SecretExchange" c:type="GcrSecretExchange*"/>
         </return-value>
         <parameters>
@@ -6717,7 +7965,7 @@ protocol supported is %GCR_SECRET_EXCHANGE_PROTOCOL_1.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="208">the exchange protocol to use</doc>
+                 line="209">the exchange protocol to use</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6826,14 +8074,14 @@ protocol supported is %GCR_SECRET_EXCHANGE_PROTOCOL_1.</doc>
       <method name="begin" c:identifier="gcr_secret_exchange_begin">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="247">Begin the secret exchange. The resulting string should be sent to the other
+             line="248">Begin the secret exchange. The resulting string should be sent to the other
 side of the exchange. The other side should use [method@SecretExchange.receive]
 to process the string.</doc>
         <source-position filename="gcr/gcr-secret-exchange.h" line="97"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-secret-exchange.c"
-               line="255">A newly allocated string to be sent to the other
+               line="256">A newly allocated string to be sent to the other
     side of the secret exchange</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -6841,7 +8089,7 @@ to process the string.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="249">a #GcrSecretExchange object</doc>
+                 line="250">a #GcrSecretExchange object</doc>
             <type name="SecretExchange" c:type="GcrSecretExchange*"/>
           </instance-parameter>
         </parameters>
@@ -6851,21 +8099,21 @@ to process the string.</doc>
               glib:get-property="protocol">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="227">Will return %NULL if no protocol was specified, and either
+             line="228">Will return %NULL if no protocol was specified, and either
 [method@SecretExchange.begin] or [method@SecretExchange.receive] have not
 been called successfully.</doc>
         <source-position filename="gcr/gcr-secret-exchange.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-secret-exchange.c"
-               line="236">the protocol or %NULL</doc>
+               line="237">the protocol or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="229">a #GcrSecretExchange object
+                 line="230">a #GcrSecretExchange object
 Get the secret exchange protocol.</doc>
             <type name="SecretExchange" c:type="GcrSecretExchange*"/>
           </instance-parameter>
@@ -6874,7 +8122,7 @@ Get the secret exchange protocol.</doc>
       <method name="get_secret" c:identifier="gcr_secret_exchange_get_secret">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="442">Returns the last secret received. If no secret has yet been received this
+             line="443">Returns the last secret received. If no secret has yet been received this
 will return %NULL. The string is owned by the #GcrSecretExchange object
 and will be valid until the next time that gcr_secret_exchange_receive()
 is called on this object, or the object is destroyed.
@@ -6887,7 +8135,7 @@ it can be used as a string.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-secret-exchange.c"
-               line="457">the last secret received</doc>
+               line="458">the last secret received</doc>
           <array length="0" zero-terminated="0" c:type="const gchar*">
             <type name="utf8" c:type="gchar"/>
           </array>
@@ -6896,7 +8144,7 @@ it can be used as a string.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="444">a #GcrSecretExchange object</doc>
+                 line="445">a #GcrSecretExchange object</doc>
             <type name="SecretExchange" c:type="GcrSecretExchange*"/>
           </instance-parameter>
           <parameter name="secret_len"
@@ -6907,7 +8155,7 @@ it can be used as a string.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="445">optionally, a location to store the length of returned secret</doc>
+                 line="446">optionally, a location to store the length of returned secret</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -6915,7 +8163,7 @@ it can be used as a string.</doc>
       <method name="receive" c:identifier="gcr_secret_exchange_receive">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="371">Receive a string from the other side of secret exchange. This string will
+             line="372">Receive a string from the other side of secret exchange. This string will
 have been created by [method@SecretExchange.begin] or
 [method@SecretExchange.send].
 
@@ -6925,20 +8173,20 @@ gcr_secret_exchange_get_secret() will have changed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-secret-exchange.c"
-               line="383">whether the string was successfully parsed and received</doc>
+               line="384">whether the string was successfully parsed and received</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="373">a #GcrSecretExchange object</doc>
+                 line="374">a #GcrSecretExchange object</doc>
             <type name="SecretExchange" c:type="GcrSecretExchange*"/>
           </instance-parameter>
           <parameter name="exchange" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="374">the string received</doc>
+                 line="375">the string received</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6946,7 +8194,7 @@ gcr_secret_exchange_get_secret() will have changed.</doc>
       <method name="send" c:identifier="gcr_secret_exchange_send">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="496">Send a reply to the other side of the secret exchange, optionally sending a
+             line="497">Send a reply to the other side of the secret exchange, optionally sending a
 secret.
 
 [method@SecretExchange.receive] must have been successfully called at least
@@ -6956,7 +8204,7 @@ from the other side of the secret exchange, before we can send a secret.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-secret-exchange.c"
-               line="509">a newly allocated string to be sent to the other
+               line="510">a newly allocated string to be sent to the other
     side of the secret exchange</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -6964,7 +8212,7 @@ from the other side of the secret exchange, before we can send a secret.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="498">a #GcrSecretExchange object</doc>
+                 line="499">a #GcrSecretExchange object</doc>
             <type name="SecretExchange" c:type="GcrSecretExchange*"/>
           </instance-parameter>
           <parameter name="secret"
@@ -6973,13 +8221,13 @@ from the other side of the secret exchange, before we can send a secret.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="499">optionally, a secret to send to the other side</doc>
+                 line="500">optionally, a secret to send to the other side</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="secret_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-secret-exchange.c"
-                 line="500">length of @secret, or -1 if null terminated</doc>
+                 line="501">length of @secret, or -1 if null terminated</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -6992,7 +8240,7 @@ from the other side of the secret exchange, before we can send a secret.</doc>
                 default-value="sx-aes-1">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="809">The protocol being used for the exchange.
+             line="820">The protocol being used for the exchange.
 
 Will be %NULL if no protocol was specified when creating this object,
 and either [method@SecretExchange.begin] or [method@SecretExchange.receive]
@@ -7331,6 +8579,135 @@ g_spawn_async(), g_spawn_async_with_pipes().</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
+    <record name="SubjectPublicKeyInfo"
+            c:type="GcrSubjectPublicKeyInfo"
+            opaque="1"
+            glib:type-name="GcrSubjectPublicKeyInfo"
+            glib:get-type="gcr_subject_public_key_info_get_type"
+            c:symbol-prefix="subject_public_key_info">
+      <source-position filename="gcr/gcr-subject-public-key-info.h" line="33"/>
+      <method name="copy" c:identifier="gcr_subject_public_key_info_copy">
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="50"/>
+        <return-value transfer-ownership="full">
+          <type name="SubjectPublicKeyInfo" c:type="GcrSubjectPublicKeyInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gcr_subject_public_key_info_free">
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_algorithm_description"
+              c:identifier="gcr_subject_public_key_info_get_algorithm_description">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-subject-public-key-info.c"
+             line="83">Returns a user-facing description of the algorithm used by the public key.</doc>
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_algorithm_oid"
+              c:identifier="gcr_subject_public_key_info_get_algorithm_oid">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-subject-public-key-info.c"
+             line="70">Returns the OID of the algorithm used by the public key.</doc>
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_algorithm_parameters_raw"
+              c:identifier="gcr_subject_public_key_info_get_algorithm_parameters_raw">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-subject-public-key-info.c"
+             line="96">Returns the raw bytes describing the parameters for the public key's
+algorithm. Their meaning is algorithm-specific</doc>
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-subject-public-key-info.c"
+               line="102">The raw bytes describing the algorithm's parameters</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_key"
+              c:identifier="gcr_subject_public_key_info_get_key">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-subject-public-key-info.c"
+             line="112">Returns the public key.</doc>
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-subject-public-key-info.c"
+               line="117">The raw data of the public key</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_key_size"
+              c:identifier="gcr_subject_public_key_info_get_key_size">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-subject-public-key-info.c"
+             line="127">Returns the size of the public key.</doc>
+        <source-position filename="gcr/gcr-subject-public-key-info.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-subject-public-key-info.c"
+               line="132">The key size</doc>
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubjectPublicKeyInfo"
+                  c:type="GcrSubjectPublicKeyInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
     <class name="SystemPrompt"
            c:symbol-prefix="system_prompt"
            c:type="GcrSystemPrompt"
@@ -7483,7 +8860,8 @@ error.</doc>
       </function>
       <function name="open_for_prompter"
                 c:identifier="gcr_system_prompt_open_for_prompter"
-                throws="1">
+                throws="1"
+                glib:async-func="open_for_prompter_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1471">Opens a system prompt. If prompter_name is %NULL, then the default
@@ -7531,7 +8909,9 @@ error.</doc>
         </parameters>
       </function>
       <function name="open_for_prompter_async"
-                c:identifier="gcr_system_prompt_open_for_prompter_async">
+                c:identifier="gcr_system_prompt_open_for_prompter_async"
+                glib:finish-func="open_finish"
+                glib:sync-func="open_for_prompter">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1364">Opens a system prompt asynchronously. If prompter_name is %NULL, then the
@@ -8149,12 +9529,12 @@ one prompt at a time and would use the %GCR_SYSTEM_PROMPTER_SINGLE mode.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate.c"
-           line="1356">Initialize the certificate mixin for the class. This mixin implements the
+           line="1532">Initialize the certificate mixin for the class. This mixin implements the
 various required properties for the certificate.
 
 Call this function near the end of your derived class_init function. The
 derived class must implement the #GcrCertificate interface.</doc>
-      <source-position filename="gcr/gcr-certificate.h" line="129"/>
+      <source-position filename="gcr/gcr-certificate.h" line="138"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -8162,7 +9542,7 @@ derived class must implement the #GcrCertificate interface.</doc>
         <parameter name="object_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1358">The GObjectClass for this class</doc>
+               line="1534">The GObjectClass for this class</doc>
           <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
         </parameter>
       </parameters>
@@ -8173,7 +9553,7 @@ derived class must implement the #GcrCertificate interface.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate.c"
-           line="1383">Implementation to get various required certificate properties. This should
+           line="1559">Implementation to get various required certificate properties. This should
 be called from your derived class get_property function, or used as a
 get_property virtual function.
 
@@ -8206,7 +9586,7 @@ my_class_init (MyClass *klass)
 	...
 }
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-      <source-position filename="gcr/gcr-certificate.h" line="131"/>
+      <source-position filename="gcr/gcr-certificate.h" line="140"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -8214,25 +9594,25 @@ my_class_init (MyClass *klass)
         <parameter name="obj" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1385">The object</doc>
+               line="1561">The object</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </parameter>
         <parameter name="prop_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1386">The property id</doc>
+               line="1562">The property id</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1387">The value to fill in.</doc>
+               line="1563">The value to fill in.</doc>
           <type name="GObject.Value" c:type="GValue*"/>
         </parameter>
         <parameter name="pspec" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1388">The param specification.</doc>
+               line="1564">The param specification.</doc>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
         </parameter>
       </parameters>
@@ -8344,13 +9724,14 @@ certificate.</doc>
       <doc xml:space="preserve"
            filename="gcr/gcr-importer.c"
            line="168">Create a set of importers which can import this parsed item.
-The parsed item is represented by the state of the GcrParser at the
+
+The parsed item is represented by the state of the [class@Gcr.Parser] at the
 time of calling this method.</doc>
       <source-position filename="gcr/gcr-importer.h" line="61"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="176">a list of importers
+             line="177">a list of importers
          which can import the parsed item, which should be freed with
          g_object_unref(), or %NULL if no types of importers can be created</doc>
         <type name="GLib.List" c:type="GList*">
@@ -8371,7 +9752,7 @@ time of calling this method.</doc>
               moved-to="Importer.queue_and_filter_for_parsed">
       <doc xml:space="preserve"
            filename="gcr/gcr-importer.c"
-           line="285">Queues an additional item to be imported in all compattible importers
+           line="286">Queues an additional item to be imported in all compattible importers
 in the set. The parsed item is represented by the state of the #GcrParser
 at the time of calling this method.
 
@@ -8381,7 +9762,7 @@ will not be queued on that importer.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
-             line="297">a new set of importers
+             line="298">a new set of importers
          that queued the item.</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="Importer"/>
@@ -8391,7 +9772,7 @@ will not be queued on that importer.</doc>
         <parameter name="importers" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="287">a set of importers</doc>
+               line="288">a set of importers</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Importer"/>
           </type>
@@ -8399,7 +9780,7 @@ will not be queued on that importer.</doc>
         <parameter name="parsed" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-importer.c"
-               line="288">a parsed item</doc>
+               line="289">a parsed item</doc>
           <type name="Parsed" c:type="GcrParsed*"/>
         </parameter>
       </parameters>
@@ -8434,7 +9815,7 @@ will not be queued on that importer.</doc>
               moved-to="Importer.register_well_known">
       <doc xml:space="preserve"
            filename="gcr/gcr-importer.c"
-           line="411">Register built-in PKCS#11 and GnuPG importers.</doc>
+           line="412">Register built-in PKCS#11 and GnuPG importers.</doc>
       <source-position filename="gcr/gcr-importer.h" line="86"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -9252,8 +10633,8 @@ used with care.
 If the same pinned certificate already exists, then this operation
 does not add another, and succeeds without error.
 
-This call may block, see gcr_trust_add_pinned_certificate_async() for the
-non-blocking version.</doc>
+This call may block, see [func@Gcr.trust_add_pinned_certificate_async] for
+the non-blocking version.</doc>
       <source-position filename="gcr/gcr-trust.h" line="53"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -9365,7 +10746,7 @@ operation.</doc>
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
            line="433">Finishes an asynchronous operation started by
-gcr_trust_add_pinned_certificate_async().</doc>
+[func@Gcr.trust_add_pinned_certificate_async].</doc>
       <source-position filename="gcr/gcr-trust.h" line="66"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -9436,7 +10817,8 @@ anchor is used to verify the signatures on other certificates when verifying
 a certificate chain. Also known as a trusted certificate authority.
 
 When the operation is finished, callback will be called. You can then call
-gcr_trust_is_certificate_anchored_finish() to get the result of the operation.</doc>
+[func@Gcr.trust_is_certificate_anchored_finish] to get the result of the
+operation.</doc>
       <source-position filename="gcr/gcr-trust.h" line="90"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -9490,8 +10872,8 @@ gcr_trust_is_certificate_anchored_finish() to get the result of the operation.</
               throws="1">
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
-           line="765">Finishes an asynchronous operation started by
-gcr_trust_is_certificate_anchored_async().
+           line="766">Finishes an asynchronous operation started by
+[func@Gcr.trust_is_certificate_anchored_async].
 
 In the case of an error, %FALSE is also returned. Check @error to detect
 if an error occurred.</doc>
@@ -9499,14 +10881,14 @@ if an error occurred.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-trust.c"
-             line="776">%TRUE if the certificate is a trust anchor</doc>
+             line="777">%TRUE if the certificate is a trust anchor</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="result" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="767">the #GAsyncResult passed to the callback</doc>
+               line="768">the #GAsyncResult passed to the callback</doc>
           <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
         </parameter>
       </parameters>
@@ -9516,7 +10898,7 @@ if an error occurred.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
-           line="835">Checks whether the certificate that can be uniquely identified with the
+           line="836">Checks whether the certificate that can be uniquely identified with the
 given @serial_nr and @issuer is marked as distrusted (for example by the
 user, or because it's part of a CRL).
 
@@ -9527,14 +10909,14 @@ PKCS#11 fields `CKA_SERIAL_NR` and `CKA_ISSUER`.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-trust.c"
-             line="852">%TRUE if the certificate is marked as distrusted</doc>
+             line="853">%TRUE if the certificate is marked as distrusted</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="serial_nr" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="837">The serial number of the certificate</doc>
+               line="838">The serial number of the certificate</doc>
           <array length="1" zero-terminated="0" c:type="unsigned char*">
             <type name="guint8" c:type="unsigned char"/>
           </array>
@@ -9542,13 +10924,13 @@ PKCS#11 fields `CKA_SERIAL_NR` and `CKA_ISSUER`.</doc>
         <parameter name="serial_nr_len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="838">The nr of bytes in @serial_nr</doc>
+               line="839">The nr of bytes in @serial_nr</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
         <parameter name="issuer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="839">The raw issuer</doc>
+               line="840">The raw issuer</doc>
           <array length="3" zero-terminated="0" c:type="unsigned char*">
             <type name="guint8" c:type="unsigned char"/>
           </array>
@@ -9556,7 +10938,7 @@ PKCS#11 fields `CKA_SERIAL_NR` and `CKA_ISSUER`.</doc>
         <parameter name="issuer_len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="840">The nr of bytes in @issuer</doc>
+               line="841">The nr of bytes in @issuer</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
         <parameter name="cancellable"
@@ -9565,7 +10947,7 @@ PKCS#11 fields `CKA_SERIAL_NR` and `CKA_ISSUER`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="841">a #GCancellable or %NULL</doc>
+               line="842">a #GCancellable or %NULL</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -9574,7 +10956,7 @@ PKCS#11 fields `CKA_SERIAL_NR` and `CKA_ISSUER`.</doc>
               c:identifier="gcr_trust_is_certificate_distrusted_async">
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
-           line="898">Asynchronously checks whether the certificate that can be uniquely
+           line="899">Asynchronously checks whether the certificate that can be uniquely
 identified with the given @serial_nr and @issuer is marked as distrusted
 (for example by the user, or because it's part of a CRL).
 
@@ -9593,7 +10975,7 @@ operation.</doc>
         <parameter name="serial_nr" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="900">The serial number of the certificate</doc>
+               line="901">The serial number of the certificate</doc>
           <array length="1" zero-terminated="0" c:type="unsigned char*">
             <type name="guint8" c:type="unsigned char"/>
           </array>
@@ -9601,13 +10983,13 @@ operation.</doc>
         <parameter name="serial_nr_len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="901">The nr of bytes in @serial_nr</doc>
+               line="902">The nr of bytes in @serial_nr</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
         <parameter name="issuer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="902">The raw issuer</doc>
+               line="903">The raw issuer</doc>
           <array length="3" zero-terminated="0" c:type="unsigned char*">
             <type name="guint8" c:type="unsigned char"/>
           </array>
@@ -9615,7 +10997,7 @@ operation.</doc>
         <parameter name="issuer_len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="903">The number of bytes in @issuer</doc>
+               line="904">The number of bytes in @issuer</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
         <parameter name="cancellable"
@@ -9624,7 +11006,7 @@ operation.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="904">a #GCancellable or %NULL</doc>
+               line="905">a #GCancellable or %NULL</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
         <parameter name="callback"
@@ -9635,7 +11017,7 @@ operation.</doc>
                    closure="6">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="905">a #GAsyncReadyCallback to call when the operation completes</doc>
+               line="906">a #GAsyncReadyCallback to call when the operation completes</doc>
           <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
         </parameter>
         <parameter name="user_data"
@@ -9644,7 +11026,7 @@ operation.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="906">the data to pass to callback function</doc>
+               line="907">the data to pass to callback function</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
       </parameters>
@@ -9654,7 +11036,7 @@ operation.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
-           line="950">Finishes an asynchronous operation started by
+           line="951">Finishes an asynchronous operation started by
 [func@trust_is_certificate_distrusted_async].
 
 In the case of an error, %FALSE is also returned. Check @error to detect
@@ -9663,14 +11045,14 @@ if an error occurred.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-trust.c"
-             line="961">%TRUE if the certificate is a trust anchor</doc>
+             line="962">%TRUE if the certificate is a trust anchor</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="result" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-trust.c"
-               line="952">the #GAsyncResult passed to the callback</doc>
+               line="953">the #GAsyncResult passed to the callback</doc>
           <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
         </parameter>
       </parameters>
@@ -9683,8 +11065,8 @@ if an error occurred.</doc>
            line="127">Check if @certificate is pinned for @purpose to communicate with @peer.
 A pinned certificate overrides all other certificate verification.
 
-This call may block, see gcr_trust_is_certificate_pinned_async() for the
-non-blocking version.
+This call may block, see [func@Gcr.trust_is_certificate_pinned_async] for
+the non-blocking version.
 
 In the case of an error, %FALSE is also returned. Check @error to detect
 if an error occurred.</doc>
@@ -9795,7 +11177,7 @@ operation.</doc>
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
            line="221">Finishes an asynchronous operation started by
-gcr_trust_is_certificate_pinned_async().
+[func@Gcr.trust_is_certificate_pinned_async].
 
 In the case of an error, %FALSE is also returned. Check @error to detect
 if an error occurred.</doc>
@@ -9825,8 +11207,8 @@ if an error occurred.</doc>
 If the same pinned certificate does not exist, or was already removed,
 then this operation succeeds without error.
 
-This call may block, see gcr_trust_remove_pinned_certificate_async() for the
-non-blocking version.</doc>
+This call may block, see [func@Gcr.trust_remove_pinned_certificate_async]
+for the non-blocking version.</doc>
       <source-position filename="gcr/gcr-trust.h" line="69"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -9874,7 +11256,7 @@ If the same pinned certificate does not exist, or was already removed,
 then this operation succeeds without error.
 
 When the operation is finished, callback will be called. You can then call
-gcr_trust_remove_pinned_certificate_finish() to get the result of the
+[func@Gcr.trust_remove_pinned_certificate_finish] to get the result of the
 operation.</doc>
       <source-position filename="gcr/gcr-trust.h" line="75"/>
       <return-value transfer-ownership="none">
@@ -9936,7 +11318,7 @@ operation.</doc>
       <doc xml:space="preserve"
            filename="gcr/gcr-trust.c"
            line="612">Finishes an asynchronous operation started by
-gcr_trust_remove_pinned_certificate_async().</doc>
+[func@Gcr.trust_remove_pinned_certificate_async].</doc>
       <source-position filename="gcr/gcr-trust.h" line="82"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"

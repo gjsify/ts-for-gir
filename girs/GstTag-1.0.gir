@@ -601,6 +601,11 @@ Subclasses have to do four things:
  128 bytes.</doc>
       <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="129"/>
       <virtual-method name="identify_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="78">identify tag and determine the size required to parse the
+tag. Buffer may be larger than the specified minimum size.
+Subclassed MUST override this vfunc in their class_init function.</doc>
         <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -621,6 +626,12 @@ Subclasses have to do four things:
         </parameters>
       </virtual-method>
       <virtual-method name="merge_tags">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="87">merge start and end tags. Subclasses may want to override this
+vfunc to allow prioritising of start or end tag according to user
+preference.  Note that both start_tags and end_tags may be NULL. By default
+start tags are preferred over end tags.</doc>
         <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="123"/>
         <return-value transfer-ownership="full">
           <type name="Gst.TagList" c:type="GstTagList*"/>
@@ -638,6 +649,14 @@ Subclasses have to do four things:
         </parameters>
       </virtual-method>
       <virtual-method name="parse_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="81">parse the tag. Buffer will be exactly of the size determined by
+the identify_tag vfunc before. The parse_tag vfunc may change the size
+stored in *tag_size and return GST_TAG_DEMUX_RESULT_AGAIN to request a
+larger or smaller buffer. It is also permitted to adjust the tag_size to a
+smaller value and then return GST_TAG_DEMUX_RESULT_OK in one go.
+Subclassed MUST override the parse_tag vfunc in their class_init function.</doc>
         <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="TagDemuxResult" c:type="GstTagDemuxResult"/>
@@ -706,6 +725,11 @@ Subclasses should set this in their class_init function.</doc>
         <type name="guint" c:type="guint"/>
       </field>
       <field name="identify_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="78">identify tag and determine the size required to parse the
+tag. Buffer may be larger than the specified minimum size.
+Subclassed MUST override this vfunc in their class_init function.</doc>
         <callback name="identify_tag">
           <source-position filename="gst-libs/gst/tag/gsttagdemux.h"
                            line="110"/>
@@ -729,6 +753,14 @@ Subclasses should set this in their class_init function.</doc>
         </callback>
       </field>
       <field name="parse_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="81">parse the tag. Buffer will be exactly of the size determined by
+the identify_tag vfunc before. The parse_tag vfunc may change the size
+stored in *tag_size and return GST_TAG_DEMUX_RESULT_AGAIN to request a
+larger or smaller buffer. It is also permitted to adjust the tag_size to a
+smaller value and then return GST_TAG_DEMUX_RESULT_OK in one go.
+Subclassed MUST override the parse_tag vfunc in their class_init function.</doc>
         <callback name="parse_tag">
           <source-position filename="gst-libs/gst/tag/gsttagdemux.h"
                            line="116"/>
@@ -755,6 +787,12 @@ Subclasses should set this in their class_init function.</doc>
         </callback>
       </field>
       <field name="merge_tags">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="87">merge start and end tags. Subclasses may want to override this
+vfunc to allow prioritising of start or end tag according to user
+preference.  Note that both start_tags and end_tags may be NULL. By default
+start tags are preferred over end tags.</doc>
         <callback name="merge_tags">
           <source-position filename="gst-libs/gst/tag/gsttagdemux.h"
                            line="123"/>
@@ -1191,6 +1229,10 @@ Subclasses have to do the following things:
       <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="80"/>
       <implements name="Gst.TagSetter"/>
       <virtual-method name="render_end_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="65">create a tag buffer to add to the end of the
+    input stream given a tag list, or NULL</doc>
         <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="76"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
@@ -1205,6 +1247,10 @@ Subclasses have to do the following things:
         </parameters>
       </virtual-method>
       <virtual-method name="render_start_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="63">create a tag buffer to add to the beginning of the
+    input stream given a tag list, or NULL</doc>
         <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="75"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
@@ -1248,6 +1294,10 @@ of the two render vfuncs.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="render_start_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="63">create a tag buffer to add to the beginning of the
+    input stream given a tag list, or NULL</doc>
         <callback name="render_start_tag">
           <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="75"/>
           <return-value transfer-ownership="full">
@@ -1264,6 +1314,10 @@ of the two render vfuncs.</doc>
         </callback>
       </field>
       <field name="render_end_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="65">create a tag buffer to add to the end of the
+    input stream given a tag list, or NULL</doc>
         <callback name="render_end_tag">
           <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="76"/>
           <return-value transfer-ownership="full">
@@ -2114,7 +2168,7 @@ more information on image tags in GStreamer.</doc>
               c:identifier="gst_tag_list_from_exif_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1941">Parses the IFD and IFD tags data contained in the buffer and puts it
+           line="1960">Parses the IFD and IFD tags data contained in the buffer and puts it
 on a taglist. The base_offset is used to subtract from the offset in
 the tag entries and be able to get the offset relative to the buffer
 start</doc>
@@ -2122,26 +2176,26 @@ start</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1952">The parsed taglist</doc>
+             line="1971">The parsed taglist</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1943">The exif buffer</doc>
+               line="1962">The exif buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1944">byte order of the data</doc>
+               line="1963">byte order of the data</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="base_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1945">Offset from the tiff header to this buffer</doc>
+               line="1964">Offset from the tiff header to this buffer</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -2150,19 +2204,19 @@ start</doc>
               c:identifier="gst_tag_list_from_exif_buffer_with_tiff_header">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1977">Parses the exif tags starting with a tiff header structure.</doc>
+           line="1996">Parses the exif tags starting with a tiff header structure.</doc>
       <source-position filename="gst-libs/gst/tag/tag.h" line="568"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1983">The taglist</doc>
+             line="2002">The taglist</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1979">The exif buffer</doc>
+               line="1998">The exif buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -2345,32 +2399,32 @@ parsed data.</doc>
               c:identifier="gst_tag_list_to_exif_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1858">Formats the tags in taglist on exif format. The resulting buffer contains
+           line="1877">Formats the tags in taglist on exif format. The resulting buffer contains
 the tags IFD and is followed by the data pointed by the tag entries.</doc>
       <source-position filename="gst-libs/gst/tag/tag.h" line="555"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1867">A GstBuffer containing the tag entries followed by the tag data</doc>
+             line="1886">A GstBuffer containing the tag entries followed by the tag data</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
       <parameters>
         <parameter name="taglist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1860">The taglist</doc>
+               line="1879">The taglist</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1861">byte order used in writing (G_LITTLE_ENDIAN or G_BIG_ENDIAN)</doc>
+               line="1880">byte order used in writing (G_LITTLE_ENDIAN or G_BIG_ENDIAN)</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="base_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1862">Offset from the tiff header first byte</doc>
+               line="1881">Offset from the tiff header first byte</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -2379,20 +2433,20 @@ the tags IFD and is followed by the data pointed by the tag entries.</doc>
               c:identifier="gst_tag_list_to_exif_buffer_with_tiff_header">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1876">Formats the tags in taglist into exif structure, a tiff header
+           line="1895">Formats the tags in taglist into exif structure, a tiff header
 is put in the beginning of the buffer.</doc>
       <source-position filename="gst-libs/gst/tag/tag.h" line="560"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1883">A GstBuffer containing the data</doc>
+             line="1902">A GstBuffer containing the data</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
       <parameters>
         <parameter name="taglist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1878">The taglist</doc>
+               line="1897">The taglist</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
       </parameters>

@@ -12,7 +12,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="workbench.h"/>
   <namespace name="Workbench"
              version="0"
-             shared-library="libworkbench-0.so.46.1"
+             shared-library="libworkbench-0.so.47.1"
              c:identifier-prefixes="Workbench"
              c:symbol-prefixes="workbench">
     <class name="CompletionProvider"

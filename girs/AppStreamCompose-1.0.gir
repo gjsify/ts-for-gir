@@ -243,7 +243,7 @@ to be taked care off by the callee.</doc>
       <constructor name="new" c:identifier="asc_compose_new">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2308">Creates a new #AscCompose.</doc>
+             line="2306">Creates a new #AscCompose.</doc>
         <source-position filename="compose/asc-compose.h" line="121"/>
         <return-value transfer-ownership="full">
           <type name="Compose" c:type="AscCompose*"/>
@@ -1259,7 +1259,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="63">An error quark.</doc>
+               line="81">An error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -1364,7 +1364,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <constructor name="new" c:identifier="asc_directory_unit_new">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="227">Creates a new #AscDirectoryUnit.</doc>
+             line="270">Creates a new #AscDirectoryUnit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="44"/>
         <return-value transfer-ownership="full">
           <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
@@ -1378,7 +1378,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="get_root" c:identifier="asc_directory_unit_get_root">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="198">Get the root directory path for this unit.</doc>
+             line="241">Get the root directory path for this unit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -1387,7 +1387,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="dirunit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="200">an #AscDirectoryUnit instance.</doc>
+                 line="243">an #AscDirectoryUnit instance.</doc>
             <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
           </instance-parameter>
         </parameters>
@@ -1395,7 +1395,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="set_root" c:identifier="asc_directory_unit_set_root">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="211">Sets the root directory path for this unit.</doc>
+             line="254">Sets the root directory path for this unit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1404,13 +1404,13 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="dirunit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="213">an #AscDirectoryUnit instance.</doc>
+                 line="256">an #AscDirectoryUnit instance.</doc>
             <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
           </instance-parameter>
           <parameter name="root_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="214">Absolute directory path</doc>
+                 line="257">Absolute directory path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4412,7 +4412,7 @@ associated with this component.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="63">An error quark.</doc>
+             line="81">An error quark.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
@@ -4438,7 +4438,7 @@ file on disk after download.</doc>
               c:identifier="asc_globals_add_hint_tag">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="390">Register a new hint tag. If a previous tag with the given name
+           line="408">Register a new hint tag. If a previous tag with the given name
 already existed, the existing tag will not be replaced unless
 @overrideExisting is set to %TRUE.
 Please be careful when overriding tags! Tag severities can not
@@ -4447,32 +4447,32 @@ be lowered by overriding a tag.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="403">%TRUE if the tag was registered and did not exist previously.</doc>
+             line="421">%TRUE if the tag was registered and did not exist previously.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="392">the tag-ID to add</doc>
+               line="410">the tag-ID to add</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="severity" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="393">the tag severity as #AsIssueSeverity</doc>
+               line="411">the tag severity as #AsIssueSeverity</doc>
           <type name="AppStream.IssueSeverity" c:type="AsIssueSeverity"/>
         </parameter>
         <parameter name="explanation" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="394">the tag explanatory message</doc>
+               line="412">the tag explanatory message</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="overrideExisting" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="395">whether an existing tag should be replaced</doc>
+               line="413">whether an existing tag should be replaced</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -4480,7 +4480,7 @@ be lowered by overriding a tag.</doc>
     <function name="globals_clear" c:identifier="asc_globals_clear">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="145">Clear all global state and restore defaults.</doc>
+           line="163">Clear all global state and restore defaults.</doc>
       <source-position filename="compose/asc-globals.h" line="46"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4490,7 +4490,7 @@ be lowered by overriding a tag.</doc>
               c:identifier="asc_globals_get_ffprobe_binary">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="256">Get path to the "ffprobe" binary we should use.</doc>
+           line="274">Get path to the "ffprobe" binary we should use.</doc>
       <source-position filename="compose/asc-globals.h" line="58"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
@@ -4500,12 +4500,12 @@ be lowered by overriding a tag.</doc>
               c:identifier="asc_globals_get_hint_tags">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="456">Retrieve all hint tags that we know.</doc>
+           line="474">Retrieve all hint tags that we know.</doc>
       <source-position filename="compose/asc-globals.h" line="65"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="461">A list of valid hint tags. Free with %g_strfreev</doc>
+             line="479">A list of valid hint tags. Free with %g_strfreev</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
         </array>
@@ -4515,7 +4515,7 @@ be lowered by overriding a tag.</doc>
               c:identifier="asc_globals_get_optipng_binary">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="229">Get path to the "optipng" binary we should use.</doc>
+           line="247">Get path to the "optipng" binary we should use.</doc>
       <source-position filename="compose/asc-globals.h" line="55"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
@@ -4525,7 +4525,7 @@ be lowered by overriding a tag.</doc>
               c:identifier="asc_globals_get_tmp_dir">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="161">Get temporary directory used by appstream-compose.</doc>
+           line="179">Get temporary directory used by appstream-compose.</doc>
       <source-position filename="compose/asc-globals.h" line="48"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
@@ -4535,7 +4535,7 @@ be lowered by overriding a tag.</doc>
               c:identifier="asc_globals_get_tmp_dir_create">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="173">Get temporary directory used by appstream-compose
+           line="191">Get temporary directory used by appstream-compose
 and try to create it if it does not exist.</doc>
       <source-position filename="compose/asc-globals.h" line="49"/>
       <return-value transfer-ownership="none">
@@ -4546,7 +4546,7 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_get_use_optipng">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="200">Get whether images should be optimized using optipng.</doc>
+           line="218">Get whether images should be optimized using optipng.</doc>
       <source-position filename="compose/asc-globals.h" line="52"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
@@ -4556,12 +4556,12 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_hint_tag_explanation">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="502">Retrieve the explanation template of the given hint tag.</doc>
+           line="520">Retrieve the explanation template of the given hint tag.</doc>
       <source-position filename="compose/asc-globals.h" line="67"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="507">An explanation template, or %NULL if the tag was not found.</doc>
+             line="525">An explanation template, or %NULL if the tag was not found.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
@@ -4574,12 +4574,12 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_hint_tag_severity">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="485">Retrieve the severity of the given hint tag.</doc>
+           line="503">Retrieve the severity of the given hint tag.</doc>
       <source-position filename="compose/asc-globals.h" line="66"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="490">An #AsIssueSeverity or %AS_ISSUE_SEVERITY_UNKNOWN if the tag did not exist
+             line="508">An #AsIssueSeverity or %AS_ISSUE_SEVERITY_UNKNOWN if the tag did not exist
          or has an unknown severity.</doc>
         <type name="AppStream.IssueSeverity" c:type="AsIssueSeverity"/>
       </return-value>
@@ -4593,7 +4593,7 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_set_ffprobe_binary">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="268">Set path to the "ffprobe" binary we should use.</doc>
+           line="286">Set path to the "ffprobe" binary we should use.</doc>
       <source-position filename="compose/asc-globals.h" line="59"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4608,7 +4608,7 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_set_optipng_binary">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="241">Set path to the "optipng" binary we should use.</doc>
+           line="259">Set path to the "optipng" binary we should use.</doc>
       <source-position filename="compose/asc-globals.h" line="56"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4623,7 +4623,7 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_set_tmp_dir">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="187">Set temporary directory used by appstream-compose.</doc>
+           line="205">Set temporary directory used by appstream-compose.</doc>
       <source-position filename="compose/asc-globals.h" line="50"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4638,7 +4638,7 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_set_use_optipng">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="212">Set whether images should be optimized using optipng.</doc>
+           line="230">Set whether images should be optimized using optipng.</doc>
       <source-position filename="compose/asc-globals.h" line="53"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>

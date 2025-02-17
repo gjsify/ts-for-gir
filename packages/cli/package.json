@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/cli",
-  "version": "4.0.0-beta.19",
+  "version": "4.0.0-beta.20",
   "description": "TypeScript type definition generator for GObject introspection GIR files",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -54,7 +54,7 @@
   ],
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.4",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@gi.ts/parser": "workspace:^",
-    "@inquirer/prompts": "^7.3.1",
+    "@inquirer/prompts": "^7.3.2",
     "@ts-for-gir/generator-base": "workspace:^",
     "@ts-for-gir/generator-html-doc": "workspace:^",
     "@ts-for-gir/generator-typescript": "workspace:^",
@@ -75,8 +75,8 @@
     "colorette": "^2.0.20",
     "cosmiconfig": "^9.0.0",
     "glob": "^11.0.1",
-    "inquirer": "^12.4.1",
-    "prettier": "^3.5.0",
+    "inquirer": "^12.4.2",
+    "prettier": "^3.5.1",
     "yargs": "^17.7.2"
   }
 }

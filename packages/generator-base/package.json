@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/generator-base",
-  "version": "4.0.0-beta.19",
+  "version": "4.0.0-beta.20",
   "description": "Base generator for ts-for-gir",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -34,13 +34,13 @@
     "generator"
   ],
   "devDependencies": {
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.4",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "prettier": "^3.5.0",
+    "prettier": "^3.5.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.3"
   },

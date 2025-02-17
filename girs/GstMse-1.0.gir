@@ -1524,7 +1524,7 @@ ignored.
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mse/gstsourcebuffer.c"
-                 line="1085">the append window end</doc>
+                 line="1085">the append window start</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>

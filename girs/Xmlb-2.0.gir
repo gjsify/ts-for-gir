@@ -5890,7 +5890,10 @@ xb_silo_set_profile_flags() was used with %XB_SILO_PROFILE_FLAG_APPEND.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="is_valid" c:identifier="xb_silo_is_valid" version="0.1.0">
+      <method name="is_valid"
+              c:identifier="xb_silo_is_valid"
+              glib:get-property="valid"
+              version="0.1.0">
         <doc xml:space="preserve"
              filename="src/xb-silo.c"
              line="588">Checks is the silo is valid. The usual reason the silo is invalidated is
@@ -6494,7 +6497,10 @@ between threads. Changing it is not thread-safe.</doc>
                 default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="valid" transfer-ownership="none" default-value="TRUE">
+      <property name="valid"
+                transfer-ownership="none"
+                getter="is_valid"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance">

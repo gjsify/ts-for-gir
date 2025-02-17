@@ -34,8 +34,8 @@ and/or use gtk-doc annotations.  -->
             c:symbol-prefix="annotated_commit">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="28">Represents an annotated commit object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="33"/>
+           line="35">Represents an annotated commit object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="40"/>
       <constructor name="new_from_ref"
                    c:identifier="ggit_annotated_commit_new_from_ref"
                    throws="1">
@@ -137,7 +137,7 @@ If the reference count drops to 0, @annotated_commit is freed.</doc>
               c:type="GgitAttributeCheckFlags">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="957">Attribute check flags indicate the order in which to check for gitattributes.
+           line="939">Attribute check flags indicate the order in which to check for gitattributes.
 git core uses @GGIT_ATTRIBUTE_CHECK_FILE_THEN_INDEX for all operations,
 except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
       <member name="file_then_index"
@@ -147,7 +147,7 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
               glib:name="GGIT_ATTRIBUTE_CHECK_FILE_THEN_INDEX">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="959">check working directory, then index.</doc>
+             line="941">check working directory, then index.</doc>
       </member>
       <member name="index_then_file"
               value="1"
@@ -156,7 +156,7 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
               glib:name="GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="960">check index, then working directory.</doc>
+             line="942">check index, then working directory.</doc>
       </member>
       <member name="index_only"
               value="2"
@@ -165,7 +165,7 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
               glib:name="GGIT_ATTRIBUTE_CHECK_INDEX_ONLY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="961">check only index.</doc>
+             line="943">check only index.</doc>
       </member>
       <member name="no_system"
               value="4"
@@ -174,7 +174,7 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
               glib:name="GGIT_ATTRIBUTE_CHECK_NO_SYSTEM">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="962">ignore system wide attributes.</doc>
+             line="944">ignore system wide attributes.</doc>
       </member>
     </bitfield>
     <function-macro name="BLAME_OPTIONS"
@@ -196,7 +196,9 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="BUILD_TYPE" value="plain" c:type="GGIT_BUILD_TYPE">
+    <constant name="BUILD_TYPE"
+              value="debugoptimized"
+              c:type="GGIT_BUILD_TYPE">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="52">The build type of the installed build.</doc>
@@ -362,7 +364,7 @@ having a zero id for their #ggit_blame_hunk_get_final_commit_id.</doc>
               glib:name="GGIT_BLAME_NORMAL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="327">Normal blame, the default.</doc>
+             line="334">Normal blame, the default.</doc>
       </member>
       <member name="track_copies_same_file"
               value="1"
@@ -371,7 +373,7 @@ having a zero id for their #ggit_blame_hunk_get_final_commit_id.</doc>
               glib:name="GGIT_BLAME_TRACK_COPIES_SAME_FILE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="328">Track lines that have moved within a file
+             line="335">Track lines that have moved within a file
                                     (like git blame -M)</doc>
       </member>
     </bitfield>
@@ -383,8 +385,8 @@ having a zero id for their #ggit_blame_hunk_get_final_commit_id.</doc>
             c:symbol-prefix="blame_hunk">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="112">Represents a blame hunk.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="117"/>
+           line="119">Represents a blame hunk.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="124"/>
       <method name="get_final_commit_id"
               c:identifier="ggit_blame_hunk_get_final_commit_id">
         <doc xml:space="preserve"
@@ -627,8 +629,8 @@ If the reference count drops to 0, @blame_hunk is freed.</doc>
             c:symbol-prefix="blame_options">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="274">Represents blame options.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="279"/>
+           line="281">Represents blame options.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="286"/>
       <constructor name="new" c:identifier="ggit_blame_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-blame-options.c"
@@ -1247,8 +1249,8 @@ given a local branch reference.</doc>
             c:symbol-prefix="branch_enumerator">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="35">Represents a branch enumerator.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="40"/>
+           line="42">Represents a branch enumerator.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="47"/>
       <method name="get" c:identifier="ggit_branch_enumerator_get">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-branch-enumerator.c"
@@ -1354,7 +1356,7 @@ branch.</doc>
                  c:type="GgitBranchType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="288">The type of a branch.</doc>
+           line="295">The type of a branch.</doc>
       <member name="local"
               value="1"
               c:identifier="GGIT_BRANCH_LOCAL"
@@ -1362,7 +1364,7 @@ branch.</doc>
               glib:name="GGIT_BRANCH_LOCAL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="290">specifies a local branch.</doc>
+             line="297">specifies a local branch.</doc>
       </member>
       <member name="remote"
               value="2"
@@ -1371,7 +1373,7 @@ branch.</doc>
               glib:name="GGIT_BRANCH_REMOTE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="291">specifies a remote branch.</doc>
+             line="298">specifies a remote branch.</doc>
       </member>
     </enumeration>
     <function-macro name="CHECK_VERSION"
@@ -2693,18 +2695,18 @@ will be checked out.</doc>
            glib:type-struct="CloneOptionsClass">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="42">Represents the options used when cloning.</doc>
+           line="49">Represents the options used when cloning.</doc>
       <source-position filename="libgit2-glib/ggit-clone-options.h" line="52"/>
       <constructor name="new" c:identifier="ggit_clone_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="234">Creates a new #GgitCloneOptions.</doc>
+             line="237">Creates a new #GgitCloneOptions.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="56"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="239">a newly allocated #GgitCloneOptions.</doc>
+               line="242">a newly allocated #GgitCloneOptions.</doc>
           <type name="CloneOptions" c:type="GgitCloneOptions*"/>
         </return-value>
       </constructor>
@@ -2714,32 +2716,32 @@ will be checked out.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="54">a #GgitRemote or %NULL in case of an error.</doc>
+               line="57">a #GgitRemote or %NULL in case of an error.</doc>
           <type name="Remote" c:type="GgitRemote*"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="48">a #GgitCloneOptions.</doc>
+                 line="51">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
           <parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="49">the repository.</doc>
+                 line="52">the repository.</doc>
             <type name="Repository" c:type="GgitRepository*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="50">the remote name.</doc>
+                 line="53">the remote name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="51">the remote url.</doc>
+                 line="54">the remote url.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2750,26 +2752,26 @@ will be checked out.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="43">a #GgitRepository or %NULL in case of an error.</doc>
+               line="46">a #GgitRepository or %NULL in case of an error.</doc>
           <type name="Repository" c:type="GgitRepository*"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="38">a #GgitCloneOptions.</doc>
+                 line="41">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="39">the repository path.</doc>
+                 line="42">the repository path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="is_bare" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="40">whether a bare repository should be created.</doc>
+                 line="43">whether a bare repository should be created.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2778,20 +2780,20 @@ will be checked out.</doc>
               c:identifier="ggit_clone_options_get_checkout_branch">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="285">Gets the name of the branch to checkout or %NULL.</doc>
+             line="288">Gets the name of the branch to checkout or %NULL.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="291">the name of the branch to checkout or %NULL.</doc>
+               line="294">the name of the branch to checkout or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="287">a #GgitCloneOptions.</doc>
+                 line="290">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
         </parameters>
@@ -2800,20 +2802,20 @@ will be checked out.</doc>
               c:identifier="ggit_clone_options_get_fetch_options">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="324">Get the fetch options object or %NULL if not set.</doc>
+             line="327">Get the fetch options object or %NULL if not set.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="330">the fetch options or %NULL.</doc>
+               line="333">the fetch options or %NULL.</doc>
           <type name="FetchOptions" c:type="GgitFetchOptions*"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="326">a #GgitCloneOptions.</doc>
+                 line="329">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
         </parameters>
@@ -2821,20 +2823,20 @@ will be checked out.</doc>
       <method name="get_is_bare" c:identifier="ggit_clone_options_get_is_bare">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="247">Gets if the repository will be bare.</doc>
+             line="250">Gets if the repository will be bare.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="253">%TRUE to clone a bare repository.</doc>
+               line="256">%TRUE to clone a bare repository.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="249">a #GgitCloneOptions.</doc>
+                 line="252">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
         </parameters>
@@ -2842,7 +2844,7 @@ will be checked out.</doc>
       <method name="get_local" c:identifier="ggit_clone_options_get_local">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="374">Get setting for bypassing the git-aware transport when cloning. The
+             line="377">Get setting for bypassing the git-aware transport when cloning. The
 default auto setting bypasses the git-aware transport for local paths,
 but use a normal fetch for file:// URIs.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
@@ -2850,14 +2852,14 @@ but use a normal fetch for file:// URIs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-clone-options.c"
-               line="382">the local clone setting.</doc>
+               line="385">the local clone setting.</doc>
           <type name="CloneLocal" c:type="GgitCloneLocal"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="376">a #GgitCloneOptions.</doc>
+                 line="379">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
         </parameters>
@@ -2866,7 +2868,7 @@ but use a normal fetch for file:// URIs.</doc>
               c:identifier="ggit_clone_options_set_checkout_branch">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="304">Gives the name of the branch to checkout. %NULL means
+             line="307">Gives the name of the branch to checkout. %NULL means
 use the remote's HEAD.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="65"/>
@@ -2877,7 +2879,7 @@ use the remote's HEAD.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="306">a #GgitCloneOptions.</doc>
+                 line="309">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
           <parameter name="checkout_branch"
@@ -2886,7 +2888,7 @@ use the remote's HEAD.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="307">the name of the branch to checkout or %NULL.</doc>
+                 line="310">the name of the branch to checkout or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2895,7 +2897,7 @@ use the remote's HEAD.</doc>
               c:identifier="ggit_clone_options_set_fetch_options">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="343">Set the fetch options object.</doc>
+             line="346">Set the fetch options object.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="73"/>
         <return-value transfer-ownership="none">
@@ -2905,7 +2907,7 @@ use the remote's HEAD.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="345">a #GgitCloneOptions.</doc>
+                 line="348">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
           <parameter name="fetch_options"
@@ -2914,7 +2916,7 @@ use the remote's HEAD.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="346">a #GgitFetchOptions or %NULL.</doc>
+                 line="349">a #GgitFetchOptions or %NULL.</doc>
             <type name="FetchOptions" c:type="GgitFetchOptions*"/>
           </parameter>
         </parameters>
@@ -2922,7 +2924,7 @@ use the remote's HEAD.</doc>
       <method name="set_is_bare" c:identifier="ggit_clone_options_set_is_bare">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="266">Sets whether to clone a bare repository.</doc>
+             line="269">Sets whether to clone a bare repository.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
                          line="60"/>
         <return-value transfer-ownership="none">
@@ -2932,13 +2934,13 @@ use the remote's HEAD.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="268">a #GgitCloneOptions.</doc>
+                 line="271">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
           <parameter name="bare" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="269">%TRUE to clone a bare repository.</doc>
+                 line="272">%TRUE to clone a bare repository.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2946,7 +2948,7 @@ use the remote's HEAD.</doc>
       <method name="set_local" c:identifier="ggit_clone_options_set_local">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-clone-options.c"
-             line="396">Set setting for bypassing the git-aware transport when cloning. The
+             line="399">Set setting for bypassing the git-aware transport when cloning. The
 default auto setting bypasses the git-aware transport for local paths,
 but use a normal fetch for file:// URIs.</doc>
         <source-position filename="libgit2-glib/ggit-clone-options.h"
@@ -2958,13 +2960,13 @@ but use a normal fetch for file:// URIs.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="398">a #GgitCloneOptions.</doc>
+                 line="401">a #GgitCloneOptions.</doc>
             <type name="CloneOptions" c:type="GgitCloneOptions*"/>
           </instance-parameter>
           <parameter name="local" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="399">the local clone setting.</doc>
+                 line="402">the local clone setting.</doc>
             <type name="CloneLocal" c:type="GgitCloneLocal"/>
           </parameter>
         </parameters>
@@ -2987,26 +2989,26 @@ but use a normal fetch for file:// URIs.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="43">a #GgitRepository or %NULL in case of an error.</doc>
+                 line="46">a #GgitRepository or %NULL in case of an error.</doc>
             <type name="Repository" c:type="GgitRepository*"/>
           </return-value>
           <parameters>
             <parameter name="options" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="38">a #GgitCloneOptions.</doc>
+                   line="41">a #GgitCloneOptions.</doc>
               <type name="CloneOptions" c:type="GgitCloneOptions*"/>
             </parameter>
             <parameter name="path" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="39">the repository path.</doc>
+                   line="42">the repository path.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="is_bare" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="40">whether a bare repository should be created.</doc>
+                   line="43">whether a bare repository should be created.</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
           </parameters>
@@ -3019,32 +3021,32 @@ but use a normal fetch for file:// URIs.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-clone-options.c"
-                 line="54">a #GgitRemote or %NULL in case of an error.</doc>
+                 line="57">a #GgitRemote or %NULL in case of an error.</doc>
             <type name="Remote" c:type="GgitRemote*"/>
           </return-value>
           <parameters>
             <parameter name="options" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="48">a #GgitCloneOptions.</doc>
+                   line="51">a #GgitCloneOptions.</doc>
               <type name="CloneOptions" c:type="GgitCloneOptions*"/>
             </parameter>
             <parameter name="repository" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="49">the repository.</doc>
+                   line="52">the repository.</doc>
               <type name="Repository" c:type="GgitRepository*"/>
             </parameter>
             <parameter name="name" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="50">the remote name.</doc>
+                   line="53">the remote name.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="url" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-clone-options.c"
-                   line="51">the remote url.</doc>
+                   line="54">the remote url.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -4089,13 +4091,13 @@ for looking up complex values (e.g. a remote, submodule).</doc>
     <callback name="ConfigCallback" c:type="GgitConfigCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1075">The type of the callback functions for retrieving values from a #GgitConfig.
+           line="1031">The type of the callback functions for retrieving values from a #GgitConfig.
 See ggit_config_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1086"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1042"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1083">0 to go for the next config value or a #GgitError in case there was
+             line="1039">0 to go for the next config value or a #GgitError in case there was
          an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -4103,7 +4105,7 @@ See ggit_config_foreach().</doc>
         <parameter name="entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1077">a #GgitConfigEntry.</doc>
+               line="1033">a #GgitConfigEntry.</doc>
           <type name="ConfigEntry" c:type="GgitConfigEntry*"/>
         </parameter>
         <parameter name="user_data"
@@ -4113,7 +4115,7 @@ See ggit_config_foreach().</doc>
                    closure="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1078">user-supplied data.</doc>
+               line="1034">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -4134,8 +4136,8 @@ See ggit_config_foreach().</doc>
             c:symbol-prefix="config_entry">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="49">Represents a git configuration entry.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="54"/>
+           line="56">Represents a git configuration entry.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="61"/>
       <method name="get_level" c:identifier="ggit_config_entry_get_level">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-config-entry.c"
@@ -4246,8 +4248,8 @@ If the reference count drops to 0, @entry is freed.</doc>
                  glib:get-type="ggit_config_level_get_type"
                  c:type="GgitConfigLevel">
       <doc xml:space="preserve"
-           filename="libgit2-glib/ggit-types.h"
-           line="337">Priority level of a config file.
+           filename="libgit2-glib/ggit-types-pre18.h"
+           line="24">Priority level of a config file.
 These priority levels correspond to the natural escalation logic
 (from higher to lower) when searching for config entries in git.git.</doc>
       <member name="programdata"
@@ -4256,8 +4258,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="programdata"
               glib:name="GGIT_CONFIG_LEVEL_PROGRAMDATA">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="339">System-wide on Windows, for compatibility with portable git.</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="26">System-wide on Windows, for compatibility with portable git.</doc>
       </member>
       <member name="system"
               value="2"
@@ -4265,8 +4267,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="system"
               glib:name="GGIT_CONFIG_LEVEL_SYSTEM">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="340">System-wide configuration file.</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="27">System-wide configuration file.</doc>
       </member>
       <member name="xdg"
               value="3"
@@ -4274,8 +4276,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="xdg"
               glib:name="GGIT_CONFIG_LEVEL_XDG">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="341">XDG compatible configuration file (.config/git/config).</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="28">XDG compatible configuration file (.config/git/config).</doc>
       </member>
       <member name="global"
               value="4"
@@ -4283,8 +4285,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="global"
               glib:name="GGIT_CONFIG_LEVEL_GLOBAL">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="342">User-specific configuration file, also called Global configuration file.</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="29">User-specific configuration file, also called Global configuration file.</doc>
       </member>
       <member name="local"
               value="5"
@@ -4292,8 +4294,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="local"
               glib:name="GGIT_CONFIG_LEVEL_LOCAL">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="343">Repository specific configuration file.</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="30">Repository specific configuration file.</doc>
       </member>
       <member name="app"
               value="6"
@@ -4301,8 +4303,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="app"
               glib:name="GGIT_CONFIG_LEVEL_APP">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="344">Application specific configuration file; freely defined by applications.</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="31">Application specific configuration file; freely defined by applications.</doc>
       </member>
       <member name="highest"
               value="-1"
@@ -4310,20 +4312,20 @@ These priority levels correspond to the natural escalation logic
               glib:nick="highest"
               glib:name="GGIT_CONFIG_LEVEL_HIGHEST">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types.h"
-             line="345">Represents the highest level of a config file.</doc>
+             filename="libgit2-glib/ggit-types-pre18.h"
+             line="32">Represents the highest level of a config file.</doc>
       </member>
     </enumeration>
     <callback name="ConfigMatchCallback" c:type="GgitConfigMatchCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1089">The type of the callback functions for retrieving values from a #GgitConfig
+           line="1045">The type of the callback functions for retrieving values from a #GgitConfig
 using a regular expression. See ggit_config_match_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1101"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1057"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1098">0 to go for the next config value or a #GgitError in case there was
+             line="1054">0 to go for the next config value or a #GgitError in case there was
          an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -4331,13 +4333,13 @@ using a regular expression. See ggit_config_match_foreach().</doc>
         <parameter name="match_info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1091">the match</doc>
+               line="1047">the match</doc>
           <type name="GLib.MatchInfo" c:type="GMatchInfo*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1092">the value</doc>
+               line="1048">the value</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="user_data"
@@ -4347,7 +4349,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1093">user-supplied data.</doc>
+               line="1049">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -4358,7 +4360,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               c:type="GgitCreateFlags">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="362">Describes how something should be created.</doc>
+           line="344">Describes how something should be created.</doc>
       <member name="none"
               value="0"
               c:identifier="GGIT_CREATE_NONE"
@@ -4366,7 +4368,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_CREATE_NONE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="364">attempt to create.</doc>
+             line="346">attempt to create.</doc>
       </member>
       <member name="force"
               value="1"
@@ -4375,7 +4377,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_CREATE_FORCE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="365">force creation.</doc>
+             line="347">force creation.</doc>
       </member>
     </bitfield>
     <class name="Cred"
@@ -4674,8 +4676,8 @@ using a regular expression. See ggit_config_match_foreach().</doc>
             c:symbol-prefix="cred_ssh_interactive_prompt">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="56">Represents a ssh interactive prompt.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="61"/>
+           line="63">Represents a ssh interactive prompt.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="68"/>
       <constructor name="new"
                    c:identifier="ggit_cred_ssh_interactive_prompt_new">
         <source-position filename="libgit2-glib/ggit-cred-ssh-interactive.h"
@@ -4999,7 +5001,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
                  c:type="GgitDeltaType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="375">Describes the type of change the delta is.</doc>
+           line="357">Describes the type of change the delta is.</doc>
       <member name="unmodified"
               value="0"
               c:identifier="GGIT_DELTA_UNMODIFIED"
@@ -5007,7 +5009,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_UNMODIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="377">unmodified.</doc>
+             line="359">unmodified.</doc>
       </member>
       <member name="added"
               value="1"
@@ -5016,7 +5018,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_ADDED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="378">added.</doc>
+             line="360">added.</doc>
       </member>
       <member name="deleted"
               value="2"
@@ -5025,7 +5027,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_DELETED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="379">deleted.</doc>
+             line="361">deleted.</doc>
       </member>
       <member name="modified"
               value="3"
@@ -5034,7 +5036,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_MODIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="380">modified.</doc>
+             line="362">modified.</doc>
       </member>
       <member name="renamed"
               value="4"
@@ -5043,7 +5045,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_RENAMED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="381">renamed.</doc>
+             line="363">renamed.</doc>
       </member>
       <member name="copied"
               value="5"
@@ -5052,7 +5054,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_COPIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="382">copied.</doc>
+             line="364">copied.</doc>
       </member>
       <member name="ignored"
               value="6"
@@ -5061,7 +5063,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_IGNORED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="383">ignored.</doc>
+             line="365">ignored.</doc>
       </member>
       <member name="untracked"
               value="7"
@@ -5070,7 +5072,7 @@ using a regular expression. See ggit_config_match_foreach().</doc>
               glib:name="GGIT_DELTA_UNTRACKED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="384">untracked.</doc>
+             line="366">untracked.</doc>
       </member>
       <member name="typechange"
               value="8"
@@ -5885,8 +5887,8 @@ ggit_diff_options_new() are used.</doc>
             c:symbol-prefix="diff_binary">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="63">Represents a diff binary.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="68"/>
+           line="70">Represents a diff binary.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="75"/>
       <method name="get_new_file" c:identifier="ggit_diff_binary_get_new_file">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-diff-binary.c"
@@ -5970,25 +5972,25 @@ If the reference count drops to 0, @binary is freed.</doc>
     <callback name="DiffBinaryCallback" c:type="GgitDiffBinaryCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1105">Called for each file.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1115"/>
+           line="1061">Called for each file.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1071"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1113">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1069">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="delta" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1107">a #GgitDiffDelta.</doc>
+               line="1063">a #GgitDiffDelta.</doc>
           <type name="DiffDelta" c:type="GgitDiffDelta*"/>
         </parameter>
         <parameter name="binary" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1108">a #GgitDiffBinary.</doc>
+               line="1064">a #GgitDiffBinary.</doc>
           <type name="DiffBinary" c:type="GgitDiffBinary*"/>
         </parameter>
         <parameter name="user_data"
@@ -5998,7 +6000,7 @@ If the reference count drops to 0, @binary is freed.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1109">user-supplied data.</doc>
+               line="1065">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -6011,8 +6013,8 @@ If the reference count drops to 0, @binary is freed.</doc>
             c:symbol-prefix="diff_binary_file">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="70">Represents a diff binary file.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="75"/>
+           line="77">Represents a diff binary file.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="82"/>
       <method name="get_binary_type"
               c:identifier="ggit_diff_binary_file_get_binary_type">
         <doc xml:space="preserve"
@@ -6135,7 +6137,7 @@ If the reference count drops to 0, @file is freed.</doc>
                  c:type="GgitDiffBinaryType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="308">When producing a binary diff, the binary data returned will be
+           line="315">When producing a binary diff, the binary data returned will be
 either the deflated full ("literal") contents of the file, or
 the deflated binary delta between the two sides (whichever is
 smaller).</doc>
@@ -6180,8 +6182,8 @@ smaller).</doc>
             c:symbol-prefix="diff_delta">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="77">Represents the changes done to one file.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="82"/>
+           line="84">Represents the changes done to one file.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="89"/>
       <method name="get_flags" c:identifier="ggit_diff_delta_get_flags">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-diff-delta.c"
@@ -6331,8 +6333,8 @@ If the reference count drops to 0, @delta is freed.</doc>
             c:symbol-prefix="diff_file">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="84">Represents a file in a #GgitDiff.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="89"/>
+           line="91">Represents a file in a #GgitDiff.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="96"/>
       <method name="get_flags" c:identifier="ggit_diff_file_get_flags">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-diff-file.c"
@@ -6476,25 +6478,25 @@ If the reference count drops to 0, @file is freed.</doc>
     <callback name="DiffFileCallback" c:type="GgitDiffFileCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1119">Called for each file.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1129"/>
+           line="1075">Called for each file.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1085"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1127">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1083">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="delta" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1121">a #GgitDiffDelta.</doc>
+               line="1077">a #GgitDiffDelta.</doc>
           <type name="DiffDelta" c:type="GgitDiffDelta*"/>
         </parameter>
         <parameter name="progress" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1122">the progress.</doc>
+               line="1078">the progress.</doc>
           <type name="gfloat" c:type="gfloat"/>
         </parameter>
         <parameter name="user_data"
@@ -6504,7 +6506,7 @@ If the reference count drops to 0, @file is freed.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1123">user-supplied data.</doc>
+               line="1079">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -7000,7 +7002,7 @@ If the reference count drops to 0, @file is freed.</doc>
               c:type="GgitDiffFlag">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="485">Describes the diff file and/or delta flags</doc>
+           line="467">Describes the diff file and/or delta flags</doc>
       <member name="binary"
               value="1"
               c:identifier="GGIT_DIFF_FLAG_BINARY"
@@ -7008,7 +7010,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FLAG_BINARY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="487">if the file is binary.</doc>
+             line="469">if the file is binary.</doc>
       </member>
       <member name="not_binary"
               value="2"
@@ -7017,7 +7019,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FLAG_NOT_BINARY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="488">if the file is not binary.</doc>
+             line="470">if the file is not binary.</doc>
       </member>
       <member name="valid_id"
               value="4"
@@ -7026,7 +7028,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FLAG_VALID_ID">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="489">if the ID is valid.</doc>
+             line="471">if the ID is valid.</doc>
       </member>
     </bitfield>
     <bitfield name="DiffFormatEmailFlags"
@@ -7513,7 +7515,7 @@ If the reference count drops to 0, @file is freed.</doc>
                  c:type="GgitDiffFormatType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="403">Possible output formats for diff data.</doc>
+           line="385">Possible output formats for diff data.</doc>
       <member name="patch"
               value="1"
               c:identifier="GGIT_DIFF_FORMAT_PATCH"
@@ -7521,7 +7523,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FORMAT_PATCH">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="405">full git diff.</doc>
+             line="387">full git diff.</doc>
       </member>
       <member name="patch_header"
               value="2"
@@ -7530,7 +7532,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FORMAT_PATCH_HEADER">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="406">just the file headers of patch.</doc>
+             line="388">just the file headers of patch.</doc>
       </member>
       <member name="raw"
               value="3"
@@ -7539,7 +7541,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FORMAT_RAW">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="407">like git diff --raw.</doc>
+             line="389">like git diff --raw.</doc>
       </member>
       <member name="name_only"
               value="4"
@@ -7548,7 +7550,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FORMAT_NAME_ONLY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="408">like git diff --name-only.</doc>
+             line="390">like git diff --name-only.</doc>
       </member>
       <member name="name_status"
               value="5"
@@ -7557,7 +7559,7 @@ If the reference count drops to 0, @file is freed.</doc>
               glib:name="GGIT_DIFF_FORMAT_NAME_STATUS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="409">like git diff --name-status.</doc>
+             line="391">like git diff --name-status.</doc>
       </member>
     </enumeration>
     <record name="DiffHunk"
@@ -7568,8 +7570,8 @@ If the reference count drops to 0, @file is freed.</doc>
             c:symbol-prefix="diff_hunk">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="91">Represents the hunk of a diff.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="96"/>
+           line="98">Represents the hunk of a diff.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="103"/>
       <method name="get_header" c:identifier="ggit_diff_hunk_get_header">
         <source-position filename="libgit2-glib/ggit-diff-hunk.h" line="44"/>
         <return-value transfer-ownership="none">
@@ -7704,25 +7706,25 @@ If the reference count drops to 0, @hunk is freed.</doc>
     <callback name="DiffHunkCallback" c:type="GgitDiffHunkCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1133">Called for each hunk.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1143"/>
+           line="1089">Called for each hunk.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1099"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1141">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1097">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="delta" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1135">a #GgitDiffDelta.</doc>
+               line="1091">a #GgitDiffDelta.</doc>
           <type name="DiffDelta" c:type="GgitDiffDelta*"/>
         </parameter>
         <parameter name="hunk" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1136">a #GgitDiffHunk.</doc>
+               line="1092">a #GgitDiffHunk.</doc>
           <type name="DiffHunk" c:type="GgitDiffHunk*"/>
         </parameter>
         <parameter name="user_data"
@@ -7732,7 +7734,7 @@ If the reference count drops to 0, @hunk is freed.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1137">user-supplied data.</doc>
+               line="1093">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -7745,8 +7747,8 @@ If the reference count drops to 0, @hunk is freed.</doc>
             c:symbol-prefix="diff_line">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="98">Represents the line of a diff.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="103"/>
+           line="105">Represents the line of a diff.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="110"/>
       <method name="get_content" c:identifier="ggit_diff_line_get_content">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-diff-line.c"
@@ -7924,19 +7926,19 @@ If the reference count drops to 0, @line is freed.</doc>
     <callback name="DiffLineCallback" c:type="GgitDiffLineCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1147">Called for each line.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1158"/>
+           line="1103">Called for each line.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1114"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1156">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1112">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="delta" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1149">a #GgitDiffDelta.</doc>
+               line="1105">a #GgitDiffDelta.</doc>
           <type name="DiffDelta" c:type="GgitDiffDelta*"/>
         </parameter>
         <parameter name="hunk"
@@ -7945,13 +7947,13 @@ If the reference count drops to 0, @line is freed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1150">a #GgitDiffHunk.</doc>
+               line="1106">a #GgitDiffHunk.</doc>
           <type name="DiffHunk" c:type="GgitDiffHunk*"/>
         </parameter>
         <parameter name="line" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1151">a #GgitDiffLine.</doc>
+               line="1107">a #GgitDiffLine.</doc>
           <type name="DiffLine" c:type="GgitDiffLine*"/>
         </parameter>
         <parameter name="user_data"
@@ -7961,7 +7963,7 @@ If the reference count drops to 0, @line is freed.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1152">user-supplied data.</doc>
+               line="1108">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -7972,7 +7974,7 @@ If the reference count drops to 0, @line is freed.</doc>
                  c:type="GgitDiffLineType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="499">These values describe where a line came from and will be passed to
+           line="481">These values describe where a line came from and will be passed to
 the #GgitDiffLineCallback when iterating over a diff.
 
 The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
@@ -7984,7 +7986,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_CONTEXT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="501">line is part of the context.</doc>
+             line="483">line is part of the context.</doc>
       </member>
       <member name="addition"
               value="43"
@@ -7993,7 +7995,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_ADDITION">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="502">line that was added.</doc>
+             line="484">line that was added.</doc>
       </member>
       <member name="deletion"
               value="45"
@@ -8002,7 +8004,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_DELETION">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="503">line that was removed.</doc>
+             line="485">line that was removed.</doc>
       </member>
       <member name="context_eofnl"
               value="61"
@@ -8011,7 +8013,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_CONTEXT_EOFNL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="504">Both files have no LF at end.</doc>
+             line="486">Both files have no LF at end.</doc>
       </member>
       <member name="add_eofnl"
               value="62"
@@ -8020,7 +8022,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_ADD_EOFNL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="505">LF was added at end of file.</doc>
+             line="487">LF was added at end of file.</doc>
       </member>
       <member name="del_eofnl"
               value="60"
@@ -8029,7 +8031,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_DEL_EOFNL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="506">LF was removed at end of file.</doc>
+             line="488">LF was removed at end of file.</doc>
       </member>
       <member name="file_hdr"
               value="70"
@@ -8038,7 +8040,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_FILE_HDR">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="507">the file header.</doc>
+             line="489">the file header.</doc>
       </member>
       <member name="hunk_hdr"
               value="72"
@@ -8047,7 +8049,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_HUNK_HDR">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="508">the hunk header.</doc>
+             line="490">the hunk header.</doc>
       </member>
       <member name="binary"
               value="66"
@@ -8056,7 +8058,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_LINE_BINARY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="509">is binary.</doc>
+             line="491">is binary.</doc>
       </member>
     </enumeration>
     <bitfield name="DiffOption"
@@ -8065,7 +8067,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               c:type="GgitDiffOption">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="421">How the diff should be generated.</doc>
+           line="403">How the diff should be generated.</doc>
       <member name="normal"
               value="0"
               c:identifier="GGIT_DIFF_NORMAL"
@@ -8073,7 +8075,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_NORMAL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="423">normal.</doc>
+             line="405">normal.</doc>
       </member>
       <member name="reverse"
               value="1"
@@ -8082,7 +8084,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_REVERSE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="424">reverse the sides of the diff.</doc>
+             line="406">reverse the sides of the diff.</doc>
       </member>
       <member name="include_ignored"
               value="2"
@@ -8091,7 +8093,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_INCLUDE_IGNORED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="425">include ignored files.</doc>
+             line="407">include ignored files.</doc>
       </member>
       <member name="recurse_ignored_dirs"
               value="4"
@@ -8100,7 +8102,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_RECURSE_IGNORED_DIRS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="426">also add all files under ignored dirs.</doc>
+             line="408">also add all files under ignored dirs.</doc>
       </member>
       <member name="include_untracked"
               value="8"
@@ -8109,7 +8111,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_INCLUDE_UNTRACKED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="427">include untracked files.</doc>
+             line="409">include untracked files.</doc>
       </member>
       <member name="recurse_untracked_dirs"
               value="16"
@@ -8118,7 +8120,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_RECURSE_UNTRACKED_DIRS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="428">recurse to untracked directories.</doc>
+             line="410">recurse to untracked directories.</doc>
       </member>
       <member name="include_unmodified"
               value="32"
@@ -8127,7 +8129,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_INCLUDE_UNMODIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="429">include unmodified files.</doc>
+             line="411">include unmodified files.</doc>
       </member>
       <member name="include_typechange"
               value="64"
@@ -8136,7 +8138,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_INCLUDE_TYPECHANGE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="430">enable generation of typechange detal records.</doc>
+             line="412">enable generation of typechange detal records.</doc>
       </member>
       <member name="include_typechange_trees"
               value="128"
@@ -8145,7 +8147,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_INCLUDE_TYPECHANGE_TREES">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="431">try to label tree transitions as type changes.</doc>
+             line="413">try to label tree transitions as type changes.</doc>
       </member>
       <member name="ignore_file_mode"
               value="256"
@@ -8154,7 +8156,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_IGNORE_FILE_MODE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="432">ignore file mode changes.</doc>
+             line="414">ignore file mode changes.</doc>
       </member>
       <member name="ignore_submodules"
               value="512"
@@ -8163,7 +8165,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_IGNORE_SUBMODULES">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="433">ignore submodules.</doc>
+             line="415">ignore submodules.</doc>
       </member>
       <member name="ignore_case"
               value="1024"
@@ -8172,7 +8174,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_IGNORE_CASE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="434">use case insensitive filename comparison.</doc>
+             line="416">use case insensitive filename comparison.</doc>
       </member>
       <member name="disable_pathspec_match"
               value="4096"
@@ -8181,7 +8183,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_DISABLE_PATHSPEC_MATCH">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="435">use exact path matching.</doc>
+             line="417">use exact path matching.</doc>
       </member>
       <member name="skip_binary_check"
               value="8192"
@@ -8190,7 +8192,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_SKIP_BINARY_CHECK">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="436">disable updating the binary flag in delta records.</doc>
+             line="418">disable updating the binary flag in delta records.</doc>
       </member>
       <member name="enable_fast_untracked_dirs"
               value="16384"
@@ -8199,7 +8201,7 @@ The #GGIT_DIFF_LINE_FILE_HDR, #GGIT_DIFF_LINE_HUNK_HDR and
               glib:name="GGIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="437">immediately label untracked directories as
+             line="419">immediately label untracked directories as
 untracked, without checking inside.</doc>
       </member>
       <member name="force_text"
@@ -8209,7 +8211,7 @@ untracked, without checking inside.</doc>
               glib:name="GGIT_DIFF_FORCE_TEXT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="439">force text.</doc>
+             line="421">force text.</doc>
       </member>
       <member name="force_binary"
               value="2097152"
@@ -8218,7 +8220,7 @@ untracked, without checking inside.</doc>
               glib:name="GGIT_DIFF_FORCE_BINARY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="440">treat all files as binary, disabling text diffs.</doc>
+             line="422">treat all files as binary, disabling text diffs.</doc>
       </member>
       <member name="ignore_whitespace"
               value="4194304"
@@ -8227,7 +8229,7 @@ untracked, without checking inside.</doc>
               glib:name="GGIT_DIFF_IGNORE_WHITESPACE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="441">ignore whitespace.</doc>
+             line="423">ignore whitespace.</doc>
       </member>
       <member name="ignore_whitespace_change"
               value="8388608"
@@ -8236,7 +8238,7 @@ untracked, without checking inside.</doc>
               glib:name="GGIT_DIFF_IGNORE_WHITESPACE_CHANGE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="442">ignore whitespace change.</doc>
+             line="424">ignore whitespace change.</doc>
       </member>
       <member name="ignore_whitespace_eol"
               value="16777216"
@@ -8245,7 +8247,7 @@ untracked, without checking inside.</doc>
               glib:name="GGIT_DIFF_IGNORE_WHITESPACE_EOL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="443">ignore whitespace at end-of-line.</doc>
+             line="425">ignore whitespace at end-of-line.</doc>
       </member>
       <member name="show_untracked_content"
               value="33554432"
@@ -8254,7 +8256,7 @@ untracked, without checking inside.</doc>
               glib:name="GGIT_DIFF_SHOW_UNTRACKED_CONTENT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="444">include content of untracked files.
+             line="426">include content of untracked files.
 this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIRS.</doc>
       </member>
       <member name="show_unmodified"
@@ -8264,7 +8266,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_DIFF_SHOW_UNMODIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="446">show unmodified files.</doc>
+             line="428">show unmodified files.</doc>
       </member>
       <member name="patience"
               value="268435456"
@@ -8273,7 +8275,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_DIFF_PATIENCE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="447">generate using the "patience diff" algorithm.</doc>
+             line="429">generate using the "patience diff" algorithm.</doc>
       </member>
       <member name="minimal"
               value="536870912"
@@ -8282,7 +8284,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_DIFF_MINIMAL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="448">take extra time to find minimal diff.</doc>
+             line="430">take extra time to find minimal diff.</doc>
       </member>
       <member name="show_binary"
               value="1073741824"
@@ -8291,7 +8293,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_DIFF_SHOW_BINARY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="449">include deflate/delta information for binary files.</doc>
+             line="431">include deflate/delta information for binary files.</doc>
       </member>
     </bitfield>
     <class name="DiffOptions"
@@ -8697,8 +8699,8 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
             c:symbol-prefix="diff_similarity_metric">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="105">Represents a similarity metric.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="110"/>
+           line="112">Represents a similarity metric.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="117"/>
       <constructor name="new" c:identifier="ggit_diff_similarity_metric_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-diff-similarity-metric.c"
@@ -8806,7 +8808,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
     </record>
     <callback name="DiffSimilarityMetricBufferSignatureCallback"
               c:type="GgitDiffSimilarityMetricBufferSignatureCallback">
-      <source-position filename="libgit2-glib/ggit-types.h" line="1172"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1128"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -8837,7 +8839,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
     </callback>
     <callback name="DiffSimilarityMetricFileSignatureCallback"
               c:type="GgitDiffSimilarityMetricFileSignatureCallback">
-      <source-position filename="libgit2-glib/ggit-types.h" line="1166"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1122"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -8865,7 +8867,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
     </callback>
     <callback name="DiffSimilarityMetricFreeSignatureCallback"
               c:type="GgitDiffSimilarityMetricFreeSignatureCallback">
-      <source-position filename="libgit2-glib/ggit-types.h" line="1178"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1134"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -8887,7 +8889,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
     </callback>
     <callback name="DiffSimilarityMetricSimilarityCallback"
               c:type="GgitDiffSimilarityMetricSimilarityCallback">
-      <source-position filename="libgit2-glib/ggit-types.h" line="1181"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1137"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -8953,7 +8955,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
                  glib:error-domain="ggit-error">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="530">Error codes for the %GGIT_ERROR error domain.</doc>
+           line="512">Error codes for the %GGIT_ERROR error domain.</doc>
       <member name="git_error"
               value="-1"
               c:identifier="GGIT_ERROR_GIT_ERROR"
@@ -8961,7 +8963,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_GIT_ERROR">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="532">A generic error for when an operation fails.</doc>
+             line="514">A generic error for when an operation fails.</doc>
       </member>
       <member name="notfound"
               value="-3"
@@ -8970,7 +8972,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_NOTFOUND">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="533">Input does not exist in the scope searched.</doc>
+             line="515">Input does not exist in the scope searched.</doc>
       </member>
       <member name="exists"
               value="-4"
@@ -8979,7 +8981,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_EXISTS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="534">A reference with this name already exists.</doc>
+             line="516">A reference with this name already exists.</doc>
       </member>
       <member name="ambiguous"
               value="-5"
@@ -8988,7 +8990,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_AMBIGUOUS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="535">The given error is ambiguous.</doc>
+             line="517">The given error is ambiguous.</doc>
       </member>
       <member name="bufs"
               value="-6"
@@ -8997,7 +8999,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_BUFS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="536">The buffer is too short.</doc>
+             line="518">The buffer is too short.</doc>
       </member>
       <member name="passthrough"
               value="-30"
@@ -9006,7 +9008,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_PASSTHROUGH">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="537">Skip and passthrough the given ODB backend.</doc>
+             line="519">Skip and passthrough the given ODB backend.</doc>
       </member>
       <member name="iterover"
               value="-31"
@@ -9015,7 +9017,7 @@ this implies GGIT_DIFF_INCLUDE_UNTRACKED but not GGIT_DIFF_RECURSE_UNTRACKED_DIR
               glib:name="GGIT_ERROR_ITEROVER">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="538">The iteration has finished.</doc>
+             line="520">The iteration has finished.</doc>
       </member>
       <function name="quark" c:identifier="ggit_error_quark">
         <doc xml:space="preserve"
@@ -9068,8 +9070,8 @@ See #GError for information on error domains.</doc>
             c:symbol-prefix="fetch_options">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="119">Represents a git fetch options.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="124"/>
+           line="126">Represents a git fetch options.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="131"/>
       <constructor name="new" c:identifier="ggit_fetch_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-fetch-options.c"
@@ -9684,8 +9686,8 @@ the resulting tree to for instance create a commit.</doc>
             c:symbol-prefix="index_entries">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="126">Represents the entries in an index object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="131"/>
+           line="133">Represents the entries in an index object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="138"/>
       <method name="get_by_index"
               c:identifier="ggit_index_entries_get_by_index">
         <doc xml:space="preserve"
@@ -9836,8 +9838,8 @@ If the reference count drops to 0, @entries is freed.</doc>
             c:symbol-prefix="index_entries_resolve_undo">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="140">Represents the resolve undo entries in an index object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="145"/>
+           line="147">Represents the resolve undo entries in an index object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="152"/>
       <method name="get" c:identifier="ggit_index_entries_resolve_undo_get">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-index-entry-resolve-undo.c"
@@ -9980,8 +9982,8 @@ If the reference count drops to 0, @entries is freed.</doc>
             c:symbol-prefix="index_entry">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="133">Represents an index entry object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="138"/>
+           line="140">Represents an index entry object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="145"/>
       <method name="get_dev" c:identifier="ggit_index_entry_get_dev">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-index-entry.c"
@@ -10536,8 +10538,8 @@ If the reference count drops to 0, @entry is freed.</doc>
             c:symbol-prefix="index_entry_resolve_undo">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="147">Represents an resolve undo index entry object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="152"/>
+           line="154">Represents an resolve undo index entry object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="159"/>
       <method name="get_file"
               c:identifier="ggit_index_entry_resolve_undo_get_file">
         <doc xml:space="preserve"
@@ -10681,6 +10683,13 @@ If the reference count drops to 0, @entry is freed.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <constant name="MICRO_VERSION" value="0" c:type="GGIT_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="libgit2-glib/ggit-version.h"
+           line="33">libgit2-glib micro version component (e.g. 3 if %GGIT_VERSION is 1.2.3)</doc>
+      <source-position filename="libgit2-glib/ggit-version.h" line="38"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
     <constant name="MINOR_VERSION" value="2" c:type="GGIT_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
@@ -10917,7 +10926,7 @@ still allocated and returned.</doc>
               c:type="GgitMergeFileFlags">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="586">GGIT_MERGE_FILE_DEFAULT: Defaults.
+           line="568">GGIT_MERGE_FILE_DEFAULT: Defaults.
 GGIT_MERGE_FILE_STYLE_MERGE: Create standard conflicted merge files.
 GGIT_MERGE_FILE_STYLE_DIFF3: Create diff3-style files.
 GGIT_MERGE_FILE_SIMPLIFY_ALNUM: Condense non-alphanumeric regions for simplified diff file.
@@ -10992,7 +11001,7 @@ GGIT_MERGE_FILE_DIFF_MINIMAL: Take extra time to find minimal diff.</doc>
               glib:name="GGIT_MERGE_FIND_RENAMES">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="612">detect renames that occur between the common
+             line="594">detect renames that occur between the common
 ancestor and the "ours" side or the common ancestor and the "theirs" side.
 This will enable the ability to merge between a modified and renamed file.</doc>
       </member>
@@ -11003,7 +11012,7 @@ This will enable the ability to merge between a modified and renamed file.</doc>
               glib:name="GGIT_MERGE_FAIL_ON_CONFLICT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="615">If a conflict occurs, exit immediately instead
+             line="597">If a conflict occurs, exit immediately instead
 of attempting to continue resolving conflicts.  The merge operation will
 fail with @GGIT_EMERGECONFLICT and no index will be returned.</doc>
       </member>
@@ -11014,7 +11023,7 @@ fail with @GGIT_EMERGECONFLICT and no index will be returned.</doc>
               glib:name="GGIT_MERGE_SKIP_REUC">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="618">do not write the REUC extension on the generated index.</doc>
+             line="600">do not write the REUC extension on the generated index.</doc>
       </member>
       <member name="no_recursive"
               value="8"
@@ -11023,7 +11032,7 @@ fail with @GGIT_EMERGECONFLICT and no index will be returned.</doc>
               glib:name="GGIT_MERGE_NO_RECURSIVE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="619">If the commits being merged have multiple merge bases,
+             line="601">If the commits being merged have multiple merge bases,
 do not build a recursive merge base (by merging the multiple merge bases),
 instead simply use the first base.  This flag provides a similar
 merge base to `git-merge-resolve`.</doc>
@@ -11037,8 +11046,8 @@ merge base to `git-merge-resolve`.</doc>
             c:symbol-prefix="merge_options">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="154">Represents the options used when merging.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="159"/>
+           line="161">Represents the options used when merging.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="166"/>
       <constructor name="new" c:identifier="ggit_merge_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-merge-options.c"
@@ -11428,8 +11437,8 @@ this value, inexact rename detection is aborted.</doc>
             c:symbol-prefix="note">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="161">Represents a note object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="166"/>
+           line="168">Represents a note object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="173"/>
       <method name="get_id" c:identifier="ggit_note_get_id">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-note.c"
@@ -11513,26 +11522,26 @@ If the reference count drops to 0, @note is freed.</doc>
     <callback name="NoteCallback" c:type="GgitNoteCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1186">When iterating over all the notes, callback that will be
+           line="1142">When iterating over all the notes, callback that will be
 issued per note. See ggit_repository_note_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1197"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1153"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1195">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1151">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="blob_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1188">id of the blob containing the message.</doc>
+               line="1144">id of the blob containing the message.</doc>
           <type name="OId" c:type="GgitOId*"/>
         </parameter>
         <parameter name="annotated_object_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1189">id of the git object being annotated.</doc>
+               line="1145">id of the git object being annotated.</doc>
           <type name="OId" c:type="GgitOId*"/>
         </parameter>
         <parameter name="user_data"
@@ -11542,7 +11551,7 @@ issued per note. See ggit_repository_note_foreach().</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1190">user-suplied data.</doc>
+               line="1146">user-suplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -11562,8 +11571,8 @@ issued per note. See ggit_repository_note_foreach().</doc>
             c:symbol-prefix="oid">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="168">Represents a unique ID of any object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="173"/>
+           line="175">Represents a unique ID of any object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="180"/>
       <constructor name="new_from_raw" c:identifier="ggit_oid_new_from_raw">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-oid.c"
@@ -12050,7 +12059,7 @@ is created instead. @basetype must be subclassed from #GgitObjectFactoryBase.</d
                  c:type="GgitPackbuilderStage">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="977">Valid stages for pack building.</doc>
+           line="959">Valid stages for pack building.</doc>
       <member name="adding_objects"
               value="0"
               c:identifier="GGIT_PACKBUILDER_STAGE_ADDING_OBJECTS"
@@ -12058,7 +12067,7 @@ is created instead. @basetype must be subclassed from #GgitObjectFactoryBase.</d
               glib:name="GGIT_PACKBUILDER_STAGE_ADDING_OBJECTS">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="979">adding objects.</doc>
+             line="961">adding objects.</doc>
       </member>
       <member name="deltafication"
               value="1"
@@ -12067,7 +12076,7 @@ is created instead. @basetype must be subclassed from #GgitObjectFactoryBase.</d
               glib:name="GGIT_PACKBUILDER_STAGE_DELTAFICATION">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="980">deltafication.</doc>
+             line="962">deltafication.</doc>
       </member>
     </enumeration>
     <record name="Patch"
@@ -12078,8 +12087,8 @@ is created instead. @basetype must be subclassed from #GgitObjectFactoryBase.</d
             c:symbol-prefix="patch">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="175">Represents a patch object.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="180"/>
+           line="182">Represents a patch object.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="187"/>
       <constructor name="new_from_blobs"
                    c:identifier="ggit_patch_new_from_blobs"
                    throws="1">
@@ -12453,7 +12462,7 @@ If the reference count drops to 0, @patch is freed.</doc>
                  c:type="GgitProxyType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="631">The type of proxy to use.</doc>
+           line="613">The type of proxy to use.</doc>
       <member name="none"
               value="0"
               c:identifier="GGIT_PROXY_NONE"
@@ -12461,7 +12470,7 @@ If the reference count drops to 0, @patch is freed.</doc>
               glib:name="GGIT_PROXY_NONE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="633">Do not attempt to connect through a proxy.</doc>
+             line="615">Do not attempt to connect through a proxy.</doc>
       </member>
       <member name="auto"
               value="1"
@@ -12470,7 +12479,7 @@ If the reference count drops to 0, @patch is freed.</doc>
               glib:name="GGIT_PROXY_AUTO">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="634">Try to auto-detect the proxy from the git configuration.</doc>
+             line="616">Try to auto-detect the proxy from the git configuration.</doc>
       </member>
       <member name="specified"
               value="2"
@@ -12479,7 +12488,7 @@ If the reference count drops to 0, @patch is freed.</doc>
               glib:name="GGIT_PROXY_SPECIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="635">Connect via the URL given in the options.</doc>
+             line="617">Connect via the URL given in the options.</doc>
       </member>
     </enumeration>
     <class name="PushOptions"
@@ -12940,8 +12949,8 @@ you will need to address those before committing the changes.</doc>
             c:symbol-prefix="rebase_operation">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="182">Represents a rebase operation.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="187"/>
+           line="189">Represents a rebase operation.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="194"/>
       <method name="get_exec" c:identifier="ggit_rebase_operation_get_exec">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-rebase-operation.c"
@@ -13061,7 +13070,7 @@ If the reference count drops to 0, @rebase_operation is freed.</doc>
                  c:type="GgitRebaseOperationType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="645">Type of rebase operation in-progress.</doc>
+           line="627">Type of rebase operation in-progress.</doc>
       <member name="pick"
               value="0"
               c:identifier="GGIT_REBASE_OPERATION_PICK"
@@ -13069,7 +13078,7 @@ If the reference count drops to 0, @rebase_operation is freed.</doc>
               glib:name="GGIT_REBASE_OPERATION_PICK">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="647">The given commit is to be cherry-picked.
+             line="629">The given commit is to be cherry-picked.
 The client should commit the changes and continue if there are no conflicts.</doc>
       </member>
       <member name="reword"
@@ -13079,7 +13088,7 @@ The client should commit the changes and continue if there are no conflicts.</do
               glib:name="GGIT_REBASE_OPERATION_REWORD">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="649">The given commit is to be cherry-picked,
+             line="631">The given commit is to be cherry-picked,
 but the client should prompt the user to provide an updated commit message.</doc>
       </member>
       <member name="edit"
@@ -13089,7 +13098,7 @@ but the client should prompt the user to provide an updated commit message.</doc
               glib:name="GGIT_REBASE_OPERATION_EDIT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="651">The given commit is to be cherry-picked,
+             line="633">The given commit is to be cherry-picked,
 but the client should stop to allow the user to edit the changes before
 committing them.</doc>
       </member>
@@ -13100,7 +13109,7 @@ committing them.</doc>
               glib:name="GGIT_REBASE_OPERATION_SQUASH">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="654">The given commit is to be squashed into
+             line="636">The given commit is to be squashed into
 the previous commit. The commit message will be merged with the previous message.</doc>
       </member>
       <member name="fixup"
@@ -13110,7 +13119,7 @@ the previous commit. The commit message will be merged with the previous message
               glib:name="GGIT_REBASE_OPERATION_FIXUP">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="656">The given commit is to be squashed into the
+             line="638">The given commit is to be squashed into the
 previous commit. The commit message from this commit will be discarded.</doc>
       </member>
       <member name="exec"
@@ -13120,7 +13129,7 @@ previous commit. The commit message from this commit will be discarded.</doc>
               glib:name="GGIT_REBASE_OPERATION_EXEC">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="658">No commit will be cherry-picked.
+             line="640">No commit will be cherry-picked.
 The client should run the given command and (if successful) continue.</doc>
       </member>
     </enumeration>
@@ -13132,8 +13141,8 @@ The client should run the given command and (if successful) continue.</doc>
             c:symbol-prefix="rebase_options">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="189">Represents the options used when rebasing.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="194"/>
+           line="196">Represents the options used when rebasing.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="201"/>
       <constructor name="new" c:identifier="ggit_rebase_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-rebase-options.c"
@@ -13336,7 +13345,7 @@ not be rewritten.</doc>
            glib:type-struct="RefClass">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="196">Reprensents a git reference.</doc>
+           line="203">Reprensents a git reference.</doc>
       <source-position filename="libgit2-glib/ggit-ref.h" line="45"/>
       <function name="is_valid_name" c:identifier="ggit_ref_is_valid_name">
         <doc xml:space="preserve"
@@ -13884,8 +13893,8 @@ reflog.</doc>
             c:symbol-prefix="ref_spec">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="203">Reprensents a git reference specification.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="208"/>
+           line="210">Reprensents a git reference specification.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="215"/>
       <method name="get_destination"
               c:identifier="ggit_ref_spec_get_destination">
         <doc xml:space="preserve"
@@ -13993,7 +14002,7 @@ If the reference count drops to 0, @refspec is freed.</doc>
                  c:type="GgitRefType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="708">Describes the type a reference is.</doc>
+           line="690">Describes the type a reference is.</doc>
       <member name="invalid"
               value="0"
               c:identifier="GGIT_REF_INVALID"
@@ -14001,7 +14010,7 @@ If the reference count drops to 0, @refspec is freed.</doc>
               glib:name="GGIT_REF_INVALID">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="710">An invalid reference.</doc>
+             line="692">An invalid reference.</doc>
       </member>
       <member name="oid"
               value="1"
@@ -14010,7 +14019,7 @@ If the reference count drops to 0, @refspec is freed.</doc>
               glib:name="GGIT_REF_OID">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="711">A reference which points at an object id.</doc>
+             line="693">A reference which points at an object id.</doc>
       </member>
       <member name="symbolic"
               value="2"
@@ -14019,7 +14028,7 @@ If the reference count drops to 0, @refspec is freed.</doc>
               glib:name="GGIT_REF_SYMBOLIC">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="712">A reference which points at another reference.</doc>
+             line="694">A reference which points at another reference.</doc>
       </member>
       <member name="listall"
               value="3"
@@ -14028,26 +14037,26 @@ If the reference count drops to 0, @refspec is freed.</doc>
               glib:name="GGIT_REF_LISTALL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="713">All reference types.</doc>
+             line="695">All reference types.</doc>
       </member>
     </enumeration>
     <callback name="ReferencesCallback" c:type="GgitReferencesCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1214">The type of the callback functions for retrieving the references
+           line="1170">The type of the callback functions for retrieving the references
 in a #GgitRepository. See ggit_repository_references_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1224"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1180"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1222">0 to go for the next references or a #GgitError in case there was an error.</doc>
+             line="1178">0 to go for the next references or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="reference" transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1216">the reference.</doc>
+               line="1172">the reference.</doc>
           <type name="Ref" c:type="GgitRef*"/>
         </parameter>
         <parameter name="user_data"
@@ -14057,7 +14066,7 @@ in a #GgitRepository. See ggit_repository_references_foreach().</doc>
                    closure="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1217">user-supplied data.</doc>
+               line="1173">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -14066,20 +14075,20 @@ in a #GgitRepository. See ggit_repository_references_foreach().</doc>
               c:type="GgitReferencesNameCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1201">The type of the callback functions for retrieving the references
+           line="1157">The type of the callback functions for retrieving the references
 in a #GgitRepository. See ggit_repository_references_foreach_name().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1211"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1167"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1209">0 to go for the next references or a #GgitError in case there was an error.</doc>
+             line="1165">0 to go for the next references or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1203">the name of the reference</doc>
+               line="1159">the name of the reference</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="user_data"
@@ -14089,7 +14098,7 @@ in a #GgitRepository. See ggit_repository_references_foreach_name().</doc>
                    closure="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1204">user-supplied data.</doc>
+               line="1160">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -14102,8 +14111,8 @@ in a #GgitRepository. See ggit_repository_references_foreach_name().</doc>
             c:symbol-prefix="reflog">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="210">Represents a reflog.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="215"/>
+           line="217">Represents a reflog.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="222"/>
       <method name="append" c:identifier="ggit_reflog_append" throws="1">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-reflog.c"
@@ -14281,8 +14290,8 @@ If the reference count drops to 0, @reflog is freed.</doc>
             c:symbol-prefix="reflog_entry">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="217">Represents a reflog entry.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="222"/>
+           line="224">Represents a reflog entry.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="229"/>
       <method name="get_committer"
               c:identifier="ggit_reflog_entry_get_committer">
         <doc xml:space="preserve"
@@ -14419,7 +14428,7 @@ If the reference count drops to 0, @reflog_entry is freed.</doc>
            glib:type-struct="RemoteClass">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="231">Represents a git remote.</doc>
+           line="238">Represents a git remote.</doc>
       <source-position filename="libgit2-glib/ggit-remote.h" line="42"/>
       <constructor name="new" c:identifier="ggit_remote_new" throws="1">
         <doc xml:space="preserve"
@@ -14907,7 +14916,7 @@ objects and send it.</doc>
            glib:type-struct="RemoteCallbacksClass">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-remote-callbacks.c"
-           line="27">Represents a git remote callbacks.</doc>
+           line="31">Represents a git remote callbacks.</doc>
       <source-position filename="libgit2-glib/ggit-remote-callbacks.h"
                        line="61"/>
       <virtual-method name="completion">
@@ -14932,20 +14941,20 @@ objects and send it.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-remote-callbacks.c"
-               line="57">a #GgitCred or %NULL in case of an error.</doc>
+               line="61">a #GgitCred or %NULL in case of an error.</doc>
           <type name="Cred" c:type="GgitCred*"/>
         </return-value>
         <parameters>
           <instance-parameter name="callbacks" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-remote-callbacks.c"
-                 line="51">a #GgitRemoteCallbacks.</doc>
+                 line="55">a #GgitRemoteCallbacks.</doc>
             <type name="RemoteCallbacks" c:type="GgitRemoteCallbacks*"/>
           </instance-parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-remote-callbacks.c"
-                 line="52">the url.</doc>
+                 line="56">the url.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="username_from_url"
@@ -14954,13 +14963,13 @@ objects and send it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-remote-callbacks.c"
-                 line="53">the username extracted from the url.</doc>
+                 line="57">the username extracted from the url.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="allowed_types" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-remote-callbacks.c"
-                 line="54">the allowed credential types.</doc>
+                 line="58">the allowed credential types.</doc>
             <type name="Credtype" c:type="GgitCredtype"/>
           </parameter>
         </parameters>
@@ -15156,20 +15165,20 @@ objects and send it.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="libgit2-glib/ggit-remote-callbacks.c"
-                 line="57">a #GgitCred or %NULL in case of an error.</doc>
+                 line="61">a #GgitCred or %NULL in case of an error.</doc>
             <type name="Cred" c:type="GgitCred*"/>
           </return-value>
           <parameters>
             <parameter name="callbacks" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-remote-callbacks.c"
-                   line="51">a #GgitRemoteCallbacks.</doc>
+                   line="55">a #GgitRemoteCallbacks.</doc>
               <type name="RemoteCallbacks" c:type="GgitRemoteCallbacks*"/>
             </parameter>
             <parameter name="url" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-remote-callbacks.c"
-                   line="52">the url.</doc>
+                   line="56">the url.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="username_from_url"
@@ -15178,13 +15187,13 @@ objects and send it.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-remote-callbacks.c"
-                   line="53">the username extracted from the url.</doc>
+                   line="57">the username extracted from the url.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="allowed_types" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgit2-glib/ggit-remote-callbacks.c"
-                   line="54">the allowed credential types.</doc>
+                   line="58">the allowed credential types.</doc>
               <type name="Credtype" c:type="GgitCredtype"/>
             </parameter>
           </parameters>
@@ -15205,7 +15214,7 @@ objects and send it.</doc>
                  c:type="GgitRemoteCompletionType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="693">Argument to the completion callback which tells it which operation finished.</doc>
+           line="675">Argument to the completion callback which tells it which operation finished.</doc>
       <member name="download"
               value="0"
               c:identifier="GGIT_REMOTE_COMPLETION_DOWNLOAD"
@@ -15213,7 +15222,7 @@ objects and send it.</doc>
               glib:name="GGIT_REMOTE_COMPLETION_DOWNLOAD">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="695">download.</doc>
+             line="677">download.</doc>
       </member>
       <member name="indexing"
               value="1"
@@ -15222,7 +15231,7 @@ objects and send it.</doc>
               glib:name="GGIT_REMOTE_COMPLETION_INDEXING">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="696">indexing.</doc>
+             line="678">indexing.</doc>
       </member>
       <member name="error"
               value="2"
@@ -15231,7 +15240,7 @@ objects and send it.</doc>
               glib:name="GGIT_REMOTE_COMPLETION_ERROR">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="697">error.</doc>
+             line="679">error.</doc>
       </member>
     </enumeration>
     <enumeration name="RemoteDownloadTagsType"
@@ -15240,7 +15249,7 @@ objects and send it.</doc>
                  c:type="GgitRemoteDownloadTagsType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="673">Automatic tag following option
+           line="655">Automatic tag following option
 
 Lets us select the --tags option to use.</doc>
       <member name="unspecified"
@@ -15250,7 +15259,7 @@ Lets us select the --tags option to use.</doc>
               glib:name="GGIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="675">Use the setting from the configuration.</doc>
+             line="657">Use the setting from the configuration.</doc>
       </member>
       <member name="auto"
               value="1"
@@ -15259,7 +15268,7 @@ Lets us select the --tags option to use.</doc>
               glib:name="GGIT_REMOTE_DOWNLOAD_TAGS_AUTO">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="676">Ask the server for tags pointing to objects we're already
+             line="658">Ask the server for tags pointing to objects we're already
 downloading.</doc>
       </member>
       <member name="none"
@@ -15269,7 +15278,7 @@ downloading.</doc>
               glib:name="GGIT_REMOTE_DOWNLOAD_TAGS_NONE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="678">Don't ask for any tags beyond the refspecs.</doc>
+             line="660">Don't ask for any tags beyond the refspecs.</doc>
       </member>
       <member name="all"
               value="3"
@@ -15278,7 +15287,7 @@ downloading.</doc>
               glib:name="GGIT_REMOTE_DOWNLOAD_TAGS_ALL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="679">Ask for the all the tags.</doc>
+             line="661">Ask for the all the tags.</doc>
       </member>
     </enumeration>
     <record name="RemoteHead"
@@ -15289,8 +15298,8 @@ downloading.</doc>
             c:symbol-prefix="remote_head">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="224">Represents a git remote head.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="229"/>
+           line="231">Represents a git remote head.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="236"/>
       <method name="get_local_oid"
               c:identifier="ggit_remote_head_get_local_oid">
         <doc xml:space="preserve"
@@ -15398,38 +15407,38 @@ downloading.</doc>
     <callback name="RemoteListCallback" c:type="GgitRemoteListCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1227">The type of the callback functions for listing the references of a
+           line="1183">The type of the callback functions for listing the references of a
 #GgitRemote. See ggit_remote_list().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1240"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1196"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1238">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1194">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1229">the name of the reference.</doc>
+               line="1185">the name of the reference.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="oid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1230">the reference's oid.</doc>
+               line="1186">the reference's oid.</doc>
           <type name="OId" c:type="GgitOId*"/>
         </parameter>
         <parameter name="loid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1231">the reference's loid.</doc>
+               line="1187">the reference's loid.</doc>
           <type name="OId" c:type="GgitOId*"/>
         </parameter>
         <parameter name="local" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1232">if available locally.</doc>
+               line="1188">if available locally.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="user_data"
@@ -15439,7 +15448,7 @@ downloading.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1233">user-supplied data.</doc>
+               line="1189">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -15453,7 +15462,7 @@ downloading.</doc>
            glib:type-struct="RepositoryClass">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="238">Represents an existing git repository including all of it's
+           line="245">Represents an existing git repository including all of it's
 object contents.</doc>
       <source-position filename="libgit2-glib/ggit-repository.h" line="74"/>
       <implements name="Gio.Initable"/>
@@ -19047,7 +19056,7 @@ the callback returns something other than 0, the iteration will stop and
                  c:type="GgitResetType">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="724">Describes the type of reset to perform.</doc>
+           line="706">Describes the type of reset to perform.</doc>
       <member name="soft"
               value="1"
               c:identifier="GGIT_RESET_SOFT"
@@ -19055,7 +19064,7 @@ the callback returns something other than 0, the iteration will stop and
               glib:name="GGIT_RESET_SOFT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="726">The head will be moved to the commit.</doc>
+             line="708">The head will be moved to the commit.</doc>
       </member>
       <member name="mixed"
               value="2"
@@ -19064,7 +19073,7 @@ the callback returns something other than 0, the iteration will stop and
               glib:name="GGIT_RESET_MIXED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="727">the head will be moved to the commit and the index
+             line="709">the head will be moved to the commit and the index
                    will be replaced with the content of the commit tree.</doc>
       </member>
       <member name="hard"
@@ -19074,7 +19083,7 @@ the callback returns something other than 0, the iteration will stop and
               glib:name="GGIT_RESET_HARD">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="729">MIXED plus changes in working tree discarded.</doc>
+             line="711">MIXED plus changes in working tree discarded.</doc>
       </member>
     </enumeration>
     <record name="RevertOptions"
@@ -19085,8 +19094,8 @@ the callback returns something other than 0, the iteration will stop and
             c:symbol-prefix="revert_options">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="281">Represents the options used when reverting.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="286"/>
+           line="288">Represents the options used when reverting.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="293"/>
       <constructor name="new" c:identifier="ggit_revert_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-revert-options.c"
@@ -19805,7 +19814,7 @@ the timezone of the commit (see #ggit_signature_get_time_zone).</doc>
               c:type="GgitSortMode">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="739">The type of sorting mode for the revision walker.</doc>
+           line="721">The type of sorting mode for the revision walker.</doc>
       <member name="none"
               value="0"
               c:identifier="GGIT_SORT_NONE"
@@ -19813,7 +19822,7 @@ the timezone of the commit (see #ggit_signature_get_time_zone).</doc>
               glib:name="GGIT_SORT_NONE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="741">Sorts the repository contents in no particular ordering;
+             line="723">Sorts the repository contents in no particular ordering;
                  this sorting is arbitrary, implementation-specific
                  and subject to change at any time.</doc>
       </member>
@@ -19824,7 +19833,7 @@ the timezone of the commit (see #ggit_signature_get_time_zone).</doc>
               glib:name="GGIT_SORT_TOPOLOGICAL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="744">Sorts the repository contents in topological order
+             line="726">Sorts the repository contents in topological order
                         (parents before children); this sorting mode
                         can be combined with time sorting.</doc>
       </member>
@@ -19835,7 +19844,7 @@ the timezone of the commit (see #ggit_signature_get_time_zone).</doc>
               glib:name="GGIT_SORT_TIME">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="747">Sort the repository contents by commit time;
+             line="729">Sort the repository contents by commit time;
                  this sorting mode can be combined with
                  topological sorting.</doc>
       </member>
@@ -19846,7 +19855,7 @@ the timezone of the commit (see #ggit_signature_get_time_zone).</doc>
               glib:name="GGIT_SORT_REVERSE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="750">Iterate through the repository contents in reverse
+             line="732">Iterate through the repository contents in reverse
                     order; this sorting mode can be combined with
                     any of the above.</doc>
       </member>
@@ -19854,33 +19863,33 @@ the timezone of the commit (see #ggit_signature_get_time_zone).</doc>
     <callback name="StashCallback" c:type="GgitStashCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1246">When iterating over all the stashed states, callback that will be
+           line="1202">When iterating over all the stashed states, callback that will be
 issued per entry. See ggit_repository_stash_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1259"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1215"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1257">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1213">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1248">the position within the stash list. 0 points to the
+               line="1204">the position within the stash list. 0 points to the
 most recent stashed state.</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="message" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1250">the stash message.</doc>
+               line="1206">the stash message.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="stash_oid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1251">the commit oid of the stashed state.</doc>
+               line="1207">the commit oid of the stashed state.</doc>
           <type name="OId" c:type="GgitOId*"/>
         </parameter>
         <parameter name="user_data"
@@ -19890,7 +19899,7 @@ most recent stashed state.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1252">user-suplied data.</doc>
+               line="1208">user-suplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -19901,7 +19910,7 @@ most recent stashed state.</doc>
               c:type="GgitStashFlags">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="763">Describes how a stash should be applied.</doc>
+           line="745">Describes how a stash should be applied.</doc>
       <member name="default"
               value="0"
               c:identifier="GGIT_STASH_DEFAULT"
@@ -19909,7 +19918,7 @@ most recent stashed state.</doc>
               glib:name="GGIT_STASH_DEFAULT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="765">default stash.</doc>
+             line="747">default stash.</doc>
       </member>
       <member name="keep_index"
               value="1"
@@ -19918,7 +19927,7 @@ most recent stashed state.</doc>
               glib:name="GGIT_STASH_KEEP_INDEX">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="766">All changes already added to the index
+             line="748">All changes already added to the index
 are left intact in the working directory.</doc>
       </member>
       <member name="include_untracked"
@@ -19928,7 +19937,7 @@ are left intact in the working directory.</doc>
               glib:name="GGIT_STASH_INCLUDE_UNTRACKED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="768">All untracked files are also stashed and then
+             line="750">All untracked files are also stashed and then
 cleaned up from the working directory.</doc>
       </member>
       <member name="include_ignored"
@@ -19938,33 +19947,33 @@ cleaned up from the working directory.</doc>
               glib:name="GGIT_STASH_INCLUDE_IGNORED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="770">All ignored files are also stashed and then
+             line="752">All ignored files are also stashed and then
 cleaned up from the working directory.</doc>
       </member>
     </bitfield>
     <callback name="StatusCallback" c:type="GgitStatusCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1264">The type of the callback functions for retrieving the status of the files
+           line="1220">The type of the callback functions for retrieving the status of the files
 in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1275"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1231"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1273">0 to go for the next file or a #GgitError in case there was an error.</doc>
+             line="1229">0 to go for the next file or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1266">the file to retrieve status for, rooted at the repository working dir.</doc>
+               line="1222">the file to retrieve status for, rooted at the repository working dir.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="status_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1267">the status value.</doc>
+               line="1223">the status value.</doc>
           <type name="StatusFlags" c:type="GgitStatusFlags"/>
         </parameter>
         <parameter name="user_data"
@@ -19974,7 +19983,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1268">user-supplied data.</doc>
+               line="1224">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -19985,7 +19994,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               c:type="GgitStatusFlags">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="783">Describes a file's status.</doc>
+           line="765">Describes a file's status.</doc>
       <member name="current"
               value="0"
               c:identifier="GGIT_STATUS_CURRENT"
@@ -19993,7 +20002,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_CURRENT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="785">file is current.</doc>
+             line="767">file is current.</doc>
       </member>
       <member name="index_new"
               value="1"
@@ -20002,7 +20011,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_INDEX_NEW">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="786">file in index is new.</doc>
+             line="768">file in index is new.</doc>
       </member>
       <member name="index_modified"
               value="2"
@@ -20011,7 +20020,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_INDEX_MODIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="787">file in index is modified.</doc>
+             line="769">file in index is modified.</doc>
       </member>
       <member name="index_deleted"
               value="4"
@@ -20020,7 +20029,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_INDEX_DELETED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="788">file in index is deleted.</doc>
+             line="770">file in index is deleted.</doc>
       </member>
       <member name="index_renamed"
               value="8"
@@ -20041,7 +20050,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_WORKING_TREE_NEW">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="789">file in working tree is new.</doc>
+             line="771">file in working tree is new.</doc>
       </member>
       <member name="working_tree_modified"
               value="256"
@@ -20050,7 +20059,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_WORKING_TREE_MODIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="790">file in working tree is modified.</doc>
+             line="772">file in working tree is modified.</doc>
       </member>
       <member name="working_tree_deleted"
               value="512"
@@ -20059,7 +20068,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_WORKING_TREE_DELETED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="791">file in working tree is deleted.</doc>
+             line="773">file in working tree is deleted.</doc>
       </member>
       <member name="working_tree_typechange"
               value="1024"
@@ -20086,7 +20095,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               glib:name="GGIT_STATUS_IGNORED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="792">file is ignored.</doc>
+             line="774">file is ignored.</doc>
       </member>
       <member name="conflicted"
               value="32768"
@@ -20101,7 +20110,7 @@ in a #GgitRepository. See ggit_repository_file_status_foreach().</doc>
               c:type="GgitStatusOption">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="903">GGIT_STATUS_OPTION_INCLUDE_UNTRACKED: include untracked files (default).
+           line="885">GGIT_STATUS_OPTION_INCLUDE_UNTRACKED: include untracked files (default).
 GGIT_STATUS_OPTION_INCLUDE_IGNORED: include ignored files (default).
 GGIT_STATUS_OPTION_INCLUDE_UNMODIFIED: include unmodified files.
 GGIT_STATUS_OPTION_EXCLUDE_SUBMODULES: exclude submodules.
@@ -20199,8 +20208,8 @@ Status options specified when using #ggit_repository_file_status_foreach.</doc>
             c:symbol-prefix="status_options">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="246">Represents the options used when creating getting file status.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="251"/>
+           line="253">Represents the options used when creating getting file status.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="258"/>
       <constructor name="new" c:identifier="ggit_status_options_new">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-status-options.c"
@@ -20285,7 +20294,7 @@ Status options specified when using #ggit_repository_file_status_foreach.</doc>
                  c:type="GgitStatusShow">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="940">Show options for #ggit_repository_file_status_foreach. Determines which
+           line="922">Show options for #ggit_repository_file_status_foreach. Determines which
 files are included in the status.</doc>
       <member name="index_and_workdir"
               value="0"
@@ -20294,7 +20303,7 @@ files are included in the status.</doc>
               glib:name="GGIT_STATUS_SHOW_INDEX_AND_WORKDIR">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="942">receive one callback for each file,
+             line="924">receive one callback for each file,
 even if the file is in both the index and the workdir (combining #GgitStatusFlags).</doc>
       </member>
       <member name="index_only"
@@ -20304,7 +20313,7 @@ even if the file is in both the index and the workdir (combining #GgitStatusFlag
               glib:name="GGIT_STATUS_SHOW_INDEX_ONLY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="944">only receive callbacks for files in the index.</doc>
+             line="926">only receive callbacks for files in the index.</doc>
       </member>
       <member name="workdir_only"
               value="2"
@@ -20313,7 +20322,7 @@ even if the file is in both the index and the workdir (combining #GgitStatusFlag
               glib:name="GGIT_STATUS_SHOW_WORKDIR_ONLY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="945">only receive callbacks for files in the workdir.</doc>
+             line="927">only receive callbacks for files in the workdir.</doc>
       </member>
     </enumeration>
     <record name="Submodule"
@@ -20324,8 +20333,8 @@ even if the file is in both the index and the workdir (combining #GgitStatusFlag
             c:symbol-prefix="submodule">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="253">Represents a git submodule.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="258"/>
+           line="260">Represents a git submodule.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="265"/>
       <method name="get_fetch_recurse"
               c:identifier="ggit_submodule_get_fetch_recurse">
         <doc xml:space="preserve"
@@ -20700,26 +20709,26 @@ fetched using the fetch options supplied in options.</doc>
     <callback name="SubmoduleCallback" c:type="GgitSubmoduleCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1279">The type of the callback functions for retrieving the submodules
+           line="1235">The type of the callback functions for retrieving the submodules
 in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1290"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1246"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1288">0 to go for the next submodule or a #GgitError in case there was an error.</doc>
+             line="1244">0 to go for the next submodule or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="submodule" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1281">a #GgitSubmodule.</doc>
+               line="1237">a #GgitSubmodule.</doc>
           <type name="Submodule" c:type="GgitSubmodule*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1282">the name of the submodule.</doc>
+               line="1238">the name of the submodule.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="user_data"
@@ -20729,7 +20738,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1283">user-supplied data.</doc>
+               line="1239">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -20740,7 +20749,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
                  c:type="GgitSubmoduleIgnore">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="813">Describes which submodules should be ignored.</doc>
+           line="795">Describes which submodules should be ignored.</doc>
       <member name="unspecified"
               value="-1"
               c:identifier="GGIT_SUBMODULE_IGNORE_UNSPECIFIED"
@@ -20748,7 +20757,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
               glib:name="GGIT_SUBMODULE_IGNORE_UNSPECIFIED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="815">reset to on-disk value.</doc>
+             line="797">reset to on-disk value.</doc>
       </member>
       <member name="none"
               value="1"
@@ -20757,7 +20766,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
               glib:name="GGIT_SUBMODULE_IGNORE_NONE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="816">don't ignore any change.</doc>
+             line="798">don't ignore any change.</doc>
       </member>
       <member name="untracked"
               value="2"
@@ -20766,7 +20775,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
               glib:name="GGIT_SUBMODULE_IGNORE_UNTRACKED">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="817">ignore untracked files.</doc>
+             line="799">ignore untracked files.</doc>
       </member>
       <member name="dirty"
               value="3"
@@ -20775,7 +20784,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
               glib:name="GGIT_SUBMODULE_IGNORE_DIRTY">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="818">ignore changes in the working directory.</doc>
+             line="800">ignore changes in the working directory.</doc>
       </member>
       <member name="all"
               value="4"
@@ -20784,7 +20793,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
               glib:name="GGIT_SUBMODULE_IGNORE_ALL">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="819">never check if the submodule is dirty.</doc>
+             line="801">never check if the submodule is dirty.</doc>
       </member>
     </enumeration>
     <enumeration name="SubmoduleRecurse"
@@ -20793,7 +20802,7 @@ in a #GgitRepository. See ggit_repository_submodule_foreach().</doc>
                  c:type="GgitSubmoduleRecurse">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="832">Options for submodule recurse.
+           line="814">Options for submodule recurse.
 Represents the value of `submodule.$name.fetchRecurseSubmodules`</doc>
       <member name="no"
               value="0"
@@ -20802,7 +20811,7 @@ Represents the value of `submodule.$name.fetchRecurseSubmodules`</doc>
               glib:name="GGIT_SUBMODULE_RECURSE_NO">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="834">do no recurse into submodules.</doc>
+             line="816">do no recurse into submodules.</doc>
       </member>
       <member name="yes"
               value="1"
@@ -20811,7 +20820,7 @@ Represents the value of `submodule.$name.fetchRecurseSubmodules`</doc>
               glib:name="GGIT_SUBMODULE_RECURSE_YES">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="835">recurse into submodules.</doc>
+             line="817">recurse into submodules.</doc>
       </member>
       <member name="ondemand"
               value="2"
@@ -20820,7 +20829,7 @@ Represents the value of `submodule.$name.fetchRecurseSubmodules`</doc>
               glib:name="GGIT_SUBMODULE_RECURSE_ONDEMAND">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="836">recurse into submodules only when
+             line="818">recurse into submodules only when
 commit not already in local clone.</doc>
       </member>
     </enumeration>
@@ -20830,7 +20839,7 @@ commit not already in local clone.</doc>
               c:type="GgitSubmoduleStatus">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="848">FIXME</doc>
+           line="830">FIXME</doc>
       <member name="in_head"
               value="1"
               c:identifier="GGIT_SUBMODULE_STATUS_IN_HEAD"
@@ -20922,7 +20931,7 @@ commit not already in local clone.</doc>
                  c:type="GgitSubmoduleUpdate">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="869">Describes how a submodule should be updated.</doc>
+           line="851">Describes how a submodule should be updated.</doc>
       <member name="checkout"
               value="1"
               c:identifier="GGIT_SUBMODULE_UPDATE_CHECKOUT"
@@ -20930,7 +20939,7 @@ commit not already in local clone.</doc>
               glib:name="GGIT_SUBMODULE_UPDATE_CHECKOUT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="871">checkout the submodule.</doc>
+             line="853">checkout the submodule.</doc>
       </member>
       <member name="rebase"
               value="2"
@@ -20939,7 +20948,7 @@ commit not already in local clone.</doc>
               glib:name="GGIT_SUBMODULE_UPDATE_REBASE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="872">rebase the current branch onto the
+             line="854">rebase the current branch onto the
                                commit recorded in the superproject.</doc>
       </member>
       <member name="merge"
@@ -20949,7 +20958,7 @@ commit not already in local clone.</doc>
               glib:name="GGIT_SUBMODULE_UPDATE_MERGE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="874">merge the commit recorded in the
+             line="856">merge the commit recorded in the
                               superproject into the current branch.</doc>
       </member>
       <member name="none"
@@ -20959,7 +20968,7 @@ commit not already in local clone.</doc>
               glib:name="GGIT_SUBMODULE_UPDATE_NONE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="876">do not update this submodule.</doc>
+             line="858">do not update this submodule.</doc>
       </member>
       <member name="default"
               value="0"
@@ -20968,7 +20977,7 @@ commit not already in local clone.</doc>
               glib:name="GGIT_SUBMODULE_UPDATE_DEFAULT">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="877">not used except as static initializer
+             line="859">not used except as static initializer
 when we don't want any particular update rule to be specified.</doc>
       </member>
     </enumeration>
@@ -21305,26 +21314,26 @@ given object and returns it.</doc>
     <callback name="TagCallback" c:type="GgitTagCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1294">When iterating over all the tags, callback that will be
+           line="1250">When iterating over all the tags, callback that will be
 issued per entry. See ggit_repository_tag_foreach().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1305"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1261"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1303">0 to go continue or a #GgitError in case there was an error.</doc>
+             line="1259">0 to go continue or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1296">the tag name.</doc>
+               line="1252">the tag name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="tag_oid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1297">the tag oid.</doc>
+               line="1253">the tag oid.</doc>
           <type name="OId" c:type="GgitOId*"/>
         </parameter>
         <parameter name="user_data"
@@ -21334,7 +21343,7 @@ issued per entry. See ggit_repository_tag_foreach().</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1298">user-suplied data.</doc>
+               line="1254">user-suplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -21361,8 +21370,8 @@ issued per entry. See ggit_repository_tag_foreach().</doc>
             c:symbol-prefix="transfer_progress">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="260">Represents transfering progress.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="265"/>
+           line="267">Represents transfering progress.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="272"/>
       <method name="copy" c:identifier="ggit_transfer_progress_copy">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-transfer-progress.c"
@@ -21495,19 +21504,19 @@ issued per entry. See ggit_repository_tag_foreach().</doc>
               c:type="GgitTransferProgressCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1309">Progress callbacks during indexing.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1318"/>
+           line="1265">Progress callbacks during indexing.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1274"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1316">a value less than zero to cancel the transfer.</doc>
+             line="1272">a value less than zero to cancel the transfer.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="stats" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1311">a #GgitTransferProgress.</doc>
+               line="1267">a #GgitTransferProgress.</doc>
           <type name="TransferProgress" c:type="GgitTransferProgress*"/>
         </parameter>
         <parameter name="user_data"
@@ -21517,7 +21526,7 @@ issued per entry. See ggit_repository_tag_foreach().</doc>
                    closure="1">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1312">user-supplied data.</doc>
+               line="1268">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -21886,8 +21895,8 @@ builder and cannot be used after the tree builder has been freed.</doc>
             c:symbol-prefix="tree_entry">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="267">Represents an entry in a tree.</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="272"/>
+           line="274">Represents an entry in a tree.</doc>
+      <source-position filename="libgit2-glib/ggit-types.h" line="279"/>
       <method name="get_file_mode"
               c:identifier="ggit_tree_entry_get_file_mode">
         <doc xml:space="preserve"
@@ -22013,26 +22022,26 @@ If the reference count drops to 0, @entry is freed.</doc>
     <callback name="TreeWalkCallback" c:type="GgitTreeWalkCallback">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="1321">The type of the callback functions for walking a tree.
+           line="1277">The type of the callback functions for walking a tree.
 See ggit_tree_walk().</doc>
-      <source-position filename="libgit2-glib/ggit-types.h" line="1333"/>
+      <source-position filename="libgit2-glib/ggit-types.h" line="1289"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="1330">0 to go for the next entry or a #GgitError in case there was an error.</doc>
+             line="1286">0 to go for the next entry or a #GgitError in case there was an error.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="root" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1323">the current (relative) root of the entry</doc>
+               line="1279">the current (relative) root of the entry</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1324">the tree entry</doc>
+               line="1280">the tree entry</doc>
           <type name="TreeEntry" c:type="const GgitTreeEntry*"/>
         </parameter>
         <parameter name="user_data"
@@ -22042,7 +22051,7 @@ See ggit_tree_walk().</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgit2-glib/ggit-types.h"
-               line="1325">user-supplied data.</doc>
+               line="1281">user-supplied data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -22053,7 +22062,7 @@ See ggit_tree_walk().</doc>
                  c:type="GgitTreeWalkMode">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-types.h"
-           line="891">Describes in which order a tree walk should be performed.</doc>
+           line="873">Describes in which order a tree walk should be performed.</doc>
       <member name="pre"
               value="0"
               c:identifier="GGIT_TREE_WALK_MODE_PRE"
@@ -22061,7 +22070,7 @@ See ggit_tree_walk().</doc>
               glib:name="GGIT_TREE_WALK_MODE_PRE">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="893">walk tree in pre-order</doc>
+             line="875">walk tree in pre-order</doc>
       </member>
       <member name="post"
               value="1"
@@ -22070,7 +22079,7 @@ See ggit_tree_walk().</doc>
               glib:name="GGIT_TREE_WALK_MODE_POST">
         <doc xml:space="preserve"
              filename="libgit2-glib/ggit-types.h"
-             line="894">walk tree in post-order</doc>
+             line="876">walk tree in post-order</doc>
       </member>
     </enumeration>
     <constant name="VERSION_S" value="1.2.0" c:type="GGIT_VERSION_S">

@@ -17,7 +17,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ALIGNED_DECL"
                     c:identifier="GRAPHENE_ALIGNED_DECL"
                     introspectable="0">
-      <source-position filename="include/graphene-macros.h" line="44"/>
+      <source-position filename="include/graphene-macros.h" line="40"/>
       <parameters>
         <parameter name="x">
         </parameter>
@@ -64,26 +64,26 @@ The contents of the returned structure are undefined.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="624">Checks whether the #graphene_box_t @a contains the given
+             line="646">Checks whether the #graphene_box_t @a contains the given
 #graphene_box_t @b.</doc>
-        <source-position filename="include/graphene-box.h" line="127"/>
+        <source-position filename="include/graphene-box.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="632">`true` if the box is contained in the given box</doc>
+               line="654">`true` if the box is contained in the given box</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="626">a #graphene_box_t</doc>
+                 line="648">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="627">a #graphene_box_t</doc>
+                 line="649">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </parameter>
         </parameters>
@@ -93,25 +93,25 @@ The contents of the returned structure are undefined.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="594">Checks whether @box contains the given @point.</doc>
-        <source-position filename="include/graphene-box.h" line="124"/>
+             line="616">Checks whether @box contains the given @point.</doc>
+        <source-position filename="include/graphene-box.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="601">`true` if the point is contained in the given box</doc>
+               line="623">`true` if the point is contained in the given box</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="box" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="596">a #graphene_box_t</doc>
+                 line="618">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </instance-parameter>
           <parameter name="point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="597">the coordinates to check</doc>
+                 line="619">the coordinates to check</doc>
             <type name="Point3D" c:type="const graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -119,25 +119,25 @@ The contents of the returned structure are undefined.</doc>
       <method name="equal" c:identifier="graphene_box_equal" version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="675">Checks whether the two given boxes are equal.</doc>
-        <source-position filename="include/graphene-box.h" line="131"/>
+             line="697">Checks whether the two given boxes are equal.</doc>
+        <source-position filename="include/graphene-box.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="682">`true` if the boxes are equal</doc>
+               line="704">`true` if the boxes are equal</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="677">a #graphene_box_t</doc>
+                 line="699">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="678">a #graphene_box_t</doc>
+                 line="700">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </parameter>
         </parameters>
@@ -268,9 +268,9 @@ given vector.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="693">Computes the bounding #graphene_sphere_t capable of containing the given
+             line="715">Computes the bounding #graphene_sphere_t capable of containing the given
 #graphene_box_t.</doc>
-        <source-position filename="include/graphene-box.h" line="120"/>
+        <source-position filename="include/graphene-box.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -278,7 +278,7 @@ given vector.</doc>
           <instance-parameter name="box" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="695">a #graphene_box_t</doc>
+                 line="717">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </instance-parameter>
           <parameter name="sphere"
@@ -287,7 +287,7 @@ given vector.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="696">return location for the bounding sphere</doc>
+                 line="718">return location for the bounding sphere</doc>
             <type name="Sphere" c:type="graphene_sphere_t*"/>
           </parameter>
         </parameters>
@@ -368,7 +368,7 @@ given vector.</doc>
       <method name="get_max" c:identifier="graphene_box_get_max" version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="548">Retrieves the coordinates of the maximum point of the given
+             line="570">Retrieves the coordinates of the maximum point of the given
 #graphene_box_t.</doc>
         <source-position filename="include/graphene-box.h" line="114"/>
         <return-value transfer-ownership="none">
@@ -378,7 +378,7 @@ given vector.</doc>
           <instance-parameter name="box" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="550">a #graphene_box_t</doc>
+                 line="572">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </instance-parameter>
           <parameter name="max"
@@ -387,7 +387,7 @@ given vector.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="551">return location for the maximum point</doc>
+                 line="573">return location for the maximum point</doc>
             <type name="Point3D" c:type="graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -395,9 +395,38 @@ given vector.</doc>
       <method name="get_min" c:identifier="graphene_box_get_min" version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="531">Retrieves the coordinates of the minimum point of the given
+             line="553">Retrieves the coordinates of the minimum point of the given
 #graphene_box_t.</doc>
         <source-position filename="include/graphene-box.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box.c"
+                 line="555">a #graphene_box_t</doc>
+            <type name="Box" c:type="const graphene_box_t*"/>
+          </instance-parameter>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box.c"
+                 line="556">return location for the minimum point</doc>
+            <type name="Point3D" c:type="graphene_point3d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_minmax"
+              c:identifier="graphene_box_get_minmax"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box.c"
+             line="531">Retrieves the coordinates of the minimum and maximum points of the
+given #graphene_box_t</doc>
+        <source-position filename="include/graphene-box.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -411,10 +440,23 @@ given vector.</doc>
           <parameter name="min"
                      direction="out"
                      caller-allocates="1"
-                     transfer-ownership="none">
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
                  line="534">return location for the minimum point</doc>
+            <type name="Point3D" c:type="graphene_point3d_t*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box.c"
+                 line="535">return location for the maximum point</doc>
             <type name="Point3D" c:type="graphene_point3d_t*"/>
           </parameter>
         </parameters>
@@ -453,8 +495,8 @@ it into the given @size vector.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="565">Computes the vertices of the given #graphene_box_t.</doc>
-        <source-position filename="include/graphene-box.h" line="117"/>
+             line="587">Computes the vertices of the given #graphene_box_t.</doc>
+        <source-position filename="include/graphene-box.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -462,7 +504,7 @@ it into the given @size vector.</doc>
           <instance-parameter name="box" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="567">a #graphene_box_t</doc>
+                 line="589">a #graphene_box_t</doc>
             <type name="Box" c:type="const graphene_box_t*"/>
           </instance-parameter>
           <parameter name="vertices"
@@ -471,7 +513,7 @@ it into the given @size vector.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-box.c"
-                 line="568">return location for an array
+                 line="590">return location for an array
   of 8 #graphene_vec3_t</doc>
             <array zero-terminated="0"
                    c:type="graphene_vec3_t*"
@@ -772,14 +814,14 @@ initialized with graphene_box_empty().</doc>
       <function name="empty" c:identifier="graphene_box_empty" version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="908">A degenerate #graphene_box_t that can only be expanded.
+             line="930">A degenerate #graphene_box_t that can only be expanded.
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-        <source-position filename="include/graphene-box.h" line="145"/>
+        <source-position filename="include/graphene-box.h" line="149"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="915">a #graphene_box_t</doc>
+               line="937">a #graphene_box_t</doc>
           <type name="Box" c:type="const graphene_box_t*"/>
         </return-value>
       </function>
@@ -788,14 +830,14 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                 version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="889">A degenerate #graphene_box_t that cannot be expanded.
+             line="911">A degenerate #graphene_box_t that cannot be expanded.
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-        <source-position filename="include/graphene-box.h" line="143"/>
+        <source-position filename="include/graphene-box.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="896">a #graphene_box_t</doc>
+               line="918">a #graphene_box_t</doc>
           <type name="Box" c:type="const graphene_box_t*"/>
         </return-value>
       </function>
@@ -804,30 +846,30 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                 version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="849">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
+             line="871">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
 maximum vertex set at (0, 0, 0).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-        <source-position filename="include/graphene-box.h" line="139"/>
+        <source-position filename="include/graphene-box.h" line="143"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="857">a #graphene_box_t</doc>
+               line="879">a #graphene_box_t</doc>
           <type name="Box" c:type="const graphene_box_t*"/>
         </return-value>
       </function>
       <function name="one" c:identifier="graphene_box_one" version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="829">A #graphene_box_t with the minimum vertex set at (0, 0, 0) and the
+             line="851">A #graphene_box_t with the minimum vertex set at (0, 0, 0) and the
 maximum vertex set at (1, 1, 1).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-        <source-position filename="include/graphene-box.h" line="137"/>
+        <source-position filename="include/graphene-box.h" line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="837">a #graphene_box_t</doc>
+               line="859">a #graphene_box_t</doc>
           <type name="Box" c:type="const graphene_box_t*"/>
         </return-value>
       </function>
@@ -836,37 +878,1072 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                 version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="869">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
+             line="891">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
 maximum vertex set at (1, 1, 1).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-        <source-position filename="include/graphene-box.h" line="141"/>
+        <source-position filename="include/graphene-box.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="877">a #graphene_box_t</doc>
+               line="899">a #graphene_box_t</doc>
           <type name="Box" c:type="const graphene_box_t*"/>
         </return-value>
       </function>
       <function name="zero" c:identifier="graphene_box_zero" version="1.2">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="810">A #graphene_box_t with both the minimum and maximum vertices set at (0, 0, 0).
+             line="832">A #graphene_box_t with both the minimum and maximum vertices set at (0, 0, 0).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-        <source-position filename="include/graphene-box.h" line="135"/>
+        <source-position filename="include/graphene-box.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
-               line="817">a #graphene_box_t</doc>
+               line="839">a #graphene_box_t</doc>
           <type name="Box" c:type="const graphene_box_t*"/>
+        </return-value>
+      </function>
+    </record>
+    <record name="Box2D"
+            c:type="graphene_box2d_t"
+            version="1.12"
+            glib:type-name="GrapheneBox2D"
+            glib:get-type="graphene_box2d_get_type"
+            c:symbol-prefix="box2d">
+      <doc xml:space="preserve"
+           filename="include/graphene-box2d.h"
+           line="21">A 2D box, described as the axis-aligned area between a minimum and
+a maximum vertices lying on the same plane.</doc>
+      <source-position filename="include/graphene-box2d.h" line="33"/>
+      <field name="minmax" readable="0" private="1">
+        <type name="Vec4" c:type="graphene_vec4_t"/>
+      </field>
+      <constructor name="alloc"
+                   c:identifier="graphene_box2d_alloc"
+                   version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="37">Allocates a new #graphene_box2d_t.
+
+The contents of the returned structure are undefined.</doc>
+        <source-position filename="include/graphene-box2d.h" line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="44">the newly allocated #graphene_box2d_t structure.
+  Use graphene_box2d_free() to free the resources allocated by this function</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+      </constructor>
+      <method name="contains_box"
+              c:identifier="graphene_box2d_contains_box"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="795">Checks whether the #graphene_box2d_t @a contains the given
+#graphene_box2d_t @b.</doc>
+        <source-position filename="include/graphene-box2d.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="803">`true` if the box is contained in the given box</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="797">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="798">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="contains_point"
+              c:identifier="graphene_box2d_contains_point"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="762">Checks whether @box contains the given @point.</doc>
+        <source-position filename="include/graphene-box2d.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="769">`true` if the point is contained in the given box</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="764">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="point" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="765">the coordinates to check</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="contains_rect"
+              c:identifier="graphene_box2d_contains_rect"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="831">Checks whether @box contains the given @rect.</doc>
+        <source-position filename="include/graphene-box2d.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="838">`true` if the rectangle is contained in the given box</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="833">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="834">the rectangle to check</doc>
+            <type name="Rect" c:type="const graphene_rect_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equal" c:identifier="graphene_box2d_equal" version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="885">Checks whether the two given boxes are equal.</doc>
+        <source-position filename="include/graphene-box2d.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="892">`true` if the boxes are equal</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="887">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="888">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="expand"
+              c:identifier="graphene_box2d_expand"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="271">Expands the dimensions of @box to include the coordinates at @point.</doc>
+        <source-position filename="include/graphene-box2d.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="273">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="point" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="274">the coordinates of the point to include</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="275">return location for the expanded box</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="expand_scalar"
+              c:identifier="graphene_box2d_expand_scalar"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="291">Expands the dimensions of @box by the given @scalar value.
+
+If @scalar is positive, the #graphene_box2d_t will grow; if @scalar is
+negative, the #graphene_box2d_t will shrink.</doc>
+        <source-position filename="include/graphene-box2d.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="293">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="scalar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="294">a scalar value</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="295">return location for the expanded box</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="expand_vec2"
+              c:identifier="graphene_box2d_expand_vec2"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="252">Expands the dimensions of @box to include the coordinates of the
+given vector.</doc>
+        <source-position filename="include/graphene-box2d.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="254">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="vec" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="255">the coordinates of the point to include, as a #graphene_vec2_t</doc>
+            <type name="Vec2" c:type="const graphene_vec2_t*"/>
+          </parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="256">return location for the expanded box</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="graphene_box2d_free" version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="55">Frees the resources allocated by graphene_box2d_alloc().</doc>
+        <source-position filename="include/graphene-box2d.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="57">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_center"
+              c:identifier="graphene_box2d_get_center"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="647">Retrieves the coordinates of the center of a #graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="649">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="center"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="650">return location for the coordinates of
+  the center</doc>
+            <type name="Point" c:type="graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_height"
+              c:identifier="graphene_box2d_get_height"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="531">Retrieves the size of the @box on the Y axis.</doc>
+        <source-position filename="include/graphene-box2d.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="537">the height of the box</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="533">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max"
+              c:identifier="graphene_box2d_get_max"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="695">Retrieves the coordinates of the maximum point of the given
+#graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="697">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="698">return location for the maximum point</doc>
+            <type name="Point" c:type="graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_min"
+              c:identifier="graphene_box2d_get_min"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="678">Retrieves the coordinates of the minimum point of the given
+#graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="680">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="681">return location for the minimum point</doc>
+            <type name="Point" c:type="graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_minmax"
+              c:identifier="graphene_box2d_get_minmax"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="712">Retrieves the coordinates of the minimum and maximum points of the
+given #graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="714">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="715">return location for the minimum point</doc>
+            <type name="Point" c:type="graphene_point_t*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="716">return location for the maximum point</doc>
+            <type name="Point" c:type="graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="graphene_box2d_get_size"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="619">Retrieves the size of the box on all three axes, and stores
+it into the given @size vector.</doc>
+        <source-position filename="include/graphene-box2d.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="621">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="622">return location for the size</doc>
+            <type name="Vec2" c:type="graphene_vec2_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_vertices"
+              c:identifier="graphene_box2d_get_vertices"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="738">Computes the vertices of the given #graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="740">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="vertices"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="741">return location for an array
+  of 4 #graphene_vec2_t</doc>
+            <array zero-terminated="0"
+                   c:type="graphene_vec2_t*"
+                   fixed-size="4">
+              <type name="Vec2" c:type="graphene_vec2_t"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_width"
+              c:identifier="graphene_box2d_get_width"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="509">Retrieves the size of the @box on the X axis.</doc>
+        <source-position filename="include/graphene-box2d.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="515">the width of the box</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="511">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="graphene_box2d_init" version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="69">Initializes the given #graphene_box2d_t with two vertices.</doc>
+        <source-position filename="include/graphene-box2d.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="77">the initialized #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="71">the #graphene_box2d_t to initialize</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="min"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="72">the coordinates of the minimum vertex</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </parameter>
+          <parameter name="max"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="73">the coordinates of the maximum vertex</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_box"
+              c:identifier="graphene_box2d_init_from_box"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="157">Initializes the given #graphene_box2d_t with the vertices of
+another #graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="165">the initialized #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="159">the #graphene_box2d_t to initialize</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="src" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="160">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_points"
+              c:identifier="graphene_box2d_init_from_points"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="94">Initializes the given #graphene_box2d_t with the given array
+of vertices.
+
+If @n_points is 0, the returned box is initialized with
+graphene_box2d_empty().</doc>
+        <source-position filename="include/graphene-box2d.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="106">the initialized #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="96">the #graphene_box2d_t to initialize</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="n_points" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="97">the number #graphene_point_t in the @points array</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="points" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="98">an array of #graphene_point_t</doc>
+            <array length="0"
+                   zero-terminated="0"
+                   c:type="const graphene_point_t*">
+              <type name="Point" c:type="graphene_point_t"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_rect"
+              c:identifier="graphene_box2d_init_from_rect"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="211">Initializes the given #graphene_box2d_t with the origin and
+size of a #graphene_rect_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="219">the initialized #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="213">the #graphene_box2d_t to initialize</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="src" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="214">a #graphene_rect_t</doc>
+            <type name="Rect" c:type="const graphene_rect_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_vec2"
+              c:identifier="graphene_box2d_init_from_vec2"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="188">Initializes the given #graphene_box2d_t with two vertices
+stored inside #graphene_vec2_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="197">the initialized #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="190">the #graphene_box2d_t to initialize</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="min"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="191">the coordinates of the minimum vertex</doc>
+            <type name="Vec2" c:type="const graphene_vec2_t*"/>
+          </parameter>
+          <parameter name="max"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="192">the coordinates of the maximum vertex</doc>
+            <type name="Vec2" c:type="const graphene_vec2_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_vectors"
+              c:identifier="graphene_box2d_init_from_vectors"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="128">Initializes the given #graphene_box2d_t with the given array
+of vertices.
+
+If @n_vectors is 0, the returned box is initialized with
+graphene_box2d_empty().</doc>
+        <source-position filename="include/graphene-box2d.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="140">the initialized #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="graphene_box2d_t*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="130">the #graphene_box2d_t to initialize</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="n_vectors" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="131">the number #graphene_vec2_t in the @vectors array</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="vectors" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="132">an array of #graphene_vec2_t</doc>
+            <array length="0"
+                   zero-terminated="0"
+                   c:type="const graphene_vec2_t*">
+              <type name="Vec2" c:type="graphene_vec2_t"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="intersection"
+              c:identifier="graphene_box2d_intersection"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="443">Intersects the two given #graphene_box2d_t.
+
+If the two boxes do not intersect, @res will contain a degenerate box
+initialized with graphene_box2d_empty().</doc>
+        <source-position filename="include/graphene-box2d.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="454">true if the two boxes intersect</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="445">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="446">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="447">return location for the result</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="intersects"
+              c:identifier="graphene_box2d_intersects"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="489">Checks whether two boxes intersect.
+
+See also: graphene_box2d_intersection()</doc>
+        <source-position filename="include/graphene-box2d.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="498">true if the boxes intersect, and false otherwise</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="491">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="492">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="scale_offset"
+              c:identifier="graphene_box2d_scale_offset"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="322">Applies a scale and an offset to the vertices of the given box.
+
+If @scale is %NULL, the box will be scaled by (1.0, 1.0).
+
+If @offset is %NULL, the box will be offset by (0.0, 0.0).</doc>
+        <source-position filename="include/graphene-box2d.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="324">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="scale"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="325">a vector with two scaling factors to be applied to the box</doc>
+            <type name="Vec2" c:type="const graphene_vec2_t*"/>
+          </parameter>
+          <parameter name="offset"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="326">the offset to apply to the box</doc>
+            <type name="Point" c:type="const graphene_point_t*"/>
+          </parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="327">the transformed box</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_float"
+              c:identifier="graphene_box2d_to_float"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="364">Stores the minimum and maximum vertices of the given #graphene_box2d_t
+into an array.
+
+The array layout is:
+
+- min_x
+- min_y
+- max_x
+- max_y</doc>
+        <source-position filename="include/graphene-box2d.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="366">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="v"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="367">return location
+  for an array of floating point values with at least 4 elements</doc>
+            <array zero-terminated="0" c:type="float*" fixed-size="4">
+              <type name="gfloat" c:type="float"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_rect"
+              c:identifier="graphene_box2d_to_rect"
+              version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="389">Stores the minimum and maximum vertices of the given #graphene_box2d_t
+into a rectangle of equivalent origin and size.</doc>
+        <source-position filename="include/graphene-box2d.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="box" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="391">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="rect"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="392">the rectangle to initialize</doc>
+            <type name="Rect" c:type="graphene_rect_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="union" c:identifier="graphene_box2d_union" version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="413">Unions the two given #graphene_box2d_t.</doc>
+        <source-position filename="include/graphene-box2d.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="415">a #graphene_box2d_t</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="416">the box to union to @a</doc>
+            <type name="Box2D" c:type="const graphene_box2d_t*"/>
+          </parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/graphene-box2d.c"
+                 line="417">return location for the result</doc>
+            <type name="Box2D" c:type="graphene_box2d_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <function name="empty"
+                c:identifier="graphene_box2d_empty"
+                version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1087">A degenerate #graphene_box2d_t that can only be expanded.
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+        <source-position filename="include/graphene-box2d.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="1094">a #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="const graphene_box2d_t*"/>
+        </return-value>
+      </function>
+      <function name="infinite"
+                c:identifier="graphene_box2d_infinite"
+                version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1068">A degenerate #graphene_box2d_t that cannot be expanded.
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+        <source-position filename="include/graphene-box2d.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="1075">a #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="const graphene_box2d_t*"/>
+        </return-value>
+      </function>
+      <function name="minus_one"
+                c:identifier="graphene_box2d_minus_one"
+                version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1028">A #graphene_box2d_t with the minimum vertex set at (-1, -1) and the
+maximum vertex set at (0, 0).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+        <source-position filename="include/graphene-box2d.h" line="140"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="1036">a #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="const graphene_box2d_t*"/>
+        </return-value>
+      </function>
+      <function name="one" c:identifier="graphene_box2d_one" version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1008">A #graphene_box2d_t with the minimum vertex set at (0, 0) and the
+maximum vertex set at (1, 1).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+        <source-position filename="include/graphene-box2d.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="1016">a #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="const graphene_box2d_t*"/>
+        </return-value>
+      </function>
+      <function name="one_minus_one"
+                c:identifier="graphene_box2d_one_minus_one"
+                version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1048">A #graphene_box2d_t with the minimum vertex set at (-1, -1) and the
+maximum vertex set at (1, 1).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+        <source-position filename="include/graphene-box2d.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="1056">a #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="const graphene_box2d_t*"/>
+        </return-value>
+      </function>
+      <function name="zero" c:identifier="graphene_box2d_zero" version="1.12">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="989">A #graphene_box2d_t with both the minimum and maximum vertices set at (0, 0).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+        <source-position filename="include/graphene-box2d.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/graphene-box2d.c"
+               line="996">a #graphene_box2d_t</doc>
+          <type name="Box2D" c:type="const graphene_box2d_t*"/>
         </return-value>
       </function>
     </record>
     <function-macro name="CHECK_VERSION"
                     c:identifier="GRAPHENE_CHECK_VERSION"
                     introspectable="0">
-      <source-position filename="include/graphene-version-macros.h" line="78"/>
+      <source-position filename="include/graphene-version-macros.h" line="97"/>
       <parameters>
         <parameter name="major">
         </parameter>
@@ -879,7 +1956,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
     <function-macro name="DEPRECATED_FOR"
                     c:identifier="GRAPHENE_DEPRECATED_FOR"
                     introspectable="0">
-      <source-position filename="include/graphene-version-macros.h" line="53"/>
+      <source-position filename="include/graphene-version-macros.h" line="72"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -889,7 +1966,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_0_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="138"/>
+                       line="157"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -899,7 +1976,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_10_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="204"/>
+                       line="223"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -909,7 +1986,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_12_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="219"/>
+                       line="238"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -919,7 +1996,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_2_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="144"/>
+                       line="163"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -929,7 +2006,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_4_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="159"/>
+                       line="178"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -939,7 +2016,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_6_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="174"/>
+                       line="193"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -949,7 +2026,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_8_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="189"/>
+                       line="208"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -961,24 +2038,24 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     introspectable="0">
       <doc xml:space="preserve"
            filename="include/graphene-version-macros.h"
-           line="34">Encodes the given components into a value that can be used for
+           line="53">Encodes the given components into a value that can be used for
 version checks.</doc>
-      <source-position filename="include/graphene-version-macros.h" line="45"/>
+      <source-position filename="include/graphene-version-macros.h" line="64"/>
       <parameters>
         <parameter name="major">
           <doc xml:space="preserve"
                filename="include/graphene-version-macros.h"
-               line="36">a major version</doc>
+               line="55">a major version</doc>
         </parameter>
         <parameter name="minor">
           <doc xml:space="preserve"
                filename="include/graphene-version-macros.h"
-               line="37">a minor version</doc>
+               line="56">a minor version</doc>
         </parameter>
         <parameter name="micro">
           <doc xml:space="preserve"
                filename="include/graphene-version-macros.h"
-               line="38">a micro version</doc>
+               line="57">a micro version</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2267,25 +3344,25 @@ published in "Graphics Gems II", edited by Jim Arvo, and
       <method name="equal" c:identifier="graphene_matrix_equal" version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-matrix.c"
-             line="2346">Checks whether the two given #graphene_matrix_t matrices are equal.</doc>
+             line="2354">Checks whether the two given #graphene_matrix_t matrices are equal.</doc>
         <source-position filename="include/graphene-matrix.h" line="296"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
-               line="2353">`true` if the two matrices are equal, and `false` otherwise</doc>
+               line="2361">`true` if the two matrices are equal, and `false` otherwise</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2348">a #graphene_matrix_t</doc>
+                 line="2356">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2349">a #graphene_matrix_t</doc>
+                 line="2357">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </parameter>
         </parameters>
@@ -2295,7 +3372,7 @@ published in "Graphics Gems II", edited by Jim Arvo, and
               version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-matrix.c"
-             line="2364">Checks whether the two given #graphene_matrix_t matrices are
+             line="2372">Checks whether the two given #graphene_matrix_t matrices are
 byte-by-byte equal.
 
 While this function is faster than graphene_matrix_equal(), it
@@ -2322,20 +3399,20 @@ graphene_matrix_near(). For instance:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
-               line="2393">`true` if the matrices are equal. and `false` otherwise</doc>
+               line="2401">`true` if the matrices are equal. and `false` otherwise</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2366">a #graphene_matrix_t</doc>
+                 line="2374">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2367">a #graphene_matrix_t</doc>
+                 line="2375">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </parameter>
         </parameters>
@@ -3122,7 +4199,7 @@ given coordinates.</doc>
               version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-matrix.c"
-             line="2090">Linearly interpolates the two given #graphene_matrix_t by
+             line="2098">Linearly interpolates the two given #graphene_matrix_t by
 interpolating the decomposed transformations separately.
 
 If either matrix cannot be reduced to their transformations
@@ -3136,19 +4213,19 @@ will return an identity matrix.</doc>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2092">a #graphene_matrix_t</doc>
+                 line="2100">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2093">a #graphene_matrix_t</doc>
+                 line="2101">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </parameter>
           <parameter name="factor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2094">the linear interpolation factor</doc>
+                 line="2102">the linear interpolation factor</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="res"
@@ -3157,7 +4234,7 @@ will return an identity matrix.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2095">return location for the
+                 line="2103">return location for the
   interpolated matrix</doc>
             <type name="Matrix" c:type="graphene_matrix_t*"/>
           </parameter>
@@ -3324,14 +4401,14 @@ The product of this multiplication is (@a × @b)</doc>
       <method name="near" c:identifier="graphene_matrix_near" version="1.10">
         <doc xml:space="preserve"
              filename="src/graphene-matrix.c"
-             line="2306">Compares the two given #graphene_matrix_t matrices and checks
+             line="2314">Compares the two given #graphene_matrix_t matrices and checks
 whether their values are within the given @epsilon of each
 other.</doc>
         <source-position filename="include/graphene-matrix.h" line="292"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
-               line="2316">`true` if the two matrices are near each other, and
+               line="2324">`true` if the two matrices are near each other, and
   `false` otherwise</doc>
           <type name="gboolean" c:type="_Bool"/>
         </return-value>
@@ -3339,19 +4416,19 @@ other.</doc>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2308">a #graphene_matrix_t</doc>
+                 line="2316">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2309">a #graphene_matrix_t</doc>
+                 line="2317">a #graphene_matrix_t</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </parameter>
           <parameter name="epsilon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2310">the threshold between the two matrices</doc>
+                 line="2318">the threshold between the two matrices</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -3422,7 +4499,7 @@ other.</doc>
       <method name="print" c:identifier="graphene_matrix_print" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-matrix.c"
-             line="2281">Prints the contents of a matrix to the standard error stream.
+             line="2289">Prints the contents of a matrix to the standard error stream.
 
 This function is only useful for debugging; there are no guarantees
 made on the format of the output.</doc>
@@ -3434,7 +4511,7 @@ made on the format of the output.</doc>
           <instance-parameter name="m" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-matrix.c"
-                 line="2283">The matrix to print</doc>
+                 line="2291">The matrix to print</doc>
             <type name="Matrix" c:type="const graphene_matrix_t*"/>
           </instance-parameter>
         </parameters>
@@ -4492,11 +5569,11 @@ given matrix, within the given axis aligned rectangular @bounds.</doc>
       </method>
     </record>
     <constant name="PI" value="3.141593" c:type="GRAPHENE_PI">
-      <source-position filename="include/graphene-macros.h" line="112"/>
+      <source-position filename="include/graphene-macros.h" line="108"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="PI_2" value="1.570796" c:type="GRAPHENE_PI_2">
-      <source-position filename="include/graphene-macros.h" line="113"/>
+      <source-position filename="include/graphene-macros.h" line="109"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <function-macro name="POINT3D_INIT"
@@ -4554,7 +5631,7 @@ when declaring it, e.g:
     <function-macro name="PRIVATE_FIELD"
                     c:identifier="GRAPHENE_PRIVATE_FIELD"
                     introspectable="0">
-      <source-position filename="include/graphene-macros.h" line="37"/>
+      <source-position filename="include/graphene-macros.h" line="33"/>
       <parameters>
         <parameter name="type">
         </parameter>
@@ -8751,7 +9828,7 @@ declaring it, e.g.:
       </parameters>
     </function-macro>
     <record name="Simd4F" c:type="graphene_simd4f_t">
-      <source-position filename="include/graphene-config.h" line="102"/>
+      <source-position filename="include/graphene-config.h" line="113"/>
       <field name="x" readable="0" private="1">
         <type name="gfloat" c:type="float"/>
       </field>
@@ -8766,7 +9843,7 @@ declaring it, e.g.:
       </field>
     </record>
     <record name="Simd4X4F" c:type="graphene_simd4x4f_t">
-      <source-position filename="include/graphene-config.h" line="108"/>
+      <source-position filename="include/graphene-config.h" line="119"/>
       <field name="x" readable="0" private="1">
         <type name="Simd4F" c:type="graphene_simd4f_t"/>
       </field>
@@ -10048,7 +11125,7 @@ a point in 3D space.</doc>
     <function-macro name="UNAVAILABLE"
                     c:identifier="GRAPHENE_UNAVAILABLE"
                     introspectable="0">
-      <source-position filename="include/graphene-version-macros.h" line="54"/>
+      <source-position filename="include/graphene-version-macros.h" line="73"/>
       <parameters>
         <parameter name="maj">
         </parameter>
@@ -11769,11 +12846,11 @@ all sets to 0.</doc>
             c:symbol-prefix="vec4">
       <doc xml:space="preserve"
            filename="include/graphene-vec4.h"
-           line="34">A structure capable of holding a vector with four dimensions: x, y, z, and w.
+           line="36">A structure capable of holding a vector with four dimensions: x, y, z, and w.
 
 The contents of the #graphene_vec4_t structure are private and should
 never be accessed directly.</doc>
-      <source-position filename="include/graphene-vec4.h" line="46"/>
+      <source-position filename="include/graphene-vec4.h" line="48"/>
       <field name="value" readable="0" private="1">
         <type name="Simd4F" c:type="graphene_simd4f_t"/>
       </field>
@@ -11787,7 +12864,7 @@ never be accessed directly.</doc>
 The contents of the returned structure are undefined.
 
 Use graphene_vec4_init() to initialize the vector.</doc>
-        <source-position filename="include/graphene-vec4.h" line="49"/>
+        <source-position filename="include/graphene-vec4.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -11801,7 +12878,7 @@ Use graphene_vec4_init() to initialize the vector.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1588">Adds each component of the two given vectors.</doc>
-        <source-position filename="include/graphene-vec4.h" line="77"/>
+        <source-position filename="include/graphene-vec4.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11835,7 +12912,7 @@ Use graphene_vec4_init() to initialize the vector.</doc>
              line="1644">Divides each component of the first operand @a by the corresponding
 component of the second operand @b, and places the results into the
 vector @res.</doc>
-        <source-position filename="include/graphene-vec4.h" line="89"/>
+        <source-position filename="include/graphene-vec4.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11867,7 +12944,7 @@ vector @res.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1664">Computes the dot product of the two given vectors.</doc>
-        <source-position filename="include/graphene-vec4.h" line="93"/>
+        <source-position filename="include/graphene-vec4.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -11893,7 +12970,7 @@ vector @res.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1837">Checks whether the two given #graphene_vec4_t are equal.</doc>
-        <source-position filename="include/graphene-vec4.h" line="108"/>
+        <source-position filename="include/graphene-vec4.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -11919,7 +12996,7 @@ vector @res.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1374">Frees the resources allocated by @v</doc>
-        <source-position filename="include/graphene-vec4.h" line="51"/>
+        <source-position filename="include/graphene-vec4.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11936,7 +13013,7 @@ vector @res.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1554">Retrieves the value of the fourth component of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="136"/>
+        <source-position filename="include/graphene-vec4.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -11956,7 +13033,7 @@ vector @res.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1506">Retrieves the value of the first component of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="130"/>
+        <source-position filename="include/graphene-vec4.h" line="132"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -11977,7 +13054,7 @@ vector @res.</doc>
              filename="src/graphene-vectors.c"
              line="1774">Creates a #graphene_vec2_t that contains the first two components
 of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="139"/>
+        <source-position filename="include/graphene-vec4.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12006,7 +13083,7 @@ of the given #graphene_vec4_t.</doc>
              filename="src/graphene-vectors.c"
              line="1791">Creates a #graphene_vec3_t that contains the first three components
 of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="142"/>
+        <source-position filename="include/graphene-vec4.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12032,7 +13109,7 @@ of the given #graphene_vec4_t.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1522">Retrieves the value of the second component of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="132"/>
+        <source-position filename="include/graphene-vec4.h" line="134"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12052,7 +13129,7 @@ of the given #graphene_vec4_t.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1538">Retrieves the value of the third component of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="134"/>
+        <source-position filename="include/graphene-vec4.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12074,7 +13151,7 @@ of the given #graphene_vec4_t.</doc>
              line="1388">Initializes a #graphene_vec4_t using the given values.
 
 This function can be called multiple times.</doc>
-        <source-position filename="include/graphene-vec4.h" line="53"/>
+        <source-position filename="include/graphene-vec4.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12121,7 +13198,7 @@ This function can be called multiple times.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1486">Initializes a #graphene_vec4_t with the values inside the given array.</doc>
-        <source-position filename="include/graphene-vec4.h" line="71"/>
+        <source-position filename="include/graphene-vec4.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12152,7 +13229,7 @@ This function can be called multiple times.</doc>
              filename="src/graphene-vectors.c"
              line="1461">Initializes a #graphene_vec4_t using the components of a
 #graphene_vec2_t and the values of @z and @w.</doc>
-        <source-position filename="include/graphene-vec4.h" line="66"/>
+        <source-position filename="include/graphene-vec4.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12193,7 +13270,7 @@ This function can be called multiple times.</doc>
              filename="src/graphene-vectors.c"
              line="1438">Initializes a #graphene_vec4_t using the components of a
 #graphene_vec3_t and the value of @w.</doc>
-        <source-position filename="include/graphene-vec4.h" line="62"/>
+        <source-position filename="include/graphene-vec4.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12228,7 +13305,7 @@ This function can be called multiple times.</doc>
              filename="src/graphene-vectors.c"
              line="1417">Initializes a #graphene_vec4_t using the components of
 another #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="59"/>
+        <source-position filename="include/graphene-vec4.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12256,7 +13333,7 @@ another #graphene_vec4_t.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1879">Linearly interpolates @v1 and @v2 using the given @factor.</doc>
-        <source-position filename="include/graphene-vec4.h" line="124"/>
+        <source-position filename="include/graphene-vec4.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12294,7 +13371,7 @@ another #graphene_vec4_t.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1682">Computes the length of the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="96"/>
+        <source-position filename="include/graphene-vec4.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12315,7 +13392,7 @@ another #graphene_vec4_t.</doc>
              filename="src/graphene-vectors.c"
              line="1737">Compares each component of the two given vectors and creates a
 vector that contains the maximum values.</doc>
-        <source-position filename="include/graphene-vec4.h" line="120"/>
+        <source-position filename="include/graphene-vec4.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12348,7 +13425,7 @@ vector that contains the maximum values.</doc>
              filename="src/graphene-vectors.c"
              line="1718">Compares each component of the two given vectors and creates a
 vector that contains the minimum values.</doc>
-        <source-position filename="include/graphene-vec4.h" line="116"/>
+        <source-position filename="include/graphene-vec4.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12382,7 +13459,7 @@ vector that contains the minimum values.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1626">Multiplies each component of the two given vectors.</doc>
-        <source-position filename="include/graphene-vec4.h" line="85"/>
+        <source-position filename="include/graphene-vec4.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12415,7 +13492,7 @@ vector that contains the minimum values.</doc>
              filename="src/graphene-vectors.c"
              line="1855">Compares the two given #graphene_vec4_t vectors and checks
 whether their values are within the given @epsilon.</doc>
-        <source-position filename="include/graphene-vec4.h" line="111"/>
+        <source-position filename="include/graphene-vec4.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12447,7 +13524,7 @@ whether their values are within the given @epsilon.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1808">Negates the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="105"/>
+        <source-position filename="include/graphene-vec4.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12475,7 +13552,7 @@ whether their values are within the given @epsilon.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1698">Normalizes the given #graphene_vec4_t.</doc>
-        <source-position filename="include/graphene-vec4.h" line="98"/>
+        <source-position filename="include/graphene-vec4.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12502,7 +13579,7 @@ whether their values are within the given @epsilon.</doc>
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
              line="1756">Multiplies all components of the given vector with the given scalar @factor.</doc>
-        <source-position filename="include/graphene-vec4.h" line="101"/>
+        <source-position filename="include/graphene-vec4.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12538,7 +13615,7 @@ whether their values are within the given @epsilon.</doc>
              line="1606">Subtracts from each component of the first operand @a the
 corresponding component of the second operand @b and places
 each result into the components of @res.</doc>
-        <source-position filename="include/graphene-vec4.h" line="81"/>
+        <source-position filename="include/graphene-vec4.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12573,7 +13650,7 @@ each result into the components of @res.</doc>
              filename="src/graphene-vectors.c"
              line="1570">Stores the components of the given #graphene_vec4_t into an array
 of floating point values.</doc>
-        <source-position filename="include/graphene-vec4.h" line="74"/>
+        <source-position filename="include/graphene-vec4.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12603,7 +13680,7 @@ of floating point values.</doc>
              filename="src/graphene-vectors.c"
              line="1998">Retrieves a pointer to a #graphene_vec4_t with all its
 components set to 1.</doc>
-        <source-position filename="include/graphene-vec4.h" line="148"/>
+        <source-position filename="include/graphene-vec4.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12618,7 +13695,7 @@ components set to 1.</doc>
              filename="src/graphene-vectors.c"
              line="2070">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (0, 0, 0, 1).</doc>
-        <source-position filename="include/graphene-vec4.h" line="156"/>
+        <source-position filename="include/graphene-vec4.h" line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12633,7 +13710,7 @@ components set to (0, 0, 0, 1).</doc>
              filename="src/graphene-vectors.c"
              line="2016">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (1, 0, 0, 0).</doc>
-        <source-position filename="include/graphene-vec4.h" line="150"/>
+        <source-position filename="include/graphene-vec4.h" line="152"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12648,7 +13725,7 @@ components set to (1, 0, 0, 0).</doc>
              filename="src/graphene-vectors.c"
              line="2034">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (0, 1, 0, 0).</doc>
-        <source-position filename="include/graphene-vec4.h" line="152"/>
+        <source-position filename="include/graphene-vec4.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12663,7 +13740,7 @@ components set to (0, 1, 0, 0).</doc>
              filename="src/graphene-vectors.c"
              line="2052">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (0, 0, 1, 0).</doc>
-        <source-position filename="include/graphene-vec4.h" line="154"/>
+        <source-position filename="include/graphene-vec4.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12676,7 +13753,7 @@ components set to (0, 0, 1, 0).</doc>
              filename="src/graphene-vectors.c"
              line="1980">Retrieves a pointer to a #graphene_vec4_t with all its
 components set to 0.</doc>
-        <source-position filename="include/graphene-vec4.h" line="146"/>
+        <source-position filename="include/graphene-vec4.h" line="148"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
@@ -12685,20 +13762,125 @@ components set to 0.</doc>
         </return-value>
       </function>
     </record>
+    <function name="box2d_empty"
+              c:identifier="graphene_box2d_empty"
+              moved-to="Box2D.empty"
+              version="1.12">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="1087">A degenerate #graphene_box2d_t that can only be expanded.
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+      <source-position filename="include/graphene-box2d.h" line="146"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1094">a #graphene_box2d_t</doc>
+        <type name="Box2D" c:type="const graphene_box2d_t*"/>
+      </return-value>
+    </function>
+    <function name="box2d_infinite"
+              c:identifier="graphene_box2d_infinite"
+              moved-to="Box2D.infinite"
+              version="1.12">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="1068">A degenerate #graphene_box2d_t that cannot be expanded.
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+      <source-position filename="include/graphene-box2d.h" line="144"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1075">a #graphene_box2d_t</doc>
+        <type name="Box2D" c:type="const graphene_box2d_t*"/>
+      </return-value>
+    </function>
+    <function name="box2d_minus_one"
+              c:identifier="graphene_box2d_minus_one"
+              moved-to="Box2D.minus_one"
+              version="1.12">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="1028">A #graphene_box2d_t with the minimum vertex set at (-1, -1) and the
+maximum vertex set at (0, 0).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+      <source-position filename="include/graphene-box2d.h" line="140"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1036">a #graphene_box2d_t</doc>
+        <type name="Box2D" c:type="const graphene_box2d_t*"/>
+      </return-value>
+    </function>
+    <function name="box2d_one"
+              c:identifier="graphene_box2d_one"
+              moved-to="Box2D.one"
+              version="1.12">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="1008">A #graphene_box2d_t with the minimum vertex set at (0, 0) and the
+maximum vertex set at (1, 1).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+      <source-position filename="include/graphene-box2d.h" line="138"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1016">a #graphene_box2d_t</doc>
+        <type name="Box2D" c:type="const graphene_box2d_t*"/>
+      </return-value>
+    </function>
+    <function name="box2d_one_minus_one"
+              c:identifier="graphene_box2d_one_minus_one"
+              moved-to="Box2D.one_minus_one"
+              version="1.12">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="1048">A #graphene_box2d_t with the minimum vertex set at (-1, -1) and the
+maximum vertex set at (1, 1).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+      <source-position filename="include/graphene-box2d.h" line="142"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="1056">a #graphene_box2d_t</doc>
+        <type name="Box2D" c:type="const graphene_box2d_t*"/>
+      </return-value>
+    </function>
+    <function name="box2d_zero"
+              c:identifier="graphene_box2d_zero"
+              moved-to="Box2D.zero"
+              version="1.12">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="989">A #graphene_box2d_t with both the minimum and maximum vertices set at (0, 0).
+
+The returned value is owned by Graphene and should not be modified or freed.</doc>
+      <source-position filename="include/graphene-box2d.h" line="136"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/graphene-box2d.c"
+             line="996">a #graphene_box2d_t</doc>
+        <type name="Box2D" c:type="const graphene_box2d_t*"/>
+      </return-value>
+    </function>
     <function name="box_empty"
               c:identifier="graphene_box_empty"
               moved-to="Box.empty"
               version="1.2">
       <doc xml:space="preserve"
            filename="src/graphene-box.c"
-           line="908">A degenerate #graphene_box_t that can only be expanded.
+           line="930">A degenerate #graphene_box_t that can only be expanded.
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-      <source-position filename="include/graphene-box.h" line="145"/>
+      <source-position filename="include/graphene-box.h" line="149"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="915">a #graphene_box_t</doc>
+             line="937">a #graphene_box_t</doc>
         <type name="Box" c:type="const graphene_box_t*"/>
       </return-value>
     </function>
@@ -12708,14 +13890,14 @@ The returned value is owned by Graphene and should not be modified or freed.</do
               version="1.2">
       <doc xml:space="preserve"
            filename="src/graphene-box.c"
-           line="889">A degenerate #graphene_box_t that cannot be expanded.
+           line="911">A degenerate #graphene_box_t that cannot be expanded.
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-      <source-position filename="include/graphene-box.h" line="143"/>
+      <source-position filename="include/graphene-box.h" line="147"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="896">a #graphene_box_t</doc>
+             line="918">a #graphene_box_t</doc>
         <type name="Box" c:type="const graphene_box_t*"/>
       </return-value>
     </function>
@@ -12725,15 +13907,15 @@ The returned value is owned by Graphene and should not be modified or freed.</do
               version="1.2">
       <doc xml:space="preserve"
            filename="src/graphene-box.c"
-           line="849">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
+           line="871">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
 maximum vertex set at (0, 0, 0).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-      <source-position filename="include/graphene-box.h" line="139"/>
+      <source-position filename="include/graphene-box.h" line="143"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="857">a #graphene_box_t</doc>
+             line="879">a #graphene_box_t</doc>
         <type name="Box" c:type="const graphene_box_t*"/>
       </return-value>
     </function>
@@ -12743,15 +13925,15 @@ The returned value is owned by Graphene and should not be modified or freed.</do
               version="1.2">
       <doc xml:space="preserve"
            filename="src/graphene-box.c"
-           line="829">A #graphene_box_t with the minimum vertex set at (0, 0, 0) and the
+           line="851">A #graphene_box_t with the minimum vertex set at (0, 0, 0) and the
 maximum vertex set at (1, 1, 1).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-      <source-position filename="include/graphene-box.h" line="137"/>
+      <source-position filename="include/graphene-box.h" line="141"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="837">a #graphene_box_t</doc>
+             line="859">a #graphene_box_t</doc>
         <type name="Box" c:type="const graphene_box_t*"/>
       </return-value>
     </function>
@@ -12761,15 +13943,15 @@ The returned value is owned by Graphene and should not be modified or freed.</do
               version="1.2">
       <doc xml:space="preserve"
            filename="src/graphene-box.c"
-           line="869">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
+           line="891">A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
 maximum vertex set at (1, 1, 1).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-      <source-position filename="include/graphene-box.h" line="141"/>
+      <source-position filename="include/graphene-box.h" line="145"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="877">a #graphene_box_t</doc>
+             line="899">a #graphene_box_t</doc>
         <type name="Box" c:type="const graphene_box_t*"/>
       </return-value>
     </function>
@@ -12779,14 +13961,14 @@ The returned value is owned by Graphene and should not be modified or freed.</do
               version="1.2">
       <doc xml:space="preserve"
            filename="src/graphene-box.c"
-           line="810">A #graphene_box_t with both the minimum and maximum vertices set at (0, 0, 0).
+           line="832">A #graphene_box_t with both the minimum and maximum vertices set at (0, 0, 0).
 
 The returned value is owned by Graphene and should not be modified or freed.</doc>
-      <source-position filename="include/graphene-box.h" line="135"/>
+      <source-position filename="include/graphene-box.h" line="139"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-box.c"
-             line="817">a #graphene_box_t</doc>
+             line="839">a #graphene_box_t</doc>
         <type name="Box" c:type="const graphene_box_t*"/>
       </return-value>
     </function>
@@ -12795,6 +13977,15 @@ The returned value is owned by Graphene and should not be modified or freed.</do
            filename="src/graphene-box.c"
            line="26">#graphene_box_t provides a representation of an axis aligned minimum
 bounding box using the coordinates of its minimum and maximum vertices.</doc>
+    </docsection>
+    <docsection name="graphene-box2d">
+      <doc xml:space="preserve"
+           filename="src/graphene-box2d.c"
+           line="7">#graphene_box2d_t provides a representation of an axis aligned minimum
+bounding box in two dimensions using the coordinates of its minimum and
+maximum vertices.
+
+#graphene_box2d_t is available since Graphene 1.2.</doc>
     </docsection>
     <docsection name="graphene-euler">
       <doc xml:space="preserve"
@@ -13321,7 +14512,7 @@ all sets to 0.</doc>
            filename="src/graphene-vectors.c"
            line="1998">Retrieves a pointer to a #graphene_vec4_t with all its
 components set to 1.</doc>
-      <source-position filename="include/graphene-vec4.h" line="148"/>
+      <source-position filename="include/graphene-vec4.h" line="150"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
@@ -13337,7 +14528,7 @@ components set to 1.</doc>
            filename="src/graphene-vectors.c"
            line="2070">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (0, 0, 0, 1).</doc>
-      <source-position filename="include/graphene-vec4.h" line="156"/>
+      <source-position filename="include/graphene-vec4.h" line="158"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
@@ -13353,7 +14544,7 @@ components set to (0, 0, 0, 1).</doc>
            filename="src/graphene-vectors.c"
            line="2016">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (1, 0, 0, 0).</doc>
-      <source-position filename="include/graphene-vec4.h" line="150"/>
+      <source-position filename="include/graphene-vec4.h" line="152"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
@@ -13369,7 +14560,7 @@ components set to (1, 0, 0, 0).</doc>
            filename="src/graphene-vectors.c"
            line="2034">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (0, 1, 0, 0).</doc>
-      <source-position filename="include/graphene-vec4.h" line="152"/>
+      <source-position filename="include/graphene-vec4.h" line="154"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
@@ -13385,7 +14576,7 @@ components set to (0, 1, 0, 0).</doc>
            filename="src/graphene-vectors.c"
            line="2052">Retrieves a pointer to a #graphene_vec4_t with its
 components set to (0, 0, 1, 0).</doc>
-      <source-position filename="include/graphene-vec4.h" line="154"/>
+      <source-position filename="include/graphene-vec4.h" line="156"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"
@@ -13401,7 +14592,7 @@ components set to (0, 0, 1, 0).</doc>
            filename="src/graphene-vectors.c"
            line="1980">Retrieves a pointer to a #graphene_vec4_t with all its
 components set to 0.</doc>
-      <source-position filename="include/graphene-vec4.h" line="146"/>
+      <source-position filename="include/graphene-vec4.h" line="148"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-vectors.c"

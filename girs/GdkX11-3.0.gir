@@ -1343,7 +1343,7 @@ an is_modifier field.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkscreen-x11.c"
-             line="1844">Returns the current workspace for @screen when running under a
+             line="1848">Returns the current workspace for @screen when running under a
 window manager that supports multiple workspaces, as described
 in the
 [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.</doc>
@@ -1351,14 +1351,14 @@ in the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdkscreen-x11.c"
-               line="1853">the current workspace, or 0 if workspaces are not supported</doc>
+               line="1857">the current workspace, or 0 if workspaces are not supported</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkscreen-x11.c"
-                 line="1846">a #GdkScreen</doc>
+                 line="1850">a #GdkScreen</doc>
             <type name="X11Screen" c:type="GdkScreen*"/>
           </instance-parameter>
         </parameters>
@@ -1398,7 +1398,7 @@ extension, 0 is returned.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkscreen-x11.c"
-             line="1825">Returns the number of workspaces for @screen when running under a
+             line="1829">Returns the number of workspaces for @screen when running under a
 window manager that supports multiple workspaces, as described
 in the
 [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.</doc>
@@ -1406,14 +1406,14 @@ in the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdkscreen-x11.c"
-               line="1834">the number of workspaces, or 0 if workspaces are not supported</doc>
+               line="1838">the number of workspaces, or 0 if workspaces are not supported</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkscreen-x11.c"
-                 line="1827">a #GdkScreen</doc>
+                 line="1831">a #GdkScreen</doc>
             <type name="X11Screen" c:type="GdkScreen*"/>
           </instance-parameter>
         </parameters>
@@ -1446,12 +1446,12 @@ in the
               version="2.2">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkscreen-x11.c"
-             line="1677">Returns the name of the window manager for @screen.</doc>
+             line="1681">Returns the name of the window manager for @screen.</doc>
         <source-position filename="gdk/x11/gdkx11screen.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdkscreen-x11.c"
-               line="1683">the name of the window manager screen @screen, or
+               line="1687">the name of the window manager screen @screen, or
 "unknown" if the window manager is unknown. The string is owned by GDK
 and should not be freed.</doc>
           <type name="utf8" c:type="const char*"/>
@@ -1460,7 +1460,7 @@ and should not be freed.</doc>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkscreen-x11.c"
-                 line="1679">a #GdkScreen</doc>
+                 line="1683">a #GdkScreen</doc>
             <type name="X11Screen" c:type="GdkScreen*"/>
           </instance-parameter>
         </parameters>
@@ -1521,7 +1521,7 @@ and should not be freed.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkscreen-x11.c"
-             line="1584">This function is specific to the X11 backend of GDK, and indicates
+             line="1588">This function is specific to the X11 backend of GDK, and indicates
 whether the window manager supports a certain hint from the
 [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.
 
@@ -1537,20 +1537,20 @@ a window manager change.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdkscreen-x11.c"
-               line="1602">%TRUE if the window manager supports @property</doc>
+               line="1606">%TRUE if the window manager supports @property</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkscreen-x11.c"
-                 line="1586">the relevant #GdkScreen.</doc>
+                 line="1590">the relevant #GdkScreen.</doc>
             <type name="X11Screen" c:type="GdkScreen*"/>
           </instance-parameter>
           <parameter name="property" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkscreen-x11.c"
-                 line="1587">a property atom.</doc>
+                 line="1591">a property atom.</doc>
             <type name="Gdk.Atom" c:type="GdkAtom"/>
           </parameter>
         </parameters>

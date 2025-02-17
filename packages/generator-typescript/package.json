@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/generator-typescript",
-  "version": "4.0.0-beta.20",
+  "version": "4.0.0-beta.21",
   "description": "TypeScript type definition generator for ts-for-gir",
   "module": "lib/index.js",
   "main": "lib/index.js",

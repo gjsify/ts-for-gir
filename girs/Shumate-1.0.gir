@@ -1143,6 +1143,7 @@ If [property@DataSourceRequest:data] was previously set, it will be cleared.</do
       </method>
       <method name="is_completed"
               c:identifier="shumate_data_source_request_is_completed"
+              glib:get-property="completed"
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-data-source-request.c"
@@ -1168,6 +1169,7 @@ receive new data or errors.</doc>
       <property name="completed"
                 version="1.1"
                 transfer-ownership="none"
+                getter="is_completed"
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="shumate/shumate-data-source-request.c"
@@ -2612,6 +2614,13 @@ but is good enough for most purposes.</doc>
            line="52">The maximal possible longitude value.</doc>
       <source-position filename="shumate/shumate-location.h" line="57"/>
       <type name="gdouble" c:type="gdouble"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="0" c:type="SHUMATE_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-version.h"
+           line="48">The micro version of libshumate (3, if %SHUMATE_VERSION is 1.2.3)</doc>
+      <source-position filename="shumate/shumate-version.h" line="53"/>
+      <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION" value="3" c:type="SHUMATE_MINOR_VERSION">
       <doc xml:space="preserve"

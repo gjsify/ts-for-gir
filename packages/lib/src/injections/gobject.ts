@@ -363,6 +363,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 
         {
             const Object = namespace.assertClass("Object");
+            const Value = namespace.assertClass("Value");
 
             const get_property = Object.members.findIndex(m => m.name === "get_property");
             const set_property = Object.members.findIndex(m => m.name === "set_property");
@@ -372,12 +373,29 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
                 parent: Object,
                 parameters: [
                     new IntrospectedFunctionParameter({
-                        name: "property_name",
+                        name: "property_name", 
                         type: StringType,
-                        direction: GirDirection.In
+                        direction: GirDirection.In,
+                        doc: "The name of the property to get"
+                    }),
+                    new IntrospectedFunctionParameter({
+                        name: "value",
+                        type: Value.getType(), 
+                        direction: GirDirection.In,
+                        doc: "Return location for the property value. Can be an empty GObject.Value initialized by G_VALUE_INIT (auto-initialized with expected type since GLib 2.60), a GObject.Value initialized with the expected property type, or a GObject.Value initialized with a transformable type"
                     })
                 ],
-                return_type: AnyType
+                return_type: AnyType,
+                doc: `Gets a property of an object.
+
+The value can be:
+- an empty GObject.Value initialized by G_VALUE_INIT, which will be automatically initialized with the expected type of the property (since GLib 2.60)
+- a GObject.Value initialized with the expected type of the property  
+- a GObject.Value initialized with a type to which the expected type of the property can be transformed
+
+In general, a copy is made of the property contents and the caller is responsible for freeing the memory by calling GObject.Value.unset.
+
+Note that GObject.Object.get_property is really intended for language bindings, GObject.Object.get is much more convenient for C programming.`
             });
 
             Object.members[set_property] = new IntrospectedClassFunction({
@@ -387,15 +405,18 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
                     new IntrospectedFunctionParameter({
                         name: "property_name",
                         type: StringType,
-                        direction: GirDirection.In
+                        direction: GirDirection.In,
+                        doc: "The name of the property to set"
                     }),
                     new IntrospectedFunctionParameter({
-                        name: "value",
-                        type: AnyType,
-                        direction: GirDirection.In
+                        name: "value", 
+                        type: Value.getType(),
+                        direction: GirDirection.In,
+                        doc: "The value to set the property to"
                     })
                 ],
-                return_type: VoidType
+                return_type: VoidType,
+                doc: "Sets a property on an object."
             });
 
             Object.members.push(

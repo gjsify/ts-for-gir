@@ -439,12 +439,13 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                         new IntrospectedFunctionParameter({
                             name: "id",
                             type: NumberType,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Handler ID of the handler to be disconnected"
                         })
                     ],
-                    return_type: VoidType
+                    return_type: VoidType,
+                    doc: "Disconnects a handler from an instance so it will not be called during any future or currently ongoing emissions of the signal it has been connected to."
                 }),
-                // TODO: Add per-class set type checking.
                 new IntrospectedClassFunction({
                     name: "set",
                     parent: Object,
@@ -452,10 +453,12 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                         new IntrospectedFunctionParameter({
                             name: "properties",
                             type: new NativeType("{ [key: string]: any }"),
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Object containing the properties to set"
                         })
                     ],
-                    return_type: VoidType
+                    return_type: VoidType,
+                    doc: "Sets multiple properties of an object at once. The properties argument should be a dictionary mapping property names to values."
                 }),
                 new IntrospectedClassFunction({
                     name: "block_signal_handler",
@@ -464,10 +467,12 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                         new IntrospectedFunctionParameter({
                             name: "id",
                             type: NumberType,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Handler ID of the handler to be blocked"
                         })
                     ],
-                    return_type: AnyType
+                    return_type: VoidType,
+                    doc: "Blocks a handler of an instance so it will not be called during any signal emissions"
                 }),
                 new IntrospectedClassFunction({
                     name: "unblock_signal_handler",
@@ -476,10 +481,12 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                         new IntrospectedFunctionParameter({
                             name: "id",
                             type: NumberType,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Handler ID of the handler to be unblocked"
                         })
                     ],
-                    return_type: AnyType
+                    return_type: VoidType,
+                    doc: "Unblocks a handler so it will be called again during any signal emissions"
                 }),
                 new IntrospectedClassFunction({
                     name: "stop_emission_by_name",
@@ -488,10 +495,12 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                         new IntrospectedFunctionParameter({
                             name: "detailedName",
                             type: StringType,
-                            direction: GirDirection.In
+                            direction: GirDirection.In,
+                            doc: "Name of the signal to stop emission of"
                         })
                     ],
-                    return_type: AnyType
+                    return_type: VoidType,
+                    doc: "Stops a signal's emission by the given signal name. This will prevent the default handler and any subsequent signal handlers from being invoked."
                 })
             );
 

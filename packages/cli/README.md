@@ -18,7 +18,7 @@
 
 # CLI
 
-CLI tool to generate Typescript Type Definition files for GJS.
+CLI tool to generate TypeScript type definitions for GObject Introspection Repository (GIR) files, primarily for GJS applications.
 
 ## Getting started
 
@@ -45,10 +45,8 @@ TypeScript type definition generator for GObject introspection GIR files
 Commands:
   ts-for-gir generate [modules..]  Generates .d.ts files from GIR for GJS
   ts-for-gir list [modules..]      Lists all available GIR modules
-  ts-for-gir copy [modules..]      Scan for *.gir files and copy them to a new d
-                                   irectory
-  ts-for-gir doc [modules..]       The HTML documentation generator is not yet i
-                                   mplemented, but feel free to implement it 🤗
+  ts-for-gir copy [modules..]      Scan for *.gir files and copy them to a new directory
+  ts-for-gir doc [modules..]       The HTML documentation generator is not yet implemented, but feel free to implement it 🤗
 
 Options:
   --version  Show version number                                       [boolean]
@@ -57,13 +55,13 @@ Options:
 
 ## Example
 
-To generate the Typescript type definitions of Gtk-4.0 for GJS run:
+To generate the TypeScript type definitions of Gtk-4.0 for GJS run:
 
 ```
 ts-for-gir generate Gtk-4.0
 ```
 
-You can also look at the [examples](https://github.com/gjsify/ts-for-gir/tree/main/examples) to see how the types are generated there.
+You can also look at the [examples](https://github.com/gjsify/ts-for-gir/tree/main/examples) to see how the types are generated and/or used there.
 
 ## Generate .d.ts files
 
@@ -77,12 +75,9 @@ Generates .d.ts files from GIR for GJS
 Options:
       --version                 Show version number                    [boolean]
       --help                    Show help                              [boolean]
-      --modules                 GIR modules to load, e.g. 'Gio-2.0'. Accepts mul
-                                tiple modules           [array] [default: ["*"]]
+      --modules                 GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules           [array] [default: ["*"]]
   -g, --girDirectories          GIR directories
-  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share
-  /*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/li
-        b64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
+  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share/*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
       --root                    Root directory of your project
                  [string] [default: "/home/jumplink/Projekte/gjsify/ts-for-gir"]
   -o, --outdir                  Directory to output to
@@ -90,45 +85,46 @@ Options:
   -i, --ignore                  Modules that should be ignored
                                                            [array] [default: []]
   -v, --verbose                 Switch on/off the verbose mode
-                                                       [string] [default: false]
+                                                      [boolean] [default: false]
       --ignoreVersionConflicts  Skip prompts for library version selection when
                                 multiple versions are detected
-                                                       [string] [default: false]
+                                                      [boolean] [default: false]
   -p, --print                   Print the output to console and create no files
-                                                       [string] [default: false]
+                                                      [boolean] [default: false]
       --configName              Specify a custom name for the configuration file
                                           [string] [default: ".ts-for-girrc.js"]
-  -d, --noNamespace             Do not export all symbols for each module as a n
-                                amespace               [string] [default: false]
+  -d, --noNamespace             Do not export all symbols for each module as a namespace
+                                                      [boolean] [default: false]
   -n, --noComments              Do not generate documentation comments
-                                                       [string] [default: false]
+                                                      [boolean] [default: false]
       --promisify               Generate promisified functions for async/finish
-                                calls                   [string] [default: true]
+                                calls                  [boolean] [default: true]
       --npmScope                Scope of the generated NPM packages
                                                      [string] [default: "@girs"]
-      --workspace               Uses the workspace protocol for the generated pa
-                                ckages which can be used with package managers l
-                                ike Yarn and PNPM      [string] [default: false]
-      --onlyVersionPrefix       Only use the version prefix for the ambient modu
-                                le exports. This is useful if, for whatever reas
-                                on, you want to use different library versions o
-                                f the same library in your project.
-                                                       [string] [default: false]
+      --workspace               Uses the workspace protocol for the generated packages 
+                                which can be used with package managers like 
+                                Yarn and PNPM       [boolean] [default: false]
+      --onlyVersionPrefix       Only use the version prefix for the ambient module
+                                exports. This is useful if you want to use different
+                                library versions of the same library in your project.
+                                                      [boolean] [default: false]
+      --noPrettyPrint           Do not prettify the generated types
+                                                      [boolean] [default: false]
+      --noAdvancedVariants      Disable GLib.Variant class with string parsing
+                                                       [boolean] [default: true]
       --package                 Generate the typescript types with package.json
-                                support                [string] [default: false]
+                                support               [boolean] [default: false]
 
 Examples:
-  ts-for-gir generate                       Run 'ts-for-gir generate' in your gj
-                                            s project to generate typings for yo
-                                            ur project, pass the gir modules you
-                                             need for your project
+  ts-for-gir generate                       Run 'ts-for-gir generate' in your gjs
+                                            project to generate typings for your
+                                            project, pass the gir modules you need
   ts-for-gir generate Gtk*                  You can also use wild cards
-  ts-for-gir generate '*'                   If you want to parse all of your loc
-                                            ally installed gir modules run
-  ts-for-gir generate --configName='.ts-fo  Use a special config file
-  r-gir.gtk4.rc.js
-  ts-for-gir generate --ignore=Gtk-4.0 xra  Generate .d.ts. files but not for Gt
-  ndr-1.3                                   k-4.0 and xrandr-1.3
+  ts-for-gir generate '*'                   If you want to parse all of your locally
+                                            installed gir modules run
+  ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js'  Use a special config file
+  ts-for-gir generate --ignore=Gtk-4.0 xrandr-1.3             Generate .d.ts files but not for
+                                                              Gtk-4.0 and xrandr-1.3
 ```
 
 ## List available GIR modules
@@ -143,25 +139,20 @@ Lists all available GIR modules
 Options:
       --version         Show version number                            [boolean]
       --help            Show help                                      [boolean]
-      --modules         GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple mo
-                        dules                           [array] [default: ["*"]]
+      --modules         GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
+                                                     [array] [default: ["*"]]
   -g, --girDirectories  GIR directories
-  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share
-  /*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/li
-        b64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
+  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share/*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
       --root            Root directory of your project
                  [string] [default: "/home/jumplink/Projekte/gjsify/ts-for-gir"]
   -i, --ignore          Modules that should be ignored     [array] [default: []]
       --configName      Specify a custom name for the configuration file
                                           [string] [default: ".ts-for-girrc.js"]
-  -v, --verbose         Switch on/off the verbose mode [string] [default: false]
+  -v, --verbose         Switch on/off the verbose mode [boolean] [default: false]
 
 Examples:
-  ts-for-gir list -g ./vala-girs/gir-1.0    Lists all available GIR modules in .
-                                            /vala-girs/gir-1.0
-  ts-for-gir list --ignore=Gtk-3.0 xrandr-  Lists all available GIR modules in /
-  1.3                                       usr/share/gir-1.0 but not Gtk-3.0 an
-                                            d xrandr-1.3
+  ts-for-gir list -g ./vala-girs/gir-1.0    Lists all available GIR modules in ./vala-girs/gir-1.0
+  ts-for-gir list --ignore=Gtk-3.0 xrandr-1.3  Lists all available GIR modules but not Gtk-3.0 and xrandr-1.3
 ```
 
 ## Generate HTML documentation
@@ -171,9 +162,30 @@ $ npx @ts-for-gir/cli doc --help
 
 ts-for-gir doc [modules..]
 
-The HTML documentation generator is not yet implemented, but feel free to implem
-ent it 🤗
+The HTML documentation generator is not yet implemented, but feel free to implement it 🤗
+
+Options:
+      --version                 Show version number                    [boolean]
+      --help                    Show help                              [boolean]
+      --modules                 GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
+                                                    [array] [default: ["*"]]
+  -g, --girDirectories          GIR directories
+  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share/*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
+      --root                    Root directory of your project
+                 [string] [default: "/home/jumplink/Projekte/gjsify/ts-for-gir"]
+  -o, --outdir                  Directory to output to
+                                                  [string] [default: "./@types"]
+  -i, --ignore                  Modules that should be ignored
+                                                           [array] [default: []]
+  -v, --verbose                 Switch on/off the verbose mode
+                                                      [boolean] [default: false]
+      --ignoreVersionConflicts  Skip prompts for library version selection when
+                                multiple versions are detected
+                                                      [boolean] [default: false]
+      --configName              Specify a custom name for the configuration file
+                                          [string] [default: ".ts-for-girrc.js"]
 ```
+
 ## Config
 
 In addition to the option of passing options as a CLI flag, you can also write them in a config file.
@@ -287,10 +299,24 @@ When `noComments` is set to `true`, `ts-for-gir` will not include TSDoc comments
 To use the noComments option, pass it as a command line argument to `ts-for-gir`:
 
 ```bash
-ts-for-gir generate * --noComments`
+ts-for-gir generate * --noComments
 ```
 
-# package
+### noPrettyPrint
+The `noPrettyPrint` option controls whether the generated TypeScript definitions are formatted using Prettier. When set to `true`, the output will not be formatted, which can be useful for debugging or in cases where you want to handle formatting separately.
+
+```bash
+ts-for-gir generate * --noPrettyPrint
+```
+
+### noAdvancedVariants
+The `noAdvancedVariants` option disables the advanced GLib.Variant class with string parsing capabilities. This option is enabled by default (`true`) as these advanced features can impact performance, especially with older TypeScript versions.
+
+```bash
+ts-for-gir generate * --noAdvancedVariants=false
+```
+
+### package
 
 The `--package` option of ts-for-gir is used to package the generated TypeScript type definitions into an NPM package. The generated package can be easily installed and used in other TypeScript projects via `npm install`.
 
@@ -298,14 +324,14 @@ The `--package` option of ts-for-gir is used to package the generated TypeScript
 
 When this option is used, each GObject introspection module will be packaged into its own NPM package. The package name will be in the format of `@girs/<lower case module name>-<version>`.
 
-For example, if the `--package` option is used to generate the TypeScript type definitions for the `Gtk-4.0` module, then the generated NPM package will have the name `@girs/gtk-3.0`.
+For example, if the `--package` option is used to generate the TypeScript type definitions for the `Gtk-4.0` module, then the generated NPM package will have the name `@girs/gtk-4.0`.
 
 > You can change the NPM package scope name with the [`--npmScope`](#npmscope) option.
 
 To use the generated NPM package in your TypeScript project, you can also install our pregenerated packages:
 
 ```bash
-npm install @girs/gtk-3.0
+npm install @girs/gtk-4.0
 ```
 
 Then, import the desired module in your TypeScript code:
@@ -329,10 +355,10 @@ The `--npmScope` CLI option can be used to specify a custom NPM package scope na
 Here's an example command to generate NPM packages with a custom scope name:
 
 ```bash
-ts-for-gir --buildType lib --package --npmScope my-scope
+ts-for-gir generate * --package --npmScope my-scope
 ```
 
-This command will generate NPM packages with the scope `my-scope` instead of the default `@girs` scope. For `Gtk-4.0` this would generate a package with the name of `@my-scope/gtk-4.0`.
+This command will generate NPM packages with the scope `@my-scope` instead of the default `@girs` scope. For `Gtk-4.0` this would generate a package with the name of `@my-scope/gtk-4.0`.
 
 ## Ambient modules
 

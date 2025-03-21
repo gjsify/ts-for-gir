@@ -18,4 +18,16 @@
 
 # Library
 
-Node.js library to generate Typescript Type Definition files for Gjs and node-gtk.
+Core library to generate TypeScript type definitions from GObject Introspection Repository (GIR) data. This package provides the foundation for processing, transforming, and generating TypeScript interfaces based on GIR definitions.
+
+## Features
+
+- Complete type system for representing GObject types in TypeScript
+- Dependency management for GIR modules and their relationships
+- Transformation engine to convert GIR introspection data to TypeScript types
+- Support for type generics, promises, and complex type expressions
+- Type conflict resolution and validation
+- Extensible architecture with visitor pattern support
+- Customizable code generation through formatters and generators
+
+This library serves as the core engine for the `ts-for-gir` toolchain, handling the translation of GObject types to their TypeScript equivalents.

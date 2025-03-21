@@ -3,6 +3,9 @@
         <%_ if (girModule.packageName !== dependency.packageName) { -%>
             <%_ if (dependency.exists) { -%>
                 /// <reference path="./<%- dependency.importName %>.d.ts" />
+                <%_ if (dependency.packageName === 'cairo-1.0') { -%>
+                    /// <reference path="./cairo.d.ts" />
+                <%_ } -%>
             <%_ } -%>
         <%_ } -%>
     <%_ }) -%>
@@ -21,8 +24,10 @@
     declare module 'gi://<%- girModule.namespace %>?version=<%- girModule.version %>' {
 <% } -%>
 
-<%_ const Gjs = await dep.get('Gjs', '3.0') -%>
-import '<%- Gjs.importPath %>';
+<%_ if(!package){ -%>
+    <%_ const Gjs = await dep.getGjs() -%>
+    import '<%- Gjs.importPath %>';
+<% } -%>
 
 // Module dependencies
 <%_ girModule.transitiveDependencies.forEach(dependency => { -%>

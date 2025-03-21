@@ -20,6 +20,7 @@ export default [
             '**/templates/**',
             '**/examples/**',
             '**/@types/**',
+            '**/types/**',
             '**/*.js',
             '**/*.cjs',
         ]

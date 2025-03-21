@@ -5,6 +5,7 @@ test/
 templates/
 examples/
 @types/
+types/
 *.js
 *.cjs
 */*.js

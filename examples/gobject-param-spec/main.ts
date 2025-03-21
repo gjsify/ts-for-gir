@@ -1,5 +1,6 @@
 import GObject from 'gi://GObject';
 import System from 'system';
+import Gio from 'gi://Gio';
 
 console.log('GJS Version:', System.version);
 
@@ -20,7 +21,7 @@ class ExampleObject extends GObject.Object {
                     'full-property',         // name (required)
                     'Full Property',         // nick (optional)
                     'A complete property',   // blurb (optional)
-                    GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE,
+                    GObject.ParamFlags.READWRITE,
                     'default value'
                 ),
 
@@ -29,7 +30,7 @@ class ExampleObject extends GObject.Object {
                     'minimal-property',
                     null,                    // nick can be null
                     null,                    // blurb can be null
-                    GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE,
+                    GObject.ParamFlags.READWRITE,
                     ''
                 ),
 
@@ -38,7 +39,7 @@ class ExampleObject extends GObject.Object {
                     'count',
                     null,                    // nick can be null
                     null,                    // blurb can be null
-                    GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE,
+                    GObject.ParamFlags.READWRITE,
                     0,                       // minimum
                     100,                     // maximum
                     0                        // default value
@@ -49,8 +50,17 @@ class ExampleObject extends GObject.Object {
                     'active',
                     'Active',                // providing nick
                     null,                    // but blurb can still be null
-                    GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE,
+                    GObject.ParamFlags.READWRITE,
                     false                    // default value BEFORE flags
+                ),
+                
+                // Object property demonstrating GObject.ParamSpec.object
+                'file': GObject.ParamSpec.object(
+                    'file',                  // name (required)
+                    'File Object',           // nick (optional)
+                    'A file object property', // blurb (optional)
+                    GObject.ParamFlags.READWRITE,
+                    Gio.File.$gtype          // object type (GType or { $gtype: GType })
                 )
             }
         }, this);
@@ -61,6 +71,7 @@ class ExampleObject extends GObject.Object {
     declare protected _minimalProperty: string;
     declare protected _count: number;
     declare protected _active: boolean;
+    declare protected _file: Gio.File | null;
 
     // Property getters/setters
     get full_property(): string {
@@ -94,6 +105,14 @@ class ExampleObject extends GObject.Object {
     set active(value: boolean) {
         this._active = value;
     }
+    
+    get file(): Gio.File | null {
+        return this._file;
+    }
+    
+    set file(value: Gio.File | null) {
+        this._file = value;
+    }
 }
 
 // Create and test the object
@@ -105,11 +124,16 @@ obj.minimal_property = 'Test';
 obj.count = 42;
 obj.active = true;
 
+// Set the file property with a Gio.File object
+const testFile = Gio.File.new_for_path('/tmp/test.txt');
+obj.file = testFile;
+
 // Print current values
 console.log('Full Property:', obj.full_property);
 console.log('Minimal Property:', obj.minimal_property);
 console.log('Count:', obj.count);
 console.log('Active:', obj.active);
+console.log('File Path:', obj.file?.get_path());
 
 // Get property info using GObject introspection
 const properties = ExampleObject.list_properties();
@@ -119,6 +143,7 @@ for (const pspec of properties) {
     console.log(`\nProperty: ${pspec.get_name()}`);
     console.log(`Nick: ${pspec.get_nick() || '(null)'}`);
     console.log(`Blurb: ${pspec.get_blurb() || '(null)'}`);
+    console.log(`Type: ${pspec.value_type.name}`);
 }
 
 // Demonstrate GObject.Object.get_property and GObject.Object.set_property methods
@@ -169,7 +194,25 @@ intValue.set_int(99);
 obj.set_property('count', intValue);
 console.log('Property after set_property:', obj.count);
 
+// Example 4: Get/Set object property
+console.log('\nExample 4: Object property');
+// Create a GObject.Value for object
+const objectValue = new GObject.Value();
+objectValue.init(Gio.File.$gtype);
+
+// Get the property value
+obj.get_property('file', objectValue);
+const fileObj = objectValue.get_object() as Gio.File;
+console.log('Get value from GObject.Value:', fileObj?.get_path());
+
+// Create a new file object and set it
+const newFile = Gio.File.new_for_path('/tmp/another-test.txt');
+objectValue.set_object(newFile);
+obj.set_property('file', objectValue);
+console.log('Property after set_property:', obj.file?.get_path());
+
 // Clean up the GObject.Value instances
 stringValue.unset();
 boolValue.unset();
-intValue.unset(); 
+intValue.unset();
+objectValue.unset();

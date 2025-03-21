@@ -106,7 +106,6 @@ export class DependencyManager extends GirNSRegistry {
      */
     async core(): Promise<Dependency[]> {
         return [
-            this.getGjs(),
             await this.get('GObject', '2.0'),
             await this.get('GLib', '2.0'),
             await this.get('Gio', '2.0'),

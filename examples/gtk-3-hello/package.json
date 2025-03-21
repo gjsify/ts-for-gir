@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-3-hello-example",
-  "version": "4.0.0-beta.21",
+  "version": "4.0.0-beta.22",
   "type": "module",
   "private": true,
   "scripts": {

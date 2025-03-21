@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/pkg-tsc",
-  "version": "4.0.0-beta.21",
+  "version": "4.0.0-beta.22",
   "description": "Simple pkg GJS example",
   "type": "module",
   "private": true,

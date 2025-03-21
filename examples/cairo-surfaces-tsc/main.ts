@@ -4,8 +4,6 @@ import Cairo from 'cairo'
 import Gtk from 'gi://Gtk?version=4.0'
 import Gio from 'gi://Gio'
 import GObject from 'gi://GObject'
-import GLib from 'gi://GLib'
-import Gdk from 'gi://Gdk?version=4.0'
 
 class CairoExample extends Gtk.Application {
     static {

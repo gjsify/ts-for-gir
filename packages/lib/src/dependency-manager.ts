@@ -59,14 +59,14 @@ export class DependencyManager extends GirNSRegistry {
         return { packageName, namespace, version }
     }
 
-    protected parseArgs(namespaceOrPackageNameOrRepo: string | GirRepository, version?: string) {
+    protected parseArgs(namespaceOrPackageNameOrRepo: string | GirRepository, version?: string, noOverride?: boolean) {
         let packageName: string
         let namespace: string
         let repo: GirRepository | null = null
 
         if (typeof namespaceOrPackageNameOrRepo === 'string') {
             // Special case for Gjs
-            if (namespaceOrPackageNameOrRepo === 'Gjs') {
+            if (!noOverride && namespaceOrPackageNameOrRepo === 'Gjs') {
                 return { ...this.getGjs(), repo: null }
             }
 
@@ -109,16 +109,18 @@ export class DependencyManager extends GirNSRegistry {
             await this.get('GObject', '2.0'),
             await this.get('GLib', '2.0'),
             await this.get('Gio', '2.0'),
-            await this.get('Cairo', '1.0'),
+            await this.get('cairo', '1.0'),
         ]
     }
 
     createImportProperties(namespace: string, packageName: string, version: string) {
         const importPath = this.createImportPath(packageName, namespace, version)
         const importDef = this.createImportDef(namespace, importPath)
+        const packageJsonImport = this.createPackageJsonImport(importPath)
         return {
             importPath,
             importDef,
+            packageJsonImport,
         }
     }
 
@@ -135,6 +137,11 @@ export class DependencyManager extends GirNSRegistry {
         return this.config.noNamespace
             ? `import type * as ${namespace} from '${importPath}'`
             : `import type ${namespace} from '${importPath}';`
+    }
+
+    createPackageJsonImport(importPath: string): string {
+        const depVersion = this.config.workspace ? 'workspace:^' : '*'
+        return `"${importPath}": "${depVersion}"`
     }
 
     protected async parseGir(path: string) {
@@ -207,16 +214,16 @@ export class DependencyManager extends GirNSRegistry {
      * @param version The version of the dependency
      * @returns The dependency object
      */
-    async get(namespace: string, version: string): Promise<Dependency>
+    async get(namespace: string, version: string, noOverride?: boolean): Promise<Dependency>
     /**
      * Get the dependency object by {@link GirRepository}
      * @param namespace The namespace of the dependency
      * @param version The version of the dependency
      * @returns The dependency object
      */
-    async get(repo: GirRepository): Promise<Dependency>
-    async get(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string): Promise<Dependency> {
-        const parsedArgs = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
+    async get(repo: GirRepository, version?: string, noOverride?: boolean): Promise<Dependency>
+    async get(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string, noOverride?: boolean): Promise<Dependency> {
+        const parsedArgs = this.parseArgs(namespaceOrPackageNameOrRepo, _version, noOverride)
         const { packageName, repo } = parsedArgs
         let { namespace, version } = parsedArgs
         namespace = sanitizeNamespace(namespace)
@@ -250,6 +257,19 @@ export class DependencyManager extends GirNSRegistry {
             libraryVersion,
             girXML,
             ...this.createImportProperties(namespace, packageName, version),
+        }
+
+
+        // Special case for Cairo
+        // This is a special case for Cairo because Cairo in GJS is provided as a built-in module that doesn't
+        // follow the standard GI repository pattern.
+        // So we need to special case it and redirect to the 'cairo' package.
+        // This changes the typescript import definition to use the 'cairo' package instead of the 'Cairo-1.0' Gir package.
+        if(!noOverride && namespace === 'cairo') {
+            dependency.importNamespace = 'cairo';
+            dependency.importName = 'cairo';
+            dependency.importPath = 'cairo';
+            dependency.importDef = this.createImportDef('cairo', dependency.importPath);
         }
 
         this._cache[packageName] = dependency
@@ -375,13 +395,10 @@ export class DependencyManager extends GirNSRegistry {
         return null
     }
 
-    protected getPseudoPackage(packageName: string): Dependency {
-        if (this._cache[packageName]) {
-            return this._cache[packageName]
+    protected getPseudoPackage(packageName: string, namespace: string = pascalCase(packageName), version = '2.0'): Dependency {
+        if (this._cache[packageName + '_pseudo']) {
+            return this._cache[packageName + '_pseudo']
         }
-
-        const namespace = pascalCase(packageName)
-        const version = '2.0'
 
         const dep: Dependency = {
             namespace,
@@ -396,6 +413,8 @@ export class DependencyManager extends GirNSRegistry {
             girXML: null,
             ...this.createImportProperties(packageName, packageName, version),
         }
+
+        this._cache[packageName + '_pseudo'] = dep
 
         return dep
     }

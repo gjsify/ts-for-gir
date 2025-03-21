@@ -1,4 +1,4 @@
-<%_ const Cairo = await dep.get('cairo', '1.0') _%>
+<%_ const Cairo = await dep.get('cairo', '1.0', true) _%>
 <%_ const GObject = await dep.get('GObject', '2.0') _%>
 
 <%_ if(!package){ -%>

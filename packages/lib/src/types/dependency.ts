@@ -39,6 +39,11 @@ export interface Dependency extends FileInfo {
      * E.g. `import type Gtk from '@girs/Gtk-3.0'`
      */
     importDef: string
+    /**
+     * Complete dependency string for package.json
+     * E.g. `"@girs/gtk-4.0": "workspace:^"`
+     */
+    packageJsonImport: string
 
     girXML: GirXML | null
 }

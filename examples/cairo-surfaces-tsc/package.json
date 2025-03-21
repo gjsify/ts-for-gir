@@ -10,7 +10,7 @@
     "build": "yarn build:app",
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive yarn start:app",
-    "start": "yarn build && yarn start:app",
+    "start": "yarn start:app",
     "validate": "yarn validate:types",
     "validate:types": "tsc --noEmit",
     "clear": "rm -rf dist @types"
@@ -21,6 +21,10 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@girs/gjs": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^",
+    "@girs/gdk-4.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
+    "@girs/gtk-4.0": "workspace:^"
   }
 }

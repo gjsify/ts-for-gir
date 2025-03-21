@@ -24,7 +24,7 @@
     declare module 'gi://<%- girModule.namespace %>?version=<%- girModule.version %>' {
 <% } -%>
 
-<%_ if(!package){ -%>
+<%_ if(package){ -%>
     <%_ const Gjs = await dep.getGjs() -%>
     import '<%- Gjs.importPath %>';
 <% } -%>

@@ -1188,17 +1188,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cairo@workspace:types/cairo":
-  version: 0.0.0-use.local
-  resolution: "@girs/cairo@workspace:types/cairo"
-  dependencies:
-    "@girs/gjs": "workspace:^"
-    "@girs/glib-2.0": "workspace:^"
-    "@girs/gobject-2.0": "workspace:^"
-    typescript: "npm:*"
-  languageName: unknown
-  linkType: soft
-
 "@girs/caja-2.0@workspace:types/caja-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/caja-2.0@workspace:types/caja-2.0"

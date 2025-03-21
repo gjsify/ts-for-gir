@@ -264,12 +264,9 @@ export class DependencyManager extends GirNSRegistry {
         // This is a special case for Cairo because Cairo in GJS is provided as a built-in module that doesn't
         // follow the standard GI repository pattern.
         // So we need to special case it and redirect to the 'cairo' package.
-        // This changes the typescript import definition to use the 'cairo' package instead of the 'Cairo-1.0' Gir package.
-        if(!noOverride && namespace === 'cairo') {
-            dependency.importNamespace = 'cairo';
-            dependency.importName = 'cairo';
-            dependency.importPath = 'cairo';
-            dependency.importDef = this.createImportDef('cairo', dependency.importPath);
+        // This changes the typescript import definition to use the internal 'cairo' package instead of the 'cairo-1.0' Gir package.
+        if(!noOverride && namespace === 'cairo' && version === '1.0') {
+            dependency.importDef = this.createImportDef('cairo', 'cairo');
         }
 
         this._cache[packageName] = dependency

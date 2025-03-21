@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="4.0"/>
   <package name="libadwaita-1"/>
   <c:include name="adwaita.h"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="Adw"
              version="1"
              shared-library="libadwaita-1.so.0"
@@ -14339,12 +14341,12 @@ minimum size, and [property@Gtk.Widget:width-request] and
       <constructor name="new" c:identifier="adw_dialog_new" version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1350">Creates a new `AdwDialog`.</doc>
+             line="1360">Creates a new `AdwDialog`.</doc>
         <source-position filename="src/adw-dialog.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1355">the new created `AdwDialog`</doc>
+               line="1365">the new created `AdwDialog`</doc>
           <type name="Dialog" c:type="AdwDialog*"/>
         </return-value>
       </constructor>
@@ -14375,7 +14377,7 @@ minimum size, and [property@Gtk.Widget:width-request] and
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1997">Adds @breakpoint to @self.</doc>
+             line="2007">Adds @breakpoint to @self.</doc>
         <source-position filename="src/adw-dialog.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14384,13 +14386,13 @@ minimum size, and [property@Gtk.Widget:width-request] and
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1999">a dialog</doc>
+                 line="2009">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="breakpoint" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="2000">the breakpoint to add</doc>
+                 line="2010">the breakpoint to add</doc>
             <type name="Breakpoint" c:type="AdwBreakpoint*"/>
           </parameter>
         </parameters>
@@ -14398,7 +14400,7 @@ minimum size, and [property@Gtk.Widget:width-request] and
       <method name="close" c:identifier="adw_dialog_close" version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1909">Attempts to close @self.
+             line="1919">Attempts to close @self.
 
 If the [property@Dialog:can-close] property is set to `FALSE`, the
 [signal@Dialog::close-attempt] signal is emitted.
@@ -14408,14 +14410,14 @@ See also: [method@Dialog.force_close].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1920">whether @self was successfully closed</doc>
+               line="1930">whether @self was successfully closed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1911">a dialog</doc>
+                 line="1921">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14425,7 +14427,7 @@ See also: [method@Dialog.force_close].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1963">Closes @self.
+             line="1973">Closes @self.
 
 Unlike [method@Dialog.close], it succeeds even if [property@Dialog:can-close]
 is set to `FALSE`.</doc>
@@ -14437,7 +14439,7 @@ is set to `FALSE`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1965">a dialog</doc>
+                 line="1975">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14448,19 +14450,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1471">Gets whether @self can be closed.</doc>
+             line="1481">Gets whether @self can be closed.</doc>
         <source-position filename="src/adw-dialog.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1477">whether the dialog can be closed</doc>
+               line="1487">whether the dialog can be closed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1473">a dialog</doc>
+                 line="1483">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14471,19 +14473,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1365">Gets the child widget of @self.</doc>
+             line="1375">Gets the child widget of @self.</doc>
         <source-position filename="src/adw-dialog.h" line="50"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1371">the child widget of @self</doc>
+               line="1381">the child widget of @self</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1367">a dialog</doc>
+                 line="1377">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14494,19 +14496,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1583">Gets the height of the dialog's contents.</doc>
+             line="1593">Gets the height of the dialog's contents.</doc>
         <source-position filename="src/adw-dialog.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1589">the content height</doc>
+               line="1599">the content height</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1585">a dialog</doc>
+                 line="1595">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14517,19 +14519,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1533">Gets the width of the dialog's contents.</doc>
+             line="1543">Gets the width of the dialog's contents.</doc>
         <source-position filename="src/adw-dialog.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1539">the content width</doc>
+               line="1549">the content width</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1535">a dialog</doc>
+                 line="1545">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14540,19 +14542,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="2022">Gets the current breakpoint.</doc>
+             line="2032">Gets the current breakpoint.</doc>
         <source-position filename="src/adw-dialog.h" line="114"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="2028">the current breakpoint</doc>
+               line="2038">the current breakpoint</doc>
           <type name="Breakpoint" c:type="AdwBreakpoint*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="2024">a dialog</doc>
+                 line="2034">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14563,19 +14565,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1827">Gets the default widget for @self.</doc>
+             line="1837">Gets the default widget for @self.</doc>
         <source-position filename="src/adw-dialog.h" line="98"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1833">the default widget</doc>
+               line="1843">the default widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1829">a dialog</doc>
+                 line="1839">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14586,19 +14588,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1755">Gets the focus widget for @self.</doc>
+             line="1765">Gets the focus widget for @self.</doc>
         <source-position filename="src/adw-dialog.h" line="92"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1761">the focus widget</doc>
+               line="1771">the focus widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1757">a dialog</doc>
+                 line="1767">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14609,19 +14611,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1633">Gets whether to size content of @self automatically.</doc>
+             line="1643">Gets whether to size content of @self automatically.</doc>
         <source-position filename="src/adw-dialog.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1639">whether to size content automatically</doc>
+               line="1649">whether to size content automatically</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1635">a dialog</doc>
+                 line="1645">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14632,12 +14634,12 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1692">Gets presentation mode for @self.</doc>
+             line="1702">Gets presentation mode for @self.</doc>
         <source-position filename="src/adw-dialog.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1698">the presentation mode</doc>
+               line="1708">the presentation mode</doc>
           <type name="DialogPresentationMode"
                 c:type="AdwDialogPresentationMode"/>
         </return-value>
@@ -14645,7 +14647,7 @@ is set to `FALSE`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1694">a dialog</doc>
+                 line="1704">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14656,19 +14658,19 @@ is set to `FALSE`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1420">Gets the title of @self.</doc>
+             line="1430">Gets the title of @self.</doc>
         <source-position filename="src/adw-dialog.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-dialog.c"
-               line="1426">the title</doc>
+               line="1436">the title</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1422">a dialog</doc>
+                 line="1432">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
         </parameters>
@@ -14676,7 +14678,7 @@ is set to `FALSE`.</doc>
       <method name="present" c:identifier="adw_dialog_present" version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="2068">Presents @self within @parent's window.
+             line="2078">Presents @self within @parent's window.
 
 If @self is already shown, raises it to the top instead.
 
@@ -14690,7 +14692,7 @@ will be shown within it. Otherwise, it will be a separate window.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="2070">a dialog</doc>
+                 line="2080">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -14699,7 +14701,7 @@ will be shown within it. Otherwise, it will be a separate window.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="2071">a widget within the toplevel</doc>
+                 line="2081">a widget within the toplevel</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -14710,7 +14712,7 @@ will be shown within it. Otherwise, it will be a separate window.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1493">Sets whether @self can be closed.
+             line="1503">Sets whether @self can be closed.
 
 If set to `FALSE`, the close button, shortcuts and
 [method@Dialog.close] will result in [signal@Dialog::close-attempt] being
@@ -14724,13 +14726,13 @@ emitted instead, and bottom sheet close swipe will be disabled.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1495">a dialog</doc>
+                 line="1505">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="can_close" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1496">whether to allow closing</doc>
+                 line="1506">whether to allow closing</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -14741,7 +14743,7 @@ emitted instead, and bottom sheet close swipe will be disabled.
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1387">Sets the child widget of @self.</doc>
+             line="1397">Sets the child widget of @self.</doc>
         <source-position filename="src/adw-dialog.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14750,7 +14752,7 @@ emitted instead, and bottom sheet close swipe will be disabled.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1389">a dialog</doc>
+                 line="1399">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="child"
@@ -14759,7 +14761,7 @@ emitted instead, and bottom sheet close swipe will be disabled.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1390">the child widget</doc>
+                 line="1400">the child widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -14770,7 +14772,7 @@ emitted instead, and bottom sheet close swipe will be disabled.
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1605">Sets the height of the dialog's contents.
+             line="1615">Sets the height of the dialog's contents.
 
 Set it to -1 to reset it to the content's natural height.
 
@@ -14783,13 +14785,13 @@ See also: [property@Gtk.Window:default-height]</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1607">a dialog</doc>
+                 line="1617">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="content_height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1608">the content height</doc>
+                 line="1618">the content height</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -14800,7 +14802,7 @@ See also: [property@Gtk.Window:default-height]</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1555">Sets the width of the dialog's contents.
+             line="1565">Sets the width of the dialog's contents.
 
 Set it to -1 to reset it to the content's natural width.
 
@@ -14813,13 +14815,13 @@ See also: [property@Gtk.Window:default-width]</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1557">a dialog</doc>
+                 line="1567">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="content_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1558">the content width</doc>
+                 line="1568">the content width</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -14830,7 +14832,7 @@ See also: [property@Gtk.Window:default-width]</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1849">Sets the default widget for @self.
+             line="1859">Sets the default widget for @self.
 
 It's activated when the user presses Enter.</doc>
         <source-position filename="src/adw-dialog.h" line="100"/>
@@ -14841,7 +14843,7 @@ It's activated when the user presses Enter.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1851">a dialog</doc>
+                 line="1861">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="default_widget"
@@ -14850,7 +14852,7 @@ It's activated when the user presses Enter.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1852">the default widget</doc>
+                 line="1862">the default widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -14861,7 +14863,7 @@ It's activated when the user presses Enter.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1777">Sets the focus widget for @self.
+             line="1787">Sets the focus widget for @self.
 
 If @focus is not the current focus widget, and is focusable, sets it as the
 focus widget for the dialog.
@@ -14877,7 +14879,7 @@ to a particular widget in the dialog, it is usually more convenient to use
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1779">a dialog</doc>
+                 line="1789">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="focus"
@@ -14886,7 +14888,7 @@ to a particular widget in the dialog, it is usually more convenient to use
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1780">the focus widget</doc>
+                 line="1790">the focus widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -14897,7 +14899,7 @@ to a particular widget in the dialog, it is usually more convenient to use
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1655">Sets whether to size content of @self automatically.
+             line="1665">Sets whether to size content of @self automatically.
 
 If set to `TRUE`, always use the content's natural size instead of
 [property@Dialog:content-width] and [property@Dialog:content-height]. If
@@ -14912,13 +14914,13 @@ See also: [property@Gtk.Window:resizable]</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1657">a dialog</doc>
+                 line="1667">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="follows_content_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1658">whether to size content automatically</doc>
+                 line="1668">whether to size content automatically</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -14929,7 +14931,7 @@ See also: [property@Gtk.Window:resizable]</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1714">Sets presentation mode for @self.
+             line="1724">Sets presentation mode for @self.
 
 When set to `ADW_DIALOG_AUTO`, the dialog appears as a bottom sheet when the
 following condition is met: `max-width: 450px or max-height: 360px`, and as a
@@ -14948,13 +14950,13 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1716">a dialog</doc>
+                 line="1726">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="presentation_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1717">the new presentation mode</doc>
+                 line="1727">the new presentation mode</doc>
             <type name="DialogPresentationMode"
                   c:type="AdwDialogPresentationMode"/>
           </parameter>
@@ -14966,7 +14968,7 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1442">Sets the title of @self.</doc>
+             line="1452">Sets the title of @self.</doc>
         <source-position filename="src/adw-dialog.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14975,13 +14977,13 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1444">a dialog</doc>
+                 line="1454">a dialog</doc>
             <type name="Dialog" c:type="AdwDialog*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-dialog.c"
-                 line="1445">the new title</doc>
+                 line="1455">the new title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -14995,7 +14997,7 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1084">Whether the dialog can be closed.
+             line="1090">Whether the dialog can be closed.
 
 If set to `FALSE`, the close button, shortcuts and
 [method@Dialog.close] will result in [signal@Dialog::close-attempt] being
@@ -15011,7 +15013,7 @@ emitted instead, and bottom sheet close swipe will be disabled.
                 getter="get_child">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1060">The child widget of the `AdwDialog`.</doc>
+             line="1066">The child widget of the `AdwDialog`.</doc>
         <type name="Gtk.Widget"/>
       </property>
       <property name="content-height"
@@ -15023,7 +15025,7 @@ emitted instead, and bottom sheet close swipe will be disabled.
                 default-value="-1">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1117">The height of the dialog's contents.
+             line="1123">The height of the dialog's contents.
 
 Set it to -1 to reset it to the content's natural height.
 
@@ -15039,7 +15041,7 @@ See also: [property@Gtk.Window:default-height]</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1101">The width of the dialog's contents.
+             line="1107">The width of the dialog's contents.
 
 Set it to -1 to reset it to the content's natural width.
 
@@ -15052,7 +15054,7 @@ See also: [property@Gtk.Window:default-width]</doc>
                 getter="get_current_breakpoint">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1200">The current breakpoint.</doc>
+             line="1206">The current breakpoint.</doc>
         <type name="Breakpoint"/>
       </property>
       <property name="default-widget"
@@ -15063,7 +15065,7 @@ See also: [property@Gtk.Window:default-width]</doc>
                 getter="get_default_widget">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1186">The default widget.
+             line="1192">The default widget.
 
 It's activated when the user presses Enter.</doc>
         <type name="Gtk.Widget"/>
@@ -15076,7 +15078,7 @@ It's activated when the user presses Enter.</doc>
                 getter="get_focus">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1174">The focus widget.</doc>
+             line="1180">The focus widget.</doc>
         <type name="Gtk.Widget"/>
       </property>
       <property name="follows-content-size"
@@ -15088,7 +15090,7 @@ It's activated when the user presses Enter.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1133">Whether to size content automatically.
+             line="1139">Whether to size content automatically.
 
 If set to `TRUE`, always use the content's natural size instead of
 [property@Dialog:content-width] and [property@Dialog:content-height]. If
@@ -15106,7 +15108,7 @@ See also: [property@Gtk.Window:resizable]</doc>
                 default-value="ADW_DIALOG_AUTO">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1151">The dialog's presentation mode.
+             line="1157">The dialog's presentation mode.
 
 When set to `ADW_DIALOG_AUTO`, the dialog appears as a bottom sheet when
 the following condition is met: `max-width: 450px or max-height: 360px`,
@@ -15127,7 +15129,7 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
                 getter="get_title">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1072">The title of the dialog.</doc>
+             line="1078">The title of the dialog.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -15136,7 +15138,7 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
       <glib:signal name="close-attempt" when="last" version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1214">Emitted when the close button or shortcut is used, or
+             line="1220">Emitted when the close button or shortcut is used, or
 [method@Dialog.close] is called while [property@Dialog:can-close] is set to
 `FALSE`.</doc>
         <return-value transfer-ownership="none">
@@ -15146,7 +15148,7 @@ Presentation mode does nothing for dialogs presented as a window.</doc>
       <glib:signal name="closed" when="last" version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-dialog.c"
-             line="1237">Emitted when the dialog is successfully closed.</doc>
+             line="1243">Emitted when the dialog is successfully closed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -18614,12 +18616,12 @@ contains a node with the name `widget` that contains a node with the name
       <constructor name="new" c:identifier="adw_header_bar_new">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="999">Creates a new `AdwHeaderBar`.</doc>
+             line="1009">Creates a new `AdwHeaderBar`.</doc>
         <source-position filename="src/adw-header-bar.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1004">the newly created `AdwHeaderBar`.</doc>
+               line="1014">the newly created `AdwHeaderBar`.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -18628,19 +18630,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="centering-policy">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1361">Gets the policy for aligning the center widget.</doc>
+             line="1371">Gets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1367">the centering policy</doc>
+               line="1377">the centering policy</doc>
           <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1363">a header bar</doc>
+                 line="1373">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18650,19 +18652,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="decoration-layout">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1313">Gets the decoration layout for @self.</doc>
+             line="1323">Gets the decoration layout for @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1319">the decoration layout</doc>
+               line="1329">the decoration layout</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1315">a header bar</doc>
+                 line="1325">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18673,19 +18675,19 @@ contains a node with the name `widget` that contains a node with the name
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1256">Gets whether @self can show the back button.</doc>
+             line="1266">Gets whether @self can show the back button.</doc>
         <source-position filename="src/adw-header-bar.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1262">whether to show the back button</doc>
+               line="1272">whether to show the back button</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1258">a header bar</doc>
+                 line="1268">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18695,19 +18697,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="show-end-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1208">Gets whether to show title buttons at the end of @self.</doc>
+             line="1218">Gets whether to show title buttons at the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1214">`TRUE` if title buttons at the end are shown</doc>
+               line="1224">`TRUE` if title buttons at the end are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1210">a header bar</doc>
+                 line="1220">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18717,19 +18719,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="show-start-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1160">Gets whether to show title buttons at the start of @self.</doc>
+             line="1170">Gets whether to show title buttons at the start of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1166">`TRUE` if title buttons at the start are shown</doc>
+               line="1176">`TRUE` if title buttons at the start are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1162">a header bar</doc>
+                 line="1172">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18740,19 +18742,19 @@ contains a node with the name `widget` that contains a node with the name
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1406">Gets whether the title widget should be shown.</doc>
+             line="1416">Gets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1412">whether the title widget should be shown.</doc>
+               line="1422">whether the title widget should be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1408">a header bar</doc>
+                 line="1418">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18762,19 +18764,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="title-widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1094">Gets the title widget widget of @self.</doc>
+             line="1104">Gets the title widget widget of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="58"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1100">the title widget</doc>
+               line="1110">the title widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1096">a header bar</doc>
+                 line="1106">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18782,7 +18784,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="pack_end" c:identifier="adw_header_bar_pack_end">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1035">Adds @child to @self, packed with reference to the end of @self.</doc>
+             line="1045">Adds @child to @self, packed with reference to the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18791,13 +18793,13 @@ contains a node with the name `widget` that contains a node with the name
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1037">a header bar</doc>
+                 line="1047">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1038">the widget to be added to @self</doc>
+                 line="1048">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18805,7 +18807,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="pack_start" c:identifier="adw_header_bar_pack_start">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1012">Adds @child to @self, packed with reference to the start of the @self.</doc>
+             line="1022">Adds @child to @self, packed with reference to the start of the @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18814,13 +18816,13 @@ contains a node with the name `widget` that contains a node with the name
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1014">a header bar</doc>
+                 line="1024">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1015">the widget to be added to @self</doc>
+                 line="1025">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18828,7 +18830,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="remove" c:identifier="adw_header_bar_remove">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1058">Removes a child from @self.
+             line="1068">Removes a child from @self.
 
 The child must have been added with [method@HeaderBar.pack_start],
 [method@HeaderBar.pack_end] or [property@HeaderBar:title-widget].</doc>
@@ -18840,13 +18842,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1060">a header bar</doc>
+                 line="1070">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1061">the child to remove</doc>
+                 line="1071">the child to remove</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18856,7 +18858,7 @@ The child must have been added with [method@HeaderBar.pack_start],
               glib:set-property="centering-policy">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1377">Sets the policy for aligning the center widget.</doc>
+             line="1387">Sets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18865,13 +18867,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1379">a header bar</doc>
+                 line="1389">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="centering_policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1380">the centering policy</doc>
+                 line="1390">the centering policy</doc>
             <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
           </parameter>
         </parameters>
@@ -18881,7 +18883,7 @@ The child must have been added with [method@HeaderBar.pack_start],
               glib:set-property="decoration-layout">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1329">Sets the decoration layout for @self.
+             line="1339">Sets the decoration layout for @self.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -18901,7 +18903,7 @@ and minimize, maximize and close buttons at the end.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1331">a header bar</doc>
+                 line="1341">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="layout"
@@ -18910,7 +18912,7 @@ and minimize, maximize and close buttons at the end.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1332">a decoration layout</doc>
+                 line="1342">a decoration layout</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -18921,7 +18923,7 @@ and minimize, maximize and close buttons at the end.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1274">Sets whether @self can show the back button.
+             line="1284">Sets whether @self can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView]. Usually, there is no reason to set it to `FALSE`.</doc>
@@ -18933,13 +18935,13 @@ The back button will never be shown unless the header bar is placed inside an
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1276">a header bar</doc>
+                 line="1286">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_back_button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1277">whether to show the back button</doc>
+                 line="1287">whether to show the back button</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18949,7 +18951,7 @@ The back button will never be shown unless the header bar is placed inside an
               glib:set-property="show-end-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1224">Sets whether to show title buttons at the end of @self.
+             line="1234">Sets whether to show title buttons at the end of @self.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -18964,13 +18966,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1226">a header bar</doc>
+                 line="1236">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1227">`TRUE` to show standard title buttons</doc>
+                 line="1237">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18980,7 +18982,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               glib:set-property="show-start-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1176">Sets whether to show title buttons at the start of @self.
+             line="1186">Sets whether to show title buttons at the start of @self.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -18995,13 +18997,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1178">a header bar</doc>
+                 line="1188">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1179">`TRUE` to show standard title buttons</doc>
+                 line="1189">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19012,7 +19014,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1424">Sets whether the title widget should be shown.</doc>
+             line="1434">Sets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -19021,13 +19023,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1426">a header bar</doc>
+                 line="1436">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1427">whether the title widget is visible</doc>
+                 line="1437">whether the title widget is visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19037,7 +19039,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               glib:set-property="title-widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1110">Sets the title widget for @self.
+             line="1120">Sets the title widget for @self.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -19061,7 +19063,7 @@ To use a different title, use [class@WindowTitle]:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1112">a header bar</doc>
+                 line="1122">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="title_widget"
@@ -19070,7 +19072,7 @@ To use a different title, use [class@WindowTitle]:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1113">a widget to use for a title</doc>
+                 line="1123">a widget to use for a title</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -19083,7 +19085,7 @@ To use a different title, use [class@WindowTitle]:
                 default-value="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="896">The policy for aligning the center widget.</doc>
+             line="906">The policy for aligning the center widget.</doc>
         <type name="CenteringPolicy"/>
       </property>
       <property name="decoration-layout"
@@ -19094,7 +19096,7 @@ To use a different title, use [class@WindowTitle]:
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="875">The decoration layout for buttons.
+             line="885">The decoration layout for buttons.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -19117,7 +19119,7 @@ and minimize, maximize and close buttons at the end.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="860">Whether the header bar can show the back button.
+             line="870">Whether the header bar can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView]. Usually, there is no reason to set this to `FALSE`.</doc>
@@ -19131,7 +19133,7 @@ The back button will never be shown unless the header bar is placed inside an
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="843">Whether to show title buttons at the end of the header bar.
+             line="853">Whether to show title buttons at the end of the header bar.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -19149,7 +19151,7 @@ closed).</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="826">Whether to show title buttons at the start of the header bar.
+             line="836">Whether to show title buttons at the start of the header bar.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -19168,7 +19170,7 @@ closed).</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="907">Whether the title widget should be shown.</doc>
+             line="917">Whether the title widget should be shown.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="title-widget"
@@ -19178,7 +19180,7 @@ closed).</doc>
                 getter="get_title_widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="801">The title widget to display.
+             line="811">The title widget to display.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -21538,7 +21540,7 @@ New values may be added to this enumeration over time.</doc>
       <source-position filename="src/adw-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="7" c:type="ADW_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="8" c:type="ADW_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="24">Adwaita minor version component (e.g. 2 if the version is 1.2.3).</doc>
@@ -26990,12 +26992,12 @@ style class `.preferences`.</doc>
                    version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="639">Creates a new `AdwPreferencesDialog`.</doc>
+             line="644">Creates a new `AdwPreferencesDialog`.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-dialog.c"
-               line="644">the newly created `AdwPreferencesDialog`</doc>
+               line="649">the newly created `AdwPreferencesDialog`</doc>
           <type name="Dialog" c:type="AdwDialog*"/>
         </return-value>
       </constructor>
@@ -27004,7 +27006,7 @@ style class `.preferences`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="654">Adds a preferences page to @self.</doc>
+             line="659">Adds a preferences page to @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -27013,13 +27015,13 @@ style class `.preferences`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="656">a preferences dialog</doc>
+                 line="661">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="657">the page to add</doc>
+                 line="662">the page to add</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -27029,7 +27031,7 @@ style class `.preferences`.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="912">Displays @toast.
+             line="917">Displays @toast.
 
 See [method@ToastOverlay.add_toast].</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="76"/>
@@ -27040,13 +27042,13 @@ See [method@ToastOverlay.add_toast].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="914">a preferences dialog</doc>
+                 line="919">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="toast" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="915">a toast</doc>
+                 line="920">a toast</doc>
             <type name="Toast" c:type="AdwToast*"/>
           </parameter>
         </parameters>
@@ -27057,19 +27059,19 @@ See [method@ToastOverlay.add_toast].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="807">Gets whether search is enabled for @self.</doc>
+             line="812">Gets whether search is enabled for @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-dialog.c"
-               line="813">whether search is enabled for @self.</doc>
+               line="818">whether search is enabled for @self.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="809">a preferences dialog</doc>
+                 line="814">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
         </parameters>
@@ -27080,19 +27082,19 @@ See [method@ToastOverlay.add_toast].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="716">Gets the currently visible page of @self.</doc>
+             line="721">Gets the currently visible page of @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="52"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-preferences-dialog.c"
-               line="722">the visible page</doc>
+               line="727">the visible page</doc>
           <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="718">a preferences dialog</doc>
+                 line="723">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
         </parameters>
@@ -27103,19 +27105,19 @@ See [method@ToastOverlay.add_toast].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="761">Gets the name of currently visible page of @self.</doc>
+             line="766">Gets the name of currently visible page of @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="58"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-preferences-dialog.c"
-               line="767">the name of the visible page</doc>
+               line="772">the name of the visible page</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="763">a preferences dialog</doc>
+                 line="768">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
         </parameters>
@@ -27125,19 +27127,19 @@ See [method@ToastOverlay.add_toast].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="890">Pop the visible page from the subpage stack of @self.</doc>
+             line="895">Pop the visible page from the subpage stack of @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-dialog.c"
-               line="896">`TRUE` if a page has been popped</doc>
+               line="901">`TRUE` if a page has been popped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="892">a preferences dialog</doc>
+                 line="897">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
         </parameters>
@@ -27147,7 +27149,7 @@ See [method@ToastOverlay.add_toast].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="865">Pushes @page onto the subpage stack of @self.
+             line="870">Pushes @page onto the subpage stack of @self.
 
 The page will be automatically removed when popped.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="70"/>
@@ -27158,13 +27160,13 @@ The page will be automatically removed when popped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="867">a preferences dialog</doc>
+                 line="872">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="868">the subpage</doc>
+                 line="873">the subpage</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -27174,7 +27176,7 @@ The page will be automatically removed when popped.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="688">Removes a page from @self.</doc>
+             line="693">Removes a page from @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -27183,13 +27185,13 @@ The page will be automatically removed when popped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="690">a preferences dialog</doc>
+                 line="695">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="691">the page to remove</doc>
+                 line="696">the page to remove</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -27200,7 +27202,7 @@ The page will be automatically removed when popped.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="829">Sets whether search is enabled for @self.</doc>
+             line="834">Sets whether search is enabled for @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -27209,13 +27211,13 @@ The page will be automatically removed when popped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="831">a preferences dialog</doc>
+                 line="836">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="search_enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="832">whether search is enabled</doc>
+                 line="837">whether search is enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -27226,7 +27228,7 @@ The page will be automatically removed when popped.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="738">Makes @page the visible page of @self.</doc>
+             line="743">Makes @page the visible page of @self.</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -27235,13 +27237,13 @@ The page will be automatically removed when popped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="740">a preferences dialog</doc>
+                 line="745">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="741">a page of @self</doc>
+                 line="746">a page of @self</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -27252,7 +27254,7 @@ The page will be automatically removed when popped.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="783">Makes the page with the given name visible.
+             line="788">Makes the page with the given name visible.
 
 See [property@PreferencesDialog:visible-page].</doc>
         <source-position filename="src/adw-preferences-dialog.h" line="60"/>
@@ -27263,13 +27265,13 @@ See [property@PreferencesDialog:visible-page].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="785">a preferences dialog</doc>
+                 line="790">a preferences dialog</doc>
             <type name="PreferencesDialog" c:type="AdwPreferencesDialog*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-dialog.c"
-                 line="786">the name of the page to make visible</doc>
+                 line="791">the name of the page to make visible</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -27283,7 +27285,7 @@ See [property@PreferencesDialog:visible-page].</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="529">Whether search is enabled.</doc>
+             line="532">Whether search is enabled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="visible-page"
@@ -27294,7 +27296,7 @@ See [property@PreferencesDialog:visible-page].</doc>
                 getter="get_visible_page">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="503">The currently visible page.</doc>
+             line="506">The currently visible page.</doc>
         <type name="Gtk.Widget"/>
       </property>
       <property name="visible-page-name"
@@ -27306,7 +27308,7 @@ See [property@PreferencesDialog:visible-page].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-preferences-dialog.c"
-             line="515">The name of the currently visible page.
+             line="518">The name of the currently visible page.
 
 See [property@AdwPreferencesDialog:visible-page].</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -28614,13 +28616,13 @@ style class `.preferences`.</doc>
                    deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="715">Creates a new `AdwPreferencesWindow`.</doc>
+             line="720">Creates a new `AdwPreferencesWindow`.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="720">the newly created `AdwPreferencesWindow`</doc>
+               line="725">the newly created `AdwPreferencesWindow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -28630,7 +28632,7 @@ style class `.preferences`.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="730">Adds a preferences page to @self.</doc>
+             line="735">Adds a preferences page to @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="44"/>
         <return-value transfer-ownership="none">
@@ -28640,13 +28642,13 @@ style class `.preferences`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="732">a preferences window</doc>
+                 line="737">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="733">the page to add</doc>
+                 line="738">the page to add</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -28657,7 +28659,7 @@ style class `.preferences`.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1115">Displays @toast.
+             line="1120">Displays @toast.
 
 See [method@ToastOverlay.add_toast].</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
@@ -28669,13 +28671,13 @@ See [method@ToastOverlay.add_toast].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1117">a preferences window</doc>
+                 line="1122">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="toast" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1118">a toast</doc>
+                 line="1123">a toast</doc>
             <type name="Toast" c:type="AdwToast*"/>
           </parameter>
         </parameters>
@@ -28686,7 +28688,7 @@ See [method@ToastOverlay.add_toast].</doc>
               deprecated-version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1041">Closes the current subpage.
+             line="1046">Closes the current subpage.
 
 If there is no presented subpage, this does nothing.</doc>
         <doc-deprecated xml:space="preserve">Use [method@PreferencesWindow.pop_subpage] instead.</doc-deprecated>
@@ -28698,7 +28700,7 @@ If there is no presented subpage, this does nothing.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1043">a preferences window</doc>
+                 line="1048">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -28710,20 +28712,20 @@ If there is no presented subpage, this does nothing.</doc>
               deprecated-version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="982">Gets whether gestures and shortcuts for closing subpages are enabled.</doc>
+             line="987">Gets whether gestures and shortcuts for closing subpages are enabled.</doc>
         <doc-deprecated xml:space="preserve">Use [method@NavigationPage.get_can_pop] instead.</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="988">whether gestures and shortcuts are enabled.</doc>
+               line="993">whether gestures and shortcuts are enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="984">a preferences window</doc>
+                 line="989">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -28735,20 +28737,20 @@ If there is no presented subpage, this does nothing.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="882">Gets whether search is enabled for @self.</doc>
+             line="887">Gets whether search is enabled for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="888">whether search is enabled for @self.</doc>
+               line="893">whether search is enabled for @self.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="884">a preferences window</doc>
+                 line="889">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -28760,20 +28762,20 @@ If there is no presented subpage, this does nothing.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="791">Gets the currently visible page of @self.</doc>
+             line="796">Gets the currently visible page of @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="51"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="797">the visible page</doc>
+               line="802">the visible page</doc>
           <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="793">a preferences window</doc>
+                 line="798">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -28785,20 +28787,20 @@ If there is no presented subpage, this does nothing.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="836">Gets the name of currently visible page of @self.</doc>
+             line="841">Gets the name of currently visible page of @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="57"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="842">the name of the visible page</doc>
+               line="847">the name of the visible page</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="838">a preferences window</doc>
+                 line="843">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -28810,20 +28812,20 @@ If there is no presented subpage, this does nothing.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1092">Pop the visible page from the subpage stack of @self.</doc>
+             line="1097">Pop the visible page from the subpage stack of @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="1098">`TRUE` if a page has been popped</doc>
+               line="1103">`TRUE` if a page has been popped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1094">a preferences window</doc>
+                 line="1099">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -28834,7 +28836,7 @@ If there is no presented subpage, this does nothing.</doc>
               deprecated-version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1004">Sets @subpage as the window's subpage and opens it.
+             line="1009">Sets @subpage as the window's subpage and opens it.
 
 The transition can be cancelled by the user, in which case visible child will
 change back to the previously visible child.</doc>
@@ -28847,13 +28849,13 @@ change back to the previously visible child.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1006">a preferences window</doc>
+                 line="1011">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="subpage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1007">the subpage</doc>
+                 line="1012">the subpage</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -28865,7 +28867,7 @@ change back to the previously visible child.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1066">Pushes @page onto the subpage stack of @self.
+             line="1071">Pushes @page onto the subpage stack of @self.
 
 The page will be automatically removed when popped.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
@@ -28877,13 +28879,13 @@ The page will be automatically removed when popped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1068">a preferences window</doc>
+                 line="1073">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1069">the subpage</doc>
+                 line="1074">the subpage</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -28894,7 +28896,7 @@ The page will be automatically removed when popped.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="762">Removes a page from @self.</doc>
+             line="767">Removes a page from @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="47"/>
         <return-value transfer-ownership="none">
@@ -28904,13 +28906,13 @@ The page will be automatically removed when popped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="764">a preferences window</doc>
+                 line="769">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="765">the page to remove</doc>
+                 line="770">the page to remove</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -28922,7 +28924,7 @@ The page will be automatically removed when popped.</doc>
               deprecated-version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="940">Sets whether gestures and shortcuts for closing subpages are enabled.
+             line="945">Sets whether gestures and shortcuts for closing subpages are enabled.
 
 The supported gestures are:
 
@@ -28945,13 +28947,13 @@ Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="942">a preferences window</doc>
+                 line="947">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="can_navigate_back" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="943">the new value</doc>
+                 line="948">the new value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -28963,7 +28965,7 @@ Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="904">Sets whether search is enabled for @self.</doc>
+             line="909">Sets whether search is enabled for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="65"/>
         <return-value transfer-ownership="none">
@@ -28973,13 +28975,13 @@ Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="906">a preferences window</doc>
+                 line="911">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="search_enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="907">whether search is enabled</doc>
+                 line="912">whether search is enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -28991,7 +28993,7 @@ Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="813">Makes @page the visible page of @self.</doc>
+             line="818">Makes @page the visible page of @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <source-position filename="src/adw-preferences-window.h" line="53"/>
         <return-value transfer-ownership="none">
@@ -29001,13 +29003,13 @@ Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="815">a preferences window</doc>
+                 line="820">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="816">a page of @self</doc>
+                 line="821">a page of @self</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -29019,7 +29021,7 @@ Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="858">Makes the page with the given name visible.
+             line="863">Makes the page with the given name visible.
 
 See [property@PreferencesWindow:visible-page].</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
@@ -29031,13 +29033,13 @@ See [property@PreferencesWindow:visible-page].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="860">a preferences window</doc>
+                 line="865">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="861">the name of the page to make visible</doc>
+                 line="866">the name of the page to make visible</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -29052,7 +29054,7 @@ See [property@PreferencesWindow:visible-page].</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="587">Whether gestures and shortcuts for closing subpages are enabled.
+             line="590">Whether gestures and shortcuts for closing subpages are enabled.
 
 The supported gestures are:
 
@@ -29080,7 +29082,7 @@ Has no effect for subpages added with
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="575">Whether search is enabled.</doc>
+             line="578">Whether search is enabled.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -29093,7 +29095,7 @@ Has no effect for subpages added with
                 getter="get_visible_page">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="549">The currently visible page.</doc>
+             line="552">The currently visible page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
         <type name="Gtk.Widget"/>
       </property>
@@ -29107,7 +29109,7 @@ Has no effect for subpages added with
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="561">The name of the currently visible page.
+             line="564">The name of the currently visible page.
 
 See [property@PreferencesWindow:visible-page].</doc>
         <doc-deprecated xml:space="preserve">Use [class@PreferencesDialog].</doc-deprecated>
@@ -43415,7 +43417,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.7.rc" c:type="ADW_VERSION_S">
+    <constant name="VERSION_S" value="1.8.alpha" c:type="ADW_VERSION_S">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="45">Adwaita version, encoded as a string, useful for printing and

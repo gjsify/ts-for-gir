@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <package name="glib-2.0"/>
   <c:include name="glib-unix.h"/>
   <c:include name="glib.h"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="GLibUnix"
              version="2.0"
              shared-library="libgobject-2.0.so.0,libglib-2.0.so.0"

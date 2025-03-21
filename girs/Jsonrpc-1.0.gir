@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="jsonrpc-glib-1.0"/>
   <c:include name="jsonrpc-glib.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Jsonrpc"
              version="1.0"
              shared-library="libjsonrpc-glib-1.0.so.1"
@@ -1568,7 +1570,7 @@ trip.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="0" c:type="JSONRPC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="JSONRPC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/jsonrpc-version.h"
            line="49">jsonrpc-glib micro version component (e.g. 3 if %JSONRPC_VERSION is 1.2.3)</doc>
@@ -2454,7 +2456,7 @@ failure), using [method@Client.reply] or [method@Client.reply_async].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="3.44.0" c:type="JSONRPC_VERSION_S">
+    <constant name="VERSION_S" value="3.44.1" c:type="JSONRPC_VERSION_S">
       <doc xml:space="preserve"
            filename="src/jsonrpc-version.h"
            line="63">jsonrpc-glib version, encoded as a string, useful for printing and

@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="4.0"/>
   <include name="GtkSource" version="5"/>
   <package name="libspelling-1"/>
   <c:include name="libspelling.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Spelling"
              version="1"
              shared-library="libspelling-1.so.2"

@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GL" version="1.0"/>
   <include name="GObject" version="2.0"/>
@@ -13,6 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="xlib" version="2.0"/>
   <package name="mutter-cogl-16"/>
   <c:include name="cogl/cogl.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Cogl"
              version="16"
              shared-library="libmutter-cogl-16.so.0"
@@ -3448,7 +3450,7 @@ to this frame.</doc>
       </method>
       <method name="get_global_frame_counter"
               c:identifier="cogl_frame_info_get_global_frame_counter">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="110"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="gint64" c:type="int64_t"/>
         </return-value>
@@ -3460,7 +3462,7 @@ to this frame.</doc>
       </method>
       <method name="get_is_symbolic"
               c:identifier="cogl_frame_info_get_is_symbolic">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="113"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3502,7 +3504,7 @@ incorrectly report non-monotonic timestamps.</doc>
               c:identifier="cogl_frame_info_get_refresh_rate">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-frame-info.h"
-             line="91">Gets the refresh rate in Hertz for the output that the frame was on
+             line="106">Gets the refresh rate in Hertz for the output that the frame was on
 at the time the frame was presented.
 
 Some platforms can't associate a #CoglOutput with a
@@ -3510,25 +3512,25 @@ Some platforms can't associate a #CoglOutput with a
 this api. Therefore if you need this information then this api is
 more reliable than using cogl_frame_info_get_output() followed by
 cogl_output_get_refresh_rate().</doc>
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="107"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="122"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="cogl/cogl/cogl-frame-info.h"
-               line="104">the refresh rate in Hertz</doc>
+               line="119">the refresh rate in Hertz</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-frame-info.h"
-                 line="93">a #CoglFrameInfo object</doc>
+                 line="108">a #CoglFrameInfo object</doc>
             <type name="FrameInfo" c:type="CoglFrameInfo*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_rendering_duration_ns"
               c:identifier="cogl_frame_info_get_rendering_duration_ns">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="131"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="gint64" c:type="int64_t"/>
         </return-value>
@@ -3539,7 +3541,7 @@ cogl_output_get_refresh_rate().</doc>
         </parameters>
       </method>
       <method name="get_sequence" c:identifier="cogl_frame_info_get_sequence">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="125"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="unsigned int"/>
         </return-value>
@@ -3549,9 +3551,46 @@ cogl_output_get_refresh_rate().</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="get_target_presentation_time_us"
+              c:identifier="cogl_frame_info_get_target_presentation_time_us">
+        <doc xml:space="preserve"
+             filename="cogl/cogl/cogl-frame-info.h"
+             line="91">Gets the target presentation time for the frame. This is the time at
+which the frame was expected to became visible to the user.
+
+The target presentation time measured in microseconds, is based on
+CLOCK_MONOTONIC.</doc>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cogl/cogl/cogl-frame-info.h"
+               line="101">the presentation time for the frame if available, or 0</doc>
+          <type name="gint64" c:type="int64_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-frame-info.h"
+                 line="93">a #CoglFrameInfo object</doc>
+            <type name="FrameInfo" c:type="CoglFrameInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="get_time_before_buffer_swap_us"
               c:identifier="cogl_frame_info_get_time_before_buffer_swap_us">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="134"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <type name="gint64" c:type="int64_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="FrameInfo" c:type="CoglFrameInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_view_frame_counter"
+              c:identifier="cogl_frame_info_get_view_frame_counter">
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="gint64" c:type="int64_t"/>
         </return-value>
@@ -3563,7 +3602,7 @@ cogl_output_get_refresh_rate().</doc>
       </method>
       <method name="has_valid_gpu_rendering_duration"
               c:identifier="cogl_frame_info_has_valid_gpu_rendering_duration">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="128"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="146"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3574,7 +3613,7 @@ cogl_output_get_refresh_rate().</doc>
         </parameters>
       </method>
       <method name="is_hw_clock" c:identifier="cogl_frame_info_is_hw_clock">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="116"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3585,7 +3624,7 @@ cogl_output_get_refresh_rate().</doc>
         </parameters>
       </method>
       <method name="is_vsync" c:identifier="cogl_frame_info_is_vsync">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="122"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3596,7 +3635,7 @@ cogl_output_get_refresh_rate().</doc>
         </parameters>
       </method>
       <method name="is_zero_copy" c:identifier="cogl_frame_info_is_zero_copy">
-        <source-position filename="cogl/cogl/cogl-frame-info.h" line="119"/>
+        <source-position filename="cogl/cogl/cogl-frame-info.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11442,7 +11481,7 @@ Once you have setup your renderer then the next step is to create a
         </return-value>
       </constructor>
       <method name="bind_api" c:identifier="cogl_renderer_bind_api">
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="273"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="291"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11482,17 +11521,17 @@ usable driver and window system backend can be found.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-renderer.h"
-             line="230">Creates a new #CoglFramebuffer with @width x @height, with pixel
+             line="248">Creates a new #CoglFramebuffer with @width x @height, with pixel
 format @format, and exports the new framebuffer's DMA buffer
 handle.
 
 Passing an empty modifier array (passing a 0 n_modifiers) means implicit
 modifiers will be used.</doc>
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="252"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="270"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="cogl/cogl/cogl-renderer.h"
-               line="247">a #CoglDmaBufHandle. The
+               line="265">a #CoglDmaBufHandle. The
 return result must be released with cogl_dma_buf_handle_free()
 after use.</doc>
           <type name="DmaBufHandle" c:type="CoglDmaBufHandle*"/>
@@ -11501,37 +11540,37 @@ after use.</doc>
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="232">A #CoglRenderer</doc>
+                 line="250">A #CoglRenderer</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="233">A #CoglPixelFormat</doc>
+                 line="251">A #CoglPixelFormat</doc>
             <type name="PixelFormat" c:type="CoglPixelFormat"/>
           </parameter>
           <parameter name="modifiers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="234">array of DRM format modifiers</doc>
+                 line="252">array of DRM format modifiers</doc>
             <type name="guint64" c:type="uint64_t*"/>
           </parameter>
           <parameter name="n_modifiers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="235">length of modifiers array</doc>
+                 line="253">length of modifiers array</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="236">width of the new</doc>
+                 line="254">width of the new</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="237">height of the new</doc>
+                 line="255">height of the new</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -11539,10 +11578,10 @@ after use.</doc>
       <method name="get_driver_id" c:identifier="cogl_renderer_get_driver_id">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-renderer.h"
-             line="199">Queries what underlying driver is being used by Cogl.
+             line="217">Queries what underlying driver is being used by Cogl.
 
 This may only be called on a connected #CoglRenderer.</doc>
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="208"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="226"/>
         <return-value transfer-ownership="none">
           <type name="DriverId" c:type="CoglDriverId"/>
         </return-value>
@@ -11550,14 +11589,14 @@ This may only be called on a connected #CoglRenderer.</doc>
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="201">A connected #CoglRenderer</doc>
+                 line="219">A connected #CoglRenderer</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_implicit_drm_modifier"
               c:identifier="cogl_renderer_get_implicit_drm_modifier">
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="224"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="242"/>
         <return-value transfer-ownership="none">
           <type name="guint64" c:type="uint64_t"/>
         </return-value>
@@ -11571,18 +11610,18 @@ This may only be called on a connected #CoglRenderer.</doc>
               c:identifier="cogl_renderer_get_proc_address">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-renderer.h"
-             line="275">Gets a pointer to a given GL or GL ES extension function. This acts
+             line="293">Gets a pointer to a given GL or GL ES extension function. This acts
 as a wrapper around glXGetProcAddress() or whatever is the
 appropriate function for the current backend.
 
 This function should not be used to query core opengl API
 symbols since eglGetProcAddress for example doesn't allow this and
 and may return a junk pointer if you do.</doc>
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="292"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="310"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="cogl/cogl/cogl-renderer.h"
-               line="288">a pointer to the requested function or %NULL if the
+               line="306">a pointer to the requested function or %NULL if the
   function is not available.</doc>
           <type name="gpointer" c:type="void*"/>
         </return-value>
@@ -11590,13 +11629,13 @@ and may return a junk pointer if you do.</doc>
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="277">A #CoglRenderer.</doc>
+                 line="295">A #CoglRenderer.</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="278">the name of the function.</doc>
+                 line="296">the name of the function.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -11629,12 +11668,12 @@ This may only be called on a connected #CoglRenderer.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-renderer.h"
-             line="295">Processes a single event.</doc>
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="309"/>
+             line="313">Processes a single event.</doc>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="327"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="cogl/cogl/cogl-renderer.h"
-               line="302">#CoglFilterReturn. %COGL_FILTER_REMOVE indicates that
+               line="320">#CoglFilterReturn. %COGL_FILTER_REMOVE indicates that
 Cogl has internally handled the event and the caller should do no
 further processing. %COGL_FILTER_CONTINUE indicates that Cogl is
 either not interested in the event, or has used the event to update
@@ -11645,7 +11684,7 @@ internal state without taking any exclusive action.</doc>
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="297">a #CoglRenderer</doc>
+                 line="315">a #CoglRenderer</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
           <parameter name="event"
@@ -11654,32 +11693,32 @@ internal state without taking any exclusive action.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="298">pointer to an event structure</doc>
+                 line="316">pointer to an event structure</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
         </parameters>
       </method>
       <method name="is_dma_buf_supported"
               c:identifier="cogl_renderer_is_dma_buf_supported">
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="267"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="285"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="cogl/cogl/cogl-renderer.h"
-               line="264">%TRUE if DMA buffers can be allocated</doc>
+               line="282">%TRUE if DMA buffers can be allocated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="262">A #CoglRenderer</doc>
+                 line="280">A #CoglRenderer</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_implicit_drm_modifier"
               c:identifier="cogl_renderer_is_implicit_drm_modifier">
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="227"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="245"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11696,7 +11735,7 @@ internal state without taking any exclusive action.</doc>
               c:identifier="cogl_renderer_query_drm_modifiers"
               introspectable="0"
               throws="1">
-        <source-position filename="cogl/cogl/cogl-renderer.h" line="218"/>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="236"/>
         <return-value>
           <array name="GLib.Array" c:type="GArray*">
             <type name="gpointer" c:type="gpointer"/>
@@ -11706,17 +11745,45 @@ internal state without taking any exclusive action.</doc>
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="213">A #CoglRenderer</doc>
+                 line="231">A #CoglRenderer</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl/cogl/cogl-renderer.h"
-                 line="214">The #CoglPixelFormat</doc>
+                 line="232">The #CoglPixelFormat</doc>
             <type name="PixelFormat" c:type="CoglPixelFormat"/>
           </parameter>
           <parameter name="filter" transfer-ownership="none">
             <type name="DrmModifierFilter" c:type="CoglDrmModifierFilter"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_driver" c:identifier="cogl_renderer_set_driver">
+        <doc xml:space="preserve"
+             filename="cogl/cogl/cogl-renderer.h"
+             line="199">Requests that Cogl should try to use a specific underlying driver
+for rendering.
+
+If you select an unsupported driver then cogl_renderer_connect()
+will fail and report an error. Most applications should not
+explicitly select a driver and should rely on Cogl automatically
+choosing the driver.
+
+This may only be called on an un-connected #CoglRenderer.</doc>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="214"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-renderer.h"
+                 line="201">An unconnected #CoglRenderer</doc>
+            <type name="Renderer" c:type="CoglRenderer*"/>
+          </instance-parameter>
+          <parameter name="driver" transfer-ownership="none">
+            <type name="DriverId" c:type="CoglDriverId"/>
           </parameter>
         </parameters>
       </method>

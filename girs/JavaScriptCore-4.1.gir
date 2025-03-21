@@ -2653,7 +2653,7 @@ against at application run time.</doc>
                        line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="3" c:type="JSC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="JSC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="49">Like jsc_get_micro_version(), but from the headers used at
@@ -2663,7 +2663,7 @@ against at application run time.</doc>
                        line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="47" c:type="JSC_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="48" c:type="JSC_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="40">Like jsc_get_minor_version(), but from the headers used at

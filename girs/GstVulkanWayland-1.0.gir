@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstBase" version="1.0"/>
@@ -13,6 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Vulkan" version="1.0"/>
   <package name="gstreamer-vulkan-wayland-1.0"/>
   <c:include name="gst/vulkan/wayland/wayland.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstVulkanWayland"
              version="1.0"
              shared-library="libgstvulkan-1.0.so.0"

@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="libgit2-glib-1.0"/>
   <c:include name="libgit2-glib/ggit.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Ggit"
              version="1.0"
              shared-library="libgit2-glib-1.0.so.0"
@@ -10683,7 +10685,7 @@ If the reference count drops to 0, @entry is freed.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="0" c:type="GGIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="GGIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="33">libgit2-glib micro version component (e.g. 3 if %GGIT_VERSION is 1.2.3)</doc>
@@ -22082,7 +22084,7 @@ See ggit_tree_walk().</doc>
              line="876">walk tree in post-order</doc>
       </member>
     </enumeration>
-    <constant name="VERSION_S" value="1.2.0" c:type="GGIT_VERSION_S">
+    <constant name="VERSION_S" value="1.2.1" c:type="GGIT_VERSION_S">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="11">libgit2-glib version, encoded as a string, useful for printing and

@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gio" version="2.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="cairo" version="1.0"/>
   <package name="gdk-3.0"/>
   <c:include name="gdk/gdk.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Gdk"
              version="3.0"
              shared-library="libgdk-3.so.0"
@@ -1186,12 +1188,17 @@ platforms can be found in the CSS specification:
 - ![](nesw_resize_cursor.png) "nesw-resize"
 - ![](nwse_resize_cursor.png) "nwse-resize"
 - ![](zoom_in_cursor.png) "zoom-in"
-- ![](zoom_out_cursor.png) "zoom-out"</doc>
+- ![](zoom_out_cursor.png) "zoom-out"
+
+Additionally, the following cursor names are supported, which are
+not in the CSS specification:
+- ![](dnd_ask_cursor.png) "dnd-ask"
+- ![](all_resize_cursor.png) "all-resize"</doc>
         <source-position filename="gdk/gdkcursor.h" line="240"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkcursor.c"
-               line="289">a new #GdkCursor, or %NULL if there is no
+               line="294">a new #GdkCursor, or %NULL if there is no
   cursor with the given name</doc>
           <type name="Cursor" c:type="GdkCursor*"/>
         </return-value>
@@ -1215,7 +1222,7 @@ platforms can be found in the CSS specification:
                    version="2.4">
         <doc xml:space="preserve"
              filename="gdk/gdkcursor.c"
-             line="303">Creates a new cursor from a pixbuf.
+             line="308">Creates a new cursor from a pixbuf.
 
 Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
@@ -1237,32 +1244,32 @@ sufficently new version of the X Render extension.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcursor.c"
-               line="329">a new #GdkCursor.</doc>
+               line="334">a new #GdkCursor.</doc>
           <type name="Cursor" c:type="GdkCursor*"/>
         </return-value>
         <parameters>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="305">the #GdkDisplay for which the cursor will be created</doc>
+                 line="310">the #GdkDisplay for which the cursor will be created</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </parameter>
           <parameter name="pixbuf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="306">the #GdkPixbuf containing the cursor image</doc>
+                 line="311">the #GdkPixbuf containing the cursor image</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="307">the horizontal offset of the “hotspot” of the cursor.</doc>
+                 line="312">the horizontal offset of the “hotspot” of the cursor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="308">the vertical offset of the “hotspot” of the cursor.</doc>
+                 line="313">the vertical offset of the “hotspot” of the cursor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1272,7 +1279,7 @@ sufficently new version of the X Render extension.</doc>
                    version="3.10">
         <doc xml:space="preserve"
              filename="gdk/gdkcursor.c"
-             line="379">Creates a new cursor from a cairo image surface.
+             line="384">Creates a new cursor from a cairo image surface.
 
 Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
@@ -1289,32 +1296,32 @@ sufficently new version of the X Render extension.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcursor.c"
-               line="400">a new #GdkCursor.</doc>
+               line="405">a new #GdkCursor.</doc>
           <type name="Cursor" c:type="GdkCursor*"/>
         </return-value>
         <parameters>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="381">the #GdkDisplay for which the cursor will be created</doc>
+                 line="386">the #GdkDisplay for which the cursor will be created</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </parameter>
           <parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="382">the cairo image surface containing the cursor pixel data</doc>
+                 line="387">the cairo image surface containing the cursor pixel data</doc>
             <type name="cairo.Surface" c:type="cairo_surface_t*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="383">the horizontal offset of the “hotspot” of the cursor</doc>
+                 line="388">the horizontal offset of the “hotspot” of the cursor</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="384">the vertical offset of the “hotspot” of the cursor</doc>
+                 line="389">the vertical offset of the “hotspot” of the cursor</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -1348,19 +1355,19 @@ sufficently new version of the X Render extension.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="gdk/gdkcursor.c"
-             line="419">Returns the display on which the #GdkCursor is defined.</doc>
+             line="424">Returns the display on which the #GdkCursor is defined.</doc>
         <source-position filename="gdk/gdkcursor.h" line="243"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkcursor.c"
-               line="425">the #GdkDisplay associated to @cursor</doc>
+               line="430">the #GdkDisplay associated to @cursor</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cursor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="421">a #GdkCursor.</doc>
+                 line="426">a #GdkCursor.</doc>
             <type name="Cursor" c:type="GdkCursor*"/>
           </instance-parameter>
         </parameters>
@@ -1370,7 +1377,7 @@ sufficently new version of the X Render extension.</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="gdk/gdkcursor.c"
-             line="438">Returns a #GdkPixbuf with the image used to display the cursor.
+             line="443">Returns a #GdkPixbuf with the image used to display the cursor.
 
 Note that depending on the capabilities of the windowing system and
 on the cursor, GDK may not be able to obtain the image data. In this
@@ -1379,7 +1386,7 @@ case, %NULL is returned.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkcursor.c"
-               line="448">a #GdkPixbuf representing
+               line="453">a #GdkPixbuf representing
   @cursor, or %NULL</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
@@ -1387,7 +1394,7 @@ case, %NULL is returned.</doc>
           <instance-parameter name="cursor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="440">a #GdkCursor</doc>
+                 line="445">a #GdkCursor</doc>
             <type name="Cursor" c:type="GdkCursor*"/>
           </instance-parameter>
         </parameters>
@@ -1397,7 +1404,7 @@ case, %NULL is returned.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="gdk/gdkcursor.c"
-             line="499">Returns a cairo image surface with the image used to display the cursor.
+             line="504">Returns a cairo image surface with the image used to display the cursor.
 
 Note that depending on the capabilities of the windowing system and
 on the cursor, GDK may not be able to obtain the image data. In this
@@ -1406,7 +1413,7 @@ case, %NULL is returned.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkcursor.c"
-               line="513">a #cairo_surface_t
+               line="518">a #cairo_surface_t
   representing @cursor, or %NULL</doc>
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
@@ -1414,7 +1421,7 @@ case, %NULL is returned.</doc>
           <instance-parameter name="cursor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="501">a #GdkCursor</doc>
+                 line="506">a #GdkCursor</doc>
             <type name="Cursor" c:type="GdkCursor*"/>
           </instance-parameter>
           <parameter name="x_hot"
@@ -1425,7 +1432,7 @@ case, %NULL is returned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="502">Location to store the hotspot x position,
+                 line="507">Location to store the hotspot x position,
   or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -1437,7 +1444,7 @@ case, %NULL is returned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkcursor.c"
-                 line="504">Location to store the hotspot y position,
+                 line="509">Location to store the hotspot y position,
   or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -24725,7 +24732,7 @@ See gdk_keymap_get_caps_lock_state().</doc>
       <source-position filename="gdk/gdkdevice.h" line="110"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="48" c:type="GDK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="50" c:type="GDK_MICRO_VERSION">
       <source-position filename="gdk/gdkversionmacros.h" line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>

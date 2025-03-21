@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GModule" version="2.0"/>
@@ -18,6 +19,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="gio/gunixinputstream.h"/>
   <c:include name="gio/gunixmounts.h"/>
   <c:include name="gio/gunixoutputstream.h"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="GioUnix"
              version="2.0"
              shared-library="libgio-2.0.so.0"

@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Adw" version="1"/>
   <include name="Gtk" version="4.0"/>
   <package name="libpanel-1"/>
   <c:include name="libpanel.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Panel"
              version="1"
              shared-library="libpanel-1.so.1"
@@ -4094,7 +4096,7 @@ It is a programming error to call this with a key that does not exist.</doc>
       <source-position filename="src/panel-version.h" line="55"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="9" c:type="PANEL_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="10" c:type="PANEL_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="43">libpanel minor version component (e.g. 2 if %PANEL_VERSION is 1.2.3)</doc>
@@ -4401,19 +4403,19 @@ widgets.
       <constructor name="new" c:identifier="panel_omni_bar_new">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="127">Create a new #PanelOmniBar.</doc>
+             line="128">Create a new #PanelOmniBar.</doc>
         <source-position filename="src/panel-omni-bar.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-omni-bar.c"
-               line="132">a newly created #PanelOmniBar</doc>
+               line="133">a newly created #PanelOmniBar</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
       <method name="add_prefix" c:identifier="panel_omni_bar_add_prefix">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="421">Add a widget at the start of the container, ordered by priority.
+             line="454">Add a widget at the start of the container, ordered by priority.
 The highest the priority, the closest to the start.</doc>
         <source-position filename="src/panel-omni-bar.h" line="50"/>
         <return-value transfer-ownership="none">
@@ -4423,19 +4425,19 @@ The highest the priority, the closest to the start.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="423">a #PanelOmniBar</doc>
+                 line="456">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
           <parameter name="priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="424">the priority</doc>
+                 line="457">the priority</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="425">the widget to add at the start.</doc>
+                 line="458">the widget to add at the start.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -4443,7 +4445,7 @@ The highest the priority, the closest to the start.</doc>
       <method name="add_suffix" c:identifier="panel_omni_bar_add_suffix">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="455">Add a widget towards the end of the container, ordered by priority.
+             line="488">Add a widget towards the end of the container, ordered by priority.
 The highest the priority, the closest to the start.</doc>
         <source-position filename="src/panel-omni-bar.h" line="54"/>
         <return-value transfer-ownership="none">
@@ -4453,19 +4455,19 @@ The highest the priority, the closest to the start.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="457">a #PanelOmniBar</doc>
+                 line="490">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
           <parameter name="priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="458">the priority</doc>
+                 line="491">the priority</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="459">the widget to add toward the end.</doc>
+                 line="492">the widget to add toward the end.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -4475,19 +4477,19 @@ The highest the priority, the closest to the start.</doc>
               glib:get-property="popover">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="79">Gets the current popover or %NULL if none is setup.</doc>
+             line="80">Gets the current popover or %NULL if none is setup.</doc>
         <source-position filename="src/panel-omni-bar.h" line="45"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/panel-omni-bar.c"
-               line="85">a #GtkPopover or %NULL</doc>
+               line="86">a #GtkPopover or %NULL</doc>
           <type name="Gtk.Popover" c:type="GtkPopover*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="81">a #PanelOmniBar</doc>
+                 line="82">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
         </parameters>
@@ -4497,19 +4499,19 @@ The highest the priority, the closest to the start.</doc>
               glib:get-property="progress">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="597">Gets the progress value displayed in the omni bar.</doc>
+             line="630">Gets the progress value displayed in the omni bar.</doc>
         <source-position filename="src/panel-omni-bar.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-omni-bar.c"
-               line="603">the progress value.</doc>
+               line="636">the progress value.</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="599">a #PanelOmniBar</doc>
+                 line="632">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
         </parameters>
@@ -4517,7 +4519,7 @@ The highest the priority, the closest to the start.</doc>
       <method name="remove" c:identifier="panel_omni_bar_remove">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="489">Removes a widget from the omni bar. Currently only prefix or suffix
+             line="522">Removes a widget from the omni bar. Currently only prefix or suffix
 widgets are supported.</doc>
         <source-position filename="src/panel-omni-bar.h" line="58"/>
         <return-value transfer-ownership="none">
@@ -4527,13 +4529,13 @@ widgets are supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="491">a #PanelOmniBar</doc>
+                 line="524">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="492">The widget to remove.</doc>
+                 line="525">The widget to remove.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -4543,7 +4545,7 @@ widgets are supported.</doc>
               glib:set-property="popover">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="97">Sets the omnibar popover, that will appear when clicking on the omni bar.</doc>
+             line="98">Sets the omnibar popover, that will appear when clicking on the omni bar.</doc>
         <source-position filename="src/panel-omni-bar.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4552,7 +4554,7 @@ widgets are supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="99">a #PanelOmniBar</doc>
+                 line="100">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
           <parameter name="popover"
@@ -4561,7 +4563,7 @@ widgets are supported.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="100">a #GtkPopover or %NULL</doc>
+                 line="101">a #GtkPopover or %NULL</doc>
             <type name="Gtk.Popover" c:type="GtkPopover*"/>
           </parameter>
         </parameters>
@@ -4571,7 +4573,7 @@ widgets are supported.</doc>
               glib:set-property="progress">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="615">Sets the progress value displayed in the omni bar.</doc>
+             line="648">Sets the progress value displayed in the omni bar.</doc>
         <source-position filename="src/panel-omni-bar.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4580,13 +4582,13 @@ widgets are supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="617">a #PanelOmniBar</doc>
+                 line="650">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="618">the progress value</doc>
+                 line="651">the progress value</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4594,7 +4596,7 @@ widgets are supported.</doc>
       <method name="start_pulsing" c:identifier="panel_omni_bar_start_pulsing">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="695">Starts pulsing the omni bar. Use
+             line="728">Starts pulsing the omni bar. Use
 @panel_omni_bar_stop_pulsing to stop.</doc>
         <source-position filename="src/panel-omni-bar.h" line="61"/>
         <return-value transfer-ownership="none">
@@ -4604,7 +4606,7 @@ widgets are supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="697">a #PanelOmniBar</doc>
+                 line="730">a #PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
         </parameters>
@@ -4612,7 +4614,7 @@ widgets are supported.</doc>
       <method name="stop_pulsing" c:identifier="panel_omni_bar_stop_pulsing">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="713">Stops pulsing the omni bar, that was started with
+             line="746">Stops pulsing the omni bar, that was started with
 @panel_omni_bar_start_pulsing.</doc>
         <source-position filename="src/panel-omni-bar.h" line="63"/>
         <return-value transfer-ownership="none">
@@ -4622,7 +4624,7 @@ widgets are supported.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-omni-bar.c"
-                 line="715">#PanelOmniBar</doc>
+                 line="748">#PanelOmniBar</doc>
             <type name="OmniBar" c:type="PanelOmniBar*"/>
           </instance-parameter>
         </parameters>
@@ -4633,7 +4635,7 @@ widgets are supported.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="294">The tooltip for the action.</doc>
+             line="324">The tooltip for the action.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-name"
@@ -4642,13 +4644,13 @@ widgets are supported.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="303">The name of the icon to use.</doc>
+             line="333">The name of the icon to use.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="menu-model" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="315">The menu model of the omni bar menu.</doc>
+             line="345">The menu model of the omni bar menu.</doc>
         <type name="Gio.MenuModel"/>
       </property>
       <property name="popover"
@@ -4658,7 +4660,7 @@ widgets are supported.</doc>
                 getter="get_popover">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="327">The popover to show.</doc>
+             line="357">The popover to show.</doc>
         <type name="Gtk.Popover"/>
       </property>
       <property name="progress"
@@ -4669,7 +4671,7 @@ widgets are supported.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/panel-omni-bar.c"
-             line="339">The current progress value.</doc>
+             line="369">The current progress value.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_instance">
@@ -7775,7 +7777,7 @@ It will automatically reveal or hide the specified area from
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.9.1" c:type="PANEL_VERSION_S">
+    <constant name="VERSION_S" value="1.10.1" c:type="PANEL_VERSION_S">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="64">libpanel version, encoded as a string, useful for printing and

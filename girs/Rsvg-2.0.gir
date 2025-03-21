@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
@@ -13,6 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="cairo" version="1.0"/>
   <package name="librsvg-2.0"/>
   <c:include name="librsvg/rsvg.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Rsvg"
              version="2.0"
              shared-library="librsvg-2.so.2"
@@ -2456,7 +2458,7 @@ your program), or for programs not written in C, use
       <source-position filename="include/librsvg/rsvg-version.h" line="8"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="90" c:type="LIBRSVG_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="LIBRSVG_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="include/librsvg/rsvg-features.h"
            line="64">This is a C macro that expands to a number with the micro version
@@ -2476,7 +2478,7 @@ your program), or for programs not written in C, use
       <source-position filename="include/librsvg/rsvg-version.h" line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="59" c:type="LIBRSVG_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="60" c:type="LIBRSVG_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="include/librsvg/rsvg-features.h"
            line="45">This is a C macro that expands to a number with the minor version
@@ -2657,7 +2659,7 @@ a `default` case in a `switch()` statement).</doc>
              line="764">advance measure of a '0' character (depends on the text orientation)</doc>
       </member>
     </enumeration>
-    <constant name="VERSION" value="2.59.90" c:type="LIBRSVG_VERSION">
+    <constant name="VERSION" value="2.60.0" c:type="LIBRSVG_VERSION">
       <doc xml:space="preserve"
            filename="include/librsvg/rsvg-features.h"
            line="83">This is a C macro that expands to a string with the version of

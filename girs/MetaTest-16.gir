@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Clutter" version="16"/>
   <include name="Cogl" version="16"/>
@@ -14,6 +15,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Mtk" version="16"/>
   <include name="xfixes" version="4.0"/>
   <include name="xlib" version="2.0"/>
+  <doc:format name="unknown"/>
   <namespace name="MetaTest"
              version="16"
              shared-library="libmutter-test-16.so"

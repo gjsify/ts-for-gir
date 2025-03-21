@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Atk" version="1.0"/>
   <include name="Cogl" version="16"/>
@@ -16,6 +17,7 @@ and/or use gtk-doc annotations.  -->
   <package name="mutter-clutter-16"/>
   <c:include name="clutter/clutter-pango.h"/>
   <c:include name="clutter/clutter.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Clutter"
              version="16"
              shared-library="libmutter-clutter-16.so.0"
@@ -10264,7 +10266,7 @@ exposing the common elements on each actor (position, extents, etc).</doc>
                  c:type="ClutterActorAlign">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="805">Controls how a #ClutterActor should align itself inside the extra space
+           line="806">Controls how a #ClutterActor should align itself inside the extra space
 assigned to it during the allocation.
 
 Alignment only matters if the allocated space given to an actor is
@@ -10278,7 +10280,7 @@ properties of #ClutterActor are set to %TRUE.</doc>
               glib:name="CLUTTER_ACTOR_ALIGN_FILL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="807">Stretch to cover the whole allocated space</doc>
+             line="808">Stretch to cover the whole allocated space</doc>
       </member>
       <member name="start"
               value="1"
@@ -10287,7 +10289,7 @@ properties of #ClutterActor are set to %TRUE.</doc>
               glib:name="CLUTTER_ACTOR_ALIGN_START">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="808">Snap to left or top side, leaving space
+             line="809">Snap to left or top side, leaving space
   to the right or bottom. For horizontal layouts, in right-to-left
   locales this should be reversed.</doc>
       </member>
@@ -10298,7 +10300,7 @@ properties of #ClutterActor are set to %TRUE.</doc>
               glib:name="CLUTTER_ACTOR_ALIGN_CENTER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="811">Center the actor inside the allocation</doc>
+             line="812">Center the actor inside the allocation</doc>
       </member>
       <member name="end"
               value="3"
@@ -10307,7 +10309,7 @@ properties of #ClutterActor are set to %TRUE.</doc>
               glib:name="CLUTTER_ACTOR_ALIGN_END">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="812">Snap to right or bottom side, leaving space
+             line="813">Snap to right or bottom side, leaving space
   to the left or top. For horizontal layouts, in right-to-left locales
   this should be reversed.</doc>
       </member>
@@ -13969,7 +13971,7 @@ and settings.</doc>
               c:identifier="clutter_backend_get_cogl_context">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="402">Retrieves the #CoglContext associated with the given clutter
+             line="475">Retrieves the #CoglContext associated with the given clutter
 @backend. A #CoglContext is required when using some of the
 experimental 2.0 Cogl API.
 
@@ -13984,14 +13986,14 @@ explicitly create a CoglContext.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="417">The #CoglContext associated with @backend.</doc>
+               line="490">The #CoglContext associated with @backend.</doc>
           <type name="Cogl.Context" c:type="CoglContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="404">a #ClutterBackend</doc>
+                 line="477">a #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14000,20 +14002,20 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_default_seat">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="465">Returns the default seat</doc>
+             line="538">Returns the default seat</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="471">the default seat</doc>
+               line="544">the default seat</doc>
           <type name="Seat" c:type="ClutterSeat*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="467">the #ClutterBackend</doc>
+                 line="540">the #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14022,20 +14024,20 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_input_method">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="425">Returns the input method used by Clutter</doc>
+             line="498">Returns the input method used by Clutter</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="431">the input method</doc>
+               line="504">the input method</doc>
           <type name="InputMethod" c:type="ClutterInputMethod*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="427">the #CLutterBackend</doc>
+                 line="500">the #CLutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14044,7 +14046,7 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_resolution">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="367">Gets the resolution for font handling on the screen.
+             line="440">Gets the resolution for font handling on the screen.
 
 The resolution is a scale factor between points specified in a
 #PangoFontDescription and cairo units. The default value is 96.0,
@@ -14059,7 +14061,7 @@ initializing; the resolution is also stored in the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="382">the current resolution, or -1 if no resolution
+               line="455">the current resolution, or -1 if no resolution
   has been set.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -14067,7 +14069,7 @@ initializing; the resolution is also stored in the
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="369">a #ClutterBackend</doc>
+                 line="442">a #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14076,7 +14078,7 @@ initializing; the resolution is also stored in the
               c:identifier="clutter_backend_set_input_method">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="439">Sets the input method to be used by Clutter</doc>
+             line="512">Sets the input method to be used by Clutter</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="61"/>
         <return-value transfer-ownership="none">
@@ -14086,7 +14088,7 @@ initializing; the resolution is also stored in the
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="441">the #ClutterBackend</doc>
+                 line="514">the #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
           <parameter name="method"
@@ -14095,7 +14097,7 @@ initializing; the resolution is also stored in the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="442">the input method</doc>
+                 line="515">the input method</doc>
             <type name="InputMethod" c:type="ClutterInputMethod*"/>
           </parameter>
         </parameters>
@@ -14109,7 +14111,7 @@ initializing; the resolution is also stored in the
       <glib:signal name="font-changed" when="first">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="240">The signal is emitted each time the font options
+             line="313">The signal is emitted each time the font options
 have been changed through #ClutterSettings.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14118,7 +14120,7 @@ have been changed through #ClutterSettings.</doc>
       <glib:signal name="resolution-changed" when="first">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="225">The signal is emitted each time the font
+             line="298">The signal is emitted each time the font
 resolutions has been changed through #ClutterSettings.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14127,7 +14129,7 @@ resolutions has been changed through #ClutterSettings.</doc>
       <glib:signal name="settings-changed" when="first">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="255">The signal is emitted each time the #ClutterSettings
+             line="328">The signal is emitted each time the #ClutterSettings
 properties have been changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -16675,7 +16677,7 @@ color state
 The #ClutterColorState would have API to get the colorspace, whether the
 actor content is in pq or not, and things like that</doc>
       <source-position filename="clutter/clutter/clutter-color-state.h"
-                       line="66"/>
+                       line="72"/>
       <virtual-method name="create_transform_snippet" introspectable="0">
         <source-position filename="clutter/clutter/clutter-color-state.h"
                          line="50"/>
@@ -16691,9 +16693,33 @@ actor content is in pq or not, and things like that</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="equals" invoker="equals">
+      <virtual-method name="do_transform" invoker="do_transform">
         <source-position filename="clutter/clutter/clutter-color-state.h"
                          line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </instance-parameter>
+          <parameter name="target_color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="gfloat" c:type="const float*"/>
+          </parameter>
+          <parameter name="output" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="n_samples" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="equals" invoker="equals">
+        <source-position filename="clutter/clutter/clutter-color-state.h"
+                         line="63"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -16709,31 +16735,31 @@ actor content is in pq or not, and things like that</doc>
       <virtual-method name="get_blending" invoker="get_blending">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="339">Retrieves a variant of @color_state that is suitable for blending. This
+             line="359">Retrieves a variant of @color_state that is suitable for blending. This
 usually is a variant with linear transfer characteristics. If @color_state
 already is a #ClutterColorState suitable for blending, then @color_state is
 returned.
 
 If @force is TRUE then linear transfer characteristics are used always.</doc>
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="64"/>
+                         line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state.c"
-               line="351">the #ClutterColorState suitable for blending</doc>
+               line="371">the #ClutterColorState suitable for blending</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="color_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="341">a #ClutterColorState</doc>
+                 line="361">a #ClutterColorState</doc>
             <type name="ColorState" c:type="ClutterColorState*"/>
           </instance-parameter>
           <parameter name="force" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="342">if a linear variant should be forced</doc>
+                 line="362">if a linear variant should be forced</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -16758,7 +16784,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       </virtual-method>
       <virtual-method name="required_format" invoker="required_format">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="62"/>
+                         line="68"/>
         <return-value transfer-ownership="none">
           <type name="EncodingRequiredFormat"
                 c:type="ClutterEncodingRequiredFormat"/>
@@ -16771,7 +16797,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       </virtual-method>
       <virtual-method name="to_string" invoker="to_string">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="60"/>
+                         line="66"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -16802,7 +16828,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <method name="add_pipeline_transform"
               c:identifier="clutter_color_state_add_pipeline_transform">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="75"/>
+                         line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16818,9 +16844,34 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="do_transform"
+              c:identifier="clutter_color_state_do_transform">
+        <source-position filename="clutter/clutter/clutter-color-state.h"
+                         line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </instance-parameter>
+          <parameter name="target_color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="gfloat" c:type="const float*"/>
+          </parameter>
+          <parameter name="output" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="n_samples" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="equals" c:identifier="clutter_color_state_equals">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="85"/>
+                         line="98"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -16837,38 +16888,38 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
               c:identifier="clutter_color_state_get_blending">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="339">Retrieves a variant of @color_state that is suitable for blending. This
+             line="359">Retrieves a variant of @color_state that is suitable for blending. This
 usually is a variant with linear transfer characteristics. If @color_state
 already is a #ClutterColorState suitable for blending, then @color_state is
 returned.
 
 If @force is TRUE then linear transfer characteristics are used always.</doc>
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="92"/>
+                         line="105"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state.c"
-               line="351">the #ClutterColorState suitable for blending</doc>
+               line="371">the #ClutterColorState suitable for blending</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="color_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="341">a #ClutterColorState</doc>
+                 line="361">a #ClutterColorState</doc>
             <type name="ColorState" c:type="ClutterColorState*"/>
           </instance-parameter>
           <parameter name="force" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="342">if a linear variant should be forced</doc>
+                 line="362">if a linear variant should be forced</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_id" c:identifier="clutter_color_state_get_id">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="72"/>
+                         line="78"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="unsigned int"/>
         </return-value>
@@ -16881,7 +16932,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <method name="required_format"
               c:identifier="clutter_color_state_required_format">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="89"/>
+                         line="102"/>
         <return-value transfer-ownership="none">
           <type name="EncodingRequiredFormat"
                 c:type="ClutterEncodingRequiredFormat"/>
@@ -16894,7 +16945,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       </method>
       <method name="to_string" c:identifier="clutter_color_state_to_string">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="69"/>
+                         line="75"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -16907,7 +16958,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <method name="update_uniforms"
               c:identifier="clutter_color_state_update_uniforms">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="80"/>
+                         line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16940,7 +16991,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
             c:type="ClutterColorStateClass"
             glib:is-gtype-struct-for="ColorState">
       <source-position filename="clutter/clutter/clutter-color-state.h"
-                       line="66"/>
+                       line="72"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -17002,10 +17053,36 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
           </parameters>
         </callback>
       </field>
+      <field name="do_transform">
+        <callback name="do_transform">
+          <source-position filename="clutter/clutter/clutter-color-state.h"
+                           line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="color_state" transfer-ownership="none">
+              <type name="ColorState" c:type="ClutterColorState*"/>
+            </parameter>
+            <parameter name="target_color_state" transfer-ownership="none">
+              <type name="ColorState" c:type="ClutterColorState*"/>
+            </parameter>
+            <parameter name="input" transfer-ownership="none">
+              <type name="gfloat" c:type="const float*"/>
+            </parameter>
+            <parameter name="output" transfer-ownership="none">
+              <type name="gfloat" c:type="float*"/>
+            </parameter>
+            <parameter name="n_samples" transfer-ownership="none">
+              <type name="gint" c:type="int"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
       <field name="equals">
         <callback name="equals">
           <source-position filename="clutter/clutter/clutter-color-state.h"
-                           line="57"/>
+                           line="63"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -17022,7 +17099,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <field name="to_string">
         <callback name="to_string">
           <source-position filename="clutter/clutter/clutter-color-state.h"
-                           line="60"/>
+                           line="66"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="char*"/>
           </return-value>
@@ -17036,7 +17113,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <field name="required_format">
         <callback name="required_format">
           <source-position filename="clutter/clutter/clutter-color-state.h"
-                           line="62"/>
+                           line="68"/>
           <return-value transfer-ownership="none">
             <type name="EncodingRequiredFormat"
                   c:type="ClutterEncodingRequiredFormat"/>
@@ -17051,24 +17128,24 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <field name="get_blending">
         <callback name="get_blending">
           <source-position filename="clutter/clutter/clutter-color-state.h"
-                           line="64"/>
+                           line="70"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="351">the #ClutterColorState suitable for blending</doc>
+                 line="371">the #ClutterColorState suitable for blending</doc>
             <type name="ColorState" c:type="ClutterColorState*"/>
           </return-value>
           <parameters>
             <parameter name="color_state" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-color-state.c"
-                   line="341">a #ClutterColorState</doc>
+                   line="361">a #ClutterColorState</doc>
               <type name="ColorState" c:type="ClutterColorState*"/>
             </parameter>
             <parameter name="force" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-color-state.c"
-                   line="342">if a linear variant should be forced</doc>
+                   line="362">if a linear variant should be forced</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
           </parameters>
@@ -17087,13 +17164,13 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <constructor name="new" c:identifier="clutter_color_state_params_new">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state-params.c"
-             line="1342">Create a new ClutterColorStateParams object.</doc>
+             line="1556">Create a new ClutterColorStateParams object.</doc>
         <source-position filename="clutter/clutter/clutter-color-state-params.h"
                          line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state-params.c"
-               line="1347">A new ClutterColorState object.</doc>
+               line="1561">A new ClutterColorState object.</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
@@ -17112,13 +17189,13 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
                    c:identifier="clutter_color_state_params_new_from_primitives">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state-params.c"
-             line="1421">Create a new ClutterColorState object using the color primitives.</doc>
+             line="1638">Create a new ClutterColorState object using the color primitives.</doc>
         <source-position filename="clutter/clutter/clutter-color-state-params.h"
                          line="121"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state-params.c"
-               line="1426">A new ClutterColorState object.</doc>
+               line="1643">A new ClutterColorState object.</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
@@ -17140,14 +17217,14 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
                    c:identifier="clutter_color_state_params_new_full">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state-params.c"
-             line="1359">Create a new ClutterColorStateParams object with all possible parameters.
+             line="1573">Create a new ClutterColorStateParams object with all possible parameters.
 Some arguments might not be valid to set with other arguments.</doc>
         <source-position filename="clutter/clutter/clutter-color-state-params.h"
                          line="111"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state-params.c"
-               line="1365">A new ClutterColorState object.</doc>
+               line="1579">A new ClutterColorState object.</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
@@ -18043,7 +18120,7 @@ removed from a #ClutterActor.</doc>
                  c:type="ClutterContentGravity">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="847">Controls the alignment of the #ClutterContent inside a #ClutterActor.</doc>
+           line="848">Controls the alignment of the #ClutterContent inside a #ClutterActor.</doc>
       <member name="top_left"
               value="0"
               c:identifier="CLUTTER_CONTENT_GRAVITY_TOP_LEFT"
@@ -18051,7 +18128,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_TOP_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="849">Align the content to the top left corner</doc>
+             line="850">Align the content to the top left corner</doc>
       </member>
       <member name="top"
               value="1"
@@ -18060,7 +18137,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_TOP">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="850">Align the content to the top edge</doc>
+             line="851">Align the content to the top edge</doc>
       </member>
       <member name="top_right"
               value="2"
@@ -18069,7 +18146,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_TOP_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="851">Align the content to the top right corner</doc>
+             line="852">Align the content to the top right corner</doc>
       </member>
       <member name="left"
               value="3"
@@ -18078,7 +18155,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="852">Align the content to the left edge</doc>
+             line="853">Align the content to the left edge</doc>
       </member>
       <member name="center"
               value="4"
@@ -18087,7 +18164,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_CENTER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="853">Align the content to the center</doc>
+             line="854">Align the content to the center</doc>
       </member>
       <member name="right"
               value="5"
@@ -18096,7 +18173,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="854">Align the content to the right edge</doc>
+             line="855">Align the content to the right edge</doc>
       </member>
       <member name="bottom_left"
               value="6"
@@ -18105,7 +18182,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_BOTTOM_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="855">Align the content to the bottom left corner</doc>
+             line="856">Align the content to the bottom left corner</doc>
       </member>
       <member name="bottom"
               value="7"
@@ -18114,7 +18191,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_BOTTOM">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="856">Align the content to the bottom edge</doc>
+             line="857">Align the content to the bottom edge</doc>
       </member>
       <member name="bottom_right"
               value="8"
@@ -18123,7 +18200,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_BOTTOM_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="857">Align the content to the bottom right corner</doc>
+             line="858">Align the content to the bottom right corner</doc>
       </member>
       <member name="resize_fill"
               value="9"
@@ -18132,7 +18209,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_RESIZE_FILL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="858">Resize the content to fill the allocation</doc>
+             line="859">Resize the content to fill the allocation</doc>
       </member>
       <member name="resize_aspect"
               value="10"
@@ -18141,7 +18218,7 @@ removed from a #ClutterActor.</doc>
               glib:name="CLUTTER_CONTENT_GRAVITY_RESIZE_ASPECT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="859">Resize the content to remain within the
+             line="860">Resize the content to remain within the
   allocation, while maintaining the aspect ratio</doc>
       </member>
     </enumeration>
@@ -18317,7 +18394,7 @@ private data.</doc>
               c:type="ClutterContentRepeat">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="930">Content repeat modes.</doc>
+           line="931">Content repeat modes.</doc>
       <member name="none"
               value="0"
               c:identifier="CLUTTER_REPEAT_NONE"
@@ -18325,7 +18402,7 @@ private data.</doc>
               glib:name="CLUTTER_REPEAT_NONE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="932">No repeat</doc>
+             line="933">No repeat</doc>
       </member>
       <member name="x_axis"
               value="1"
@@ -18334,7 +18411,7 @@ private data.</doc>
               glib:name="CLUTTER_REPEAT_X_AXIS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="933">Repeat the content on the X axis</doc>
+             line="934">Repeat the content on the X axis</doc>
       </member>
       <member name="y_axis"
               value="2"
@@ -18343,7 +18420,7 @@ private data.</doc>
               glib:name="CLUTTER_REPEAT_Y_AXIS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="934">Repeat the content on the Y axis</doc>
+             line="935">Repeat the content on the Y axis</doc>
       </member>
       <member name="both"
               value="3"
@@ -18352,7 +18429,7 @@ private data.</doc>
               glib:name="CLUTTER_REPEAT_BOTH">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="935">Repeat the content on both axis</doc>
+             line="936">Repeat the content on both axis</doc>
       </member>
     </bitfield>
     <class name="Context"
@@ -19701,7 +19778,7 @@ flag set.</doc>
                  c:type="ClutterEncodingRequiredFormat">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="947">The texture format required to store a specific encoding.</doc>
+           line="948">The texture format required to store a specific encoding.</doc>
       <member name="uint8"
               value="0"
               c:identifier="CLUTTER_ENCODING_REQUIRED_FORMAT_UINT8"
@@ -19709,7 +19786,7 @@ flag set.</doc>
               glib:name="CLUTTER_ENCODING_REQUIRED_FORMAT_UINT8">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="949">8bpc uint</doc>
+             line="950">8bpc uint</doc>
       </member>
       <member name="uint10"
               value="1"
@@ -19718,7 +19795,7 @@ flag set.</doc>
               glib:name="CLUTTER_ENCODING_REQUIRED_FORMAT_UINT10">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="950">10bpc uint</doc>
+             line="951">10bpc uint</doc>
       </member>
       <member name="fp16"
               value="2"
@@ -19727,7 +19804,7 @@ flag set.</doc>
               glib:name="CLUTTER_ENCODING_REQUIRED_FORMAT_FP16">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="951">16bpc floating point</doc>
+             line="952">16bpc floating point</doc>
       </member>
     </enumeration>
     <union name="Event"
@@ -21072,6 +21149,12 @@ this.</doc>
               glib:nick="flag-pointer-emulated"
               glib:name="CLUTTER_EVENT_FLAG_POINTER_EMULATED">
       </member>
+      <member name="flag_a11y_modifier_first_click"
+              value="64"
+              c:identifier="CLUTTER_EVENT_FLAG_A11Y_MODIFIER_FIRST_CLICK"
+              glib:nick="flag-a11y-modifier-first-click"
+              glib:name="CLUTTER_EVENT_FLAG_A11Y_MODIFIER_FIRST_CLICK">
+      </member>
     </bitfield>
     <enumeration name="EventPhase"
                  glib:type-name="ClutterEventPhase"
@@ -21120,7 +21203,7 @@ type used to denote the event sequence of a touch event.</doc>
                  c:type="ClutterEventType">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="511">Types of events.</doc>
+           line="512">Types of events.</doc>
       <member name="nothing"
               value="0"
               c:identifier="CLUTTER_NOTHING"
@@ -21128,7 +21211,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_NOTHING">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="513">Empty event</doc>
+             line="514">Empty event</doc>
       </member>
       <member name="key_press"
               value="1"
@@ -21137,7 +21220,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_KEY_PRESS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="514">Key press event</doc>
+             line="515">Key press event</doc>
       </member>
       <member name="key_release"
               value="2"
@@ -21146,7 +21229,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_KEY_RELEASE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="515">Key release event</doc>
+             line="516">Key release event</doc>
       </member>
       <member name="motion"
               value="3"
@@ -21155,7 +21238,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_MOTION">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="516">Pointer motion event</doc>
+             line="517">Pointer motion event</doc>
       </member>
       <member name="enter"
               value="4"
@@ -21164,7 +21247,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_ENTER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="517">Actor enter event</doc>
+             line="518">Actor enter event</doc>
       </member>
       <member name="leave"
               value="5"
@@ -21173,7 +21256,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_LEAVE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="518">Actor leave event</doc>
+             line="519">Actor leave event</doc>
       </member>
       <member name="button_press"
               value="6"
@@ -21182,7 +21265,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_BUTTON_PRESS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="519">Pointer button press event</doc>
+             line="520">Pointer button press event</doc>
       </member>
       <member name="button_release"
               value="7"
@@ -21191,7 +21274,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_BUTTON_RELEASE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="520">Pointer button release event</doc>
+             line="521">Pointer button release event</doc>
       </member>
       <member name="scroll"
               value="8"
@@ -21200,7 +21283,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_SCROLL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="521">Pointer scroll event</doc>
+             line="522">Pointer scroll event</doc>
       </member>
       <member name="touch_begin"
               value="9"
@@ -21209,7 +21292,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCH_BEGIN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="522">A new touch event sequence has started;</doc>
+             line="523">A new touch event sequence has started;</doc>
       </member>
       <member name="touch_update"
               value="10"
@@ -21218,7 +21301,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCH_UPDATE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="523">A touch event sequence has been updated;</doc>
+             line="524">A touch event sequence has been updated;</doc>
       </member>
       <member name="touch_end"
               value="11"
@@ -21227,7 +21310,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCH_END">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="524">A touch event sequence has finished;</doc>
+             line="525">A touch event sequence has finished;</doc>
       </member>
       <member name="touch_cancel"
               value="12"
@@ -21236,7 +21319,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCH_CANCEL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="525">A touch event sequence has been canceled;</doc>
+             line="526">A touch event sequence has been canceled;</doc>
       </member>
       <member name="touchpad_pinch"
               value="13"
@@ -21245,7 +21328,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCHPAD_PINCH">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="526">A pinch gesture event, the current state is
+             line="527">A pinch gesture event, the current state is
   determined by its phase field;</doc>
       </member>
       <member name="touchpad_swipe"
@@ -21255,7 +21338,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCHPAD_SWIPE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="528">A swipe gesture event, the current state is
+             line="529">A swipe gesture event, the current state is
   determined by its phase field;</doc>
       </member>
       <member name="touchpad_hold"
@@ -21265,7 +21348,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_TOUCHPAD_HOLD">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="530">A hold gesture event, the current state is
+             line="531">A hold gesture event, the current state is
   determined by its phase field. A hold gesture starts when the user places a
   finger on the touchpad and ends when all fingers are lifted. It is
   cancelled when the finger(s) move past a certain threshold.</doc>
@@ -21277,7 +21360,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_PROXIMITY_IN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="534">A tool entered in proximity to a tablet;</doc>
+             line="535">A tool entered in proximity to a tablet;</doc>
       </member>
       <member name="proximity_out"
               value="17"
@@ -21286,7 +21369,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_PROXIMITY_OUT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="535">A tool left from the proximity area of a tablet;</doc>
+             line="536">A tool left from the proximity area of a tablet;</doc>
       </member>
       <member name="pad_button_press"
               value="18"
@@ -21349,7 +21432,7 @@ type used to denote the event sequence of a touch event.</doc>
               glib:name="CLUTTER_EVENT_LAST">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="536">Marks the end of the #ClutterEventType enumeration;</doc>
+             line="537">Marks the end of the #ClutterEventType enumeration;</doc>
       </member>
     </enumeration>
     <class name="FixedLayout"
@@ -22330,11 +22413,17 @@ on a grid</doc>
       </member>
     </enumeration>
     <record name="FrameInfo" c:type="ClutterFrameInfo" introspectable="0">
-      <source-position filename="clutter/clutter/clutter-stage.h" line="134"/>
-      <field name="frame_counter" writable="1">
+      <source-position filename="clutter/clutter/clutter-stage.h" line="136"/>
+      <field name="global_frame_counter" writable="1">
+        <type name="gint64" c:type="int64_t"/>
+      </field>
+      <field name="view_frame_counter" writable="1">
         <type name="gint64" c:type="int64_t"/>
       </field>
       <field name="presentation_time" writable="1">
+        <type name="gint64" c:type="int64_t"/>
+      </field>
+      <field name="target_presentation_time" writable="1">
         <type name="gint64" c:type="int64_t"/>
       </field>
       <field name="refresh_rate" writable="1">
@@ -24397,7 +24486,7 @@ private data.</doc>
                  c:type="ClutterGestureTriggerEdge">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="981">Enum passed to the [method@GestureAction.set_threshold_trigger_edge]
+           line="982">Enum passed to the [method@GestureAction.set_threshold_trigger_edge]
 function.</doc>
       <member name="none"
               value="0"
@@ -24406,7 +24495,7 @@ function.</doc>
               glib:name="CLUTTER_GESTURE_TRIGGER_EDGE_NONE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="983">Tell #ClutterGestureAction that
+             line="984">Tell #ClutterGestureAction that
 the gesture must begin immediately and there's no drag limit that
 will cause its cancellation;</doc>
       </member>
@@ -24417,7 +24506,7 @@ will cause its cancellation;</doc>
               glib:name="CLUTTER_GESTURE_TRIGGER_EDGE_AFTER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="986">Tell #ClutterGestureAction that
+             line="987">Tell #ClutterGestureAction that
 it needs to wait until the drag threshold has been exceeded before
 considering that the gesture has begun;</doc>
       </member>
@@ -24428,7 +24517,7 @@ considering that the gesture has begun;</doc>
               glib:name="CLUTTER_GESTURE_TRIGGER_EDGE_BEFORE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="989">Tell #ClutterGestureAction that
+             line="990">Tell #ClutterGestureAction that
 the gesture must begin immediately and that it must be cancelled
 once the drag exceed the configured threshold.</doc>
       </member>
@@ -25168,7 +25257,7 @@ any effect on children that are already part of the layout.</doc>
                  c:type="ClutterGridPosition">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="913">Grid position modes.</doc>
+           line="914">Grid position modes.</doc>
       <member name="left"
               value="0"
               c:identifier="CLUTTER_GRID_POSITION_LEFT"
@@ -25176,7 +25265,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_GRID_POSITION_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="915">left position</doc>
+             line="916">left position</doc>
       </member>
       <member name="right"
               value="1"
@@ -25185,7 +25274,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_GRID_POSITION_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="916">right position</doc>
+             line="917">right position</doc>
       </member>
       <member name="top"
               value="2"
@@ -25194,7 +25283,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_GRID_POSITION_TOP">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="917">top position</doc>
+             line="918">top position</doc>
       </member>
       <member name="bottom"
               value="3"
@@ -25203,7 +25292,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_GRID_POSITION_BOTTOM">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="918">bottom position</doc>
+             line="919">bottom position</doc>
       </member>
     </enumeration>
     <record name="IMEvent" c:type="ClutterIMEvent" disguised="1" opaque="1">
@@ -25412,7 +25501,7 @@ any effect on children that are already part of the layout.</doc>
                  c:type="ClutterInputAxis">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="674">The type of axes Clutter recognizes on a #ClutterInputDevice</doc>
+           line="675">The type of axes Clutter recognizes on a #ClutterInputDevice</doc>
       <member name="ignore"
               value="0"
               c:identifier="CLUTTER_INPUT_AXIS_IGNORE"
@@ -25420,7 +25509,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_IGNORE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="676">Unused axis</doc>
+             line="677">Unused axis</doc>
       </member>
       <member name="x"
               value="1"
@@ -25429,7 +25518,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_X">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="677">The position on the X axis</doc>
+             line="678">The position on the X axis</doc>
       </member>
       <member name="y"
               value="2"
@@ -25438,7 +25527,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_Y">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="678">The position of the Y axis</doc>
+             line="679">The position of the Y axis</doc>
       </member>
       <member name="pressure"
               value="3"
@@ -25447,7 +25536,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_PRESSURE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="679">The pressure information</doc>
+             line="680">The pressure information</doc>
       </member>
       <member name="xtilt"
               value="4"
@@ -25456,7 +25545,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_XTILT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="680">The tilt on the X axis</doc>
+             line="681">The tilt on the X axis</doc>
       </member>
       <member name="ytilt"
               value="5"
@@ -25465,7 +25554,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_YTILT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="681">The tile on the Y axis</doc>
+             line="682">The tile on the Y axis</doc>
       </member>
       <member name="wheel"
               value="6"
@@ -25474,7 +25563,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_WHEEL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="682">A wheel</doc>
+             line="683">A wheel</doc>
       </member>
       <member name="distance"
               value="7"
@@ -25483,7 +25572,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_DISTANCE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="683">Distance (Since 1.12)</doc>
+             line="684">Distance (Since 1.12)</doc>
       </member>
       <member name="rotation"
               value="8"
@@ -25492,7 +25581,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_ROTATION">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="684">Rotation along the z-axis (Since 1.28)</doc>
+             line="685">Rotation along the z-axis (Since 1.28)</doc>
       </member>
       <member name="slider"
               value="9"
@@ -25501,7 +25590,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_SLIDER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="685">A slider (Since 1.28)</doc>
+             line="686">A slider (Since 1.28)</doc>
       </member>
       <member name="last"
               value="10"
@@ -25510,7 +25599,7 @@ any effect on children that are already part of the layout.</doc>
               glib:name="CLUTTER_INPUT_AXIS_LAST">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="686">Last value of the enumeration; this value is
+             line="687">Last value of the enumeration; this value is
   useful when iterating over the enumeration values (Since 1.12)</doc>
       </member>
     </enumeration>
@@ -26718,7 +26807,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
                  c:type="ClutterInputDeviceToolType">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="1080">Defines the type of tool that a #ClutterInputDeviceTool represents.8</doc>
+           line="1081">Defines the type of tool that a #ClutterInputDeviceTool represents.8</doc>
       <member name="none"
               value="0"
               c:identifier="CLUTTER_INPUT_DEVICE_TOOL_NONE"
@@ -26726,7 +26815,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_NONE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1082">No tool</doc>
+             line="1083">No tool</doc>
       </member>
       <member name="pen"
               value="1"
@@ -26735,7 +26824,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_PEN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1083">The tool is a pen</doc>
+             line="1084">The tool is a pen</doc>
       </member>
       <member name="eraser"
               value="2"
@@ -26744,7 +26833,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_ERASER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1084">The tool is an eraser</doc>
+             line="1085">The tool is an eraser</doc>
       </member>
       <member name="brush"
               value="3"
@@ -26753,7 +26842,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_BRUSH">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1085">The tool is a brush</doc>
+             line="1086">The tool is a brush</doc>
       </member>
       <member name="pencil"
               value="4"
@@ -26762,7 +26851,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_PENCIL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1086">The tool is a pencil</doc>
+             line="1087">The tool is a pencil</doc>
       </member>
       <member name="airbrush"
               value="5"
@@ -26771,7 +26860,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_AIRBRUSH">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1087">The tool is an airbrush</doc>
+             line="1088">The tool is an airbrush</doc>
       </member>
       <member name="mouse"
               value="6"
@@ -26780,7 +26869,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_MOUSE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1088">The tool is a mouse</doc>
+             line="1089">The tool is a mouse</doc>
       </member>
       <member name="lens"
               value="7"
@@ -26789,7 +26878,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
               glib:name="CLUTTER_INPUT_DEVICE_TOOL_LENS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1089">The tool is a lens</doc>
+             line="1090">The tool is a lens</doc>
       </member>
     </enumeration>
     <enumeration name="InputDeviceType"
@@ -26798,7 +26887,7 @@ physical tool (eg. a tablet pen) across program executions.</doc>
                  c:type="ClutterInputDeviceType">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="620">The types of input devices available.
+           line="621">The types of input devices available.
 
 The #ClutterInputDeviceType enumeration can be extended at later
 date; not every platform supports every input device type.</doc>
@@ -26809,7 +26898,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_POINTER_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="622">A pointer device</doc>
+             line="623">A pointer device</doc>
       </member>
       <member name="keyboard_device"
               value="1"
@@ -26818,7 +26907,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_KEYBOARD_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="623">A keyboard device</doc>
+             line="624">A keyboard device</doc>
       </member>
       <member name="extension_device"
               value="2"
@@ -26827,7 +26916,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_EXTENSION_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="624">A generic extension device</doc>
+             line="625">A generic extension device</doc>
       </member>
       <member name="joystick_device"
               value="3"
@@ -26836,7 +26925,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_JOYSTICK_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="625">A joystick device</doc>
+             line="626">A joystick device</doc>
       </member>
       <member name="tablet_device"
               value="4"
@@ -26845,7 +26934,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_TABLET_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="626">A tablet device</doc>
+             line="627">A tablet device</doc>
       </member>
       <member name="touchpad_device"
               value="5"
@@ -26854,7 +26943,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_TOUCHPAD_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="627">A touchpad device</doc>
+             line="628">A touchpad device</doc>
       </member>
       <member name="touchscreen_device"
               value="6"
@@ -26863,7 +26952,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_TOUCHSCREEN_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="628">A touch screen device</doc>
+             line="629">A touch screen device</doc>
       </member>
       <member name="pen_device"
               value="7"
@@ -26872,7 +26961,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_PEN_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="629">A pen device</doc>
+             line="630">A pen device</doc>
       </member>
       <member name="eraser_device"
               value="8"
@@ -26881,7 +26970,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_ERASER_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="630">An eraser device</doc>
+             line="631">An eraser device</doc>
       </member>
       <member name="cursor_device"
               value="9"
@@ -26890,7 +26979,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_CURSOR_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="631">A cursor device</doc>
+             line="632">A cursor device</doc>
       </member>
       <member name="pad_device"
               value="10"
@@ -26899,7 +26988,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_PAD_DEVICE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="632">A tablet pad</doc>
+             line="633">A tablet pad</doc>
       </member>
       <member name="n_device_types"
               value="11"
@@ -26908,7 +26997,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_N_DEVICE_TYPES">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="633">The number of device types</doc>
+             line="634">The number of device types</doc>
       </member>
     </enumeration>
     <class name="InputFocus"
@@ -27827,7 +27916,7 @@ date; not every platform supports every input device type.</doc>
                  c:type="ClutterInputMode">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="657">The mode for input devices available.</doc>
+           line="658">The mode for input devices available.</doc>
       <member name="logical"
               value="0"
               c:identifier="CLUTTER_INPUT_MODE_LOGICAL"
@@ -27835,7 +27924,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_INPUT_MODE_LOGICAL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="659">A logical, virtual device</doc>
+             line="660">A logical, virtual device</doc>
       </member>
       <member name="physical"
               value="1"
@@ -27844,7 +27933,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_INPUT_MODE_PHYSICAL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="660">A physical device, attached to
+             line="661">A physical device, attached to
   a logical device</doc>
       </member>
       <member name="floating"
@@ -27854,7 +27943,7 @@ date; not every platform supports every input device type.</doc>
               glib:name="CLUTTER_INPUT_MODE_FLOATING">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="662">A physical device, not attached
+             line="663">A physical device, not attached
   to a logical device</doc>
       </member>
     </enumeration>
@@ -46988,7 +47077,7 @@ effect subclass wants to paint using its own pipeline.</doc>
                  c:type="ClutterOrientation">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="900">Represents the orientation of actors or layout managers.</doc>
+           line="901">Represents the orientation of actors or layout managers.</doc>
       <member name="horizontal"
               value="0"
               c:identifier="CLUTTER_ORIENTATION_HORIZONTAL"
@@ -46996,7 +47085,7 @@ effect subclass wants to paint using its own pipeline.</doc>
               glib:name="CLUTTER_ORIENTATION_HORIZONTAL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="902">An horizontal orientation</doc>
+             line="903">An horizontal orientation</doc>
       </member>
       <member name="vertical"
               value="1"
@@ -47005,7 +47094,7 @@ effect subclass wants to paint using its own pipeline.</doc>
               glib:name="CLUTTER_ORIENTATION_VERTICAL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="903">A vertical orientation</doc>
+             line="904">A vertical orientation</doc>
       </member>
     </enumeration>
     <function-macro name="PAINT_NODE"
@@ -49081,7 +49170,7 @@ only private data.</doc>
                  c:type="ClutterPanAxis">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="771">The axis of the constraint that should be applied on the
+           line="772">The axis of the constraint that should be applied on the
 panning action</doc>
       <member name="axis_none"
               value="0"
@@ -49090,7 +49179,7 @@ panning action</doc>
               glib:name="CLUTTER_PAN_AXIS_NONE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="773">No constraint</doc>
+             line="774">No constraint</doc>
       </member>
       <member name="x_axis"
               value="1"
@@ -49099,7 +49188,7 @@ panning action</doc>
               glib:name="CLUTTER_PAN_X_AXIS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="774">Set a constraint on the X axis</doc>
+             line="775">Set a constraint on the X axis</doc>
       </member>
       <member name="y_axis"
               value="2"
@@ -49108,7 +49197,7 @@ panning action</doc>
               glib:name="CLUTTER_PAN_Y_AXIS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="775">Set a constraint on the Y axis</doc>
+             line="776">Set a constraint on the Y axis</doc>
       </member>
       <member name="axis_auto"
               value="3"
@@ -49117,7 +49206,7 @@ panning action</doc>
               glib:name="CLUTTER_PAN_AXIS_AUTO">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="776">Constrain panning automatically based on initial
+             line="777">Constrain panning automatically based on initial
   movement (available since 1.24)</doc>
       </member>
     </enumeration>
@@ -49409,7 +49498,7 @@ call first.</doc>
                  c:type="ClutterPickMode">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="739">Controls the paint cycle of the scene graph when in pick mode</doc>
+           line="740">Controls the paint cycle of the scene graph when in pick mode</doc>
       <member name="none"
               value="0"
               c:identifier="CLUTTER_PICK_NONE"
@@ -49417,7 +49506,7 @@ call first.</doc>
               glib:name="CLUTTER_PICK_NONE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="741">Do not paint any actor</doc>
+             line="742">Do not paint any actor</doc>
       </member>
       <member name="reactive"
               value="1"
@@ -49426,7 +49515,7 @@ call first.</doc>
               glib:name="CLUTTER_PICK_REACTIVE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="742">Paint only the reactive actors</doc>
+             line="743">Paint only the reactive actors</doc>
       </member>
       <member name="all"
               value="2"
@@ -49435,7 +49524,7 @@ call first.</doc>
               glib:name="CLUTTER_PICK_ALL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="743">Paint all actors</doc>
+             line="744">Paint all actors</doc>
       </member>
     </enumeration>
     <class name="PipelineCache"
@@ -50101,7 +50190,7 @@ contains private data.</doc>
               c:type="ClutterRepaintFlags">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="832">Flags to pass to [func@Clutter.threads_add_repaint_func].</doc>
+           line="833">Flags to pass to [func@Clutter.threads_add_repaint_func].</doc>
       <member name="pre_paint"
               value="1"
               c:identifier="CLUTTER_REPAINT_FLAGS_PRE_PAINT"
@@ -50109,7 +50198,7 @@ contains private data.</doc>
               glib:name="CLUTTER_REPAINT_FLAGS_PRE_PAINT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="834">Run the repaint function prior to
+             line="835">Run the repaint function prior to
   painting the stages</doc>
       </member>
       <member name="post_paint"
@@ -50119,7 +50208,7 @@ contains private data.</doc>
               glib:name="CLUTTER_REPAINT_FLAGS_POST_PAINT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="836">Run the repaint function after
+             line="837">Run the repaint function after
   painting the stages</doc>
       </member>
     </bitfield>
@@ -50314,7 +50403,7 @@ only private data.</doc>
                  c:type="ClutterScalingFilter">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="882">The scaling filters to be used with the [property@Actor:minification-filter]
+           line="883">The scaling filters to be used with the [property@Actor:minification-filter]
 and [property@Actor:magnification-filter] properties.</doc>
       <member name="linear"
               value="0"
@@ -50323,7 +50412,7 @@ and [property@Actor:magnification-filter] properties.</doc>
               glib:name="CLUTTER_SCALING_FILTER_LINEAR">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="884">Linear interpolation filter</doc>
+             line="885">Linear interpolation filter</doc>
       </member>
       <member name="nearest"
               value="1"
@@ -50332,7 +50421,7 @@ and [property@Actor:magnification-filter] properties.</doc>
               glib:name="CLUTTER_SCALING_FILTER_NEAREST">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="885">Nearest neighbor interpolation filter</doc>
+             line="886">Nearest neighbor interpolation filter</doc>
       </member>
       <member name="trilinear"
               value="2"
@@ -50341,7 +50430,7 @@ and [property@Actor:magnification-filter] properties.</doc>
               glib:name="CLUTTER_SCALING_FILTER_TRILINEAR">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="886">Trilinear minification filter, with
+             line="887">Trilinear minification filter, with
   mipmap generation; this filter linearly interpolates on every axis,
   as well as between mipmap levels.</doc>
       </member>
@@ -50358,7 +50447,7 @@ and [property@Actor:magnification-filter] properties.</doc>
                  c:type="ClutterScrollDirection">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="573">Direction of a pointer scroll event.
+           line="574">Direction of a pointer scroll event.
 
 The %CLUTTER_SCROLL_SMOOTH value implies that the #ClutterScrollEvent
 has precise scrolling delta information.</doc>
@@ -50369,7 +50458,7 @@ has precise scrolling delta information.</doc>
               glib:name="CLUTTER_SCROLL_UP">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="575">Scroll up</doc>
+             line="576">Scroll up</doc>
       </member>
       <member name="down"
               value="1"
@@ -50378,7 +50467,7 @@ has precise scrolling delta information.</doc>
               glib:name="CLUTTER_SCROLL_DOWN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="576">Scroll down</doc>
+             line="577">Scroll down</doc>
       </member>
       <member name="left"
               value="2"
@@ -50387,7 +50476,7 @@ has precise scrolling delta information.</doc>
               glib:name="CLUTTER_SCROLL_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="577">Scroll left</doc>
+             line="578">Scroll left</doc>
       </member>
       <member name="right"
               value="3"
@@ -50396,7 +50485,7 @@ has precise scrolling delta information.</doc>
               glib:name="CLUTTER_SCROLL_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="578">Scroll right</doc>
+             line="579">Scroll right</doc>
       </member>
       <member name="smooth"
               value="4"
@@ -50405,7 +50494,7 @@ has precise scrolling delta information.</doc>
               glib:name="CLUTTER_SCROLL_SMOOTH">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="579">Precise scrolling delta (available in 1.10)</doc>
+             line="580">Precise scrolling delta (available in 1.10)</doc>
       </member>
     </enumeration>
     <record name="ScrollEvent"
@@ -50420,7 +50509,7 @@ has precise scrolling delta information.</doc>
               c:type="ClutterScrollFinishFlags">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="1063">Flags used to notify the axes that were stopped in a #ClutterScrollEvent.
+           line="1064">Flags used to notify the axes that were stopped in a #ClutterScrollEvent.
 
 These can be used to trigger post-scroll effects like kinetic scrolling.6</doc>
       <member name="none"
@@ -50430,7 +50519,7 @@ These can be used to trigger post-scroll effects like kinetic scrolling.6</doc>
               glib:name="CLUTTER_SCROLL_FINISHED_NONE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1065">no axis was stopped.</doc>
+             line="1066">no axis was stopped.</doc>
       </member>
       <member name="horizontal"
               value="1"
@@ -50439,7 +50528,7 @@ These can be used to trigger post-scroll effects like kinetic scrolling.6</doc>
               glib:name="CLUTTER_SCROLL_FINISHED_HORIZONTAL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1066">The horizontal axis stopped.</doc>
+             line="1067">The horizontal axis stopped.</doc>
       </member>
       <member name="vertical"
               value="2"
@@ -50448,7 +50537,7 @@ These can be used to trigger post-scroll effects like kinetic scrolling.6</doc>
               glib:name="CLUTTER_SCROLL_FINISHED_VERTICAL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1067">The vertical axis stopped.</doc>
+             line="1068">The vertical axis stopped.</doc>
       </member>
     </bitfield>
     <enumeration name="ScrollSource"
@@ -50457,7 +50546,7 @@ These can be used to trigger post-scroll effects like kinetic scrolling.6</doc>
                  c:type="ClutterScrollSource">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="1041">The scroll source determines the source of the scroll event.
+           line="1042">The scroll source determines the source of the scroll event.
 
 Keep in mind that the source device #ClutterInputDeviceType is not enough
 to infer the scroll source.6</doc>
@@ -50468,7 +50557,7 @@ to infer the scroll source.6</doc>
               glib:name="CLUTTER_SCROLL_SOURCE_UNKNOWN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1043">Source of scroll events is unknown.</doc>
+             line="1044">Source of scroll events is unknown.</doc>
       </member>
       <member name="wheel"
               value="1"
@@ -50477,7 +50566,7 @@ to infer the scroll source.6</doc>
               glib:name="CLUTTER_SCROLL_SOURCE_WHEEL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1044">The scroll event is originated by a mouse wheel.</doc>
+             line="1045">The scroll event is originated by a mouse wheel.</doc>
       </member>
       <member name="finger"
               value="2"
@@ -50486,7 +50575,7 @@ to infer the scroll source.6</doc>
               glib:name="CLUTTER_SCROLL_SOURCE_FINGER">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1045">The scroll event is originated by one or more
+             line="1046">The scroll event is originated by one or more
   fingers on the device (eg. touchpads).</doc>
       </member>
       <member name="continuous"
@@ -50496,7 +50585,7 @@ to infer the scroll source.6</doc>
               glib:name="CLUTTER_SCROLL_SOURCE_CONTINUOUS">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1047">The scroll event is originated by the
+             line="1048">The scroll event is originated by the
   motion of some device (eg. a scroll button is set).</doc>
       </member>
     </enumeration>
@@ -52530,7 +52619,7 @@ and [property@SnapConstraint:to-edge]</doc>
                  c:type="ClutterSnapEdge">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="722">The edge to snap</doc>
+           line="723">The edge to snap</doc>
       <member name="top"
               value="0"
               c:identifier="CLUTTER_SNAP_EDGE_TOP"
@@ -52538,7 +52627,7 @@ and [property@SnapConstraint:to-edge]</doc>
               glib:name="CLUTTER_SNAP_EDGE_TOP">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="724">the top edge</doc>
+             line="725">the top edge</doc>
       </member>
       <member name="right"
               value="1"
@@ -52547,7 +52636,7 @@ and [property@SnapConstraint:to-edge]</doc>
               glib:name="CLUTTER_SNAP_EDGE_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="725">the right edge</doc>
+             line="726">the right edge</doc>
       </member>
       <member name="bottom"
               value="2"
@@ -52556,7 +52645,7 @@ and [property@SnapConstraint:to-edge]</doc>
               glib:name="CLUTTER_SNAP_EDGE_BOTTOM">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="726">the bottom edge</doc>
+             line="727">the bottom edge</doc>
       </member>
       <member name="left"
               value="3"
@@ -52565,7 +52654,7 @@ and [property@SnapConstraint:to-edge]</doc>
               glib:name="CLUTTER_SNAP_EDGE_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="727">the left edge</doc>
+             line="728">the left edge</doc>
       </member>
     </enumeration>
     <class name="Stage"
@@ -52656,7 +52745,7 @@ This function should not be called by applications; it is used
 when embedding a #ClutterStage into a toolkit with another
 windowing system, like GTK+.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="166"/>
+                         line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52683,7 +52772,7 @@ the scene, and even if nothing has been drawn.
 By using @pick_mode it is possible to control which actors will be
 painted and thus available.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="154"/>
+                         line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52726,7 +52815,7 @@ painted and thus available.</doc>
 [method@Stage.paint_to_buffer] or [method@Stage.paint_to_framebuffer]
 would be used with the same @rect.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="175"/>
+                         line="177"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52788,7 +52877,7 @@ would be used with the same @rect.</doc>
              line="3135">Retrieves the [class@Clutter.Actor] underneath the pointer or touch point
 of @device and @sequence.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="211"/>
+                         line="213"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52832,7 +52921,7 @@ The actor is looked up at the time of calling this function,
 and may differ from the actor that the stage originally
 delivered the event to.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="215"/>
+                         line="217"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52860,7 +52949,7 @@ delivered the event to.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="4140">Gets the actor that currently holds a grab.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="227"/>
+                         line="229"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52883,7 +52972,7 @@ delivered the event to.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="2172">Retrieves the actor that is currently under key focus.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="151"/>
+                         line="153"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52906,7 +52995,7 @@ delivered the event to.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="1779">Retrieves the stage perspective.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="140"/>
+                         line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52935,7 +53024,7 @@ delivered the event to.</doc>
               c:identifier="clutter_stage_get_view_at"
               introspectable="0">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="206"/>
+                         line="208"/>
         <return-value>
           <type name="StageView" c:type="ClutterStageView*"/>
         </return-value>
@@ -52957,7 +53046,7 @@ delivered the event to.</doc>
              line="3975">Grabs input onto a certain actor. Events will be propagated as
 usual inside its hierarchy.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="219"/>
+                         line="221"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -52986,7 +53075,7 @@ usual inside its hierarchy.</doc>
              line="3998">Creates an inactive grab. The grab will become effective
 after [method@Grab.activate].</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="223"/>
+                         line="225"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -53039,7 +53128,7 @@ toolkit, and it should never be called by applications.</doc>
       </method>
       <method name="is_active" c:identifier="clutter_stage_is_active">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="253"/>
+                         line="255"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -53053,7 +53142,7 @@ toolkit, and it should never be called by applications.</doc>
               c:identifier="clutter_stage_is_redraw_queued_on_view"
               introspectable="0">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="169"/>
+                         line="171"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -53073,7 +53162,7 @@ toolkit, and it should never be called by applications.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="2750">Take a snapshot of the stage to a provided buffer.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="189"/>
+                         line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -53134,7 +53223,7 @@ toolkit, and it should never be called by applications.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="2827">Take a snapshot of the stage to a #ClutterContent.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="199"/>
+                         line="201"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -53171,7 +53260,7 @@ toolkit, and it should never be called by applications.</doc>
       <method name="paint_to_framebuffer"
               c:identifier="clutter_stage_paint_to_framebuffer">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="182"/>
+                         line="184"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -53199,7 +53288,7 @@ toolkit, and it should never be called by applications.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="4617">Iterates over active input.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="248"/>
+                         line="250"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -53243,7 +53332,7 @@ linear buffer with @width * 4 as rowstride.
 The alpha data contained in the returned buffer is driver-dependent,
 and not guaranteed to hold any sensible value.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="159"/>
+                         line="161"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
@@ -53295,7 +53384,7 @@ and not guaranteed to hold any sensible value.</doc>
              filename="clutter/clutter/clutter-stage.c"
              line="2525">Schedules a redraw of the #ClutterStage at the next optimal timestamp.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="172"/>
+                         line="174"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -53310,7 +53399,7 @@ and not guaranteed to hold any sensible value.</doc>
       </method>
       <method name="set_active" c:identifier="clutter_stage_set_active">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="256"/>
+                         line="258"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -53332,7 +53421,7 @@ and not guaranteed to hold any sensible value.</doc>
 all the key events. If @actor is %NULL, the stage will receive
 focus.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="148"/>
+                         line="150"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -53357,7 +53446,7 @@ focus.</doc>
       <method name="set_minimum_size"
               c:identifier="clutter_stage_set_minimum_size">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="144"/>
+                         line="146"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -53684,33 +53773,33 @@ was posted and the paint was skipped.</doc>
               c:type="ClutterStageInputForeachFunc">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-stage.h"
-           line="229">Iterator function for active input. Active input counts as any pointing
+           line="231">Iterator function for active input. Active input counts as any pointing
 device currently known to have some form of activity on the stage: Pointers
 leaning on a widget, tablet styli in proximity, active touchpoints...</doc>
-      <source-position filename="clutter/clutter/clutter-stage.h" line="242"/>
+      <source-position filename="clutter/clutter/clutter-stage.h" line="244"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.h"
-             line="240">%TRUE to keep iterating. %FALSE to stop.</doc>
+             line="242">%TRUE to keep iterating. %FALSE to stop.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="stage" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="231">the stage</doc>
+               line="233">the stage</doc>
           <type name="Stage" c:type="ClutterStage*"/>
         </parameter>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="232">Active input device</doc>
+               line="234">Active input device</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </parameter>
         <parameter name="sequence" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="233">Active sequence in @device, or %NULL</doc>
+               line="235">Active sequence in @device, or %NULL</doc>
           <type name="EventSequence" c:type="ClutterEventSequence*"/>
         </parameter>
         <parameter name="user_data"
@@ -53720,7 +53809,7 @@ leaning on a widget, tablet styli in proximity, active touchpoints...</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="234">Data passed to clutter_stage_active_input_foreach()</doc>
+               line="236">Data passed to clutter_stage_active_input_foreach()</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -54145,7 +54234,7 @@ leaning on a widget, tablet styli in proximity, active touchpoints...</doc>
                  c:type="ClutterStepMode">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="962">Change the value transition of a step function.
+           line="963">Change the value transition of a step function.
 
 See clutter_timeline_set_step_progress().</doc>
       <member name="start"
@@ -54155,7 +54244,7 @@ See clutter_timeline_set_step_progress().</doc>
               glib:name="CLUTTER_STEP_MODE_START">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="964">The change in the value of a
+             line="965">The change in the value of a
   %CLUTTER_STEP progress mode should occur at the start of
   the transition</doc>
       </member>
@@ -54166,7 +54255,7 @@ See clutter_timeline_set_step_progress().</doc>
               glib:name="CLUTTER_STEP_MODE_END">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="967">The change in the value of a
+             line="968">The change in the value of a
   %CLUTTER_STEP progress mode should occur at the end of
   the transition</doc>
       </member>
@@ -54293,7 +54382,7 @@ only private data.</doc>
               c:type="ClutterSwipeDirection">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="754">The main direction of the swipe gesture</doc>
+           line="755">The main direction of the swipe gesture</doc>
       <member name="up"
               value="1"
               c:identifier="CLUTTER_SWIPE_DIRECTION_UP"
@@ -54301,7 +54390,7 @@ only private data.</doc>
               glib:name="CLUTTER_SWIPE_DIRECTION_UP">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="756">Upwards swipe gesture</doc>
+             line="757">Upwards swipe gesture</doc>
       </member>
       <member name="down"
               value="2"
@@ -54310,7 +54399,7 @@ only private data.</doc>
               glib:name="CLUTTER_SWIPE_DIRECTION_DOWN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="757">Downwards swipe gesture</doc>
+             line="758">Downwards swipe gesture</doc>
       </member>
       <member name="left"
               value="4"
@@ -54319,7 +54408,7 @@ only private data.</doc>
               glib:name="CLUTTER_SWIPE_DIRECTION_LEFT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="758">Leftwards swipe gesture</doc>
+             line="759">Leftwards swipe gesture</doc>
       </member>
       <member name="right"
               value="8"
@@ -54328,7 +54417,7 @@ only private data.</doc>
               glib:name="CLUTTER_SWIPE_DIRECTION_RIGHT">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="759">Rightwards swipe gesture</doc>
+             line="760">Rightwards swipe gesture</doc>
       </member>
     </bitfield>
     <function-macro name="TEXTURE_NODE"
@@ -60002,7 +60091,7 @@ this signal will never be emitted.</doc>
                  c:type="ClutterTimelineDirection">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="792">The direction of a #ClutterTimeline</doc>
+           line="793">The direction of a #ClutterTimeline</doc>
       <member name="forward"
               value="0"
               c:identifier="CLUTTER_TIMELINE_FORWARD"
@@ -60010,7 +60099,7 @@ this signal will never be emitted.</doc>
               glib:name="CLUTTER_TIMELINE_FORWARD">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="794">forward direction for a timeline</doc>
+             line="795">forward direction for a timeline</doc>
       </member>
       <member name="backward"
               value="1"
@@ -60019,7 +60108,7 @@ this signal will never be emitted.</doc>
               glib:name="CLUTTER_TIMELINE_BACKWARD">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="795">backward direction for a timeline</doc>
+             line="796">backward direction for a timeline</doc>
       </member>
     </enumeration>
     <callback name="TimelineProgressFunc" c:type="ClutterTimelineProgressFunc">
@@ -60077,7 +60166,7 @@ this signal will never be emitted.</doc>
                  c:type="ClutterTouchpadGesturePhase">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-enums.h"
-           line="1003">The phase of a touchpad gesture event.
+           line="1004">The phase of a touchpad gesture event.
 
 All gestures are guaranteed to begin with an event of type
 %CLUTTER_TOUCHPAD_GESTURE_PHASE_BEGIN, followed by a number
@@ -60104,7 +60193,7 @@ See also #ClutterTouchpadPinchEvent and #ClutterTouchpadPinchEvent.4</doc>
               glib:name="CLUTTER_TOUCHPAD_GESTURE_PHASE_BEGIN">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1005">The gesture has begun.</doc>
+             line="1006">The gesture has begun.</doc>
       </member>
       <member name="update"
               value="1"
@@ -60113,7 +60202,7 @@ See also #ClutterTouchpadPinchEvent and #ClutterTouchpadPinchEvent.4</doc>
               glib:name="CLUTTER_TOUCHPAD_GESTURE_PHASE_UPDATE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1006">The gesture has been updated.</doc>
+             line="1007">The gesture has been updated.</doc>
       </member>
       <member name="end"
               value="2"
@@ -60122,7 +60211,7 @@ See also #ClutterTouchpadPinchEvent and #ClutterTouchpadPinchEvent.4</doc>
               glib:name="CLUTTER_TOUCHPAD_GESTURE_PHASE_END">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1007">The gesture was finished, changes
+             line="1008">The gesture was finished, changes
   should be permanently applied.</doc>
       </member>
       <member name="cancel"
@@ -60132,7 +60221,7 @@ See also #ClutterTouchpadPinchEvent and #ClutterTouchpadPinchEvent.4</doc>
               glib:name="CLUTTER_TOUCHPAD_GESTURE_PHASE_CANCEL">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-enums.h"
-             line="1009">The gesture was cancelled, all
+             line="1010">The gesture was cancelled, all
   changes should be undone.</doc>
       </member>
     </enumeration>
@@ -62196,13 +62285,13 @@ event or if the event has a timestamp.</doc>
               c:identifier="clutter_get_default_backend">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-backend.c"
-           line="347">Retrieves the default #ClutterBackend used by Clutter. The
+           line="420">Retrieves the default #ClutterBackend used by Clutter. The
 #ClutterBackend holds backend-specific configuration options.</doc>
       <source-position filename="clutter/clutter/clutter-backend.h" line="49"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="353">the default backend. You should
+             line="426">the default backend. You should
   not ref or unref the returned object. Applications should rarely
   need to use this.</doc>
         <type name="Backend" c:type="ClutterBackend*"/>

@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="nice"/>
+  <doc:format name="unknown"/>
   <namespace name="Nice"
              version="0.1"
              shared-library="libnice.so.10"

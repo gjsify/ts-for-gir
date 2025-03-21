@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <package name="libnotify"/>
   <c:include name="libnotify/notify.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Notify"
              version="0.7"
              shared-library="libnotify.so.4"
@@ -20,23 +22,23 @@ and/or use gtk-doc annotations.  -->
                     introspectable="0">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="139">A convenience macro for casting a function to a [callback@ActionCallback].
+           line="124">A convenience macro for casting a function to a [callback@ActionCallback].
 
 This is much like [func@GObject.CALLBACK].</doc>
-      <source-position filename="libnotify/notification.h" line="147"/>
+      <source-position filename="libnotify/notification.h" line="132"/>
       <parameters>
         <parameter name="func">
           <doc xml:space="preserve"
                filename="libnotify/notification.h"
-               line="141">The function to cast.</doc>
+               line="126">The function to cast.</doc>
         </parameter>
       </parameters>
     </function-macro>
     <callback name="ActionCallback" c:type="NotifyActionCallback">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="127">An action callback function.</doc>
-      <source-position filename="libnotify/notification.h" line="135"/>
+           line="112">An action callback function.</doc>
+      <source-position filename="libnotify/notification.h" line="120"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -44,13 +46,13 @@ This is much like [func@GObject.CALLBACK].</doc>
         <parameter name="notification" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnotify/notification.h"
-               line="129">a #NotifyActionCallback notification</doc>
+               line="114">a #NotifyActionCallback notification</doc>
           <type name="Notification" c:type="NotifyNotification*"/>
         </parameter>
         <parameter name="action" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnotify/notification.h"
-               line="130">The activated action name</doc>
+               line="115">The activated action name</doc>
           <type name="utf8" c:type="char*"/>
         </parameter>
         <parameter name="user_data"
@@ -60,7 +62,7 @@ This is much like [func@GObject.CALLBACK].</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libnotify/notification.h"
-               line="131">User provided data</doc>
+               line="116">User provided data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -98,7 +100,7 @@ This is much like [func@GObject.CALLBACK].</doc>
                  c:type="NotifyClosedReason">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="105">The reason for which the notification has been closed.</doc>
+           line="90">The reason for which the notification has been closed.</doc>
       <member name="unset"
               value="-1"
               c:identifier="NOTIFY_CLOSED_REASON_UNSET"
@@ -106,7 +108,7 @@ This is much like [func@GObject.CALLBACK].</doc>
               glib:name="NOTIFY_CLOSED_REASON_UNSET">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="107">Notification not closed.</doc>
+             line="92">Notification not closed.</doc>
       </member>
       <member name="expired"
               value="1"
@@ -115,7 +117,7 @@ This is much like [func@GObject.CALLBACK].</doc>
               glib:name="NOTIFY_CLOSED_REASON_EXPIRED">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="108">Timeout has expired.</doc>
+             line="93">Timeout has expired.</doc>
       </member>
       <member name="dismissed"
               value="2"
@@ -124,7 +126,7 @@ This is much like [func@GObject.CALLBACK].</doc>
               glib:name="NOTIFY_CLOSED_REASON_DISMISSED">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="109">It has been dismissed by the user.</doc>
+             line="94">It has been dismissed by the user.</doc>
       </member>
       <member name="api_request"
               value="3"
@@ -133,7 +135,7 @@ This is much like [func@GObject.CALLBACK].</doc>
               glib:name="NOTIFY_CLOSED_REASON_API_REQUEST">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="110">It has been closed by a call to
+             line="95">It has been closed by a call to
   [method@NotifyNotification.close].</doc>
       </member>
       <member name="undefiend"
@@ -143,7 +145,7 @@ This is much like [func@GObject.CALLBACK].</doc>
               glib:name="NOTIFY_CLOSED_REASON_UNDEFIEND">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="112">Closed by undefined/reserved reasons.</doc>
+             line="97">Closed by undefined/reserved reasons.</doc>
       </member>
     </enumeration>
     <constant name="EXPIRES_DEFAULT"
@@ -151,64 +153,19 @@ This is much like [func@GObject.CALLBACK].</doc>
               c:type="NOTIFY_EXPIRES_DEFAULT">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="32">The default expiration time on a notification.</doc>
-      <source-position filename="libnotify/notification.h" line="37"/>
+           line="31">The default expiration time on a notification.</doc>
+      <source-position filename="libnotify/notification.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="EXPIRES_NEVER" value="0" c:type="NOTIFY_EXPIRES_NEVER">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="39">The notification never expires.
+           line="38">The notification never expires.
 
 It stays open until closed by the calling API or the user.</doc>
-      <source-position filename="libnotify/notification.h" line="46"/>
+      <source-position filename="libnotify/notification.h" line="45"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <function-macro name="IS_NOTIFICATION"
-                    c:identifier="NOTIFY_IS_NOTIFICATION"
-                    introspectable="0">
-      <source-position filename="libnotify/notification.h" line="51"/>
-      <parameters>
-        <parameter name="o">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_NOTIFICATION_CLASS"
-                    c:identifier="NOTIFY_IS_NOTIFICATION_CLASS"
-                    introspectable="0">
-      <source-position filename="libnotify/notification.h" line="52"/>
-      <parameters>
-        <parameter name="k">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="NOTIFICATION"
-                    c:identifier="NOTIFY_NOTIFICATION"
-                    introspectable="0">
-      <source-position filename="libnotify/notification.h" line="49"/>
-      <parameters>
-        <parameter name="o">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="NOTIFICATION_CLASS"
-                    c:identifier="NOTIFY_NOTIFICATION_CLASS"
-                    introspectable="0">
-      <source-position filename="libnotify/notification.h" line="50"/>
-      <parameters>
-        <parameter name="k">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="NOTIFICATION_GET_CLASS"
-                    c:identifier="NOTIFY_NOTIFICATION_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libnotify/notification.h" line="53"/>
-      <parameters>
-        <parameter name="o">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="Notification"
            c:symbol-prefix="notification"
            c:type="NotifyNotification"
@@ -218,7 +175,7 @@ It stays open until closed by the calling API or the user.</doc>
            glib:type-struct="NotificationClass">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="59">A passive pop-up notification.
+           line="51">A passive pop-up notification.
 
 #NotifyNotification represents a passive pop-up notification. It can
 contain summary text, body text, and an icon, as well as hints specifying
@@ -226,25 +183,25 @@ how the notification should be presented. The notification is rendered
 by a notification daemon, and may present the notification in any number
 of ways. As such, there is a clear separation of content and presentation,
 and this API enforces that.</doc>
-      <source-position filename="libnotify/notification.h" line="85"/>
+      <source-position filename="libnotify/notification.h" line="70"/>
       <constructor name="new" c:identifier="notify_notification_new">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="490">Creates a new #NotifyNotification.
+             line="478">Creates a new #NotifyNotification.
 
 The summary text is required, but all other parameters are optional.</doc>
-        <source-position filename="libnotify/notification.h" line="151"/>
+        <source-position filename="libnotify/notification.h" line="134"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnotify/notification.c"
-               line="500">The new #NotifyNotification.</doc>
+               line="488">The new #NotifyNotification.</doc>
           <type name="Notification" c:type="NotifyNotification*"/>
         </return-value>
         <parameters>
           <parameter name="summary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="492">The required summary text.</doc>
+                 line="480">The required summary text.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="body"
@@ -253,7 +210,7 @@ The summary text is required, but all other parameters are optional.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="493">The optional body text.</doc>
+                 line="481">The optional body text.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="icon"
@@ -262,13 +219,13 @@ The summary text is required, but all other parameters are optional.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="494">The optional icon theme icon name or filename.</doc>
+                 line="482">The optional icon theme icon name or filename.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </constructor>
       <virtual-method name="closed">
-        <source-position filename="libnotify/notification.h" line="84"/>
+        <source-position filename="libnotify/notification.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -281,11 +238,11 @@ The summary text is required, but all other parameters are optional.</doc>
       <method name="add_action" c:identifier="notify_notification_add_action">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1739">Adds an action to a notification.
+             line="1747">Adds an action to a notification.
 
 When the action is invoked, the specified callback function will be called,
 along with the value passed to @user_data.</doc>
-        <source-position filename="libnotify/notification.h" line="216"/>
+        <source-position filename="libnotify/notification.h" line="199"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -293,19 +250,19 @@ along with the value passed to @user_data.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1741">The notification.</doc>
+                 line="1749">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1742">The action ID.</doc>
+                 line="1750">The action ID.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1743">The human-readable action label.</doc>
+                 line="1751">The human-readable action label.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="callback"
@@ -315,7 +272,7 @@ along with the value passed to @user_data.</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1744">The action's callback function.</doc>
+                 line="1752">The action's callback function.</doc>
             <type name="ActionCallback" c:type="NotifyActionCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -324,13 +281,13 @@ along with the value passed to @user_data.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1745">Optional custom data to pass to @callback.</doc>
+                 line="1753">Optional custom data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="free_func" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1746">An optional function to free @user_data when the notification
+                 line="1754">An optional function to free @user_data when the notification
   is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GFreeFunc"/>
           </parameter>
@@ -340,8 +297,8 @@ along with the value passed to @user_data.</doc>
               c:identifier="notify_notification_clear_actions">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1712">Clears all actions from the notification.</doc>
-        <source-position filename="libnotify/notification.h" line="225"/>
+             line="1723">Clears all actions from the notification.</doc>
+        <source-position filename="libnotify/notification.h" line="208"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -349,7 +306,7 @@ along with the value passed to @user_data.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1714">The notification.</doc>
+                 line="1725">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
         </parameters>
@@ -358,8 +315,8 @@ along with the value passed to @user_data.</doc>
               c:identifier="notify_notification_clear_hints">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1695">Clears all hints from the notification.</doc>
-        <source-position filename="libnotify/notification.h" line="214"/>
+             line="1704">Clears all hints from the notification.</doc>
+        <source-position filename="libnotify/notification.h" line="197"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -367,7 +324,7 @@ along with the value passed to @user_data.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1697">The notification.</doc>
+                 line="1706">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
         </parameters>
@@ -375,19 +332,19 @@ along with the value passed to @user_data.</doc>
       <method name="close" c:identifier="notify_notification_close" throws="1">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1820">Synchronously tells the notification server to hide the notification on the screen.</doc>
-        <source-position filename="libnotify/notification.h" line="226"/>
+             line="1833">Synchronously tells the notification server to hide the notification on the screen.</doc>
+        <source-position filename="libnotify/notification.h" line="209"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnotify/notification.c"
-               line="1827">%TRUE on success, or %FALSE on error with @error filled in</doc>
+               line="1840">%TRUE on success, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1822">The notification.</doc>
+                 line="1835">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
         </parameters>
@@ -397,24 +354,24 @@ along with the value passed to @user_data.</doc>
               version="0.7.10">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1787">Gets the activation token of the notification.
+             line="1795">Gets the activation token of the notification.
 
 If an an action is currently being activated, return the activation token.
 This function is intended to be used in a [callback@ActionCallback] to get
 the activation token for the activated action, if the notification daemon
 supports it.</doc>
-        <source-position filename="libnotify/notification.h" line="223"/>
+        <source-position filename="libnotify/notification.h" line="206"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libnotify/notification.c"
-               line="1798">The current activation token, or %NULL if none</doc>
+               line="1806">The current activation token, or %NULL if none</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1789">The notification.</doc>
+                 line="1797">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
         </parameters>
@@ -424,16 +381,16 @@ supports it.</doc>
               glib:get-property="closed-reason">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1870">Returns the closed reason code for the notification.
+             line="1883">Returns the closed reason code for the notification.
 
 This is valid only after the [signal@Notification::closed] signal is emitted.
 
 Since version 0.8.0 the returned value is of type [enum@ClosedReason].</doc>
-        <source-position filename="libnotify/notification.h" line="229"/>
+        <source-position filename="libnotify/notification.h" line="212"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnotify/notification.c"
-               line="1880">An integer representing the closed reason code
+               line="1893">An integer representing the closed reason code
   (Since 0.8.0 it's also a [enum@ClosedReason]).</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -441,7 +398,7 @@ Since version 0.8.0 the returned value is of type [enum@ClosedReason].</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1872">The notification.</doc>
+                 line="1885">The notification.</doc>
             <type name="Notification" c:type="const NotifyNotification*"/>
           </instance-parameter>
         </parameters>
@@ -452,11 +409,11 @@ Since version 0.8.0 the returned value is of type [enum@ClosedReason].</doc>
               version="0.8.4">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1524">Sets the application icon for the notification.
+             line="1531">Sets the application icon for the notification.
 
 If this function is not called or if @app_icon is %NULL, the application icon
 will be set from the value set via [func@set_app_icon].</doc>
-        <source-position filename="libnotify/notification.h" line="211"/>
+        <source-position filename="libnotify/notification.h" line="194"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -464,7 +421,7 @@ will be set from the value set via [func@set_app_icon].</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1526">a #NotifyNotification</doc>
+                 line="1533">a #NotifyNotification</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="app_icon"
@@ -473,7 +430,7 @@ will be set from the value set via [func@set_app_icon].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1527">The optional icon theme icon name or filename.</doc>
+                 line="1534">The optional icon theme icon name or filename.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -484,12 +441,12 @@ will be set from the value set via [func@set_app_icon].</doc>
               version="0.7.3">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1495">Sets the application name for the notification.
+             line="1499">Sets the application name for the notification.
 
 If this function is not called or if @app_name is %NULL, the application name
 will be set from the value used in [func@init] or overridden with
 [func@set_app_name].</doc>
-        <source-position filename="libnotify/notification.h" line="208"/>
+        <source-position filename="libnotify/notification.h" line="191"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -497,7 +454,7 @@ will be set from the value used in [func@init] or overridden with
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1497">a #NotifyNotification</doc>
+                 line="1501">a #NotifyNotification</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="app_name"
@@ -506,7 +463,7 @@ will be set from the value used in [func@init] or overridden with
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1498">the localised application name</doc>
+                 line="1502">the localised application name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -515,11 +472,11 @@ will be set from the value used in [func@init] or overridden with
               c:identifier="notify_notification_set_category">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1280">Sets the category of this notification.
+             line="1281">Sets the category of this notification.
 
 This can be used by the notification server to filter or display the data in
 a certain way.</doc>
-        <source-position filename="libnotify/notification.h" line="166"/>
+        <source-position filename="libnotify/notification.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -527,13 +484,13 @@ a certain way.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1282">The notification.</doc>
+                 line="1283">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1283">The category.</doc>
+                 line="1284">The category.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -543,12 +500,12 @@ a certain way.</doc>
               version="0.6">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1463">Sets a hint for @key with value @value.
+             line="1464">Sets a hint for @key with value @value.
 
 If @value is %NULL, a previously set hint for @key is unset.
 
 If @value is floating, it is consumed.</doc>
-        <source-position filename="libnotify/notification.h" line="204"/>
+        <source-position filename="libnotify/notification.h" line="187"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -556,13 +513,13 @@ If @value is floating, it is consumed.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1465">a #NotifyNotification</doc>
+                 line="1466">a #NotifyNotification</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1466">the hint key</doc>
+                 line="1467">the hint key</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value"
@@ -571,7 +528,7 @@ If @value is floating, it is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1467">the hint value</doc>
+                 line="1468">the hint value</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -582,9 +539,9 @@ If @value is floating, it is consumed.</doc>
               deprecated-version="0.6.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1611">Sets a hint with a byte value.</doc>
+             line="1620">Sets a hint with a byte value.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_hint] instead</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="194"/>
+        <source-position filename="libnotify/notification.h" line="177"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -592,19 +549,19 @@ If @value is floating, it is consumed.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1613">The notification.</doc>
+                 line="1622">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1614">The hint.</doc>
+                 line="1623">The hint.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1615">The hint's value.</doc>
+                 line="1624">The hint's value.</doc>
             <type name="guint8" c:type="guchar"/>
           </parameter>
         </parameters>
@@ -615,11 +572,11 @@ If @value is floating, it is consumed.</doc>
               deprecated-version="0.6.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1630">Sets a hint with a byte array value.
+             line="1639">Sets a hint with a byte array value.
 
 The length of @value must be passed as @len.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_hint] instead</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="198"/>
+        <source-position filename="libnotify/notification.h" line="181"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -627,19 +584,19 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1632">The notification.</doc>
+                 line="1641">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1633">The hint.</doc>
+                 line="1642">The hint.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1634">The hint's value.</doc>
+                 line="1643">The hint's value.</doc>
             <array length="2" zero-terminated="0" c:type="const guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -647,7 +604,7 @@ The length of @value must be passed as @len.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1635">The length of the byte array.</doc>
+                 line="1644">The length of the byte array.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -658,9 +615,9 @@ The length of @value must be passed as @len.</doc>
               deprecated-version="0.6.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1592">Sets a hint with a double value.</doc>
+             line="1601">Sets a hint with a double value.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_hint] instead</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="186"/>
+        <source-position filename="libnotify/notification.h" line="169"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -668,19 +625,19 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1594">The notification.</doc>
+                 line="1603">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1595">The hint.</doc>
+                 line="1604">The hint.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1596">The hint's value.</doc>
+                 line="1605">The hint's value.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -691,9 +648,9 @@ The length of @value must be passed as @len.</doc>
               deprecated-version="0.6.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1553">Sets a hint with a 32-bit integer value.</doc>
+             line="1562">Sets a hint with a 32-bit integer value.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_hint] instead</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="179"/>
+        <source-position filename="libnotify/notification.h" line="162"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -701,19 +658,19 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1555">The notification.</doc>
+                 line="1564">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1556">The hint.</doc>
+                 line="1565">The hint.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1557">The hint's value.</doc>
+                 line="1566">The hint's value.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -724,9 +681,9 @@ The length of @value must be passed as @len.</doc>
               deprecated-version="0.6.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1667">Sets a hint with a string value.</doc>
+             line="1676">Sets a hint with a string value.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_hint] instead</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="190"/>
+        <source-position filename="libnotify/notification.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -734,19 +691,19 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1669">The notification.</doc>
+                 line="1678">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1670">The hint.</doc>
+                 line="1679">The hint.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1671">The hint's value.</doc>
+                 line="1680">The hint's value.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -757,9 +714,9 @@ The length of @value must be passed as @len.</doc>
               deprecated-version="0.6.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1573">Sets a hint with an unsigned 32-bit integer value.</doc>
+             line="1582">Sets a hint with an unsigned 32-bit integer value.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_hint] instead</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="182"/>
+        <source-position filename="libnotify/notification.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -767,19 +724,19 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1575">The notification.</doc>
+                 line="1584">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1576">The hint.</doc>
+                 line="1585">The hint.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1577">The hint's value.</doc>
+                 line="1586">The hint's value.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -790,9 +747,9 @@ The length of @value must be passed as @len.</doc>
               deprecated-version="0.5.">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1327">Sets the icon in the notification from a #GdkPixbuf.</doc>
+             line="1326">Sets the icon in the notification from a #GdkPixbuf.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Notification.set_image_from_pixbuf] instead.</doc-deprecated>
-        <source-position filename="libnotify/notification.h" line="176"/>
+        <source-position filename="libnotify/notification.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -800,13 +757,13 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1329">The notification.</doc>
+                 line="1328">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1330">The icon.</doc>
+                 line="1329">The icon.</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
         </parameters>
@@ -816,8 +773,8 @@ The length of @value must be passed as @len.</doc>
               version="0.5">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1343">Sets the image in the notification from a [class@GdkPixbuf.Pixbuf].</doc>
-        <source-position filename="libnotify/notification.h" line="172"/>
+             line="1342">Sets the image in the notification from a [class@GdkPixbuf.Pixbuf].</doc>
+        <source-position filename="libnotify/notification.h" line="155"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -825,13 +782,13 @@ The length of @value must be passed as @len.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1345">The notification.</doc>
+                 line="1344">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="pixbuf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1346">The image.</doc>
+                 line="1345">The image.</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
         </parameters>
@@ -840,13 +797,13 @@ The length of @value must be passed as @len.</doc>
               c:identifier="notify_notification_set_timeout">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1249">Sets the timeout of the notification.
+             line="1246">Sets the timeout of the notification.
 
 To set the default time, pass %NOTIFY_EXPIRES_DEFAULT as @timeout. To set the
 notification to never expire, pass %NOTIFY_EXPIRES_NEVER.
 
 Note that the timeout may be ignored by the server.</doc>
-        <source-position filename="libnotify/notification.h" line="163"/>
+        <source-position filename="libnotify/notification.h" line="146"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -854,13 +811,13 @@ Note that the timeout may be ignored by the server.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1251">The notification.</doc>
+                 line="1248">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1252">The timeout in milliseconds.</doc>
+                 line="1249">The timeout in milliseconds.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -870,7 +827,7 @@ Note that the timeout may be ignored by the server.</doc>
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
              line="1308">Sets the urgency level of this notification.</doc>
-        <source-position filename="libnotify/notification.h" line="169"/>
+        <source-position filename="libnotify/notification.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -892,12 +849,12 @@ Note that the timeout may be ignored by the server.</doc>
       <method name="show" c:identifier="notify_notification_show" throws="1">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="1113">Tells the notification server to display the notification on the screen.</doc>
-        <source-position filename="libnotify/notification.h" line="160"/>
+             line="1111">Tells the notification server to display the notification on the screen.</doc>
+        <source-position filename="libnotify/notification.h" line="143"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnotify/notification.c"
-               line="1120">%TRUE if successful. On error, this will return %FALSE and set
+               line="1118">%TRUE if successful. On error, this will return %FALSE and set
   @error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -905,7 +862,7 @@ Note that the timeout may be ignored by the server.</doc>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="1115">The notification.</doc>
+                 line="1113">The notification.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
         </parameters>
@@ -913,28 +870,28 @@ Note that the timeout may be ignored by the server.</doc>
       <method name="update" c:identifier="notify_notification_update">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="667">Updates the notification text and icon.
+             line="652">Updates the notification text and icon.
 
 This won't send the update out and display it on the screen. For that, you
 will need to call [method@Notification.show].</doc>
-        <source-position filename="libnotify/notification.h" line="155"/>
+        <source-position filename="libnotify/notification.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnotify/notification.c"
-               line="679">%TRUE, unless an invalid parameter was passed.</doc>
+               line="664">%TRUE, unless an invalid parameter was passed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="669">The notification to update.</doc>
+                 line="654">The notification to update.</doc>
             <type name="Notification" c:type="NotifyNotification*"/>
           </instance-parameter>
           <parameter name="summary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="670">The new required summary text.</doc>
+                 line="655">The new required summary text.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="body"
@@ -943,7 +900,7 @@ will need to call [method@Notification.show].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="671">The optional body text.</doc>
+                 line="656">The optional body text.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="icon"
@@ -952,7 +909,7 @@ will need to call [method@Notification.show].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnotify/notification.c"
-                 line="672">The optional icon theme icon name or filename.</doc>
+                 line="657">The optional icon theme icon name or filename.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -965,7 +922,7 @@ will need to call [method@Notification.show].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="199">The icon of the application for the notification.</doc>
+             line="196">The icon of the application for the notification.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="app-name"
@@ -976,7 +933,7 @@ will need to call [method@Notification.show].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="181">The name of the application for the notification.</doc>
+             line="178">The name of the application for the notification.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="body"
@@ -986,7 +943,7 @@ will need to call [method@Notification.show].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="235">The body of the notification.</doc>
+             line="232">The body of the notification.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="closed-reason"
@@ -995,7 +952,7 @@ will need to call [method@Notification.show].</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="269">The closed reason of the notification.
+             line="266">The closed reason of the notification.
 
 See [signal@Notification::closed].</doc>
         <type name="gint" c:type="gint"/>
@@ -1007,7 +964,7 @@ See [signal@Notification::closed].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="252">The icon-name of the icon to be displayed on the notification.</doc>
+             line="249">The icon-name of the icon to be displayed on the notification.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="id"
@@ -1017,7 +974,7 @@ See [signal@Notification::closed].</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="163">The Id of the notification.</doc>
+             line="160">The Id of the notification.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="summary"
@@ -1027,19 +984,16 @@ See [signal@Notification::closed].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="218">The summary of the notification.</doc>
+             line="215">The summary of the notification.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <field name="parent_object" readable="0" private="1">
+      <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv" readable="0" private="1">
-        <type name="NotificationPrivate" c:type="NotifyNotificationPrivate*"/>
       </field>
       <glib:signal name="closed" when="first">
         <doc xml:space="preserve"
              filename="libnotify/notification.c"
-             line="146">Emitted when the notification is closed.</doc>
+             line="143">Emitted when the notification is closed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1048,13 +1002,13 @@ See [signal@Notification::closed].</doc>
     <record name="NotificationClass"
             c:type="NotifyNotificationClass"
             glib:is-gtype-struct-for="Notification">
-      <source-position filename="libnotify/notification.h" line="85"/>
+      <source-position filename="libnotify/notification.h" line="70"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="closed">
         <callback name="closed">
-          <source-position filename="libnotify/notification.h" line="84"/>
+          <source-position filename="libnotify/notification.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1066,19 +1020,13 @@ See [signal@Notification::closed].</doc>
         </callback>
       </field>
     </record>
-    <record name="NotificationPrivate"
-            c:type="NotifyNotificationPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libnotify/notification.h" line="57"/>
-    </record>
     <enumeration name="Urgency"
                  glib:type-name="NotifyUrgency"
                  glib:get-type="notify_urgency_get_type"
                  c:type="NotifyUrgency">
       <doc xml:space="preserve"
            filename="libnotify/notification.h"
-           line="88">The urgency level of the notification.</doc>
+           line="73">The urgency level of the notification.</doc>
       <member name="low"
               value="0"
               c:identifier="NOTIFY_URGENCY_LOW"
@@ -1086,7 +1034,7 @@ See [signal@Notification::closed].</doc>
               glib:name="NOTIFY_URGENCY_LOW">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="90">Low urgency. Used for unimportant notifications.</doc>
+             line="75">Low urgency. Used for unimportant notifications.</doc>
       </member>
       <member name="normal"
               value="1"
@@ -1095,7 +1043,7 @@ See [signal@Notification::closed].</doc>
               glib:name="NOTIFY_URGENCY_NORMAL">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="91">Normal urgency. Used for most standard notifications.</doc>
+             line="76">Normal urgency. Used for most standard notifications.</doc>
       </member>
       <member name="critical"
               value="2"
@@ -1104,7 +1052,7 @@ See [signal@Notification::closed].</doc>
               glib:name="NOTIFY_URGENCY_CRITICAL">
         <doc xml:space="preserve"
              filename="libnotify/notification.h"
-             line="92">Critical urgency. Used for very important notifications.</doc>
+             line="77">Critical urgency. Used for very important notifications.</doc>
       </member>
     </enumeration>
     <constant name="VERSION_MAJOR" value="0" c:type="NOTIFY_VERSION_MAJOR">
@@ -1114,7 +1062,7 @@ See [signal@Notification::closed].</doc>
       <source-position filename="libnotify/notify-features.h" line="32"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="3" c:type="NOTIFY_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="4" c:type="NOTIFY_VERSION_MICRO">
       <doc xml:space="preserve"
            filename="libnotify/notify-features.h"
            line="39">Adwaita micro version component (e.g. 3 if the version is 1.2.3).</doc>
@@ -1157,7 +1105,7 @@ See [signal@Notification::closed].</doc>
     <function name="get_server_caps" c:identifier="notify_get_server_caps">
       <doc xml:space="preserve"
            filename="libnotify/notify.c"
-           line="617">Queries the server capabilities.
+           line="606">Queries the server capabilities.
 
 Synchronously queries the server for its capabilities and returns them in a
 list.</doc>
@@ -1165,7 +1113,7 @@ list.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libnotify/notify.c"
-             line="625">a list of server capability strings.</doc>
+             line="614">a list of server capability strings.</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="utf8"/>
         </type>
@@ -1174,7 +1122,7 @@ list.</doc>
     <function name="get_server_info" c:identifier="notify_get_server_info">
       <doc xml:space="preserve"
            filename="libnotify/notify.c"
-           line="677">Queries the server for information.
+           line="666">Queries the server for information.
 
 Synchronously queries the server for its information, specifically, the name,
 vendor, server version, and the version of the notifications specification
@@ -1183,7 +1131,7 @@ that it is compliant with.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libnotify/notify.c"
-             line="690">%TRUE if successful, and the variables passed will be set, %FALSE
+             line="679">%TRUE if successful, and the variables passed will be set, %FALSE
   on error. The returned strings must be freed with g_free</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1196,7 +1144,7 @@ that it is compliant with.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libnotify/notify.c"
-               line="679">a location to store the server name, or %NULL</doc>
+               line="668">a location to store the server name, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
         <parameter name="ret_vendor"
@@ -1207,7 +1155,7 @@ that it is compliant with.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libnotify/notify.c"
-               line="680">a location to store the server vendor, or %NULL</doc>
+               line="669">a location to store the server vendor, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
         <parameter name="ret_version"
@@ -1218,7 +1166,7 @@ that it is compliant with.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libnotify/notify.c"
-               line="681">a location to store the server version, or %NULL</doc>
+               line="670">a location to store the server version, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
         <parameter name="ret_spec_version"
@@ -1229,7 +1177,7 @@ that it is compliant with.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libnotify/notify.c"
-               line="682">a location to store the version the service is compliant with, or %NULL</doc>
+               line="671">a location to store the version the service is compliant with, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
       </parameters>
@@ -1264,12 +1212,12 @@ Before it was not allowed, and was causing libnotify not to be initialized.</doc
     <function name="is_initted" c:identifier="notify_is_initted">
       <doc xml:space="preserve"
            filename="libnotify/notify.c"
-           line="516">Gets whether or not libnotify is initialized.</doc>
+           line="506">Gets whether or not libnotify is initialized.</doc>
       <source-position filename="libnotify/notify.h" line="35"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libnotify/notify.c"
-             line="521">%TRUE if libnotify is initialized, or %FALSE otherwise.</doc>
+             line="511">%TRUE if libnotify is initialized, or %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>

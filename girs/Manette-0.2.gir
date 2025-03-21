@@ -5,17 +5,46 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GUdev" version="1.0"/>
   <include name="Gio" version="2.0"/>
   <package name="manette-0.2"/>
   <c:include name="libmanette.h"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="Manette"
              version="0.2"
              shared-library="libmanette-0.2.so.0"
              c:identifier-prefixes="Manette"
              c:symbol-prefixes="manette">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="MANETTE_CHECK_VERSION"
+                    version="0.2.10"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="89">Compile-time version checking. Evaluates to `TRUE` if the version
+of libmanette is greater than the required one.</doc>
+      <source-position filename="src/manette-version.h" line="99"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/manette-version.h"
+               line="91">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/manette-version.h"
+               line="92">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="src/manette-version.h"
+               line="93">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="Device"
            c:symbol-prefix="device"
            c:type="ManetteDevice"
@@ -23,71 +52,77 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="ManetteDevice"
            glib:get-type="manette_device_get_type"
            glib:type-struct="DeviceClass">
+      <doc xml:space="preserve"
+           filename="src/manette-device.c"
+           line="35">An object representing a physical gamepad.
+
+See also: [class@Monitor].</doc>
       <source-position filename="src/manette-device.h" line="33"/>
       <method name="get_device_type"
               c:identifier="manette_device_get_device_type"
-              version="0.3">
+              version="0.2.10">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="462">Gets the device type of @self.</doc>
+             line="471">Gets the device type of @self.</doc>
         <source-position filename="src/manette-device.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="468">the device type</doc>
+               line="477">the device type</doc>
           <type name="DeviceType" c:type="ManetteDeviceType"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="464">a #ManetteDevice</doc>
+                 line="473">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_guid"
               c:identifier="manette_device_get_guid"
-              version="0.3">
+              version="0.2.10">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="331">Gets the identifier used by SDL mappings to discriminate game controller
+             line="334">Gets the identifier used by SDL mappings to discriminate game controller
 devices.</doc>
         <source-position filename="src/manette-device.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="338">the identifier used by SDL mappings</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="341">the identifier used by SDL mappings</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="333">a #ManetteDevice</doc>
+                 line="336">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_mapping"
               c:identifier="manette_device_get_mapping"
-              version="0.3">
+              version="0.2.10">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="516">Gets the user mapping for @self, or default mapping if there isn't any. Can
-return %NULL if there's no mapping or @self doesn't support mappings.</doc>
+             line="525">Gets the user mapping for @self, or default mapping if there isn't any.
+
+Can return `NULL` if there's no mapping or @self doesn't support mappings.</doc>
         <source-position filename="src/manette-device.h" line="42"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="523">the mapping for @self</doc>
+               line="533">the mapping for @self</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="518">a #ManetteDevice</doc>
+                 line="527">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
@@ -95,19 +130,19 @@ return %NULL if there's no mapping or @self doesn't support mappings.</doc>
       <method name="get_name" c:identifier="manette_device_get_name">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="377">Gets the device's name.</doc>
+             line="381">Gets the device's name.</doc>
         <source-position filename="src/manette-device.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="383">the name of @self, do not modify it or free it</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="387">the name of @self</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="379">a #ManetteDevice</doc>
+                 line="383">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
@@ -115,33 +150,34 @@ return %NULL if there's no mapping or @self doesn't support mappings.</doc>
       <method name="has_input" c:identifier="manette_device_has_input">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="353">Gets whether the device has the given input. If the input is present it means
-that the device can send events for it regardless of whether the device is
-mapped or not.</doc>
+             line="356">Gets whether the device has the given input.
+
+If the input is present, it means that the device can send events for it
+regardless of whether the device is mapped or not.</doc>
         <source-position filename="src/manette-device.h" line="35"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="363">whether the device has the given input</doc>
+               line="367">whether the device has the given input</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="355">a #ManetteDevice</doc>
+                 line="358">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="356">the input type</doc>
+                 line="359">the input type</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="357">the input code</doc>
+                 line="360">the input code</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -149,19 +185,19 @@ mapped or not.</doc>
       <method name="has_rumble" c:identifier="manette_device_has_rumble">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="617">Gets whether @self supports rumble.</doc>
+             line="627">Gets whether @self supports rumble.</doc>
         <source-position filename="src/manette-device.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="623">whether @self supports rumble</doc>
+               line="633">whether @self supports rumble</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="619">a #ManetteDevice</doc>
+                 line="629">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
@@ -170,19 +206,19 @@ mapped or not.</doc>
               c:identifier="manette_device_has_user_mapping">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="544">Gets whether @self has a user mapping.</doc>
+             line="554">Gets whether @self has a user mapping.</doc>
         <source-position filename="src/manette-device.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="550">whether @self has a user mapping</doc>
+               line="560">whether @self has a user mapping</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="546">a #ManetteDevice</doc>
+                 line="556">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
@@ -191,7 +227,7 @@ mapped or not.</doc>
               c:identifier="manette_device_remove_user_mapping">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="597">Removes the user mapping for @self.</doc>
+             line="607">Removes the user mapping for @self.</doc>
         <source-position filename="src/manette-device.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -200,7 +236,7 @@ mapped or not.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="599">a #ManetteDevice</doc>
+                 line="609">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
@@ -208,40 +244,42 @@ mapped or not.</doc>
       <method name="rumble" c:identifier="manette_device_rumble">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="633">Make @self rumble during @milliseconds milliseconds, with the heavy and light
-motors rumbling at their respectively defined magnitudes.
+             line="643">Make @self rumble during @milliseconds milliseconds.
+
+The heavy and light motors will rumble at their respectively defined
+magnitudes.
 
 The duration cannot exceed 32767 milliseconds.</doc>
         <source-position filename="src/manette-device.h" line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="645">whether the rumble effect was played</doc>
+               line="657">whether the rumble effect was played</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="635">a #ManetteDevice</doc>
+                 line="645">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
           <parameter name="strong_magnitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="636">the magnitude for the heavy motor</doc>
+                 line="646">the magnitude for the heavy motor</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="weak_magnitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="637">the magnitude for the light motor</doc>
+                 line="647">the magnitude for the light motor</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="milliseconds" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="638">the rumble effect play time in milliseconds</doc>
+                 line="648">the rumble effect play time in milliseconds</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
@@ -250,7 +288,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
               c:identifier="manette_device_save_user_mapping">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="569">Saves @mapping_string as the user mapping for @self.</doc>
+             line="579">Saves @mapping_string as the user mapping for @self.</doc>
         <source-position filename="src/manette-device.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -259,35 +297,35 @@ The duration cannot exceed 32767 milliseconds.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="571">a #ManetteDevice</doc>
+                 line="581">a device</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
           <parameter name="mapping_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="572">the mapping string</doc>
-            <type name="utf8" c:type="const gchar*"/>
+                 line="582">the mapping string</doc>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <method name="supports_mapping"
               c:identifier="manette_device_supports_mapping"
-              version="0.3">
+              version="0.2.10">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="480">Gets whether @self supports mapping.</doc>
+             line="489">Gets whether @self supports mapping.</doc>
         <source-position filename="src/manette-device.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-device.c"
-               line="486">whether @self supports mapping</doc>
+               line="495">whether @self supports mapping</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="482">a #ManetteDevice</doc>
+                 line="491">a #ManetteDevice</doc>
             <type name="Device" c:type="ManetteDevice*"/>
           </instance-parameter>
         </parameters>
@@ -295,7 +333,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
       <glib:signal name="absolute-axis-event" when="last">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="221">Emitted when an absolute axis' value changes.</doc>
+             line="224">Emitted when an absolute axis' value changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -303,7 +341,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="224">the event emitted by the manette device</doc>
+                 line="227">the event emitted by the manette device</doc>
             <type name="Event"/>
           </parameter>
         </parameters>
@@ -311,7 +349,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
       <glib:signal name="button-press-event" when="last">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="189">Emitted when a button is pressed.</doc>
+             line="192">Emitted when a button is pressed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -319,7 +357,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="192">the event emitted by the manette device</doc>
+                 line="195">the event emitted by the device</doc>
             <type name="Event"/>
           </parameter>
         </parameters>
@@ -327,7 +365,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
       <glib:signal name="button-release-event" when="last">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="205">Emitted when a button is released.</doc>
+             line="208">Emitted when a button is released.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -335,7 +373,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="208">the event emitted by the manette device</doc>
+                 line="211">the event emitted by the device</doc>
             <type name="Event"/>
           </parameter>
         </parameters>
@@ -343,7 +381,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
       <glib:signal name="disconnected" when="last">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="253">Emitted when the device is disconnected.</doc>
+             line="256">Emitted when the device is disconnected.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -351,7 +389,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
       <glib:signal name="event" when="last">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="173">Emitted for any kind of event before mapping it.</doc>
+             line="176">Emitted for any kind of event before mapping it.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -359,7 +397,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="176">the event emitted by the manette device</doc>
+                 line="179">the event emitted by the device</doc>
             <type name="Event"/>
           </parameter>
         </parameters>
@@ -367,7 +405,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
       <glib:signal name="hat-axis-event" when="last">
         <doc xml:space="preserve"
              filename="src/manette-device.c"
-             line="237">Emitted when a hat axis' value changes.</doc>
+             line="240">Emitted when a hat axis' value changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -375,7 +413,7 @@ The duration cannot exceed 32767 milliseconds.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-device.c"
-                 line="240">the event emitted by the manette device</doc>
+                 line="243">the event emitted by the manette device</doc>
             <type name="Event"/>
           </parameter>
         </parameters>
@@ -390,13 +428,13 @@ The duration cannot exceed 32767 milliseconds.</doc>
       </field>
     </record>
     <enumeration name="DeviceType"
-                 version="0.3"
+                 version="0.2.10"
                  glib:type-name="ManetteDeviceType"
                  glib:get-type="manette_device_type_get_type"
                  c:type="ManetteDeviceType">
       <doc xml:space="preserve"
            filename="src/manette-device-type.c"
-           line="21">Describes available types of a #ManetteDevice.
+           line="23">Describes available types of a [class@Device].
 
 More values may be added to this enumeration over time.</doc>
       <member name="generic"
@@ -406,7 +444,7 @@ More values may be added to this enumeration over time.</doc>
               glib:name="MANETTE_DEVICE_GENERIC">
         <doc xml:space="preserve"
              filename="src/manette-device-type.c"
-             line="23">Generic gamepads</doc>
+             line="25">Generic gamepads</doc>
       </member>
       <member name="steam_deck"
               value="1"
@@ -415,31 +453,47 @@ More values may be added to this enumeration over time.</doc>
               glib:name="MANETTE_DEVICE_STEAM_DECK">
         <doc xml:space="preserve"
              filename="src/manette-device-type.c"
-             line="24">Steam Deck</doc>
+             line="26">Steam Deck</doc>
       </member>
     </enumeration>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="MANETTE_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="src/manette-version.h" line="75"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
     <union name="Event"
            c:type="ManetteEvent"
            glib:type-name="ManetteEvent"
            glib:get-type="manette_event_get_type"
            c:symbol-prefix="event">
+      <doc xml:space="preserve"
+           filename="src/manette-event.c"
+           line="44">An event emitted by a [class@Device].</doc>
       <source-position filename="src/manette-event.h" line="34"/>
       <method name="copy" c:identifier="manette_event_copy" introspectable="0">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="45">Creates a copy of a #ManetteEvent.</doc>
-        <source-position filename="src/manette-event.h" line="59"/>
+             line="65">Creates a copy of @self.</doc>
+        <source-position filename="src/manette-event.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="51">a new #ManetteEvent</doc>
+               line="71">a new event</doc>
           <type name="Event" c:type="ManetteEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="47">a #ManetteEvent</doc>
+                 line="67">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -447,8 +501,8 @@ More values may be added to this enumeration over time.</doc>
       <method name="free" c:identifier="manette_event_free" introspectable="0">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="68">Frees @self.</doc>
-        <source-position filename="src/manette-event.h" line="60"/>
+             line="88">Frees @self.</doc>
+        <source-position filename="src/manette-event.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -456,7 +510,7 @@ More values may be added to this enumeration over time.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="70">a #ManetteEvent</doc>
+                 line="90">an event</doc>
             <type name="Event" c:type="ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -464,19 +518,19 @@ More values may be added to this enumeration over time.</doc>
       <method name="get_absolute" c:identifier="manette_event_get_absolute">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="225">Gets the axis of @self, if any.</doc>
-        <source-position filename="src/manette-event.h" line="70"/>
+             line="247">Gets the axis of @self, if any.</doc>
+        <source-position filename="src/manette-event.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="233">whether the axis was retrieved</doc>
+               line="255">whether the axis was retrieved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="227">a #ManetteEvent</doc>
+                 line="249">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
           <parameter name="axis"
@@ -485,7 +539,7 @@ More values may be added to this enumeration over time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="228">return location for the axis</doc>
+                 line="250">return location for the axis</doc>
             <type name="guint16" c:type="guint16*"/>
           </parameter>
           <parameter name="value"
@@ -494,27 +548,27 @@ More values may be added to this enumeration over time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="229">return location for the axis</doc>
-            <type name="gdouble" c:type="gdouble*"/>
+                 line="251">return location for the axis value</doc>
+            <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_button" c:identifier="manette_event_get_button">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="198">Gets the button of @self, if any.</doc>
-        <source-position filename="src/manette-event.h" line="68"/>
+             line="220">Gets the button of @self, if any.</doc>
+        <source-position filename="src/manette-event.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="205">whether the button was retrieved</doc>
+               line="227">whether the button was retrieved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="200">a #ManetteEvent</doc>
+                 line="222">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
           <parameter name="button"
@@ -523,7 +577,7 @@ More values may be added to this enumeration over time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="201">return location for the button</doc>
+                 line="223">return location for the button</doc>
             <type name="guint16" c:type="guint16*"/>
           </parameter>
         </parameters>
@@ -531,19 +585,19 @@ More values may be added to this enumeration over time.</doc>
       <method name="get_device" c:identifier="manette_event_get_device">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="118">Gets the #ManetteDevice associated with the @self.</doc>
-        <source-position filename="src/manette-event.h" line="63"/>
+             line="140">Gets the [class@Device] associated with the @self.</doc>
+        <source-position filename="src/manette-event.h" line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="124">the #ManetteDevice associated with the @self</doc>
+               line="146">the device associated with the @self</doc>
           <type name="Device" c:type="ManetteDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="120">a #ManetteEvent</doc>
+                 line="142">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -552,19 +606,19 @@ More values may be added to this enumeration over time.</doc>
               c:identifier="manette_event_get_event_type">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="84">Gets the event type of @self.</doc>
-        <source-position filename="src/manette-event.h" line="61"/>
+             line="104">Gets the event type of @self.</doc>
+        <source-position filename="src/manette-event.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="90">the event type of @self</doc>
+               line="110">the event type of @self</doc>
           <type name="EventType" c:type="ManetteEventType"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="86">a #ManetteEvent</doc>
+                 line="106">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -573,19 +627,19 @@ More values may be added to this enumeration over time.</doc>
               c:identifier="manette_event_get_hardware_code">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="150">Gets the hardware code of @self.</doc>
-        <source-position filename="src/manette-event.h" line="65"/>
+             line="172">Gets the hardware code of @self.</doc>
+        <source-position filename="src/manette-event.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="156">the hardware code of @self</doc>
+               line="178">the hardware code of @self</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="152">a #ManetteEvent</doc>
+                 line="174">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -594,19 +648,19 @@ More values may be added to this enumeration over time.</doc>
               c:identifier="manette_event_get_hardware_index">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="182">Gets the hardware index of @self.</doc>
-        <source-position filename="src/manette-event.h" line="67"/>
+             line="204">Gets the hardware index of @self.</doc>
+        <source-position filename="src/manette-event.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="188">the hardware index of @self</doc>
+               line="210">the hardware index of @self</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="184">a #ManetteEvent</doc>
+                 line="206">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -615,19 +669,19 @@ More values may be added to this enumeration over time.</doc>
               c:identifier="manette_event_get_hardware_type">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="134">Gets the hardware type of @self.</doc>
-        <source-position filename="src/manette-event.h" line="64"/>
+             line="156">Gets the hardware type of @self.</doc>
+        <source-position filename="src/manette-event.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="140">the hardware type of @self</doc>
+               line="162">the hardware type of @self</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="136">a #ManetteEvent</doc>
+                 line="158">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -636,19 +690,19 @@ More values may be added to this enumeration over time.</doc>
               c:identifier="manette_event_get_hardware_value">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="166">Gets the hardware value of @self.</doc>
-        <source-position filename="src/manette-event.h" line="66"/>
+             line="188">Gets the hardware value of @self.</doc>
+        <source-position filename="src/manette-event.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="172">the hardware value of @self</doc>
+               line="194">the hardware value of @self</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="168">a #ManetteEvent</doc>
+                 line="190">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -656,19 +710,19 @@ More values may be added to this enumeration over time.</doc>
       <method name="get_hat" c:identifier="manette_event_get_hat">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="255">Gets the hat of @self, if any.</doc>
-        <source-position filename="src/manette-event.h" line="73"/>
+             line="277">Gets the hat of @self, if any.</doc>
+        <source-position filename="src/manette-event.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="263">whether the hat was retrieved</doc>
+               line="285">whether the hat was retrieved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="257">a #ManetteEvent</doc>
+                 line="279">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
           <parameter name="axis"
@@ -677,7 +731,7 @@ More values may be added to this enumeration over time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="258">return location for the hat</doc>
+                 line="280">return location for the hat</doc>
             <type name="guint16" c:type="guint16*"/>
           </parameter>
           <parameter name="value"
@@ -686,7 +740,7 @@ More values may be added to this enumeration over time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="259">return location for the hat</doc>
+                 line="281">return location for the hat value</doc>
             <type name="gint8" c:type="gint8*"/>
           </parameter>
         </parameters>
@@ -694,21 +748,23 @@ More values may be added to this enumeration over time.</doc>
       <method name="get_time" c:identifier="manette_event_get_time">
         <doc xml:space="preserve"
              filename="src/manette-event.c"
-             line="100">Gets the timestamp of when @self was received by the input driver that takes
-care of its device. Use this timestamp to ensure external factors such as
-synchronous disk writes don't influence your timing computations.</doc>
-        <source-position filename="src/manette-event.h" line="62"/>
+             line="120">Gets the timestamp of when @self was received by the input driver that takes
+care of its device.
+
+Use this timestamp to ensure external factors such as synchronous disk writes
+don't influence your timing computations.</doc>
+        <source-position filename="src/manette-event.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-event.c"
-               line="108">the timestamp of when @self was received by the input driver</doc>
+               line="130">the timestamp of when @self was received by the input driver</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-event.c"
-                 line="102">a #ManetteEvent</doc>
+                 line="122">an event</doc>
             <type name="Event" c:type="const ManetteEvent*"/>
           </instance-parameter>
         </parameters>
@@ -719,16 +775,16 @@ synchronous disk writes don't influence your timing computations.</doc>
                  glib:get-type="manette_event_type_get_type"
                  c:type="ManetteEventType">
       <doc xml:space="preserve"
-           filename="src/manette-event.h"
-           line="36">Specifies the type of the event.</doc>
+           filename="src/manette-event.c"
+           line="25">Specifies the type of the event.</doc>
       <member name="event_nothing"
               value="-1"
               c:identifier="MANETTE_EVENT_NOTHING"
               glib:nick="event-nothing"
               glib:name="MANETTE_EVENT_NOTHING">
         <doc xml:space="preserve"
-             filename="src/manette-event.h"
-             line="38">a special code to indicate a null event</doc>
+             filename="src/manette-event.c"
+             line="27">a special code to indicate a null event</doc>
       </member>
       <member name="event_button_press"
               value="0"
@@ -736,8 +792,8 @@ synchronous disk writes don't influence your timing computations.</doc>
               glib:nick="event-button-press"
               glib:name="MANETTE_EVENT_BUTTON_PRESS">
         <doc xml:space="preserve"
-             filename="src/manette-event.h"
-             line="39">a button has been pressed</doc>
+             filename="src/manette-event.c"
+             line="28">a button has been pressed</doc>
       </member>
       <member name="event_button_release"
               value="1"
@@ -745,8 +801,8 @@ synchronous disk writes don't influence your timing computations.</doc>
               glib:nick="event-button-release"
               glib:name="MANETTE_EVENT_BUTTON_RELEASE">
         <doc xml:space="preserve"
-             filename="src/manette-event.h"
-             line="40">a button has been released</doc>
+             filename="src/manette-event.c"
+             line="29">a button has been released</doc>
       </member>
       <member name="event_absolute"
               value="2"
@@ -754,8 +810,8 @@ synchronous disk writes don't influence your timing computations.</doc>
               glib:nick="event-absolute"
               glib:name="MANETTE_EVENT_ABSOLUTE">
         <doc xml:space="preserve"
-             filename="src/manette-event.h"
-             line="41">an absolute axis has been moved</doc>
+             filename="src/manette-event.c"
+             line="30">an absolute axis has been moved</doc>
       </member>
       <member name="event_hat"
               value="3"
@@ -763,10 +819,40 @@ synchronous disk writes don't influence your timing computations.</doc>
               glib:nick="event-hat"
               glib:name="MANETTE_EVENT_HAT">
         <doc xml:space="preserve"
-             filename="src/manette-event.h"
-             line="42">a hat axis has been moved</doc>
+             filename="src/manette-event.c"
+             line="31">a hat axis has been moved</doc>
       </member>
     </enumeration>
+    <constant name="MAJOR_VERSION"
+              value="0"
+              c:type="MANETTE_MAJOR_VERSION"
+              version="0.2.10">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="29">libmanette major version component (e.g. 1 if the version is 1.2.3).</doc>
+      <source-position filename="src/manette-version.h" line="36"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION"
+              value="12"
+              c:type="MANETTE_MICRO_VERSION"
+              version="0.2.10">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="47">libmanette micro version component (e.g. 3 if the version is 1.2.3).</doc>
+      <source-position filename="src/manette-version.h" line="54"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION"
+              value="2"
+              c:type="MANETTE_MINOR_VERSION"
+              version="0.2.10">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="38">libmanette minor version component (e.g. 2 if the version is 1.2.3).</doc>
+      <source-position filename="src/manette-version.h" line="45"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
     <class name="Monitor"
            c:symbol-prefix="monitor"
            c:type="ManetteMonitor"
@@ -774,35 +860,40 @@ synchronous disk writes don't influence your timing computations.</doc>
            glib:type-name="ManetteMonitor"
            glib:get-type="manette_monitor_get_type"
            glib:type-struct="MonitorClass">
+      <doc xml:space="preserve"
+           filename="src/manette-monitor.c"
+           line="40">An object monitoring the availability of devices.
+
+See also: [class@Device].</doc>
       <source-position filename="src/manette-monitor.h" line="33"/>
       <constructor name="new" c:identifier="manette_monitor_new">
         <doc xml:space="preserve"
              filename="src/manette-monitor.c"
-             line="481">Creates a new #ManetteMonitor object.</doc>
+             line="483">Creates a new `ManetteMonitor`.</doc>
         <source-position filename="src/manette-monitor.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/manette-monitor.c"
-               line="486">a new #ManetteMonitor</doc>
+               line="488">a new `ManetteMonitor`</doc>
           <type name="Monitor" c:type="ManetteMonitor*"/>
         </return-value>
       </constructor>
       <method name="iterate" c:identifier="manette_monitor_iterate">
         <doc xml:space="preserve"
              filename="src/manette-monitor.c"
-             line="587">Creates a new #ManetteMonitorIter iterating on @self.</doc>
+             line="589">Creates a new `ManetterMonitorIter` iterating on @self.</doc>
         <source-position filename="src/manette-monitor.h" line="36"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/manette-monitor.c"
-               line="593">a new #ManetteMonitorIter iterating on @self</doc>
+               line="595">a new iterator for @self</doc>
           <type name="MonitorIter" c:type="ManetteMonitorIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-monitor.c"
-                 line="589">a #ManetteMonitor</doc>
+                 line="591">a monitor</doc>
             <type name="Monitor" c:type="ManetteMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -810,7 +901,7 @@ synchronous disk writes don't influence your timing computations.</doc>
       <glib:signal name="device-connected" when="last">
         <doc xml:space="preserve"
              filename="src/manette-monitor.c"
-             line="554">Emitted when a device is connected.</doc>
+             line="556">Emitted when @device is connected.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -818,7 +909,7 @@ synchronous disk writes don't influence your timing computations.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-monitor.c"
-                 line="557">a #ManetteDevice</doc>
+                 line="559">a device</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -826,7 +917,7 @@ synchronous disk writes don't influence your timing computations.</doc>
       <glib:signal name="device-disconnected" when="last">
         <doc xml:space="preserve"
              filename="src/manette-monitor.c"
-             line="570">Emitted when a device is disconnected.</doc>
+             line="572">Emitted when @device is disconnected.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -834,7 +925,7 @@ synchronous disk writes don't influence your timing computations.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-monitor.c"
-                 line="573">a #ManetteDevice</doc>
+                 line="575">a device</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -854,13 +945,16 @@ synchronous disk writes don't influence your timing computations.</doc>
             glib:type-name="ManetteMonitorIter"
             glib:get-type="manette_monitor_iter_get_type"
             c:symbol-prefix="monitor_iter">
+      <doc xml:space="preserve"
+           filename="src/manette-monitor-iter.c"
+           line="23">An object iterating over the available devices in [class@Monitor].</doc>
       <source-position filename="src/manette-monitor-iter.h" line="34"/>
       <method name="free"
               c:identifier="manette_monitor_iter_free"
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/manette-monitor-iter.c"
-             line="82">Frees a #ManetteMonitorIter.</doc>
+             line="83">Frees @self.</doc>
         <source-position filename="src/manette-monitor-iter.h" line="38"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -869,7 +963,7 @@ synchronous disk writes don't influence your timing computations.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-monitor-iter.c"
-                 line="84">a #ManetteMonitorIter</doc>
+                 line="85">an iterator</doc>
             <type name="MonitorIter" c:type="ManetteMonitorIter*"/>
           </instance-parameter>
         </parameters>
@@ -877,19 +971,19 @@ synchronous disk writes don't influence your timing computations.</doc>
       <method name="next" c:identifier="manette_monitor_iter_next">
         <doc xml:space="preserve"
              filename="src/manette-monitor-iter.c"
-             line="101">Gets the next device from the device monitor iterator.</doc>
+             line="102">Gets the next device from @self.</doc>
         <source-position filename="src/manette-monitor-iter.h" line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/manette-monitor-iter.c"
-               line="108">whether the next device was retrieved, if not, the end was reached</doc>
+               line="109">whether the next device was retrieved, if not, the end was reached</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/manette-monitor-iter.c"
-                 line="103">a #ManetteMonitorIter</doc>
+                 line="104">an iterator</doc>
             <type name="MonitorIter" c:type="ManetteMonitorIter*"/>
           </instance-parameter>
           <parameter name="device"
@@ -899,12 +993,83 @@ synchronous disk writes don't influence your timing computations.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/manette-monitor-iter.c"
-                 line="104">return location for the device</doc>
+                 line="105">return location for the device</doc>
             <type name="Device" c:type="ManetteDevice**"/>
           </parameter>
         </parameters>
       </method>
     </record>
+    <constant name="VERSION_S"
+              value="0.2.12"
+              c:type="MANETTE_VERSION_S"
+              version="0.2.10">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="65">libmanette version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="src/manette-version.h" line="73"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="get_major_version"
+              c:identifier="manette_get_major_version">
+      <doc xml:space="preserve"
+           filename="src/manette-version.c"
+           line="11">Returns the major version number of the libmanette library.
+
+For example, in libmanette version 1.2.3 this is 1.
+
+This function is in the library, so it represents the libmanette library your
+code is running against. Contrast with the [const@MAJOR_VERSION] constant,
+which represents the major version of the libmanette headers you have
+included when compiling your code.</doc>
+      <source-position filename="src/manette-version.h" line="181"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/manette-version.c"
+             line="23">the major version number of the libmanette library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_micro_version"
+              c:identifier="manette_get_micro_version">
+      <doc xml:space="preserve"
+           filename="src/manette-version.c"
+           line="51">Returns the micro version number of the libmanette library.
+
+For example, in libmanette version 1.2.3 this is 3.
+
+This function is in the library, so it represents the libmanette library your
+code is running against. Contrast with the [const@MAJOR_VERSION] constant,
+which represents the micro version of the libmanette headers you have
+included when compiling your code.</doc>
+      <source-position filename="src/manette-version.h" line="183"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/manette-version.c"
+             line="63">the micro version number of the libmanette library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_minor_version"
+              c:identifier="manette_get_minor_version">
+      <doc xml:space="preserve"
+           filename="src/manette-version.c"
+           line="31">Returns the minor version number of the libmanette library.
+
+For example, in libmanette version 1.2.3 this is 2.
+
+This function is in the library, so it represents the libmanette library your
+code is running against. Contrast with the [const@MAJOR_VERSION] constant,
+which represents the minor version of the libmanette headers you have
+included when compiling your code.</doc>
+      <source-position filename="src/manette-version.h" line="182"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/manette-version.c"
+             line="43">the minor version number of the libmanette library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
     <function name="get_resource" c:identifier="manette_get_resource">
       <source-position filename="src/manette_resources.h" line="6"/>
       <return-value transfer-ownership="full">

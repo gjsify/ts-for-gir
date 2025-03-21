@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <package name="atk"/>
   <c:include name="atk/atk.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Atk"
              version="1.0"
              shared-library="libatk-1.0.so.0"
@@ -772,7 +774,7 @@ A string name/value pair representing a generic attribute.</doc>
       </function>
     </record>
     <constant name="BINARY_AGE"
-              value="25512"
+              value="25610"
               c:type="ATK_BINARY_AGE"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -7157,7 +7159,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="2"
+              value="0"
               c:type="ATK_MICRO_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -7169,7 +7171,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="55"
+              value="56"
               c:type="ATK_MINOR_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"

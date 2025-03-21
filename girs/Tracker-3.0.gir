@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="tracker-sparql-3.0"/>
   <c:include name="libtracker-sparql/tracker-sparql.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Tracker"
              version="3.0"
              shared-library="libtinysparql-3.0.so.0"
@@ -1259,7 +1261,7 @@ Like #tracker_major_version, but intended to be used at application compile time
                        line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="TRACKER_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="TRACKER_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/libtinysparql/tracker-version-generated.h"
            line="21">The micro version of the Tracker library.

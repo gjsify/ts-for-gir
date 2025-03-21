@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstVideo" version="1.0"/>
@@ -14,6 +15,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="gst/codecs/gstmpeg2decoder.h"/>
   <c:include name="gst/codecs/gstvp8decoder.h"/>
   <c:include name="gst/codecs/gstvp9decoder.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstCodecs"
              version="1.0"
              shared-library="libgstcodecs-1.0.so.0"

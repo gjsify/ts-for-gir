@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gck" version="1"/>
@@ -13,6 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gtk" version="3.0"/>
   <package name="gcr-ui-3"/>
   <c:include name="ui/gcr-ui.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GcrUi"
              version="3"
              shared-library="libgcr-ui-3.so.1"

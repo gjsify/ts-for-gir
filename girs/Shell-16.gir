@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Clutter" version="16"/>
   <include name="Gcr" version="4"/>
@@ -14,6 +15,7 @@ and/or use gtk-doc annotations.  -->
   <include name="NM" version="1.0"/>
   <include name="PolkitAgent" version="1.0"/>
   <include name="St" version="16"/>
+  <doc:format name="unknown"/>
   <namespace name="Shell"
              version="16"
              shared-library="libshell-16.so"
@@ -3202,7 +3204,7 @@ checks done. %TRUE is returned if the prompt actually should complete.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/shell-network-agent.c"
-               line="546">The found plugin or %NULL</doc>
+               line="558">The found plugin or %NULL</doc>
           <type name="NM.VpnPluginInfo" c:type="NMVpnPluginInfo*"/>
         </return-value>
         <parameters>
@@ -3235,6 +3237,13 @@ checks done. %TRUE is returned if the prompt actually should complete.</doc>
           </parameter>
         </parameters>
       </method>
+      <property name="force-always-ask"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
       <glib:signal name="cancel-request">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

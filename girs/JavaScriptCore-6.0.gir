@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <package name="javascriptcoregtk-6.0"/>
   <c:include name="jsc/jsc.h"/>
+  <doc:format name="unknown"/>
   <namespace name="JavaScriptCore"
              version="6.0"
              shared-library="libjavascriptcoregtk-6.0.so.1"
@@ -2404,7 +2406,7 @@ against at application run time.</doc>
                        line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="3" c:type="JSC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="JSC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="49">Like jsc_get_micro_version(), but from the headers used at
@@ -2414,7 +2416,7 @@ against at application run time.</doc>
                        line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="47" c:type="JSC_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="48" c:type="JSC_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="40">Like jsc_get_minor_version(), but from the headers used at

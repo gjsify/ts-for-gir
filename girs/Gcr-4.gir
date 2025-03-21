@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gck" version="2"/>
   <include name="Gio" version="2.0"/>
   <package name="gcr-4"/>
   <c:include name="gcr/gcr.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Gcr"
              version="4"
              shared-library="libgcr-4.so.4"
@@ -4905,14 +4907,14 @@ importer.</doc>
       <source-position filename="gcr/gcr-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="91" c:type="GCR_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="GCR_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
            line="71">The micro version number of the Gcr library.</doc>
       <source-position filename="gcr/gcr-version.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="3" c:type="GCR_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="4" c:type="GCR_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
            line="65">The minor version number of the Gcr library.</doc>

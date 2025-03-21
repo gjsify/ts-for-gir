@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
   <package name="libdex-1"/>
   <c:include name="libdex.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Dex"
              version="1"
              shared-library="libdex-1.so.1"
@@ -674,7 +676,7 @@ dex_future_catch(), dex_future_finally() and similar.</doc>
       <method name="get_kind" c:identifier="dex_block_get_kind">
         <doc xml:space="preserve"
              filename="src/dex-block.c"
-             line="292">Gets the kind of block.
+             line="297">Gets the kind of block.
 
 The kind of block relates to what situations the block would be
 executed such as for handling a future resolution, rejection, or
@@ -683,14 +685,14 @@ both.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-block.c"
-               line="302">a #DexBlockKind</doc>
+               line="307">a #DexBlockKind</doc>
           <type name="BlockKind" c:type="DexBlockKind"/>
         </return-value>
         <parameters>
           <instance-parameter name="block" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-block.c"
-                 line="294">a #DexBlock</doc>
+                 line="299">a #DexBlock</doc>
             <type name="Block" c:type="DexBlock*"/>
           </instance-parameter>
         </parameters>
@@ -698,19 +700,19 @@ both.</doc>
       <method name="get_scheduler" c:identifier="dex_block_get_scheduler">
         <doc xml:space="preserve"
              filename="src/dex-block.c"
-             line="312">Gets the scheduler to use when executing a block.</doc>
+             line="317">Gets the scheduler to use when executing a block.</doc>
         <source-position filename="src/dex-block.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-block.c"
-               line="318">a #DexScheduler</doc>
+               line="323">a #DexScheduler</doc>
           <type name="Scheduler" c:type="DexScheduler*"/>
         </return-value>
         <parameters>
           <instance-parameter name="block" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-block.c"
-                 line="314">a #DexBlock</doc>
+                 line="319">a #DexBlock</doc>
             <type name="Block" c:type="DexBlock*"/>
           </instance-parameter>
         </parameters>
@@ -1214,7 +1216,7 @@ future.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="644">Creates a new #DexFuture that will resolve or reject when all futures
+             line="646">Creates a new #DexFuture that will resolve or reject when all futures
 either resolve or reject.
 
 This method will return a #DexFutureSet which provides API to get
@@ -1224,20 +1226,20 @@ if resolved will be a %G_TYPE_BOOLEAN of %TRUE.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="656">a #DexFutureSet</doc>
+               line="658">a #DexFutureSet</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="first_future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="646">a #DexFuture</doc>
+                 line="648">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="647">a %NULL terminated list of futures</doc>
+                 line="649">a %NULL terminated list of futures</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1248,7 +1250,7 @@ if resolved will be a %G_TYPE_BOOLEAN of %TRUE.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="700">Creates a new #DexFuture that will resolve when all futures resolve
+             line="702">Creates a new #DexFuture that will resolve when all futures resolve
 or reject as soon as the first future rejects.
 
 This method will return a #DexFutureSet which provides API to get
@@ -1261,20 +1263,20 @@ dex_future_set_get_future() API will still be %DEX_FUTURE_STATUS_PENDING.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="715">a #DexFutureSet</doc>
+               line="717">a #DexFutureSet</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="first_future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="702">a #DexFuture</doc>
+                 line="704">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="703">a %NULL terminated list of futures</doc>
+                 line="705">a %NULL terminated list of futures</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1284,21 +1286,21 @@ dex_future_set_get_future() API will still be %DEX_FUTURE_STATUS_PENDING.</doc>
                    shadows="all_race">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="800">Creates a new #DexFuture that resolves when all futures resolve.
+             line="802">Creates a new #DexFuture that resolves when all futures resolve.
 
 If any future rejects, the resulting #DexFuture also rejects immediately.</doc>
         <source-position filename="src/dex-future.h" line="185"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="809">a #DexFuture</doc>
+               line="811">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="802">an array of futures</doc>
+                 line="804">an array of futures</doc>
             <array length="1" zero-terminated="0" c:type="DexFuture* const*">
               <type name="Future" c:type="DexFuture*"/>
             </array>
@@ -1306,7 +1308,7 @@ If any future rejects, the resulting #DexFuture also rejects immediately.</doc>
           <parameter name="n_futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="803">the number of futures</doc>
+                 line="805">the number of futures</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1314,7 +1316,7 @@ If any future rejects, the resulting #DexFuture also rejects immediately.</doc>
       <constructor name="allv" c:identifier="dex_future_allv" shadows="all">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="820">Creates a new #DexFuture that resolves when all futures resolve.
+             line="822">Creates a new #DexFuture that resolves when all futures resolve.
 
 The resulting #DexFuture will not resolve or reject until all futures
 have either resolved or rejected.</doc>
@@ -1322,14 +1324,14 @@ have either resolved or rejected.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="830">a #DexFuture</doc>
+               line="832">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="822">an array of futures</doc>
+                 line="824">an array of futures</doc>
             <array length="1" zero-terminated="0" c:type="DexFuture* const*">
               <type name="Future" c:type="DexFuture*"/>
             </array>
@@ -1337,7 +1339,7 @@ have either resolved or rejected.</doc>
           <parameter name="n_futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="823">the number of futures</doc>
+                 line="825">the number of futures</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1348,7 +1350,7 @@ have either resolved or rejected.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="672">Creates a new #DexFuture that will resolve when any dependent future
+             line="674">Creates a new #DexFuture that will resolve when any dependent future
 resolves, providing the same result as the resolved future.
 
 If no futures resolve, then the future will reject.</doc>
@@ -1356,20 +1358,20 @@ If no futures resolve, then the future will reject.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="682">a #DexFutureSet</doc>
+               line="684">a #DexFutureSet</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="first_future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="674">a #DexFuture</doc>
+                 line="676">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="675">a %NULL terminated list of futures</doc>
+                 line="677">a %NULL terminated list of futures</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1377,21 +1379,21 @@ If no futures resolve, then the future will reject.</doc>
       <constructor name="anyv" c:identifier="dex_future_anyv" shadows="any">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="780">Creates a new #DexFuture that resolves when the first future resolves.
+             line="782">Creates a new #DexFuture that resolves when the first future resolves.
 
 If all futures reject, then the #DexFuture returned will also reject.</doc>
         <source-position filename="src/dex-future.h" line="194"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="789">a #DexFuture</doc>
+               line="791">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="782">an array of futures</doc>
+                 line="784">an array of futures</doc>
             <array length="1" zero-terminated="0" c:type="DexFuture* const*">
               <type name="Future" c:type="DexFuture*"/>
             </array>
@@ -1399,7 +1401,7 @@ If all futures reject, then the #DexFuture returned will also reject.</doc>
           <parameter name="n_futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="783">the number of futures</doc>
+                 line="785">the number of futures</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1407,21 +1409,21 @@ If all futures reject, then the #DexFuture returned will also reject.</doc>
       <constructor name="catch" c:identifier="dex_future_catch">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="586">Calls @callback when @future rejects.
+             line="588">Calls @callback when @future rejects.
 
 If @future resolves, then @callback will not be called.</doc>
         <source-position filename="src/dex-future.h" line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="597">a #DexFuture</doc>
+               line="599">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="588">a #DexFuture</doc>
+                 line="590">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="callback"
@@ -1431,7 +1433,7 @@ If @future resolves, then @callback will not be called.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="589">a callback to execute</doc>
+                 line="591">a callback to execute</doc>
             <type name="FutureCallback" c:type="DexFutureCallback"/>
           </parameter>
           <parameter name="callback_data"
@@ -1440,7 +1442,7 @@ If @future resolves, then @callback will not be called.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="590">closure data for @callback</doc>
+                 line="592">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_data_destroy"
@@ -1448,7 +1450,7 @@ If @future resolves, then @callback will not be called.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="591">destroy notify for @callback_data</doc>
+                 line="593">destroy notify for @callback_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -1456,7 +1458,7 @@ If @future resolves, then @callback will not be called.</doc>
       <constructor name="catch_loop" c:identifier="dex_future_catch_loop">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="522">Asynchronously calls @callback when @future rejects.
+             line="524">Asynchronously calls @callback when @future rejects.
 
 This is similar to dex_future_catch() except that it will call
 @callback multiple times as each returned #DexFuture rejects,
@@ -1465,14 +1467,14 @@ allowing for infinite loops.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="535">a #DexFuture</doc>
+               line="537">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="524">a #DexFuture</doc>
+                 line="526">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="callback"
@@ -1482,7 +1484,7 @@ allowing for infinite loops.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="525">a callback to execute</doc>
+                 line="527">a callback to execute</doc>
             <type name="FutureCallback" c:type="DexFutureCallback"/>
           </parameter>
           <parameter name="callback_data"
@@ -1491,7 +1493,7 @@ allowing for infinite loops.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="526">closure data for @callback</doc>
+                 line="528">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_data_destroy"
@@ -1499,7 +1501,7 @@ allowing for infinite loops.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="527">destroy notify for @callback_data</doc>
+                 line="529">destroy notify for @callback_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -1507,19 +1509,19 @@ allowing for infinite loops.</doc>
       <constructor name="finally" c:identifier="dex_future_finally">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="616">Calls @callback when @future resolves or rejects.</doc>
+             line="618">Calls @callback when @future resolves or rejects.</doc>
         <source-position filename="src/dex-future.h" line="161"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="625">a #DexFuture</doc>
+               line="627">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="618">a #DexFuture</doc>
+                 line="620">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="callback"
@@ -1529,7 +1531,7 @@ allowing for infinite loops.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="619">a callback to execute</doc>
+                 line="621">a callback to execute</doc>
             <type name="FutureCallback" c:type="DexFutureCallback"/>
           </parameter>
           <parameter name="callback_data"
@@ -1538,7 +1540,7 @@ allowing for infinite loops.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="620">closure data for @callback</doc>
+                 line="622">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_data_destroy"
@@ -1546,7 +1548,7 @@ allowing for infinite loops.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="621">destroy notify for @callback_data</doc>
+                 line="623">destroy notify for @callback_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -1554,7 +1556,7 @@ allowing for infinite loops.</doc>
       <constructor name="finally_loop" c:identifier="dex_future_finally_loop">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="554">Asynchronously calls @callback when @future rejects or resolves.
+             line="556">Asynchronously calls @callback when @future rejects or resolves.
 
 This is similar to dex_future_finally() except that it will call
 @callback multiple times as each returned #DexFuture rejects or resolves,
@@ -1563,14 +1565,14 @@ allowing for infinite loops.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="567">a #DexFuture</doc>
+               line="569">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="556">a #DexFuture</doc>
+                 line="558">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="callback"
@@ -1580,7 +1582,7 @@ allowing for infinite loops.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="557">a callback to execute</doc>
+                 line="559">a callback to execute</doc>
             <type name="FutureCallback" c:type="DexFutureCallback"/>
           </parameter>
           <parameter name="callback_data"
@@ -1589,7 +1591,7 @@ allowing for infinite loops.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="558">closure data for @callback</doc>
+                 line="560">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_data_destroy"
@@ -1597,7 +1599,7 @@ allowing for infinite loops.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="559">destroy notify for @callback_data</doc>
+                 line="561">destroy notify for @callback_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -1608,26 +1610,26 @@ allowing for infinite loops.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="733">Creates a new #DexFuture that resolves or rejects as soon as the
+             line="735">Creates a new #DexFuture that resolves or rejects as soon as the
 first dependent future resolves or rejects, sharing the same result.</doc>
         <source-position filename="src/dex-future.h" line="198"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="741">a #DexFutureSet</doc>
+               line="743">a #DexFutureSet</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="first_future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="735">a #DexFuture</doc>
+                 line="737">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="736">a %NULL terminated list of futures</doc>
+                 line="738">a %NULL terminated list of futures</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1637,20 +1639,20 @@ first dependent future resolves or rejects, sharing the same result.</doc>
                    shadows="first">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="760">Creates a new #DexFuture that resolves or rejects as soon as the
+             line="762">Creates a new #DexFuture that resolves or rejects as soon as the
 first dependent future resolves or rejects, sharing the same result.</doc>
         <source-position filename="src/dex-future.h" line="203"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="768">a #DexFuture</doc>
+               line="770">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="762">an array of futures</doc>
+                 line="764">an array of futures</doc>
             <array length="1" zero-terminated="0" c:type="DexFuture* const*">
               <type name="Future" c:type="DexFuture*"/>
             </array>
@@ -1658,7 +1660,7 @@ first dependent future resolves or rejects, sharing the same result.</doc>
           <parameter name="n_futures" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="763">the number of futures</doc>
+                 line="765">the number of futures</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1667,19 +1669,19 @@ first dependent future resolves or rejects, sharing the same result.</doc>
                    c:identifier="dex_future_new_for_boolean">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="906">Creates a new #DexFuture and resolves it with @v_bool.</doc>
+             line="908">Creates a new #DexFuture and resolves it with @v_bool.</doc>
         <source-position filename="src/dex-future.h" line="112"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="912">a resolved #DexFuture</doc>
+               line="914">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_bool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="908">the resolved value for the future</doc>
+                 line="910">the resolved value for the future</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1688,19 +1690,19 @@ first dependent future resolves or rejects, sharing the same result.</doc>
                    c:identifier="dex_future_new_for_double">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1040">Creates a new #DexFuture and resolves it with @v_double.</doc>
+             line="1042">Creates a new #DexFuture and resolves it with @v_double.</doc>
         <source-position filename="src/dex-future.h" line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1046">a resolved #DexFuture</doc>
+               line="1048">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_double" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1042">the resolved value for the future</doc>
+                 line="1044">the resolved value for the future</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -1710,7 +1712,7 @@ first dependent future resolves or rejects, sharing the same result.</doc>
                    version="0.4">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1274">Creates a new rejected future using @errno_ as the value
+             line="1276">Creates a new rejected future using @errno_ as the value
 of errno for the GError.
 
 The resulting error domain will be %G_IO_ERROR.</doc>
@@ -1718,14 +1720,14 @@ The resulting error domain will be %G_IO_ERROR.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1283">a rejected #DexFuture.</doc>
+               line="1285">a rejected #DexFuture.</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="errno_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1276">the `errno` to use for rejection</doc>
+                 line="1278">the `errno` to use for rejection</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1734,19 +1736,19 @@ The resulting error domain will be %G_IO_ERROR.</doc>
                    c:identifier="dex_future_new_for_error">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="890">Creates a read-only #DexFuture that has rejected.</doc>
+             line="892">Creates a read-only #DexFuture that has rejected.</doc>
         <source-position filename="src/dex-future.h" line="76"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="896">a #DexFuture</doc>
+               line="898">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="error" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="892">a #GError</doc>
+                 line="894">a #GError</doc>
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
         </parameters>
@@ -1754,21 +1756,21 @@ The resulting error domain will be %G_IO_ERROR.</doc>
       <constructor name="new_for_fd" c:identifier="dex_future_new_for_fd">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="935">Creates a new future that resolves to @fd.
+             line="937">Creates a new future that resolves to @fd.
 
 This function takes ownership of @fd.</doc>
         <source-position filename="src/dex-future.h" line="97"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="943">a resolved #DexFuture</doc>
+               line="945">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="937">the file-descriptor to take ownership of</doc>
+                 line="939">the file-descriptor to take ownership of</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1777,19 +1779,19 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_float">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1018">Creates a new #DexFuture and resolves it with @v_float.</doc>
+             line="1020">Creates a new #DexFuture and resolves it with @v_float.</doc>
         <source-position filename="src/dex-future.h" line="118"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1024">a resolved #DexFuture</doc>
+               line="1026">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_float" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1020">the resolved value for the future</doc>
+                 line="1022">the resolved value for the future</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -1797,19 +1799,19 @@ This function takes ownership of @fd.</doc>
       <constructor name="new_for_int" c:identifier="dex_future_new_for_int">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="952">Creates a new #DexFuture and resolves it with @v_int.</doc>
+             line="954">Creates a new #DexFuture and resolves it with @v_int.</doc>
         <source-position filename="src/dex-future.h" line="100"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="958">a resolved #DexFuture</doc>
+               line="960">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_int" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="954">the resolved value for the future</doc>
+                 line="956">the resolved value for the future</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1818,19 +1820,19 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_int64">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="974">Creates a new #DexFuture and resolves it with @v_int64.</doc>
+             line="976">Creates a new #DexFuture and resolves it with @v_int64.</doc>
         <source-position filename="src/dex-future.h" line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="980">a resolved #DexFuture</doc>
+               line="982">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_int64" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="976">the resolved value for the future</doc>
+                 line="978">the resolved value for the future</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1839,19 +1841,19 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_object">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1198">Creates a new #DexFuture that is resolved with @value.</doc>
+             line="1200">Creates a new #DexFuture that is resolved with @value.</doc>
         <source-position filename="src/dex-future.h" line="131"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1204">a resolved #DexFuture</doc>
+               line="1206">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1200">the value</doc>
+                 line="1202">the value</doc>
             <type name="GObject.Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1860,12 +1862,12 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_pointer">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1176">Creates a new #DexFuture that is resolved with @pointer as a %G_TYPE_POINTER.</doc>
+             line="1178">Creates a new #DexFuture that is resolved with @pointer as a %G_TYPE_POINTER.</doc>
         <source-position filename="src/dex-future.h" line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1182">a resolved #DexFuture</doc>
+               line="1184">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
@@ -1875,7 +1877,7 @@ This function takes ownership of @fd.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1178">the resolved future value as a pointer</doc>
+                 line="1180">the resolved future value as a pointer</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1884,19 +1886,19 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_string">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1084">Creates a new #DexFuture and resolves it with @string.</doc>
+             line="1086">Creates a new #DexFuture and resolves it with @string.</doc>
         <source-position filename="src/dex-future.h" line="91"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1090">a resolved #DexFuture</doc>
+               line="1092">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1086">the resolved value for the future</doc>
+                 line="1088">the resolved value for the future</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1904,19 +1906,19 @@ This function takes ownership of @fd.</doc>
       <constructor name="new_for_uint" c:identifier="dex_future_new_for_uint">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1062">Creates a new #DexFuture and resolves it with @v_uint.</doc>
+             line="1064">Creates a new #DexFuture and resolves it with @v_uint.</doc>
         <source-position filename="src/dex-future.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1068">a resolved #DexFuture</doc>
+               line="1070">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_uint" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1064">the resolved value for the future</doc>
+                 line="1066">the resolved value for the future</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1925,19 +1927,19 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_uint64">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="996">Creates a new #DexFuture and resolves it with @v_uint64.</doc>
+             line="998">Creates a new #DexFuture and resolves it with @v_uint64.</doc>
         <source-position filename="src/dex-future.h" line="109"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1002">a resolved #DexFuture</doc>
+               line="1004">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_uint64" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="998">the resolved value for the future</doc>
+                 line="1000">the resolved value for the future</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -1946,19 +1948,19 @@ This function takes ownership of @fd.</doc>
                    c:identifier="dex_future_new_for_value">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="874">Creates a read-only #DexFuture that has resolved.</doc>
+             line="876">Creates a read-only #DexFuture that has resolved.</doc>
         <source-position filename="src/dex-future.h" line="73"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="880">a #DexFuture</doc>
+               line="882">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="876">the resolved #GValue</doc>
+                 line="878">the resolved #GValue</doc>
             <type name="GObject.Value" c:type="const GValue*"/>
           </parameter>
         </parameters>
@@ -1968,14 +1970,14 @@ This function takes ownership of @fd.</doc>
                    version="0.4">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1299">Creates an infinite future that will never resolve or reject. This can
+             line="1301">Creates an infinite future that will never resolve or reject. This can
 be useful when you want to mock a situation of "run forever" unless
 another future rejects or resolves.</doc>
         <source-position filename="src/dex-future.h" line="79"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1306">a #DexFuture that will never complete or reject</doc>
+               line="1308">a #DexFuture that will never complete or reject</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
       </constructor>
@@ -1984,31 +1986,31 @@ another future rejects or resolves.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1246">Creates a new #DexFuture that is rejeced.</doc>
+             line="1248">Creates a new #DexFuture that is rejeced.</doc>
         <source-position filename="src/dex-future.h" line="82"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1254">a new #DexFuture</doc>
+               line="1256">a new #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="domain" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1248">the error domain</doc>
+                 line="1250">the error domain</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="error_code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1249">the error code</doc>
+                 line="1251">the error code</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1250">a printf-style format string</doc>
+                 line="1252">a printf-style format string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
@@ -2021,19 +2023,19 @@ another future rejects or resolves.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1128">Creates a new #DexFuture that is resolved with @value.</doc>
+             line="1130">Creates a new #DexFuture that is resolved with @value.</doc>
         <source-position filename="src/dex-future.h" line="124"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1135">a resolved #DexFuture</doc>
+               line="1137">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="boxed_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1130">the GBoxed-based type</doc>
+                 line="1132">the GBoxed-based type</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="value"
@@ -2042,7 +2044,7 @@ another future rejects or resolves.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1131">the value for the boxed type</doc>
+                 line="1133">the value for the boxed type</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2051,12 +2053,12 @@ another future rejects or resolves.</doc>
                    c:identifier="dex_future_new_take_object">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1222">Creates a new #DexFuture that is resolved with @value.</doc>
+             line="1224">Creates a new #DexFuture that is resolved with @value.</doc>
         <source-position filename="src/dex-future.h" line="134"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1228">a resolved #DexFuture</doc>
+               line="1230">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
@@ -2066,7 +2068,7 @@ another future rejects or resolves.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1224">the value</doc>
+                 line="1226">the value</doc>
             <type name="GObject.Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2075,19 +2077,19 @@ another future rejects or resolves.</doc>
                    c:identifier="dex_future_new_take_string">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1106">Creates a new #DexFuture and resolves it with @string.</doc>
+             line="1108">Creates a new #DexFuture and resolves it with @string.</doc>
         <source-position filename="src/dex-future.h" line="94"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1112">a resolved #DexFuture</doc>
+               line="1114">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="string" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1108">the resolved value for the future</doc>
+                 line="1110">the resolved value for the future</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
         </parameters>
@@ -2097,19 +2099,19 @@ another future rejects or resolves.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1154">Creates a new #DexFuture that is resolved with @v_variant.</doc>
+             line="1156">Creates a new #DexFuture that is resolved with @v_variant.</doc>
         <source-position filename="src/dex-future.h" line="121"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1160">a resolved #DexFuture</doc>
+               line="1162">a resolved #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="v_variant" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1156">the variant to take ownership of</doc>
+                 line="1158">the variant to take ownership of</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -2117,21 +2119,21 @@ another future rejects or resolves.</doc>
       <constructor name="then" c:identifier="dex_future_then">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="460">Calls @callback when @future resolves.
+             line="462">Calls @callback when @future resolves.
 
 If @future rejects, then @callback will not be called.</doc>
         <source-position filename="src/dex-future.h" line="137"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="471">a #DexFuture</doc>
+               line="473">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="462">a #DexFuture</doc>
+                 line="464">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="callback"
@@ -2141,7 +2143,7 @@ If @future rejects, then @callback will not be called.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="463">a callback to execute</doc>
+                 line="465">a callback to execute</doc>
             <type name="FutureCallback" c:type="DexFutureCallback"/>
           </parameter>
           <parameter name="callback_data"
@@ -2150,7 +2152,7 @@ If @future rejects, then @callback will not be called.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="464">closure data for @callback</doc>
+                 line="466">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_data_destroy"
@@ -2158,7 +2160,7 @@ If @future rejects, then @callback will not be called.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="465">destroy notify for @callback_data</doc>
+                 line="467">destroy notify for @callback_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -2166,7 +2168,7 @@ If @future rejects, then @callback will not be called.</doc>
       <constructor name="then_loop" c:identifier="dex_future_then_loop">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="490">Asynchronously calls @callback when @future resolves.
+             line="492">Asynchronously calls @callback when @future resolves.
 
 This is similar to dex_future_then() except that it will call
 @callback multiple times as each returned #DexFuture resolves or
@@ -2175,14 +2177,14 @@ rejects, allowing for infinite loops.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="503">a #DexFuture</doc>
+               line="505">a #DexFuture</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
           <parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="492">a #DexFuture</doc>
+                 line="494">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </parameter>
           <parameter name="callback"
@@ -2192,7 +2194,7 @@ rejects, allowing for infinite loops.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="493">a callback to execute</doc>
+                 line="495">a callback to execute</doc>
             <type name="FutureCallback" c:type="DexFutureCallback"/>
           </parameter>
           <parameter name="callback_data"
@@ -2201,7 +2203,7 @@ rejects, allowing for infinite loops.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="494">closure data for @callback</doc>
+                 line="496">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_data_destroy"
@@ -2209,7 +2211,7 @@ rejects, allowing for infinite loops.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="495">destroy notify for @callback_data</doc>
+                 line="497">destroy notify for @callback_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -2217,7 +2219,7 @@ rejects, allowing for infinite loops.</doc>
       <method name="await" c:identifier="dex_await" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-fiber.c"
-             line="490">Suspends the current #DexFiber and resumes when @future has completed.
+             line="565">Suspends the current #DexFiber and resumes when @future has completed.
 
 If @future is completed when this function is called, the fiber will handle
 the result immediately.
@@ -2234,7 +2236,7 @@ having changed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-fiber.c"
-               line="509">%TRUE if the future resolved, otherwise %FALSE
+               line="584">%TRUE if the future resolved, otherwise %FALSE
   and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2242,7 +2244,7 @@ having changed.</doc>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-fiber.c"
-                 line="492">a #DexFuture</doc>
+                 line="567">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2250,21 +2252,21 @@ having changed.</doc>
       <method name="await_boolean" c:identifier="dex_await_boolean" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1646">Awaits on @future and returns the gboolean result.
+             line="1648">Awaits on @future and returns the gboolean result.
 
 If the result is not a #gboolean, @error is set.</doc>
         <source-position filename="src/dex-future.h" line="217"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1655">the #gboolean, or %FALSE and @error is set</doc>
+               line="1657">the #gboolean, or %FALSE and @error is set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1648">a #DexFuture</doc>
+                 line="1650">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2272,19 +2274,19 @@ If the result is not a #gboolean, @error is set.</doc>
       <method name="await_boxed" c:identifier="dex_await_boxed" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1566">Awaits on @future and returns the %G_TYPE_BOXED based result.</doc>
+             line="1568">Awaits on @future and returns the %G_TYPE_BOXED based result.</doc>
         <source-position filename="src/dex-future.h" line="258"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1573">the boxed result, or %NULL and @error is set.</doc>
+               line="1575">the boxed result, or %NULL and @error is set.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1568">a #DexFuture</doc>
+                 line="1570">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2292,21 +2294,21 @@ If the result is not a #gboolean, @error is set.</doc>
       <method name="await_double" c:identifier="dex_await_double" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1510">Awaits on @future and returns the result as an double.
+             line="1512">Awaits on @future and returns the result as an double.
 
 The resolved value must be of type %G_TYPE_DOUBLE or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="236"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1519">an double, or 0 in case of failure and @error is set.</doc>
+               line="1521">an double, or 0 in case of failure and @error is set.</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1512">a #DexFuture</doc>
+                 line="1514">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2314,21 +2316,21 @@ The resolved value must be of type %G_TYPE_DOUBLE or @error is set.</doc>
       <method name="await_enum" c:identifier="dex_await_enum" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1702">Awaits on @future and returns the enum result.
+             line="1704">Awaits on @future and returns the enum result.
 
 If the result is not a %G_TYPE_ENUM, @error is set.</doc>
         <source-position filename="src/dex-future.h" line="220"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1711">the enum or 0 and @error is set.</doc>
+               line="1713">the enum or 0 and @error is set.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1704">a #DexFuture</doc>
+                 line="1706">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2336,14 +2338,14 @@ If the result is not a %G_TYPE_ENUM, @error is set.</doc>
       <method name="await_fd" c:identifier="dex_await_fd" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1369">Awaits on @future and returns the resultint file-descriptor.
+             line="1371">Awaits on @future and returns the resultint file-descriptor.
 
 The resolved value must be of type %DEX_TYPE_FD or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="223"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1378">a valid file descriptor or -1. you may get -1 without
+               line="1380">a valid file descriptor or -1. you may get -1 without
   error being set if there was no rejected future.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -2351,7 +2353,7 @@ The resolved value must be of type %DEX_TYPE_FD or @error is set.</doc>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1371">a #DexFuture</doc>
+                 line="1373">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2359,21 +2361,21 @@ The resolved value must be of type %DEX_TYPE_FD or @error is set.</doc>
       <method name="await_flags" c:identifier="dex_await_flags" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1730">Awaits on @future and returns the flags result.
+             line="1732">Awaits on @future and returns the flags result.
 
 If the result is not a %G_TYPE_FLAGS, @error is set.</doc>
         <source-position filename="src/dex-future.h" line="226"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1739">the flags or 0 and @error is set.</doc>
+               line="1741">the flags or 0 and @error is set.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1732">a #DexFuture</doc>
+                 line="1734">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2381,21 +2383,21 @@ If the result is not a %G_TYPE_FLAGS, @error is set.</doc>
       <method name="await_float" c:identifier="dex_await_float" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1538">Awaits on @future and returns the result as an float.
+             line="1540">Awaits on @future and returns the result as an float.
 
 The resolved value must be of type %G_TYPE_FLOAT or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="233"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1547">an float, or 0 in case of failure and @error is set.</doc>
+               line="1549">an float, or 0 in case of failure and @error is set.</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1540">a #DexFuture</doc>
+                 line="1542">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2403,21 +2405,21 @@ The resolved value must be of type %G_TYPE_FLOAT or @error is set.</doc>
       <method name="await_int" c:identifier="dex_await_int" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1398">Awaits on @future and returns the result as an int.
+             line="1400">Awaits on @future and returns the result as an int.
 
 The resolved value must be of type %G_TYPE_INT or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="242"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1407">an int, or 0 in case of failure and @error is set.</doc>
+               line="1409">an int, or 0 in case of failure and @error is set.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1400">a #DexFuture</doc>
+                 line="1402">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2425,21 +2427,21 @@ The resolved value must be of type %G_TYPE_INT or @error is set.</doc>
       <method name="await_int64" c:identifier="dex_await_int64" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1454">Awaits on @future and returns the result as an int64.
+             line="1456">Awaits on @future and returns the result as an int64.
 
 The resolved value must be of type %G_TYPE_INT64 or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="248"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1463">an int64, or 0 in case of failure and @error is set.</doc>
+               line="1465">an int64, or 0 in case of failure and @error is set.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1456">a #DexFuture</doc>
+                 line="1458">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2447,19 +2449,19 @@ The resolved value must be of type %G_TYPE_INT64 or @error is set.</doc>
       <method name="await_object" c:identifier="dex_await_object" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1620">Awaits on @future and returns the #GObject-based result.</doc>
+             line="1622">Awaits on @future and returns the #GObject-based result.</doc>
         <source-position filename="src/dex-future.h" line="262"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1627">the object, or %NULL and @error is set.</doc>
+               line="1629">the object, or %NULL and @error is set.</doc>
           <type name="GObject.Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1622">a #DexFuture</doc>
+                 line="1624">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2467,20 +2469,20 @@ The resolved value must be of type %G_TYPE_INT64 or @error is set.</doc>
       <method name="await_pointer" c:identifier="dex_await_pointer" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1342">Calls dex_await() and returns the value of g_value_get_pointer(),
+             line="1344">Calls dex_await() and returns the value of g_value_get_pointer(),
 otherwise @error is set if the future rejected.</doc>
         <source-position filename="src/dex-future.h" line="239"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1350">a pointer or %NULL</doc>
+               line="1352">a pointer or %NULL</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1344">a #DexFuture</doc>
+                 line="1346">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2488,21 +2490,21 @@ otherwise @error is set if the future rejected.</doc>
       <method name="await_string" c:identifier="dex_await_string" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1674">Awaits on @future and returns the string result.
+             line="1676">Awaits on @future and returns the string result.
 
 If the result is not a %G_TYPE_STRING, @error is set.</doc>
         <source-position filename="src/dex-future.h" line="229"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1683">the string  or %NULL and @error is set</doc>
+               line="1685">the string  or %NULL and @error is set</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1676">a #DexFuture</doc>
+                 line="1678">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2510,21 +2512,21 @@ If the result is not a %G_TYPE_STRING, @error is set.</doc>
       <method name="await_uint" c:identifier="dex_await_uint" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1426">Awaits on @future and returns the result as an uint.
+             line="1428">Awaits on @future and returns the result as an uint.
 
 The resolved value must be of type %G_TYPE_UINT or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="245"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1435">an uint, or 0 in case of failure and @error is set.</doc>
+               line="1437">an uint, or 0 in case of failure and @error is set.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1428">a #DexFuture</doc>
+                 line="1430">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2532,21 +2534,21 @@ The resolved value must be of type %G_TYPE_UINT or @error is set.</doc>
       <method name="await_uint64" c:identifier="dex_await_uint64" throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1482">Awaits on @future and returns the result as an uint64.
+             line="1484">Awaits on @future and returns the result as an uint64.
 
 The resolved value must be of type %G_TYPE_UINT64 or @error is set.</doc>
         <source-position filename="src/dex-future.h" line="251"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1491">an uint64, or 0 in case of failure and @error is set.</doc>
+               line="1493">an uint64, or 0 in case of failure and @error is set.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1484">a #DexFuture</doc>
+                 line="1486">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2557,19 +2559,19 @@ The resolved value must be of type %G_TYPE_UINT64 or @error is set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1592">Awaits on @future and returns the %G_TYPE_VARIANT based result.</doc>
+             line="1594">Awaits on @future and returns the %G_TYPE_VARIANT based result.</doc>
         <source-position filename="src/dex-future.h" line="254"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-future.c"
-               line="1599">the variant result, or %NULL and @error is set.</doc>
+               line="1601">the variant result, or %NULL and @error is set.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1594">a #DexFuture</doc>
+                 line="1596">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2577,7 +2579,7 @@ The resolved value must be of type %G_TYPE_UINT64 or @error is set.</doc>
       <method name="disown" c:identifier="dex_future_disown" version="0.4">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="1787">Disowns a future, allowing it to run to completion even though there may
+             line="1789">Disowns a future, allowing it to run to completion even though there may
 be no observer interested in the futures completion or rejection.</doc>
         <source-position filename="src/dex-future.h" line="212"/>
         <return-value transfer-ownership="none">
@@ -2587,7 +2589,7 @@ be no observer interested in the futures completion or rejection.</doc>
           <instance-parameter name="future" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="1789">a #DexFuture</doc>
+                 line="1791">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
         </parameters>
@@ -2694,7 +2696,7 @@ dex_future_get_status() and checking for %DEX_FUTURE_STATUS_RESOLVED.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/dex-future.c"
-             line="839">Sets the name of the future with a static/internal string.
+             line="841">Sets the name of the future with a static/internal string.
 
 @name will not be copied, so it must be static/internal which can be done
 either by using string literals or by using g_string_intern().</doc>
@@ -2706,13 +2708,13 @@ either by using string literals or by using g_string_intern().</doc>
           <instance-parameter name="future" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="841">a #DexFuture</doc>
+                 line="843">a #DexFuture</doc>
             <type name="Future" c:type="DexFuture*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
-                 line="842">the name of the future</doc>
+                 line="844">the name of the future</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3213,7 +3215,7 @@ If @promise was created with dex_promise_new(), then %NULL is returned.</doc>
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
              line="156">Marks the promise as rejected, indicating a failure.</doc>
-        <source-position filename="src/dex-promise.h" line="93"/>
+        <source-position filename="src/dex-promise.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3267,6 +3269,37 @@ If @promise was created with dex_promise_new(), then %NULL is returned.</doc>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="resolve_boxed"
+              c:identifier="dex_promise_resolve_boxed"
+              version="0.10">
+        <source-position filename="src/dex-promise.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="promise" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/dex-promise.c"
+                 line="322">a #DexPromise</doc>
+            <type name="Promise" c:type="DexPromise*"/>
+          </instance-parameter>
+          <parameter name="boxed_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/dex-promise.c"
+                 line="323">a #GType of %G_TYPE_BOXED</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="instance"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/dex-promise.c"
+                 line="324">the boxed value to store</doc>
+            <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>

@@ -231,14 +231,23 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
             const object = new IntrospectedStaticClassFunction({
                 name: "object",
                 parameters: [
-                    stringParam("name"),
-                    nullableStringParam("nick"),
-                    nullableStringParam("blurb"),
-                    stringParam("flags"),
+                    stringParam("name", {
+                        doc: "The name of the property"
+                    }),
+                    nullableStringParam("nick", {
+                        doc: "A human readable name for the property (can be null)"
+                    }),
+                    nullableStringParam("blurb", {
+                        doc: "A longer description of the property (can be null)"
+                    }),
+                    typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
+                        doc: "The flags for this property (e.g. READABLE, WRITABLE)"
+                    }),
                     new IntrospectedFunctionParameter({
                         name: "objectType",
                         direction: GirDirection.In,
-                        type: new NativeType("GType<T> | { $gtype: GType<T> }")
+                        type: new NativeType("GType<T> | { $gtype: GType<T> }"),
+                        doc: "The GType of the object"
                     })
                 ],
                 parent: ParamSpec,
@@ -246,16 +255,31 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
             });
 
             object.generics.push(new Generic(new GenericType("T")));
+            object.doc = "Creates a new GParamSpecObject instance specifying a property holding object references.";
 
             // static jsobject(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpecBoxed
             const jsobject = new IntrospectedStaticClassFunction({
                 name: "jsobject",
-                parameters: [stringParam("name"), nullableStringParam("nick"), nullableStringParam("blurb"), anyParam("flags")],
+                parameters: [
+                    stringParam("name", {
+                        doc: "The name of the property"
+                    }),
+                    nullableStringParam("nick", {
+                        doc: "A human readable name for the property (can be null)"
+                    }),
+                    nullableStringParam("blurb", {
+                        doc: "A longer description of the property (can be null)"
+                    }),
+                    typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
+                        doc: "The flags for this property (e.g. READABLE, WRITABLE)"
+                    })
+                ],
                 parent: ParamSpec,
                 return_type: new NativeType("ParamSpec<T>")
             });
 
             jsobject.generics.push(new Generic(new GenericType("T")));
+            jsobject.doc = "Creates a new ParamSpec instance for JavaScript object properties.";
 
             const override = new IntrospectedClassFunction({
                 parent: ParamSpec,
@@ -265,7 +289,8 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
                     new IntrospectedFunctionParameter({
                         direction: GirDirection.In,
                         name: "name",
-                        type: StringType
+                        type: StringType,
+                        doc: "The name of the property to override"
                     }),
                     new IntrospectedFunctionParameter({
                         direction: GirDirection.In,
@@ -274,9 +299,11 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
                             namespace.assertClass("Object").getType(),
                             new NativeType("Function"),
                             new TypeIdentifier("GType", "GObject")
-                        )
+                        ),
+                        doc: "The object class or type that contains the property to override"
                     })
-                ]
+                ],
+                doc: "Registers a property override for a property introduced in a parent class or inherited interface."
             });
 
             function ParamSpecWithGenerics(type: TypeExpression) {

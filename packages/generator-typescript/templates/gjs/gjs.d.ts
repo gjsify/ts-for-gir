@@ -215,7 +215,31 @@ declare namespace package {
      */
     export function initGettext(): void;
     /**
-     * @deprecated Use JS string interpolation
+     * Initializes string formatting capabilities by adding a format() method to String.prototype.
+     * 
+     * After calling this method, you can use a printf-style string formatting by calling
+     * the format() method on any string:
+     * 
+     * @example
+     * ```ts
+     * pkg.initFormat();
+     * 
+     * // Now you can use format() on any string
+     * const name = "User";
+     * const count = 5;
+     * const formatted = "Hello %s, you have %d items".format(name, count);
+     * // formatted = "Hello User, you have 5 items"
+     * 
+     * // Format numbers with precision
+     * const price = 10.5;
+     * const priceStr = "Price: $%.2f".format(price);
+     * // priceStr = "Price: $10.50"
+     * 
+     * // Pad with zeros
+     * const id = 42;
+     * const idStr = "ID: %05d".format(id);
+     * // idStr = "ID: 00042"
+     * ```
      */
     export function initFormat(): void;
     /**
@@ -270,21 +294,49 @@ declare namespace lang {
 }
 
 declare namespace format {
-    export function vprintf(str: string, args: string[]): string
-    export function printf(fmt: string, ...args: any[]): void
-    // Following docs from gjs/modules/format.js
     /**
-     * This function is intended to extend the String object and provide
-     * an String.format API for string formatting.
-     * It has to be set up using String.prototype.format = Format.format;
-     * Usage:
-     * "somestring %s %d".format('hello', 5);
-     * It supports %s, %d, %x and %f, for %f it also support precisions like
-     * "%.2f".format(1.526). All specifiers can be prefixed with a minimum
-     * field width, e.g. "%5s".format("foo"). Unless the width is prefixed
-     * with '0', the formatted string will be padded with spaces.
+     * Formats a string using printf-style format specifiers.
+     * 
+     * @param str The format string
+     * @param args The arguments to be formatted
+     * @returns The formatted string
      */
-    export function format(fmt: string, ...args: any[]): string
+    export function vprintf(str: string, args: (string | number | boolean | null | undefined)[]): string;
+    
+    /**
+     * Prints a formatted string to the console.
+     * Similar to C's printf function.
+     * 
+     * @param fmt The format string
+     * @param args The arguments to be formatted
+     */
+    export function printf(fmt: string, ...args: (string | number | boolean | null | undefined)[]): void;
+    
+    /**
+     * Formats a string with the given arguments.
+     * This is the implementation that backs String.prototype.format
+     * when pkg.initFormat() is called.
+     * 
+     * Supported format specifiers:
+     * - %s: Formats as a string
+     * - %d: Formats as an integer
+     * - %x: Formats as a hexadecimal number
+     * - %f: Formats as a floating point number, optionally with precision (e.g. %.2f)
+     * 
+     * All specifiers can be prefixed with a minimum field width, e.g. "%5s" will pad with spaces.
+     * If the width is prefixed with '0', it will pad with zeroes instead of spaces.
+     * 
+     * @example
+     * ```ts
+     * format.format("Hello %s, you have %d items", "User", 5);
+     * // Returns: "Hello User, you have 5 items"
+     * ```
+     * 
+     * @param fmt The format string
+     * @param args The arguments to format the string with
+     * @returns The formatted string
+     */
+    export function format(fmt: string, ...args: (string | number | boolean | null | undefined)[]): string;
 }
 
 declare namespace mainloop {
@@ -661,6 +713,39 @@ declare global {
     const imports: GjsImports
 
     const ARGV: string[]
+
+    interface String {
+        /**
+         * Formats a string with the given arguments.
+         * This method is made available by calling `pkg.initFormat()`.
+         * 
+         * Supported format specifiers:
+         * - %s: Formats as a string
+         * - %d: Formats as an integer
+         * - %x: Formats as a hexadecimal number
+         * - %f: Formats as a floating point number, optionally with precision (e.g. %.2f)
+         * 
+         * All specifiers can be prefixed with a minimum field width, e.g. "%5s" will pad with spaces.
+         * If the width is prefixed with '0', it will pad with zeroes instead of spaces.
+         * 
+         * @example
+         * ```ts
+         * // After calling pkg.initFormat()
+         * "Hello %s, you have %d items".format("User", 5);
+         * // Returns: "Hello User, you have 5 items"
+         * 
+         * "Price: $%.2f".format(10.5);
+         * // Returns: "Price: $10.50"
+         * 
+         * "ID: %05d".format(42);
+         * // Returns: "ID: 00042"
+         * ```
+         * 
+         * @param args The arguments to format the string with
+         * @returns The formatted string
+         */
+        format(...args: (string | number | boolean | null | undefined)[]): string;
+    }
 }
 
 declare const _imports: GjsImports

@@ -21,6 +21,9 @@
     declare module 'gi://<%- girModule.namespace %>?version=<%- girModule.version %>' {
 <% } -%>
 
+<%_ const Gjs = await dep.get('Gjs', '3.0') -%>
+import '<%- Gjs.importPath %>';
+
 // Module dependencies
 <%_ girModule.transitiveDependencies.forEach(dependency => { -%>
     <%_ if (girModule.packageName !== dependency.packageName) { -%>

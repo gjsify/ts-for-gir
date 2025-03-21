@@ -4211,6 +4211,7 @@ __metadata:
   dependencies:
     "@girs/cairo-1.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     typescript: "npm:*"

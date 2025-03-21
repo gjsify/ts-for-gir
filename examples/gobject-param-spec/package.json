@@ -8,7 +8,7 @@
         "build:app": "tsc",
         "build": "yarn build:app",
         "start:app": "gjs -m dist/main.js",
-        "start": "yarn build && yarn start:app",
+        "start": "yarn start:app",
         "validate": "yarn validate:types",
         "validate:types": "tsc --noEmit",
         "clear": "rm -rf dist"

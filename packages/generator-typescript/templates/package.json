@@ -75,12 +75,7 @@ _%>
       "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
-      <%_ if (!workspace) { _%>
-        <%_ // girModule = dep.getModule(girModules, deps[i]) _%>
-        <%_ // depVersion = `${girModule.libraryVersion}-${APP_VERSION}` _%>
-        <%_ depVersion = '*' _%>
-      <%_ } _%>
-      "<%- deps[i].importPath %>": "<%- depVersion %>"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>
+      <%- deps[i].packageJsonImport %><%_ if(i < deps.length - 1) { _%>,<%_ } _%>
       <% } %>
     },
     "devDependencies": {

@@ -110,18 +110,19 @@ For example:
 
 ```json
 {
-  "compilerOptions": {
+  "compilerOptions": {   
+    "lib": ["ESNext"],
+    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2.0", "@girs/glib-2.0", "@girs/gtk-4.0", "@girs/adw-1"],
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "lib": ["ESNext"],
+    "moduleResolution": "bundler",
     "strict": true,
     "outDir": "dist"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
+
 ```
 
 ## Using with Different Type Generation Methods

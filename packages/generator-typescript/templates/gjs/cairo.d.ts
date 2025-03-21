@@ -35,6 +35,24 @@ import Cairo from '<%- Cairo.importPath %>';
     export import RegionOverlap = Cairo.RegionOverlap;
 
     /**
+     * Describes the metrics of a string of text
+     */
+    export interface TextExtents {
+        /** The horizontal distance from the origin to the leftmost part of the text */
+        xBearing: number;
+        /** The vertical distance from the origin to the topmost part of the text */
+        yBearing: number;
+        /** The width of the text */
+        width: number;
+        /** The height of the text */
+        height: number;
+        /** The distance to advance horizontally after drawing the text */
+        xAdvance: number;
+        /** The distance to advance vertically after drawing the text */
+        yAdvance: number;
+    }
+
+    /**
      * The main Cairo drawing context
      * 
      * A Cairo context is used to draw to surfaces and perform drawing operations.
@@ -777,47 +795,57 @@ import Cairo from '<%- Cairo.importPath %>';
         static createRGBA(red: number, green: number, blue: number, alpha: number): SolidPattern;
     }
 
-    /**
-     * A path object used for storing and manipulating paths
-     */
-    export class Path extends Cairo.Path {
-    }
+    export class Path extends Cairo.Path {}
 
     /**
-     * Describes the metrics of a string of text
+     * A rectangle
      */
-    export interface TextExtents {
-        /** The horizontal distance from the origin to the leftmost part of the text */
-        xBearing: number;
-        /** The vertical distance from the origin to the topmost part of the text */
-        yBearing: number;
-        /** The width of the text */
-        width: number;
-        /** The height of the text */
-        height: number;
-        /** The distance to advance horizontally after drawing the text */
-        xAdvance: number;
-        /** The distance to advance vertically after drawing the text */
-        yAdvance: number;
-    }
+    export class Rectangle extends Cairo.Rectangle {}
 
     /**
      * A rectangle integer
      */
-    export class RectangleInt {
-        constructor();
-        x: number;
-        y: number;
-        width: number;
-        height: number;
-    }
+    export class RectangleInt extends Cairo.RectangleInt {}
 
     /**
      * A region object used for representing a set of pixels
      */
-    export class Region {
-        constructor();
-    }
+    export class Region extends Cairo.Region {}
+
+    /**
+     * A matrix object used for transforming coordinates
+     */
+    export class Matrix extends Cairo.Matrix {}
+
+    /**
+     * A font face object used for storing and manipulating font faces
+     */
+    export class FontFace extends Cairo.FontFace {}
+
+    /**
+     * A scaled font object used for storing and manipulating scaled fonts
+     */
+    export class ScaledFont extends Cairo.ScaledFont {}
+
+    /**
+     * A glyph object used for storing and manipulating glyphs
+     */
+    export class Glyph extends Cairo.Glyph {}
+
+    /**
+     * A text cluster object used for storing and manipulating text clusters
+     */
+    export class TextCluster extends Cairo.TextCluster {}
+
+    /**
+     * A font options object used for storing and manipulating font options
+     */
+    export class FontOptions extends Cairo.FontOptions {}
+
+    /**
+     * A device object used for storing and manipulating devices
+     */
+    export class Device extends Cairo.Device {}
 }
 
 export default giCairo;

@@ -9,8 +9,14 @@ import Graphene from 'gi://Graphene?version=1.0';
 Gtk.init();
 
 /* Define our custom widget */
+class CustomWidget extends Gtk.Widget {
 
-class ICustomWidget extends Gtk.Widget {
+  static {
+    GObject.registerClass({
+        GTypeName: 'CustomWidget',
+    }, this);
+  }
+
   customMethod() {
     console.log("Hello from CustomWidget.customMethod")
   }
@@ -36,11 +42,6 @@ class ICustomWidget extends Gtk.Widget {
     snapshot.append_color(color, rect)
   }
 }
-
-const CustomWidget = GObject.registerClass({
-  GTypeName: 'CustomWidget',
-}, ICustomWidget );
-
 
 
 /* Setup & start the application */

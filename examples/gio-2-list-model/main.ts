@@ -10,11 +10,26 @@ import Gio from 'gi://Gio?version=2.0'
  * An example of implementing the GListModel interface in GJS. The only real
  * requirement here is that the class be derived from some GObject.
  */
-export class IGjsListStore extends GObject.Object implements Gio.ListModel {
+export class GjsListStore extends GObject.Object implements Gio.ListModel {
+
+    /**
+     * An example of implementing the GListModel interface in GJS. The only real
+     * requirement here is that the class be derived from some GObject.
+     */
+    static {
+        GObject.registerClass(
+            {
+                GTypeName: 'GjsListStore',
+                Implements: [Gio.ListModel],
+            },
+            this,
+        )
+    }
+
     _items: GObject.Object[] = []
 
-    _init() {
-        super._init()
+    constructor() {
+        super()
 
         /* We'll use a native Array as internal storage for the list model */
         this._items = []
@@ -159,18 +174,6 @@ export class IGjsListStore extends GObject.Object implements Gio.ListModel {
         this.items_changed(0, length, 0)
     }
 }
-
-/**
- * An example of implementing the GListModel interface in GJS. The only real
- * requirement here is that the class be derived from some GObject.
- */
-export const GjsListStore = GObject.registerClass(
-    {
-        GTypeName: 'GjsListStore',
-        Implements: [Gio.ListModel],
-    },
-    IGjsListStore,
-)
 
 // TODO: Expand the example which also demonstrates the use of the listStore
 const listStore = new GjsListStore()

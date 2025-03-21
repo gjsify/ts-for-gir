@@ -20,18 +20,23 @@ import Gtk from 'gi://Gtk?version=4.0';
 
 // An example GtkApplication with a few bells and whistles, see also:
 //     https://wiki.gnome.org/HowDoI/GtkApplication
-let ExampleApplication = GObject.registerClass({
-    Properties: {
-        'exampleprop': GObject.ParamSpec.string(
-            'exampleprop',                      // property name
-            'ExampleProperty',                  // nickname
-            'An example read write property',   // description
-            GObject.ParamFlags.READWRITE,       // read/write/construct...
-            'a default value'
-        ),
-    },
-    Signals: {'examplesig': {param_types: [GObject.TYPE_INT]}},
-}, class ExampleApplication extends Gtk.Application {
+class ExampleApplication extends Gtk.Application {
+
+    static {
+        GObject.registerClass({
+            Properties: {
+                'exampleprop': GObject.ParamSpec.string(
+                    'exampleprop',                      // property name
+                    'ExampleProperty',                  // nickname
+                    'An example read write property',   // description
+                    GObject.ParamFlags.READWRITE,       // read/write/construct...
+                    'a default value'
+                ),
+            },
+            Signals: {'examplesig': {param_types: [GObject.TYPE_INT]}},
+        }, this)
+    }
+
     constructor() {
         super({
             applicationId: 'org.gnome.gjs.ExampleApplication',
@@ -111,7 +116,7 @@ let ExampleApplication = GObject.registerClass({
         // Withdraw
         this.withdraw_notification('example-notification');
     }
-});
+}
 
 // The proper way to run a Gtk.Application or Gio.Application is take ARGV and
 // prepend the program name to it, and pass that to run()

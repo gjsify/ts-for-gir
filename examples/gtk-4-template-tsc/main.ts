@@ -22,22 +22,26 @@ Gtk.init();
 const templateFile = Gio.File.new_for_path('gtk4-template.ui');
 const [, Template] = templateFile.load_contents(null);
 
-const ExampleWindow = GObject.registerClass({
-    GTypeName: 'ExampleWindow',
-    Template: Template,
-    Children: [
-        'box',
-    ],
-    InternalChildren: [
-        'button',
-    ],
-}, class ExampleWindow extends Gtk.Window {
+class ExampleWindow extends Gtk.Window {
 
-    box: Gtk.Box | null = null;
-    _button: Gtk.Button | null = null;
+    declare public box: Gtk.Box | null;
+    declare protected _button: Gtk.Button | null;
 
-    _init(params = {}) {
-        super._init(params);
+    static {
+        GObject.registerClass({
+            GTypeName: 'ExampleWindow',
+            Template,
+            Children: [
+                'box',
+            ],
+            InternalChildren: [
+                'button',
+            ],
+        }, this)
+    }
+
+    constructor(params: Partial<Gtk.Window.ConstructorProps> = {}) {
+        super(params);
 
         // The template has been initialized and you can access the children
         if (this.box) this.box.visible = true;
@@ -73,8 +77,7 @@ const ExampleWindow = GObject.registerClass({
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
     }
-});
-
+}
 
 // Create a window that stops the program when it is closed
 const loop = GLib.MainLoop.new(null, false);

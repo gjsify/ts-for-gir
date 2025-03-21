@@ -11,6 +11,7 @@ if(System.version < 18200) {
 }
 
 export class ExampleApplication extends Gio.Application {
+
     static {
         GObject.registerClass({
             GTypeName: 'ExampleApplication'

@@ -10,6 +10,7 @@ if(System.version < 18200) {
 
 // Example class demonstrating different ParamSpec usages
 class ExampleObject extends GObject.Object {
+
     static {
         GObject.registerClass({
             GTypeName: 'ExampleObject',
@@ -56,10 +57,10 @@ class ExampleObject extends GObject.Object {
     }
 
     // Property values
-    private _fullProperty: string = 'default value';
-    private _minimalProperty: string = '';
-    private _count: number = 0;
-    private _active: boolean = false;
+    declare protected _fullProperty: string;
+    declare protected _minimalProperty: string;
+    declare protected _count: number;
+    declare protected _active: boolean;
 
     // Property getters/setters
     get full_property(): string {

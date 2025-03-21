@@ -13,19 +13,23 @@ import Style from './gtk4-template.css';
 
 Gtk.init();
 
-const ExampleWindow = GObject.registerClass({
-    GTypeName: 'ExampleWindow',
-    Template: Template,
-    Children: [
-        'box',
-    ],
-    InternalChildren: [
-        'button',
-    ],
-}, class ExampleWindow extends Gtk.Window {
+class ExampleWindow extends Gtk.Window {
 
-    box: Gtk.Box | null = null;
-    _button: Gtk.Button | null = null;
+    declare public box: Gtk.Box | null;
+    declare protected _button: Gtk.Button | null;
+
+    static {
+        GObject.registerClass({
+            GTypeName: 'ExampleWindow',
+            Template: Template,
+            Children: [
+                'box',
+            ],
+            InternalChildren: [
+                'button',
+            ],
+        }, this)
+    }
 
     constructor() {
         super();
@@ -65,8 +69,7 @@ const ExampleWindow = GObject.registerClass({
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
     }
-});
-
+}
 
 // Create a window that stops the program when it is closed
 const loop = GLib.MainLoop.new(null, false);

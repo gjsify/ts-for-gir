@@ -20,23 +20,27 @@ Gtk.init(null);
  *   - a GResource URI, such as `resource:///org/gnome/AppName/window.ui`
  */
 const file = Gio.File.new_for_path('gtk3-template.ui');
-const [, template] = file.load_contents(null);
+const [, Template] = file.load_contents(null);
 
-const ExampleWindow = GObject.registerClass({
-    GTypeName: 'ExampleWindow',
-    Template: template,
-    Children: [
-        'box',
-    ],
-    InternalChildren: [
-        'button',
-    ],
-}, class ExampleWindow extends Gtk.Window {
-    box: Gtk.Box | null = null;
-    _button: Gtk.Button | null = null;
+class ExampleWindow extends Gtk.Window {
+    declare public box: Gtk.Box | null;
+    declare protected _button: Gtk.Button | null;
 
-    _init(params = {}) {
-        super._init(params);
+    static {
+        GObject.registerClass({
+            GTypeName: 'ExampleWindow',
+            Template,
+            Children: [
+                'box',
+            ],
+            InternalChildren: [
+                'button',
+            ],
+        }, this)
+    }
+
+    constructor(params: Partial<Gtk.Window.ConstructorProps> = {}) {
+        super(params);
 
         // The template has been initialized and you can access the children
         if(this.box) this.box.visible = true;
@@ -52,7 +56,7 @@ const ExampleWindow = GObject.registerClass({
 
         button.label = 'Button was clicked!';
     }
-});
+}
 
 // Create a window that stops the program when it is closed
 const win = new ExampleWindow();

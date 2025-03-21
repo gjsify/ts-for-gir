@@ -50,7 +50,7 @@ class ExampleObject extends GObject.Object {
                     'Active',                // providing nick
                     null,                    // but blurb can still be null
                     GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE,
-                    false
+                    false                    // default value BEFORE flags
                 )
             }
         }, this);
@@ -119,4 +119,57 @@ for (const pspec of properties) {
     console.log(`\nProperty: ${pspec.get_name()}`);
     console.log(`Nick: ${pspec.get_nick() || '(null)'}`);
     console.log(`Blurb: ${pspec.get_blurb() || '(null)'}`);
-} 
+}
+
+// Demonstrate GObject.Object.get_property and GObject.Object.set_property methods
+console.log('\nDemonstrating GObject.Value with get_property and set_property:');
+
+// Example 1: Get/Set string property
+console.log('\nExample 1: String property');
+// Create a GObject.Value for string
+const stringValue = new GObject.Value();
+stringValue.init(GObject.TYPE_STRING);
+
+// Get the property value using get_property
+obj.get_property('full-property', stringValue);
+console.log('Get value from GObject.Value:', stringValue.get_string());
+
+// Modify the value and set it using set_property
+stringValue.set_string('Modified via GObject.Value');
+obj.set_property('full-property', stringValue);
+console.log('Property after set_property:', obj.full_property);
+
+// Example 2: Get/Set boolean property
+console.log('\nExample 2: Boolean property');
+// Create a GObject.Value for boolean
+const boolValue = new GObject.Value();
+boolValue.init(GObject.TYPE_BOOLEAN);
+
+// Get the property value
+obj.get_property('active', boolValue);
+console.log('Get value from GObject.Value:', boolValue.get_boolean());
+
+// Modify and set
+boolValue.set_boolean(false);
+obj.set_property('active', boolValue);
+console.log('Property after set_property:', obj.active);
+
+// Example 3: Get/Set integer property
+console.log('\nExample 3: Integer property');
+// Create a GObject.Value for integer
+const intValue = new GObject.Value();
+intValue.init(GObject.TYPE_INT);
+
+// Get the property value
+obj.get_property('count', intValue);
+console.log('Get value from GObject.Value:', intValue.get_int());
+
+// Modify and set
+intValue.set_int(99);
+obj.set_property('count', intValue);
+console.log('Property after set_property:', obj.count);
+
+// Clean up the GObject.Value instances
+stringValue.unset();
+boolValue.unset();
+intValue.unset(); 

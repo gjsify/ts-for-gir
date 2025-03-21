@@ -54,20 +54,20 @@
   ],
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^22.13.4",
+    "@types/node": "^22.13.11",
     "@types/yargs": "^17.0.33",
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "@typescript-eslint/parser": "^8.24.0",
-    "eslint": "^9.20.1",
-    "eslint-config-prettier": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "dependencies": {
     "@gi.ts/parser": "workspace:^",
-    "@inquirer/prompts": "^7.3.2",
+    "@inquirer/prompts": "^7.4.0",
     "@ts-for-gir/generator-base": "workspace:^",
     "@ts-for-gir/generator-html-doc": "workspace:^",
     "@ts-for-gir/generator-typescript": "workspace:^",
@@ -75,8 +75,8 @@
     "colorette": "^2.0.20",
     "cosmiconfig": "^9.0.0",
     "glob": "^11.0.1",
-    "inquirer": "^12.4.2",
-    "prettier": "^3.5.1",
+    "inquirer": "^12.5.0",
+    "prettier": "^3.5.3",
     "yargs": "^17.7.2"
   }
 }

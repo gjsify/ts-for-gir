@@ -60,24 +60,54 @@ declare namespace package {
         datadir?: string
     }
 
-    /** The base name of the entry point (eg. org.foo.Bar.App) */
-    export const name: string | undefined
-    /** The version of the package */
-    export const version: string | undefined
-    /** The prefix of the package */
-    export const prefix: string | undefined
-    /** The final datadir when installed; usually, these would be prefix + '/share' */
-    export const datadir: string | undefined
-    /** The final libdir when installed; usually, these would be prefix + '/lib' (or '/lib64') */
-    export const libdir: string | undefined
-    /** The final pkgdatadir when installed; usually, this would be prefix + '/share' */
-    export const pkgdatadir: string | undefined
-    /** The final pkglibdir when installed; usually, this would be prefix + '/lib' (or '/lib64') */
-    export const pkglibdir: string | undefined
-    /** The final moduledir when installed; usually, this would be prefix + '/lib' (or '/lib64') */
-    export const moduledir: string | undefined
-    /** The directory containing gettext translation files; this will be datadir + '/locale' when installed and './po' in the source tree */
-    export const localedir: string | undefined
+    /**
+     * The base name of the entry point (eg. org.foo.Bar.App)
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const name: string
+    /**
+     * The version of the package
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const version: string
+    /**
+     * The prefix of the package
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const prefix: string
+    /**
+     * The final datadir when installed; usually, these would be prefix + '/share'
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const datadir: string
+    /**
+     * The final libdir when installed; usually, these would be prefix + '/lib' (or '/lib64')
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const libdir: string
+    /**
+     * The final pkglibdir when installed; usually, this would be prefix + '/lib' (or '/lib64')
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const pkglibdir: string
+    /**
+     * The final moduledir when installed; usually, this would be prefix + '/lib' (or '/lib64')
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const moduledir: string
+    /**
+     * The directory containing gettext translation files; this will be datadir + '/locale' when installed and './po' in the source tree
+     * 
+     * Note: Run `pkg.init()` before accessing this property.
+     */
+    export const localedir: string
 
     /**
      * Initialize directories and global variables. Must be called
@@ -587,17 +617,17 @@ declare global {
      * Run `pkg.initGettext()` before using this.
      * See {@link gettext.gettext}
      */
-    const _: undefined | typeof gettext.gettext
+    const _: typeof gettext.gettext
     /**
      * Run `pkg.initGettext()` before using this.
      * See {@link gettext.pgettext}
      */
-    const C_: undefined | typeof gettext.pgettext
+    const C_: typeof gettext.pgettext
     /**
      * Run `pkg.initGettext()` before using this.
      * Currently not implemented.
      */
-    const N_: undefined | ((x: string) => string)
+    const N_: ((x: string) => string)
 
     function print(...args: any[]): void
     function printerr(...args: any[]): void

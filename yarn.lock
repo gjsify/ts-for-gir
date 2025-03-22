@@ -13351,9 +13351,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/cairo-surfaces-tsc@workspace:examples/cairo-surfaces-tsc":
+"@ts-for-gir-example/cairo-tsc@workspace:examples/cairo-tsc":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/cairo-surfaces-tsc@workspace:examples/cairo-surfaces-tsc"
+  resolution: "@ts-for-gir-example/cairo-tsc@workspace:examples/cairo-tsc"
   dependencies:
     "@girs/cairo-1.0": "workspace:^"
     "@girs/gdk-4.0": "workspace:^"

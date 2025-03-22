@@ -13,7 +13,8 @@ Each example:
 To use an example:
 1. Go to the example directory
 2. Run `yarn install` to install dependencies
-3. Run `yarn start` to build and run the example
+3. Run `yarn build` to build the example
+4. Run `yarn start` to run the example
 
 The examples use the `@girs/*` NPM packages for TypeScript definitions. These are pre-generated type definitions that you can also generate yourself using the ts-for-gir CLI with the `--package` option. For more information on CLI options, see the [CLI documentation](/packages/cli/README.md).
 
@@ -167,6 +168,11 @@ Here are visual previews of the examples:
 
 #### GTK 4 Custom Widget
 ![GTK 4 Custom Widget](gtk-4-custom-widget/preview.png)
+
+### Cairo Examples
+
+#### Cairo Drawing
+![Cairo Drawing](cairo-tsc/preview.png)
 
 ### GTK 3 Examples
 

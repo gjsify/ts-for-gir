@@ -14,10 +14,10 @@
     "update:submodules": "git submodule foreach git pull",
     "update:packages": "yarn upgrade-interactive",
     "update": "yarn update:submodules && yarn update:packages",
-    "publish:app:next": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tag next --access public",
-    "publish:app:latest": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tag latest --access public",
-    "publish:types:next": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tag next --access public",
-    "publish:types:latest": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tag latest --access public",
+    "publish:app:next": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tolerate-republish --tag next --access public",
+    "publish:app:latest": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tolerate-republish --tag latest --access public",
+    "publish:types:next": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tolerate-republish --tag next --access public",
+    "publish:types:latest": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tolerate-republish --tag latest --access public",
     "test": "yarn build && yarn test:girs:packages && yarn test:examples && yarn test:tests",
     "test:girs:packages": "yarn build:types:packages && yarn validate:types:packages",
     "test:girs:packages:gtk4": "yarn build:types:packages:gtk4 && yarn validate:types:packages",
@@ -90,5 +90,5 @@
     "packages/*",
     "types/*"
   ],
-  "packageManager": "yarn@4.7.0"
+  "packageManager": "yarn@4.6.0"
 }

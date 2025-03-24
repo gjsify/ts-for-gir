@@ -32,8 +32,9 @@ export function generify(registry: NSRegistry, inferGenerics: boolean) {
 
     $(gio);
     $(glib);
-    $(gtk);
     const $_ = generifyDefinitions(registry, inferGenerics, false);
+
+    $_(gtk);
 
     $_(clutter10);
     $_(clutter11);

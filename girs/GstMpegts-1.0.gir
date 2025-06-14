@@ -5,12 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <package name="gstreamer-mpegts-1.0"/>
   <c:include name="gst/mpegts/mpegts.h"/>
-  <doc:format name="unknown"/>
   <namespace name="GstMpegts"
              version="1.0"
              shared-library="libgstmpegts-1.0.so.0"
@@ -6065,7 +6063,7 @@ See:
       <constructor name="new" c:identifier="gst_mpegts_section_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-             line="1194">Creates a new #GstMpegtsSection from the provided @data.
+             line="1193">Creates a new #GstMpegtsSection from the provided @data.
 
 Note: Ensuring @data is big enough to contain the full section is the
 responsibility of the caller. If it is not big enough, %NULL will be
@@ -6078,7 +6076,7 @@ to the beginning of the section.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-               line="1210">A new #GstMpegtsSection if the data was valid,
+               line="1209">A new #GstMpegtsSection if the data was valid,
 else %NULL</doc>
           <type name="Section" c:type="GstMpegtsSection*"/>
         </return-value>
@@ -6086,13 +6084,13 @@ else %NULL</doc>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-                 line="1196">the PID to which this section belongs</doc>
+                 line="1195">the PID to which this section belongs</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="data" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-                 line="1197">a pointer to the beginning of
+                 line="1196">a pointer to the beginning of
 the section (i.e. the first byte should contain the `table_id` field).</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
@@ -6101,7 +6099,7 @@ the section (i.e. the first byte should contain the `table_id` field).</doc>
           <parameter name="data_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-                 line="1199">size of the @data argument.</doc>
+                 line="1198">size of the @data argument.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -6579,7 +6577,7 @@ happened. Release with #g_array_unref when done.</doc>
       <method name="packetize" c:identifier="gst_mpegts_section_packetize">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-             line="1292">Packetize (i.e. serialize) the @section. If the data in @section has already
+             line="1291">Packetize (i.e. serialize) the @section. If the data in @section has already
 been packetized, the data pointer is returned immediately. Otherwise, the
 data field is allocated and populated.</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtssection.h"
@@ -6587,14 +6585,14 @@ data field is allocated and populated.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-               line="1301">pointer to section data, or %NULL on failure.</doc>
+               line="1300">pointer to section data, or %NULL on failure.</doc>
           <type name="guint8" c:type="guint8*"/>
         </return-value>
         <parameters>
           <instance-parameter name="section" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-                 line="1294">the #GstMpegtsSection that holds the data</doc>
+                 line="1293">the #GstMpegtsSection that holds the data</doc>
             <type name="Section" c:type="GstMpegtsSection*"/>
           </instance-parameter>
           <parameter name="output_size"
@@ -6603,7 +6601,7 @@ data field is allocated and populated.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gstmpegtssection.c"
-                 line="1295">#gsize to hold the size of the data</doc>
+                 line="1294">#gsize to hold the size of the data</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -8137,13 +8135,14 @@ profiles defined in Annex A for service-compatible stereoscopic 3D services</doc
     </enumeration>
     <function name="buffer_add_mpegts_pes_metadata_meta"
               c:identifier="gst_buffer_add_mpegts_pes_metadata_meta"
-              version="1.24">
+              version="1.24"
+              introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
            line="92">Creates and adds a #GstMpegtsPESMetadataMeta to a @buffer.</doc>
       <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
                        line="104"/>
-      <return-value transfer-ownership="none">
+      <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
              line="98">a newly created #GstMpegtsPESMetadataMeta</doc>

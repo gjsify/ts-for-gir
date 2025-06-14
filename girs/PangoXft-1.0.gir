@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Pango" version="1.0"/>
@@ -14,6 +15,7 @@ and/or use gtk-doc annotations.  -->
   <include name="xlib" version="2.0"/>
   <package name="pangoxft"/>
   <c:include name="pango/pangoxft.h"/>
+  <doc:format name="unknown"/>
   <namespace name="PangoXft"
              version="1.0"
              shared-library="libpangoxft-1.0.so.0"
@@ -364,6 +366,11 @@ using the renderer.</doc>
         </parameters>
       </constructor>
       <virtual-method name="composite_glyphs">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="83">draw the specified glyphs using
+  the current foreground color and other foreground
+  attributes</doc>
         <source-position filename="pango/pangoxft-render.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -384,6 +391,10 @@ using the renderer.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="composite_trapezoids">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="81">draw the specified trapezoids using
+  the current color and other attributes for @part</doc>
         <source-position filename="pango/pangoxft-render.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -497,6 +508,10 @@ The renderer must not be currently active.</doc>
         <type name="Pango.RendererClass" c:type="PangoRendererClass"/>
       </field>
       <field name="composite_trapezoids">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="81">draw the specified trapezoids using
+  the current color and other attributes for @part</doc>
         <callback name="composite_trapezoids">
           <source-position filename="pango/pangoxft-render.h" line="97"/>
           <return-value transfer-ownership="none">
@@ -519,6 +534,11 @@ The renderer must not be currently active.</doc>
         </callback>
       </field>
       <field name="composite_glyphs">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="83">draw the specified glyphs using
+  the current foreground color and other foreground
+  attributes</doc>
         <callback name="composite_glyphs">
           <source-position filename="pango/pangoxft-render.h" line="101"/>
           <return-value transfer-ownership="none">
@@ -580,7 +600,7 @@ The renderer must not be currently active.</doc>
               deprecated-version="1.22">
       <doc xml:space="preserve"
            filename="pango/pangoxft-fontmap.c"
-           line="346">Retrieves a `PangoContext` appropriate for rendering with
+           line="347">Retrieves a `PangoContext` appropriate for rendering with
 Xft fonts on the given screen of the given display.</doc>
       <doc-deprecated xml:space="preserve">Use pango_xft_get_font_map() followed by
 pango_font_map_create_context() instead.</doc-deprecated>
@@ -588,20 +608,20 @@ pango_font_map_create_context() instead.</doc-deprecated>
       <return-value>
         <doc xml:space="preserve"
              filename="pango/pangoxft-fontmap.c"
-             line="354">the new `PangoContext`.</doc>
+             line="355">the new `PangoContext`.</doc>
         <type name="Pango.Context" c:type="PangoContext*"/>
       </return-value>
       <parameters>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="348">an X display.</doc>
+               line="349">an X display.</doc>
           <type name="xlib.Display" c:type="Display*"/>
         </parameter>
         <parameter name="screen" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="349">an X screen.</doc>
+               line="350">an X screen.</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -611,27 +631,27 @@ pango_font_map_create_context() instead.</doc-deprecated>
               version="1.2">
       <doc xml:space="preserve"
            filename="pango/pangoxft-fontmap.c"
-           line="201">Returns the `PangoXftFontMap` for the given display and screen.
+           line="202">Returns the `PangoXftFontMap` for the given display and screen.
 The fontmap is owned by Pango and will be valid until
 the display is closed.</doc>
       <source-position filename="pango/pangoxft.h" line="94"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="pango/pangoxft-fontmap.c"
-             line="210">a `PangoFontMap` object, owned by Pango.</doc>
+             line="211">a `PangoFontMap` object, owned by Pango.</doc>
         <type name="Pango.FontMap" c:type="PangoFontMap*"/>
       </return-value>
       <parameters>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="203">an X display</doc>
+               line="204">an X display</doc>
           <type name="xlib.Display" c:type="Display*"/>
         </parameter>
         <parameter name="screen" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="204">the screen number of a screen within @display</doc>
+               line="205">the screen number of a screen within @display</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -898,7 +918,7 @@ transformation matrix to that passed in to this function.</doc>
               deprecated-version="1.46">
       <doc xml:space="preserve"
            filename="pango/pangoxft-fontmap.c"
-           line="276">Sets a function that will be called to do final configuration
+           line="277">Sets a function that will be called to do final configuration
 substitution on a #FcPattern before it is used to load
 the font. This function can be used to do things like set
 hinting and antialiasing options.</doc>
@@ -912,13 +932,13 @@ instead.</doc-deprecated>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="278">an X Display</doc>
+               line="279">an X Display</doc>
           <type name="xlib.Display" c:type="Display*"/>
         </parameter>
         <parameter name="screen" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="279">the screen number of a screen within @display</doc>
+               line="280">the screen number of a screen within @display</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="func"
@@ -928,7 +948,7 @@ instead.</doc-deprecated>
                    destroy="4">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="280">function to call to to do final config tweaking
+               line="281">function to call to to do final config tweaking
        on #FcPattern objects.</doc>
           <type name="SubstituteFunc" c:type="PangoXftSubstituteFunc"/>
         </parameter>
@@ -938,13 +958,13 @@ instead.</doc-deprecated>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="282">data to pass to @func</doc>
+               line="283">data to pass to @func</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="notify" transfer-ownership="none" scope="async">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="283">function to call when @data is no longer used.</doc>
+               line="284">function to call when @data is no longer used.</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
       </parameters>
@@ -954,7 +974,7 @@ instead.</doc-deprecated>
               version="1.2">
       <doc xml:space="preserve"
            filename="pango/pangoxft-fontmap.c"
-           line="243">Release any resources that have been cached for the
+           line="244">Release any resources that have been cached for the
 combination of @display and @screen. Note that when the
 X display is closed, resources are released automatically,
 without needing to call this function.</doc>
@@ -966,13 +986,13 @@ without needing to call this function.</doc>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="245">an X display</doc>
+               line="246">an X display</doc>
           <type name="xlib.Display" c:type="Display*"/>
         </parameter>
         <parameter name="screen" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="246">the screen number of a screen within @display</doc>
+               line="247">the screen number of a screen within @display</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -984,7 +1004,7 @@ without needing to call this function.</doc>
               deprecated-version="1.46">
       <doc xml:space="preserve"
            filename="pango/pangoxft-fontmap.c"
-           line="308">Call this function any time the results of the
+           line="309">Call this function any time the results of the
 default substitution function set with
 pango_xft_set_default_substitute() change.
 That is, if your substitution function will return different
@@ -999,13 +1019,13 @@ instead.</doc-deprecated>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="310">an X Display</doc>
+               line="311">an X Display</doc>
           <type name="xlib.Display" c:type="Display*"/>
         </parameter>
         <parameter name="screen" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoxft-fontmap.c"
-               line="311">the screen number of a screen within @display</doc>
+               line="312">the screen number of a screen within @display</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>

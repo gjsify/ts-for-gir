@@ -35112,7 +35112,7 @@ progress of the gesture.</doc>
            glib:get-type="gdk_vulkan_context_get_type">
       <doc xml:space="preserve"
            filename="gdk/gdkvulkancontext.c"
-           line="49">Represents the platform-specific Vulkan draw context.
+           line="48">Represents the platform-specific Vulkan draw context.
 
 `GdkVulkanContext`s are created for a surface using
 [method@Gdk.Surface.create_vulkan_context], and the context will match
@@ -35126,7 +35126,7 @@ can fail, returning %NULL context.</doc>
       <glib:signal name="images-updated" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkvulkancontext.c"
-             line="868">Emitted when the images managed by this context have changed.
+             line="864">Emitted when the images managed by this context have changed.
 
 Usually this means that the swapchain had to be recreated,
 for example in response to a change of the surface size.</doc>
@@ -35165,11 +35165,11 @@ for example in response to a change of the surface size.</doc>
       <function name="quark" c:identifier="gdk_vulkan_error_quark">
         <doc xml:space="preserve"
              filename="gdk/gdkvulkancontext.c"
-             line="96">Registers an error quark for [class@Gdk.VulkanContext] errors.</doc>
+             line="95">Registers an error quark for [class@Gdk.VulkanContext] errors.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkvulkancontext.c"
-               line="101">the error quark</doc>
+               line="100">the error quark</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -36573,11 +36573,11 @@ in order to take effect.</doc>
               moved-to="VulkanError.quark">
       <doc xml:space="preserve"
            filename="gdk/gdkvulkancontext.c"
-           line="96">Registers an error quark for [class@Gdk.VulkanContext] errors.</doc>
+           line="95">Registers an error quark for [class@Gdk.VulkanContext] errors.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/gdkvulkancontext.c"
-             line="101">the error quark</doc>
+             line="100">the error quark</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

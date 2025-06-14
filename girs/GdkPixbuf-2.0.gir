@@ -5,13 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GModule" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="gdk-pixbuf-2.0"/>
   <c:include name="gdk-pixbuf/gdk-pixbuf.h"/>
-  <doc:format name="unknown"/>
   <namespace name="GdkPixbuf"
              version="2.0"
              shared-library="libgdk_pixbuf-2.0.so.0"
@@ -506,7 +504,7 @@ interpolation is just as fast and results in higher quality.</doc>
       <source-position filename="gdk-pixbuf/gdk-pixbuf-features.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="PIXBUF_MICRO" value="13" c:type="GDK_PIXBUF_MICRO">
+    <constant name="PIXBUF_MICRO" value="12" c:type="GDK_PIXBUF_MICRO">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixbuf-features.h"
            line="22">Micro version of gdk-pixbuf library, that is the "2" in
@@ -553,7 +551,7 @@ interpolation is just as fast and results in higher quality.</doc>
       </parameters>
     </function-macro>
     <constant name="PIXBUF_VERSION"
-              value="2.42.13"
+              value="2.42.12"
               c:type="GDK_PIXBUF_VERSION">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixbuf-features.h"

@@ -5367,7 +5367,7 @@ icon theme.</doc>
       <method name="get_texture" c:identifier="st_image_content_get_texture">
         <doc xml:space="preserve"
              filename="src/st/st-image-content.c"
-             line="587">Retrieves a pointer to the Cogl texture used by @content.
+             line="584">Retrieves a pointer to the Cogl texture used by @content.
 
 If you change the contents of the returned Cogl texture you will need
 to manually invalidate the @content with [method@Clutter.Content.invalidate]
@@ -5376,14 +5376,14 @@ in order to update the actors using @content as their content.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-image-content.c"
-               line="597">a pointer to the Cogl texture, or %NULL</doc>
+               line="594">a pointer to the Cogl texture, or %NULL</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="589">a #StcontentContent</doc>
+                 line="586">a #StcontentContent</doc>
             <type name="ImageContent" c:type="StImageContent*"/>
           </instance-parameter>
         </parameters>
@@ -5393,7 +5393,7 @@ in order to update the actors using @content as their content.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/st/st-image-content.c"
-             line="528">Sets the image data stored inside a #GBytes to be displayed by @content.
+             line="516">Sets the image data stored inside a #GBytes to be displayed by @content.
 
 If the image data was successfully loaded, the @content will be invalidated.
 
@@ -5406,7 +5406,7 @@ and no additional reference is acquired on the @data.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-image-content.c"
-               line="549">%TRUE if the image data was successfully loaded,
+               line="537">%TRUE if the image data was successfully loaded,
   and %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5414,43 +5414,43 @@ and no additional reference is acquired on the @data.</doc>
           <instance-parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="530">a #StImageContent</doc>
+                 line="518">a #StImageContent</doc>
             <type name="ImageContent" c:type="StImageContent*"/>
           </instance-parameter>
           <parameter name="cogl_context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="531">The context to use</doc>
+                 line="519">The context to use</doc>
             <type name="Cogl.Context" c:type="CoglContext*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="532">the image data, as a #GBytes</doc>
+                 line="520">the image data, as a #GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="pixel_format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="533">the Cogl pixel format of the image data</doc>
+                 line="521">the Cogl pixel format of the image data</doc>
             <type name="Cogl.PixelFormat" c:type="CoglPixelFormat"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="534">the width of the image data</doc>
+                 line="522">the width of the image data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="535">the height of the image data</doc>
+                 line="523">the height of the image data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="row_stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="536">the length of each row inside @data</doc>
+                 line="524">the length of each row inside @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -5460,7 +5460,7 @@ and no additional reference is acquired on the @data.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/st/st-image-content.c"
-             line="450">Sets the image data to be displayed by @content.
+             line="428">Sets the image data to be displayed by @content.
 
 If the image data was successfully loaded, the @content will be invalidated.
 
@@ -5494,7 +5494,7 @@ instance, if you use the GdkPixbuf library:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-image-content.c"
-               line="492">%TRUE if the image data was successfully loaded,
+               line="470">%TRUE if the image data was successfully loaded,
   and %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5502,19 +5502,19 @@ instance, if you use the GdkPixbuf library:
           <instance-parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="452">a #StImageContentImage</doc>
+                 line="430">a #StImageContentImage</doc>
             <type name="ImageContent" c:type="StImageContent*"/>
           </instance-parameter>
           <parameter name="cogl_context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="453">The context to use</doc>
+                 line="431">The context to use</doc>
             <type name="Cogl.Context" c:type="CoglContext*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="454">the image data, as an array of bytes</doc>
+                 line="432">the image data, as an array of bytes</doc>
             <array zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -5522,25 +5522,25 @@ instance, if you use the GdkPixbuf library:
           <parameter name="pixel_format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="455">the Cogl pixel format of the image data</doc>
+                 line="433">the Cogl pixel format of the image data</doc>
             <type name="Cogl.PixelFormat" c:type="CoglPixelFormat"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="456">the width of the image data</doc>
+                 line="434">the width of the image data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="457">the height of the image data</doc>
+                 line="435">the height of the image data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="row_stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="458">the length of each row inside @data</doc>
+                 line="436">the length of each row inside @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>

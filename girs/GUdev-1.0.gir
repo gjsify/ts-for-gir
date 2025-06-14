@@ -5,12 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <package name="gudev-1.0"/>
   <c:include name="gudev/gudev.h"/>
-  <doc:format name="unknown"/>
   <namespace name="GUdev"
              version="1.0"
              shared-library="libgudev-1.0.so.0"
@@ -112,9 +110,6 @@ of the thread that you call this constructor from.</doc>
         </parameters>
       </constructor>
       <virtual-method name="uevent">
-        <doc xml:space="preserve"
-             filename="gudev/gudevclient.h"
-             line="48">Signal class handler for the #GUdevClient::uevent signal.</doc>
         <source-position filename="gudev/gudevclient.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -365,9 +360,6 @@ of the thread that @client was created in.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="uevent">
-        <doc xml:space="preserve"
-             filename="gudev/gudevclient.h"
-             line="48">Signal class handler for the #GUdevClient::uevent signal.</doc>
         <callback name="uevent">
           <source-position filename="gudev/gudevclient.h" line="57"/>
           <return-value transfer-ownership="none">

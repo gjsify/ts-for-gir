@@ -3649,12 +3649,12 @@ immediate parent.</doc>
       <constructor name="new" c:identifier="atspi_device_new">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="184">Creates a new #AtspiDevice.</doc>
+             line="203">Creates a new #AtspiDevice.</doc>
         <source-position filename="atspi/atspi-device.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="189">a pointer to a newly-created #AtspiDevice.</doc>
+               line="208">a pointer to a newly-created #AtspiDevice.</doc>
           <type name="Device" c:type="AtspiDevice*"/>
         </return-value>
       </constructor>
@@ -3663,12 +3663,12 @@ immediate parent.</doc>
                    version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="150">Creates a new #AtspiDevice with a specified app id.</doc>
+             line="169">Creates a new #AtspiDevice with a specified app id.</doc>
         <source-position filename="atspi/atspi-device.h" line="107"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="156">a pointer to a newly-created #AtspiDevice.</doc>
+               line="175">a pointer to a newly-created #AtspiDevice.</doc>
           <type name="Device" c:type="AtspiDevice*"/>
         </return-value>
         <parameters>
@@ -3678,7 +3678,7 @@ immediate parent.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="152">The application ID of the application that created this device.</doc>
+                 line="171">The application ID of the application that created this device.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3703,7 +3703,7 @@ immediate parent.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="490">Synthesizes a mouse event at a specific screen coordinate.
+             line="509">Synthesizes a mouse event at a specific screen coordinate.
 Most AT clients should use the #AccessibleAction interface when
 tempted to generate mouse events, rather than this method.
 Event names: b1p = button 1 press; b2r = button 2 release;
@@ -3717,33 +3717,33 @@ Event names: b1p = button 1 press; b2r = button 2 release;
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="492">the device.</doc>
+                 line="511">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="493">The #AtspiAccessible that should receive the click.</doc>
+                 line="512">The #AtspiAccessible that should receive the click.</doc>
             <type name="Accessible" c:type="AtspiAccessible*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="494">a #gint indicating the x coordinate of the mouse event, relative to
+                 line="513">a #gint indicating the x coordinate of the mouse event, relative to
     @obj..</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="496">a #gint indicating the y coordinate of the mouse event, relative to
+                 line="515">a #gint indicating the y coordinate of the mouse event, relative to
     @obj..</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="498">a string indicating which mouse event to be synthesized
+                 line="517">a string indicating which mouse event to be synthesized
        (e.g. "b1p", "b1c", "b2r", "rel", "abs").</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -3754,7 +3754,7 @@ Event names: b1p = button 1 press; b2r = button 2 release;
                       version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="562">Gets the modifier for a given keysym, if one exists. Does not create a new
+             line="581">Gets the modifier for a given keysym, if one exists. Does not create a new
 mapping. This function should be used when the intention is to query a
 locking modifier such as num lock via atspi_device_get_locked_modifiers,
 rather than to add key grabs.</doc>
@@ -3762,20 +3762,20 @@ rather than to add key grabs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="572">the modifier that is mapped to this keysym.</doc>
+               line="591">the modifier that is mapped to this keysym.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="564">the device.</doc>
+                 line="583">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="565">the XKB keysym to map.</doc>
+                 line="584">the XKB keysym to map.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3784,20 +3784,20 @@ rather than to add key grabs.</doc>
                       invoker="get_locked_modifiers">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="442">Returns the locked modifiers (ie, num lock, caps lock) associated with this
+             line="461">Returns the locked modifiers (ie, num lock, caps lock) associated with this
 keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="449">a guint of modifier flags.</doc>
+               line="468">a guint of modifier flags.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="444">the device.</doc>
+                 line="463">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
         </parameters>
@@ -3805,7 +3805,7 @@ keyboard.</doc>
       <virtual-method name="get_modifier" invoker="get_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="421">Gets the modifier for a given keycode, if one exists. Does not create a new
+             line="440">Gets the modifier for a given keycode, if one exists. Does not create a new
 mapping. This function should be used when the intention is to query a
 locking modifier such as num lock via atspi_device_get_locked_modifiers,
 rather than to add key grabs.</doc>
@@ -3813,20 +3813,20 @@ rather than to add key grabs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="431">the modifier that is mapped to this keycode.</doc>
+               line="450">the modifier that is mapped to this keycode.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="423">the device.</doc>
+                 line="442">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="424">the keycode to map.</doc>
+                 line="443">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3834,14 +3834,14 @@ rather than to add key grabs.</doc>
       <virtual-method name="grab_keyboard" invoker="grab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="460">Attempts to grab the entire keyboard. This should only be done
+             line="479">Attempts to grab the entire keyboard. This should only be done
 temporarily, as it may conflict with other applications that also want to
 grab the keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="467">#TRUE if successful, #FALSE otherwise.</doc>
+               line="486">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3855,7 +3855,7 @@ grab the keyboard.</doc>
                       version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="518">Maps the specified keysym to a modifier so that it can be used in
+             line="537">Maps the specified keysym to a modifier so that it can be used in
 conjunction with other keys to create a key grab. If the given keysym is
 already mapped, then this function will return the modifier that is
 currently mapped to the keysym, without doing anything else. Otherwise,
@@ -3867,7 +3867,7 @@ then it will use the first modifier by default.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="532">the modifier that is now mapped to this keysym. This return
+               line="551">the modifier that is now mapped to this keysym. This return
 value can be passed to atspi_device_add_key_grab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -3875,13 +3875,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="520">the device.</doc>
+                 line="539">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="521">the XKB keysym to map.</doc>
+                 line="540">the XKB keysym to map.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3889,7 +3889,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="map_modifier" invoker="map_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="381">Maps the specified key code to a modifier so that it can be used in
+             line="400">Maps the specified key code to a modifier so that it can be used in
 conjunction with other keys to create a key grab. If the given keycode is
 already mapped, then this function will return the modifier that is
 currently mapped to the keycode, without doing anything else. Otherwise,
@@ -3901,7 +3901,7 @@ then it will use the first modifier by default.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="395">the modifier that is now mapped to this keycode. This return
+               line="414">the modifier that is now mapped to this keycode. This return
 value can be passed to atspi_device_add_key_grab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -3909,13 +3909,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="383">the device.</doc>
+                 line="402">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="384">the keycode to map.</doc>
+                 line="403">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3923,7 +3923,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="remove_key_grab" invoker="remove_key_grab">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="309">Removes the key grab specified by @id.</doc>
+             line="328">Removes the key grab specified by @id.</doc>
         <source-position filename="atspi/atspi-device.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3932,13 +3932,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="311">the device.</doc>
+                 line="330">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="312">the identifier of the grab to be removed.</doc>
+                 line="331">the identifier of the grab to be removed.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3946,7 +3946,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="ungrab_keyboard" invoker="ungrab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="478">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
+             line="497">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3962,7 +3962,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
                       version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="546">Removes a mapped modifier from the given keysym.</doc>
+             line="565">Removes a mapped modifier from the given keysym.</doc>
         <source-position filename="atspi/atspi-device.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3971,13 +3971,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="548">the device.</doc>
+                 line="567">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="549">the XKB keysym to unmap.</doc>
+                 line="568">the XKB keysym to unmap.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3985,7 +3985,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="unmap_modifier" invoker="unmap_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="407">Removes a mapped modifier from the given keycode.</doc>
+             line="426">Removes a mapped modifier from the given keycode.</doc>
         <source-position filename="atspi/atspi-device.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3994,13 +3994,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="409">the device.</doc>
+                 line="428">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="410">the keycode to unmap.</doc>
+                 line="429">the keycode to unmap.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4010,7 +4010,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="283">an identifier that can be later used to remove the grab, or 0
+               line="302">an identifier that can be later used to remove the grab, or 0
 if the key/modifier combination could not be grabbed.
 Add a key grab for the given key/modifier combination.</doc>
           <type name="guint" c:type="guint"/>
@@ -4019,13 +4019,13 @@ Add a key grab for the given key/modifier combination.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="275">the device.</doc>
+                 line="294">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="kd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="276">a #AtspiKeyDefinition specifying the key code to grab.</doc>
+                 line="295">a #AtspiKeyDefinition specifying the key code to grab.</doc>
             <type name="KeyDefinition" c:type="AtspiKeyDefinition*"/>
           </parameter>
           <parameter name="callback"
@@ -4037,7 +4037,7 @@ Add a key grab for the given key/modifier combination.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="277">the function to call when the
+                 line="296">the function to call when the
            given key is pressed.</doc>
             <type name="KeyCallback" c:type="AtspiKeyCallback"/>
           </parameter>
@@ -4047,7 +4047,7 @@ Add a key grab for the given key/modifier combination.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="279">Data to be passed to @callback.</doc>
+                 line="298">Data to be passed to @callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -4055,7 +4055,7 @@ Add a key grab for the given key/modifier combination.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="280">callback function to be called when @callback is
+                 line="299">callback function to be called when @callback is
                      destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
@@ -4065,7 +4065,7 @@ Add a key grab for the given key/modifier combination.</doc>
               c:identifier="atspi_device_add_key_watcher">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="337">Add a callback that will receive a notification whenever a key is
+             line="356">Add a callback that will receive a notification whenever a key is
 pressed or released.</doc>
         <source-position filename="atspi/atspi-device.h" line="79"/>
         <return-value transfer-ownership="none">
@@ -4075,7 +4075,7 @@ pressed or released.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="339">the device.</doc>
+                 line="358">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -4085,7 +4085,7 @@ pressed or released.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="340">the
+                 line="359">the
   function to call when the given key is pressed.</doc>
             <type name="KeyCallback" c:type="AtspiKeyCallback"/>
           </parameter>
@@ -4095,7 +4095,7 @@ pressed or released.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="342">Data to be passed to @callback.</doc>
+                 line="361">Data to be passed to @callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -4103,7 +4103,7 @@ pressed or released.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="343">callback function to be called when @callback is destroyed.</doc>
+                 line="362">callback function to be called when @callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -4114,7 +4114,7 @@ pressed or released.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="490">Synthesizes a mouse event at a specific screen coordinate.
+             line="509">Synthesizes a mouse event at a specific screen coordinate.
 Most AT clients should use the #AccessibleAction interface when
 tempted to generate mouse events, rather than this method.
 Event names: b1p = button 1 press; b2r = button 2 release;
@@ -4128,33 +4128,33 @@ Event names: b1p = button 1 press; b2r = button 2 release;
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="492">the device.</doc>
+                 line="511">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="493">The #AtspiAccessible that should receive the click.</doc>
+                 line="512">The #AtspiAccessible that should receive the click.</doc>
             <type name="Accessible" c:type="AtspiAccessible*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="494">a #gint indicating the x coordinate of the mouse event, relative to
+                 line="513">a #gint indicating the x coordinate of the mouse event, relative to
     @obj..</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="496">a #gint indicating the y coordinate of the mouse event, relative to
+                 line="515">a #gint indicating the y coordinate of the mouse event, relative to
     @obj..</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="498">a string indicating which mouse event to be synthesized
+                 line="517">a string indicating which mouse event to be synthesized
        (e.g. "b1p", "b1c", "b2r", "rel", "abs").</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -4166,7 +4166,7 @@ Event names: b1p = button 1 press; b2r = button 2 release;
               version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="585">Returns the application ID of the device.</doc>
+             line="604">Returns the application ID of the device.</doc>
         <source-position filename="atspi/atspi-device.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -4175,7 +4175,7 @@ Event names: b1p = button 1 press; b2r = button 2 release;
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="587">the device.</doc>
+                 line="606">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
         </parameters>
@@ -4199,7 +4199,7 @@ Event names: b1p = button 1 press; b2r = button 2 release;
               version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="562">Gets the modifier for a given keysym, if one exists. Does not create a new
+             line="581">Gets the modifier for a given keysym, if one exists. Does not create a new
 mapping. This function should be used when the intention is to query a
 locking modifier such as num lock via atspi_device_get_locked_modifiers,
 rather than to add key grabs.</doc>
@@ -4207,20 +4207,20 @@ rather than to add key grabs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="572">the modifier that is mapped to this keysym.</doc>
+               line="591">the modifier that is mapped to this keysym.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="564">the device.</doc>
+                 line="583">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="565">the XKB keysym to map.</doc>
+                 line="584">the XKB keysym to map.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4229,20 +4229,20 @@ rather than to add key grabs.</doc>
               c:identifier="atspi_device_get_locked_modifiers">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="442">Returns the locked modifiers (ie, num lock, caps lock) associated with this
+             line="461">Returns the locked modifiers (ie, num lock, caps lock) associated with this
 keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="449">a guint of modifier flags.</doc>
+               line="468">a guint of modifier flags.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="444">the device.</doc>
+                 line="463">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
         </parameters>
@@ -4250,7 +4250,7 @@ keyboard.</doc>
       <method name="get_modifier" c:identifier="atspi_device_get_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="421">Gets the modifier for a given keycode, if one exists. Does not create a new
+             line="440">Gets the modifier for a given keycode, if one exists. Does not create a new
 mapping. This function should be used when the intention is to query a
 locking modifier such as num lock via atspi_device_get_locked_modifiers,
 rather than to add key grabs.</doc>
@@ -4258,20 +4258,20 @@ rather than to add key grabs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="431">the modifier that is mapped to this keycode.</doc>
+               line="450">the modifier that is mapped to this keycode.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="423">the device.</doc>
+                 line="442">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="424">the keycode to map.</doc>
+                 line="443">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4279,14 +4279,14 @@ rather than to add key grabs.</doc>
       <method name="grab_keyboard" c:identifier="atspi_device_grab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="460">Attempts to grab the entire keyboard. This should only be done
+             line="479">Attempts to grab the entire keyboard. This should only be done
 temporarily, as it may conflict with other applications that also want to
 grab the keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="467">#TRUE if successful, #FALSE otherwise.</doc>
+               line="486">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -4300,7 +4300,7 @@ grab the keyboard.</doc>
               version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="518">Maps the specified keysym to a modifier so that it can be used in
+             line="537">Maps the specified keysym to a modifier so that it can be used in
 conjunction with other keys to create a key grab. If the given keysym is
 already mapped, then this function will return the modifier that is
 currently mapped to the keysym, without doing anything else. Otherwise,
@@ -4312,7 +4312,7 @@ then it will use the first modifier by default.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="532">the modifier that is now mapped to this keysym. This return
+               line="551">the modifier that is now mapped to this keysym. This return
 value can be passed to atspi_device_add_key_grab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -4320,13 +4320,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="520">the device.</doc>
+                 line="539">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="521">the XKB keysym to map.</doc>
+                 line="540">the XKB keysym to map.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4334,7 +4334,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <method name="map_modifier" c:identifier="atspi_device_map_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="381">Maps the specified key code to a modifier so that it can be used in
+             line="400">Maps the specified key code to a modifier so that it can be used in
 conjunction with other keys to create a key grab. If the given keycode is
 already mapped, then this function will return the modifier that is
 currently mapped to the keycode, without doing anything else. Otherwise,
@@ -4346,7 +4346,7 @@ then it will use the first modifier by default.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="395">the modifier that is now mapped to this keycode. This return
+               line="414">the modifier that is now mapped to this keycode. This return
 value can be passed to atspi_device_add_key_grab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -4354,13 +4354,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="383">the device.</doc>
+                 line="402">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="384">the keycode to map.</doc>
+                 line="403">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4395,7 +4395,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
               c:identifier="atspi_device_remove_key_grab">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="309">Removes the key grab specified by @id.</doc>
+             line="328">Removes the key grab specified by @id.</doc>
         <source-position filename="atspi/atspi-device.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4404,13 +4404,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="311">the device.</doc>
+                 line="330">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="312">the identifier of the grab to be removed.</doc>
+                 line="331">the identifier of the grab to be removed.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4420,7 +4420,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
               version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="600">Sets the application ID of the device.</doc>
+             line="619">Sets the application ID of the device.</doc>
         <source-position filename="atspi/atspi-device.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4429,13 +4429,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="602">the device.</doc>
+                 line="621">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="app_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="603">the application ID.</doc>
+                 line="622">the application ID.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4444,7 +4444,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
               c:identifier="atspi_device_ungrab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="478">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
+             line="497">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="93"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4460,7 +4460,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
               version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="546">Removes a mapped modifier from the given keysym.</doc>
+             line="565">Removes a mapped modifier from the given keysym.</doc>
         <source-position filename="atspi/atspi-device.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4469,13 +4469,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="548">the device.</doc>
+                 line="567">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="549">the XKB keysym to unmap.</doc>
+                 line="568">the XKB keysym to unmap.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4483,7 +4483,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <method name="unmap_modifier" c:identifier="atspi_device_unmap_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="407">Removes a mapped modifier from the given keycode.</doc>
+             line="426">Removes a mapped modifier from the given keycode.</doc>
         <source-position filename="atspi/atspi-device.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4492,13 +4492,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="409">the device.</doc>
+                 line="428">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="410">the keycode to unmap.</doc>
+                 line="429">the keycode to unmap.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4511,7 +4511,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="133">The application ID of the application that created this device.
+             line="152">The application ID of the application that created this device.
 The ID might be used for access control purposes
 by some device backends.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -4533,13 +4533,13 @@ by some device backends.</doc>
                    version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device-a11y-manager.c"
-             line="557">Tries to create a new #AtspiDeviceA11yManager.</doc>
+             line="566">Tries to create a new #AtspiDeviceA11yManager.</doc>
         <source-position filename="atspi/atspi-device-a11y-manager.h"
                          line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device-a11y-manager.c"
-               line="562">a pointer to a newly-created #AtspiDeviceA11yManager</doc>
+               line="571">a pointer to a newly-created #AtspiDeviceA11yManager</doc>
           <type name="DeviceA11yManager" c:type="AtspiDeviceA11yManager*"/>
         </return-value>
       </constructor>
@@ -4624,13 +4624,13 @@ Tries to create a new #AtspiDeviceA11yManager with the given app id.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="311">the device.</doc>
+                   line="330">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="id" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="312">the identifier of the grab to be removed.</doc>
+                   line="331">the identifier of the grab to be removed.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -4642,7 +4642,7 @@ Tries to create a new #AtspiDeviceA11yManager with the given app id.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="395">the modifier that is now mapped to this keycode. This return
+                 line="414">the modifier that is now mapped to this keycode. This return
 value can be passed to atspi_device_add_key_grab.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
@@ -4650,13 +4650,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="383">the device.</doc>
+                   line="402">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keycode" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="384">the keycode to map.</doc>
+                   line="403">the keycode to map.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4672,13 +4672,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="409">the device.</doc>
+                   line="428">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keycode" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="410">the keycode to unmap.</doc>
+                   line="429">the keycode to unmap.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4690,20 +4690,20 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="431">the modifier that is mapped to this keycode.</doc>
+                 line="450">the modifier that is mapped to this keycode.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="423">the device.</doc>
+                   line="442">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keycode" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="424">the keycode to map.</doc>
+                   line="443">the keycode to map.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4715,7 +4715,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="467">#TRUE if successful, #FALSE otherwise.</doc>
+                 line="486">#TRUE if successful, #FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
@@ -4744,14 +4744,14 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="449">a guint of modifier flags.</doc>
+                 line="468">a guint of modifier flags.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="444">the device.</doc>
+                   line="463">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
           </parameters>
@@ -4767,33 +4767,33 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="492">the device.</doc>
+                   line="511">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="obj" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="493">The #AtspiAccessible that should receive the click.</doc>
+                   line="512">The #AtspiAccessible that should receive the click.</doc>
               <type name="Accessible" c:type="AtspiAccessible*"/>
             </parameter>
             <parameter name="x" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="494">a #gint indicating the x coordinate of the mouse event, relative to
+                   line="513">a #gint indicating the x coordinate of the mouse event, relative to
     @obj..</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
             <parameter name="y" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="496">a #gint indicating the y coordinate of the mouse event, relative to
+                   line="515">a #gint indicating the y coordinate of the mouse event, relative to
     @obj..</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
             <parameter name="name" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="498">a string indicating which mouse event to be synthesized
+                   line="517">a string indicating which mouse event to be synthesized
        (e.g. "b1p", "b1c", "b2r", "rel", "abs").</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
@@ -4806,7 +4806,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="532">the modifier that is now mapped to this keysym. This return
+                 line="551">the modifier that is now mapped to this keysym. This return
 value can be passed to atspi_device_add_key_grab.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
@@ -4814,13 +4814,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="520">the device.</doc>
+                   line="539">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keysym" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="521">the XKB keysym to map.</doc>
+                   line="540">the XKB keysym to map.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -4836,13 +4836,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="548">the device.</doc>
+                   line="567">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keysym" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="549">the XKB keysym to unmap.</doc>
+                   line="568">the XKB keysym to unmap.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -4854,20 +4854,20 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="572">the modifier that is mapped to this keysym.</doc>
+                 line="591">the modifier that is mapped to this keysym.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="564">the device.</doc>
+                   line="583">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keysym" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="565">the XKB keysym to map.</doc>
+                   line="584">the XKB keysym to map.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>

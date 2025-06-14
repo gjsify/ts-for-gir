@@ -6048,7 +6048,7 @@ time.</doc>
       <source-position filename="libsoup/soup-version.h" line="14"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="4" c:type="SOUP_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="5" c:type="SOUP_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libsoup/soup-version.c"
            line="32">Like [func@get_micro_version], but from the headers used at

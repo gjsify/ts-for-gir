@@ -1261,7 +1261,7 @@ Like #tracker_major_version, but intended to be used at application compile time
                        line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="TRACKER_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="TRACKER_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/libtinysparql/tracker-version-generated.h"
            line="21">The micro version of the Tracker library.

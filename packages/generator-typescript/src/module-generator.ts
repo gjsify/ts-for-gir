@@ -1188,12 +1188,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         // Extend parent class signal signatures
         const parentResolution = girClass.resolveParents().extends()
         if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
-            // Always extend parent SignalSignatures, even if parent has no signals
-            // This ensures proper inheritance chain for the notify signal from GObject.Object
+            const parentClass = parentResolution.node as IntrospectedClass
             const parentTypeIdentifier = parentResolution.identifier
                 .resolveIdentifier(this.namespace, this.config)
                 ?.print(this.namespace, this.config)
-            if (parentTypeIdentifier) {
+            
+            // Only reference parent SignalSignatures if the parent actually has signals or is a generated class
+            // This prevents referencing SignalSignatures from template workaround classes
+            const hasSignalMethods = parentClass.signals && parentClass.signals.length > 0
+            const isNotTemplateWorkaround = !(
+                this.namespace.namespace === 'Gimp' &&
+                ['ParamObject', 'ParamItem', 'ParamArray'].includes(parentClass.name)
+            )
+            
+            if (parentTypeIdentifier && (hasSignalMethods || isNotTemplateWorkaround)) {
                 parentSignatures.push(`${parentTypeIdentifier}.SignalSignatures`)
             }
         }

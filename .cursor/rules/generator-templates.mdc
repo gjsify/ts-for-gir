@@ -1,0 +1,8 @@
+---
+description: 
+globs: packages/generator-typescript/templates/**/*.d.ts
+alwaysApply: false
+---
+- Files in `packages/generator-typescript/templates/` are templates for the type definition generator
+- Lint errors for missing typesare EXPECTED - these types exist only in generated output
+- NEVER replace with `any` or remove type references unless you know what you're doing

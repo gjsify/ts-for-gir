@@ -14,7 +14,7 @@
         "clear": "rm -rf dist"
     },
     "devDependencies": {
-        "typescript": "^5.8.2"
+        "typescript": "^5.8.3"
     },
     "dependencies": {
         "@girs/gio-2.0": "workspace:^",

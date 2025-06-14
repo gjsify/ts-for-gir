@@ -216,6 +216,29 @@ export function signal_handlers_disconnect_by_data(): void
 
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
 
+// Helper types for type-safe signal handling
+export type SignalSignatures = { [signal: string]: (...args: any[]) => any }
+
+/**
+ * Extract signal names from a SignalSignatures type
+ */
+export type SignalName<T extends SignalSignatures> = keyof T
+
+/**
+ * Extract callback type for a specific signal
+ */
+export type SignalCallback<T extends SignalSignatures, K extends keyof T> = T[K]
+
+/**
+ * Extract parameters for a specific signal callback
+ */
+export type SignalParameters<T extends SignalSignatures, K extends keyof T> = Parameters<T[K]>
+
+/**
+ * Extract return type for a specific signal callback
+ */
+export type SignalReturnType<T extends SignalSignatures, K extends keyof T> = ReturnType<T[K]>
+
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R
 

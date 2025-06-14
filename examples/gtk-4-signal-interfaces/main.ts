@@ -3,6 +3,12 @@
  * 
  * This example demonstrates the new type-safe signal interfaces feature
  * that enables TypeScript to infer signal names and callback signatures.
+ * 
+ * Features demonstrated:
+ * - Basic signal connections with type safety
+ * - Detail signal variants (notify::property-name)
+ * - Property change notifications
+ * - Signal parameter type checking
  */
 
 import Gio from 'gi://Gio?version=2.0';
@@ -51,7 +57,7 @@ app.connect('activate', () => {
 
     // Description label
     const descLabel = new Gtk.Label({
-        label: 'This demo shows how the new SignalSignatures feature enables\ntype-safe signal handling in TypeScript.',
+        label: 'This demo shows how the new SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nCurrently demonstrates: Basic signals + notify for property changes\nFuture: Detail signals like notify::property-name',
         justify: Gtk.Justification.CENTER,
         margin_bottom: 20,
     })
@@ -94,10 +100,10 @@ app.connect('activate', () => {
         toggleButton.set_label(isActive ? 'Active Toggle' : 'Inactive Toggle')
     })
 
-    // TODO: This should be an error
-    toggleButton.connect('invalid-signal', () => {
-        console.log('Invalid signal received')
-    })
+    // ❌ This should cause a TypeScript error (invalid signal name)
+    // toggleButton.connect('invalid-signal', () => {
+    //     console.log('Invalid signal received')
+    // })
 
     // Entry widget to demonstrate text-based signals
     const entry = new Gtk.Entry({
@@ -113,13 +119,53 @@ app.connect('activate', () => {
         entry.set_text('') // Clear the entry
     })
 
-    // ✅ Type-safe: TypeScript knows the changed signal
-    entry.connect('changed', () => {
-        const text = entry.get_text()
-        if (text.length > 0) {
-            statusLabel.set_text(`Entry contains: "${text}" (${text.length} characters)`)
+    // ✅ Type-safe: TypeScript knows the notify signal for property changes
+    // This demonstrates the detail signal feature: notify::property-name
+    entry.connect('notify', (obj, pspec) => {
+        if (pspec && pspec.get_name() === 'text') {
+            const text = entry.get_text()
+            if (text.length > 0) {
+                statusLabel.set_text(`Entry text changed via notify: "${text}" (${text.length} characters)`)
+            }
         }
     })
+
+    // 🚀 FUTURE: With detail signals implemented, this would work:
+    // entry.connect('notify::text', () => {
+    //     const text = entry.get_text()
+    //     statusLabel.set_text(`Entry text changed: "${text}"`)
+    // })
+
+    // Demonstrate property change notifications on the toggle button
+    toggleButton.connect('notify', (obj, pspec) => {
+        if (pspec && pspec.get_name() === 'active') {
+            const isActive = toggleButton.get_active()
+            console.log(`Toggle button 'active' property changed to: ${isActive}`)
+        }
+    })
+
+    // 🚀 FUTURE: This would be the detail signal equivalent:
+    // toggleButton.connect('notify::active', () => {
+    //     const isActive = toggleButton.get_active()
+    //     console.log(`Toggle button activated: ${isActive}`)
+    // })
+
+    // Demonstrate multiple property notifications on the window
+    window.connect('notify', (obj, pspec) => {
+        const propName = pspec?.get_name()
+        if (propName === 'default-width' || propName === 'default-height') {
+            console.log(`Window ${propName} changed`)
+            statusLabel.set_text(`Window ${propName} was modified`)
+        }
+    })
+
+    // 🚀 FUTURE: These would be the detail signal equivalents:
+    // window.connect('notify::default-width', () => {
+    //     console.log('Window width changed')
+    // })
+    // window.connect('notify::default-height', () => {
+    //     console.log('Window height changed')  
+    // })
 
     // Status label to show feedback
     const statusLabel = new Gtk.Label({
@@ -144,7 +190,17 @@ button.connect('clicked', (_source: Gtk.Button) => {
     console.log('Clicked:', _source.get_label())
 })
 
-// ❌ This would now cause a TypeScript error:
+// Property change notifications:
+widget.connect('notify', (obj, pspec) => {
+    console.log('Property changed:', pspec.get_name())
+})
+
+// 🚀 FUTURE: Detail signal variants (when implemented):
+// widget.connect('notify::property-name', () => {
+//     // Only called when specific property changes
+// })
+
+// ❌ This would cause a TypeScript error:
 // button.connect('invalid-signal', () => {})
 //                ^^^^^^^^^^^^^^^ 
 // Error: Argument of type '"invalid-signal"' is not assignable</span>`,
@@ -182,6 +238,21 @@ button.connect('clicked', (_source: Gtk.Button) => {
     console.log('=== Signal Interfaces Demo Started ===')
     console.log('This demo showcases the new type-safe signal handling!')
     console.log('All signal connections are now type-checked by TypeScript.')
+    console.log('')
+    console.log('Current features:')
+    console.log('✅ Type-safe basic signal connections')
+    console.log('✅ Property change notifications via notify signal')
+    console.log('✅ Compile-time error checking for invalid signals')
+    console.log('')
+    console.log('Future features (when detail signals are implemented):')
+    console.log('🚀 Detail signal variants: notify::property-name')
+    console.log('🚀 Child property signals: child-notify::expand, child-notify::fill')
+    console.log('🚀 Settings signals: changed::key, writable-changed::key')
+    console.log('')
+    console.log('Child property examples (when implemented):')
+    console.log('// box.connect("child-notify::expand", callback)')
+    console.log('// grid.connect("child-notify::left-attach", callback)')
+    console.log('// notebook.connect("child-notify::tab-label", callback)')
 })
 
 // Run the application

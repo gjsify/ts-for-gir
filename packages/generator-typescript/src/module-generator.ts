@@ -1305,8 +1305,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         if (allowedNames.has('emit')) {
+            // Fix: Use a conditional type to extract parameters from the signal signature
+            // This ensures type compatibility with the base GObject.Object.emit method
             methods.push(
-                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: Parameters<${girClass.name}.SignalSignatures[K]>): void;`,
+                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${girClass.name}.SignalSignatures[K] extends (...args: infer P) => any ? P : never): void;`,
             )
         }
 

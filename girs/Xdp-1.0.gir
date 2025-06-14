@@ -5,12 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
   <package name="libportal"/>
   <c:include name="libportal/portal.h"/>
-  <doc:format name="unknown"/>
   <namespace name="Xdp"
              version="1.0"
              shared-library="libportal.so.1"
@@ -57,7 +55,7 @@ and/or use gtk-doc annotations.  -->
                  c:type="XdpButtonState">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="210">The XdpButtonState enumeration is used to describe
+           line="216">The XdpButtonState enumeration is used to describe
 the state of buttons.</doc>
       <member name="released"
               value="0"
@@ -66,7 +64,7 @@ the state of buttons.</doc>
               glib:name="XDP_BUTTON_RELEASED">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="212">the button is down</doc>
+             line="218">the button is down</doc>
       </member>
       <member name="pressed"
               value="1"
@@ -75,7 +73,7 @@ the state of buttons.</doc>
               glib:name="XDP_BUTTON_PRESSED">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="213">the button is up</doc>
+             line="219">the button is up</doc>
       </member>
     </enumeration>
     <enumeration name="CameraFlags"
@@ -95,7 +93,7 @@ the state of buttons.</doc>
               c:type="XdpCursorMode">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="99">Options for how the cursor is handled.</doc>
+           line="101">Options for how the cursor is handled.</doc>
       <member name="hidden"
               value="1"
               c:identifier="XDP_CURSOR_MODE_HIDDEN"
@@ -103,7 +101,7 @@ the state of buttons.</doc>
               glib:name="XDP_CURSOR_MODE_HIDDEN">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="101">no cursor</doc>
+             line="103">no cursor</doc>
       </member>
       <member name="embedded"
               value="2"
@@ -112,7 +110,7 @@ the state of buttons.</doc>
               glib:name="XDP_CURSOR_MODE_EMBEDDED">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="102">cursor is embedded on the stream</doc>
+             line="104">cursor is embedded on the stream</doc>
       </member>
       <member name="metadata"
               value="4"
@@ -121,7 +119,7 @@ the state of buttons.</doc>
               glib:name="XDP_CURSOR_MODE_METADATA">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="103">cursor is sent as metadata of the stream</doc>
+             line="105">cursor is sent as metadata of the stream</doc>
       </member>
     </bitfield>
     <bitfield name="DeviceType"
@@ -130,7 +128,7 @@ the state of buttons.</doc>
               c:type="XdpDeviceType">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="45">Flags to specify what input devices to control for a remote desktop session.</doc>
+           line="47">Flags to specify what input devices to control for a remote desktop session.</doc>
       <member name="none"
               value="0"
               c:identifier="XDP_DEVICE_NONE"
@@ -138,7 +136,7 @@ the state of buttons.</doc>
               glib:name="XDP_DEVICE_NONE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="47">no device</doc>
+             line="49">no device</doc>
       </member>
       <member name="keyboard"
               value="1"
@@ -147,7 +145,7 @@ the state of buttons.</doc>
               glib:name="XDP_DEVICE_KEYBOARD">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="48">control the keyboard.</doc>
+             line="50">control the keyboard.</doc>
       </member>
       <member name="pointer"
               value="2"
@@ -156,7 +154,7 @@ the state of buttons.</doc>
               glib:name="XDP_DEVICE_POINTER">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="49">control the pointer.</doc>
+             line="51">control the pointer.</doc>
       </member>
       <member name="touchscreen"
               value="4"
@@ -165,7 +163,7 @@ the state of buttons.</doc>
               glib:name="XDP_DEVICE_TOUCHSCREEN">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="50">control the touchscreen.</doc>
+             line="52">control the touchscreen.</doc>
       </member>
     </bitfield>
     <enumeration name="DiscreteAxis"
@@ -174,7 +172,7 @@ the state of buttons.</doc>
                  c:type="XdpDiscreteAxis">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="234">The `XdpDiscreteAxis` enumeration is used to describe
+           line="240">The `XdpDiscreteAxis` enumeration is used to describe
 the discrete scroll axes.</doc>
       <member name="horizontal_scroll"
               value="0"
@@ -183,7 +181,7 @@ the discrete scroll axes.</doc>
               glib:name="XDP_AXIS_HORIZONTAL_SCROLL">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="236">the horizontal scroll axis</doc>
+             line="242">the horizontal scroll axis</doc>
       </member>
       <member name="vertical_scroll"
               value="1"
@@ -192,7 +190,7 @@ the discrete scroll axes.</doc>
               glib:name="XDP_AXIS_VERTICAL_SCROLL">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="237">the horizontal scroll axis</doc>
+             line="243">the horizontal scroll axis</doc>
       </member>
     </enumeration>
     <enumeration name="EmailFlags"
@@ -256,7 +254,7 @@ the discrete scroll axes.</doc>
                  c:type="XdpKeyState">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="252">The `XdpKeyState` enumeration is used to describe
+           line="258">The `XdpKeyState` enumeration is used to describe
 the state of keys.</doc>
       <member name="released"
               value="0"
@@ -265,7 +263,7 @@ the state of keys.</doc>
               glib:name="XDP_KEY_RELEASED">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="254">the key is down</doc>
+             line="260">the key is down</doc>
       </member>
       <member name="pressed"
               value="1"
@@ -274,7 +272,7 @@ the state of keys.</doc>
               glib:name="XDP_KEY_PRESSED">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="255">the key is up</doc>
+             line="261">the key is up</doc>
       </member>
     </enumeration>
     <bitfield name="LauncherType"
@@ -456,23 +454,35 @@ to indicate the current state of the user session.</doc>
               glib:type-name="XdpOpenUriFlags"
               glib:get-type="xdp_open_uri_flags_get_type"
               c:type="XdpOpenUriFlags">
+      <doc xml:space="preserve"
+           filename="libportal/openuri.h"
+           line="26">Options for opening uris.</doc>
       <member name="none"
               value="0"
               c:identifier="XDP_OPEN_URI_FLAG_NONE"
               glib:nick="none"
               glib:name="XDP_OPEN_URI_FLAG_NONE">
+        <doc xml:space="preserve"
+             filename="libportal/openuri.h"
+             line="28">No options</doc>
       </member>
       <member name="ask"
               value="1"
               c:identifier="XDP_OPEN_URI_FLAG_ASK"
               glib:nick="ask"
               glib:name="XDP_OPEN_URI_FLAG_ASK">
+        <doc xml:space="preserve"
+             filename="libportal/openuri.h"
+             line="29">Use an application chooser for the given uri</doc>
       </member>
       <member name="writable"
               value="2"
               c:identifier="XDP_OPEN_URI_FLAG_WRITABLE"
               glib:nick="writable"
               glib:name="XDP_OPEN_URI_FLAG_WRITABLE">
+        <doc xml:space="preserve"
+             filename="libportal/openuri.h"
+             line="30">Allow writing to file (if uri points to a local file that is exported in the document portal and app is sandboxed itself)</doc>
       </member>
     </bitfield>
     <bitfield name="OutputType"
@@ -482,6 +492,15 @@ to indicate the current state of the user session.</doc>
       <doc xml:space="preserve"
            filename="libportal/remote.h"
            line="31">Flags to specify what kind of sources to offer for a screencast session.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="XDP_OUTPUT_NONE"
+              glib:nick="none"
+              glib:name="XDP_OUTPUT_NONE">
+        <doc xml:space="preserve"
+             filename="libportal/remote.h"
+             line="33">do not select any output</doc>
+      </member>
       <member name="monitor"
               value="1"
               c:identifier="XDP_OUTPUT_MONITOR"
@@ -489,7 +508,7 @@ to indicate the current state of the user session.</doc>
               glib:name="XDP_OUTPUT_MONITOR">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="33">allow selecting monitors</doc>
+             line="34">allow selecting monitors</doc>
       </member>
       <member name="window"
               value="2"
@@ -498,7 +517,7 @@ to indicate the current state of the user session.</doc>
               glib:name="XDP_OUTPUT_WINDOW">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="34">allow selecting individual application windows</doc>
+             line="35">allow selecting individual application windows</doc>
       </member>
       <member name="virtual"
               value="4"
@@ -507,7 +526,7 @@ to indicate the current state of the user session.</doc>
               glib:name="XDP_OUTPUT_VIRTUAL">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="35">allow creating new virtual displays</doc>
+             line="36">allow creating new virtual displays</doc>
       </member>
     </bitfield>
     <record name="Parent"
@@ -573,7 +592,7 @@ To create a XdpParent for a GTK window, use
                  c:type="XdpPersistMode">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="113">Options for how the screencast session should persist.</doc>
+           line="115">Options for how the screencast session should persist.</doc>
       <member name="none"
               value="0"
               c:identifier="XDP_PERSIST_MODE_NONE"
@@ -581,7 +600,7 @@ To create a XdpParent for a GTK window, use
               glib:name="XDP_PERSIST_MODE_NONE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="115">do not persist</doc>
+             line="117">do not persist</doc>
       </member>
       <member name="transient"
               value="1"
@@ -590,7 +609,7 @@ To create a XdpParent for a GTK window, use
               glib:name="XDP_PERSIST_MODE_TRANSIENT">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="116">persist as long as the application is alive</doc>
+             line="118">persist as long as the application is alive</doc>
       </member>
       <member name="persistent"
               value="2"
@@ -599,7 +618,7 @@ To create a XdpParent for a GTK window, use
               glib:name="XDP_PERSIST_MODE_PERSISTENT">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="117">persist until the user revokes this permission</doc>
+             line="119">persist until the user revokes this permission</doc>
       </member>
     </enumeration>
     <class name="Portal"
@@ -611,7 +630,7 @@ To create a XdpParent for a GTK window, use
            glib:type-struct="PortalClass">
       <doc xml:space="preserve"
            filename="libportal/portal.c"
-           line="33">Context for portal calls.
+           line="49">Context for portal calls.
 
 The XdpPortal object provides the main context object
 for the portal operations of libportal.
@@ -619,15 +638,31 @@ for the portal operations of libportal.
 Typically, an application will create a single XdpPortal
 object with [ctor@Portal.new] and use it throughout its lifetime.</doc>
       <source-position filename="libportal/portal-helpers.h" line="33"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="initable_new"
+                   c:identifier="xdp_portal_initable_new"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="libportal/portal.c"
+             line="334">Creates a new [class@Portal] object.</doc>
+        <source-position filename="libportal/portal-helpers.h" line="39"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libportal/portal.c"
+               line="340">a newly created [class@Portal] object or NULL on error</doc>
+          <type name="Portal" c:type="XdpPortal*"/>
+        </return-value>
+      </constructor>
       <constructor name="new" c:identifier="xdp_portal_new">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="269">Creates a new [class@Portal] object.</doc>
+             line="348">Creates a new [class@Portal] object. If D-Bus is unavailable this API will abort.
+We recommend using xdp_portal_initable_new() to safely handle this failure.</doc>
         <source-position filename="libportal/portal-helpers.h" line="36"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="274">a newly created [class@Portal] object</doc>
+               line="354">a newly created [class@Portal] object</doc>
           <type name="Portal" c:type="XdpPortal*"/>
         </return-value>
       </constructor>
@@ -635,14 +670,14 @@ object with [ctor@Portal.new] and use it throughout its lifetime.</doc>
                 c:identifier="xdp_portal_running_under_flatpak">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="369">Detects if running inside of a Flatpak or WebKit sandbox.
+             line="458">Detects if running inside of a Flatpak or WebKit sandbox.
 
 See also: [func@Portal.running_under_sandbox].</doc>
-        <source-position filename="libportal/portal-helpers.h" line="39"/>
+        <source-position filename="libportal/portal-helpers.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="376">%TRUE if the current process is running under a Flatpak sandbox</doc>
+               line="465">%TRUE if the current process is running under a Flatpak sandbox</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
@@ -650,17 +685,17 @@ See also: [func@Portal.running_under_sandbox].</doc>
                 c:identifier="xdp_portal_running_under_sandbox">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="426">This function tries to determine if the current process is running under a
+             line="515">This function tries to determine if the current process is running under a
 sandbox that requires the use of portals.
 
 If you need to check error conditions see [func@Portal.running_under_snap].
 
 Note that these functions are all cached and will always return the same result.</doc>
-        <source-position filename="libportal/portal-helpers.h" line="45"/>
+        <source-position filename="libportal/portal-helpers.h" line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="436">%TRUE if the current process should use portals to access resources
+               line="525">%TRUE if the current process should use portals to access resources
   on the host system, or %FALSE if either an error was encountered or the
   process is running unsandboxed</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -671,22 +706,20 @@ Note that these functions are all cached and will always return the same result.
                 throws="1">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="399">Detects if you are running inside of a Snap sandbox.
+             line="488">Detects if you are running inside of a Snap sandbox.
 
 See also: [func@Portal.running_under_sandbox].</doc>
-        <source-position filename="libportal/portal-helpers.h" line="42"/>
+        <source-position filename="libportal/portal-helpers.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="407">%TRUE if the current process is running under a Snap sandbox, or
+               line="496">%TRUE if the current process is running under a Snap sandbox, or
   %FALSE if either unsandboxed or an error was encountered in which case
   @error will be set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
-      <method name="access_camera"
-              c:identifier="xdp_portal_access_camera"
-              glib:finish-func="access_camera_finish">
+      <method name="access_camera" c:identifier="xdp_portal_access_camera">
         <doc xml:space="preserve"
              filename="libportal/camera.c"
              line="211">Request access to a camera.
@@ -786,11 +819,10 @@ to obtain a pipewire remote.</doc>
         </parameters>
       </method>
       <method name="add_notification"
-              c:identifier="xdp_portal_add_notification"
-              glib:finish-func="add_notification_finish">
+              c:identifier="xdp_portal_add_notification">
         <doc xml:space="preserve"
              filename="libportal/notification.c"
-             line="82">Sends a desktop notification.
+             line="81">Sends a desktop notification.
 
 The following keys may be present in @notification:
 
@@ -829,25 +861,25 @@ To withdraw a notification, use [method@Portal.remove_notification].</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="84">a [class@Portal]</doc>
+                 line="83">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="85">unique ID for the notification</doc>
+                 line="84">unique ID for the notification</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="notification" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="86">a [struct@GLib.Variant] dictionary with the content of the notification</doc>
+                 line="85">a [struct@GLib.Variant] dictionary with the content of the notification</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="87">options for this call</doc>
+                 line="86">options for this call</doc>
             <type name="NotificationFlags" c:type="XdpNotificationFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -856,7 +888,7 @@ To withdraw a notification, use [method@Portal.remove_notification].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="88">optional [class@Gio.Cancellable]</doc>
+                 line="87">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -867,7 +899,7 @@ To withdraw a notification, use [method@Portal.remove_notification].</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="89">a callback to call when the request is done</doc>
+                 line="88">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -876,7 +908,7 @@ To withdraw a notification, use [method@Portal.remove_notification].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="90">data to pass to @callback</doc>
+                 line="89">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -886,34 +918,32 @@ To withdraw a notification, use [method@Portal.remove_notification].</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/notification.c"
-             line="164">Finishes the notification request.
+             line="163">Finishes the notification request.
 
 Returns the result as a boolean.</doc>
         <source-position filename="libportal/notification.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/notification.c"
-               line="174">`TRUE` if the notification was added</doc>
+               line="173">`TRUE` if the notification was added</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="166">a [class@Portal]</doc>
+                 line="165">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="167">a [iface@Gio.AsyncResult]</doc>
+                 line="166">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="compose_email"
-              c:identifier="xdp_portal_compose_email"
-              glib:finish-func="compose_email_finish">
+      <method name="compose_email" c:identifier="xdp_portal_compose_email">
         <doc xml:space="preserve"
              filename="libportal/email.c"
              line="295">Presents a window that lets the user compose an email,
@@ -1069,15 +1099,14 @@ call [method@Portal.compose_email_finish] to get the results.</doc>
         </parameters>
       </method>
       <method name="create_remote_desktop_session"
-              c:identifier="xdp_portal_create_remote_desktop_session"
-              glib:finish-func="create_remote_desktop_session_finish">
+              c:identifier="xdp_portal_create_remote_desktop_session">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="477">Creates a session for remote desktop.
+             line="529">Creates a session for remote desktop.
 
 When the request is done, @callback will be called. You can then
 call [method@Portal.create_remote_desktop_session_finish] to get the results.</doc>
-        <source-position filename="libportal/remote.h" line="156"/>
+        <source-position filename="libportal/remote.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1085,31 +1114,31 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="479">a [class@Portal]</doc>
+                 line="531">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="devices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="480">which kinds of input devices to ofer in the new dialog</doc>
+                 line="532">which kinds of input devices to ofer in the new dialog</doc>
             <type name="DeviceType" c:type="XdpDeviceType"/>
           </parameter>
           <parameter name="outputs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="481">which kinds of source to offer in the dialog</doc>
+                 line="533">which kinds of source to offer in the dialog</doc>
             <type name="OutputType" c:type="XdpOutputType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="482">options for this call</doc>
+                 line="534">options for this call</doc>
             <type name="RemoteDesktopFlags" c:type="XdpRemoteDesktopFlags"/>
           </parameter>
           <parameter name="cursor_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="483">the cursor mode of the session</doc>
+                 line="535">the cursor mode of the session</doc>
             <type name="CursorMode" c:type="XdpCursorMode"/>
           </parameter>
           <parameter name="cancellable"
@@ -1118,7 +1147,7 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="484">optional [class@Gio.Cancellable]</doc>
+                 line="536">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1129,7 +1158,7 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
                      closure="6">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="485">a callback to call when the request is done</doc>
+                 line="537">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -1138,7 +1167,7 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="486">data to pass to @callback</doc>
+                 line="538">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1148,39 +1177,38 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="522">Finishes the create-remote-desktop request, and returns a [class@Session].</doc>
-        <source-position filename="libportal/remote.h" line="166"/>
+             line="574">Finishes the create-remote-desktop request, and returns a [class@Session].</doc>
+        <source-position filename="libportal/remote.h" line="168"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libportal/remote.c"
-               line="530">a [class@Session]</doc>
+               line="582">a [class@Session]</doc>
           <type name="Session" c:type="XdpSession*"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="524">a [class@Portal]</doc>
+                 line="576">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="525">a [iface@Gio.AsyncResult]</doc>
+                 line="577">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
       <method name="create_screencast_session"
-              c:identifier="xdp_portal_create_screencast_session"
-              glib:finish-func="create_screencast_session_finish">
+              c:identifier="xdp_portal_create_screencast_session">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="400">Creates a session for a screencast.
+             line="455">Creates a session for a screencast.
 
 When the request is done, @callback will be called. You can then
 call [method@Portal.create_screencast_session_finish] to get the results.</doc>
-        <source-position filename="libportal/remote.h" line="128"/>
+        <source-position filename="libportal/remote.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1188,31 +1216,31 @@ call [method@Portal.create_screencast_session_finish] to get the results.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="402">a [class@Portal]</doc>
+                 line="457">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="outputs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="403">which kinds of source to offer in the dialog</doc>
+                 line="458">which kinds of source to offer in the dialog</doc>
             <type name="OutputType" c:type="XdpOutputType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="404">options for this call</doc>
+                 line="459">options for this call</doc>
             <type name="ScreencastFlags" c:type="XdpScreencastFlags"/>
           </parameter>
           <parameter name="cursor_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="405">the cursor mode of the session</doc>
+                 line="460">the cursor mode of the session</doc>
             <type name="CursorMode" c:type="XdpCursorMode"/>
           </parameter>
           <parameter name="persist_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="406">the persist mode of the session</doc>
+                 line="461">the persist mode of the session</doc>
             <type name="PersistMode" c:type="XdpPersistMode"/>
           </parameter>
           <parameter name="restore_token"
@@ -1221,7 +1249,7 @@ call [method@Portal.create_screencast_session_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="407">the token of a previous screencast session to restore</doc>
+                 line="462">the token of a previous screencast session to restore</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1230,7 +1258,7 @@ call [method@Portal.create_screencast_session_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="408">optional [class@Gio.Cancellable]</doc>
+                 line="463">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1241,7 +1269,7 @@ call [method@Portal.create_screencast_session_finish] to get the results.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="409">a callback to call when the request is done</doc>
+                 line="464">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -1250,7 +1278,7 @@ call [method@Portal.create_screencast_session_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="410">data to pass to @callback</doc>
+                 line="465">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1260,25 +1288,25 @@ call [method@Portal.create_screencast_session_finish] to get the results.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="450">Finishes the create-screencast request, and returns a [class@Session].</doc>
-        <source-position filename="libportal/remote.h" line="139"/>
+             line="502">Finishes the create-screencast request, and returns a [class@Session].</doc>
+        <source-position filename="libportal/remote.h" line="141"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libportal/remote.c"
-               line="458">a [class@Session]</doc>
+               line="510">a [class@Session]</doc>
           <type name="Session" c:type="XdpSession*"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="452">a [class@Portal]</doc>
+                 line="504">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="453">a [iface@Gio.AsyncResult]</doc>
+                 line="505">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1437,8 +1465,7 @@ the app.</doc>
         </parameters>
       </method>
       <method name="dynamic_launcher_prepare_install"
-              c:identifier="xdp_portal_dynamic_launcher_prepare_install"
-              glib:finish-func="dynamic_launcher_prepare_install_finish">
+              c:identifier="xdp_portal_dynamic_launcher_prepare_install">
         <doc xml:space="preserve"
              filename="libportal/dynamic-launcher.c"
              line="224">Presents a dialog to the user so they can confirm they want to install a
@@ -1645,8 +1672,7 @@ The @desktop_file_id must be prefixed with the caller's app ID followed by a
         </parameters>
       </method>
       <method name="get_user_information"
-              c:identifier="xdp_portal_get_user_information"
-              glib:finish-func="get_user_information_finish">
+              c:identifier="xdp_portal_get_user_information">
         <doc xml:space="preserve"
              filename="libportal/account.c"
              line="200">Gets information about the user.
@@ -1778,8 +1804,7 @@ containing the following fields:
         </parameters>
       </method>
       <method name="location_monitor_start"
-              c:identifier="xdp_portal_location_monitor_start"
-              glib:finish-func="location_monitor_start_finish">
+              c:identifier="xdp_portal_location_monitor_start">
         <doc xml:space="preserve"
              filename="libportal/location.c"
              line="320">Makes `XdpPortal` start monitoring location changes.
@@ -1919,16 +1944,14 @@ Returns result in the form of boolean.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_directory"
-              c:identifier="xdp_portal_open_directory"
-              glib:finish-func="open_directory_finish">
+      <method name="open_directory" c:identifier="xdp_portal_open_directory">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
-             line="334">Opens the directory containing the file specified by the @uri.
+             line="336">Opens the directory containing the file specified by the @uri.
 
 which must be a file: uri pointing to a file that the application has access
 to.</doc>
-        <source-position filename="libportal/openuri.h" line="47"/>
+        <source-position filename="libportal/openuri.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1936,25 +1959,25 @@ to.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="336">a [class@Portal]</doc>
+                 line="338">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="337">parent window information</doc>
+                 line="339">parent window information</doc>
             <type name="Parent" c:type="XdpParent*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="338">the URI to open</doc>
+                 line="340">the URI to open</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="339">options for this call</doc>
+                 line="341">options for this call</doc>
             <type name="OpenUriFlags" c:type="XdpOpenUriFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -1963,7 +1986,7 @@ to.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="340">optional [class@Gio.Cancellable]</doc>
+                 line="342">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1974,7 +1997,7 @@ to.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="341">a callback to call when the request is done</doc>
+                 line="343">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -1983,7 +2006,7 @@ to.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="342">data to pass to @callback</doc>
+                 line="344">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1993,34 +2016,32 @@ to.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
-             line="379">Finishes the open-directory request.
+             line="381">Finishes the open-directory request.
 
 Returns the result in the form of a boolean.</doc>
-        <source-position filename="libportal/openuri.h" line="56"/>
+        <source-position filename="libportal/openuri.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/openuri.c"
-               line="389">`TRUE` if the call succeeded</doc>
+               line="391">`TRUE` if the call succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="381">a [class@Portal]</doc>
+                 line="383">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="382">a [iface@Gio.AsyncResult]</doc>
+                 line="384">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="open_file"
-              c:identifier="xdp_portal_open_file"
-              glib:finish-func="open_file_finish">
+      <method name="open_file" c:identifier="xdp_portal_open_file">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="234">Asks the user to open one or more files.
@@ -2182,8 +2203,8 @@ containing the following fields:
              line="277">Opens a file descriptor to the pipewire remote where the camera
 nodes are available.
 
-The file descriptor should be used to create a pw_remote object, by using
-pw_remote_connect_fd(). Only the camera nodes will be available from this
+The file descriptor should be used to create a pw_core object, by using
+pw_context_connect_fd(). Only the camera nodes will be available from this
 pipewire node.</doc>
         <source-position filename="libportal/camera.h" line="47"/>
         <return-value transfer-ownership="none">
@@ -2201,13 +2222,11 @@ pipewire node.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_uri"
-              c:identifier="xdp_portal_open_uri"
-              glib:finish-func="open_uri_finish">
+      <method name="open_uri" c:identifier="xdp_portal_open_uri">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
-             line="267">Opens @uri with an external hamdler.</doc>
-        <source-position filename="libportal/openuri.h" line="33"/>
+             line="269">Opens @uri with an external handler.</doc>
+        <source-position filename="libportal/openuri.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2215,25 +2234,25 @@ pipewire node.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="269">a [class@Portal]</doc>
+                 line="271">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="270">parent window information</doc>
+                 line="272">parent window information</doc>
             <type name="Parent" c:type="XdpParent*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="271">the URI to open</doc>
+                 line="273">the URI to open</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="272">options for this call</doc>
+                 line="274">options for this call</doc>
             <type name="OpenUriFlags" c:type="XdpOpenUriFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -2242,7 +2261,7 @@ pipewire node.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="273">optional [class@Gio.Cancellable]</doc>
+                 line="275">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2253,7 +2272,7 @@ pipewire node.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="274">a callback to call when the request is done</doc>
+                 line="276">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -2262,7 +2281,7 @@ pipewire node.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="275">data to pass to @callback</doc>
+                 line="277">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2272,34 +2291,32 @@ pipewire node.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
-             line="310">Finishes the open-uri request.
+             line="312">Finishes the open-uri request.
 
 Returns the result in the form of a boolean.</doc>
-        <source-position filename="libportal/openuri.h" line="42"/>
+        <source-position filename="libportal/openuri.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/openuri.c"
-               line="320">`TRUE` if the call succeeded</doc>
+               line="322">`TRUE` if the call succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="312">a [class@Portal]</doc>
+                 line="314">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/openuri.c"
-                 line="313">a [iface@Gio.AsyncResult]</doc>
+                 line="315">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="pick_color"
-              c:identifier="xdp_portal_pick_color"
-              glib:finish-func="pick_color_finish">
+      <method name="pick_color" c:identifier="xdp_portal_pick_color">
         <doc xml:space="preserve"
              filename="libportal/screenshot.c"
              line="282">Lets the user pick a color from the screen.
@@ -2388,9 +2405,7 @@ red, green and blue components in the range [0,1].</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="prepare_print"
-              c:identifier="xdp_portal_prepare_print"
-              glib:finish-func="prepare_print_finish">
+      <method name="prepare_print" c:identifier="xdp_portal_prepare_print">
         <doc xml:space="preserve"
              filename="libportal/print.c"
              line="270">Presents a print dialog to the user and returns print settings and page setup.
@@ -2513,9 +2528,7 @@ Returns a [struct@GLib.Variant] dictionary with the following information:
           </parameter>
         </parameters>
       </method>
-      <method name="print_file"
-              c:identifier="xdp_portal_print_file"
-              glib:finish-func="print_file_finish">
+      <method name="print_file" c:identifier="xdp_portal_print_file">
         <doc xml:space="preserve"
              filename="libportal/print.c"
              line="348">Prints a file.
@@ -2633,7 +2646,7 @@ call [method@Portal.print_file_finish] to get the results.</doc>
               c:identifier="xdp_portal_remove_notification">
         <doc xml:space="preserve"
              filename="libportal/notification.c"
-             line="188">Withdraws a desktop notification.</doc>
+             line="187">Withdraws a desktop notification.</doc>
         <source-position filename="libportal/notification.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2642,23 +2655,22 @@ call [method@Portal.print_file_finish] to get the results.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="190">a [class@Portal]</doc>
+                 line="189">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/notification.c"
-                 line="191">the ID of an notification</doc>
+                 line="190">the ID of an notification</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <method name="request_background"
-              c:identifier="xdp_portal_request_background"
-              glib:finish-func="request_background_finish">
+              c:identifier="xdp_portal_request_background">
         <doc xml:space="preserve"
              filename="libportal/background.c"
-             line="213">Requests background permissions.
+             line="320">Requests background permissions.
 
 When the request is done, @callback will be called. You can then
 call [method@Portal.request_background_finish] to get the results.</doc>
@@ -2670,7 +2682,7 @@ call [method@Portal.request_background_finish] to get the results.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="215">a [class@Portal]</doc>
+                 line="322">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -2679,7 +2691,7 @@ call [method@Portal.request_background_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="216">parent window information</doc>
+                 line="323">parent window information</doc>
             <type name="Parent" c:type="XdpParent*"/>
           </parameter>
           <parameter name="reason"
@@ -2688,13 +2700,13 @@ call [method@Portal.request_background_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="218">reason to present to user for request</doc>
+                 line="325">reason to present to user for request</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
           <parameter name="commandline" transfer-ownership="container">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="217">command line to autostart</doc>
+                 line="324">command line to autostart</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray*">
               <type name="utf8"/>
             </array>
@@ -2702,7 +2714,7 @@ call [method@Portal.request_background_finish] to get the results.</doc>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="219">options for this call</doc>
+                 line="326">options for this call</doc>
             <type name="BackgroundFlags" c:type="XdpBackgroundFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -2711,7 +2723,7 @@ call [method@Portal.request_background_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="220">optional [class@Gio.Cancellable]</doc>
+                 line="327">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2722,7 +2734,7 @@ call [method@Portal.request_background_finish] to get the results.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="221">a callback to call when the request is done</doc>
+                 line="328">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2731,7 +2743,7 @@ call [method@Portal.request_background_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="222">data to pass to @callback</doc>
+                 line="329">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2741,34 +2753,32 @@ call [method@Portal.request_background_finish] to get the results.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/background.c"
-             line="263">Finishes the request.
+             line="370">Finishes the request.
 
 Returns `TRUE` if successful.</doc>
         <source-position filename="libportal/background.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/background.c"
-               line="273">`TRUE` if successful.</doc>
+               line="380">`TRUE` if successful.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="265">a [class@Portal]</doc>
+                 line="372">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/background.c"
-                 line="266">a [iface@Gio.AsyncResult]</doc>
+                 line="373">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="save_file"
-              c:identifier="xdp_portal_save_file"
-              glib:finish-func="save_file_finish">
+      <method name="save_file" c:identifier="xdp_portal_save_file">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="342">Asks the user for a location to save a file.
@@ -2932,9 +2942,7 @@ containing the following fields:
           </parameter>
         </parameters>
       </method>
-      <method name="save_files"
-              c:identifier="xdp_portal_save_files"
-              glib:finish-func="save_files_finish">
+      <method name="save_files" c:identifier="xdp_portal_save_files">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="440">Asks for a folder as a location to save one or more files.
@@ -3083,9 +3091,7 @@ containing the following fields:
           </parameter>
         </parameters>
       </method>
-      <method name="session_inhibit"
-              c:identifier="xdp_portal_session_inhibit"
-              glib:finish-func="session_inhibit_finish">
+      <method name="session_inhibit" c:identifier="xdp_portal_session_inhibit">
         <doc xml:space="preserve"
              filename="libportal/inhibit.c"
              line="210">Inhibits various session status changes.
@@ -3219,8 +3225,7 @@ ready for the session to end.</doc>
         </parameters>
       </method>
       <method name="session_monitor_start"
-              c:identifier="xdp_portal_session_monitor_start"
-              glib:finish-func="session_monitor_start_finish">
+              c:identifier="xdp_portal_session_monitor_start">
         <doc xml:space="preserve"
              filename="libportal/inhibit.c"
              line="562">Makes [class@Portal] start monitoring the login session state.
@@ -3360,9 +3365,92 @@ to [method@Portal.session_inhibit].</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_wallpaper"
-              c:identifier="xdp_portal_set_wallpaper"
-              glib:finish-func="set_wallpaper_finish">
+      <method name="set_background_status"
+              c:identifier="xdp_portal_set_background_status">
+        <doc xml:space="preserve"
+             filename="libportal/background.c"
+             line="393">Sets the status information of the application, for when it's running
+in background.</doc>
+        <source-position filename="libportal/background.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="portal" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="395">a [class@Portal]</doc>
+            <type name="Portal" c:type="XdpPortal*"/>
+          </instance-parameter>
+          <parameter name="status_message"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="396">status message when running in background</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="397">optional [class@Gio.Cancellable]</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="398">a callback to call when the request is done</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="399">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_background_status_finish"
+              c:identifier="xdp_portal_set_background_status_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libportal/background.c"
+             line="427">Finishes setting the background status of the application.</doc>
+        <source-position filename="libportal/background.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libportal/background.c"
+               line="435">%TRUE if successfully set status, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="portal" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="429">a [class@Portal]</doc>
+            <type name="Portal" c:type="XdpPortal*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libportal/background.c"
+                 line="430">a [iface@Gio.AsyncResult]</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_wallpaper" c:identifier="xdp_portal_set_wallpaper">
         <doc xml:space="preserve"
              filename="libportal/wallpaper.c"
              line="278">Sets a desktop background image, given by a uri.</doc>
@@ -3377,7 +3465,10 @@ to [method@Portal.session_inhibit].</doc>
                  line="280">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
-          <parameter name="parent" transfer-ownership="none">
+          <parameter name="parent"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/wallpaper.c"
                  line="281">parent window information</doc>
@@ -3456,12 +3547,10 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="spawn"
-              c:identifier="xdp_portal_spawn"
-              glib:finish-func="spawn_finish">
+      <method name="spawn" c:identifier="xdp_portal_spawn">
         <doc xml:space="preserve"
              filename="libportal/spawn.c"
-             line="186">Creates a new copy of the applications sandbox, and runs
+             line="188">Creates a new copy of the applications sandbox, and runs
 a process in, with the given arguments.
 
 The learn when the spawned process exits, connect to the
@@ -3474,19 +3563,19 @@ The learn when the spawned process exits, connect to the
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="188">a [class@Portal]</doc>
+                 line="190">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="cwd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="189">the cwd for the new process</doc>
+                 line="191">the cwd for the new process</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="argv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="190">the argv for the new process</doc>
+                 line="192">the argv for the new process</doc>
             <array c:type="const char* const*">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3497,7 +3586,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="191">an array of open fds to pass to the new process, or `NULL`</doc>
+                 line="193">an array of open fds to pass to the new process, or `NULL`</doc>
             <array length="4" zero-terminated="0" c:type="int*">
               <type name="gint" c:type="int"/>
             </array>
@@ -3508,7 +3597,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="192">an array of integers to map the @fds to, or `NULL`. Must be the same
+                 line="194">an array of integers to map the @fds to, or `NULL`. Must be the same
     length as @fds</doc>
             <array length="4" zero-terminated="0" c:type="int*">
               <type name="gint" c:type="int"/>
@@ -3517,7 +3606,7 @@ The learn when the spawned process exits, connect to the
           <parameter name="n_fds" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="194">the length of @fds and @map_to arrays</doc>
+                 line="196">the length of @fds and @map_to arrays</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="env"
@@ -3526,7 +3615,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="195">an array of KEY=VALUE environment settings, or `NULL`</doc>
+                 line="197">an array of KEY=VALUE environment settings, or `NULL`</doc>
             <array c:type="const char* const*">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3534,7 +3623,7 @@ The learn when the spawned process exits, connect to the
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="196">flags influencing the spawn operation</doc>
+                 line="198">flags influencing the spawn operation</doc>
             <type name="SpawnFlags" c:type="XdpSpawnFlags"/>
           </parameter>
           <parameter name="sandbox_expose"
@@ -3543,7 +3632,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="197">paths to expose rw in the new sandbox, or `NULL`</doc>
+                 line="199">paths to expose rw in the new sandbox, or `NULL`</doc>
             <array c:type="const char* const*">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3554,7 +3643,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="198">paths to expose ro in the new sandbox, or `NULL`</doc>
+                 line="200">paths to expose ro in the new sandbox, or `NULL`</doc>
             <array c:type="const char* const*">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3565,7 +3654,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="199">optional [class@Gio.Cancellable]</doc>
+                 line="201">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3576,7 +3665,7 @@ The learn when the spawned process exits, connect to the
                      closure="11">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="200">a callback to call when the request is done</doc>
+                 line="202">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -3585,7 +3674,7 @@ The learn when the spawned process exits, connect to the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="201">data to pass to @callback</doc>
+                 line="203">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3595,27 +3684,27 @@ The learn when the spawned process exits, connect to the
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/spawn.c"
-             line="250">Finishes the spawn request.
+             line="252">Finishes the spawn request.
 
 Returns the pid of the newly spawned process.</doc>
         <source-position filename="libportal/spawn.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/spawn.c"
-               line="260">the pid of the spawned process.</doc>
-          <type name="pid_t" c:type="pid_t"/>
+               line="262">the pid of the spawned process.</doc>
+          <type name="gint" c:type="pid_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="252">a [class@Portal]</doc>
+                 line="254">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="253">a [iface@Gio.AsyncResult]</doc>
+                 line="255">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3623,7 +3712,7 @@ Returns the pid of the newly spawned process.</doc>
       <method name="spawn_signal" c:identifier="xdp_portal_spawn_signal">
         <doc xml:space="preserve"
              filename="libportal/spawn.c"
-             line="275">Sends a Unix signal to a process that has been spawned
+             line="277">Sends a Unix signal to a process that has been spawned
 by [method@Portal.spawn].</doc>
         <source-position filename="libportal/spawn.h" line="68"/>
         <return-value transfer-ownership="none">
@@ -3633,33 +3722,31 @@ by [method@Portal.spawn].</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="277">a [class@Portal]</doc>
+                 line="279">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="278">the pid of the process to send a signal to</doc>
-            <type name="pid_t" c:type="pid_t"/>
+                 line="280">the pid of the process to send a signal to</doc>
+            <type name="gint" c:type="pid_t"/>
           </parameter>
           <parameter name="signal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="279">the Unix signal to send (see signal(7))</doc>
+                 line="281">the Unix signal to send (see signal(7))</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="to_process_group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/spawn.c"
-                 line="280">whether to send the signal to the process
+                 line="282">whether to send the signal to the process
     group of the process</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
-      <method name="take_screenshot"
-              c:identifier="xdp_portal_take_screenshot"
-              glib:finish-func="take_screenshot_finish">
+      <method name="take_screenshot" c:identifier="xdp_portal_take_screenshot">
         <doc xml:space="preserve"
              filename="libportal/screenshot.c"
              line="217">Takes a screenshot.
@@ -3753,9 +3840,7 @@ Returns the result in the form of a URI pointing to an image file.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="trash_file"
-              c:identifier="xdp_portal_trash_file"
-              glib:finish-func="trash_file_finish">
+      <method name="trash_file" c:identifier="xdp_portal_trash_file">
         <doc xml:space="preserve"
              filename="libportal/trash.c"
              line="122">Sends the file at @path to the trash can.</doc>
@@ -3837,12 +3922,10 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="update_install"
-              c:identifier="xdp_portal_update_install"
-              glib:finish-func="update_install_finish">
+      <method name="update_install" c:identifier="xdp_portal_update_install">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
-             line="385">Installs an available software update.
+             line="384">Installs an available software update.
 
 This should be called in response to a [signal@Portal::update-available]
 signal.
@@ -3857,19 +3940,19 @@ signal will be emitted to provide progress information.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="387">a [class@Portal]</doc>
+                 line="386">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="388">a [struct@Parent]</doc>
+                 line="387">a [struct@Parent]</doc>
             <type name="Parent" c:type="XdpParent*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="389">options for this call</doc>
+                 line="388">options for this call</doc>
             <type name="UpdateInstallFlags" c:type="XdpUpdateInstallFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3878,7 +3961,7 @@ signal will be emitted to provide progress information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="390">optional [class@Gio.Cancellable]</doc>
+                 line="389">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3889,7 +3972,7 @@ signal will be emitted to provide progress information.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="391">a callback to call when the request is done</doc>
+                 line="390">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -3898,7 +3981,7 @@ signal will be emitted to provide progress information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="392">data to pass to @callback</doc>
+                 line="391">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3908,7 +3991,7 @@ signal will be emitted to provide progress information.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
-             line="427">Finishes an update-installation request.
+             line="426">Finishes an update-installation request.
 
 Returns the result in the form of boolean.
 
@@ -3920,30 +4003,29 @@ to learn when the installation is complete.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/updates.c"
-               line="442">`TRUE` if the update is being installed</doc>
+               line="441">`TRUE` if the update is being installed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="429">a [class@Portal]</doc>
+                 line="428">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="430">a [iface@Gio.AsyncResult]</doc>
+                 line="429">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
       <method name="update_monitor_start"
-              c:identifier="xdp_portal_update_monitor_start"
-              glib:finish-func="update_monitor_start_finish">
+              c:identifier="xdp_portal_update_monitor_start">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
-             line="203">Makes `XdpPortal` start monitoring for available software updates.
+             line="202">Makes `XdpPortal` start monitoring for available software updates.
 
 When a new update is available, the [signal@Portal::update-available].
 signal is emitted.
@@ -3957,13 +4039,13 @@ Use [method@Portal.update_monitor_stop] to stop monitoring.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="205">a [class@Portal]</doc>
+                 line="204">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="206">options for this cal..</doc>
+                 line="205">options for this cal..</doc>
             <type name="UpdateMonitorFlags" c:type="XdpUpdateMonitorFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3972,7 +4054,7 @@ Use [method@Portal.update_monitor_stop] to stop monitoring.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="207">optional [class@Gio.Cancellable]</doc>
+                 line="206">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3983,7 +4065,7 @@ Use [method@Portal.update_monitor_stop] to stop monitoring.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="208">a callback to call when the request is done</doc>
+                 line="207">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -3992,7 +4074,7 @@ Use [method@Portal.update_monitor_stop] to stop monitoring.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="209">data to pass to @callback</doc>
+                 line="208">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4002,27 +4084,27 @@ Use [method@Portal.update_monitor_stop] to stop monitoring.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
-             line="238">Finishes an update-monitor request.
+             line="237">Finishes an update-monitor request.
 
 Returns the result in the form of boolean.</doc>
         <source-position filename="libportal/updates.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/updates.c"
-               line="248">`TRUE` if the request succeeded</doc>
+               line="247">`TRUE` if the request succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="240">a [class@Portal]</doc>
+                 line="239">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="241">a [iface@Gio.AsyncResult]</doc>
+                 line="240">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4031,7 +4113,7 @@ Returns the result in the form of boolean.</doc>
               c:identifier="xdp_portal_update_monitor_stop">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
-             line="262">Stops update monitoring that was started with
+             line="261">Stops update monitoring that was started with
 [method@Portal.update_monitor_start].</doc>
         <source-position filename="libportal/updates.h" line="62"/>
         <return-value transfer-ownership="none">
@@ -4041,7 +4123,7 @@ Returns the result in the form of boolean.</doc>
           <instance-parameter name="portal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/updates.c"
-                 line="264">a [class@Portal]</doc>
+                 line="263">a [class@Portal]</doc>
             <type name="Portal" c:type="XdpPortal*"/>
           </instance-parameter>
         </parameters>
@@ -4049,7 +4131,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="location-updated" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="202">Emitted when location monitoring is enabled and the location changes.</doc>
+             line="221">Emitted when location monitoring is enabled and the location changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4057,55 +4139,55 @@ Returns the result in the form of boolean.</doc>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="205">the latitude, in degrees</doc>
+                 line="224">the latitude, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="206">the longitude, in degrees</doc>
+                 line="225">the longitude, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="altitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="207">the altitude, in meters</doc>
+                 line="226">the altitude, in meters</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="accuracy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="208">the accuracy, in meters</doc>
+                 line="227">the accuracy, in meters</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="speed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="209">the speed, in meters per second</doc>
+                 line="228">the speed, in meters per second</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="heading" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="210">the heading, in degrees</doc>
+                 line="229">the heading, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="211">the description</doc>
+                 line="230">the description</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="timestamp_s" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="212">the timestamp seconds since the Unix epoch</doc>
+                 line="231">the timestamp seconds since the Unix epoch</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="timestamp_ms" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="213">the microseconds fraction of the timestamp</doc>
+                 line="232">the microseconds fraction of the timestamp</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -4113,7 +4195,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="notification-action-invoked" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="235">Emitted when a non-exported action is activated on a notification.</doc>
+             line="254">Emitted when a non-exported action is activated on a notification.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4121,13 +4203,13 @@ Returns the result in the form of boolean.</doc>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="238">the notification ID</doc>
+                 line="257">the notification ID</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="239">the action name</doc>
+                 line="258">the action name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="parameter"
@@ -4136,7 +4218,7 @@ Returns the result in the form of boolean.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="240">the target parameter for the action</doc>
+                 line="259">the target parameter for the action</doc>
             <type name="GLib.Variant"/>
           </parameter>
         </parameters>
@@ -4144,7 +4226,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="session-state-changed" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="124">Emitted when session state monitoring is
+             line="143">Emitted when session state monitoring is
 enabled and the state of the login session changes or
 the screensaver is activated or deactivated.</doc>
         <return-value transfer-ownership="none">
@@ -4154,13 +4236,13 @@ the screensaver is activated or deactivated.</doc>
           <parameter name="screensaver_active" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="127">whether the screensaver is active</doc>
+                 line="146">whether the screensaver is active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="session_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="128">the current state of the login session</doc>
+                 line="147">the current state of the login session</doc>
             <type name="LoginSessionState"/>
           </parameter>
         </parameters>
@@ -4168,7 +4250,7 @@ the screensaver is activated or deactivated.</doc>
       <glib:signal name="spawn-exited" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="106">Emitted when a process that was spawned with [method@Portal.spawn] exits.</doc>
+             line="125">Emitted when a process that was spawned with [method@Portal.spawn] exits.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4176,13 +4258,13 @@ the screensaver is activated or deactivated.</doc>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="109">the pid of the process</doc>
+                 line="128">the pid of the process</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="exit_status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="110">the exit status of the process</doc>
+                 line="129">the exit status of the process</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4190,7 +4272,7 @@ the screensaver is activated or deactivated.</doc>
       <glib:signal name="update-available" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="144">Emitted when updates monitoring is enabled
+             line="163">Emitted when updates monitoring is enabled
 and a new update is available.
 
 It is only sent once with the same information, but it can be sent many
@@ -4202,20 +4284,20 @@ times if new updates appear.</doc>
           <parameter name="running_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="147">the commit that the sandbox is running with</doc>
+                 line="166">the commit that the sandbox is running with</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="local_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="148">the commit that is currently deployed. Restarting
+                 line="167">the commit that is currently deployed. Restarting
     the app will use this commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="remote_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="150">the commit that is available as an update.
+                 line="169">the commit that is available as an update.
     Updating the app will deloy this commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
@@ -4224,7 +4306,7 @@ times if new updates appear.</doc>
       <glib:signal name="update-progress" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="170">Emitted to indicate progress of an update installation.
+             line="189">Emitted to indicate progress of an update installation.
 
 It is undefined exactly how often it is sent, but it will be emitted at
 least once at the end with a non-zero @status. For each successful
@@ -4237,38 +4319,38 @@ with @progress 100.</doc>
           <parameter name="n_ops" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="173">the number of operations that the update consists of</doc>
+                 line="192">the number of operations that the update consists of</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="op" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="174">the position of the currently active operation</doc>
+                 line="193">the position of the currently active operation</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="175">the progress of the currently active operation, as
+                 line="194">the progress of the currently active operation, as
   a number between 0 and 100</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="177">the overall status of the update</doc>
+                 line="196">the overall status of the update</doc>
             <type name="UpdateStatus"/>
           </parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="178">the error name if the status is 'failed'</doc>
+                 line="197">the error name if the status is 'failed'</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="error_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="179">the error message if the status is 'failed'</doc>
+                 line="198">the error message if the status is 'failed'</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -4299,7 +4381,7 @@ with @progress 100.</doc>
               c:type="XdpRemoteDesktopFlags">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="143">Options for starting remote desktop sessions.</doc>
+           line="145">Options for starting remote desktop sessions.</doc>
       <member name="none"
               value="0"
               c:identifier="XDP_REMOTE_DESKTOP_FLAG_NONE"
@@ -4307,7 +4389,7 @@ with @progress 100.</doc>
               glib:name="XDP_REMOTE_DESKTOP_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="145">No options</doc>
+             line="147">No options</doc>
       </member>
       <member name="multiple"
               value="1"
@@ -4316,7 +4398,7 @@ with @progress 100.</doc>
               glib:name="XDP_REMOTE_DESKTOP_FLAG_MULTIPLE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="146">allow opening multiple streams</doc>
+             line="148">allow opening multiple streams</doc>
       </member>
     </bitfield>
     <enumeration name="SaveFileFlags"
@@ -4336,7 +4418,7 @@ with @progress 100.</doc>
               c:type="XdpScreencastFlags">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="87">Options for starting screen casts.</doc>
+           line="89">Options for starting screen casts.</doc>
       <member name="none"
               value="0"
               c:identifier="XDP_SCREENCAST_FLAG_NONE"
@@ -4344,7 +4426,7 @@ with @progress 100.</doc>
               glib:name="XDP_SCREENCAST_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="89">No options</doc>
+             line="91">No options</doc>
       </member>
       <member name="multiple"
               value="1"
@@ -4353,7 +4435,7 @@ with @progress 100.</doc>
               glib:name="XDP_SCREENCAST_FLAG_MULTIPLE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="90">allow opening multiple streams</doc>
+             line="92">allow opening multiple streams</doc>
       </member>
     </bitfield>
     <bitfield name="ScreenshotFlags"
@@ -4397,8 +4479,8 @@ All sessions start in an initial state. They can be made active by calling
       <method name="close" c:identifier="xdp_session_close">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="777">Closes the session.</doc>
-        <source-position filename="libportal/remote.h" line="183"/>
+             line="829">Closes the session.</doc>
+        <source-position filename="libportal/remote.h" line="185"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4406,7 +4488,35 @@ All sessions start in an initial state. They can be made active by calling
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="779">an active [class@Session]</doc>
+                 line="831">an active [class@Session]</doc>
+            <type name="Session" c:type="XdpSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="connect_to_eis"
+              c:identifier="xdp_session_connect_to_eis"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libportal/remote.c"
+             line="912">Connect this XdpRemoteDesktopSession to an EIS implementation and return the fd.
+This fd can be passed into ei_setup_backend_fd(). See the libei
+documentation for details.
+
+This call must be issued before xdp_session_start(). If successful, all input
+event emulation must be handled via the EIS connection and calls to
+xdp_session_pointer_motion() etc. are silently ignored.</doc>
+        <source-position filename="libportal/remote.h" line="203"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libportal/remote.c"
+               line="925">the file descriptor to the EIS implementation</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libportal/remote.c"
+                 line="914">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
         </parameters>
@@ -4417,7 +4527,7 @@ All sessions start in an initial state. They can be made active by calling
              line="187">Obtains the devices that the user selected.
 
 Unless the session is active, this function returns `XDP_DEVICE_NONE`.</doc>
-        <source-position filename="libportal/remote.h" line="195"/>
+        <source-position filename="libportal/remote.h" line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/session.c"
@@ -4437,22 +4547,22 @@ Unless the session is active, this function returns `XDP_DEVICE_NONE`.</doc>
               c:identifier="xdp_session_get_persist_mode">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="1168">Retrieves the effective persist mode of @session.
+             line="1277">Retrieves the effective persist mode of @session.
 
 May only be called after @session is successfully started, i.e. after
 [method@Session.start_finish].</doc>
-        <source-position filename="libportal/remote.h" line="291"/>
+        <source-position filename="libportal/remote.h" line="297"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/remote.c"
-               line="1177">the effective persist mode of @session</doc>
+               line="1286">the effective persist mode of @session</doc>
           <type name="PersistMode" c:type="XdpPersistMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1170">a [class@Session]</doc>
+                 line="1279">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
         </parameters>
@@ -4461,7 +4571,7 @@ May only be called after @session is successfully started, i.e. after
               c:identifier="xdp_session_get_restore_token">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="1188">Retrieves the restore token of @session.
+             line="1297">Retrieves the restore token of @session.
 
 A restore token will only be available if `XDP_PERSIST_MODE_TRANSIENT`
 or `XDP_PERSIST_MODE_PERSISTENT` was passed when creating the screencast
@@ -4471,18 +4581,18 @@ Remote desktop sessions cannot be restored.
 
 May only be called after @session is successfully started, i.e. after
 [method@Session.start_finish].</doc>
-        <source-position filename="libportal/remote.h" line="294"/>
+        <source-position filename="libportal/remote.h" line="300"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libportal/remote.c"
-               line="1203">the restore token of @session</doc>
+               line="1312">the restore token of @session</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1190">a [class@Session]</doc>
+                 line="1299">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
         </parameters>
@@ -4493,7 +4603,7 @@ May only be called after @session is successfully started, i.e. after
              filename="libportal/session.c"
              line="149">Obtains information about the state of the session that is represented
 by @session.</doc>
-        <source-position filename="libportal/remote.h" line="192"/>
+        <source-position filename="libportal/remote.h" line="194"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/session.c"
@@ -4515,7 +4625,7 @@ by @session.</doc>
              filename="libportal/session.c"
              line="132">Obtains information about the type of session that is represented
 by @session.</doc>
-        <source-position filename="libportal/remote.h" line="189"/>
+        <source-position filename="libportal/remote.h" line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/session.c"
@@ -4550,7 +4660,7 @@ including:
     space. The size may differ from the size of the stream.
 
 Unless the session is active, this function returns `NULL`.</doc>
-        <source-position filename="libportal/remote.h" line="198"/>
+        <source-position filename="libportal/remote.h" line="200"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libportal/session.c"
@@ -4569,11 +4679,11 @@ Unless the session is active, this function returns `NULL`.</doc>
       <method name="keyboard_key" c:identifier="xdp_session_keyboard_key">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="1022">Changes the state of the key to @state.
+             line="1143">Changes the state of the key to @state.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_KEYBOARD` access.</doc>
-        <source-position filename="libportal/remote.h" line="266"/>
+        <source-position filename="libportal/remote.h" line="272"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4581,25 +4691,25 @@ with `XDP_DEVICE_KEYBOARD` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1024">a remote desktop [class@Session]</doc>
+                 line="1145">a remote desktop [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="keysym" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1025">whether to interpret @key as a keysym instead of a keycode</doc>
+                 line="1146">whether to interpret @key as a keysym instead of a keycode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1026">the keysym or keycode to change</doc>
+                 line="1147">the keysym or keycode to change</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1027">the new state</doc>
+                 line="1148">the new state</doc>
             <type name="KeyState" c:type="XdpKeyState"/>
           </parameter>
         </parameters>
@@ -4608,24 +4718,24 @@ with `XDP_DEVICE_KEYBOARD` access.</doc>
               c:identifier="xdp_session_open_pipewire_remote">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="800">Opens a file descriptor to the pipewire remote where the screencast
+             line="852">Opens a file descriptor to the pipewire remote where the screencast
 streams are available.
 
 The file descriptor should be used to create a pw_remote object, by using
 pw_remote_connect_fd(). Only the screencast stream nodes will be available
 from this pipewire node.</doc>
-        <source-position filename="libportal/remote.h" line="186"/>
+        <source-position filename="libportal/remote.h" line="188"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/remote.c"
-               line="811">the file descriptor</doc>
+               line="863">the file descriptor</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="802">a [class@Session]</doc>
+                 line="854">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
         </parameters>
@@ -4633,13 +4743,13 @@ from this pipewire node.</doc>
       <method name="pointer_axis" c:identifier="xdp_session_pointer_axis">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="951">The axis movement from a smooth scroll device, such as a touchpad.
+             line="1078">The axis movement from a smooth scroll device, such as a touchpad.
 When applicable, the size of the motion delta should be equivalent to
 the motion vector of a pointer motion done using the same advice.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_POINTER` access.</doc>
-        <source-position filename="libportal/remote.h" line="229"/>
+        <source-position filename="libportal/remote.h" line="235"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4647,25 +4757,25 @@ with `XDP_DEVICE_POINTER` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="953">a [class@Session]</doc>
+                 line="1080">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="finish" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="954">whether this is the last in a series of related events</doc>
+                 line="1081">whether this is the last in a series of related events</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="dx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="955">relative axis movement on the X axis</doc>
+                 line="1082">relative axis movement on the X axis</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="dy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="956">relative axis movement on the Y axis</doc>
+                 line="1083">relative axis movement on the Y axis</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4674,11 +4784,11 @@ with `XDP_DEVICE_POINTER` access.</doc>
               c:identifier="xdp_session_pointer_axis_discrete">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="989">The axis movement from a discrete scroll device.
+             line="1113">The axis movement from a discrete scroll device.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_POINTER` access.</doc>
-        <source-position filename="libportal/remote.h" line="248"/>
+        <source-position filename="libportal/remote.h" line="254"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4686,19 +4796,19 @@ with `XDP_DEVICE_POINTER` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="991">a [class@Session]</doc>
+                 line="1115">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="axis" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="992">the axis to change</doc>
+                 line="1116">the axis to change</doc>
             <type name="DiscreteAxis" c:type="XdpDiscreteAxis"/>
           </parameter>
           <parameter name="steps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="993">number of steps scrolled</doc>
+                 line="1117">number of steps scrolled</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -4706,11 +4816,11 @@ with `XDP_DEVICE_POINTER` access.</doc>
       <method name="pointer_button" c:identifier="xdp_session_pointer_button">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="918">Changes the state of the button to @state.
+             line="1048">Changes the state of the button to @state.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_POINTER` access.</doc>
-        <source-position filename="libportal/remote.h" line="224"/>
+        <source-position filename="libportal/remote.h" line="230"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4718,19 +4828,19 @@ with `XDP_DEVICE_POINTER` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="920">a [class@Session]</doc>
+                 line="1050">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="921">the button</doc>
+                 line="1051">the button</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="922">the new state</doc>
+                 line="1052">the new state</doc>
             <type name="ButtonState" c:type="XdpButtonState"/>
           </parameter>
         </parameters>
@@ -4738,11 +4848,11 @@ with `XDP_DEVICE_POINTER` access.</doc>
       <method name="pointer_motion" c:identifier="xdp_session_pointer_motion">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="849">Moves the pointer from its current position.
+             line="985">Moves the pointer from its current position.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_POINTER` access.</doc>
-        <source-position filename="libportal/remote.h" line="201"/>
+        <source-position filename="libportal/remote.h" line="207"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4750,19 +4860,19 @@ with `XDP_DEVICE_POINTER` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="851">a [class@Session]</doc>
+                 line="987">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="dx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="852">relative horizontal movement</doc>
+                 line="988">relative horizontal movement</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="dy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="853">relative vertical movement</doc>
+                 line="989">relative vertical movement</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4771,12 +4881,12 @@ with `XDP_DEVICE_POINTER` access.</doc>
               c:identifier="xdp_session_pointer_position">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="882">Moves the pointer to a new position in the given streams logical
+             line="1015">Moves the pointer to a new position in the given streams logical
 coordinate space.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_POINTER` access.</doc>
-        <source-position filename="libportal/remote.h" line="206"/>
+        <source-position filename="libportal/remote.h" line="212"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4784,39 +4894,37 @@ with `XDP_DEVICE_POINTER` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="884">a [class@Session]</doc>
+                 line="1017">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="885">the node ID of the pipewire stream the position is relative to</doc>
+                 line="1018">the node ID of the pipewire stream the position is relative to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="886">new X position</doc>
+                 line="1019">new X position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="887">new Y position</doc>
+                 line="1020">new Y position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
       </method>
-      <method name="start"
-              c:identifier="xdp_session_start"
-              glib:finish-func="start_finish">
+      <method name="start" c:identifier="xdp_session_start">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="720">Starts the session.
+             line="772">Starts the session.
 
 When the request is done, @callback will be called. You can then
 call [method@Session.start_finish] to get the results.</doc>
-        <source-position filename="libportal/remote.h" line="171"/>
+        <source-position filename="libportal/remote.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4824,7 +4932,7 @@ call [method@Session.start_finish] to get the results.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="722">a [class@Session] in initial state</doc>
+                 line="774">a [class@Session] in initial state</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -4833,7 +4941,7 @@ call [method@Session.start_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="723">parent window information</doc>
+                 line="775">parent window information</doc>
             <type name="Parent" c:type="XdpParent*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4842,7 +4950,7 @@ call [method@Session.start_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="724">optional [class@Gio.Cancellable]</doc>
+                 line="776">optional [class@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4853,7 +4961,7 @@ call [method@Session.start_finish] to get the results.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="725">a callback to call when the request is done</doc>
+                 line="777">a callback to call when the request is done</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="data"
@@ -4862,7 +4970,7 @@ call [method@Session.start_finish] to get the results.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="726">data to pass to @callback</doc>
+                 line="778">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4872,25 +4980,25 @@ call [method@Session.start_finish] to get the results.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="756">Finishes the session-start request.</doc>
-        <source-position filename="libportal/remote.h" line="178"/>
+             line="808">Finishes the session-start request.</doc>
+        <source-position filename="libportal/remote.h" line="180"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/remote.c"
-               line="764">`TRUE` if the session was started successfully.</doc>
+               line="816">`TRUE` if the session was started successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="758">a [class@Session]</doc>
+                 line="810">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="759">a [iface@Gio.AsyncResult]</doc>
+                 line="811">a [iface@Gio.AsyncResult]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4898,14 +5006,14 @@ call [method@Session.start_finish] to get the results.</doc>
       <method name="touch_down" c:identifier="xdp_session_touch_down">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="1057">Notify about a new touch down event.
+             line="1175">Notify about a new touch down event.
 
 The `(x, y)` position represents the new touch point position in the streams
 logical coordinate space.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
-        <source-position filename="libportal/remote.h" line="272"/>
+        <source-position filename="libportal/remote.h" line="278"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4913,31 +5021,31 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1059">a [class@Session]</doc>
+                 line="1177">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1060">the node ID of the pipewire stream the position is relative to</doc>
+                 line="1178">the node ID of the pipewire stream the position is relative to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="slot" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1061">touch slot where the touch point appeared</doc>
+                 line="1179">touch slot where the touch point appeared</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1062">new X position</doc>
+                 line="1180">new X position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1063">new Y position</doc>
+                 line="1181">new Y position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4945,14 +5053,14 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
       <method name="touch_position" c:identifier="xdp_session_touch_position">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="1097">Notify about a new touch motion event.
+             line="1212">Notify about a new touch motion event.
 
 The `(x, y)` position represents where the touch point position in the
 streams logical coordinate space moved.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
-        <source-position filename="libportal/remote.h" line="279"/>
+        <source-position filename="libportal/remote.h" line="285"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4960,31 +5068,31 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1099">a [class@Session]</doc>
+                 line="1214">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1100">the node ID of the pipewire stream the position is relative to</doc>
+                 line="1215">the node ID of the pipewire stream the position is relative to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="slot" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1101">touch slot that is changing position</doc>
+                 line="1216">touch slot that is changing position</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1102">new X position</doc>
+                 line="1217">new X position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1103">new Y position</doc>
+                 line="1218">new Y position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4992,11 +5100,11 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
       <method name="touch_up" c:identifier="xdp_session_touch_up">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
-             line="1137">Notify about a new touch up event.
+             line="1249">Notify about a new touch up event.
 
 May only be called on a remote desktop session
 with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
-        <source-position filename="libportal/remote.h" line="286"/>
+        <source-position filename="libportal/remote.h" line="292"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5004,13 +5112,13 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1139">a [class@Session]</doc>
+                 line="1251">a [class@Session]</doc>
             <type name="Session" c:type="XdpSession*"/>
           </instance-parameter>
           <parameter name="slot" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/remote.c"
-                 line="1140">touch slot that changed</doc>
+                 line="1252">touch slot that changed</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -5049,7 +5157,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
                  c:type="XdpSessionState">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="73">The state of a session.</doc>
+           line="75">The state of a session.</doc>
       <member name="initial"
               value="0"
               c:identifier="XDP_SESSION_INITIAL"
@@ -5057,7 +5165,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
               glib:name="XDP_SESSION_INITIAL">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="75">the session has not been started.</doc>
+             line="77">the session has not been started.</doc>
       </member>
       <member name="active"
               value="1"
@@ -5066,7 +5174,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
               glib:name="XDP_SESSION_ACTIVE">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="76">the session is active.</doc>
+             line="78">the session is active.</doc>
       </member>
       <member name="closed"
               value="2"
@@ -5075,7 +5183,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
               glib:name="XDP_SESSION_CLOSED">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="77">the session is no longer active.</doc>
+             line="79">the session is no longer active.</doc>
       </member>
     </enumeration>
     <enumeration name="SessionType"
@@ -5084,7 +5192,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
                  c:type="XdpSessionType">
       <doc xml:space="preserve"
            filename="libportal/remote.h"
-           line="61">The type of a session.</doc>
+           line="63">The type of a session.</doc>
       <member name="screencast"
               value="0"
               c:identifier="XDP_SESSION_SCREENCAST"
@@ -5092,7 +5200,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
               glib:name="XDP_SESSION_SCREENCAST">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="63">a screencast session.</doc>
+             line="65">a screencast session.</doc>
       </member>
       <member name="remote_desktop"
               value="1"
@@ -5101,7 +5209,7 @@ with `XDP_DEVICE_TOUCHSCREEN` access.</doc>
               glib:name="XDP_SESSION_REMOTE_DESKTOP">
         <doc xml:space="preserve"
              filename="libportal/remote.h"
-             line="64">a remote desktop session.</doc>
+             line="66">a remote desktop session.</doc>
       </member>
     </enumeration>
     <bitfield name="SpawnFlags"

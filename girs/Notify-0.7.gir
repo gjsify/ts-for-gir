@@ -1062,7 +1062,7 @@ See [signal@Notification::closed].</doc>
       <source-position filename="libnotify/notify-features.h" line="32"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="4" c:type="NOTIFY_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="6" c:type="NOTIFY_VERSION_MICRO">
       <doc xml:space="preserve"
            filename="libnotify/notify-features.h"
            line="39">Adwaita micro version component (e.g. 3 if the version is 1.2.3).</doc>

@@ -2913,7 +2913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/evinceview-3.0@workspace:^, @girs/evinceview-3.0@workspace:types/evinceview-3.0":
+"@girs/evinceview-3.0@workspace:types/evinceview-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/evinceview-3.0@workspace:types/evinceview-3.0"
   dependencies:
@@ -3922,7 +3922,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/geocodeglib-1.0@workspace:types/geocodeglib-1.0":
+"@girs/geocodeglib-1.0@workspace:^, @girs/geocodeglib-1.0@workspace:types/geocodeglib-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/geocodeglib-1.0@workspace:types/geocodeglib-1.0"
   dependencies:
@@ -4533,22 +4533,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gnomemaps-1.0@workspace:types/gnomemaps-1.0"
   dependencies:
+    "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
+    "@girs/champlain-0.12": "workspace:^"
+    "@girs/clutter-1.0": "workspace:^"
+    "@girs/cogl-1.0": "workspace:^"
+    "@girs/coglpango-1.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
-    "@girs/gdk-4.0": "workspace:^"
-    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/geocodeglib-1.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/graphene-1.0": "workspace:^"
-    "@girs/gsk-4.0": "workspace:^"
-    "@girs/gtk-4.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
-    "@girs/shumate-1.0": "workspace:^"
+    "@girs/rest-0.7": "workspace:^"
+    "@girs/soup-2.4": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -5481,7 +5485,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstpbutils-0.10@workspace:types/gstpbutils-0.10":
+"@girs/gstpbutils-0.10@workspace:^, @girs/gstpbutils-0.10@workspace:types/gstpbutils-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gstpbutils-0.10@workspace:types/gstpbutils-0.10"
   dependencies:
@@ -5621,7 +5625,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsttag-0.10@workspace:types/gsttag-0.10":
+"@girs/gsttag-0.10@workspace:^, @girs/gsttag-0.10@workspace:types/gsttag-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gsttag-0.10@workspace:types/gsttag-0.10"
   dependencies:
@@ -9444,7 +9448,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shumate-1.0@workspace:^, @girs/shumate-1.0@workspace:types/shumate-1.0":
+"@girs/shumate-1.0@workspace:types/shumate-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/shumate-1.0@workspace:types/shumate-1.0"
   dependencies:
@@ -9870,22 +9874,33 @@ __metadata:
   dependencies:
     "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-1.0": "workspace:^"
+    "@girs/cogl-1.0": "workspace:^"
+    "@girs/coglpango-1.0": "workspace:^"
     "@girs/evincedocument-3.0": "workspace:^"
-    "@girs/evinceview-3.0": "workspace:^"
+    "@girs/fontconfig-2.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/gst-1.0": "workspace:^"
-    "@girs/gstbase-1.0": "workspace:^"
-    "@girs/gsttag-1.0": "workspace:^"
+    "@girs/gst-0.10": "workspace:^"
+    "@girs/gstbase-0.10": "workspace:^"
+    "@girs/gstpbutils-0.10": "workspace:^"
+    "@girs/gsttag-0.10": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
+    "@girs/gtksource-3.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/libxml2-2.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/pangofc-1.0": "workspace:^"
+    "@girs/pangoft2-1.0": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown

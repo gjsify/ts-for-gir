@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="PangoFc" version="1.0"/>
   <include name="freetype2" version="2.0"/>
   <package name="pangoft2"/>
   <c:include name="pango/pangoft2.h"/>
+  <doc:format name="unknown"/>
   <namespace name="PangoFT2"
              version="1.0"
              shared-library="libpangoft2-1.0.so.0"
@@ -254,27 +256,27 @@ instead.</doc-deprecated>
               c:identifier="pango_ft2_font_get_coverage">
       <doc xml:space="preserve"
            filename="pango/pangoft2.c"
-           line="471">Gets the `PangoCoverage` for a `PangoFT2Font`.
+           line="466">Gets the `PangoCoverage` for a `PangoFT2Font`.
 
 Use [method@Pango.Font.get_coverage] instead.</doc>
       <source-position filename="pango/pangoft2.h" line="152"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="pango/pangoft2.c"
-             line="480">a `PangoCoverage`</doc>
+             line="475">a `PangoCoverage`</doc>
         <type name="Pango.Coverage" c:type="PangoCoverage*"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoft2.c"
-               line="473">a Pango FT2 font</doc>
+               line="468">a Pango FT2 font</doc>
           <type name="Pango.Font" c:type="PangoFont*"/>
         </parameter>
         <parameter name="language" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoft2.c"
-               line="474">a language tag.</doc>
+               line="469">a language tag.</doc>
           <type name="Pango.Language" c:type="PangoLanguage*"/>
         </parameter>
       </parameters>
@@ -314,14 +316,14 @@ must call [method@PangoFc.Font.unlock_face].</doc>
               c:identifier="pango_ft2_font_get_kerning">
       <doc xml:space="preserve"
            filename="pango/pangoft2.c"
-           line="382">Retrieves kerning information for a combination of two glyphs.
+           line="377">Retrieves kerning information for a combination of two glyphs.
 
 Use pango_fc_font_kern_glyphs() instead.</doc>
       <source-position filename="pango/pangoft2.h" line="146"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="pango/pangoft2.c"
-             line="392">The amount of kerning (in Pango units) to
+             line="387">The amount of kerning (in Pango units) to
   apply for the given combination of glyphs.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
@@ -329,19 +331,19 @@ Use pango_fc_font_kern_glyphs() instead.</doc>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoft2.c"
-               line="384">a `PangoFont`</doc>
+               line="379">a `PangoFont`</doc>
           <type name="Pango.Font" c:type="PangoFont*"/>
         </parameter>
         <parameter name="left" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoft2.c"
-               line="385">the left `PangoGlyph`</doc>
+               line="380">the left `PangoGlyph`</doc>
           <type name="Pango.Glyph" c:type="PangoGlyph"/>
         </parameter>
         <parameter name="right" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoft2.c"
-               line="386">the right `PangoGlyph`</doc>
+               line="381">the right `PangoGlyph`</doc>
           <type name="Pango.Glyph" c:type="PangoGlyph"/>
         </parameter>
       </parameters>
@@ -383,7 +385,7 @@ for the default fontmap to @dpi_x by @dpi_y.</doc>
               c:identifier="pango_ft2_get_unknown_glyph">
       <doc xml:space="preserve"
            filename="pango/pangoft2.c"
-           line="491">Return the index of a glyph suitable for drawing unknown
+           line="486">Return the index of a glyph suitable for drawing unknown
 characters with @font, or %PANGO_GLYPH_EMPTY if no suitable
 glyph found.
 
@@ -394,14 +396,14 @@ instead.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="pango/pangoft2.c"
-             line="503">a glyph index into @font, or %PANGO_GLYPH_EMPTY</doc>
+             line="498">a glyph index into @font, or %PANGO_GLYPH_EMPTY</doc>
         <type name="Pango.Glyph" c:type="PangoGlyph"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangoft2.c"
-               line="493">a `PangoFont`</doc>
+               line="488">a `PangoFont`</doc>
           <type name="Pango.Font" c:type="PangoFont*"/>
         </parameter>
       </parameters>

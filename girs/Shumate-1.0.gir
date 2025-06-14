@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gdk" version="4.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gtk" version="4.0"/>
   <package name="shumate-1.0"/>
   <c:include name="shumate/shumate.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Shumate"
              version="1.0"
              shared-library="libshumate-1.0.so.1"
@@ -2622,7 +2624,7 @@ but is good enough for most purposes.</doc>
       <source-position filename="shumate/shumate-version.h" line="53"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="3" c:type="SHUMATE_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="4" c:type="SHUMATE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
            line="41">The minor version of libshumate (2, if %SHUMATE_VERSION is 1.2.3)</doc>
@@ -3294,7 +3296,7 @@ only for go-to animation, you should connect to
            glib:type-struct="MapLayerClass">
       <doc xml:space="preserve"
            filename="shumate/shumate-map-layer.c"
-           line="32">A [class@Shumate.Layer] implementation that fetches tiles from a [class@Shumate.MapSource]
+           line="33">A [class@Shumate.Layer] implementation that fetches tiles from a [class@Shumate.MapSource]
 and draws them as a grid.</doc>
       <source-position filename="shumate/shumate-map-layer.h" line="33"/>
       <implements name="Gtk.Accessible"/>
@@ -3320,10 +3322,28 @@ and draws them as a grid.</doc>
                 transfer-ownership="none">
         <type name="MapSource"/>
       </property>
+      <glib:signal name="map-loaded" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="846">Emitted when all the tiles in the map view are finished loading.
+
+As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="errors" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="849">`TRUE` if any visible tiles failed to load</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
       <glib:signal name="symbol-clicked" when="last" version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="799">Emitted when a symbol in the map layer is clicked.</doc>
+             line="827">Emitted when a symbol in the map layer is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3331,8 +3351,30 @@ and draws them as a grid.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="802">a [class@SymbolEvent] with details about the clicked symbol.</doc>
+                 line="830">a [class@SymbolEvent] with details about the clicked symbol.</doc>
             <type name="SymbolEvent"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="tile-error" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="867">Emitted when a tile fails to load.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="tile" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="870">the [class@Tile] that failed to load</doc>
+            <type name="Tile"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="871">the error that occurred</doc>
+            <type name="GLib.Error"/>
           </parameter>
         </parameters>
       </glib:signal>
@@ -6358,12 +6400,12 @@ you can look at the [class@Shumate.Map] widget.
 
 The simple map contains a zoom widget, a [class@Shumate.License] at the bottom,
 a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
-      <source-position filename="shumate/shumate-simple-map.h" line="32"/>
+      <source-position filename="shumate/shumate-simple-map.h" line="33"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
       <constructor name="new" c:identifier="shumate_simple_map_new">
-        <source-position filename="shumate/shumate-simple-map.h" line="34"/>
+        <source-position filename="shumate/shumate-simple-map.h" line="35"/>
         <return-value transfer-ownership="none">
           <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
         </return-value>
@@ -6372,8 +6414,8 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               c:identifier="shumate_simple_map_add_overlay_layer">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="407">Adds a map layer as an overlay on top of the base map.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="42"/>
+             line="430">Adds a map layer as an overlay on top of the base map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6381,15 +6423,38 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="409">a [class@SimpleMap]</doc>
+                 line="432">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="410">a [class@Layer] to add</doc>
+                 line="433">a [class@Layer] to add</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="get_base_map_layer"
+              c:identifier="shumate_simple_map_get_base_map_layer"
+              glib:get-property="base-map-layer"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-simple-map.c"
+             line="623">Gets the [class@MapLayer] that displays the base map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-simple-map.c"
+               line="629">the base map layer</doc>
+          <type name="MapLayer" c:type="ShumateMapLayer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-simple-map.c"
+                 line="625">a [class@SimpleMap]</doc>
+            <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
+          </instance-parameter>
         </parameters>
       </method>
       <method name="get_compass"
@@ -6397,19 +6462,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="compass">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="500">Gets the compass widget for the map.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="50"/>
+             line="523">Gets the compass widget for the map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="506">a [class@Compass]</doc>
+               line="529">a [class@Compass]</doc>
           <type name="Compass" c:type="ShumateCompass*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="502">a [class@SimpleMap]</doc>
+                 line="525">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6419,19 +6484,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="license">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="517">Gets the license widget for the map.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="52"/>
+             line="540">Gets the license widget for the map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="523">a [class@License]</doc>
+               line="546">a [class@License]</doc>
           <type name="License" c:type="ShumateLicense*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="519">a [class@SimpleMap]</doc>
+                 line="542">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6441,19 +6506,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="map">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="566">Gets the [class@SimpleMap]'s underlying [class@Map].</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="60"/>
+             line="606">Gets the [class@SimpleMap]'s underlying [class@Map].</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="572">a [class@Map]</doc>
+               line="612">a [class@Map]</doc>
           <type name="Map" c:type="ShumateMap*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="568">a [class@SimpleMap]</doc>
+                 line="608">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6463,19 +6528,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="344">Gets the map source for the current base layer.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="38"/>
+             line="366">Gets the map source for the current base layer.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="350">a [class@MapSource]</doc>
+               line="372">a [class@MapSource]</doc>
           <type name="MapSource" c:type="ShumateMapSource*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="346">a [class@SimpleMap]</doc>
+                 line="368">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6485,19 +6550,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="scale">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="534">Gets the scale widget for the map.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="54"/>
+             line="557">Gets the scale widget for the map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="540">a [class@Scale]</doc>
+               line="563">a [class@Scale]</doc>
           <type name="Scale" c:type="ShumateScale*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="536">a [class@SimpleMap]</doc>
+                 line="559">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6507,19 +6572,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="show-zoom-buttons">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="550">Gets whether or not the zoom buttons are shown.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="56"/>
+             line="573">Gets whether or not the zoom buttons are shown.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="556">%TRUE if the zoom buttons are visible, otherwise %FALSE</doc>
+               line="579">%TRUE if the zoom buttons are visible, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="552">a [class@SimpleMap]</doc>
+                 line="575">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6529,27 +6594,27 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="viewport">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="327">Gets the map's viewport, needed for constructing map layers that will be added
+             line="349">Gets the map's viewport, needed for constructing map layers that will be added
 to it.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="36"/>
+        <source-position filename="shumate/shumate-simple-map.h" line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="334">a [class@Viewport]</doc>
+               line="356">a [class@Viewport]</doc>
           <type name="Viewport" c:type="ShumateViewport*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="329">a [class@Map]</doc>
+                 line="351">a [class@Map]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="insert_overlay_layer"
               c:identifier="shumate_simple_map_insert_overlay_layer">
-        <source-position filename="shumate/shumate-simple-map.h" line="44"/>
+        <source-position filename="shumate/shumate-simple-map.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6569,8 +6634,8 @@ to it.</doc>
               c:identifier="shumate_simple_map_remove_overlay_layer">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="481">Removes a layer from the map.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="47"/>
+             line="504">Removes a layer from the map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6578,13 +6643,13 @@ to it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="483">a [class@SimpleMap]</doc>
+                 line="506">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="484">a [class@Layer] that was added to the map previously</doc>
+                 line="507">a [class@Layer] that was added to the map previously</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -6594,8 +6659,8 @@ to it.</doc>
               glib:set-property="map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="360">Sets the source for the base map.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="39"/>
+             line="382">Sets the source for the base map.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6603,7 +6668,7 @@ to it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="362">a [class@SimpleMap]</doc>
+                 line="384">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="map_source"
@@ -6612,7 +6677,7 @@ to it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="363">a [class@MapSource]</doc>
+                 line="385">a [class@MapSource]</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </parameter>
         </parameters>
@@ -6622,8 +6687,8 @@ to it.</doc>
               glib:set-property="show-zoom-buttons">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="583">Sets whether or not the zoom buttons are shown.</doc>
-        <source-position filename="shumate/shumate-simple-map.h" line="57"/>
+             line="589">Sets whether or not the zoom buttons are shown.</doc>
+        <source-position filename="shumate/shumate-simple-map.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6631,17 +6696,29 @@ to it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="585">a [class@SimpleMap]</doc>
+                 line="591">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="show_zoom_buttons" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="586">%TRUE to show the zoom buttons, %FALSE to hide them</doc>
+                 line="592">%TRUE to show the zoom buttons, %FALSE to hide them</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
+      <property name="base-map-layer"
+                version="1.4"
+                transfer-ownership="none"
+                getter="get_base_map_layer">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-simple-map.c"
+             line="286">The [class@MapLayer] that displays the map source.
+
+This is a read-only property. To change the basemap, set the
+[property@SimpleMap:map-source] property.</doc>
+        <type name="MapLayer"/>
+      </property>
       <property name="compass" transfer-ownership="none" getter="get_compass">
         <type name="Compass"/>
       </property>
@@ -6677,7 +6754,7 @@ to it.</doc>
       <glib:signal name="symbol-clicked" when="last" version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="283">Emitted when a symbol in the base map layer (not in overlay layers) is
+             line="305">Emitted when a symbol in the base map layer (not in overlay layers) is
 clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6686,7 +6763,7 @@ clicked.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="286">a [class@SymbolEvent] with details about the clicked symbol.</doc>
+                 line="308">a [class@SymbolEvent] with details about the clicked symbol.</doc>
             <type name="SymbolEvent"/>
           </parameter>
         </parameters>
@@ -6695,7 +6772,7 @@ clicked.</doc>
     <record name="SimpleMapClass"
             c:type="ShumateSimpleMapClass"
             glib:is-gtype-struct-for="SimpleMap">
-      <source-position filename="shumate/shumate-simple-map.h" line="32"/>
+      <source-position filename="shumate/shumate-simple-map.h" line="33"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>

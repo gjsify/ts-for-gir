@@ -5,14 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="jsonrpc-glib-1.0"/>
   <c:include name="jsonrpc-glib.h"/>
-  <doc:format name="unknown"/>
   <namespace name="Jsonrpc"
              version="1.0"
              shared-library="libjsonrpc-glib-1.0.so.1"
@@ -161,8 +159,7 @@ If you want to communicate with a process using stdin/stdout, consider using
       <method name="call"
               c:identifier="jsonrpc_client_call"
               version="3.26"
-              throws="1"
-              glib:async-func="call_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="893">Synchronously calls @method with @params on the remote peer.
@@ -224,9 +221,7 @@ If @params is floating then this function consumes the reference.</doc>
       </method>
       <method name="call_async"
               c:identifier="jsonrpc_client_call_async"
-              version="3.26"
-              glib:finish-func="call_finish"
-              glib:sync-func="call">
+              version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1053">Asynchronously calls @method with @params on the remote peer.
@@ -421,8 +416,7 @@ If @params is floating, the floating reference is consumed.</doc>
       <method name="close"
               c:identifier="jsonrpc_client_close"
               version="3.26"
-              throws="1"
-              glib:async-func="close_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1284">Closes the underlying streams and cancels any inflight operations of the
@@ -457,9 +451,7 @@ Failure to call this method results in a leak of #JsonrpcClient.</doc>
       </method>
       <method name="close_async"
               c:identifier="jsonrpc_client_close_async"
-              version="3.26"
-              glib:finish-func="close_finish"
-              glib:sync-func="close">
+              version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1341">Asynchronous version of [method@Client.close].
@@ -553,8 +545,7 @@ Indicates if [struct@GLib.Variant] is being used to communicate with the peer.</
       <method name="reply"
               c:identifier="jsonrpc_client_reply"
               version="3.26"
-              throws="1"
-              glib:async-func="reply_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1497">Synchronous variant of [method@Client.reply_async].
@@ -597,10 +588,7 @@ If @id or @result are floating, there floating references are consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="reply_async"
-              c:identifier="jsonrpc_client_reply_async"
-              glib:finish-func="reply_finish"
-              glib:sync-func="reply">
+      <method name="reply_async" c:identifier="jsonrpc_client_reply_async">
         <source-position filename="src/jsonrpc-client.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -639,8 +627,7 @@ If @id or @result are floating, there floating references are consumed.</doc>
       </method>
       <method name="reply_error_async"
               c:identifier="jsonrpc_client_reply_error_async"
-              version="3.28"
-              glib:finish-func="reply_error_finish">
+              version="3.28">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1416">Asynchronously replies to the peer, sending a JSON-RPC error message.
@@ -759,8 +746,7 @@ If @id is floating, it's floating reference is consumed.</doc>
       <method name="send_notification"
               c:identifier="jsonrpc_client_send_notification"
               version="3.26"
-              throws="1"
-              glib:async-func="send_notification_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1142">Synchronously calls @method with @params on the remote peer.
@@ -810,9 +796,7 @@ If @params is floating then the reference is consumed.</doc>
       </method>
       <method name="send_notification_async"
               c:identifier="jsonrpc_client_send_notification_async"
-              version="3.26"
-              glib:finish-func="send_notification_finish"
-              glib:sync-func="send_notification">
+              version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
              line="1195">Asynchronously calls @method with @params on the remote peer.
@@ -1265,8 +1249,7 @@ trip.</doc>
       </constructor>
       <method name="read_message"
               c:identifier="jsonrpc_input_stream_read_message"
-              throws="1"
-              glib:async-func="read_message_async">
+              throws="1">
         <source-position filename="src/jsonrpc-input-stream.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1287,9 +1270,7 @@ trip.</doc>
         </parameters>
       </method>
       <method name="read_message_async"
-              c:identifier="jsonrpc_input_stream_read_message_async"
-              glib:finish-func="read_message_finish"
-              glib:sync-func="read_message">
+              c:identifier="jsonrpc_input_stream_read_message_async">
         <source-position filename="src/jsonrpc-input-stream.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1794,8 +1775,7 @@ trip.</doc>
       <method name="write_message"
               c:identifier="jsonrpc_output_stream_write_message"
               version="3.26"
-              throws="1"
-              glib:async-func="write_message_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-output-stream.c"
              line="409">Synchronously sends a message to the peer.
@@ -1832,9 +1812,7 @@ is no guarantee the peer received it.</doc>
       </method>
       <method name="write_message_async"
               c:identifier="jsonrpc_output_stream_write_message_async"
-              version="3.26"
-              glib:finish-func="write_message_finish"
-              glib:sync-func="write_message">
+              version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-output-stream.c"
              line="333">Asynchronously sends a message to the peer.

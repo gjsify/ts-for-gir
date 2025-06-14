@@ -196,7 +196,7 @@ export class DependencyManager extends GirNSRegistry {
         }
 
         if (filesInfo.length > 1) {
-            this.log.muted(`Use latest version ${latestLibraryVersion.libraryVersion.toString()}`)
+            this.log.muted(`Use latest version ${latestLibraryVersion.libraryVersion.toString()} from ${latestLibraryVersion.fileInfo.path}`)
         }
 
         return latestLibraryVersion

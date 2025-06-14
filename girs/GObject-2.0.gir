@@ -3945,7 +3945,7 @@ unsigned long integer argument.</doc>
                 version="2.30">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="1444">A generic marshaller function implemented via
+             line="1446">A generic marshaller function implemented via
 [libffi](http://sourceware.org/libffi/).
 
 Normally this function is not passed explicitly to g_signal_new(),
@@ -3958,26 +3958,26 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
           <parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1446">A #GClosure.</doc>
+                 line="1448">A #GClosure.</doc>
             <type name="Closure" c:type="GClosure*"/>
           </parameter>
           <parameter name="return_gvalue" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1447">A #GValue to store the return value. May be %NULL
+                 line="1449">A #GValue to store the return value. May be %NULL
   if the callback of closure doesn't return a value.</doc>
             <type name="Value" c:type="GValue*"/>
           </parameter>
           <parameter name="n_param_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1449">The length of the @param_values array.</doc>
+                 line="1451">The length of the @param_values array.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="param_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1450">An array of #GValues holding the arguments
+                 line="1452">An array of #GValues holding the arguments
   on which to invoke the callback of closure.</doc>
             <type name="Value" c:type="const GValue*"/>
           </parameter>
@@ -3987,7 +3987,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1452">The invocation hint given as the last argument to
+                 line="1454">The invocation hint given as the last argument to
   g_closure_invoke().</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -3997,7 +3997,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1454">Additional data specified when registering the
+                 line="1456">Additional data specified when registering the
   marshaller, see g_closure_set_marshal() and
   g_closure_set_meta_marshal()</doc>
             <type name="gpointer" c:type="gpointer"/>
@@ -4010,7 +4010,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="1543">A generic #GVaClosureMarshal function implemented via
+             line="1545">A generic #GVaClosureMarshal function implemented via
 [libffi](http://sourceware.org/libffi/).</doc>
         <source-position filename="gobject/gclosure.h" line="304"/>
         <return-value transfer-ownership="none">
@@ -4020,7 +4020,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
           <parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1545">the #GClosure to which the marshaller belongs</doc>
+                 line="1547">the #GClosure to which the marshaller belongs</doc>
             <type name="Closure" c:type="GClosure*"/>
           </parameter>
           <parameter name="return_value"
@@ -4029,7 +4029,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1546">a #GValue to store the return
+                 line="1548">a #GValue to store the return
  value. May be %NULL if the callback of @closure doesn't return a
  value.</doc>
             <type name="Value" c:type="GValue*"/>
@@ -4037,14 +4037,14 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
           <parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1549">the instance on which the closure is
+                 line="1551">the instance on which the closure is
  invoked.</doc>
             <type name="TypeInstance" c:type="gpointer"/>
           </parameter>
           <parameter name="args_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1551">va_list of arguments to be passed to the closure.</doc>
+                 line="1553">va_list of arguments to be passed to the closure.</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
           <parameter name="marshal_data"
@@ -4053,7 +4053,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1552">additional data specified when
+                 line="1554">additional data specified when
  registering the marshaller, see g_closure_set_marshal() and
  g_closure_set_meta_marshal()</doc>
             <type name="gpointer" c:type="gpointer"/>
@@ -4061,13 +4061,13 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
           <parameter name="n_params" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1555">the length of the @param_types array</doc>
+                 line="1557">the length of the @param_types array</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="param_types" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="1556">the #GType of each argument from
+                 line="1558">the #GType of each argument from
  @args_list.</doc>
             <array length="5" zero-terminated="0" c:type="GType*">
               <type name="GType" c:type="GType"/>
@@ -4078,7 +4078,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
       <function name="new" c:identifier="g_cclosure_new" introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="957">Creates a new closure which invokes @callback_func with @user_data as
+             line="959">Creates a new closure which invokes @callback_func with @user_data as
 the last parameter.
 
 @destroy_data will be called as a finalize notifier on the #GClosure.</doc>
@@ -4086,7 +4086,7 @@ the last parameter.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="968">a floating reference to a new #GCClosure</doc>
+               line="970">a floating reference to a new #GCClosure</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
@@ -4095,7 +4095,7 @@ the last parameter.
                      closure="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="959">the function to invoke</doc>
+                 line="961">the function to invoke</doc>
             <type name="Callback" c:type="GCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4104,13 +4104,13 @@ the last parameter.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="960">user data to pass to @callback_func</doc>
+                 line="962">user data to pass to @callback_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="961">destroy notify to be called when @user_data is no longer used</doc>
+                 line="963">destroy notify to be called when @user_data is no longer used</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4184,7 +4184,7 @@ after the object is is freed.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="987">Creates a new closure which invokes @callback_func with @user_data as
+             line="989">Creates a new closure which invokes @callback_func with @user_data as
 the first parameter.
 
 @destroy_data will be called as a finalize notifier on the #GClosure.</doc>
@@ -4192,7 +4192,7 @@ the first parameter.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="998">a floating reference to a new #GCClosure</doc>
+               line="1000">a floating reference to a new #GCClosure</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
@@ -4201,7 +4201,7 @@ the first parameter.
                      closure="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="989">the function to invoke</doc>
+                 line="991">the function to invoke</doc>
             <type name="Callback" c:type="GCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4210,13 +4210,13 @@ the first parameter.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="990">user data to pass to @callback_func</doc>
+                 line="992">user data to pass to @callback_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="991">destroy notify to be called when @user_data is no longer used</doc>
+                 line="993">destroy notify to be called when @user_data is no longer used</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4592,7 +4592,7 @@ when implementing new types of closures.</doc>
       <constructor name="new_simple" c:identifier="g_closure_new_simple">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="142">Allocates a struct of the given size and initializes the initial
+             line="144">Allocates a struct of the given size and initializes the initial
 part as a #GClosure.
 
 This function is mainly useful when implementing new types of closures:
@@ -4633,14 +4633,14 @@ MyClosure *my_closure_new (gpointer data)
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="186">a floating reference to a new #GClosure</doc>
+               line="188">a floating reference to a new #GClosure</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
           <parameter name="sizeof_closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="144">the size of the structure to allocate, must be at least
+                 line="146">the size of the structure to allocate, must be at least
                  `sizeof (GClosure)`</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -4650,7 +4650,7 @@ MyClosure *my_closure_new (gpointer data)
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="146">data to store in the @data field of the newly allocated #GClosure</doc>
+                 line="148">data to store in the @data field of the newly allocated #GClosure</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4660,7 +4660,7 @@ MyClosure *my_closure_new (gpointer data)
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="426">Registers a finalization notifier which will be called when the
+             line="428">Registers a finalization notifier which will be called when the
 reference count of @closure goes down to 0.
 
 Multiple finalization notifiers on a single closure are invoked in
@@ -4675,7 +4675,7 @@ notifiers will be run before the finalize notifiers.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="428">a #GClosure</doc>
+                 line="430">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="notify_data"
@@ -4684,13 +4684,13 @@ notifiers will be run before the finalize notifiers.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="429">data to pass to @notify_func</doc>
+                 line="431">data to pass to @notify_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify_func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="430">the callback function to register</doc>
+                 line="432">the callback function to register</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4700,7 +4700,7 @@ notifiers will be run before the finalize notifiers.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="463">Registers an invalidation notifier which will be called when the
+             line="465">Registers an invalidation notifier which will be called when the
 @closure is invalidated with g_closure_invalidate().
 
 Invalidation notifiers are invoked before finalization notifiers,
@@ -4713,7 +4713,7 @@ in an unspecified order.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="465">a #GClosure</doc>
+                 line="467">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="notify_data"
@@ -4722,13 +4722,13 @@ in an unspecified order.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="466">data to pass to @notify_func</doc>
+                 line="468">data to pass to @notify_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify_func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="467">the callback function to register</doc>
+                 line="469">the callback function to register</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4738,7 +4738,7 @@ in an unspecified order.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="365">Adds a pair of notifiers which get invoked before and after the
+             line="367">Adds a pair of notifiers which get invoked before and after the
 closure callback, respectively.
 
 This is typically used to protect the extra arguments for the
@@ -4752,7 +4752,7 @@ example of marshal guards.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="367">a #GClosure</doc>
+                 line="369">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="pre_marshal_data"
@@ -4761,7 +4761,7 @@ example of marshal guards.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="368">data to pass
+                 line="370">data to pass
  to @pre_marshal_notify</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -4770,7 +4770,7 @@ example of marshal guards.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="370">a function to call before the closure callback</doc>
+                 line="372">a function to call before the closure callback</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
           <parameter name="post_marshal_data"
@@ -4779,14 +4779,14 @@ example of marshal guards.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="371">data to pass
+                 line="373">data to pass
  to @post_marshal_notify</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="post_marshal_notify" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="373">a function to call after the closure callback</doc>
+                 line="375">a function to call after the closure callback</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4794,7 +4794,7 @@ example of marshal guards.</doc>
       <method name="invalidate" c:identifier="g_closure_invalidate">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="572">Sets a flag on the closure to indicate that its calling
+             line="574">Sets a flag on the closure to indicate that its calling
 environment has become invalid, and thus causes any future
 invocations of g_closure_invoke() on this @closure to be
 ignored.
@@ -4817,7 +4817,7 @@ been invalidated before).</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="574">#GClosure to invalidate</doc>
+                 line="576">#GClosure to invalidate</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
         </parameters>
@@ -4825,7 +4825,7 @@ been invalidated before).</doc>
       <method name="invoke" c:identifier="g_closure_invoke">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="784">Invokes the closure, i.e. executes the callback represented by the @closure.</doc>
+             line="786">Invokes the closure, i.e. executes the callback represented by the @closure.</doc>
         <source-position filename="gobject/gclosure.h" line="278"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4834,7 +4834,7 @@ been invalidated before).</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="786">a #GClosure</doc>
+                 line="788">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="return_value"
@@ -4845,7 +4845,7 @@ been invalidated before).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="787">a #GValue to store the return
+                 line="789">a #GValue to store the return
                value. May be %NULL if the callback of @closure
                doesn't return a value.</doc>
             <type name="Value" c:type="GValue*"/>
@@ -4853,13 +4853,13 @@ been invalidated before).</doc>
           <parameter name="n_param_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="790">the length of the @param_values array</doc>
+                 line="792">the length of the @param_values array</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="param_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="791">an array of
+                 line="793">an array of
                #GValues holding the arguments on which to
                invoke the callback of @closure</doc>
             <array length="1" zero-terminated="0" c:type="const GValue*">
@@ -4872,7 +4872,7 @@ been invalidated before).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="794">a context-dependent invocation hint</doc>
+                 line="796">a context-dependent invocation hint</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4880,20 +4880,20 @@ been invalidated before).</doc>
       <method name="ref" c:identifier="g_closure_ref">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="538">Increments the reference count on a closure to force it staying
+             line="540">Increments the reference count on a closure to force it staying
 alive while the caller holds a pointer to it.</doc>
         <source-position filename="gobject/gclosure.h" line="237"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="545">The @closure passed in, for convenience</doc>
+               line="547">The @closure passed in, for convenience</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="540">#GClosure to increment the reference count on</doc>
+                 line="542">#GClosure to increment the reference count on</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
         </parameters>
@@ -4903,7 +4903,7 @@ alive while the caller holds a pointer to it.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="756">Removes a finalization notifier.
+             line="758">Removes a finalization notifier.
 
 Notice that notifiers are automatically removed after they are run.</doc>
         <source-position filename="gobject/gclosure.h" line="251"/>
@@ -4914,7 +4914,7 @@ Notice that notifiers are automatically removed after they are run.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="758">a #GClosure</doc>
+                 line="760">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="notify_data"
@@ -4923,14 +4923,14 @@ Notice that notifiers are automatically removed after they are run.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="759">data which was passed to g_closure_add_finalize_notifier()
+                 line="761">data which was passed to g_closure_add_finalize_notifier()
  when registering @notify_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify_func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="761">the callback function to remove</doc>
+                 line="763">the callback function to remove</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4940,7 +4940,7 @@ Notice that notifiers are automatically removed after they are run.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="728">Removes an invalidation notifier.
+             line="730">Removes an invalidation notifier.
 
 Notice that notifiers are automatically removed after they are run.</doc>
         <source-position filename="gobject/gclosure.h" line="259"/>
@@ -4951,7 +4951,7 @@ Notice that notifiers are automatically removed after they are run.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="730">a #GClosure</doc>
+                 line="732">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="notify_data"
@@ -4960,14 +4960,14 @@ Notice that notifiers are automatically removed after they are run.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="731">data which was passed to g_closure_add_invalidate_notifier()
+                 line="733">data which was passed to g_closure_add_invalidate_notifier()
               when registering @notify_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify_func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="733">the callback function to remove</doc>
+                 line="735">the callback function to remove</doc>
             <type name="ClosureNotify" c:type="GClosureNotify"/>
           </parameter>
         </parameters>
@@ -4977,7 +4977,7 @@ Notice that notifiers are automatically removed after they are run.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="909">Sets the marshaller of @closure.
+             line="911">Sets the marshaller of @closure.
 
 The `marshal_data` of @marshal provides a way for a meta marshaller to
 provide additional information to the marshaller.
@@ -4995,13 +4995,13 @@ See also: g_closure_set_meta_marshal()</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="911">a #GClosure</doc>
+                 line="913">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="marshal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="912">a #GClosureMarshal function</doc>
+                 line="914">a #GClosureMarshal function</doc>
             <type name="ClosureMarshal" c:type="GClosureMarshal"/>
           </parameter>
         </parameters>
@@ -5011,7 +5011,7 @@ See also: g_closure_set_meta_marshal()</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="320">Sets the meta marshaller of @closure.
+             line="322">Sets the meta marshaller of @closure.
 
 A meta marshaller wraps the @closure's marshal and modifies the way
 it is called in some fashion. The most common use of this facility
@@ -5036,7 +5036,7 @@ the right callback and passes it to the marshaller as the
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="322">a #GClosure</doc>
+                 line="324">a #GClosure</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
           <parameter name="marshal_data"
@@ -5045,14 +5045,14 @@ the right callback and passes it to the marshaller as the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="323">context-dependent data to pass
+                 line="325">context-dependent data to pass
  to @meta_marshal</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="meta_marshal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="325">a #GClosureMarshal function</doc>
+                 line="327">a #GClosureMarshal function</doc>
             <type name="ClosureMarshal" c:type="GClosureMarshal"/>
           </parameter>
         </parameters>
@@ -5060,7 +5060,7 @@ the right callback and passes it to the marshaller as the
       <method name="sink" c:identifier="g_closure_sink">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="654">Takes over the initial ownership of a closure.
+             line="656">Takes over the initial ownership of a closure.
 
 Each closure is initially created in a "floating" state, which means
 that the initial reference count is not owned by any caller.
@@ -5115,7 +5115,7 @@ g_closure_ref() should be called prior to this function.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="656">#GClosure to decrement the initial reference count on, if it's
+                 line="658">#GClosure to decrement the initial reference count on, if it's
           still being held</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
@@ -5124,7 +5124,7 @@ g_closure_ref() should be called prior to this function.</doc>
       <method name="unref" c:identifier="g_closure_unref">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="605">Decrements the reference count of a closure after it was previously
+             line="607">Decrements the reference count of a closure after it was previously
 incremented by the same caller.
 
 If no other callers are using the closure, then the closure will be
@@ -5137,7 +5137,7 @@ destroyed and freed.</doc>
           <instance-parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gclosure.c"
-                 line="607">#GClosure to decrement the reference count on</doc>
+                 line="609">#GClosure to decrement the reference count on</doc>
             <type name="Closure" c:type="GClosure*"/>
           </instance-parameter>
         </parameters>
@@ -23220,7 +23220,7 @@ unsigned long integer argument.</doc>
               version="2.30">
       <doc xml:space="preserve"
            filename="gobject/gclosure.c"
-           line="1444">A generic marshaller function implemented via
+           line="1446">A generic marshaller function implemented via
 [libffi](http://sourceware.org/libffi/).
 
 Normally this function is not passed explicitly to g_signal_new(),
@@ -23233,26 +23233,26 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
         <parameter name="closure" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1446">A #GClosure.</doc>
+               line="1448">A #GClosure.</doc>
           <type name="Closure" c:type="GClosure*"/>
         </parameter>
         <parameter name="return_gvalue" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1447">A #GValue to store the return value. May be %NULL
+               line="1449">A #GValue to store the return value. May be %NULL
   if the callback of closure doesn't return a value.</doc>
           <type name="Value" c:type="GValue*"/>
         </parameter>
         <parameter name="n_param_values" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1449">The length of the @param_values array.</doc>
+               line="1451">The length of the @param_values array.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="param_values" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1450">An array of #GValues holding the arguments
+               line="1452">An array of #GValues holding the arguments
   on which to invoke the callback of closure.</doc>
           <type name="Value" c:type="const GValue*"/>
         </parameter>
@@ -23262,7 +23262,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1452">The invocation hint given as the last argument to
+               line="1454">The invocation hint given as the last argument to
   g_closure_invoke().</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
@@ -23272,7 +23272,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1454">Additional data specified when registering the
+               line="1456">Additional data specified when registering the
   marshaller, see g_closure_set_marshal() and
   g_closure_set_meta_marshal()</doc>
           <type name="gpointer" c:type="gpointer"/>
@@ -23285,7 +23285,7 @@ but used automatically by GLib when specifying a %NULL marshaller.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gclosure.c"
-           line="957">Creates a new closure which invokes @callback_func with @user_data as
+           line="959">Creates a new closure which invokes @callback_func with @user_data as
 the last parameter.
 
 @destroy_data will be called as a finalize notifier on the #GClosure.</doc>
@@ -23293,14 +23293,14 @@ the last parameter.
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="968">a floating reference to a new #GCClosure</doc>
+             line="970">a floating reference to a new #GCClosure</doc>
         <type name="Closure" c:type="GClosure*"/>
       </return-value>
       <parameters>
         <parameter name="callback_func" transfer-ownership="none" closure="1">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="959">the function to invoke</doc>
+               line="961">the function to invoke</doc>
           <type name="Callback" c:type="GCallback"/>
         </parameter>
         <parameter name="user_data"
@@ -23309,13 +23309,13 @@ the last parameter.
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="960">user data to pass to @callback_func</doc>
+               line="962">user data to pass to @callback_func</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="destroy_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="961">destroy notify to be called when @user_data is no longer used</doc>
+               line="963">destroy notify to be called when @user_data is no longer used</doc>
           <type name="ClosureNotify" c:type="GClosureNotify"/>
         </parameter>
       </parameters>
@@ -23392,7 +23392,7 @@ after the object is is freed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gclosure.c"
-           line="987">Creates a new closure which invokes @callback_func with @user_data as
+           line="989">Creates a new closure which invokes @callback_func with @user_data as
 the first parameter.
 
 @destroy_data will be called as a finalize notifier on the #GClosure.</doc>
@@ -23400,14 +23400,14 @@ the first parameter.
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="998">a floating reference to a new #GCClosure</doc>
+             line="1000">a floating reference to a new #GCClosure</doc>
         <type name="Closure" c:type="GClosure*"/>
       </return-value>
       <parameters>
         <parameter name="callback_func" transfer-ownership="none" closure="1">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="989">the function to invoke</doc>
+               line="991">the function to invoke</doc>
           <type name="Callback" c:type="GCallback"/>
         </parameter>
         <parameter name="user_data"
@@ -23416,13 +23416,13 @@ the first parameter.
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="990">user data to pass to @callback_func</doc>
+               line="992">user data to pass to @callback_func</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="destroy_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="991">destroy notify to be called when @user_data is no longer used</doc>
+               line="993">destroy notify to be called when @user_data is no longer used</doc>
           <type name="ClosureNotify" c:type="GClosureNotify"/>
         </parameter>
       </parameters>
@@ -27858,27 +27858,27 @@ signal id for you.</doc>
               c:identifier="g_signal_type_cclosure_new">
       <doc xml:space="preserve"
            filename="gobject/gclosure.c"
-           line="1156">Creates a new closure which invokes the function found at the offset
+           line="1158">Creates a new closure which invokes the function found at the offset
 @struct_offset in the class structure of the interface or classed type
 identified by @itype.</doc>
       <source-position filename="gobject/gclosure.h" line="231"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gclosure.c"
-             line="1166">a floating reference to a new #GCClosure</doc>
+             line="1168">a floating reference to a new #GCClosure</doc>
         <type name="Closure" c:type="GClosure*"/>
       </return-value>
       <parameters>
         <parameter name="itype" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1158">the #GType identifier of an interface or classed type</doc>
+               line="1160">the #GType identifier of an interface or classed type</doc>
           <type name="GType" c:type="GType"/>
         </parameter>
         <parameter name="struct_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gclosure.c"
-               line="1159">the offset of the member function of @itype's class
+               line="1161">the offset of the member function of @itype's class
  structure which is to be invoked by the new closure</doc>
           <type name="guint" c:type="guint"/>
         </parameter>

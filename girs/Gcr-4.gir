@@ -4471,6 +4471,24 @@ will not be queued on that importer.</doc>
           <type name="none" c:type="void"/>
         </return-value>
       </function>
+      <virtual-method name="create_for_parsed"
+                      glib:static="1"
+                      introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="57">implementation of gcr_importer_create_for_parsed(), required</doc>
+        <source-position filename="gcr/gcr-importer.h" line="43"/>
+        <return-value>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="parsed" transfer-ownership="none">
+            <type name="Parsed" c:type="GcrParsed*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
       <virtual-method name="import_async"
                       invoker="import_async"
                       glib:finish-func="import_finish">

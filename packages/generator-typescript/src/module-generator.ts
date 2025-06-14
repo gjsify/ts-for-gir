@@ -1345,18 +1345,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             // Generate type-safe signal methods first (always, since they work through inheritance)
             ...this.generateTypeSafeSignalMethods(girClass),
             // TODO Relocate these.
-            ...defaultSignals.flatMap((s) => s.asString(this)), // TODO: Keep this until we have property signals
-            // ...girClass.signals
-            //     .map((s) => {
-            //         const methods = [] as string[]
+            // ...defaultSignals.flatMap((s) => s.asString(this)), // TODO: Keep this until we have property signals
+            ...girClass.signals
+                .map((s) => {
+                    const methods = [] as string[]
 
-            //         if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
-            //         if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
-            //         if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
+                    if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
+                    if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
+                    if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
 
-            //         return methods
-            //     })
-            //     .flat(),
+                    return methods
+                })
+                .flat(),
         ]
 
         return SignalsList

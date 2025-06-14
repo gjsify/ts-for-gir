@@ -1,0 +1,57 @@
+---
+description: CLI usage and generation commands
+globs: 
+alwaysApply: false
+---
+# CLI Usage and Commands
+
+## Basic Generation
+```bash
+# Generate specific module
+npx @ts-for-gir/cli generate Gtk-4.0
+
+# Generate multiple modules
+npx @ts-for-gir/cli generate Gtk-4.0 Gio-2.0 GLib-2.0
+
+# Generate with dependencies
+npx @ts-for-gir/cli generate Gtk-4.0 --includeResolvedDeps
+```
+
+## Important CLI Options
+- `--outdir`: Output directory (default: `@types`)
+- `--girDirectories`: Additional GIR search paths
+- `--moduleType`: `esm` or `commonjs`
+- `--packageVersion`: Version for generated packages
+- `--verbose`: Detailed output
+- `--configName`: Use specific config file
+
+## Config Files
+Located in project root:
+- `.ts-for-gir.all.rc.js` - Generate all available types
+- `.ts-for-gir.gtk4.rc.js` - GTK4 specific generation
+- `.ts-for-gir.packages-all.rc.js` - Generate npm packages
+- `.ts-for-gir.packages-gtk4.rc.js` - GTK4 npm packages
+
+## Config Structure
+```javascript
+export default {
+  outdir: './types',
+  girDirectories: ['/usr/share/gir-1.0'],
+  modules: ['*'], // or specific modules
+  ignore: [], // modules to ignore
+  packageVersion: '4.0.0-beta.23',
+  npmScope: '@girs',
+  package: true, // generate package.json
+}
+```
+
+## Generation Targets
+- **Types only**: For local development
+- **NPM packages**: For publishing (`package: true`)
+- **Documentation**: HTML docs (experimental)
+
+## Workspace Integration
+After generation:
+1. Run `yarn install` to link generated packages
+2. Import with `import Gtk from 'gi://Gtk?version=4.0'`
+3. Use `@girs/*` packages in examples

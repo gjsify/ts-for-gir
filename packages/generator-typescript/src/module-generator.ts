@@ -1258,52 +1258,57 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     // TODO: Add property signals like `notify::property-name`
     generateSignals(girClass: IntrospectedClass) {
-        // Generate type-safe signal methods and filter conflicts
-        const typeSafeSignalMethods = this.generateTypeSafeSignalMethods(girClass)
-
-        // Create IntrospectedClassFunction instances for filtering
-        const signalFunctions = typeSafeSignalMethods.map((method) => {
-            // Extract method name from the generated string
-            const match = method.match(/^(\w+)</)
-            const name = match ? match[1] : ''
-
-            return new IntrospectedClassFunction({
-                name,
+        // Create IntrospectedClassFunction instances for the signal methods
+        // These represent the GObject signal methods that we want to generate
+        const signalFunctions = [
+            new IntrospectedClassFunction({
+                name: 'connect',
+                parent: girClass,
+                parameters: [],
+                return_type: NumberType,
+            }),
+            new IntrospectedClassFunction({
+                name: 'connect_after',
+                parent: girClass,
+                parameters: [],
+                return_type: NumberType,
+            }),
+            new IntrospectedClassFunction({
+                name: 'emit',
                 parent: girClass,
                 parameters: [],
                 return_type: VoidType,
-            })
-        })
+            }),
+        ]
 
-        // Filter out conflicting methods
+        // Filter out signal methods that conflict with existing methods in the class or parent classes
+        // For example, if a class already has a connect() method (like Camel.Service), we don't generate
+        // the signal connect() method to avoid conflicts
         const filteredFunctions = filterConflicts(girClass.namespace, girClass, signalFunctions, FilterBehavior.DELETE)
 
-        // Get the names of methods that should be kept
+        // Get the names of methods that should be kept (non-conflicting)
         const allowedNames = new Set(filteredFunctions.map((f) => f.name))
 
-        // Filter the generated methods based on allowed names
-        const filteredMethods = typeSafeSignalMethods.filter((method) => {
-            const match = method.match(/^(\w+)</)
-            const name = match ? match[1] : ''
-            return allowedNames.has(name)
-        })
-
-        return filteredMethods
-    }
-
-    /**
-     * Generate type-safe signal methods using generics and SignalSignatures
-     */
-    generateTypeSafeSignalMethods(girClass: IntrospectedClass): string[] {
+        // Generate only the non-conflicting type-safe signal methods
         const methods: string[] = []
 
-        // Always generate type-safe signal methods since SignalSignatures interface
-        // is always generated and includes parent signals through inheritance
-        methods.push(
-            `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
-            `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
-            `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: Parameters<${girClass.name}.SignalSignatures[K]>): void;`,
-        )
+        if (allowedNames.has('connect')) {
+            methods.push(
+                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+            )
+        }
+
+        if (allowedNames.has('connect_after')) {
+            methods.push(
+                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+            )
+        }
+
+        if (allowedNames.has('emit')) {
+            methods.push(
+                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: Parameters<${girClass.name}.SignalSignatures[K]>): void;`,
+            )
+        }
 
         return methods
     }

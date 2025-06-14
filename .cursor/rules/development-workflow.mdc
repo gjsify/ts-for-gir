@@ -1,0 +1,76 @@
+---
+description: Development workflow and contribution
+globs: 
+alwaysApply: false
+---
+# Development Workflow
+
+## Working on Generators
+
+### Setup Development Environment
+```bash
+yarn install
+yarn build
+yarn watch # For continuous development
+```
+
+### Generator Development Cycle
+1. **Modify generator code** in `/packages/generator-typescript/src/`
+2. **Update templates** in `/packages/generator-typescript/templates/`
+3. **Test generation**: `yarn start:dev generate Gtk-4.0 --verbose`
+4. **Validate output**: Check `/types/@girs/gtk-4.0/`
+
+### Key Files to Modify
+
+#### For Type Improvements
+- `/packages/generator-typescript/src/type-definition-generator.ts` - Main type generation logic
+- `/packages/lib/src/gir-module.ts` - Module processing and conflict resolution
+- `/packages/lib/src/transformation/*.ts` - Name and type transformations
+
+#### For Template Changes
+- `/packages/generator-typescript/templates/*.d.ts` - EJS templates
+- Use `<%=` for variables, `<%-` for unescaped output
+- Access generator context via template variables
+
+#### For New Features
+1. Extend `GeneratorBase` in `/packages/generator-base/`
+2. Implement in `/packages/generator-typescript/`
+3. Add new templates if needed
+4. Update config types in `/packages/lib/src/types/`
+
+### Testing Changes
+```bash
+# Quick test with single module
+yarn start:dev generate GLib-2.0 --verbose
+
+# Test with dependencies
+yarn start:dev generate Gtk-4.0 --includeResolvedDeps
+
+# Full test suite
+yarn test:girs:packages:gtk4
+```
+
+### Common Modifications
+
+#### Adding Type Overrides
+In `/packages/lib/src/config/`:
+- Create module-specific override files
+- Export override configuration
+- Apply in transformation pipeline
+
+#### Improving Type Mappings
+In `/packages/generator-typescript/src/type-definition-generator.ts`:
+- Modify `getType()` method
+- Add special cases in type resolution
+- Handle edge cases for specific modules
+
+#### Template Improvements
+- Keep templates minimal and focused
+- Use generator methods for complex logic
+- Maintain backward compatibility
+
+### Debugging
+- Use `--verbose` flag for detailed output
+- Check intermediate AST in debugger
+- Validate against GIR documentation
+- Test with example applications

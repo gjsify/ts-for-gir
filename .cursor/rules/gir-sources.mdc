@@ -1,0 +1,33 @@
+# GIR Sources and Paths
+
+## GIR File Locations
+- `/girs/` - Copied GIR files for consistent builds
+- `/vala-girs/` - Git submodule with additional GIR files
+- System paths (Ubuntu): `/usr/share/gir-1.0/`
+- System paths (Fedora): `/usr/share/gir-1.0/`
+
+## Important Scripts
+- `/scripts/` - Build and utility scripts
+- `yarn copy:girs` - Updates local GIR files from system
+
+## GIR File Format
+- XML-based introspection data
+- Contains C API information
+- Describes GObject classes, interfaces, enums
+- Includes documentation and annotations
+
+## Module Naming
+- Format: `ModuleName-Version.gir`
+- Example: `Gtk-4.0.gir`, `GLib-2.0.gir`
+- Version is part of the module identifier
+
+## Dependencies
+- GIR files reference other GIR files
+- Dependency resolution is automatic
+- Use `--includeResolvedDeps` to generate all dependencies
+
+## Adding New GIR Files
+1. Install system package with GIR files
+2. Run `yarn copy:girs` to copy to project
+3. Generate types: `yarn ts-for-gir generate ModuleName-Version`
+4. Add to `.ts-for-gir.packages-all.rc.js` if needed

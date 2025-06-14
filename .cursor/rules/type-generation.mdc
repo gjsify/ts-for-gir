@@ -1,0 +1,52 @@
+# Type Generation Process
+
+## Generation Flow
+1. **Input**: GIR XML files from `/girs/` or system paths
+2. **Parser**: `@gi.ts/parser` reads and parses XML
+3. **Processing**: `@ts-for-gir/lib` transforms GIR data
+4. **Generation**: `@ts-for-gir/generator-typescript` outputs TypeScript
+5. **Output**: Type definitions in `/types/@girs/*`
+
+## Key Components
+
+### Templates Location
+- `/packages/generator-typescript/templates/` - Main TypeScript templates
+- `/packages/generator-html-doc/templates/` - HTML documentation templates
+- Templates use EJS (Embedded JavaScript) format
+
+### Generator Architecture
+- Base generator: `/packages/generator-base/src/generator.ts`
+- TypeScript generator: `/packages/generator-typescript/src/typescript-generator.ts`
+- Generators extend `GeneratorBase` class
+- Override methods like `generate()`, `exportModule()`, `exportClass()`
+
+### Template Files (TypeScript Generator)
+- `module.d.ts` - Main module template with all exports
+- `module-ambient.d.ts` - Ambient module declarations
+- `module-import.d.ts` - ESM import module format
+- `module.append.d.ts` - Additional module content
+- `index.d.ts` - Package index file
+- `package.json` - NPM package template
+- `tsconfig.json` - TypeScript configuration
+- `README.md` - Package documentation
+- Module-specific overrides (e.g., `gobject-2.0.d.ts`, `gio-2.0.d.ts`)
+
+### Type Transformation Rules
+- GObject classes → TypeScript classes with proper inheritance
+- GObject interfaces → TypeScript interfaces
+- GObject enums → TypeScript enums
+- GObject signals → TypeScript event methods
+- GObject properties → TypeScript properties with getters/setters
+- C-style callbacks → TypeScript function types
+
+### Optimization Points
+1. **Type Conflicts**: Resolved in `/packages/lib/src/gir-module.ts`
+2. **Name Transformations**: `/packages/lib/src/transformation/*`
+3. **Type Mappings**: `/packages/generator-typescript/src/type-definition-generator.ts`
+4. **Inheritance Resolution**: `/packages/lib/src/inheritance-resolver.ts`
+5. **Signal/Property Generation**: `/packages/generator-typescript/src/generators/`
+
+### Configuration
+- Config files: `.ts-for-gir.*.rc.js` in root
+- Generator options in `/packages/generator-typescript/src/config.ts`
+- Module overrides in `/packages/lib/src/config/`

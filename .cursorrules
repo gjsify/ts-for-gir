@@ -1,136 +1,15 @@
-# ts-for-gir Yarn Workspace Structure
+# ts-for-gir Cursor Rules
 
-## Projektziel
-ts-for-gir ist ein TypeScript Type Definition Generator für GObject Introspection (GIR) Dateien. Das Hauptziel ist es, TypeScript-Typdefinitionen für GNOME-Bibliotheken zu generieren, damit diese in GJS (GNOME JavaScript) Anwendungen mit TypeScript verwendet werden können.
+The Cursor rules for this project have been organized into multiple focused files.
+Please see the `.cursor/rules/` directory for specific rules:
 
-## Workspace Struktur
+- `ts-for-gir-workspace.mdc` - Workspace structure and package organization
+- `type-generation.mdc` - Type generation process, templates, and generators
+- `cli-usage.mdc` - CLI usage and generation commands
+- `development-workflow.mdc` - Development workflow and contribution
+- `gir-sources.mdc` - GIR file sources and paths
+- `gjs-examples.mdc` - GJS examples and patterns
+- `typescript-best-practices.mdc` - TypeScript coding standards
 
-### Root Package (`/`)
-- **Name**: ts-for-gir
-- **Version**: 4.0.0-beta.23
-- **Type**: Yarn Workspace (v4.9.2)
-- **Workspaces**: 
-  - `examples/*` - Beispielprojekte
-  - `tests/*` - Tests
-  - `packages/*` - Core-Packages des Generators
-  - `types/*` - Generierte Type Packages
-
-### Core Packages (`/packages/*`)
-
-#### 1. @ts-for-gir/cli
-- **Zweck**: Command-Line Interface für den Generator
-- **Typ**: Tool/Binary
-- **Binary**: `ts-for-gir`
-- **Abhängigkeiten**: Alle anderen Core-Packages
-- **Wichtig**: Haupteinstiegspunkt für Benutzer
-
-#### 2. @gi.ts/parser
-- **Zweck**: Parser für GObject Introspection XML-Dateien
-- **Typ**: Library
-- **Namespace**: Verwendet `@gi.ts` statt `@ts-for-gir`
-- **Abhängigkeiten**: fast-xml-parser
-
-#### 3. @ts-for-gir/lib
-- **Zweck**: Core-Library mit gemeinsamen Funktionalitäten
-- **Typ**: Library
-- **Abhängigkeiten**: @gi.ts/parser, lodash, ejs
-
-#### 4. @ts-for-gir/generator-base
-- **Zweck**: Basis-Klassen und Interfaces für Generatoren
-- **Typ**: Library
-
-#### 5. @ts-for-gir/generator-typescript
-- **Zweck**: TypeScript Definition Generator
-- **Typ**: Generator
-- **Abhängigkeiten**: @ts-for-gir/generator-base, @ts-for-gir/lib
-
-#### 6. @ts-for-gir/generator-html-doc
-- **Zweck**: HTML Dokumentations-Generator (experimentell)
-- **Typ**: Generator
-- **Abhängigkeiten**: @ts-for-gir/generator-base
-
-### Generierte Type Packages (`/types/*`)
-- **Namespace**: `@girs/*`
-- **Zweck**: Vorgenerierte TypeScript-Definitionen für GNOME-Bibliotheken
-- **Beispiele**: @girs/gtk-4.0, @girs/glib-2.0, @girs/gio-2.0, @girs/gjs
-- **Werden generiert durch**: `yarn build:types:packages`
-- **Veröffentlicht auf**: npm (https://github.com/gjsify/types)
-
-### Beispielprojekte (`/examples/*`)
-- **Namespace**: `@ts-for-gir-example/*`
-- **Zweck**: Demonstrieren die Verwendung der generierten Types
-- **Private**: Alle als private markiert (nicht auf npm veröffentlicht)
-- **Abhängigkeiten**: Verwenden `@girs/*` packages aus dem Workspace
-- **Beispiele**:
-  - gtk-4-application - GTK4 Anwendungsbeispiel
-  - gtk-4-template-vite - GTK4 mit Vite Build-System
-  - gio-2-cat - Gio Dateioperationen
-  - Viele weitere UI und CLI Beispiele
-
-### Tests (`/tests/*`)
-- **Namespace**: `@ts-for-gir-test/*`
-- **Zweck**: Automatisierte Tests für den Generator
-
-## Wichtige Yarn Scripts (Root)
-
-### Generator Scripts
-- `yarn start` oder `yarn ts-for-gir`: Startet die CLI
-- `yarn build`: Baut alle Core-Packages
-- `yarn watch`: Watch-Mode für Entwicklung
-
-### Type Generation
-- `yarn build:types:packages`: Generiert ALLE Type Packages
-- `yarn build:types:packages:gtk4`: Generiert nur GTK4-bezogene Types
-- `yarn copy:girs`: Kopiert aktuelle GIR-Dateien vom System
-
-### Veröffentlichung
-- `yarn publish:app:latest`: Veröffentlicht Core-Packages (@ts-for-gir/*, @gi.ts/*)
-- `yarn publish:types:latest`: Veröffentlicht generierte Types (@girs/*)
-
-### Tests & Validierung
-- `yarn test`: Führt alle Tests aus
-- `yarn validate:types:packages`: Validiert generierte Types
-- `yarn lint`: Linting für alle Packages
-
-### Entwicklung
-- `yarn clear`: Löscht Build-Artefakte
-- `yarn watch`: Watch-Mode für parallele Entwicklung
-
-## Verzeichnisstruktur
-
-```
-/
-├── packages/           # Core Generator Packages
-│   ├── cli/           # CLI Tool
-│   ├── parser/        # GIR Parser (@gi.ts/parser)
-│   ├── lib/           # Core Library
-│   ├── generator-base/# Generator Basis
-│   ├── generator-typescript/  # TS Generator
-│   └── generator-html-doc/    # HTML Doc Generator
-├── types/             # Generierte Type Packages (@girs/*)
-├── examples/          # Beispielprojekte
-├── tests/             # Tests
-├── girs/              # GIR XML Quelldateien
-├── scripts/           # Build Scripts
-└── vala-girs/         # Git Submodule mit Vala GIR Dateien
-```
-
-## Wichtige Konzepte
-
-1. **Yarn Workspaces**: Das Projekt nutzt Yarn v4 mit Workspaces für Monorepo-Management
-2. **Namespace-Trennung**: 
-   - Core-Tools: `@ts-for-gir/*`
-   - Parser: `@gi.ts/*`
-   - Generierte Types: `@girs/*`
-   - Beispiele: `@ts-for-gir-example/*`
-   - Tests: `@ts-for-gir-test/*`
-3. **Generierte vs. Source Packages**: Types im `/types` Verzeichnis werden generiert und sollten nicht manuell bearbeitet werden
-4. **GJS Fokus**: Version 4.x fokussiert sich auf GJS (GNOME JavaScript), node-gtk wird nicht mehr unterstützt
-
-## Entwicklungshinweise
-
-- Verwende `workspace:^` für interne Dependencies
-- Alle Packages nutzen ES Modules (`"type": "module"`)
-- Node.js >= 18 erforderlich
-- TypeScript 5.8+ verwendet
-- Prettier und ESLint für Code-Formatierung
+Each rule file is focused on a specific aspect of the project to help AI assistants
+understand and work with the codebase more effectively.

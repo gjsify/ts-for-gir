@@ -27,6 +27,7 @@ import {
     ArrayType,
     FilterBehavior,
     VoidType,
+    ThisType,
     ClassStructTypeIdentifier,
     promisifyNamespaceFunctions,
     OptionsGeneration,
@@ -1139,9 +1140,17 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             def.push(
                 ...this.generateCallbackInterfaces(
                     tsSignals.map((signal) => {
+                        // Signal callbacks always have the source object as the first parameter
                         return new IntrospectedClassCallback({
                             name: upperCamelCase(signal.name),
-                            parameters: signal.parameters,
+                            parameters: [
+                                new IntrospectedFunctionParameter({
+                                    name: '_source',
+                                    type: girClass.getType(),
+                                    direction: GirDirection.In,
+                                }),
+                                ...signal.parameters.map((p) => p.copy()),
+                            ],
                             return_type: signal.return_type,
                             parent: signal.parent,
                         })
@@ -1247,6 +1256,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
+    // TODO: Add property signals like `notify::property-name`
     generateSignals(girClass: IntrospectedClass) {
         const namespace = girClass.namespace
         // TODO Move these to a cleaner place.
@@ -1332,23 +1342,21 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         const SignalsList = [
-            // Generate type-safe signal methods first if we have signals
-            ...(girClass.signals.length > 0
-                ? this.generateTypeSafeSignalMethods(girClass, hasConnect, hasConnectAfter, hasEmit)
-                : []),
+            // Generate type-safe signal methods first (always, since they work through inheritance)
+            ...this.generateTypeSafeSignalMethods(girClass),
             // TODO Relocate these.
-            ...defaultSignals.flatMap((s) => s.asString(this)),
-            ...girClass.signals
-                .map((s) => {
-                    const methods = [] as string[]
+            ...defaultSignals.flatMap((s) => s.asString(this)), // TODO: Keep this until we have property signals
+            // ...girClass.signals
+            //     .map((s) => {
+            //         const methods = [] as string[]
 
-                    if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
-                    if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
-                    if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
+            //         if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
+            //         if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
+            //         if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
 
-                    return methods
-                })
-                .flat(),
+            //         return methods
+            //     })
+            //     .flat(),
         ]
 
         return SignalsList
@@ -1357,29 +1365,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     /**
      * Generate type-safe signal methods using generics and SignalSignatures
      */
-    generateTypeSafeSignalMethods(
-        girClass: IntrospectedClass,
-        hasConnect: boolean,
-        hasConnectAfter: boolean,
-        hasEmit: boolean,
-    ): string[] {
+    generateTypeSafeSignalMethods(girClass: IntrospectedClass): string[] {
         const methods: string[] = []
 
-        // Only generate if we don't have conflicting methods and have signals
-        if (!hasConnect && girClass.signals.length > 0) {
+        // Only generate type-safe overrides if the class has its own signals
+        if (girClass.signals.length > 0) {
             methods.push(
                 `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
-            )
-        }
-
-        if (!hasConnectAfter && girClass.signals.length > 0) {
-            methods.push(
                 `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
-            )
-        }
-
-        if (!hasEmit && girClass.signals.length > 0) {
-            methods.push(
                 `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: Parameters<${girClass.name}.SignalSignatures[K]>): void;`,
             )
         }
@@ -1571,11 +1564,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             // $gtype compatibility
             const gtypeNamespace = this.namespace.namespace === 'GObject' ? '' : 'GObject.'
             def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.name}>;`)
-
-            // Add type-only signal signatures field for inference
-            if (girClass instanceof IntrospectedClass) {
-                def.push(`declare static readonly __signalSignatures: ${girClass.name}.SignalSignatures;`)
-            }
 
             if (girClass.__ts__indexSignature) {
                 def.push(`\n${girClass.__ts__indexSignature}\n`)

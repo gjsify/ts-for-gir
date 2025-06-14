@@ -1,7 +1,3 @@
-// A few things here are inspired by gi.ts
-// See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
-// Copyright Evan Welsh
-
 // __type__ forces all GTypes to not match structurally.
 export type GType<T = unknown> = {
     __type__(arg: never): T
@@ -218,6 +214,17 @@ export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : a
 
 // Helper types for type-safe signal handling
 export type SignalSignatures = { [signal: string]: (...args: any[]) => any }
+
+/**
+ * Unique symbol for storing signal signatures on constructors
+ * This allows TypeScript to infer signal types from constructor instances
+ */
+export const signalSignaturesSymbol: unique symbol
+
+/**
+ * Extract signal signatures from a constructor type
+ */
+export type SignalsOf<T> = T extends { [signalSignaturesSymbol]: infer S } ? S : never
 
 /**
  * Extract signal names from a SignalSignatures type

@@ -1258,110 +1258,37 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     // TODO: Add property signals like `notify::property-name`
     generateSignals(girClass: IntrospectedClass) {
-        const namespace = girClass.namespace
-        // TODO Move these to a cleaner place.
+        // Generate type-safe signal methods and filter conflicts
+        const typeSafeSignalMethods = this.generateTypeSafeSignalMethods(girClass)
 
-        const Connect = new IntrospectedClassFunction({
-            name: 'connect',
-            parent: girClass,
-            parameters: [
-                new IntrospectedFunctionParameter({
-                    name: 'id',
-                    type: StringType,
-                    direction: GirDirection.In,
-                }),
-                new IntrospectedFunctionParameter({
-                    name: 'callback',
-                    type: AnyFunctionType,
-                    direction: GirDirection.In,
-                }),
-            ],
-            return_type: NumberType,
+        // Create IntrospectedClassFunction instances for filtering
+        const signalFunctions = typeSafeSignalMethods.map((method) => {
+            // Extract method name from the generated string
+            const match = method.match(/^(\w+)</)
+            const name = match ? match[1] : ''
+
+            return new IntrospectedClassFunction({
+                name,
+                parent: girClass,
+                parameters: [],
+                return_type: VoidType,
+            })
         })
 
-        const ConnectAfter = new IntrospectedClassFunction({
-            name: 'connect_after',
-            parent: girClass,
-            parameters: [
-                new IntrospectedFunctionParameter({
-                    name: 'id',
-                    type: StringType,
-                    direction: GirDirection.In,
-                }),
-                new IntrospectedFunctionParameter({
-                    name: 'callback',
-                    type: AnyFunctionType,
-                    direction: GirDirection.In,
-                }),
-            ],
-            return_type: NumberType,
+        // Filter out conflicting methods
+        const filteredFunctions = filterConflicts(girClass.namespace, girClass, signalFunctions, FilterBehavior.DELETE)
+
+        // Get the names of methods that should be kept
+        const allowedNames = new Set(filteredFunctions.map((f) => f.name))
+
+        // Filter the generated methods based on allowed names
+        const filteredMethods = typeSafeSignalMethods.filter((method) => {
+            const match = method.match(/^(\w+)</)
+            const name = match ? match[1] : ''
+            return allowedNames.has(name)
         })
 
-        const Emit = new IntrospectedClassFunction({
-            name: 'emit',
-            parent: girClass,
-            parameters: [
-                new IntrospectedFunctionParameter({
-                    name: 'id',
-                    type: StringType,
-                    direction: GirDirection.In,
-                }),
-                new IntrospectedFunctionParameter({
-                    name: 'args',
-                    isVarArgs: true,
-                    type: new ArrayType(AnyType),
-                    direction: GirDirection.In,
-                }),
-            ],
-            return_type: VoidType,
-        })
-
-        let defaultSignals = [] as IntrospectedClassFunction[]
-        let hasConnect, hasConnectAfter, hasEmit
-
-        if (girClass.signals.length > 0) {
-            hasConnect = girClass.members.some((m) => m.name === 'connect')
-            hasConnectAfter = girClass.members.some((m) => m.name === 'connect_after')
-            hasEmit = girClass.members.some((m) => m.name === 'emit')
-
-            if (!hasConnect) {
-                defaultSignals.push(Connect)
-            }
-            if (!hasConnectAfter) {
-                defaultSignals.push(ConnectAfter)
-            }
-            if (!hasEmit) {
-                defaultSignals.push(Emit)
-            }
-
-            defaultSignals = filterConflicts(namespace, girClass, defaultSignals, FilterBehavior.DELETE)
-
-            hasConnect = !defaultSignals.some((s) => s.name === 'connect')
-            hasConnectAfter = !defaultSignals.some((s) => s.name === 'connect_after')
-            hasEmit = !defaultSignals.some((s) => s.name === 'emit')
-        }
-
-        const SignalsList = [
-            // Generate type-safe signal methods first (always, since they work through inheritance)
-            ...this.generateTypeSafeSignalMethods(girClass),
-            // TODO Relocate these.
-            // ...defaultSignals.flatMap((s) => s.asString(this)), // TODO: Keep this until we have property signals
-
-            // Old signal signatures are now disabled in favor of the new type-safe signal interfaces
-            // ...girClass.signals
-            //     .map((s) => {
-            //         const methods = [] as string[]
-
-            //         if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
-            //         if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
-            //         if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
-
-            //         return methods
-            //     })
-            //     .flat(),
-        ]
-
-        return SignalsList
+        return filteredMethods
     }
 
     /**
@@ -1370,14 +1297,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     generateTypeSafeSignalMethods(girClass: IntrospectedClass): string[] {
         const methods: string[] = []
 
-        // Only generate type-safe overrides if the class has its own signals
-        if (girClass.signals.length > 0) {
-            methods.push(
-                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
-                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
-                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: Parameters<${girClass.name}.SignalSignatures[K]>): void;`,
-            )
-        }
+        // Always generate type-safe signal methods since SignalSignatures interface
+        // is always generated and includes parent signals through inheritance
+        methods.push(
+            `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+            `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+            `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: Parameters<${girClass.name}.SignalSignatures[K]>): void;`,
+        )
 
         return methods
     }

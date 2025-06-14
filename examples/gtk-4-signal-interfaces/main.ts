@@ -76,7 +76,7 @@ app.connect('activate', () => {
     const complexButton = new Gtk.Button({ label: 'Complex Signal' })
     
     // ✅ Type-safe: TypeScript knows the exact signature
-    complexButton.connect('clicked', (_source: Gtk.Button) => {
+    complexButton.connect('clicked', (_source) => {
         console.log('Complex button clicked with source:', _source.get_label())
         statusLabel.set_text(`Complex button clicked - received source: ${_source.get_label()}`)
     })
@@ -92,6 +92,11 @@ app.connect('activate', () => {
         
         // Update button label based on state
         toggleButton.set_label(isActive ? 'Active Toggle' : 'Inactive Toggle')
+    })
+
+    // TODO: This should be an error
+    toggleButton.connect('invalid-signal', () => {
+        console.log('Invalid signal received')
     })
 
     // Entry widget to demonstrate text-based signals

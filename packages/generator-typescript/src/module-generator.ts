@@ -198,9 +198,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     isStatic: false,
                 }),
             )
+        const gtypeNamespace = namespace.namespace === 'GObject' ? '' : 'GObject.'
         return [
             `export interface ${node.name}Namespace {
-      ${isGObject ? `$gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${node.name}>;` : ''}
+      ${isGObject ? `$gtype: ${gtypeNamespace}GType<${node.name}>;` : ''}
       prototype: ${node.name};
       ${staticFields.length > 0 ? staticFields.flatMap((sf) => sf.asString(this)).join('\n') : ''}
       ${
@@ -800,7 +801,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         desc.push(``)
         desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
         desc.push(`export namespace ${name} {`)
-        desc.push(`    export const $gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${name}>;`)
+        const gtypeNamespace = namespace.namespace === 'GObject' ? '' : 'GObject.'
+        desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`)
         desc.push(`}`)
         desc.push(``)
 
@@ -1179,7 +1181,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
             // Always extend parent SignalSignatures, even if parent has no signals
             // This ensures proper inheritance chain for the notify signal from GObject.Object
-            parentSignatures.push(`${parentResolution.node.name}.SignalSignatures`)
+            const parentTypeIdentifier = parentResolution.identifier
+                .resolveIdentifier(this.namespace, this.config)
+                ?.print(this.namespace, this.config)
+            if (parentTypeIdentifier) {
+                parentSignatures.push(`${parentTypeIdentifier}.SignalSignatures`)
+            }
         }
 
         // Check implemented interfaces for signals (though most GObject interfaces don't have signals)
@@ -1191,19 +1198,37 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 // Most interfaces don't have signals, but we check anyway for future compatibility
                 return (iface.node as any).signals && (iface.node as any).signals.length > 0
             })
-            .map((iface) => `${iface.node.name}.SignalSignatures`)
+            .map((iface) => {
+                const interfaceTypeIdentifier = iface.identifier
+                    .resolveIdentifier(this.namespace, this.config)
+                    ?.print(this.namespace, this.config)
+                return interfaceTypeIdentifier ? `${interfaceTypeIdentifier}.SignalSignatures` : null
+            })
+            .filter((sig): sig is string => !!sig)
 
         parentSignatures.push(...interfaceSignatures)
 
         if (parentSignatures.length > 0) {
             def.push(` extends ${parentSignatures.join(', ')} {`)
         } else {
-            // If no parent is found, check if we're in GObject namespace, otherwise extend GObject.Object.SignalSignatures
-            const gobjectRef =
-                girClass.namespace.namespace === 'GObject'
-                    ? 'Object.SignalSignatures'
-                    : 'GObject.Object.SignalSignatures'
-            def.push(` extends ${gobjectRef} {`)
+            // Check if this is the root GObject.Object class to avoid recursive reference
+            const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
+
+            if (isGObjectObject) {
+                // For the root GObject.Object, don't extend anything - it's the base
+                def.push(` {`)
+            } else {
+                // For other classes, fallback to GObject.Object.SignalSignatures using proper type resolution
+                const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
+                const gobjectObjectClass = gobjectNamespace.assertClass('Object')
+                const gobjectRef = gobjectObjectClass
+                    .getType()
+                    .resolveIdentifier(this.namespace, this.config)
+                    ?.print(this.namespace, this.config)
+
+                const fallbackRef = gobjectRef ? `${gobjectRef}.SignalSignatures` : 'GObject.Object.SignalSignatures'
+                def.push(` extends ${fallbackRef} {`)
+            }
         }
 
         // Map signal names to their callback interfaces
@@ -1544,9 +1569,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             }
 
             // $gtype compatibility
-            def.push(
-                `static $gtype: ${this.namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${girClass.name}>;`,
-            )
+            const gtypeNamespace = this.namespace.namespace === 'GObject' ? '' : 'GObject.'
+            def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.name}>;`)
 
             // Add type-only signal signatures field for inference
             if (girClass instanceof IntrospectedClass) {

@@ -1279,7 +1279,17 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         // Generate property notification signals (notify::property-name)
         // All GObject-derived classes support property change notifications through the "notify" signal
-        if (girClass.props && girClass.props.length > 0) {
+
+        // Collect all properties: direct properties + properties from implemented interfaces
+        const allProperties = [...girClass.props]
+
+        // Add properties from implemented interfaces using the existing implementedProperties method
+        if (girClass instanceof IntrospectedClass) {
+            const implementedProps = girClass.implementedProperties()
+            allProperties.push(...implementedProps)
+        }
+
+        if (allProperties.length > 0) {
             // Determine if this class supports GObject property notifications
             const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
             const hasNotifySignal = girClass.signals.some((signal) => signal.name === 'notify')
@@ -1303,15 +1313,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     notifyRef = gobjectRef ? `${gobjectRef}.Notify` : 'GObject.Object.Notify'
                 }
 
-                girClass.props.forEach((prop) => {
+                // Use Set to avoid duplicate property signals when the same property exists in multiple interfaces
+                const uniqueProperties = new Set(allProperties.map((prop) => prop.name))
+
+                uniqueProperties.forEach((propName) => {
                     // Standard property notification: notify::property-name
-                    const notifySignalKey = `"notify::${prop.name}"`
+                    const notifySignalKey = `"notify::${propName}"`
                     def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
 
                     // Generate kebab-case variant for properties containing hyphens
                     // This handles both camelCase->kebab-case and already hyphenated properties
-                    if (prop.name.includes('-')) {
-                        const notifySignalKeyDash = `"notify::-${prop.name}"`
+                    if (propName.includes('-')) {
+                        const notifySignalKeyDash = `"notify::-${propName}"`
                         def.push(`${indent}    ${notifySignalKeyDash}: ${notifyRef};`)
                     }
                 })
@@ -1320,22 +1333,25 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         // Generate detailed signal variants for properties (e.g. changed::key-name for Gio.Settings)
         // Signals with the DETAILED flag can be connected to specific object properties or states
-        if (girClass.props && girClass.props.length > 0) {
+        if (allProperties.length > 0) {
             // Find signals that support detail parameters (marked with detailed="1" in GIR)
             const detailSignals = girClass.signals.filter((signal) => signal.detailed)
 
             detailSignals.forEach((detailSignal) => {
-                girClass.props.forEach((prop) => {
+                // Use the same Set to avoid duplicates for detail signals as well
+                const uniqueProperties = new Set(allProperties.map((prop) => prop.name))
+
+                uniqueProperties.forEach((propName) => {
                     // Generate property-specific detail signal: signal-name::property-name
                     // This allows connecting to signals for specific properties only
-                    const detailSignalKey = `"${detailSignal.name}::${prop.name}"`
+                    const detailSignalKey = `"${detailSignal.name}::${propName}"`
                     const detailCallbackName = upperCamelCase(detailSignal.name)
                     def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
 
                     // Generate kebab-case variant for properties containing hyphens
                     // This ensures compatibility with both naming conventions
-                    if (prop.name.includes('-')) {
-                        const detailSignalKeyDash = `"${detailSignal.name}::-${prop.name}"`
+                    if (propName.includes('-')) {
+                        const detailSignalKeyDash = `"${detailSignal.name}::-${propName}"`
                         def.push(`${indent}    ${detailSignalKeyDash}: ${detailCallbackName};`)
                     }
                 })

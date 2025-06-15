@@ -130,11 +130,12 @@ app.connect('activate', () => {
         }
     })
 
-    // 🚀 FUTURE: With detail signals implemented, this would work:
-    // entry.connect('notify::text', () => {
-    //     const text = entry.get_text()
-    //     statusLabel.set_text(`Entry text changed: "${text}"`)
-    // })
+    // ✅ NEW: With detail signals now implemented, this works!
+    // The 'text' property comes from the Editable interface that Entry implements
+    entry.connect('notify::text', (obj, pspec) => {
+        const text = entry.get_text()
+        statusLabel.set_text(`Entry text changed via detail signal: "${text}"`)
+    })
 
     // Demonstrate property change notifications on the toggle button
     toggleButton.connect('notify', (obj, pspec) => {

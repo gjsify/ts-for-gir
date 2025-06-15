@@ -13870,6 +13870,7 @@ __metadata:
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/soup-3.0": "workspace:^"
+    concurrently: "npm:^9.1.2"
     esbuild: "npm:^0.25.5"
     typescript: "npm:^5.8.3"
   languageName: unknown

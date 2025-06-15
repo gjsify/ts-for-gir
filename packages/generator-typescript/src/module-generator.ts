@@ -27,6 +27,7 @@ import {
     ArrayType,
     FilterBehavior,
     VoidType,
+    BooleanType,
     ThisType,
     ClassStructTypeIdentifier,
     promisifyNamespaceFunctions,
@@ -1141,6 +1142,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 ...this.generateCallbackInterfaces(
                     tsSignals.map((signal) => {
                         // Signal callbacks always have the source object as the first parameter
+
+                        // For boolean return types, allow both boolean and void (void is treated as false)
+                        // This makes signal handlers more flexible as users can omit return statements
+                        let returnType = signal.return_type
+                        if (signal.return_type.equals(BooleanType)) {
+                            returnType = new BinaryType(BooleanType, VoidType)
+                        }
+
                         return new IntrospectedClassCallback({
                             name: upperCamelCase(signal.name),
                             parameters: [
@@ -1151,7 +1160,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                                 }),
                                 ...signal.parameters.map((p) => p.copy()),
                             ],
-                            return_type: signal.return_type,
+                            return_type: returnType,
                             parent: signal.parent,
                         })
                     }),
@@ -1170,22 +1179,30 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     /**
      * Generate SignalSignatures interface for type-safe signal handling
+     *
+     * This creates a comprehensive mapping of signal names to their callback types,
+     * enabling TypeScript to provide proper type checking and IntelliSense for
+     * GObject signals, including:
+     * - Base signals defined on the class
+     * - Property notification signals (notify::property-name)
+     * - Detailed signals for specific properties (signal-name::property-name)
+     * - Proper inheritance from parent class signal signatures
      */
     generateSignalSignatures(girClass: IntrospectedClass, indentCount = 0): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
 
-        // Always generate SignalSignatures interface to maintain inheritance chain
-        // Even classes without signals need this for proper type inheritance
+        // Generate SignalSignatures interface to maintain type inheritance chain
+        // Even classes without direct signals need this for proper parent type extension
 
-        // Add comment
+        // Generate interface declaration
         def.push(`${indent}// Signal signatures`)
         def.push(`${indent}interface SignalSignatures`)
 
-        // Collect parent signal signatures to extend from
+        // Build inheritance chain for signal signatures
         const parentSignatures: string[] = []
 
-        // Extend parent class signal signatures
+        // Inherit signal signatures from parent class
         const parentResolution = girClass.resolveParents().extends()
         if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
             const parentClass = parentResolution.node as IntrospectedClass
@@ -1193,8 +1210,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 .resolveIdentifier(this.namespace, this.config)
                 ?.print(this.namespace, this.config)
 
-            // Only reference parent SignalSignatures if the parent actually has signals or is a generated class
-            // This prevents referencing SignalSignatures from template workaround classes
+            // Include parent signals unless it's a template workaround class
+            // Template workarounds are synthetic classes that shouldn't be part of the inheritance chain
             const hasSignalMethods = parentClass.signals && parentClass.signals.length > 0
             const isNotTemplateWorkaround = !(
                 this.namespace.namespace === 'Gimp' &&
@@ -1206,13 +1223,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             }
         }
 
-        // Check implemented interfaces for signals (though most GObject interfaces don't have signals)
+        // Inherit signal signatures from implemented interfaces
+        // Note: Most GObject interfaces don't define signals, but some specialized ones might
         const interfaceSignatures = girClass
             .resolveParents()
             .implements()
             .filter((iface) => iface.node instanceof IntrospectedInterface)
             .filter((iface) => {
-                // Most interfaces don't have signals, but we check anyway for future compatibility
+                // Only include interfaces that actually define signals
                 return (iface.node as any).signals && (iface.node as any).signals.length > 0
             })
             .map((iface) => {
@@ -1225,17 +1243,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         parentSignatures.push(...interfaceSignatures)
 
+        // Apply inheritance or fallback to base GObject signals
         if (parentSignatures.length > 0) {
             def.push(` extends ${parentSignatures.join(', ')} {`)
         } else {
-            // Check if this is the root GObject.Object class to avoid recursive reference
+            // Handle root GObject.Object class to avoid circular references
             const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
 
             if (isGObjectObject) {
-                // For the root GObject.Object, don't extend anything - it's the base
+                // GObject.Object is the root of the signal hierarchy
                 def.push(` {`)
             } else {
-                // For other classes, fallback to GObject.Object.SignalSignatures using proper type resolution
+                // All other classes inherit from GObject.Object's signal signatures as fallback
                 const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
                 const gobjectObjectClass = gobjectNamespace.assertClass('Object')
                 const gobjectRef = gobjectObjectClass
@@ -1248,39 +1267,79 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             }
         }
 
-        // Map signal names to their callback interfaces
+        // Map class-specific signals to their callback types
         if (girClass.signals.length > 0) {
             girClass.signals.forEach((signal) => {
                 const callbackName = upperCamelCase(signal.name)
-                // Quote signal names that contain hyphens or are not valid JS identifiers
+                // Ensure valid TypeScript property names by quoting invalid identifiers
                 const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signal.name) ? signal.name : `"${signal.name}"`
                 def.push(`${indent}    ${signalKey}: ${callbackName};`)
             })
         }
 
-        // Add property notification signals (notify::property-name)
+        // Generate property notification signals (notify::property-name)
+        // All GObject-derived classes support property change notifications through the "notify" signal
         if (girClass.props && girClass.props.length > 0) {
-            // Check if this class or any parent has notify signal capability
+            // Determine if this class supports GObject property notifications
             const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
             const hasNotifySignal = girClass.signals.some((signal) => signal.name === 'notify')
             const hasGObjectParent = girClass.someParent(
                 (p: IntrospectedBaseClass) => p.namespace.namespace === 'GObject' && p.name === 'Object',
             )
 
-            // Generate property notification signals if this is GObject.Object or inherits from it
+            // Generate notify signals for GObject.Object and all classes that inherit from it
             if (isGObjectObject || hasNotifySignal || hasGObjectParent) {
-                girClass.props.forEach((prop) => {
-                    // Generate notify::property-name signal
-                    const notifySignalKey = `"notify::${prop.name}"`
-                    def.push(`${indent}    ${notifySignalKey}: Notify;`)
+                // Resolve the correct reference to the Notify signal type
+                let notifyRef = 'Notify'
+                if (!isGObjectObject) {
+                    // For non-GObject classes, we need to reference the correct namespace
+                    const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
+                    const gobjectObjectClass = gobjectNamespace.assertClass('Object')
+                    const gobjectRef = gobjectObjectClass
+                        .getType()
+                        .resolveIdentifier(this.namespace, this.config)
+                        ?.print(this.namespace, this.config)
 
-                    // Also generate notify::-property-name variant for properties with hyphens
+                    notifyRef = gobjectRef ? `${gobjectRef}.Notify` : 'GObject.Object.Notify'
+                }
+
+                girClass.props.forEach((prop) => {
+                    // Standard property notification: notify::property-name
+                    const notifySignalKey = `"notify::${prop.name}"`
+                    def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
+
+                    // Generate kebab-case variant for properties containing hyphens
+                    // This handles both camelCase->kebab-case and already hyphenated properties
                     if (prop.name.includes('-')) {
                         const notifySignalKeyDash = `"notify::-${prop.name}"`
-                        def.push(`${indent}    ${notifySignalKeyDash}: Notify;`)
+                        def.push(`${indent}    ${notifySignalKeyDash}: ${notifyRef};`)
                     }
                 })
             }
+        }
+
+        // Generate detailed signal variants for properties (e.g. changed::key-name for Gio.Settings)
+        // Signals with the DETAILED flag can be connected to specific object properties or states
+        if (girClass.props && girClass.props.length > 0) {
+            // Find signals that support detail parameters (marked with detailed="1" in GIR)
+            const detailSignals = girClass.signals.filter((signal) => signal.detailed)
+
+            detailSignals.forEach((detailSignal) => {
+                girClass.props.forEach((prop) => {
+                    // Generate property-specific detail signal: signal-name::property-name
+                    // This allows connecting to signals for specific properties only
+                    const detailSignalKey = `"${detailSignal.name}::${prop.name}"`
+                    const detailCallbackName = upperCamelCase(detailSignal.name)
+                    def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
+
+                    // Generate kebab-case variant for properties containing hyphens
+                    // This ensures compatibility with both naming conventions
+                    if (prop.name.includes('-')) {
+                        const detailSignalKeyDash = `"${detailSignal.name}::-${prop.name}"`
+                        def.push(`${indent}    ${detailSignalKeyDash}: ${detailCallbackName};`)
+                    }
+                })
+            })
         }
 
         def.push(`${indent}}`)

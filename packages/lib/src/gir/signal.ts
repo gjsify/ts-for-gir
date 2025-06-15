@@ -28,23 +28,27 @@ export enum IntrospectedSignalType {
 export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClass> {
     parameters: IntrospectedFunctionParameter[];
     return_type: TypeExpression;
+    detailed: boolean;
 
     constructor({
         name,
         parameters = [],
         return_type = UnknownType,
+        detailed = false,
         parent,
         ...args
     }: Options<{
         name: string;
         parameters?: IntrospectedFunctionParameter[];
         return_type?: TypeExpression;
+        detailed?: boolean;
         parent: IntrospectedClass;
     }>) {
         super(name, parent, { ...args });
 
         this.parameters = parameters.map(p => p.copy({ parent: this }));
         this.return_type = return_type;
+        this.detailed = detailed;
     }
 
     accept(visitor: GirVisitor): IntrospectedSignal {
@@ -61,17 +65,20 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
     copy({
         parent = this.parent,
         parameters,
-        returnType
+        returnType,
+        detailed
     }: {
         parent?: IntrospectedClass;
         parameters?: IntrospectedFunctionParameter[];
         returnType?: TypeExpression;
+        detailed?: boolean;
     } = {}): IntrospectedSignal {
         return new IntrospectedSignal({
             name: this.name,
             parent,
             parameters: parameters ?? this.parameters,
-            return_type: returnType ?? this.return_type
+            return_type: returnType ?? this.return_type,
+            detailed: detailed ?? this.detailed
         })._copyBaseProperties(this);
     }
 
@@ -80,6 +87,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
         const signal = new IntrospectedSignal({
             name: element.$.name,
             parent,
+            detailed: element.$.detailed === "1",
             isIntrospectable: isIntrospectable(element)
         });
 

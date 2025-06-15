@@ -1331,18 +1331,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 const uniqueProperties = new Set(allProperties.map((prop) => prop.name))
 
                 uniqueProperties.forEach((propName) => {
-                    // Standard property notification: notify::property-name
-                    const notifySignalKey = `"notify::${propName}"`
+                    // GObject uses hyphen notation for property names in signals
+                    // Properties with underscores must be converted to hyphens
+                    const signalPropName = propName.replace(/_/g, '-')
+                    const notifySignalKey = `"notify::${signalPropName}"`
                     def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
-
-                    // Generate hyphenated variant for properties containing underscores
-                    // This handles the case where properties are defined with hyphens in GIR
-                    // but converted to underscores during parsing (e.g. default-width -> default_width)
-                    if (propName.includes('_')) {
-                        const hyphenatedPropName = propName.replace(/_/g, '-')
-                        const notifySignalKeyHyphenated = `"notify::${hyphenatedPropName}"`
-                        def.push(`${indent}    ${notifySignalKeyHyphenated}: ${notifyRef};`)
-                    }
                 })
             }
         }
@@ -1359,19 +1352,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
                 uniqueProperties.forEach((propName) => {
                     // Generate property-specific detail signal: signal-name::property-name
-                    // This allows connecting to signals for specific properties only
-                    const detailSignalKey = `"${detailSignal.name}::${propName}"`
+                    // GObject uses hyphen notation for property names in signals
+                    const signalPropName = propName.replace(/_/g, '-')
+                    const detailSignalKey = `"${detailSignal.name}::${signalPropName}"`
                     const detailCallbackName = upperCamelCase(detailSignal.name)
                     def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
-
-                    // Generate hyphenated variant for properties containing underscores
-                    // This handles the case where properties are defined with hyphens in GIR
-                    // but converted to underscores during parsing (e.g. default-width -> default_width)
-                    if (propName.includes('_')) {
-                        const hyphenatedPropName = propName.replace(/_/g, '-')
-                        const detailSignalKeyHyphenated = `"${detailSignal.name}::${hyphenatedPropName}"`
-                        def.push(`${indent}    ${detailSignalKeyHyphenated}: ${detailCallbackName};`)
-                    }
                 })
             })
         }
@@ -1419,13 +1404,19 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         if (allowedNames.has('connect')) {
             methods.push(
+                // Type-safe overload for known signals
                 `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+                // Fallback overload for dynamic signals
+                `connect(signal: string, callback: (...args: any[]) => any): number;`,
             )
         }
 
         if (allowedNames.has('connect_after')) {
             methods.push(
+                // Type-safe overload for known signals
                 `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+                // Fallback overload for dynamic signals
+                `connect_after(signal: string, callback: (...args: any[]) => any): number;`,
             )
         }
 
@@ -1433,7 +1424,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             // Fix: Use a conditional type to extract parameters from the signal signature
             // This ensures type compatibility with the base GObject.Object.emit method
             methods.push(
+                // Type-safe overload for known signals
                 `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${girClass.name}.SignalSignatures[K] extends (...args: infer P) => any ? P : never): void;`,
+                // Fallback overload for dynamic signals
+                `emit(signal: string, ...args: any[]): void;`,
             )
         }
 

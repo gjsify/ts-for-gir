@@ -214,7 +214,10 @@ export function signal_handlers_disconnect_by_data(): void
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
 
 // Helper types for type-safe signal handling
-export type SignalSignatures = { [signal: string]: (...args: any[]) => any }
+export interface SignalSignatures {
+    /** Fallback for dynamic signals and type compatibility */
+    [signal: string]: (...args: any[]) => any
+}
 
 /**
  * Unique symbol for storing signal signatures on constructors
@@ -223,29 +226,42 @@ export type SignalSignatures = { [signal: string]: (...args: any[]) => any }
 export const signalSignaturesSymbol: unique symbol
 
 /**
- * Extract signal signatures from a constructor type
+ * Extract signal signatures from a constructor type or instance
+ * Enhanced to work with both symbol property and constructor.SignalSignatures
  */
-export type SignalsOf<T> = T extends { [signalSignaturesSymbol]: infer S } ? S : never
+export type SignalsOf<T> = T extends { constructor: { SignalSignatures: infer S } }
+    ? S
+    : T extends { [signalSignaturesSymbol]: infer S }
+      ? S
+      : never
 
 /**
- * Extract signal names from a SignalSignatures type
+ * Extract signal names from any object with function properties
+ * Works with SignalSignatures interfaces without requiring specific base type
  */
-export type SignalName<T extends SignalSignatures> = keyof T
+export type SignalName<T> = T extends { [K in keyof T]: (...args: any[]) => any } ? keyof T : never
 
 /**
  * Extract callback type for a specific signal
+ * Flexible version that works with any object containing functions
  */
-export type SignalCallback<T extends SignalSignatures, K extends keyof T> = T[K]
+export type SignalCallback<T, K extends keyof T> = T extends { [P in K]: infer C }
+    ? C extends (...args: any[]) => any
+        ? C
+        : never
+    : never
 
 /**
  * Extract parameters for a specific signal callback
+ * Works with any signal signatures object
  */
-export type SignalParameters<T extends SignalSignatures, K extends keyof T> = Parameters<T[K]>
+export type SignalParameters<T, K extends keyof T> = T extends { [P in K]: (...args: infer Args) => any } ? Args : never
 
 /**
  * Extract return type for a specific signal callback
+ * Works with any signal signatures object
  */
-export type SignalReturnType<T extends SignalSignatures, K extends keyof T> = ReturnType<T[K]>
+export type SignalReturnType<T, K extends keyof T> = T extends { [P in K]: (...args: any[]) => infer R } ? R : never
 
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R

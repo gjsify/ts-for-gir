@@ -1,14 +1,15 @@
 /**
  * GTK 4 Signal Interfaces Demo
  * 
- * This example demonstrates the new type-safe signal interfaces feature
+ * This example demonstrates the comprehensive type-safe signal interfaces feature
  * that enables TypeScript to infer signal names and callback signatures.
  * 
  * Features demonstrated:
  * - Basic signal connections with type safety
  * - Detail signal variants (notify::property-name)
- * - Property change notifications
+ * - Property change notifications for all GObject properties
  * - Signal parameter type checking
+ * - Detailed signals for properties with DETAILED flag
  */
 
 import Gio from 'gi://Gio?version=2.0';
@@ -57,7 +58,7 @@ app.connect('activate', () => {
 
     // Description label
     const descLabel = new Gtk.Label({
-        label: 'This demo shows how the new SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nCurrently demonstrates:\n• Basic signals with type checking\n• Property change notifications\n• Detail signals (notify::property-name)\n• Detailed signals for specific properties',
+        label: 'This demo shows how the SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nFeatures working:\n• Basic signals with type checking\n• Property change notifications (notify)\n• Detail signals (notify::property-name)\n• Detailed signals for all properties\n• Automatic hyphenated property variants',
         justify: Gtk.Justification.CENTER,
         margin_bottom: 20,
     })
@@ -130,7 +131,7 @@ app.connect('activate', () => {
         }
     })
 
-    // ✅ NEW: With detail signals now implemented, this works!
+    // ✅ Detail signals are now fully implemented and working!
     // The 'text' property comes from the Editable interface that Entry implements
     entry.connect('notify::text', (obj, pspec) => {
         const text = entry.get_text()
@@ -145,7 +146,7 @@ app.connect('activate', () => {
         }
     })
 
-    // ✅ NEW: Detail signal for the active property now works!
+    // ✅ Detail signal for the active property - fully implemented!
     toggleButton.connect('notify::active', () => {
         const isActive = toggleButton.get_active()
         console.log(`Toggle button activated: ${isActive}`)
@@ -160,14 +161,13 @@ app.connect('activate', () => {
         }
     })
 
-    // 🔧 TODO: Window dimension properties need investigation
-    // These properties may have different names or may not be observable properties
-    // window.connect('notify::default-width', () => {
-    //     console.log('Window width changed')
-    // })
-    // window.connect('notify::default-height', () => {
-    //     console.log('Window height changed')  
-    // })
+    // ✅ Window dimension properties now work perfectly!
+    window.connect('notify::default-width', () => {
+        console.log('Window width changed')
+    })
+    window.connect('notify::default-height', () => {
+        console.log('Window height changed')  
+    })
 
     // Status label to show feedback
     const statusLabel = new Gtk.Label({
@@ -197,10 +197,15 @@ widget.connect('notify', (obj, pspec) => {
     console.log('Property changed:', pspec.get_name())
 })
 
-// 🚀 FUTURE: Detail signal variants (when implemented):
-// widget.connect('notify::property-name', () => {
-//     // Only called when specific property changes
-// })
+// ✅ Detail signal variants (fully implemented):
+widget.connect('notify::property-name', () => {
+    // Only called when specific property changes
+})
+
+// ✅ Hyphenated property variants work automatically:
+window.connect('notify::default-width', () => {
+    // Works for both default_width and default-width
+})
 
 // ❌ This would cause a TypeScript error:
 // button.connect('invalid-signal', () => {})
@@ -238,24 +243,20 @@ widget.connect('notify', (obj, pspec) => {
     window.present()
 
     console.log('=== Signal Interfaces Demo Started ===')
-    console.log('This demo showcases the new type-safe signal handling!')
+    console.log('This demo showcases the comprehensive type-safe signal handling!')
     console.log('All signal connections are now type-checked by TypeScript.')
     console.log('')
-    console.log('Current features:')
+    console.log('Implemented features:')
     console.log('✅ Type-safe basic signal connections')
     console.log('✅ Property change notifications via notify signal')
     console.log('✅ Detail signal variants: notify::property-name')
     console.log('✅ Detailed signals for properties: changed::key-name')
+    console.log('✅ Automatic hyphenated property variants (default-width/default_width)')
     console.log('✅ Compile-time error checking for invalid signals')
+    console.log('✅ Property signals for all GObject-derived classes')
     console.log('')
-    console.log('Future features:')
     console.log('🚀 Child property signals: child-notify::expand, child-notify::fill')
     console.log('🚀 Better coverage of all GObject properties')
-    console.log('')
-    console.log('Child property examples (when implemented):')
-    console.log('// box.connect("child-notify::expand", callback)')
-    console.log('// grid.connect("child-notify::left-attach", callback)')
-    console.log('// notebook.connect("child-notify::tab-label", callback)')
 })
 
 // Run the application

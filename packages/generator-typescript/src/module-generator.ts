@@ -1280,8 +1280,22 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         // Generate property notification signals (notify::property-name)
         // All GObject-derived classes support property change notifications through the "notify" signal
 
-        // Collect all properties: direct properties + properties from implemented interfaces
+        // Collect properties from this class, parent classes, and implemented interfaces
         const allProperties = [...girClass.props]
+
+        // Add properties from parent classes
+        // We need to include these to generate notify signals for inherited properties
+        let currentClass = girClass
+        while (currentClass) {
+            const parentResolution = currentClass.resolveParents().extends()
+            if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
+                const parentClass = parentResolution.node as IntrospectedClass
+                allProperties.push(...parentClass.props)
+                currentClass = parentClass
+            } else {
+                break
+            }
+        }
 
         // Add properties from implemented interfaces using the existing implementedProperties method
         if (girClass instanceof IntrospectedClass) {
@@ -1321,11 +1335,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     const notifySignalKey = `"notify::${propName}"`
                     def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
 
-                    // Generate kebab-case variant for properties containing hyphens
-                    // This handles both camelCase->kebab-case and already hyphenated properties
-                    if (propName.includes('-')) {
-                        const notifySignalKeyDash = `"notify::-${propName}"`
-                        def.push(`${indent}    ${notifySignalKeyDash}: ${notifyRef};`)
+                    // Generate hyphenated variant for properties containing underscores
+                    // This handles the case where properties are defined with hyphens in GIR
+                    // but converted to underscores during parsing (e.g. default-width -> default_width)
+                    if (propName.includes('_')) {
+                        const hyphenatedPropName = propName.replace(/_/g, '-')
+                        const notifySignalKeyHyphenated = `"notify::${hyphenatedPropName}"`
+                        def.push(`${indent}    ${notifySignalKeyHyphenated}: ${notifyRef};`)
                     }
                 })
             }
@@ -1348,11 +1364,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     const detailCallbackName = upperCamelCase(detailSignal.name)
                     def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
 
-                    // Generate kebab-case variant for properties containing hyphens
-                    // This ensures compatibility with both naming conventions
-                    if (propName.includes('-')) {
-                        const detailSignalKeyDash = `"${detailSignal.name}::-${propName}"`
-                        def.push(`${indent}    ${detailSignalKeyDash}: ${detailCallbackName};`)
+                    // Generate hyphenated variant for properties containing underscores
+                    // This handles the case where properties are defined with hyphens in GIR
+                    // but converted to underscores during parsing (e.g. default-width -> default_width)
+                    if (propName.includes('_')) {
+                        const hyphenatedPropName = propName.replace(/_/g, '-')
+                        const detailSignalKeyHyphenated = `"${detailSignal.name}::${hyphenatedPropName}"`
+                        def.push(`${indent}    ${detailSignalKeyHyphenated}: ${detailCallbackName};`)
                     }
                 })
             })

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // __type__ forces all GTypes to not match structurally.
 export type GType<T = unknown> = {
     __type__(arg: never): T

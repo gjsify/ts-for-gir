@@ -1,3 +1,4 @@
+// @ts-nocheck
 // WORKAROUND: As long as ParamObject is not generated
 export class ParamObject extends GObject.ParamSpec {}
 

@@ -6,13 +6,12 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:app": "yarn node esbuild.js",
-    "build": "yarn build:app",
+    "build": "yarn node esbuild.js",
     "start:server": "gjs -m dist/http-server.js",
     "start:client": "gjs -m dist/http-client.js",
     "debug:server": "GTK_DEBUG=interactive yarn start:server",
     "debug:client": "GTK_DEBUG=interactive yarn start:client",
-    "start": "yarn build && yarn start:server",
+    "start": "yarn build && concurrently 'yarn:start:*'",
     "validate": "yarn validate:types && yarn validate:app",
     "validate:types": "tsc --project tsconfig.json",
     "validate:app": "tsc --noEmit",
@@ -21,6 +20,7 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "esbuild": "^0.25.5",
     "typescript": "^5.8.3"
   },

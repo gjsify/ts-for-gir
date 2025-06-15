@@ -1328,15 +1328,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 }
 
                 // Use Set to avoid duplicate property signals when the same property exists in multiple interfaces
-                const uniqueProperties = new Set(allProperties.map((prop) => prop.name))
+                const uniqueSignalPropNames = new Set(
+                    allProperties.map((prop) =>
+                        prop.name
+                            .replace(/_/g, '-') // underscores → hyphens
+                            .replace(/([a-z0-9])([A-Z])/g, '$1-$2') // camelCase → hyphen
+                            .toLowerCase(),
+                    ),
+                )
 
-                uniqueProperties.forEach((propName) => {
-                    // GObject uses hyphen notation for property names in signals
-                    // Properties with underscores must be converted to hyphens
-                    const signalPropName = propName
-                        .replace(/_/g, '-')                               // underscores → hyphens
-                        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')            // camelCase → hyphen
-                        .toLowerCase()
+                uniqueSignalPropNames.forEach((signalPropName) => {
                     const notifySignalKey = `"notify::${signalPropName}"`
                     def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
                 })
@@ -1349,22 +1350,26 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             // Find signals that support detail parameters (marked with detailed="1" in GIR)
             const detailSignals = girClass.signals.filter((signal) => signal.detailed)
 
-            detailSignals.forEach((detailSignal) => {
-                // Use the same Set to avoid duplicates for detail signals as well
-                const uniqueProperties = new Set(allProperties.map((prop) => prop.name))
+            if (detailSignals.length > 0) {
+                const uniqueSignalPropNames = new Set(
+                    allProperties.map((prop) =>
+                        prop.name
+                            .replace(/_/g, '-') // underscores → hyphens
+                            .replace(/([a-z0-9])([A-Z])/g, '$1-$2') // camelCase → hyphen
+                            .toLowerCase(),
+                    ),
+                )
 
-                uniqueProperties.forEach((propName) => {
-                    // Generate property-specific detail signal: signal-name::property-name
-                    // GObject uses hyphen notation for property names in signals
-                    const signalPropName = propName
-                        .replace(/_/g, '-')                               // underscores → hyphens
-                        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')            // camelCase → hyphen
-                        .toLowerCase()
-                    const detailSignalKey = `"${detailSignal.name}::${signalPropName}"`
-                    const detailCallbackName = upperCamelCase(detailSignal.name)
-                    def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
+                detailSignals.forEach((detailSignal) => {
+                    uniqueSignalPropNames.forEach((signalPropName) => {
+                        // Generate property-specific detail signal: signal-name::property-name
+                        // GObject uses hyphen notation for property names in signals
+                        const detailSignalKey = `"${detailSignal.name}::${signalPropName}"`
+                        const detailCallbackName = upperCamelCase(detailSignal.name)
+                        def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
+                    })
                 })
-            })
+            }
         }
 
         def.push(`${indent}}`)

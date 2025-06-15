@@ -57,7 +57,7 @@ app.connect('activate', () => {
 
     // Description label
     const descLabel = new Gtk.Label({
-        label: 'This demo shows how the new SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nCurrently demonstrates: Basic signals + notify for property changes\nFuture: Detail signals like notify::property-name',
+        label: 'This demo shows how the new SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nCurrently demonstrates:\n• Basic signals with type checking\n• Property change notifications\n• Detail signals (notify::property-name)\n• Detailed signals for specific properties',
         justify: Gtk.Justification.CENTER,
         margin_bottom: 20,
     })
@@ -145,11 +145,11 @@ app.connect('activate', () => {
         }
     })
 
-    // 🚀 FUTURE: This would be the detail signal equivalent:
-    // toggleButton.connect('notify::active', () => {
-    //     const isActive = toggleButton.get_active()
-    //     console.log(`Toggle button activated: ${isActive}`)
-    // })
+    // ✅ NEW: Detail signal for the active property now works!
+    toggleButton.connect('notify::active', () => {
+        const isActive = toggleButton.get_active()
+        console.log(`Toggle button activated: ${isActive}`)
+    })
 
     // Demonstrate multiple property notifications on the window
     window.connect('notify', (obj, pspec) => {
@@ -160,7 +160,8 @@ app.connect('activate', () => {
         }
     })
 
-    // 🚀 FUTURE: These would be the detail signal equivalents:
+    // 🔧 TODO: Window dimension properties need investigation
+    // These properties may have different names or may not be observable properties
     // window.connect('notify::default-width', () => {
     //     console.log('Window width changed')
     // })
@@ -243,12 +244,13 @@ widget.connect('notify', (obj, pspec) => {
     console.log('Current features:')
     console.log('✅ Type-safe basic signal connections')
     console.log('✅ Property change notifications via notify signal')
+    console.log('✅ Detail signal variants: notify::property-name')
+    console.log('✅ Detailed signals for properties: changed::key-name')
     console.log('✅ Compile-time error checking for invalid signals')
     console.log('')
-    console.log('Future features (when detail signals are implemented):')
-    console.log('🚀 Detail signal variants: notify::property-name')
+    console.log('Future features:')
     console.log('🚀 Child property signals: child-notify::expand, child-notify::fill')
-    console.log('🚀 Settings signals: changed::key, writable-changed::key')
+    console.log('🚀 Better coverage of all GObject properties')
     console.log('')
     console.log('Child property examples (when implemented):')
     console.log('// box.connect("child-notify::expand", callback)')

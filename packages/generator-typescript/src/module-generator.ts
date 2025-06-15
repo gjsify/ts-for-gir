@@ -1192,7 +1192,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             const parentTypeIdentifier = parentResolution.identifier
                 .resolveIdentifier(this.namespace, this.config)
                 ?.print(this.namespace, this.config)
-            
+
             // Only reference parent SignalSignatures if the parent actually has signals or is a generated class
             // This prevents referencing SignalSignatures from template workaround classes
             const hasSignalMethods = parentClass.signals && parentClass.signals.length > 0
@@ -1200,7 +1200,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 this.namespace.namespace === 'Gimp' &&
                 ['ParamObject', 'ParamItem', 'ParamArray'].includes(parentClass.name)
             )
-            
+
             if (parentTypeIdentifier && (hasSignalMethods || isNotTemplateWorkaround)) {
                 parentSignatures.push(`${parentTypeIdentifier}.SignalSignatures`)
             }
@@ -1258,13 +1258,37 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             })
         }
 
+        // Add property notification signals (notify::property-name)
+        if (girClass.props && girClass.props.length > 0) {
+            // Check if this class or any parent has notify signal capability
+            const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
+            const hasNotifySignal = girClass.signals.some((signal) => signal.name === 'notify')
+            const hasGObjectParent = girClass.someParent(
+                (p: IntrospectedBaseClass) => p.namespace.namespace === 'GObject' && p.name === 'Object',
+            )
+
+            // Generate property notification signals if this is GObject.Object or inherits from it
+            if (isGObjectObject || hasNotifySignal || hasGObjectParent) {
+                girClass.props.forEach((prop) => {
+                    // Generate notify::property-name signal
+                    const notifySignalKey = `"notify::${prop.name}"`
+                    def.push(`${indent}    ${notifySignalKey}: Notify;`)
+
+                    // Also generate notify::-property-name variant for properties with hyphens
+                    if (prop.name.includes('-')) {
+                        const notifySignalKeyDash = `"notify::-${prop.name}"`
+                        def.push(`${indent}    ${notifySignalKeyDash}: Notify;`)
+                    }
+                })
+            }
+        }
+
         def.push(`${indent}}`)
         def.push('')
 
         return def
     }
 
-    // TODO: Add property signals like `notify::property-name`
     generateSignals(girClass: IntrospectedClass) {
         // Create IntrospectedClassFunction instances for the signal methods
         // These represent the GObject signal methods that we want to generate

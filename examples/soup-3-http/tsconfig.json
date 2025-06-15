@@ -10,6 +10,8 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "noEmit": true,
+    "outDir": "dist"
   },
   "files": [
     "http-client.ts",

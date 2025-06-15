@@ -12,6 +12,7 @@
  * - Detailed signals for properties with DETAILED flag
  */
 
+import GObject from 'gi://GObject?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';
@@ -58,7 +59,7 @@ app.connect('activate', () => {
 
     // Description label
     const descLabel = new Gtk.Label({
-        label: 'This demo shows how the SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nFeatures working:\n• Basic signals with type checking\n• Property change notifications (notify)\n• Detail signals (notify::property-name)\n• Detailed signals for all properties\n• Automatic hyphenated property variants',
+        label: 'This demo shows how the SignalSignatures feature enables\ntype-safe signal handling in TypeScript.\n\nFeatures working:\n• Basic signals with type checking\n• Property change notifications (notify)\n• Detail signals (notify::property-name)\n• Detailed signals for all properties\n• Automatic hyphenated property variants\n• Correct `this` type on subclass signals',
         justify: Gtk.Justification.CENTER,
         margin_bottom: 20,
     })
@@ -88,6 +89,25 @@ app.connect('activate', () => {
         statusLabel.set_text(`Complex button clicked - received source: ${_source.get_label()}`)
     })
 
+    // Button to demonstrate subclass signal typing
+    class MyButton extends Gtk.Button {
+        constructor(props?: Partial<Gtk.Button.ConstructorProps>) {
+            super(props);
+        }
+        
+        public customMethod() {
+            return "This is MyButton!";
+        }
+    }
+
+    const myButton = new MyButton({ label: 'Subclassed Button' });
+
+    // ✅ Type-safe: TypeScript knows `src` is `MyButton`, not just `Gtk.Button`
+    myButton.connect('clicked', (src) => {
+        console.log('Subclassed button clicked!', src.customMethod());
+        statusLabel.set_text(`Subclassed button clicked! Got: "${src.customMethod()}"`);
+    });
+
     // Toggle button to demonstrate state changes
     const toggleButton = new Gtk.ToggleButton({ label: 'Toggle Me' })
     
@@ -100,11 +120,6 @@ app.connect('activate', () => {
         // Update button label based on state
         toggleButton.set_label(isActive ? 'Active Toggle' : 'Inactive Toggle')
     })
-
-    // ❌ This should cause a TypeScript error (invalid signal name)
-    // toggleButton.connect('invalid-signal', () => {
-    //     console.log('Invalid signal received')
-    // })
 
     // Entry widget to demonstrate text-based signals
     const entry = new Gtk.Entry({
@@ -169,6 +184,18 @@ app.connect('activate', () => {
         console.log('Window height changed')  
     })
 
+    // ✅ Hyphenated property variants work automatically:
+    window.connect('notify::default-width', () => {
+        // Works for both default_width and default-width
+    })
+
+    // ✅ `this` type is correctly inferred for subclasses
+    const myBtn = new MyButton({ label: 'Another one' });
+    myBtn.connect('clicked', (src) => {
+        // `src` is correctly typed as `MyButton`
+        console.log(src.customMethod());
+    });
+
     // Status label to show feedback
     const statusLabel = new Gtk.Label({
         label: 'Ready - try interacting with the widgets above!',
@@ -207,7 +234,14 @@ window.connect('notify::default-width', () => {
     // Works for both default_width and default-width
 })
 
-// ❌ This would cause a TypeScript error:
+// ✅ 'this' type is correctly inferred for subclasses
+const myBtn = new MyButton({ label: 'Another one' });
+myBtn.connect('clicked', (src) => {
+    // 'src' is correctly typed as 'MyButton'
+    console.log(src.customMethod());
+});
+
+// ❌ This should cause a TypeScript error:
 // button.connect('invalid-signal', () => {})
 //                ^^^^^^^^^^^^^^^ 
 // Error: Argument of type '"invalid-signal"' is not assignable</span>`,
@@ -220,6 +254,7 @@ window.connect('notify::default-width', () => {
     // Pack all widgets
     buttonBox.append(simpleButton)
     buttonBox.append(complexButton)
+    buttonBox.append(myButton)
     buttonBox.append(toggleButton)
 
     box.append(titleLabel)
@@ -260,4 +295,4 @@ window.connect('notify::default-width', () => {
 })
 
 // Run the application
-app.run([imports.system.programInvocationName].concat(ARGV)) 
+app.run([]) 

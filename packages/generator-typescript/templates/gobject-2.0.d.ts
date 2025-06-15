@@ -264,6 +264,14 @@ export type SignalParameters<T, K extends keyof T> = T extends { [P in K]: (...a
  */
 export type SignalReturnType<T, K extends keyof T> = T extends { [P in K]: (...args: any[]) => infer R } ? R : never
 
+/**
+ * A helper type to replace the first parameter of a function type.
+ * @hidden
+ */
+export type OverrideFirstParameter<T, T_FIRST_PARAM> = T extends (...args: [any, ...infer B]) => infer R
+    ? (_source: T_FIRST_PARAM, ...args: B) => R
+    : T
+
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R
 

@@ -1410,13 +1410,19 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         // Get the names of methods that should be kept (non-conflicting)
         const allowedNames = new Set(filteredFunctions.map((f) => f.name))
 
+        const gobjectRef = this.namespace.namespace === 'GObject' ? '' : 'GObject.'
+
         // Generate only the non-conflicting type-safe signal methods
         const methods: string[] = []
 
         if (allowedNames.has('connect')) {
             methods.push(
                 // Type-safe overload for known signals
-                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${
+                    girClass.name
+                }.SignalSignatures[K] extends (...args: any[]) => any ? ${gobjectRef}OverrideFirstParameter<${
+                    girClass.name
+                }.SignalSignatures[K], this> : ${girClass.name}.SignalSignatures[K]): number;`,
                 // Fallback overload for dynamic signals
                 `connect(signal: string, callback: (...args: any[]) => any): number;`,
             )
@@ -1425,7 +1431,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         if (allowedNames.has('connect_after')) {
             methods.push(
                 // Type-safe overload for known signals
-                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${girClass.name}.SignalSignatures[K]): number;`,
+                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${
+                    girClass.name
+                }.SignalSignatures[K] extends (...args: any[]) => any ? ${gobjectRef}OverrideFirstParameter<${
+                    girClass.name
+                }.SignalSignatures[K], this> : ${girClass.name}.SignalSignatures[K]): number;`,
                 // Fallback overload for dynamic signals
                 `connect_after(signal: string, callback: (...args: any[]) => any): number;`,
             )
@@ -1433,10 +1443,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         if (allowedNames.has('emit')) {
             // Fix: Use a conditional type to extract parameters from the signal signature
-            // This ensures type compatibility with the base GObject.Object.emit method
             methods.push(
                 // Type-safe overload for known signals
-                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${girClass.name}.SignalSignatures[K] extends (...args: infer P) => any ? P : never): void;`,
+                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${
+                    girClass.name
+                }.SignalSignatures[K] extends (...args: infer P) => any ? P extends [any, ...infer Q] ? Q : never : never): void;`,
                 // Fallback overload for dynamic signals
                 `emit(signal: string, ...args: any[]): void;`,
             )

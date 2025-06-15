@@ -1333,7 +1333,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 uniqueProperties.forEach((propName) => {
                     // GObject uses hyphen notation for property names in signals
                     // Properties with underscores must be converted to hyphens
-                    const signalPropName = propName.replace(/_/g, '-')
+                    const signalPropName = propName
+                        .replace(/_/g, '-')                               // underscores → hyphens
+                        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')            // camelCase → hyphen
+                        .toLowerCase()
                     const notifySignalKey = `"notify::${signalPropName}"`
                     def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
                 })
@@ -1353,7 +1356,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 uniqueProperties.forEach((propName) => {
                     // Generate property-specific detail signal: signal-name::property-name
                     // GObject uses hyphen notation for property names in signals
-                    const signalPropName = propName.replace(/_/g, '-')
+                    const signalPropName = propName
+                        .replace(/_/g, '-')                               // underscores → hyphens
+                        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')            // camelCase → hyphen
+                        .toLowerCase()
                     const detailSignalKey = `"${detailSignal.name}::${signalPropName}"`
                     const detailCallbackName = upperCamelCase(detailSignal.name)
                     def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)

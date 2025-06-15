@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "yarn node esbuild.js",
     "build": "yarn build:client",
-    "start:client": "gjs -m dist/main.js",
+    "start:client": "gjs -m dist/client.js",
     "debug:client": "GTK_DEBUG=interactive yarn start:client",
     "start": "yarn build && yarn start:client",
     "validate": "yarn validate:types",

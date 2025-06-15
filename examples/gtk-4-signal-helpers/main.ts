@@ -141,8 +141,7 @@ function createElement<T extends Gtk.Widget>(
                     signalName = `notify::${propName}`;
                 }
                 
-                // Use type assertion since we're using a dynamic signal name
-                (widget as any).connect(signalName, handler);
+                widget.connect(signalName, handler);
             }
         }
     }

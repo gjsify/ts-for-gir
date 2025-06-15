@@ -1151,7 +1151,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                         }
 
                         return new IntrospectedClassCallback({
-                            name: upperCamelCase(signal.name),
+                            name: upperCamelCase(signal.name) + 'Callback',
                             parameters: [
                                 new IntrospectedFunctionParameter({
                                     name: '_source',
@@ -1270,7 +1270,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         // Map class-specific signals to their callback types
         if (girClass.signals.length > 0) {
             girClass.signals.forEach((signal) => {
-                const callbackName = upperCamelCase(signal.name)
+                const callbackName = upperCamelCase(signal.name) + 'Callback'
                 // Ensure valid TypeScript property names by quoting invalid identifiers
                 const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signal.name) ? signal.name : `"${signal.name}"`
                 def.push(`${indent}    ${signalKey}: ${callbackName};`)
@@ -1314,7 +1314,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             // Generate notify signals for GObject.Object and all classes that inherit from it
             if (isGObjectObject || hasNotifySignal || hasGObjectParent) {
                 // Resolve the correct reference to the Notify signal type
-                let notifyRef = 'Notify'
+                let notifyRef = 'NotifyCallback'
                 if (!isGObjectObject) {
                     // For non-GObject classes, we need to reference the correct namespace
                     const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
@@ -1324,7 +1324,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                         .resolveIdentifier(this.namespace, this.config)
                         ?.print(this.namespace, this.config)
 
-                    notifyRef = gobjectRef ? `${gobjectRef}.Notify` : 'GObject.Object.Notify'
+                    notifyRef = gobjectRef ? `${gobjectRef}.NotifyCallback` : 'GObject.Object.NotifyCallback'
                 }
 
                 // Use Set to avoid duplicate property signals when the same property exists in multiple interfaces
@@ -1365,7 +1365,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                         // Generate property-specific detail signal: signal-name::property-name
                         // GObject uses hyphen notation for property names in signals
                         const detailSignalKey = `"${detailSignal.name}::${signalPropName}"`
-                        const detailCallbackName = upperCamelCase(detailSignal.name)
+                        const detailCallbackName = upperCamelCase(detailSignal.name) + 'Callback'
                         def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
                     })
                 })

@@ -244,6 +244,7 @@ export type SignalName<T> = T extends { [K in keyof T]: (...args: any[]) => any 
 /**
  * Extract callback type for a specific signal
  * Flexible version that works with any object containing functions
+ * The extracted type is usually a generated interface with a `Callback` suffix, e.g., `ClickedCallback`.
  */
 export type SignalCallback<T, K extends keyof T> = T extends { [P in K]: infer C }
     ? C extends (...args: any[]) => any

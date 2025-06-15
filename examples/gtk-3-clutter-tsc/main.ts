@@ -91,7 +91,7 @@ class App {
     
         const area = new Gtk.DrawingArea();
         area.set_size_request(250, 300);
-        area.connect('draw', (area, ctx) => { this.drawRed(area, ctx as Cairo.Context); });
+        area.connect('draw', (area, ctx) => { return this.drawRed(area as Gtk.DrawingArea, ctx as Cairo.Context); });
         
         const grid = new Gtk.Grid({ column_spacing: 6, margin: 15, row_spacing: 6 });
         grid.attach(embed, 0, 0, 1, 1);
@@ -113,7 +113,7 @@ class App {
             width: 100
         });
         canvas.set_size(100,100);
-        canvas.connect('draw', (area, ctx) => { this.drawGreen(area, ctx as Cairo.Context); });
+        canvas.connect('draw', (area, ctx) => { return this.drawGreen(area as Clutter.Canvas, ctx as Cairo.Context); });
         canvas.invalidate();
     
         actor = new Clutter.Actor({
@@ -125,24 +125,24 @@ class App {
         return actor;
     };
     
-    drawRed(area: Gtk.DrawingArea, ctx: Cairo.Context) {
+    drawRed(area: Gtk.DrawingArea, ctx: Cairo.Context): boolean {
 
         let height, width;
     
         height = area.get_allocated_height();
         width = area.get_allocated_width();
     
-        this.draw(ctx, height, width, 'red');
+        return this.draw(ctx, height, width, 'red');
     };
     
-    drawGreen(canvas: Clutter.Canvas, ctx: Cairo.Context) {
+    drawGreen(canvas: Clutter.Canvas, ctx: Cairo.Context): boolean {
 
         let height, width;
     
         height = canvas.height;
         width = canvas.width;
     
-        this.draw(ctx, height, width, 'green');
+        return this.draw(ctx, height, width, 'green');
     };
     
     draw(ctx: Cairo.Context, height: number, width: number, color: string) {

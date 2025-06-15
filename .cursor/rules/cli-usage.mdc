@@ -12,9 +12,6 @@ npx @ts-for-gir/cli generate Gtk-4.0
 
 # Generate multiple modules
 npx @ts-for-gir/cli generate Gtk-4.0 Gio-2.0 GLib-2.0
-
-# Generate with dependencies
-npx @ts-for-gir/cli generate Gtk-4.0 --includeResolvedDeps
 ```
 
 ## Important CLI Options

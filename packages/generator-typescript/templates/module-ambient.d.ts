@@ -1,3 +1,4 @@
+// @ts-nocheck
 <%#
     // This EJS template is used for the generated .d.ts files for ambient typescript module support.
     // See https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules

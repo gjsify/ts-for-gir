@@ -2,7 +2,6 @@ node_modules/
 lib/
 tmp/
 test/
-templates/
 examples/
 @types/
 types/

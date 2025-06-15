@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * This file exports all GIR module type definitions.
  */

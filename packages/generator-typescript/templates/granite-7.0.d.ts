@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Workaround
 /** @ignore */
 export module GraniteServicesSettingsSerializable {

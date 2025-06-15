@@ -267,6 +267,20 @@ export class TemplateProcessor {
     }
 
     /**
+     * Removes TypeScript directive comments from the first line of a template
+     * @param content The template content
+     * @return The template content without TypeScript directives in the first line
+     */
+    protected removeTypeScriptDirectives(content: string): string {
+        const lines = content.split('\n')
+        if (lines.length > 0 && (lines[0].includes('// @ts-nocheck') || lines[0].includes('// @ts-ignore'))) {
+            lines.shift() // Remove the first line
+            return lines.join('\n')
+        }
+        return content
+    }
+
+    /**
      * Reads a template file from filesystem and gets the raw string back
      * @param templateFilename
      * @return The raw template content
@@ -274,7 +288,8 @@ export class TemplateProcessor {
     protected async read(templateFilename: string) {
         const path = await this.exists(templateFilename)
         if (path) {
-            return await readFile(path, 'utf8')
+            const content = await readFile(path, 'utf8')
+            return this.removeTypeScriptDirectives(content)
         }
         throw new Error(`Template '${templateFilename}' not found'`)
     }
@@ -296,7 +311,8 @@ export class TemplateProcessor {
             }
             const results: { [path: string]: string } = {}
             for (const file of files) {
-                results[file] = await readFile(join(path, file), 'utf8')
+                const content = await readFile(join(path, file), 'utf8')
+                results[file] = this.removeTypeScriptDirectives(content)
             }
             return results
         }

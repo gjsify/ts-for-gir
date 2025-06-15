@@ -47,7 +47,7 @@ function websocket_connect_async_callback(_session: Soup.Session | null, res: Gi
         if (type !== Soup.WebsocketDataType.TEXT)
             return;
 
-        const str = textDecoder.decode(data.toArray());
+        const str = textDecoder.decode(data as Uint8Array);
         log(`message: ${str}`);
         connection.close(Soup.WebsocketCloseCode.NORMAL, null);
     });

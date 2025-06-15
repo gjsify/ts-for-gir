@@ -236,35 +236,6 @@ export type SignalsOf<T> = T extends { constructor: { SignalSignatures: infer S 
       : never
 
 /**
- * Extract signal names from any object with function properties
- * Works with SignalSignatures interfaces without requiring specific base type
- */
-export type SignalName<T> = T extends { [K in keyof T]: (...args: any[]) => any } ? keyof T : never
-
-/**
- * Extract callback type for a specific signal
- * Flexible version that works with any object containing functions
- * The extracted type is usually a generated interface with a `Callback` suffix, e.g., `ClickedCallback`.
- */
-export type SignalCallback<T, K extends keyof T> = T extends { [P in K]: infer C }
-    ? C extends (...args: any[]) => any
-        ? C
-        : never
-    : never
-
-/**
- * Extract parameters for a specific signal callback
- * Works with any signal signatures object
- */
-export type SignalParameters<T, K extends keyof T> = T extends { [P in K]: (...args: infer Args) => any } ? Args : never
-
-/**
- * Extract return type for a specific signal callback
- * Works with any signal signatures object
- */
-export type SignalReturnType<T, K extends keyof T> = T extends { [P in K]: (...args: any[]) => infer R } ? R : never
-
-/**
  * A helper type to replace the first parameter of a function type.
  * @hidden
  */

@@ -320,9 +320,8 @@ function connect&lt;K extends keyof Widget.SignalSignatures&gt;(
     callback: Widget.SignalSignatures[K]
 ) { return widget.connect(signal, callback); }
 
-// 3. Helper types for meta-programming
-type ClickedCallback = GObject.SignalCallback&lt;Signals, 'clicked'&gt;;
-type ClickedParams = GObject.SignalParameters&lt;Signals, 'clicked'&gt;;
+// 3. Extracting parameters and return type
+type ClickedParams = Parameters&lt;Signals['clicked']&gt;;
 
 // 4. JSX-style event props (simplified)
 &lt;Gtk.Button onClicked={() => {}} /&gt;

@@ -116,8 +116,8 @@ app.connect('activate', () => {
         // Define a custom property
         declare protected _foobar: string;
 
-        // Define a custom signal interface
-        static $signals: MyButtonSignals;
+        // Define a custom signal interface as instance property
+        declare $signals: MyButtonSignals;
 
         override connect<K extends keyof MyButtonSignals>(
             signal: K,

@@ -958,27 +958,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     ) {
         const def: string[] = []
 
-        // Add static $signals property for type-safe signal access (compile-time only)
-        const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
-        const hasGObjectParent =
-            isGObjectObject ||
-            girClass.someParent(
-                (p: IntrospectedBaseClass) => p.namespace.namespace === 'GObject' && p.name === 'Object',
-            )
-
-        if (hasGObjectParent) {
-            def.push(
-                `${generateIndent(indentCount)}/**`,
-                `${generateIndent(indentCount)} * Compile-time signal type information.`,
-                `${generateIndent(indentCount)} *`,
-                `${generateIndent(indentCount)} * This static property is generated only for TypeScript type checking.`,
-                `${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
-                `${generateIndent(indentCount)} * @internal`,
-                `${generateIndent(indentCount)} */`,
-                `${generateIndent(indentCount)}static $signals: ${girClass.name}.SignalSignatures;`,
-            )
-        }
-
         def.push(
             ...this.generateFields(
                 filterConflicts(
@@ -990,6 +969,35 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 indentCount,
             ),
         )
+
+        return def
+    }
+
+    generateClassSignalsProperty(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1) {
+        const def: string[] = []
+
+        // Add instance $signals property for type-safe signal access (compile-time only)
+        const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
+        const hasGObjectParent =
+            isGObjectObject ||
+            girClass.someParent(
+                (p: IntrospectedBaseClass) => p.namespace.namespace === 'GObject' && p.name === 'Object',
+            )
+
+        if (hasGObjectParent) {
+            def.push(
+                '',
+                `${generateIndent(indentCount)}/**`,
+                `${generateIndent(indentCount)} * Compile-time signal type information.`,
+                `${generateIndent(indentCount)} *`,
+                `${generateIndent(indentCount)} * This instance property is generated only for TypeScript type checking.`,
+                `${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
+                `${generateIndent(indentCount)} * @internal`,
+                `${generateIndent(indentCount)} */`,
+                `${generateIndent(indentCount)}$signals: ${girClass.name}.SignalSignatures;`,
+                '',
+            )
+        }
 
         return def
     }
@@ -1632,6 +1640,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             {
                 // Static Properties
                 def.push(...this.generateClassProperties(girClass))
+
+                // $signals property (instance property for type-safe signal access)
+                def.push(...this.generateClassSignalsProperty(girClass))
 
                 // Static and member Fields
                 def.push(...this.generateClassFields(girClass))

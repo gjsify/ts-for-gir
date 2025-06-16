@@ -43,8 +43,8 @@ class ExampleApplication extends Gtk.Application {
         }, this)
     }
 
-    // Define a custom signal interface
-    static $signals: ExampleApplicationSignals;
+    // Define a custom signal interface as instance property
+    declare $signals: ExampleApplicationSignals;
 
     override connect<K extends keyof ExampleApplicationSignals>(
         signal: K,

@@ -12,19 +12,19 @@ Gtk.init();
 // Direct access to the generated interface
 type ButtonSignals = Gtk.Button.SignalSignatures;
 
-// Generic helper using the new static `$signals` field (compile-time only)
+// Generic helper using the new instance `$signals` field (compile-time only)
 // NOTE: `$signals` does **not** exist at runtime; it is emitted purely in *.d.ts files.
 type HasSignals = { $signals: unknown };
 
 type SignalKey<T extends HasSignals> = Extract<keyof T['$signals'], string>;
 
 function on<
-    T extends typeof GObject.Object & HasSignals,
-    K extends SignalKey<T>
+    T extends typeof GObject.Object,
+    K extends SignalKey<InstanceType<T>>
 >(
     ctor: T,
     signal: K,
-    cb: GObject.SignalCallback<InstanceType<T>, T['$signals'][K]>,
+    cb: GObject.SignalCallback<InstanceType<T>, InstanceType<T>['$signals'][K]>,
 ): number {
     // cast: runtime has the regular `connect`
     return ctor.prototype.connect.call(ctor.prototype, signal, cb as any);

@@ -6,7 +6,7 @@ meta-programming scenarios such as JSX runtimes.
 
 ## Key concepts
 
-* `$signals` — a **compile-time only** static property that every
+* `$signals` — a **compile-time only** instance property that every
   `GObject.Object`-derived class now carries.  It exposes the
   `SignalSignatures` interface for that class and can be overridden in
   subclasses.
@@ -27,7 +27,7 @@ btn.connect('clicked', (self) => {
 ```ts
 import GObject from 'gi://GObject?version=2.0';
 
-// Only classes that actually have `$signals` are allowed
+// Only instances that actually have `$signals` are allowed
 interface HasSignals {
   $signals: Record<PropertyKey, (...args: any[]) => any>;
 }
@@ -35,12 +35,12 @@ interface HasSignals {
 type SignalKey<T extends HasSignals> = Extract<keyof T['$signals'], string>;
 
 function on<
-  T extends typeof GObject.Object & HasSignals,
-  K extends SignalKey<T>,
+  T extends typeof GObject.Object,
+  K extends SignalKey<InstanceType<T>>,
 >(
   ctor: T,
   signal: K,
-  cb: GObject.SignalCallback<InstanceType<T>, T['$signals'][K]>,
+  cb: GObject.SignalCallback<InstanceType<T>, InstanceType<T>['$signals'][K]>,
 ) {
   return (ctor.prototype as any).connect.call(ctor.prototype, signal, cb);
 }
@@ -53,7 +53,8 @@ on(Gtk.Button, 'clicked', (src) => print(src.get_label()));
 
 `$signals` is **undefined at runtime**; it only exists in the generated
 `.d.ts` files for the TypeScript compiler.  Attempting to read it in
-JavaScript will return `undefined`.
+JavaScript will return `undefined`. The property is defined as an instance
+property, allowing type inference from both class constructors and instances.
 
 
 ## Working Approaches

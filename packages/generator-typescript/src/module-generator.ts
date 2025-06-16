@@ -1258,7 +1258,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         // Map class-specific signals to their callback types
         if (girClass.signals.length > 0) {
             girClass.signals.forEach((signal) => {
-                const callbackName = upperCamelCase(signal.name) + 'Callback'
                 // Ensure valid TypeScript property names by quoting invalid identifiers
                 const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signal.name) ? signal.name : `"${signal.name}"`
 

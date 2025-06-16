@@ -1,4 +1,11 @@
 // @ts-nocheck
+
+/**
+ * Obtain the parameters of a function type in a tuple.
+ * Note: This is a copy of the Parameters type from the TypeScript standard library to avoid name conflicts, as some GIR types define `Parameters` as a namespace.
+ */
+export type GjsParameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
+
 // __type__ forces all GTypes to not match structurally.
 export type GType<T = unknown> = {
     __type__(arg: never): T
@@ -220,28 +227,11 @@ export interface SignalSignatures {
 }
 
 /**
- * Unique symbol for storing signal signatures on constructors
- * This allows TypeScript to infer signal types from constructor instances
+ * Helper to prepend the emitter (`source`) to an existing callback type.
  */
-export const signalSignaturesSymbol: unique symbol
-
-/**
- * Extract signal signatures from a constructor type or instance
- * Enhanced to work with both symbol property and constructor.SignalSignatures
- */
-export type SignalsOf<T> = T extends { constructor: { SignalSignatures: infer S } }
-    ? S
-    : T extends { [signalSignaturesSymbol]: infer S }
-      ? S
-      : never
-
-/**
- * A helper type to replace the first parameter of a function type.
- * @hidden
- */
-export type OverrideFirstParameter<T, T_FIRST_PARAM> = T extends (...args: [any, ...infer B]) => infer R
-    ? (_source: T_FIRST_PARAM, ...args: B) => R
-    : T
+export type SignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer R
+    ? (source: Emitter, ...args: P) => R
+    : never
 
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R

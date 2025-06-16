@@ -1,19 +1,63 @@
 # GTK 4 Signal Helper Types Demo
 
-This example demonstrates the advanced signal helper types that enable meta-programming scenarios like JSX runtimes, signal wrappers, and type-safe event handling abstractions.
+This example shows how the **generated `$signals` metadata** and the helper
+`GObject.SignalCallback` enable fully type-safe signal handling, even for
+meta-programming scenarios such as JSX runtimes.
 
-## Overview
+## Key concepts
 
-While the `gtk-4-signal-interfaces` example shows basic signal usage, this example focuses on the **helper types** that enable advanced use cases:
+* `$signals` — a **compile-time only** static property that every
+  `GObject.Object`-derived class now carries.  It exposes the
+  `SignalSignatures` interface for that class and can be overridden in
+  subclasses.
+* `GObject.SignalCallback<Emitter, Fn>` — helper that prepends the
+  emitter (`this`) to the inline callback type.
 
-- **SignalsOf<T>**: A type helper to extract all signal signatures from a GObject instance type.
-- **SignalSignatures**: An interface generated on GObject classes containing all signal definitions.
+## Direct usage
 
-These can be combined with TypeScript's built-in `keyof`, `Parameters`, and `ReturnType` for powerful, type-safe signal handling.
+```ts
+// Inferred callback type, `self` is Gtk.Button
+btn.connect('clicked', (self) => {
+    print(self.get_label());
+});
+```
+
+## Generic helper (e.g. for JSX runtimes)
+
+```ts
+import GObject from 'gi://GObject?version=2.0';
+
+// Only classes that actually have `$signals` are allowed
+interface HasSignals {
+  $signals: Record<PropertyKey, (...args: any[]) => any>;
+}
+
+type SignalKey<T extends HasSignals> = Extract<keyof T['$signals'], string>;
+
+function on<
+  T extends typeof GObject.Object & HasSignals,
+  K extends SignalKey<T>,
+>(
+  ctor: T,
+  signal: K,
+  cb: GObject.SignalCallback<InstanceType<T>, T['$signals'][K]>,
+) {
+  return (ctor.prototype as any).connect.call(ctor.prototype, signal, cb);
+}
+
+// usage
+on(Gtk.Button, 'clicked', (src) => print(src.get_label()));
+```
+
+## Runtime note
+
+`$signals` is **undefined at runtime**; it only exists in the generated
+`.d.ts` files for the TypeScript compiler.  Attempting to read it in
+JavaScript will return `undefined`.
+
 
 ## Working Approaches
 
-### 1. Direct Type Extraction (Recommended)
 ```typescript
 // Extract signal signatures directly from the class
 type Signals = Gtk.Button.SignalSignatures;
@@ -26,16 +70,6 @@ function connect<K extends keyof Widget.SignalSignatures>(
 ) {
     return widget.connect(signal, callback);
 }
-```
-
-### 2. Extracting Types for Meta-Programming
-```typescript
-// Use GObject.SignalsOf to get signals from an instance type
-type ButtonSignals = GObject.SignalsOf<Gtk.Button>;
-
-// Use built-in helpers to get parameter and return types
-type ClickedParams = Parameters<ButtonSignals['clicked']>;
-type ClickedReturn = ReturnType<ButtonSignals['clicked']>;
 ```
 
 ## Use Cases Demonstrated
@@ -88,7 +122,7 @@ yarn start
 
 ## Key Concepts
 
-1. **Type Extraction**: The `SignalSignatures` and `SignalsOf` types allow extracting signal information at the type level.
+1. **Type Extraction**: The `SignalSignatures` interface allows extracting signal information at the type level.
 2. **Meta-Programming**: Enable building abstractions on top of the signal system with strong type guarantees.
 3. **Framework Development**: The patterns shown are ideal for building UI frameworks or reactive libraries on top of GJS.
 4. **Type Safety**: Maintain full type safety with standard TypeScript features and the provided helpers.

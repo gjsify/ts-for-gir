@@ -958,6 +958,27 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     ) {
         const def: string[] = []
 
+        // Add static $signals property for type-safe signal access (compile-time only)
+        const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
+        const hasGObjectParent =
+            isGObjectObject ||
+            girClass.someParent(
+                (p: IntrospectedBaseClass) => p.namespace.namespace === 'GObject' && p.name === 'Object',
+            )
+
+        if (hasGObjectParent) {
+            def.push(
+                `${generateIndent(indentCount)}/**`,
+                `${generateIndent(indentCount)} * Compile-time signal type information.`,
+                `${generateIndent(indentCount)} *`,
+                `${generateIndent(indentCount)} * This static property is generated only for TypeScript type checking.`,
+                `${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
+                `${generateIndent(indentCount)} * @internal`,
+                `${generateIndent(indentCount)} */`,
+                `${generateIndent(indentCount)}static $signals: ${girClass.name}.SignalSignatures;`,
+            )
+        }
+
         def.push(
             ...this.generateFields(
                 filterConflicts(
@@ -1136,40 +1157,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         const def: string[] = []
         const tsSignals = girClass.signals
 
-        // Generate individual signal callback interfaces only if we have signals
-        if (tsSignals.length > 0) {
-            def.push(
-                ...this.generateCallbackInterfaces(
-                    tsSignals.map((signal) => {
-                        // Signal callbacks always have the source object as the first parameter
-
-                        // For boolean return types, allow both boolean and void (void is treated as false)
-                        // This makes signal handlers more flexible as users can omit return statements
-                        let returnType = signal.return_type
-                        if (signal.return_type.equals(BooleanType)) {
-                            returnType = new BinaryType(BooleanType, VoidType)
-                        }
-
-                        return new IntrospectedClassCallback({
-                            name: upperCamelCase(signal.name) + 'Callback',
-                            parameters: [
-                                new IntrospectedFunctionParameter({
-                                    name: '_source',
-                                    type: girClass.getType(),
-                                    direction: GirDirection.In,
-                                }),
-                                ...signal.parameters.map((p) => p.copy()),
-                            ],
-                            return_type: returnType,
-                            parent: signal.parent,
-                        })
-                    }),
-                    indentCount,
-                    girClass.name,
-                    'Signal callback interfaces',
-                ),
-            )
-        }
+        // No separate callback interfaces generated. All callback types are inlined directly in SignalSignatures.
 
         // Always generate SignalSignatures interface for proper inheritance
         def.push(...this.generateSignalSignatures(girClass, indentCount))
@@ -1273,7 +1261,22 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 const callbackName = upperCamelCase(signal.name) + 'Callback'
                 // Ensure valid TypeScript property names by quoting invalid identifiers
                 const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signal.name) ? signal.name : `"${signal.name}"`
-                def.push(`${indent}    ${signalKey}: ${callbackName};`)
+
+                // Build inline function type without the implicit source parameter
+                const paramTypes = signal.parameters
+                    .map((p, idx) => `arg${idx}: ${this.generateType(p.type)}`)
+                    .join(', ')
+
+                // For boolean return types, allow boolean | void for flexibility
+                let returnType = signal.return_type
+                if (signal.return_type.equals(BooleanType)) {
+                    returnType = new BinaryType(BooleanType, VoidType)
+                }
+                const returnTypeStr = this.generateType(returnType)
+
+                const cbType = `(${paramTypes}) => ${returnTypeStr}`
+
+                def.push(`${indent}    ${signalKey}: ${cbType};`)
             })
         }
 
@@ -1313,33 +1316,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
             // Generate notify signals for GObject.Object and all classes that inherit from it
             if (isGObjectObject || hasNotifySignal || hasGObjectParent) {
-                // Resolve the correct reference to the Notify signal type
-                let notifyRef = 'NotifyCallback'
-                if (!isGObjectObject) {
-                    // For non-GObject classes, we need to reference the correct namespace
-                    const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
-                    const gobjectObjectClass = gobjectNamespace.assertClass('Object')
-                    const gobjectRef = gobjectObjectClass
-                        .getType()
-                        .resolveIdentifier(this.namespace, this.config)
-                        ?.print(this.namespace, this.config)
-
-                    notifyRef = gobjectRef ? `${gobjectRef}.NotifyCallback` : 'GObject.Object.NotifyCallback'
-                }
-
-                // Use Set to avoid duplicate property signals when the same property exists in multiple interfaces
+                // Use Set to avoid duplicates across inherited properties
                 const uniqueSignalPropNames = new Set(
                     allProperties.map((prop) =>
                         prop.name
-                            .replace(/_/g, '-') // underscores → hyphens
-                            .replace(/([a-z0-9])([A-Z])/g, '$1-$2') // camelCase → hyphen
+                            .replace(/_/g, '-')
+                            .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
                             .toLowerCase(),
                     ),
                 )
 
                 uniqueSignalPropNames.forEach((signalPropName) => {
                     const notifySignalKey = `"notify::${signalPropName}"`
-                    def.push(`${indent}    ${notifySignalKey}: ${notifyRef};`)
+                    const notifyTypeInline = `(pspec: GObject.ParamSpec) => void`
+                    def.push(`${indent}    ${notifySignalKey}: ${notifyTypeInline};`)
                 })
             }
         }
@@ -1365,8 +1355,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                         // Generate property-specific detail signal: signal-name::property-name
                         // GObject uses hyphen notation for property names in signals
                         const detailSignalKey = `"${detailSignal.name}::${signalPropName}"`
-                        const detailCallbackName = upperCamelCase(detailSignal.name) + 'Callback'
-                        def.push(`${indent}    ${detailSignalKey}: ${detailCallbackName};`)
+                        const detailParamTypes = detailSignal.parameters
+                            .map((p, idx) => `arg${idx}: ${this.generateType(p.type)}`)
+                            .join(', ')
+                        const detailReturnStr = this.generateType(detailSignal.return_type)
+                        const detailCbType = `(${detailParamTypes}) => ${detailReturnStr}`
+                        def.push(`${indent}    ${detailSignalKey}: ${detailCbType};`)
                     })
                 })
             }
@@ -1418,11 +1412,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         if (allowedNames.has('connect')) {
             methods.push(
                 // Type-safe overload for known signals
-                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${
-                    girClass.name
-                }.SignalSignatures[K] extends (...args: any[]) => any ? ${gobjectRef}OverrideFirstParameter<${
-                    girClass.name
-                }.SignalSignatures[K], this> : ${girClass.name}.SignalSignatures[K]): number;`,
+                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
                 // Fallback overload for dynamic signals
                 `connect(signal: string, callback: (...args: any[]) => any): number;`,
             )
@@ -1431,11 +1421,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         if (allowedNames.has('connect_after')) {
             methods.push(
                 // Type-safe overload for known signals
-                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${
-                    girClass.name
-                }.SignalSignatures[K] extends (...args: any[]) => any ? ${gobjectRef}OverrideFirstParameter<${
-                    girClass.name
-                }.SignalSignatures[K], this> : ${girClass.name}.SignalSignatures[K]): number;`,
+                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
                 // Fallback overload for dynamic signals
                 `connect_after(signal: string, callback: (...args: any[]) => any): number;`,
             )
@@ -1445,9 +1431,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             // Fix: Use a conditional type to extract parameters from the signal signature
             methods.push(
                 // Type-safe overload for known signals
-                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${
-                    girClass.name
-                }.SignalSignatures[K] extends (...args: infer P) => any ? P extends [any, ...infer Q] ? Q : never : never): void;`,
+                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
                 // Fallback overload for dynamic signals
                 `emit(signal: string, ...args: any[]): void;`,
             )

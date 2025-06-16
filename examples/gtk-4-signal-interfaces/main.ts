@@ -89,13 +89,49 @@ app.connect('activate', () => {
         statusLabel.set_text(`Complex button clicked - received source: ${_source.get_label()}`)
     })
 
+    // Define a custom signal interface
+    interface MyButtonSignals extends Gtk.Button.SignalSignatures {
+        "hello": (arg: string) => void;
+    }
+
     // Button to demonstrate subclass signal typing
     class MyButton extends Gtk.Button {
+
+        static {
+            GObject.registerClass({
+                GTypeName: 'MyButton',
+                Properties: {
+                    foobar: GObject.ParamSpec.string(
+                        'foobar',
+                        'Foobar',
+                        'Foobar',
+                        GObject.ParamFlags.READWRITE,
+                        'default value'
+                    )
+                },
+                Signals: {'hello': {param_types: [GObject.TYPE_STRING]}},
+            }, this);
+        }
+
+        // Define a custom property
+        declare protected _foobar: string;
+
+        // Define a custom signal interface
+        static $signals: MyButtonSignals;
+
+        override connect<K extends keyof MyButtonSignals>(
+            signal: K,
+            callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
+        ): number {
+            return super.connect(signal, callback);
+        }
+
         constructor(props?: Partial<Gtk.Button.ConstructorProps>) {
             super(props);
         }
         
         public customMethod() {
+            this.emit('hello', 'world');
             return "This is MyButton!";
         }
     }
@@ -106,6 +142,10 @@ app.connect('activate', () => {
     myButton.connect('clicked', (src) => {
         console.log('Subclassed button clicked!', src.customMethod());
         statusLabel.set_text(`Subclassed button clicked! Got: "${src.customMethod()}"`);
+    });
+
+    myButton.connect('hello', (src, arg) => {
+        console.log('Hello signal received:', arg);
     });
 
     // Toggle button to demonstrate state changes

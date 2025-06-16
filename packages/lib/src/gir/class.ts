@@ -451,6 +451,116 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         super({ name, namespace });
     }
 
+    /**
+     * Returns all signals for this class including:
+     * - Explicit signals defined on the class
+     * - Property notification signals (notify::property-name) for GObject-derived classes
+     * - Detailed signal variants for properties (signal-name::property-name)
+     */
+    getAllSignals(): Array<{
+        name: string;
+        signal?: IntrospectedSignal;
+        isNotifySignal?: boolean;
+        isDetailSignal?: boolean;
+        parameterTypes?: string[];
+        returnType?: string;
+    }> {
+        const allSignals: Array<{
+            name: string;
+            signal?: IntrospectedSignal;
+            isNotifySignal?: boolean;
+            isDetailSignal?: boolean;
+            parameterTypes?: string[];
+            returnType?: string;
+        }> = [];
+
+        // Add explicit signals defined on the class
+        this.signals.forEach(signal => {
+            allSignals.push({
+                name: signal.name,
+                signal: signal,
+                isNotifySignal: false,
+                isDetailSignal: false
+            });
+        });
+
+        // Check if this class supports GObject notifications
+        const isGObjectObject = this.name === 'Object' && this.namespace.namespace === 'GObject';
+        const hasNotifySignal = this.signals.some(signal => signal.name === 'notify');
+        const hasGObjectParent = this.someParent(
+            (p: IntrospectedClass | IntrospectedInterface) => 
+                p.namespace.namespace === 'GObject' && p.name === 'Object'
+        );
+
+        if (isGObjectObject || hasNotifySignal || hasGObjectParent) {
+            // Collect all properties (own + inherited + implemented)
+            const allProperties = this.getAllProperties();
+
+            // Generate property notification signals (notify::property-name)
+            const uniquePropertyNames = new Set(
+                allProperties.map(prop => 
+                    prop.name
+                        .replace(/_/g, '-')
+                        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+                        .toLowerCase()
+                )
+            );
+
+            uniquePropertyNames.forEach(propertyName => {
+                allSignals.push({
+                    name: `notify::${propertyName}`,
+                    isNotifySignal: true,
+                    isDetailSignal: false,
+                    parameterTypes: ['GObject.ParamSpec'],
+                    returnType: 'void'
+                });
+            });
+
+            // Generate detailed signal variants for properties
+            const detailSignals = this.signals.filter(signal => signal.detailed);
+            if (detailSignals.length > 0) {
+                detailSignals.forEach(detailSignal => {
+                    uniquePropertyNames.forEach(propertyName => {
+                        allSignals.push({
+                            name: `${detailSignal.name}::${propertyName}`,
+                            signal: detailSignal,
+                            isNotifySignal: false,
+                            isDetailSignal: true
+                        });
+                    });
+                });
+            }
+        }
+
+        return allSignals;
+    }
+
+    /**
+     * Returns all properties for this class including inherited and implemented properties
+     */
+    private getAllProperties(): IntrospectedProperty[] {
+        const allProperties = [...this.props];
+
+        // Add properties from parent classes
+        let currentClass = this as IntrospectedClass;
+        while (currentClass) {
+            const parentResolution = currentClass.resolveParents().extends();
+            if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
+                const parentClass = parentResolution.node as IntrospectedClass;
+                allProperties.push(...parentClass.props);
+                currentClass = parentClass;
+            } else {
+                break;
+            }
+        }
+
+        // Add properties from implemented interfaces
+        const implementedProps = this.implementedProperties();
+        allProperties.push(...implementedProps);
+
+        return allProperties;
+    }
+
     accept(visitor: GirVisitor): IntrospectedClass {
         const node = this.copy({
             signals: this.signals.map(s => s.accept(visitor)),
@@ -962,6 +1072,21 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
     private _isSimple: boolean | null = null;
     private _isSimpleWithoutPointers: string | null = null;
 
+    /**
+     * Returns all signals for this record (records typically don't have signals)
+     */
+    getAllSignals(): Array<{
+        name: string;
+        signal?: IntrospectedSignal;
+        isNotifySignal?: boolean;
+        isDetailSignal?: boolean;
+        parameterTypes?: string[];
+        returnType?: string;
+    }> {
+        // Records typically don't have signals, but we provide a consistent API
+        return [];
+    }
+
     isForeign(): boolean {
         return this._isForeign;
     }
@@ -1344,6 +1469,21 @@ export class GirComplexRecord extends IntrospectedRecord {
 export class IntrospectedInterface extends IntrospectedBaseClass {
     noParent = false;
     mainConstructor: null | IntrospectedConstructor = null;
+
+    /**
+     * Returns all signals for this interface (most interfaces don't have signals, but some might)
+     */
+    getAllSignals(): Array<{
+        name: string;
+        signal?: IntrospectedSignal;
+        isNotifySignal?: boolean;
+        isDetailSignal?: boolean;
+        parameterTypes?: string[];
+        returnType?: string;
+    }> {
+        // Most interfaces don't have signals, but we provide a consistent API
+        return [];
+    }
 
     copy(
         options: {

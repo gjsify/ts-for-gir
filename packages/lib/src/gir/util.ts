@@ -493,7 +493,6 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
         case "guint32":
         case "guint16":
         case "gint16":
-        case "gunichar":
         case "gint8":
         case "gint32":
         case "gushort":
@@ -530,6 +529,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return ThisType;
         case "number": // Support TS "number"
             return NumberType;
+        case "gunichar":
         case "string": // Support TS "string"
             return StringType;
         case "boolean": // Support TS "boolean"

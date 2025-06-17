@@ -16,7 +16,7 @@ import {
     PACKAGE_DESC,
     PACKAGE_KEYWORDS,
     DependencyManager,
-    Transformation,
+    transformImportName,
     fileExists,
     GirNSRegistry,
 } from '@ts-for-gir/lib'
@@ -27,7 +27,6 @@ const TEMPLATE_DIR = join(__dirname, './templates')
 
 export class TemplateProcessor {
     protected log: Logger
-    protected transformation: Transformation
     constructor(
         protected readonly data: TemplateData | undefined,
         protected readonly packageName: string,
@@ -35,7 +34,6 @@ export class TemplateProcessor {
         protected readonly config: OptionsGeneration,
         protected readonly registry: GirNSRegistry,
     ) {
-        this.transformation = Transformation.getSingleton(config)
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory
@@ -50,7 +48,7 @@ export class TemplateProcessor {
             APP_VERSION,
             PACKAGE_DESC: PACKAGE_DESC(packageName, this.data?.girModule?.libraryVersion),
             PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
-            importName: this.transformation.transformImportName(packageName),
+            importName: transformImportName(packageName),
             dep,
             deps,
             typeDir,

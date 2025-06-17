@@ -58,6 +58,7 @@ import {
     filterConflicts,
     printGirDocComment,
     promisifyFunctions,
+    transformGirDocText,
 } from '@ts-for-gir/lib'
 
 import { TemplateProcessor } from './template-processor.js'
@@ -495,7 +496,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             return desc
         }
 
-        const text = tsDoc ? this.namespace.transformation.transformGirDocText(tsDoc) : null
+        const text = tsDoc ? transformGirDocText(tsDoc) : null
 
         if (text) {
             desc.push(`${indent}/**`)

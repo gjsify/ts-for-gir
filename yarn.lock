@@ -13596,6 +13596,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/glib-2-types@workspace:examples/glib-2-types":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/glib-2-types@workspace:examples/glib-2-types"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    esbuild: "npm:^0.25.5"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/glib-2-variant-example@workspace:examples/glib-2-variant":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/glib-2-variant-example@workspace:examples/glib-2-variant"

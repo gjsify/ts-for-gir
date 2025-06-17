@@ -43,9 +43,6 @@ yarn watch # For continuous development
 # Quick test with single module
 yarn start:dev generate GLib-2.0 --verbose
 
-# Test with dependencies
-yarn start:dev generate Gtk-4.0 --includeResolvedDeps
-
 # Full test suite
 yarn test:girs:packages:gtk4
 ```

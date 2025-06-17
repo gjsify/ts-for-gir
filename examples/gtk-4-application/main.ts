@@ -18,6 +18,12 @@ import GObject from 'gi://GObject?version=2.0';
 // otherwise an exception will be thrown
 import Gtk from 'gi://Gtk?version=4.0';
 
+// Define a custom signal interface
+interface ExampleApplicationSignals extends Gtk.Application.SignalSignatures {
+    "hello": (arg: string) => void;
+}
+
+
 // An example GtkApplication with a few bells and whistles, see also:
 //     https://wiki.gnome.org/HowDoI/GtkApplication
 class ExampleApplication extends Gtk.Application {
@@ -35,6 +41,16 @@ class ExampleApplication extends Gtk.Application {
             },
             Signals: {'examplesig': {param_types: [GObject.TYPE_INT]}},
         }, this)
+    }
+
+    // Define a custom signal interface as instance property
+    declare $signals: ExampleApplicationSignals;
+
+    override connect<K extends keyof ExampleApplicationSignals>(
+        signal: K,
+        callback: GObject.SignalCallback<this, ExampleApplicationSignals[K]>,
+    ): number {
+        return super.connect(signal, callback);
     }
 
     constructor() {

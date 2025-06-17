@@ -1,7 +1,7 @@
 {
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/soup-3.0"],
+    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2.0", "@girs/glib-2.0", "@girs/gtk-4.0"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -10,11 +10,9 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "noEmit": true,
-    "outDir": "dist"
+    "outDir": "./dist"
   },
   "files": [
-    "http-client.ts",
-    "http-server.ts"
+    "main.ts",
   ]
 }

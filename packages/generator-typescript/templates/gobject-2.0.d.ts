@@ -1,6 +1,10 @@
-// A few things here are inspired by gi.ts
-// See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
-// Copyright Evan Welsh
+// @ts-nocheck
+
+/**
+ * Obtain the parameters of a function type in a tuple.
+ * Note: This is a copy of the Parameters type from the TypeScript standard library to avoid name conflicts, as some GIR types define `Parameters` as a namespace.
+ */
+export type GjsParameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
 
 // __type__ forces all GTypes to not match structurally.
 export type GType<T = unknown> = {
@@ -215,6 +219,19 @@ export function signal_handlers_disconnect_by_func(instance: Object, func: (...a
 export function signal_handlers_disconnect_by_data(): void
 
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
+
+// Helper types for type-safe signal handling
+export interface SignalSignatures {
+    /** Fallback for dynamic signals and type compatibility */
+    [signal: string]: (...args: any[]) => any
+}
+
+/**
+ * Helper to prepend the emitter (`source`) to an existing callback type.
+ */
+export type SignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer R
+    ? (source: Emitter, ...args: P) => R
+    : never
 
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R

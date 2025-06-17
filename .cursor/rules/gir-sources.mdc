@@ -8,8 +8,7 @@ alwaysApply: false
 ## GIR File Locations
 - `/girs/` - Copied GIR files for consistent builds
 - `/vala-girs/` - Git submodule with additional GIR files
-- System paths (Ubuntu): `/usr/share/gir-1.0/`
-- System paths (Fedora): `/usr/share/gir-1.0/`
+- System paths (Ubuntu/Fedora): `/usr/share/gir-1.0/`
 
 ## Important Scripts
 - `/scripts/` - Build and utility scripts
@@ -29,7 +28,6 @@ alwaysApply: false
 ## Dependencies
 - GIR files reference other GIR files
 - Dependency resolution is automatic
-- Use `--includeResolvedDeps` to generate all dependencies
 
 ## Adding New GIR Files
 1. Install system package with GIR files

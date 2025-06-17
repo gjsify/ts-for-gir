@@ -27,6 +27,8 @@ import {
     ArrayType,
     FilterBehavior,
     VoidType,
+    BooleanType,
+    ThisType,
     ClassStructTypeIdentifier,
     promisifyNamespaceFunctions,
     OptionsGeneration,
@@ -198,9 +200,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     isStatic: false,
                 }),
             )
+        const gtypeNamespace = namespace.namespace === 'GObject' ? '' : 'GObject.'
         return [
             `export interface ${node.name}Namespace {
-      ${isGObject ? `$gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${node.name}>;` : ''}
+      ${isGObject ? `$gtype: ${gtypeNamespace}GType<${node.name}>;` : ''}
       prototype: ${node.name};
       ${staticFields.length > 0 ? staticFields.flatMap((sf) => sf.asString(this)).join('\n') : ''}
       ${
@@ -800,7 +803,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         desc.push(``)
         desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
         desc.push(`export namespace ${name} {`)
-        desc.push(`    export const $gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${name}>;`)
+        const gtypeNamespace = namespace.namespace === 'GObject' ? '' : 'GObject.'
+        desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`)
         desc.push(`}`)
         desc.push(``)
 
@@ -969,6 +973,35 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
+    generateClassSignalsProperty(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1) {
+        const def: string[] = []
+
+        // Add instance $signals property for type-safe signal access (compile-time only)
+        const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
+        const hasGObjectParent =
+            isGObjectObject ||
+            girClass.someParent(
+                (p: IntrospectedBaseClass) => p.namespace.namespace === 'GObject' && p.name === 'Object',
+            )
+
+        if (hasGObjectParent) {
+            def.push(
+                '',
+                `${generateIndent(indentCount)}/**`,
+                `${generateIndent(indentCount)} * Compile-time signal type information.`,
+                `${generateIndent(indentCount)} *`,
+                `${generateIndent(indentCount)} * This instance property is generated only for TypeScript type checking.`,
+                `${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
+                `${generateIndent(indentCount)} * @internal`,
+                `${generateIndent(indentCount)} */`,
+                `${generateIndent(indentCount)}$signals: ${girClass.name}.SignalSignatures;`,
+                '',
+            )
+        }
+
+        return def
+    }
+
     generateClassMemberFields(
         girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface,
         indentCount = 1,
@@ -1132,126 +1165,205 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         const def: string[] = []
         const tsSignals = girClass.signals
 
-        def.push(
-            ...this.generateCallbackInterfaces(
-                tsSignals.map((signal) => {
-                    return new IntrospectedClassCallback({
-                        name: upperCamelCase(signal.name),
-                        parameters: signal.parameters,
-                        return_type: signal.return_type,
-                        parent: signal.parent,
-                    })
-                }),
-                indentCount,
-                girClass.name,
-                'Signal callback interfaces',
-            ),
-        )
+        // No separate callback interfaces generated. All callback types are inlined directly in SignalSignatures.
+
+        // Always generate SignalSignatures interface for proper inheritance
+        def.push(...this.generateSignalSignatures(girClass, indentCount))
+
+        return def
+    }
+
+    /**
+     * Generate SignalSignatures interface for type-safe signal handling
+     *
+     * This creates a comprehensive mapping of signal names to their callback types,
+     * enabling TypeScript to provide proper type checking and IntelliSense for
+     * GObject signals using the centralized getAllSignals() method from the model.
+     */
+    generateSignalSignatures(girClass: IntrospectedClass, indentCount = 0): string[] {
+        const def: string[] = []
+        const indent = generateIndent(indentCount)
+
+        // Generate SignalSignatures interface to maintain type inheritance chain
+        def.push(`${indent}// Signal signatures`)
+        def.push(`${indent}interface SignalSignatures`)
+
+        // Build inheritance chain for signal signatures
+        const parentSignatures: string[] = []
+
+        // Inherit signal signatures from parent class
+        const parentResolution = girClass.resolveParents().extends()
+        if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
+            const parentClass = parentResolution.node as IntrospectedClass
+            const parentTypeIdentifier = parentResolution.identifier
+                .resolveIdentifier(this.namespace, this.config)
+                ?.print(this.namespace, this.config)
+
+            // Include parent signals unless it's a template workaround class
+            const hasSignalMethods = parentClass.signals?.length > 0
+            const isNotTemplateWorkaround = !(
+                this.namespace.namespace === 'Gimp' &&
+                ['ParamObject', 'ParamItem', 'ParamArray'].includes(parentClass.name)
+            )
+
+            if (parentTypeIdentifier && (hasSignalMethods || isNotTemplateWorkaround)) {
+                parentSignatures.push(`${parentTypeIdentifier}.SignalSignatures`)
+            }
+        }
+
+        // Inherit signal signatures from implemented interfaces
+        const interfaceSignatures = girClass
+            .resolveParents()
+            .implements()
+            .filter((iface) => iface.node instanceof IntrospectedInterface)
+            .filter((iface) => {
+                // Only include interfaces that actually define signals
+                return (iface.node as any).signals && (iface.node as any).signals.length > 0
+            })
+            .map((iface) => {
+                const interfaceTypeIdentifier = iface.identifier
+                    .resolveIdentifier(this.namespace, this.config)
+                    ?.print(this.namespace, this.config)
+                return interfaceTypeIdentifier ? `${interfaceTypeIdentifier}.SignalSignatures` : null
+            })
+            .filter((sig): sig is string => !!sig)
+
+        parentSignatures.push(...interfaceSignatures)
+
+        // Apply inheritance or fallback to base GObject signals
+        if (parentSignatures.length > 0) {
+            def.push(` extends ${parentSignatures.join(', ')} {`)
+        } else {
+            // Handle root GObject.Object class to avoid circular references
+            const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
+
+            if (isGObjectObject) {
+                def.push(` {`)
+            } else {
+                // All other classes inherit from GObject.Object's signal signatures as fallback
+                const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
+                const gobjectObjectClass = gobjectNamespace.assertClass('Object')
+                const gobjectRef = gobjectObjectClass
+                    .getType()
+                    .resolveIdentifier(this.namespace, this.config)
+                    ?.print(this.namespace, this.config)
+
+                const fallbackRef = gobjectRef ? `${gobjectRef}.SignalSignatures` : 'GObject.Object.SignalSignatures'
+                def.push(` extends ${fallbackRef} {`)
+            }
+        }
+
+        // Use the centralized getAllSignals method from the model
+        const allSignals = girClass.getAllSignals()
+
+        allSignals.forEach((signalInfo) => {
+            // Ensure valid TypeScript property names by quoting invalid identifiers
+            const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signalInfo.name)
+                ? signalInfo.name
+                : `"${signalInfo.name}"`
+
+            let cbType: string
+
+            if (signalInfo.isNotifySignal) {
+                // Property notification signals have a standard signature
+                const gobjectRef = this.namespace.namespace === 'GObject' ? '' : 'GObject.'
+                cbType = `(pspec: ${gobjectRef}ParamSpec) => void`
+            } else if (signalInfo.signal) {
+                // Regular signals - use the signal's parameters and return type
+                const paramTypes = signalInfo.signal.parameters
+                    .map((p, idx) => `arg${idx}: ${this.generateType(p.type)}`)
+                    .join(', ')
+
+                // For boolean return types, allow boolean | void for flexibility
+                let returnType = signalInfo.signal.return_type
+                if (signalInfo.signal.return_type.equals(BooleanType)) {
+                    returnType = new BinaryType(BooleanType, VoidType)
+                }
+                const returnTypeStr = this.generateType(returnType)
+
+                cbType = `(${paramTypes}) => ${returnTypeStr}`
+            } else {
+                // Fallback for custom signal types
+                const paramTypes = signalInfo.parameterTypes?.map((type, idx) => `arg${idx}: ${type}`) || []
+                const returnTypeStr = signalInfo.returnType || 'void'
+                cbType = `(${paramTypes.join(', ')}) => ${returnTypeStr}`
+            }
+
+            def.push(`${indent}    ${signalKey}: ${cbType};`)
+        })
+
+        def.push(`${indent}}`)
+        def.push('')
 
         return def
     }
 
     generateSignals(girClass: IntrospectedClass) {
-        const namespace = girClass.namespace
-        // TODO Move these to a cleaner place.
-
-        const Connect = new IntrospectedClassFunction({
-            name: 'connect',
-            parent: girClass,
-            parameters: [
-                new IntrospectedFunctionParameter({
-                    name: 'id',
-                    type: StringType,
-                    direction: GirDirection.In,
-                }),
-                new IntrospectedFunctionParameter({
-                    name: 'callback',
-                    type: AnyFunctionType,
-                    direction: GirDirection.In,
-                }),
-            ],
-            return_type: NumberType,
-        })
-
-        const ConnectAfter = new IntrospectedClassFunction({
-            name: 'connect_after',
-            parent: girClass,
-            parameters: [
-                new IntrospectedFunctionParameter({
-                    name: 'id',
-                    type: StringType,
-                    direction: GirDirection.In,
-                }),
-                new IntrospectedFunctionParameter({
-                    name: 'callback',
-                    type: AnyFunctionType,
-                    direction: GirDirection.In,
-                }),
-            ],
-            return_type: NumberType,
-        })
-
-        const Emit = new IntrospectedClassFunction({
-            name: 'emit',
-            parent: girClass,
-            parameters: [
-                new IntrospectedFunctionParameter({
-                    name: 'id',
-                    type: StringType,
-                    direction: GirDirection.In,
-                }),
-                new IntrospectedFunctionParameter({
-                    name: 'args',
-                    isVarArgs: true,
-                    type: new ArrayType(AnyType),
-                    direction: GirDirection.In,
-                }),
-            ],
-            return_type: VoidType,
-        })
-
-        let defaultSignals = [] as IntrospectedClassFunction[]
-        let hasConnect, hasConnectAfter, hasEmit
-
-        if (girClass.signals.length > 0) {
-            hasConnect = girClass.members.some((m) => m.name === 'connect')
-            hasConnectAfter = girClass.members.some((m) => m.name === 'connect_after')
-            hasEmit = girClass.members.some((m) => m.name === 'emit')
-
-            if (!hasConnect) {
-                defaultSignals.push(Connect)
-            }
-            if (!hasConnectAfter) {
-                defaultSignals.push(ConnectAfter)
-            }
-            if (!hasEmit) {
-                defaultSignals.push(Emit)
-            }
-
-            defaultSignals = filterConflicts(namespace, girClass, defaultSignals, FilterBehavior.DELETE)
-
-            hasConnect = !defaultSignals.some((s) => s.name === 'connect')
-            hasConnectAfter = !defaultSignals.some((s) => s.name === 'connect_after')
-            hasEmit = !defaultSignals.some((s) => s.name === 'emit')
-        }
-
-        const SignalsList = [
-            // TODO Relocate these.
-            ...defaultSignals.flatMap((s) => s.asString(this)),
-            ...girClass.signals
-                .map((s) => {
-                    const methods = [] as string[]
-
-                    if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
-                    if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
-                    if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
-
-                    return methods
-                })
-                .flat(),
+        // Create IntrospectedClassFunction instances for the signal methods
+        // These represent the GObject signal methods that we want to generate
+        const signalFunctions = [
+            new IntrospectedClassFunction({
+                name: 'connect',
+                parent: girClass,
+                parameters: [],
+                return_type: NumberType,
+            }),
+            new IntrospectedClassFunction({
+                name: 'connect_after',
+                parent: girClass,
+                parameters: [],
+                return_type: NumberType,
+            }),
+            new IntrospectedClassFunction({
+                name: 'emit',
+                parent: girClass,
+                parameters: [],
+                return_type: VoidType,
+            }),
         ]
 
-        return SignalsList
+        // Filter out signal methods that conflict with existing methods in the class or parent classes
+        // For example, if a class already has a connect() method (like Camel.Service), we don't generate
+        // the signal connect() method to avoid conflicts
+        const filteredFunctions = filterConflicts(girClass.namespace, girClass, signalFunctions, FilterBehavior.DELETE)
+
+        // Get the names of methods that should be kept (non-conflicting)
+        const allowedNames = new Set(filteredFunctions.map((f) => f.name))
+
+        const gobjectRef = this.namespace.namespace === 'GObject' ? '' : 'GObject.'
+
+        // Generate only the non-conflicting type-safe signal methods
+        const methods: string[] = []
+
+        if (allowedNames.has('connect')) {
+            methods.push(
+                // Type-safe overload for known signals
+                `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
+                // Fallback overload for dynamic signals
+                `connect(signal: string, callback: (...args: any[]) => any): number;`,
+            )
+        }
+
+        if (allowedNames.has('connect_after')) {
+            methods.push(
+                // Type-safe overload for known signals
+                `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
+                // Fallback overload for dynamic signals
+                `connect_after(signal: string, callback: (...args: any[]) => any): number;`,
+            )
+        }
+
+        if (allowedNames.has('emit')) {
+            // Fix: Use a conditional type to extract parameters from the signal signature
+            methods.push(
+                // Type-safe overload for known signals
+                `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
+                // Fallback overload for dynamic signals
+                `emit(signal: string, ...args: any[]): void;`,
+            )
+        }
+
+        return methods
     }
 
     generateClassSignals(girClass: IntrospectedClass) {
@@ -1436,9 +1548,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             }
 
             // $gtype compatibility
-            def.push(
-                `static $gtype: ${this.namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${girClass.name}>;`,
-            )
+            const gtypeNamespace = this.namespace.namespace === 'GObject' ? '' : 'GObject.'
+            def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.name}>;`)
 
             if (girClass.__ts__indexSignature) {
                 def.push(`\n${girClass.__ts__indexSignature}\n`)
@@ -1448,6 +1559,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             {
                 // Static Properties
                 def.push(...this.generateClassProperties(girClass))
+
+                // $signals property (instance property for type-safe signal access)
+                def.push(...this.generateClassSignalsProperty(girClass))
 
                 // Static and member Fields
                 def.push(...this.generateClassFields(girClass))

@@ -36,7 +36,7 @@ export default {
   girDirectories: ['/usr/share/gir-1.0'],
   modules: ['*'], // or specific modules
   ignore: [], // modules to ignore
-  packageVersion: '4.0.0-beta.23',
+  packageVersion: '4.0.0-beta.24',
   npmScope: '@girs',
   package: true, // generate package.json
 }

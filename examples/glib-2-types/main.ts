@@ -30,15 +30,15 @@ console.log("=== Testing reverse conversions ===");
 
 console.log("Testing utf8_to_ucs4:");
 try {
-    const [ucs4Result, itemsRead, itemsWritten] = GLib.utf8_to_ucs4(testString);
+    const [ucs4Result, itemsRead, itemsWritten] = GLib.utf8_to_ucs4(testString, testString.length);
     console.log(`utf8_to_ucs4("${testString}") -> result type:`, typeof ucs4Result);
     console.log(`Items read: ${itemsRead}, items written: ${itemsWritten}`);
     
     if (typeof ucs4Result === 'string') {
         console.log(`Result string length: ${ucs4Result.length}`);
     } else if (Array.isArray(ucs4Result)) {
-        console.log(`Result array length: ${ucs4Result.length}`);
-        console.log(`First few elements:`, ucs4Result.slice(0, 5));
+        console.log(`Result array length: ${(ucs4Result as Array<any>).length}`);
+        console.log(`First few elements:`, (ucs4Result as Array<any>).slice(0, 5));
     }
 } catch (error) {
     console.log(`utf8_to_ucs4 failed: ${error}`);
@@ -59,7 +59,9 @@ console.log("=== Testing other string-related functions ===");
 console.log("Testing gunichar functions:");
 try {
     const unicodeChar = 0x1F600; // 😀 emoji
+    // @ts-ignore Should we support this?
     const isAlnum = GLib.unichar_isalnum(unicodeChar);
+    // @ts-ignore Should we support this?
     const isDigit = GLib.unichar_isdigit(unicodeChar);
     console.log(`Unicode char 0x${unicodeChar.toString(16)}: isalnum=${isAlnum}, isdigit=${isDigit}`);
 } catch (error) {

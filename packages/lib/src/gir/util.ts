@@ -443,6 +443,8 @@ export function resolvePrimitiveArrayType(name: string, arrayDepth: number): [Ty
             case "gint8":
             case "guint8":
                 return [Uint8ArrayType, arrayDepth - 1];
+            case "gunichar":
+                return [StringType, arrayDepth - 1];
         }
     }
 

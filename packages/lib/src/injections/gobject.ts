@@ -446,6 +446,52 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 doc: "Sets a property on an object."
             });
 
+            // Fix for bind_property_full - make Closure parameters nullable, see https://github.com/gjsify/ts-for-gir/issues/255
+            // The bind_property_with_closures method in GObject-2.0.gir shadows bind_property_full,
+            // but the Closure parameters are missing nullable="1" attributes even though the
+            // documentation states they can be null. This is a bug in the upstream GIR file.
+            
+            // Find all bind_property_full methods
+            const allBindPropertyFull = Object.members.filter(m => 
+                m.name === "bind_property_full" && 
+                m instanceof IntrospectedClassFunction
+            ) as IntrospectedClassFunction[];
+                        
+            // Find the one with Closure parameters (the shadowed version)
+            const bindPropertyFullWithClosures = allBindPropertyFull.find(method => {
+                const hasClosureParams = method.parameters.some(param => {
+                    if (param.name === "transform_to" || param.name === "transform_from") {
+                        const type = param.type.deepUnwrap();
+                        const isClosureType = type instanceof TypeIdentifier && type.name === "Closure";
+                        return isClosureType;
+                    }
+                    return false;
+                });
+                return hasClosureParams;
+            });
+
+            if (bindPropertyFullWithClosures) {
+                // Create corrected parameters with nullable Closure types
+                const correctedParameters = bindPropertyFullWithClosures.parameters.map(param => {
+                    if ((param.name === "transform_to" || param.name === "transform_from")) {
+                        const type = param.type.deepUnwrap();
+                        if (type instanceof TypeIdentifier && type.name === "Closure") {
+                            // Make the Closure parameter nullable
+                            return param.copy({
+                                type: new NullableType(param.type)
+                            });
+                        }
+                    }
+                    return param;
+                });
+
+                // Find the index and replace
+                const bindPropertyFullIndex = Object.members.findIndex(m => m === bindPropertyFullWithClosures);
+                Object.members[bindPropertyFullIndex] = bindPropertyFullWithClosures.copy({
+                    parameters: correctedParameters
+                });
+            }
+
             Object.members.push(
                 new IntrospectedStaticClassFunction({
                     name: "_classInit",

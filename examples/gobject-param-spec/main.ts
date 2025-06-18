@@ -216,3 +216,116 @@ stringValue.unset();
 boolValue.unset();
 intValue.unset();
 objectValue.unset();
+
+// Demonstrate property binding between GObject instances
+console.log('\n=== Property Binding Examples ===');
+
+// Create two ExampleObject instances for property binding
+const sourceObj = new ExampleObject();
+const targetObj = new ExampleObject();
+
+// Set initial values
+sourceObj.full_property = 'Source Value';
+sourceObj.count = 25;
+sourceObj.active = true;
+
+targetObj.full_property = 'Target Value';
+targetObj.count = 0;
+targetObj.active = false;
+
+console.log('\nBefore binding:');
+console.log('Source full_property:', sourceObj.full_property);
+console.log('Target full_property:', targetObj.full_property);
+console.log('Source count:', sourceObj.count);
+console.log('Target count:', targetObj.count);
+console.log('Source active:', sourceObj.active);
+console.log('Target active:', targetObj.active);
+
+// Example 1: Simple property binding with default transformation
+console.log('\nExample 1: Simple property binding');
+const binding1 = sourceObj.bind_property_full(
+    'full-property',
+    targetObj,
+    'full-property',
+    GObject.BindingFlags.DEFAULT,
+    null, // Use default transformation (no custom conversion needed)
+    null  // Use default reverse transformation (not used in DEFAULT mode)
+);
+
+console.log('✅ Property binding created successfully');
+
+// Test the binding by changing the source value using notify
+sourceObj.full_property = 'Updated Source Value';
+sourceObj.notify('full-property'); // Trigger property change notification
+console.log('Source full_property changed to:', sourceObj.full_property);
+console.log('Target full_property now:', targetObj.full_property);
+
+// Example 2: Bidirectional binding
+console.log('\nExample 2: Bidirectional property binding');
+const binding2 = sourceObj.bind_property_full(
+    'count',
+    targetObj,
+    'count',
+    GObject.BindingFlags.BIDIRECTIONAL,
+    null, // Use default transformation for source-to-target
+    null  // Use default transformation for target-to-source
+);
+
+console.log('✅ Bidirectional binding created successfully');
+
+// Test bidirectional binding by changing both source and target
+sourceObj.count = 50;
+sourceObj.notify('count');
+console.log('Source count changed to:', sourceObj.count);
+console.log('Target count now:', targetObj.count);
+
+targetObj.count = 75;
+targetObj.notify('count');
+console.log('Target count changed to:', targetObj.count);
+console.log('Source count now:', sourceObj.count);
+
+// Example 3: Sync create binding
+console.log('\nExample 3: Binding with immediate synchronization');
+const binding3 = sourceObj.bind_property_full(
+    'active',
+    targetObj,
+    'active',
+    GObject.BindingFlags.SYNC_CREATE,
+    null, // Use default transformation
+    null  // Use default reverse transformation
+);
+
+console.log('✅ Sync create binding created successfully');
+console.log('Target active after sync create binding:', targetObj.active);
+
+// Test the binding by changing the source value
+sourceObj.active = false;
+sourceObj.notify('active');
+console.log('Source active changed to:', sourceObj.active);
+console.log('Target active now:', targetObj.active);
+
+// Example 4: Property changes using set_property
+console.log('\nExample 4: Property changes using set_property');
+const bindingStringValue = new GObject.Value();
+bindingStringValue.init(GObject.TYPE_STRING);
+bindingStringValue.set_string('Set via GObject.Value');
+sourceObj.set_property('full-property', bindingStringValue);
+console.log('Source full_property set via set_property to:', sourceObj.full_property);
+console.log('Target full_property now:', targetObj.full_property);
+bindingStringValue.unset();
+
+// Demonstrate that binding objects are returned and can be used
+console.log('\nBinding objects returned:');
+console.log('Binding 1 source:', binding1.get_source()?.constructor.name);
+console.log('Binding 1 target:', binding1.get_target()?.constructor.name);
+console.log('Binding 1 source property:', binding1.get_source_property());
+console.log('Binding 1 target property:', binding1.get_target_property());
+
+// Clean up bindings (optional, they will be cleaned up automatically when objects are destroyed)
+binding1.unbind();
+binding2.unbind();
+binding3.unbind();
+
+console.log('\n✅ All property binding examples completed successfully!');
+console.log('This demonstrates proper usage of bind_property_full() with different binding modes.');
+console.log('Using null for transformation functions provides default behavior without custom conversion.');

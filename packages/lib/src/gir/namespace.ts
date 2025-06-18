@@ -3,11 +3,11 @@ import { BinaryType, VoidType, PromiseType, BooleanType, TupleType, TypeIdentifi
 import type { GirInfoAttrs } from "../index.ts";
 import { GirModule } from "../index.ts";
 
-import { IntrospectedBaseClass } from "./class.ts";
+import type { IntrospectedBaseClass } from "./class.ts";
 import { IntrospectedFunction } from "./function.ts";
-import { IntrospectedEnum } from "./enum.ts";
-import { IntrospectedConstant } from "./const.ts";
-import { IntrospectedAlias } from "./alias.ts";
+import type { IntrospectedEnum } from "./enum.ts";
+import type { IntrospectedConstant } from "./const.ts";
+import type { IntrospectedAlias } from "./alias.ts";
 
 export type GirNSMember =
     | IntrospectedBaseClass

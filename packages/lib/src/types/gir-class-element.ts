@@ -1,4 +1,4 @@
-import {
+import type {
     GirCallbackElement,
     GirConstantElement,
     GirConstructorElement,
@@ -12,7 +12,7 @@ import {
     GirUnionElement,
     GirVirtualMethodElement,
     PartOfModule,
-} from './index.js'
+} from './index.ts'
 import * as parser from '@gi.ts/parser'
 
 export interface GirClassElement extends PartOfModule, parser.GirClassElement {

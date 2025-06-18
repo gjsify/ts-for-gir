@@ -6,7 +6,7 @@
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import { join, dirname, relative, extname } from 'path'
 import ejs from 'ejs'
-import { __dirname } from './utils.js'
+import { __dirname } from './utils.ts'
 import {
     Logger,
     APP_NAME,

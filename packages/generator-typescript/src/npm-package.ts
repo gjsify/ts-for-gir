@@ -1,5 +1,5 @@
-import { Logger, Dependency, DependencyManager, OptionsGeneration, GirModule } from '@ts-for-gir/lib'
-import { TemplateProcessor } from './template-processor.js'
+import { Logger, type Dependency, DependencyManager, type OptionsGeneration, GirModule } from '@ts-for-gir/lib'
+import { TemplateProcessor } from './template-processor.ts'
 
 export class NpmPackage<Wrapped extends Dependency | GirModule> {
     config: OptionsGeneration

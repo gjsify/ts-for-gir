@@ -1,10 +1,10 @@
 // TODO move this class into a web-worker? https://www.npmjs.com/package/web-worker
  
-import { transformGirDocTagText } from './utils/index.js'
-import { Logger } from './logger.js'
-import { DependencyManager } from './dependency-manager.js'
-import { find, isIntrospectable } from './utils/index.js'
-import { LibraryVersion } from './library-version.js'
+import { transformGirDocTagText } from './utils/index.ts'
+import { Logger } from './logger.ts'
+import { DependencyManager } from './dependency-manager.ts'
+import { find, isIntrospectable } from './utils/index.ts'
+import { LibraryVersion } from './library-version.ts'
 
 import type {
     Dependency,
@@ -15,7 +15,7 @@ import type {
     OptionsGeneration,
     GirEnumElement,
     GirBitfieldElement,
-} from './types/index.js'
+} from './types/index.ts'
 import {
     ClosureType,
     TypeIdentifier,
@@ -26,25 +26,25 @@ import {
     BinaryType,
     NullableType,
     ObjectType,
-    GirNSMember,
-} from './gir.js'
-import { IntrospectedAlias } from './gir/alias.js'
-import { IntrospectedBase, IntrospectedNamespaceMember } from './gir/base.js'
-import { IntrospectedBaseClass, IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from './gir/class.js'
-import { IntrospectedConstant } from './gir/const.js'
-import { IntrospectedEnum, IntrospectedError } from './gir/enum.js'
+    type GirNSMember,
+} from './gir.ts'
+import { IntrospectedAlias } from './gir/alias.ts'
+import { IntrospectedBase, IntrospectedNamespaceMember } from './gir/base.ts'
+import { IntrospectedBaseClass, IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from './gir/class.ts'
+import { IntrospectedConstant } from './gir/const.ts'
+import { IntrospectedEnum, IntrospectedError } from './gir/enum.ts'
 import {
     IntrospectedFunction,
     IntrospectedCallback,
     IntrospectedClassCallback,
     IntrospectedFunctionParameter,
     IntrospectedClassFunction,
-} from './gir/function.js'
-import { NSRegistry } from './gir/registry.js'
-import { isPrimitiveType } from './gir/util.js'
-import { GirVisitor } from './visitor.js'
+} from './gir/function.ts'
+import { NSRegistry } from './gir/registry.ts'
+import { isPrimitiveType } from './gir/util.ts'
+import { GirVisitor } from './visitor.ts'
 
-import type { OptionsLoad } from './types/index.js'
+import type { OptionsLoad } from './types/index.ts'
 
 export class GirModule {
     /**
@@ -67,7 +67,7 @@ export class GirModule {
     }
     /**
      * E.g. 'Gtk40'
-     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
+     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.ts";`
      */
     get importNamespace(): string {
         return this.dependency.importNamespace
@@ -81,7 +81,7 @@ export class GirModule {
     }
 
     /**
-     * Import path for the package E.g. './Gtk-4.0.js' or '@girs/Gtk-4.0'
+     * Import path for the package E.g. './Gtk-4.0.ts' or '@girs/Gtk-4.0'
      */
     get importPath(): string {
         return this.dependency.importPath
@@ -141,6 +141,7 @@ export class GirModule {
     constNames: { [varName: string]: GirConstantElement } = {}
 
     readonly c_prefixes: string[]
+    readonly dependency: Dependency
 
     private _members?: Map<string, GirNSMember | GirNSMember[]>
     private _enum_constants?: Map<string, readonly [string, string]>
@@ -152,10 +153,11 @@ export class GirModule {
     config: OptionsGeneration
 
     constructor(
-        readonly dependency: Dependency,
+        dependency: Dependency,
         prefixes: string[],
         config: OptionsGeneration,
     ) {
+        this.dependency = dependency
         this.c_prefixes = [...prefixes]
         this.package_version = ['0', '0']
         this.config = config

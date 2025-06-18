@@ -1,4 +1,4 @@
-import { NEW_LINE_REG_EXP } from '../constants.js'
+import { NEW_LINE_REG_EXP } from '../constants.ts'
 
 /**
  * Transforms GIR documentation text to markdown format

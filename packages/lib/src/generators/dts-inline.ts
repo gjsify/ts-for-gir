@@ -1,11 +1,11 @@
-import { Logger } from "../logger.js";
-import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
-import { override as overrideGLib } from "./dts/glib.js";
-import { override as overrideGObject } from "./dts/gobject.js";
-import { DtsGenerator } from "./dts.js";
-import { IntrospectedNamespaceMember } from "../gir/base.js";
+import { Logger } from "../logger.ts";
+import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.ts";
+import { override as overrideGLib } from "./dts/glib.ts";
+import { override as overrideGObject } from "./dts/gobject.ts";
+import { DtsGenerator } from "./dts.ts";
+import { IntrospectedNamespaceMember } from "../gir/base.ts";
 
-import type { OptionsGeneration } from "../types/index.js";
+import type { OptionsGeneration } from "../types/index.ts";
 
 export class DtsInlineGenerator extends DtsGenerator {
     readonly log: Logger;

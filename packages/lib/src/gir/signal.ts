@@ -7,17 +7,18 @@ import {
     NumberType,
     NullableType,
     ArrayType
-} from "../gir.js";
-import { IntrospectedClassMember, Options } from "./base.js";
-import { isIntrospectable } from "./namespace.js";
-import { IntrospectedClass } from "./class.js";
-import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedClassCallback } from "./function.js";
-import { GirSignalElement, GirDirection, GirCallableParamElement } from "@gi.ts/parser";
-import { getType, parseDoc, parseMetadata } from "./util.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
+} from "../gir.ts";
+import { IntrospectedClassMember, type Options } from "./base.ts";
+import { isIntrospectable } from "./namespace.ts";
+import { IntrospectedClass } from "./class.ts";
+import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedClassCallback } from "./function.ts";
+import type { GirSignalElement, GirCallableParamElement } from "@gi.ts/parser";
+import { GirDirection } from "@gi.ts/parser";
+import { getType, parseDoc, parseMetadata } from "./util.ts";
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import type { OptionsLoad } from "../types/index.ts";
 
 export enum IntrospectedSignalType {
     CONNECT,

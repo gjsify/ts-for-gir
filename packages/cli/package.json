@@ -2,25 +2,26 @@
   "name": "@ts-for-gir/cli",
   "version": "4.0.0-beta.25",
   "description": "TypeScript type definition generator for GObject introspection GIR files",
-  "module": "lib/index.js",
-  "main": "lib/index.js",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "bin": {
     "ts-for-gir": "./lib/start.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "scripts": {
     "start": "yarn node --max_old_space_size=9216 lib/start.js",
-    "start:dev": "yarn node --max_old_space_size=9216 --loader ts-node/esm src/start.ts",
-    "build": "yarn lint && yarn build:ts && yarn chmod",
+    "start:dev": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
+    "build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
     "chmod": "chmod +x ./lib/start.js",
     "build:ts": "tsc",
     "clear": "yarn clear:build",
     "clear:build": "rimraf ./lib",
     "watch": "yarn build:ts --watch",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -52,12 +53,17 @@
     "type definitions",
     "cli"
   ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "devDependencies": {
+    "@types/ejs": "^3.1.5",
     "@types/inquirer": "^9.0.8",
     "@types/node": "^24.0.1",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
+    "esbuild": "^0.25.5",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
@@ -74,6 +80,7 @@
     "@ts-for-gir/lib": "workspace:^",
     "colorette": "^2.0.20",
     "cosmiconfig": "^9.0.0",
+    "ejs": "^3.1.10",
     "glob": "^11.0.3",
     "inquirer": "^12.6.3",
     "prettier": "^3.5.3",

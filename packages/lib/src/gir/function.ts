@@ -8,31 +8,31 @@ import {
     TypeExpression,
     Generic,
     FunctionType
-} from "../gir.js";
+} from "../gir.ts";
 
-import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
-import {
+import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, type Options } from "./base.ts";
+import type {
     GirFunctionElement,
     GirMethodElement,
-    GirDirection,
     GirCallableParamElement,
     GirCallbackElement,
     GirVirtualMethodElement,
     GirConstructorElement,
-    GirModule
-} from "../index.js";
+    GirModule,
+} from "../index.ts";
+import { GirDirection } from "../index.ts";
 
-import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
-import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "./util.js";
-import { IntrospectedClass } from "./class.js";
-import { IntrospectedEnum } from "./enum.js";
-import { IntrospectedSignal } from "./signal.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
-import { IntrospectedField } from "./property.js";
-import { IntrospectedBaseClass } from "./nodes.js";
+import { IntrospectedNamespace, isIntrospectable } from "./namespace.ts";
+import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "./util.ts";
+import { IntrospectedClass } from "./class.ts";
+import { IntrospectedEnum } from "./enum.ts";
+import { IntrospectedSignal } from "./signal.ts";
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
+import { IntrospectedField } from "./property.ts";
+import { IntrospectedBaseClass } from "./nodes.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import type { OptionsLoad } from "../types/index.ts";
 
 function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
     return obj.$["shadows"] != null;

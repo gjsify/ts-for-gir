@@ -6,7 +6,7 @@ import type {
     TypeGirClass,
     TypeGirAlias,
     TypeGirVariable,
-} from './index.js'
+} from './index.ts'
 
 export type GirTypeName =
     | TypeGirFunction

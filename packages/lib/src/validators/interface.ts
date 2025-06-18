@@ -1,5 +1,5 @@
-import { IntrospectedInterface } from "../gir/class.js";
-import { GirVisitor } from "../visitor.js";
+import { IntrospectedInterface } from "../gir/class.ts";
+import { GirVisitor } from "../visitor.ts";
 
 export class InterfaceVisitor extends GirVisitor {
     visitInterface = (node: IntrospectedInterface): IntrospectedInterface => {

@@ -1,7 +1,7 @@
 import { GirDirection } from "@gi.ts/parser";
-import { NativeType, NeverType } from "../../gir.js";
-import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "../../gir/function.js";
-import { IntrospectedNamespace } from "../../gir/namespace.js";
+import { NativeType, NeverType } from "../../gir.ts";
+import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "../../gir/function.ts";
+import { IntrospectedNamespace } from "../../gir/namespace.ts";
 
 export function override(node: IntrospectedNamespace) {
     const ParamSpec = node.assertClass("ParamSpec");

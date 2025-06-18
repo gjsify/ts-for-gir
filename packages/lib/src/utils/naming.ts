@@ -1,5 +1,5 @@
-import { upperCamelCase, isFirstCharNumeric } from './strings.js'
-import { RESERVED_NAMESPACE_NAMES } from '../constants.js'
+import { upperCamelCase, isFirstCharNumeric } from './strings.ts'
+import { RESERVED_NAMESPACE_NAMES } from '../constants.ts'
 
 /**
  * Transform a package name to import name format (lowercase)

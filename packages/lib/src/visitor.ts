@@ -1,8 +1,8 @@
-import { TypeExpression } from './gir.js'
-import { IntrospectedAlias } from './gir/alias.js'
-import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass, IntrospectedBaseClass } from './gir/class.js'
-import { IntrospectedConstant } from './gir/const.js'
-import { GirEnumMember, IntrospectedError, IntrospectedEnum } from './gir/enum.js'
+import { TypeExpression } from './gir.ts'
+import { IntrospectedAlias } from './gir/alias.ts'
+import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass, IntrospectedBaseClass } from './gir/class.ts'
+import { IntrospectedConstant } from './gir/const.ts'
+import { GirEnumMember, IntrospectedError, IntrospectedEnum } from './gir/enum.ts'
 import {
     IntrospectedCallback,
     IntrospectedConstructor,
@@ -13,10 +13,10 @@ import {
     IntrospectedVirtualClassFunction,
     IntrospectedDirectAllocationConstructor,
     IntrospectedClassCallback,
-} from './gir/function.js'
-import { IntrospectedNamespace } from './gir/namespace.js'
-import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
-import { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.js'
+} from './gir/function.ts'
+import { IntrospectedNamespace } from './gir/namespace.ts'
+import { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
+import { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.ts'
 
 export abstract class GirVisitor {
     visitType?: (node: TypeExpression) => TypeExpression

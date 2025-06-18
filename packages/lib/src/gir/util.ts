@@ -1,14 +1,14 @@
-import { deprecatedVersion, IntrospectedNamespace, introducedVersion, isDeprecated } from "./namespace.js";
+import { deprecatedVersion, IntrospectedNamespace, introducedVersion, isDeprecated } from "./namespace.ts";
 import {
-    GirCallableParamElement,
+    type GirCallableParamElement,
     GirDirection,
-    GirAliasElement,
-    GirDocElement,
-    GirInfoAttrs,
-    GirType,
-    GirConstantElement,
-    GirCallableReturn,
-    GirFieldElement
+    type GirAliasElement,
+    type GirDocElement,
+    type GirInfoAttrs,
+    type GirType,
+    type GirConstantElement,
+    type GirCallableReturn,
+    type GirFieldElement
 } from "@gi.ts/parser";
 import {
     TypeIdentifier,
@@ -30,10 +30,10 @@ import {
     GenerifiedTypeIdentifier,
     GenericType,
     NativeType
-} from "../gir.js";
-import { Metadata } from "./base.js";
-import { IntrospectedBaseClass } from "./class.js";
-import { TwoKeyMap } from "../util.js";
+} from "../gir.ts";
+import type { Metadata } from "./base.ts";
+import { IntrospectedBaseClass } from "./class.ts";
+import { TwoKeyMap } from "../util.ts";
 
 const reservedWords = [
     // For now, at least, the typescript compiler doesn't throw on numerical types like int, float, etc.
@@ -515,7 +515,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return BooleanType;
         case "gpointer": // This is typically used in callbacks to pass data, so we'll allow anything.
             return AnyType;
-        case "object":
+        case "object": // Support TS "object"
             return ObjectType;
         case "va_list":
             return AnyType;
@@ -536,8 +536,6 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return StringType;
         case "boolean": // Support TS "boolean"
             return BooleanType;
-        case "object": // Support TS "object"
-            return ObjectType;
     }
 
     return null;

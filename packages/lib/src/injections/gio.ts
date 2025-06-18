@@ -1,11 +1,11 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 import {
     IntrospectedClassFunction,
     IntrospectedConstructor,
     IntrospectedFunction,
     IntrospectedFunctionParameter,
     IntrospectedStaticClassFunction
-} from "../gir/function.js";
+} from "../gir/function.ts";
 import {
     StringType,
     NativeType,
@@ -23,10 +23,10 @@ import {
     TypeIdentifier,
     ThisType,
     IntrospectedAlias
-} from "../gir.js";
+} from "../gir.ts";
 import { GirDirection } from "@gi.ts/parser";
-import { IntrospectedField, JSField } from "../gir/property.js";
-import { IntrospectedClass, IntrospectedInterface } from "../gir/class.js";
+import { IntrospectedField, JSField } from "../gir/property.ts";
+import { IntrospectedClass, IntrospectedInterface } from "../gir/class.ts";
 
 export default {
     namespace: "Gio",

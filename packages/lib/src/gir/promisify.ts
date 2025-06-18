@@ -1,13 +1,13 @@
-import { TypeIdentifier, ClosureType, BinaryType, PromiseType, VoidType, TupleType, BooleanType } from "../gir.js";
+import { TypeIdentifier, ClosureType, BinaryType, PromiseType, VoidType, TupleType, BooleanType } from "../gir.ts";
 import {
     IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
     IntrospectedConstructor,
     IntrospectedFunctionParameter,
     IntrospectedVirtualClassFunction
-} from "./function.js";
+} from "./function.ts";
 
-import { IntrospectedBaseClass, IntrospectedInterface } from "./class.js";
+import { IntrospectedBaseClass, IntrospectedInterface } from "./class.ts";
 
 /**
  * Generates three overloaded function signatures for async methods:

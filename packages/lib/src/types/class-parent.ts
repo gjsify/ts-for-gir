@@ -1,4 +1,4 @@
-import { GirClassElement, GirUnionElement, GirInterfaceElement, GirRecordElement, TypeGirClass } from './index.js'
+import type { GirClassElement, GirUnionElement, GirInterfaceElement, GirRecordElement, TypeGirClass } from './index.ts'
 
 export interface ClassParent {
     parentName: string

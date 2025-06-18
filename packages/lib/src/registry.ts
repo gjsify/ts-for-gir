@@ -1,16 +1,16 @@
-import { SanitizedIdentifiers } from './gir/util.js'
-export { FormatGenerator } from './generators/generator.js'
+import { SanitizedIdentifiers } from './gir/util.ts'
+export { FormatGenerator } from './generators/generator.ts'
 
-export * as dts from './generators/dts-modules.js'
+export * as dts from './generators/dts-modules.ts'
 
-export * as json from './generators/json.js'
+export * as json from './generators/json.ts'
 
-export * from './generators/index.js'
+export * from './generators/index.ts'
 
-export { isInvalid, isPrimitiveType, isSubtypeOf, sanitizeIdentifierName } from './gir/util.js'
+export { isInvalid, isPrimitiveType, isSubtypeOf, sanitizeIdentifierName } from './gir/util.ts'
 
-export { NSRegistry as GirNSRegistry } from './gir/registry.js'
-export { Formatter } from './formatters/formatter.js'
+export { NSRegistry as GirNSRegistry } from './gir/registry.ts'
+export { Formatter } from './formatters/formatter.ts'
 
 export function getSanitizedIdentifiers(): ReadonlyMap<string, string> {
     return SanitizedIdentifiers

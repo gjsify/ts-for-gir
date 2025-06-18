@@ -1,5 +1,5 @@
-import { FormatGenerator } from "./generator.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { FormatGenerator } from "./generator.ts";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 import {
     IntrospectedBaseClass,
@@ -9,12 +9,12 @@ import {
     filterConflicts,
     filterFunctionConflict,
     FilterBehavior
-} from "../gir/class.js";
-import { promisifyFunctions } from "../gir/promisify.js";
-import { IntrospectedConstant } from "../gir/const.js";
-import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
-import { IntrospectedProperty, IntrospectedField } from "../gir/property.js";
-import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
+} from "../gir/class.ts";
+import { promisifyFunctions } from "../gir/promisify.ts";
+import { IntrospectedConstant } from "../gir/const.ts";
+import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
+import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
+import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {
     IntrospectedFunction,
     IntrospectedConstructor,
@@ -22,13 +22,13 @@ import {
     IntrospectedCallback,
     IntrospectedDirectAllocationConstructor,
     IntrospectedClassCallback
-} from "../gir/function.js";
+} from "../gir/function.ts";
 import {
     IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction
-} from "../gir/function.js";
-import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.js";
+} from "../gir/function.ts";
+import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.ts";
 import {
     TypeExpression,
     NativeType,
@@ -42,11 +42,11 @@ import {
     ConflictType,
     TypeConflict,
     BinaryType
-} from "../gir.js";
+} from "../gir.ts";
 import { GirDirection } from "@gi.ts/parser";
-import { IntrospectedAlias } from "../gir/alias.js";
-import { AnyIntrospectedType } from "../gir/base.js";
-import { OptionsGeneration } from "../types/options-generation.js";
+import { IntrospectedAlias } from "../gir/alias.ts";
+import type { AnyIntrospectedType } from "../gir/base.ts";
+import type { OptionsGeneration } from "../types/options-generation.ts";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
     const versionSlug = version.toLowerCase().split(".")[0];

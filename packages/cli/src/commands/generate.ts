@@ -2,12 +2,12 @@
  * Everything you need for the `ts-for-gir generate` command is located here
  */
 
-import { Argv, BuilderCallback } from 'yargs'
+import type { Argv, BuilderCallback } from 'yargs'
 import { ERROR_NO_MODULES_FOUND, Logger } from '@ts-for-gir/lib'
 import { GeneratorType } from '@ts-for-gir/generator-base'
-import { GenerationHandler } from '../generation-handler.js'
-import { Config } from '../config.js'
-import { ModuleLoader } from '../module-loader.js'
+import { GenerationHandler } from '../generation-handler.ts'
+import { Config } from '../config.ts'
+import { ModuleLoader } from '../module-loader.ts'
 import prettier from 'prettier'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
@@ -17,7 +17,6 @@ const command = 'generate [modules..]'
 
 const description = 'Generates Typescript type definition .d.ts files from GIR for GJS'
 
- 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.generateOptions)
     for (const optionName of optionNames) {
@@ -26,7 +25,6 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     return yargs.example(examples) as Argv<ConfigFlags>
 }
 
- 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 

@@ -1,9 +1,11 @@
-import { FormatGenerator } from "../generators/index.js";
-import { GirVisitor } from "../visitor.js";
-import { IntrospectedNamespace } from "./namespace.js";
+import { FormatGenerator } from "../generators/index.ts";
+import { GirVisitor } from "../visitor.ts";
 
-import type { IntrospectedBaseClass } from "./nodes.js";
-import type { OptionsLoad } from "../types/index.js";
+import type { IntrospectedBaseClass } from "./nodes.ts";
+import type { OptionsLoad } from "../types/index.ts";
+
+// Import IntrospectedNamespace as type to avoid circular import
+import type { IntrospectedNamespace } from "./namespace.ts";
 
 export interface Metadata {
     deprecated?: boolean;

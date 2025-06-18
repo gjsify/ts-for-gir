@@ -1,10 +1,10 @@
-import { Generator } from '@ts-for-gir/generator-base'
-import { Logger, DependencyManager, NSRegistry, OptionsGeneration, GirModule } from '@ts-for-gir/lib'
+import type { Generator } from '@ts-for-gir/generator-base'
+import { Logger, DependencyManager, type NSRegistry, type OptionsGeneration, GirModule } from '@ts-for-gir/lib'
 
-import { TemplateProcessor } from './template-processor.js'
-import { PackageDataParser } from './package-data-parser.js'
-import { NpmPackage } from './npm-package.js'
-import { ModuleGenerator } from './module-generator.js'
+import { TemplateProcessor } from './template-processor.ts'
+import { PackageDataParser } from './package-data-parser.ts'
+import { NpmPackage } from './npm-package.ts'
+import { ModuleGenerator } from './module-generator.ts'
 
 export class TypeDefinitionGenerator implements Generator {
     log: Logger

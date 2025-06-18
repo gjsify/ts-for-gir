@@ -1,17 +1,17 @@
-import { NumberType, TypeIdentifier } from "../gir.js";
+import { NumberType, TypeIdentifier } from "../gir.ts";
 
-import { IntrospectedBase, IntrospectedNamespaceMember } from "./base.js";
-import { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../index.js";
+import { IntrospectedBase, IntrospectedNamespaceMember } from "./base.ts";
+import type { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../index.ts";
 
-import { GirComplexRecord, IntrospectedRecord } from "./class.js";
-import { IntrospectedField } from "./property.js";
-import { IntrospectedStaticClassFunction } from "./function.js";
-import { IntrospectedNamespace } from "./namespace.js";
-import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "./util.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
+import { GirComplexRecord, IntrospectedRecord } from "./class.ts";
+import { IntrospectedField } from "./property.ts";
+import { IntrospectedStaticClassFunction } from "./function.ts";
+import { IntrospectedNamespace } from "./namespace.ts";
+import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "./util.ts";
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import type { OptionsLoad } from "../types/index.ts";
 
 export class IntrospectedEnum extends IntrospectedNamespaceMember {
     members = new Map<string, GirEnumMember>();

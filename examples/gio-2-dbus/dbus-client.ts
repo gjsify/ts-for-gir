@@ -4,7 +4,7 @@
 
 import GLib from 'gi://GLib?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
-import { DbusIfaceXml, dbusIfaceXml } from './dbus-ifrace-xml.js'
+import { DbusIfaceXml, dbusIfaceXml } from './dbus-ifrace-xml.ts'
 
 // Pass the XML string to make a re-usable proxy class for an interface proxies.
 const TestProxy = Gio.DBusProxy.makeProxyWrapper<DbusIfaceXml>(dbusIfaceXml);

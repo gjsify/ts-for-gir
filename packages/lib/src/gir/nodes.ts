@@ -1,13 +1,13 @@
-export { IntrospectedAlias } from "./alias.js";
+export { IntrospectedAlias } from "./alias.ts";
 export {
     IntrospectedClass,
     IntrospectedInterface,
     IntrospectedRecord,
     GirComplexRecord,
     IntrospectedBaseClass
-} from "./class.js";
-export { IntrospectedConstant } from "./const.js";
-export { IntrospectedEnum, GirEnumMember as IntrospectedEnumMember, IntrospectedError } from "./enum.js";
+} from "./class.ts";
+export { IntrospectedConstant } from "./const.ts";
+export { IntrospectedEnum, GirEnumMember as IntrospectedEnumMember, IntrospectedError } from "./enum.ts";
 export {
     IntrospectedFunction,
     IntrospectedClassCallback,
@@ -18,11 +18,11 @@ export {
     IntrospectedVirtualClassFunction,
     IntrospectedFunctionParameter,
     IntrospectedDirectAllocationConstructor as IntrospectedDirectAllocationConstructor
-} from "./function.js";
-export { IntrospectedNamespace, GirNSMember } from "./namespace.js";
-export { NSRegistry, NSLoader } from "./registry.js";
-export { IntrospectedField, IntrospectedProperty } from "./property.js";
-export { IntrospectedSignal, IntrospectedSignalType } from "./signal.js";
+} from "./function.ts";
+export type { IntrospectedNamespace, GirNSMember } from "./namespace.ts";
+export type { NSRegistry, NSLoader } from "./registry.ts";
+export { IntrospectedField, IntrospectedProperty } from "./property.ts";
+export { IntrospectedSignal, IntrospectedSignalType } from "./signal.ts";
 export {
     GenericType,
     TypeExpression,
@@ -42,6 +42,6 @@ export {
     PromiseType,
     UnknownType,
     ConflictType
-} from "../gir.js";
+} from "../gir.ts";
 
-export * as nodeUtils from "./util.js";
+export * as nodeUtils from "./util.ts";

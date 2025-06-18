@@ -1,4 +1,4 @@
-import type { GirInfoAttrs, TsDoc } from '../types/index.js'
+import type { GirInfoAttrs, TsDoc } from '../types/index.ts'
 
 /**
  * Split a package name into namespace and version

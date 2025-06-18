@@ -1,12 +1,13 @@
-import { BinaryType, VoidType, PromiseType, BooleanType, TupleType, TypeIdentifier, ClosureType } from "../gir.js";
+import { BinaryType, VoidType, PromiseType, BooleanType, TupleType, TypeIdentifier, ClosureType } from "../gir.ts";
 
-import { GirInfoAttrs, GirModule } from "../index.js";
+import type { GirInfoAttrs } from "../index.ts";
+import { GirModule } from "../index.ts";
 
-import { IntrospectedBaseClass } from "./class.js";
-import { IntrospectedFunction } from "./function.js";
-import { IntrospectedEnum } from "./enum.js";
-import { IntrospectedConstant } from "./const.js";
-import { IntrospectedAlias } from "./alias.js";
+import { IntrospectedBaseClass } from "./class.ts";
+import { IntrospectedFunction } from "./function.ts";
+import { IntrospectedEnum } from "./enum.ts";
+import { IntrospectedConstant } from "./const.ts";
+import { IntrospectedAlias } from "./alias.ts";
 
 export type GirNSMember =
     | IntrospectedBaseClass
@@ -79,4 +80,4 @@ export function promisifyNamespaceFunctions(namespace: GirModule) {
     });
 }
 
-export { GirModule as IntrospectedNamespace } from "../gir-module.js";
+export { GirModule as IntrospectedNamespace } from "../gir-module.ts";

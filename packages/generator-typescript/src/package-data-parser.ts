@@ -2,7 +2,7 @@ import { parseStringPromise } from 'xml2js'
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
 import { Logger, splitModuleName, cleanString } from '@ts-for-gir/lib'
-import { __dirname } from './utils.js'
+import { __dirname } from './utils.ts'
 
 import type {
     OptionsGeneration,

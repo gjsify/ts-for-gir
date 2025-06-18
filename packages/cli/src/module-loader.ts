@@ -17,7 +17,7 @@ import {
     isIterable,
     WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE,
 } from '@ts-for-gir/lib'
-import { Config } from './config.js'
+import { Config } from './config.ts'
 
 import type {
     GirModulesGroupedMap,
@@ -34,7 +34,11 @@ export class ModuleLoader {
     dependencyManager: DependencyManager
     /** Transitive module dependencies */
     modDependencyMap: DependencyMap = {}
-    constructor(protected readonly config: OptionsGeneration) {
+
+    protected readonly config: OptionsGeneration
+
+    constructor(config: OptionsGeneration) {
+        this.config = config
         this.log = new Logger(config.verbose, 'ModuleLoader')
         this.dependencyManager = DependencyManager.getInstance(config)
     }

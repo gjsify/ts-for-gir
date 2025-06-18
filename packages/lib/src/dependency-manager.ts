@@ -1,24 +1,25 @@
-import { parser, GirXML, GirRepository, GirNamespace } from '@gi.ts/parser'
+import { parser, type GirXML, type GirRepository, type GirNamespace } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
 
-import { findFilesInDirs, splitModuleName, pascalCase } from './utils/index.js'
-import { sanitizeNamespace } from './gir/util.js'
-import { Logger } from './logger.js'
-import { transformImportName, transformModuleNamespaceName } from './utils/index.js'
-import { LibraryVersion } from './library-version.js'
+import { findFilesInDirs, splitModuleName, pascalCase } from './utils/index.ts'
+import { sanitizeNamespace } from './gir/util.ts'
+import { Logger } from './logger.ts'
+import { transformImportName, transformModuleNamespaceName } from './utils/index.ts'
+import { LibraryVersion } from './library-version.ts'
 
-import type { Dependency, OptionsGeneration, GirInclude, FileInfo } from './types/index.js'
-import type { GirModule } from './gir-module.js'
-import { GirNSRegistry } from './registry.js'
+import type { Dependency, OptionsGeneration, GirInclude, FileInfo } from './types/index.ts'
+import type { GirModule } from './gir-module.ts'
+import { GirNSRegistry } from './registry.ts'
 export class DependencyManager extends GirNSRegistry {
     protected log: Logger
-
+    protected readonly config: OptionsGeneration
     protected _cache: { [packageName: string]: Dependency } = {}
 
     static instances: { [key: string]: DependencyManager } = {}
 
-    protected constructor(protected readonly config: OptionsGeneration) {
+    protected constructor(config: OptionsGeneration) {
         super()
+        this.config = config
 
         this.log = new Logger(config.verbose, 'DependencyManager')
     }

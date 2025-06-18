@@ -1,6 +1,5 @@
- 
 import { Logger, DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED } from '@ts-for-gir/lib'
-import { Generator } from '@ts-for-gir/generator-base'
+import type { Generator } from '@ts-for-gir/generator-base'
 
 import type { OptionsGeneration, GirModule, NSRegistry } from '@ts-for-gir/lib'
 

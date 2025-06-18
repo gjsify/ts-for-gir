@@ -2,9 +2,9 @@
  * Everything you need for the `ts-for-gir list` command is located here
  */
 
-import { Argv, BuilderCallback } from 'yargs'
-import { ModuleLoader } from '../module-loader.js'
-import { Config } from '../config.js'
+import type { Argv, BuilderCallback } from 'yargs'
+import { ModuleLoader } from '../module-loader.ts'
+import { Config } from '../config.ts'
 import { Logger, ERROR_NO_MODULES_FOUND, ResolveType } from '@ts-for-gir/lib'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
@@ -13,7 +13,6 @@ const command = 'list [modules..]'
 
 const description = 'Lists all available GIR modules'
 
- 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.listOptions)
     for (const optionName of optionNames) {
@@ -22,7 +21,6 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     return yargs.example(examples) as Argv<ConfigFlags>
 }
 
- 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
     const generateConfig = Config.getOptionsGeneration(config)

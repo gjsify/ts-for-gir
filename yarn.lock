@@ -13945,6 +13945,7 @@ __metadata:
     "@ts-for-gir/generator-html-doc": "workspace:^"
     "@ts-for-gir/generator-typescript": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
+    "@types/ejs": "npm:^3.1.5"
     "@types/inquirer": "npm:^9.0.8"
     "@types/node": "npm:^24.0.1"
     "@types/yargs": "npm:^17.0.33"
@@ -13952,6 +13953,8 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.34.0"
     colorette: "npm:^2.0.20"
     cosmiconfig: "npm:^9.0.0"
+    ejs: "npm:^3.1.10"
+    esbuild: "npm:^0.25.5"
     eslint: "npm:^9.29.0"
     eslint-config-prettier: "npm:^10.1.5"
     eslint-plugin-prettier: "npm:^5.4.1"
@@ -13979,7 +13982,6 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.5"
     eslint-plugin-prettier: "npm:^5.4.1"
     prettier: "npm:^3.5.3"
-    rimraf: "npm:^6.0.1"
     typescript: "npm:^5.8.3"
   languageName: unknown
   linkType: soft
@@ -14018,7 +14020,6 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.5"
     eslint-plugin-prettier: "npm:^5.4.1"
     prettier: "npm:^3.5.3"
-    rimraf: "npm:^6.0.1"
     typescript: "npm:^5.8.3"
     xml2js: "npm:^0.6.2"
   languageName: unknown

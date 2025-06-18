@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "lib": ["ESNext"],                 
         "target": "ESNext",
         "module": "ESNext",
         "outDir": "lib",
@@ -9,13 +10,14 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "esModuleInterop": true,
-        "moduleResolution": "node",
-        "sourceMap": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "verbatimModuleSyntax": true,
+        "noEmit": true,
         "rootDir": "src",
         "resolveJsonModule": true,
-        "declaration": true,
         "skipLibCheck": true,
-        "diagnostics": true
+        "diagnostics": true,
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],
     "exclude": ["lib", "node_modules", "**/*.spec.ts", "templates"]

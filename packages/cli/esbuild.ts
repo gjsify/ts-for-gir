@@ -1,0 +1,24 @@
+import { build } from 'esbuild'
+await build({
+    entryPoints: ['src/start.ts'],
+    outdir: 'lib',
+    bundle: true,
+    target: 'node18',
+    format: 'esm',
+    platform: 'node',
+    external: [
+        'yargs',
+        'inquirer',
+        '@inquirer/prompts',
+        'node:*',
+        'fs',
+        'fs/promises',
+        'cosmiconfig',
+        'prettier',
+        'path',
+        'glob',
+        'colorette',
+        'yargs/*',
+        'ejs',
+    ],
+})

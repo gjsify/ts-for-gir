@@ -1,4 +1,4 @@
-import type { OptionsBase } from './index.js'
+import type { OptionsBase } from './index.ts'
 
 /**
  * Type for currently used config e.g. in GirModule

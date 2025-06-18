@@ -1,9 +1,9 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from "../gir/class.js";
-import { IntrospectedConstant } from "../gir/const.js";
-import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
-import { IntrospectedProperty, IntrospectedField } from "../gir/property.js";
-import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from "../gir/class.ts";
+import { IntrospectedConstant } from "../gir/const.ts";
+import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
+import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
+import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {
     IntrospectedFunction,
     IntrospectedFunctionParameter,
@@ -11,13 +11,13 @@ import {
     IntrospectedCallback,
     IntrospectedDirectAllocationConstructor,
     IntrospectedClassCallback
-} from "../gir/function.js";
-import { IntrospectedClassFunction } from "../gir/function.js";
-import { IntrospectedStaticClassFunction } from "../gir/function.js";
-import { IntrospectedVirtualClassFunction } from "../gir/function.js";
-import { IntrospectedAlias } from "../gir/alias.js";
-import { TypeExpression } from "../gir.js";
-import { OptionsGeneration } from "../types/options-generation.js";
+} from "../gir/function.ts";
+import { IntrospectedClassFunction } from "../gir/function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/function.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/function.ts";
+import { IntrospectedAlias } from "../gir/alias.ts";
+import { TypeExpression } from "../gir.ts";
+import type { OptionsGeneration } from "../types/options-generation.ts";
 
 export interface GenericDescriptor {
     type: TypeExpression;

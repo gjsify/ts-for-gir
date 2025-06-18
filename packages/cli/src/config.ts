@@ -1,9 +1,8 @@
- 
 /**
  * Default values, parse the config file and handle CLI flags
  */
-import { Options } from 'yargs'
-import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
+import type { Options } from 'yargs'
+import { cosmiconfig, type Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
 import { writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
@@ -261,7 +260,6 @@ export class Config {
             loaders: {
                 // ESM loader
                 '.js': async (filepath) => {
-                     
                     const file = await import(filepath)
 
                     // Files with `exports.default = { ... }`

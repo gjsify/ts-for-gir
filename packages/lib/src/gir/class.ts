@@ -1,4 +1,4 @@
-import { Logger } from "../logger.js";
+import { Logger } from "../logger.ts";
 import {
     NativeType,
     TypeIdentifier,
@@ -10,9 +10,9 @@ import {
     AnyType,
     ConflictType,
     TypeConflict
-} from "../gir.js";
-import { TypeExpression } from "../gir.js";
-import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
+} from "../gir.ts";
+import { TypeExpression } from "../gir.ts";
+import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, type Options } from "./base.ts";
 
 import {
     GirDirection,
@@ -21,7 +21,7 @@ import {
     type GirClassElement,
     type GirRecordElement,
     type GirUnionElement
-} from "../index.js";
+} from "../index.ts";
 import {
     IntrospectedClassFunction,
     IntrospectedVirtualClassFunction,
@@ -31,9 +31,9 @@ import {
     IntrospectedFunctionParameter,
     IntrospectedDirectAllocationConstructor,
     IntrospectedClassCallback
-} from "./function.js";
-import { IntrospectedProperty, IntrospectedField } from "./property.js";
-import { IntrospectedNamespace } from "./namespace.js";
+} from "./function.ts";
+import { IntrospectedProperty, IntrospectedField } from "./property.ts";
+import { IntrospectedNamespace } from "./namespace.ts";
 import {
     sanitizeIdentifierName,
     parseTypeIdentifier,
@@ -41,14 +41,14 @@ import {
     resolveTypeIdentifier,
     parseDoc,
     parseMetadata
-} from "./util.js";
-import { IntrospectedSignal } from "./signal.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
-import { GenericNameGenerator } from "./generics.js";
-import { findMap } from "../util.js";
+} from "./util.ts";
+import { IntrospectedSignal } from "./signal.ts";
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
+import { GenericNameGenerator } from "./generics.ts";
+import { findMap } from "../util.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import type { OptionsLoad } from "../types/index.ts";
 
 export enum FilterBehavior {
     DELETE,

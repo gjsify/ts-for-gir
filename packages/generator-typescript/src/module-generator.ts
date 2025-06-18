@@ -4,16 +4,16 @@ import {
     removeNamespace,
     removeClassModule,
     DependencyManager,
-    PackageData,
+    type PackageData,
     TypeExpression,
-    NSRegistry,
+    type NSRegistry,
     IntrospectedClass,
     IntrospectedRecord,
     IntrospectedInterface,
     IntrospectedBaseClass,
     IntrospectedField,
     GirDirection,
-    TsDocTag,
+    type TsDocTag,
     upperCamelCase,
     filterFunctionConflict,
     resolveDirectedType,
@@ -31,7 +31,7 @@ import {
     ThisType,
     ClassStructTypeIdentifier,
     promisifyNamespaceFunctions,
-    OptionsGeneration,
+    type OptionsGeneration,
     GirModule,
     IntrospectedFunction,
     IntrospectedCallback,
@@ -52,7 +52,7 @@ import {
     IntrospectedEnumMember,
     IntrospectedError,
     FormatGenerator,
-    Generic,
+    type Generic,
     NativeType,
     isInvalid,
     filterConflicts,
@@ -61,9 +61,9 @@ import {
     transformGirDocText,
 } from '@ts-for-gir/lib'
 
-import { TemplateProcessor } from './template-processor.js'
-import { PackageDataParser } from './package-data-parser.js'
-import { NpmPackage } from './npm-package.js'
+import { TemplateProcessor } from './template-processor.ts'
+import { PackageDataParser } from './package-data-parser.ts'
+import { NpmPackage } from './npm-package.ts'
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
     log: Logger

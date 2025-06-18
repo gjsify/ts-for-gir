@@ -8,7 +8,7 @@ import {
     GENERATING_TYPES_DONE,
     ERROR_NO_MODULE_SPECIFIED,
 } from '@ts-for-gir/lib'
-import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
+import { GeneratorType, type Generator } from '@ts-for-gir/generator-base'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
 import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
@@ -17,11 +17,10 @@ import type { OptionsGeneration, NSRegistry } from '@ts-for-gir/lib'
 export class GenerationHandler {
     log: Logger
     generator: Generator
+    protected readonly config: OptionsGeneration
 
-    constructor(
-        private readonly config: OptionsGeneration,
-        type: GeneratorType,
-    ) {
+    constructor(config: OptionsGeneration, type: GeneratorType) {
+        this.config = config
         this.log = new Logger(config.verbose, 'GenerationHandler')
 
         switch (type) {

@@ -1,6 +1,6 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { Generic, GenericType, GenerifiedTypeIdentifier } from "../gir.js";
-import { IntrospectedBaseClass } from "../gir/class.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { Generic, GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
+import { IntrospectedBaseClass } from "../gir/class.ts";
 
 export default {
     namespace: "Gtk",

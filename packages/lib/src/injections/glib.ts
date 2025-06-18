@@ -1,11 +1,11 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 import {
     IntrospectedConstructor,
     IntrospectedFunctionParameter,
     IntrospectedClassFunction,
     IntrospectedFunction,
     IntrospectedDirectAllocationConstructor
-} from "../gir/function.js";
+} from "../gir/function.ts";
 import {
     NativeType,
     AnyType,
@@ -16,10 +16,10 @@ import {
     TypeIdentifier,
     BinaryType,
     Generic
-} from "../gir.js";
+} from "../gir.ts";
 import { GirDirection } from "@gi.ts/parser";
-import { IntrospectedRecord } from "../gir/class.js";
-import { JSField } from "../gir/property.js";
+import { IntrospectedRecord } from "../gir/class.ts";
+import { JSField } from "../gir/property.ts";
 
 export default {
     namespace: "GLib",

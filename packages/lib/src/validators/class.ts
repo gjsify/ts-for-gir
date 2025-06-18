@@ -1,13 +1,13 @@
-import { AnyType, NativeType, TypeIdentifier } from "../gir.js";
-import { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface, IntrospectedRecord } from "../gir/class.js";
-import { IntrospectedError } from "../gir/enum.js";
+import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
+import { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface, IntrospectedRecord } from "../gir/class.ts";
+import { IntrospectedError } from "../gir/enum.ts";
 import {
     IntrospectedClassFunction,
     IntrospectedDirectAllocationConstructor,
     IntrospectedStaticClassFunction
-} from "../gir/function.js";
-import { resolveTypeIdentifier } from "../gir/util.js";
-import { GirVisitor } from "../visitor.js";
+} from "../gir/function.ts";
+import { resolveTypeIdentifier } from "../gir/util.ts";
+import { GirVisitor } from "../visitor.ts";
 
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
     node.fields = node.fields.filter(field => field.isIntrospectable);

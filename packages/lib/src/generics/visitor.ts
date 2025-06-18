@@ -6,8 +6,8 @@ import {
     GenerifiedTypeIdentifier,
     ThisType,
     IntrospectedEnum
-} from "../gir.js";
-import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.js";
+} from "../gir.ts";
+import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.ts";
 import {
     IntrospectedCallback,
     IntrospectedFunctionParameter,
@@ -15,11 +15,11 @@ import {
     IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction
-} from "../gir/function.js";
-import { GenericNameGenerator } from "../gir/generics.js";
-import { NSRegistry } from "../gir/registry.js";
-import { resolveTypeIdentifier } from "../gir/util.js";
-import { GirVisitor } from "../visitor.js";
+} from "../gir/function.ts";
+import { GenericNameGenerator } from "../gir/generics.ts";
+import { NSRegistry } from "../gir/registry.ts";
+import { resolveTypeIdentifier } from "../gir/util.ts";
+import { GirVisitor } from "../visitor.ts";
 
 export class GenericVisitor extends GirVisitor {
     registry: NSRegistry;

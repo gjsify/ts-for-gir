@@ -1,13 +1,13 @@
-import { TypeExpression } from "../gir.js";
-import { IntrospectedNamespaceMember, Options } from "./base.js";
+import { TypeExpression } from "../gir.ts";
+import { IntrospectedNamespaceMember, type Options } from "./base.ts";
 
-import { GirAliasElement } from "../index.js";
-import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
-import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.js";
-import { FormatGenerator, GenericDescriptor } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
+import type { GirAliasElement } from "../index.ts";
+import { IntrospectedNamespace, isIntrospectable } from "./namespace.ts";
+import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.ts";
+import { FormatGenerator, type GenericDescriptor } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import type { OptionsLoad } from "../types/index.ts";
 
 export class IntrospectedAlias extends IntrospectedNamespaceMember {
     readonly type: TypeExpression;

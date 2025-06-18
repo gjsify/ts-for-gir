@@ -1,15 +1,15 @@
-import { TypeExpression } from "../gir.js";
-import { IntrospectedBase, IntrospectedClassMember, Options } from "./base.js";
-import { GirFieldElement, GirPropertyElement } from "../index.js";
+import { TypeExpression } from "../gir.ts";
+import { IntrospectedBase, IntrospectedClassMember, type Options } from "./base.ts";
+import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 
-import { getType, parseDoc, parseMetadata } from "./util.js";
-import { isIntrospectable } from "./namespace.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
-import { IntrospectedBaseClass } from "./class.js";
-import { IntrospectedEnum } from "./enum.js";
+import { getType, parseDoc, parseMetadata } from "./util.ts";
+import { isIntrospectable } from "./namespace.ts";
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
+import { IntrospectedBaseClass } from "./class.ts";
+import { IntrospectedEnum } from "./enum.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import type { OptionsLoad } from "../types/index.ts";
 
 export class IntrospectedField extends IntrospectedClassMember {
     type: TypeExpression;

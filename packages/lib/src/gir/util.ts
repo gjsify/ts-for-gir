@@ -443,6 +443,8 @@ export function resolvePrimitiveArrayType(name: string, arrayDepth: number): [Ty
             case "gint8":
             case "guint8":
                 return [Uint8ArrayType, arrayDepth - 1];
+            case "gunichar":
+                return [StringType, arrayDepth - 1];
         }
     }
 
@@ -493,7 +495,6 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
         case "guint32":
         case "guint16":
         case "gint16":
-        case "gunichar":
         case "gint8":
         case "gint32":
         case "gushort":
@@ -530,6 +531,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return ThisType;
         case "number": // Support TS "number"
             return NumberType;
+        case "gunichar":
         case "string": // Support TS "string"
             return StringType;
         case "boolean": // Support TS "boolean"

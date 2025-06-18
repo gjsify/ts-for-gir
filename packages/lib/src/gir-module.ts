@@ -1,6 +1,6 @@
 // TODO move this class into a web-worker? https://www.npmjs.com/package/web-worker
  
-import { Transformation } from './transformation.js'
+import { transformGirDocTagText } from './utils/index.js'
 import { Logger } from './logger.js'
 import { DependencyManager } from './dependency-manager.js'
 import { find, isIntrospectable } from './utils/index.js'
@@ -128,8 +128,6 @@ export class GirModule {
         return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
     }
 
-    transformation!: Transformation
-
     dependencyManager: DependencyManager
 
     log!: Logger
@@ -233,7 +231,7 @@ export class GirModule {
         const returnTag: TsDocTag = {
             tagName: 'returns',
             paramName: '',
-            text: this.transformation.transformGirDocTagText(girReturnValue),
+            text: transformGirDocTagText(girReturnValue),
         }
 
         return [returnTag]
@@ -251,7 +249,7 @@ export class GirModule {
                     paramName: inParam.name,
                     tagName: 'param',
                     text:
-                        typeof inParam.doc === 'string' ? this.transformation.transformGirDocTagText(inParam.doc) : '',
+                        typeof inParam.doc === 'string' ? transformGirDocTagText(inParam.doc) : '',
                 })
             }
         }
@@ -547,8 +545,6 @@ export class GirModule {
 
             building.prefixes.push(...unknownPrefixes)
         }
-
-        building.transformation = Transformation.getSingleton(config)
 
         building.log = new Logger(config.verbose, `GirModule(${building.packageName})`)
 

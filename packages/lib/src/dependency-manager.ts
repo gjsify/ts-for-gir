@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises'
 import { findFilesInDirs, splitModuleName, pascalCase } from './utils/index.js'
 import { sanitizeNamespace } from './gir/util.js'
 import { Logger } from './logger.js'
-import { Transformation } from './transformation.js'
+import { transformImportName, transformModuleNamespaceName } from './utils/index.js'
 import { LibraryVersion } from './library-version.js'
 
 import type { Dependency, OptionsGeneration, GirInclude, FileInfo } from './types/index.js'
@@ -12,7 +12,6 @@ import type { GirModule } from './gir-module.js'
 import { GirNSRegistry } from './registry.js'
 export class DependencyManager extends GirNSRegistry {
     protected log: Logger
-    protected transformation: Transformation
 
     protected _cache: { [packageName: string]: Dependency } = {}
 
@@ -21,7 +20,6 @@ export class DependencyManager extends GirNSRegistry {
     protected constructor(protected readonly config: OptionsGeneration) {
         super()
 
-        this.transformation = Transformation.getSingleton(config)
         this.log = new Logger(config.verbose, 'DependencyManager')
     }
 
@@ -128,7 +126,7 @@ export class DependencyManager extends GirNSRegistry {
         if (!this.config.package) {
             return `gi://${namespace}?version=${version}`
         }
-        const importName = this.transformation.transformImportName(packageName)
+        const importName = transformImportName(packageName)
         const importPath = `${this.config.npmScope}/${importName}`
         return importPath
     }
@@ -251,8 +249,8 @@ export class DependencyManager extends GirNSRegistry {
             ...fileInfo,
             namespace,
             packageName,
-            importName: this.transformation.transformImportName(packageName),
-            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
+            importName: transformImportName(packageName),
+            importNamespace: transformModuleNamespaceName(packageName),
             version,
             libraryVersion,
             girXML,
@@ -403,8 +401,8 @@ export class DependencyManager extends GirNSRegistry {
             filename: '',
             path: '',
             packageName: packageName,
-            importName: this.transformation.transformImportName(packageName),
-            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
+            importName: transformImportName(packageName),
+            importNamespace: transformModuleNamespaceName(packageName),
             version,
             libraryVersion: new LibraryVersion(),
             girXML: null,

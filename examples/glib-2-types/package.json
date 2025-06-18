@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/glib-2-types",
-  "version": "4.0.0-beta.24",
+  "version": "4.0.0-beta.25",
   "description": "GLib type definitions testing example",
   "type": "module",
   "private": true,

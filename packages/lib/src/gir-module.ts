@@ -35,11 +35,10 @@ import { IntrospectedConstant } from './gir/const.ts'
 import { IntrospectedEnum, IntrospectedError } from './gir/enum.ts'
 import {
     IntrospectedFunction,
-    IntrospectedCallback,
-    IntrospectedClassCallback,
     IntrospectedFunctionParameter,
     IntrospectedClassFunction,
 } from './gir/function.ts'
+import { IntrospectedCallback, IntrospectedClassCallback } from './gir/callback.ts'
 import { NSRegistry } from './gir/registry.ts'
 import { isPrimitiveType } from './utils/index.ts'
 import { GirVisitor } from './visitor.ts'

@@ -8,10 +8,9 @@ import {
     IntrospectedFunction,
     IntrospectedFunctionParameter,
     IntrospectedConstructor,
-    IntrospectedCallback,
-    IntrospectedDirectAllocationConstructor,
-    IntrospectedClassCallback
+    IntrospectedDirectAllocationConstructor
 } from "../gir/function.ts";
+import { IntrospectedCallback, IntrospectedClassCallback } from "../gir/callback.ts";
 import { IntrospectedClassFunction } from "../gir/function.ts";
 import { IntrospectedStaticClassFunction } from "../gir/function.ts";
 import { IntrospectedVirtualClassFunction } from "../gir/function.ts";

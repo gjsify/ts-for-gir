@@ -9,13 +9,13 @@ import {
 import { IntrospectedEnum } from "../gir/enum.ts";
 import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.ts"; 
 import {
-    IntrospectedCallback,
     IntrospectedFunctionParameter,
     IntrospectedFunction,
     IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction
 } from "../gir/function.ts";
+import { IntrospectedCallback } from "../gir/callback.ts";
 import { GenericNameGenerator } from "../gir/generics.ts";
 import { NSRegistry } from "../gir/registry.ts";
 import { resolveTypeIdentifier } from "../utils/index.ts";

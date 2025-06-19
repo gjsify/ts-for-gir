@@ -34,9 +34,9 @@ import {
     IntrospectedFunction,
     IntrospectedConstructor,
     IntrospectedFunctionParameter,
-    IntrospectedDirectAllocationConstructor,
-    IntrospectedClassCallback
+    IntrospectedDirectAllocationConstructor
 } from "./function.ts";
+import { IntrospectedClassCallback } from "./callback.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 import {

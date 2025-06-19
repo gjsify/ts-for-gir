@@ -4,7 +4,6 @@ import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass, Introspec
 import { IntrospectedConstant } from './gir/const.ts'
 import { GirEnumMember, IntrospectedError, IntrospectedEnum } from './gir/enum.ts'
 import {
-    IntrospectedCallback,
     IntrospectedConstructor,
     IntrospectedFunctionParameter,
     IntrospectedFunction,
@@ -12,8 +11,8 @@ import {
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction,
     IntrospectedDirectAllocationConstructor,
-    IntrospectedClassCallback,
 } from './gir/function.ts'
+import { IntrospectedCallback, IntrospectedClassCallback } from './gir/callback.ts'
 import { IntrospectedNamespace } from './gir/namespace.ts'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
 import { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.ts'

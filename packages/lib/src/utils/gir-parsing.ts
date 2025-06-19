@@ -4,7 +4,9 @@ import type {
     GirConstantElement, 
     GirCallableReturn, 
     GirFieldElement,
-    GirCallableParamElement
+    GirCallableParamElement,
+    GirFunctionElement,
+    GirMethodElement
 } from "@gi.ts/parser";
 import { GirDirection } from "@gi.ts/parser";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
@@ -241,4 +243,11 @@ export function getType(
     variableType.isPointer = isPointer;
 
     return variableType;
+}
+
+/**
+ * Check if a function/method element has a shadow attribute
+ */
+export function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
+    return obj.$["shadows"] != null;
 } 

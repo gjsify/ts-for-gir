@@ -6,6 +6,7 @@ export * from "./introspected-class-member.ts";
 export * from "./const.ts";
 export * from "./enum.ts";
 export * from "./function.ts";
+export * from "./callback.ts";
 export * from "./generics.ts";
 export * from "./namespace.ts";
 export * from "./promisify.ts";

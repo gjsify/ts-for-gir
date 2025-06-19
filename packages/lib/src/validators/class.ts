@@ -3,7 +3,7 @@ import type { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
 import type { IntrospectedClass } from "../gir/introspected-class.ts";
 import type { IntrospectedInterface } from "../gir/interface.ts";
 import { IntrospectedRecord } from "../gir/record.ts";
-import { IntrospectedError } from "../gir/enum.ts";
+import { IntrospectedError } from "../gir/error.ts";
 import { IntrospectedClassFunction } from "../gir/class-function.ts";
 import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
 import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";

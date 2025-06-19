@@ -10,7 +10,9 @@ import { filterConflicts, filterFunctionConflict } from "../utils/conflicts.ts";
 
 import { promisifyFunctions } from "../gir/promisify.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
-import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
+import { IntrospectedEnum } from "../gir/enum.ts";
+import { IntrospectedError } from "../gir/error.ts";
+import { GirEnumMember } from "../gir/enum-member.ts";
 import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {

@@ -1,17 +1,10 @@
 import {
-  TypeIdentifier,
   UnknownType,
-  VoidType,
-  ArrayType,
-  ClosureType,
-  NullableType,
   TypeExpression,
   Generic,
 } from "../gir.ts";
 
 import { IntrospectedBase } from "./introspected-base.ts";
-import { IntrospectedClassMember } from "./introspected-class-member.ts";
-import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
 import type { IntrospectedOptions } from "../types/index.ts";
 
 import type {

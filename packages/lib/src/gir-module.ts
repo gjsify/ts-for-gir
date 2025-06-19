@@ -16,13 +16,7 @@ import type {
     GirBitfieldElement,
 } from './types/index.ts'
 import {
-    ClosureType,
     TypeIdentifier,
-    PromiseType,
-    VoidType,
-    BooleanType,
-    TupleType,
-    BinaryType,
     NullableType,
     ObjectType,
 } from './gir.ts'
@@ -30,20 +24,21 @@ import {
 import type { GirNSMember } from './gir/namespace.ts'
 import { IntrospectedAlias } from './gir/alias.ts'
 import { IntrospectedBase } from './gir/introspected-base.ts'
-import { IntrospectedNamespaceMember } from './gir/introspected-namespace-member.ts'
+import type { IntrospectedNamespaceMember } from './gir/introspected-namespace-member.ts'
 import { IntrospectedBaseClass } from './gir/introspected-base-class.ts'
 import { IntrospectedClass } from './gir/introspected-class.ts'
 import { IntrospectedRecord } from './gir/record.ts'
 import { IntrospectedInterface } from './gir/interface.ts'
 import { IntrospectedConstant } from './gir/const.ts'
-import { IntrospectedEnum, IntrospectedError } from './gir/enum.ts'
+import { IntrospectedEnum } from './gir/enum.ts'
+import { IntrospectedError } from './gir/error.ts'
 import { IntrospectedFunction } from './gir/function.ts'
-import { IntrospectedFunctionParameter } from './gir/parameter.ts'
-import { IntrospectedClassFunction } from './gir/class-function.ts'
+import type { IntrospectedFunctionParameter } from './gir/parameter.ts'
+import type { IntrospectedClassFunction } from './gir/class-function.ts'
 import { IntrospectedCallback, IntrospectedClassCallback } from './gir/callback.ts'
-import { NSRegistry } from './gir/registry.ts'
+import type { NSRegistry } from './gir/registry.ts'
 import { isPrimitiveType } from './utils/types.ts'
-import { GirVisitor } from './visitor.ts'
+import type { GirVisitor } from './visitor.ts'
 
 import type { OptionsLoad } from './types/index.ts'
 

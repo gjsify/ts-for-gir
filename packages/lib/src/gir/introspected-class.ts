@@ -21,15 +21,15 @@ import { IntrospectedConstructor } from "./constructor.ts";
 
 import { IntrospectedClassCallback } from "./callback.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
-import { IntrospectedNamespace } from "./namespace.ts";
+import type { IntrospectedNamespace } from "./namespace.ts";
 import { sanitizeIdentifierName } from "../utils/naming.ts";
 import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { parseTypeIdentifier } from "../utils/types.ts";
 
 import { IntrospectedSignal } from "./signal.ts";
-import { FormatGenerator } from "../generators/generator.ts";
-import { GirVisitor } from "../visitor.ts";
+import type { FormatGenerator } from "../generators/generator.ts";
+import type { GirVisitor } from "../visitor.ts";
 import { GenericNameGenerator } from "./generics.ts";
 import { findMap } from "../util.ts";
 

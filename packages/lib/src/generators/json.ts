@@ -7,7 +7,10 @@ import { IntrospectedRecord } from "../gir/record.ts";
 import { IntrospectedInterface } from "../gir/interface.ts";
 import { IntrospectedClass } from "../gir/introspected-class.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
-import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
+import { IntrospectedEnum } from "../gir/enum.ts";
+import { IntrospectedError } from "../gir/error.ts";
+import { GirEnumMember } from "../gir/enum-member.ts";
+
 import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {

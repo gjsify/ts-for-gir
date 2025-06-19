@@ -6,8 +6,8 @@ import gee08 from "./gee08.ts";
 import gee1 from "./gee1.ts";
 import gtk4 from "./gtk4.ts";
 import { shell14, shell15 } from "./shell.ts";
-import { IntrospectedNamespace } from "../gir/namespace.ts";
-import { NSRegistry } from "../gir/registry.ts";
+import type { IntrospectedNamespace } from "../gir/namespace.ts";
+import type { NSRegistry } from "../gir/registry.ts";
 
 export type NamespaceInjection = (namespace: IntrospectedNamespace, registry: NSRegistry) => void;
 

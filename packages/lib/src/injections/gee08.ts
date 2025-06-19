@@ -1,5 +1,5 @@
-import { IntrospectedNamespace } from "../gir/namespace.ts";
-import { IntrospectedProperty } from "../index.ts";
+import type { IntrospectedNamespace } from "../gir/namespace.ts";
+import { IntrospectedProperty } from "../gir/property.ts";
 
 export default {
     namespace: "Gee",

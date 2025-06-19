@@ -67,7 +67,7 @@ export class IntrospectedClassCallback extends IntrospectedClassFunction {
         options: OptionsLoad
     ): IntrospectedClassCallback {
         const ns = parent.namespace;
-        const cb = IntrospectedClassFunction.fromXML(element, parent, options).asCallback();
+        const cb = new IntrospectedClassCallback(IntrospectedClassFunction.fromXML(element, parent, options).getCallbackParameters());
 
         const glibTypeName = element.$["glib:type-name"];
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {

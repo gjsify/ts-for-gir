@@ -18,6 +18,7 @@ import { GirModule } from "../index.ts";
 import type { OptionsGeneration, OptionsTransform, GeneratorConstructor } from "../types/index.ts";
 import { FunctionParametersVisitor } from "../validators/function-parameters.ts";
 
+// TODO: Singleton
 export class NSRegistry {
     mapping: TwoKeyMap<string, string, IntrospectedNamespace> = new TwoKeyMap();
     private formatters: Map<string, Formatter> = new Map();

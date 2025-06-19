@@ -64,7 +64,7 @@ export class IntrospectedCallback extends IntrospectedFunction {
 
     static fromXML(element: GirCallbackElement, namespace: GirModule, options: OptionsLoad): IntrospectedCallback {
         const ns = namespace;
-        const cb = IntrospectedFunction.fromXML(element, ns, options).asCallback();
+        const cb = new IntrospectedCallback(IntrospectedFunction.fromXML(element, ns, options).getCallbackParameters());
 
         const glibTypeName = element.$["glib:type-name"];
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {

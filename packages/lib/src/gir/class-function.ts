@@ -20,7 +20,6 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 
-import { IntrospectedClassCallback } from "./class-callback.ts";
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
 import { IntrospectedStaticClassFunction } from "./static-function.ts";
@@ -69,16 +68,15 @@ export class IntrospectedClassFunction<
         return this.parent.namespace;
     }
 
-    asCallback(): IntrospectedClassCallback {
+    getCallbackParameters() {
         const { name, parent, output_parameters, parameters, return_type } = this;
-
-        return new IntrospectedClassCallback({
-            parent,
+        return {
             name,
+            parent,
             output_parameters,
             parameters,
             return_type
-        });
+        }
     }
 
     asConstructor(): IntrospectedConstructor {

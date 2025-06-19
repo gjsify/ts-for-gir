@@ -27,7 +27,7 @@ const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
     const generateConfig = Config.getOptionsGeneration(config)
-    const registry = new NSRegistry()
+    const registry = new NSRegistry() // TODO: Use singleton
     const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,

@@ -24,7 +24,7 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
     const generateConfig = Config.getOptionsGeneration(config)
-    const registry = new NSRegistry()
+    const registry = new NSRegistry() // TODO: Use singleton
     const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)

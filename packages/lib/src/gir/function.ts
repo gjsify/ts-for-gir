@@ -34,7 +34,6 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 
-import { IntrospectedCallback } from "./callback.ts";
 import { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedClassFunction } from "./class-function.ts";
 import { IntrospectedVirtualClassFunction } from "./virtual-function.ts";
@@ -254,17 +253,15 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         return this.return_type;
     }
 
-    asCallback(): IntrospectedCallback {
-        const { name, raw_name, namespace, output_parameters, parameters, return_type } = this;
-
-        return new IntrospectedCallback({
-            namespace,
-            raw_name,
-            name,
-            output_parameters,
-            parameters,
-            return_type
-        });
+    getCallbackParameters() {
+        return {
+            name: this.name,
+            raw_name: this.raw_name,
+            namespace: this.namespace,
+            output_parameters: this.output_parameters,
+            parameters: this.parameters,
+            return_type: this.return_type
+        }
     }
 
     asClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedClassFunction {

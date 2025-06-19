@@ -1,5 +1,6 @@
 import { LibraryVersion } from './library-version.ts'
-import { __dirname, readJsonFile } from './utils/index.ts'
+import { __dirname } from './utils/path.ts'
+import { readJsonFile } from './utils/files.ts'
 import { join } from 'path'
 
 export const COMMENT_REG_EXP = /\/\*.*\*\//g

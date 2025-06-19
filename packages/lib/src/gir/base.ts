@@ -2,10 +2,10 @@ import { FormatGenerator } from "../generators/index.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 
-import type { IntrospectedBaseClass } from "./nodes.ts";
+import type { IntrospectedBaseClass } from "./class.ts";
 import type { OptionsLoad } from "../types/index.ts";
 
-export interface Metadata {
+export interface IntrospectedMetadata {
     deprecated?: boolean;
     deprecatedVersion?: string;
     deprecatedDoc?: string;
@@ -26,7 +26,7 @@ export type AnyIntrospectedType = IntrospectedBase<any>;
 export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | AnyIntrospectedType | null> {
     name: string;
     doc?: string | null;
-    metadata?: Metadata;
+    metadata?: IntrospectedMetadata;
     deprecated?: boolean;
     resolve_names: string[] = [];
     private _emit = true;

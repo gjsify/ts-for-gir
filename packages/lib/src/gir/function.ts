@@ -20,17 +20,18 @@ import type {
     GirConstructorElement,
     GirModule,
 } from "../index.ts";
-import { GirDirection } from "../index.ts";
+import { GirDirection } from '@gi.ts/parser'
 
-import { IntrospectedNamespace, isIntrospectable } from "./namespace.ts";
-import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "./util.ts";
+import { IntrospectedNamespace } from "./namespace.ts";
+import { isIntrospectable } from "../utils/index.ts";
+import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "../utils/index.ts";
 import { IntrospectedClass } from "./class.ts";
 import { IntrospectedEnum } from "./enum.ts";
 import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedField } from "./property.ts";
-import { IntrospectedBaseClass } from "./nodes.ts";
+import { IntrospectedBaseClass } from "./class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 

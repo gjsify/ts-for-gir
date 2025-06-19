@@ -21,7 +21,9 @@
     "clear:build": "rimraf ./lib",
     "watch": "yarn build:ts --watch",
     "lint": "eslint . --fix",
-    "check": "tsc --noEmit"
+    "check:types": "tsc --noEmit",
+    "check:deps": "dpdm -T ./src/index.ts",
+    "check": "yarn check:types && yarn check:deps"
   },
   "repository": {
     "type": "git",
@@ -63,12 +65,12 @@
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
+    "dpdm": "^3.14.0",
     "esbuild": "^0.25.5",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {

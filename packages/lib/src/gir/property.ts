@@ -2,8 +2,8 @@ import { TypeExpression } from "../gir.ts";
 import { IntrospectedBase, IntrospectedClassMember, type Options } from "./base.ts";
 import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 
-import { getType, parseDoc, parseMetadata } from "./util.ts";
-import { isIntrospectable } from "./namespace.ts";
+import { getType, parseDoc, parseMetadata } from "../utils/index.ts";
+import { isIntrospectable } from "../utils/index.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedBaseClass } from "./class.ts";

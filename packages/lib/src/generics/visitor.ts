@@ -5,9 +5,9 @@ import {
     TypeIdentifier,
     GenerifiedTypeIdentifier,
     ThisType,
-    IntrospectedEnum
 } from "../gir.ts";
-import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.ts";
+import { IntrospectedEnum } from "../gir/enum.ts";
+import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.ts"; 
 import {
     IntrospectedCallback,
     IntrospectedFunctionParameter,
@@ -18,7 +18,7 @@ import {
 } from "../gir/function.ts";
 import { GenericNameGenerator } from "../gir/generics.ts";
 import { NSRegistry } from "../gir/registry.ts";
-import { resolveTypeIdentifier } from "../gir/util.ts";
+import { resolveTypeIdentifier } from "../utils/index.ts";
 import { GirVisitor } from "../visitor.ts";
 
 export class GenericVisitor extends GirVisitor {

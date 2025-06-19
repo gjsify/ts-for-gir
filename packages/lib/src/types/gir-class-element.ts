@@ -4,7 +4,6 @@ import type {
     GirConstructorElement,
     GirFieldElement,
     GirFunctionElement,
-    GirImplements,
     GirMethodElement,
     GirPropertyElement,
     GirRecordElement,
@@ -13,9 +12,9 @@ import type {
     GirVirtualMethodElement,
     PartOfModule,
 } from './index.ts'
-import * as parser from '@gi.ts/parser'
+import { type GirClassElement as GirClassElementParser, type GirImplements } from '@gi.ts/parser'
 
-export interface GirClassElement extends PartOfModule, parser.GirClassElement {
+export interface GirClassElement extends PartOfModule, GirClassElementParser {
     implements?: GirImplements[]
     constructor?: GirConstructorElement[]
     method?: GirMethodElement[]

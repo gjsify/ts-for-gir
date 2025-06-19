@@ -28,7 +28,7 @@ import {
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction
 } from "../gir/function.ts";
-import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.ts";
+import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../utils/index.ts";
 import {
     TypeExpression,
     NativeType,

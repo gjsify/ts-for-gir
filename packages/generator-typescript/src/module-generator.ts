@@ -12,7 +12,6 @@ import {
     IntrospectedInterface,
     IntrospectedBaseClass,
     IntrospectedField,
-    GirDirection,
     type TsDocTag,
     upperCamelCase,
     filterFunctionConflict,
@@ -30,7 +29,6 @@ import {
     BooleanType,
     ThisType,
     ClassStructTypeIdentifier,
-    promisifyNamespaceFunctions,
     type OptionsGeneration,
     GirModule,
     IntrospectedFunction,
@@ -49,7 +47,6 @@ import {
     IntrospectedAlias,
     IntrospectedEnum,
     IntrospectedSignalType,
-    IntrospectedEnumMember,
     IntrospectedError,
     FormatGenerator,
     type Generic,
@@ -59,7 +56,10 @@ import {
     printGirDocComment,
     promisifyFunctions,
     transformGirDocText,
+    GirEnumMember,
+    promisifyNamespaceFunctions,
 } from '@ts-for-gir/lib'
+import { GirDirection } from '@gi.ts/parser'
 
 import { TemplateProcessor } from './template-processor.ts'
 import { PackageDataParser } from './package-data-parser.ts'
@@ -820,7 +820,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         return desc
     }
 
-    generateEnumMember(tsMember: IntrospectedEnumMember, indentCount = 1) {
+    generateEnumMember(tsMember: GirEnumMember, indentCount = 1) {
         const desc: string[] = []
 
         desc.push(...this.addGirDocComment(tsMember.doc, [], indentCount))

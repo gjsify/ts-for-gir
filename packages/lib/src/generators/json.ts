@@ -20,7 +20,7 @@ import {
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction
 } from "../gir/function.ts";
-import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.ts";
+import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../utils/index.ts";
 import {
     TypeExpression,
     NativeType,
@@ -36,8 +36,8 @@ import {
     ClosureType,
     AnyFunctionType,
     TypeConflict,
-    type IntrospectedMetadata
 } from "../gir.ts";
+import { type IntrospectedMetadata } from "../gir/base.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.ts";
 import type { AnyIntrospectedType } from "../gir/base.ts";

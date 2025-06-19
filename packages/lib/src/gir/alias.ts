@@ -2,8 +2,9 @@ import { TypeExpression } from "../gir.ts";
 import { IntrospectedNamespaceMember, type Options } from "./base.ts";
 
 import type { GirAliasElement } from "../index.ts";
-import { IntrospectedNamespace, isIntrospectable } from "./namespace.ts";
-import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.ts";
+import { IntrospectedNamespace } from "./namespace.ts";
+import { isIntrospectable } from "../utils/index.ts";
+import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "../utils/index.ts";
 import { FormatGenerator, type GenericDescriptor } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

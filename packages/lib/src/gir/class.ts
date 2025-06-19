@@ -15,13 +15,15 @@ import { TypeExpression } from "../gir.ts";
 import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, type Options } from "./base.ts";
 
 import {
-    GirDirection,
+    
     ClassStructTypeIdentifier,
     type GirInterfaceElement,
     type GirClassElement,
     type GirRecordElement,
     type GirUnionElement
 } from "../index.ts";
+
+import  { GirDirection } from '@gi.ts/parser'
 import {
     IntrospectedClassFunction,
     IntrospectedVirtualClassFunction,
@@ -41,7 +43,7 @@ import {
     resolveTypeIdentifier,
     parseDoc,
     parseMetadata
-} from "./util.ts";
+} from "../utils/index.ts";
 import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";

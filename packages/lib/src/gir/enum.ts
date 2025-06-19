@@ -7,7 +7,7 @@ import { GirComplexRecord, IntrospectedRecord } from "./class.ts";
 import { IntrospectedField } from "./property.ts";
 import { IntrospectedStaticClassFunction } from "./function.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
-import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "./util.ts";
+import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "../utils/index.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

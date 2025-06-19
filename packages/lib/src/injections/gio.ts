@@ -22,8 +22,8 @@ import {
     BooleanType,
     TypeIdentifier,
     ThisType,
-    IntrospectedAlias
 } from "../gir.ts";
+import { IntrospectedAlias } from "../gir/alias.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.ts";
 import { IntrospectedClass, IntrospectedInterface } from "../gir/class.ts";

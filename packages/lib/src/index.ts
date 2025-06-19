@@ -11,6 +11,5 @@ export * from './messages.ts'
 
 export * from './utils/index.ts'
 export * from './gir.ts'
-// TODO: Export this from gir.js once we resolve circular dependencies
-export { promisifyNamespaceFunctions } from './gir/namespace.ts'
+export * from './gir/index.ts'
 export * from './registry.ts'

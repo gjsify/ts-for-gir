@@ -6,7 +6,7 @@ import {
     IntrospectedDirectAllocationConstructor,
     IntrospectedStaticClassFunction
 } from "../gir/function.ts";
-import { resolveTypeIdentifier } from "../gir/util.ts";
+import { resolveTypeIdentifier } from "../utils/index.ts";
 import { GirVisitor } from "../visitor.ts";
 
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {

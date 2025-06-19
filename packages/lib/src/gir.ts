@@ -1,20 +1,7 @@
 import { Logger } from './logger.ts'
 import { IntrospectedNamespace } from './gir/namespace.ts'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
-import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './gir/util.ts'
-export { sanitizeMemberName, isInvalid } from './gir/util.ts'
-
-export {
-    IntrospectedBase,
-    type Options as IntrospectedOptions,
-    type Metadata as IntrospectedMetadata,
-    IntrospectedNamespaceMember,
-    IntrospectedClassMember,
-} from './gir/base.ts'
-export { filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/class.ts'
-export { promisifyFunctions } from './gir/promisify.ts'
-export { resolveDirectedType, resolvePrimitiveType } from './gir/util.ts'
-export * from './gir/nodes.ts'
+import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './utils/index.ts'
 
 import type { OptionsBase } from './types/index.ts'
 

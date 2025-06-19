@@ -1,15 +1,16 @@
-import { parser, type GirXML, type GirRepository, type GirNamespace } from '@gi.ts/parser'
+import { parser, type GirXML, type GirRepository, type GirNamespace, type GirInclude } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
 
 import { findFilesInDirs, splitModuleName, pascalCase } from './utils/index.ts'
-import { sanitizeNamespace } from './gir/util.ts'
+import { sanitizeNamespace } from './utils/index.ts'
 import { Logger } from './logger.ts'
 import { transformImportName, transformModuleNamespaceName } from './utils/index.ts'
 import { LibraryVersion } from './library-version.ts'
 
-import type { Dependency, OptionsGeneration, GirInclude, FileInfo } from './types/index.ts'
+import type { Dependency, OptionsGeneration, FileInfo } from './types/index.ts'
 import type { GirModule } from './gir-module.ts'
 import { GirNSRegistry } from './registry.ts'
+
 export class DependencyManager extends GirNSRegistry {
     protected log: Logger
     protected readonly config: OptionsGeneration

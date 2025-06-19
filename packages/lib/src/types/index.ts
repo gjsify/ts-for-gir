@@ -8,30 +8,7 @@ export * from './file-info.ts'
 export * from './gir-alias-element.ts'
 export * from './gir-annotation.ts'
 export * from './gir-any-element.ts'
-export {
-    GirDirection,
-} from '@gi.ts/parser'
-export type {
-    GirAnyType,
-    GirArrayType,
-    GirBoolean,
-    GirBoxedElement,
-    GirCInclude,
-    GirCallableAttrs,
-    GirDocElement,
-    GirImplements,
-    GirInclude,
-    GirInfoAttrs,
-    GirInfoElements,
-    GirPackage,
-    GirPrerequisite,
-    GirTransferOwnership,
-    GirTransferOwnershipType,
-    GirType,
-    GirVarArgs,
-} from '@gi.ts/parser'
 export * from './gir-bitfield-element.ts'
-
 export * from './gir-callable-param-element.ts'
 export * from './gir-callable-params.ts'
 export * from './gir-callable-return.ts'

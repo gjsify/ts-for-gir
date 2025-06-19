@@ -9,12 +9,12 @@ import {
     ArrayType
 } from "../gir.ts";
 import { IntrospectedClassMember, type Options } from "./base.ts";
-import { isIntrospectable } from "./namespace.ts";
+import { isIntrospectable } from "../utils/index.ts";
 import { IntrospectedClass } from "./class.ts";
 import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedClassCallback } from "./function.ts";
 import type { GirSignalElement, GirCallableParamElement } from "@gi.ts/parser";
 import { GirDirection } from "@gi.ts/parser";
-import { getType, parseDoc, parseMetadata } from "./util.ts";
+import { getType, parseDoc, parseMetadata } from "../utils/index.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

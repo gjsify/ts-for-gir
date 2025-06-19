@@ -1,4 +1,5 @@
-import type { GirInfoAttrs, TsDoc } from '../types/index.ts'
+import type { TsDoc } from '../types/index.ts'
+import type { GirInfoAttrs } from '@gi.ts/parser'
 
 /**
  * Split a package name into namespace and version

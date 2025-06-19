@@ -20,6 +20,7 @@ import type { IntrospectedAlias } from "../gir/alias.ts";
 import type { TypeExpression } from "../gir.ts";
 import type { OptionsGeneration } from "../types/options-generation.ts";
 
+// TODO: Move to types/
 export interface GenericDescriptor {
     type: TypeExpression;
     name: string;

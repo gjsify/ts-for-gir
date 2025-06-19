@@ -1,5 +1,5 @@
-import { FormatGenerator } from "../generators/index.ts";
-import { GirVisitor } from "../visitor.ts";
+import type { FormatGenerator } from "../generators/index.ts";
+import type { GirVisitor } from "../visitor.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 
 import type { IntrospectedMetadata, IntrospectedBaseOptions, OptionsLoad, AnyIntrospectedType } from "../types/index.ts";

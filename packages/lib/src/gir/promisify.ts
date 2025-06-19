@@ -7,7 +7,8 @@ import {
     IntrospectedVirtualClassFunction
 } from "./function.ts";
 
-import { IntrospectedBaseClass, IntrospectedInterface } from "./class.ts";
+import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import { IntrospectedInterface } from "./interface.ts";
 
 /**
  * Generates three overloaded function signatures for async methods:

@@ -1,5 +1,7 @@
 import { IntrospectedNamespace } from "../gir/namespace.ts";
-import { IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from "../gir/class.ts";
+import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
 import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";

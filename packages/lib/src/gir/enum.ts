@@ -4,9 +4,10 @@ import { IntrospectedBase } from "./introspected-base.ts";
 import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
 import type { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../index.ts";
 
-import { GirComplexRecord, IntrospectedRecord } from "./class.ts";
+import { IntrospectedRecord } from "./record.ts";
 import { IntrospectedField } from "./property.ts";
 import { IntrospectedStaticClassFunction } from "./function.ts";
+import { GirComplexRecord } from "./gir-complex-record.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "../utils/index.ts";
 import { FormatGenerator } from "../generators/generator.ts";

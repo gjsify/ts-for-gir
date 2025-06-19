@@ -1,5 +1,8 @@
 import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
-import { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface, IntrospectedRecord } from "../gir/class.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
+import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
 import { IntrospectedError } from "../gir/enum.ts";
 import {
     IntrospectedClassFunction,

@@ -26,7 +26,8 @@ import {
 import { IntrospectedAlias } from "../gir/alias.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.ts";
-import { IntrospectedClass, IntrospectedInterface } from "../gir/class.ts";
+import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
 
 export default {
     namespace: "Gio",

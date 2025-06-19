@@ -16,7 +16,7 @@ import { GirVisitor } from "../visitor.ts";
 import type { OptionsLoad } from "../types/index.ts";
 import { IntrospectedFunction, IntrospectedFunctionParameter } from "./function.ts";
 import { IntrospectedClassFunction } from "./function.ts";
-import { IntrospectedBaseClass } from "./class.ts";
+import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 export class IntrospectedCallback extends IntrospectedFunction {
     asFunctionType(): FunctionType {

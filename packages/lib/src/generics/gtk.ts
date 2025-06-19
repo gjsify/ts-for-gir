@@ -1,6 +1,6 @@
 import { IntrospectedNamespace } from "../gir/namespace.ts";
 import { Generic, GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
-import { IntrospectedBaseClass } from "../gir/class.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
 
 export default {
     namespace: "Gtk",

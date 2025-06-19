@@ -7,7 +7,6 @@ import {
     NullableType,
     TypeExpression,
     Generic,
-    FunctionType
 } from "../gir.ts";
 
 import { IntrospectedBase } from "./introspected-base.ts";
@@ -19,7 +18,6 @@ import type {
     GirFunctionElement,
     GirMethodElement,
     GirCallableParamElement,
-    GirCallbackElement,
     GirVirtualMethodElement,
     GirConstructorElement,
     GirModule,
@@ -29,13 +27,13 @@ import { GirDirection } from '@gi.ts/parser'
 import { IntrospectedNamespace } from "./namespace.ts";
 import { isIntrospectable } from "../utils/index.ts";
 import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata, hasShadow } from "../utils/index.ts";
-import { IntrospectedClass } from "./class.ts";
+import { IntrospectedClass } from "./introspected-class.ts";
 import { IntrospectedEnum } from "./enum.ts";
 import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedField } from "./property.ts";
-import { IntrospectedBaseClass } from "./class.ts";
+import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 

@@ -8,7 +8,7 @@ import { getType, parseDoc, parseMetadata } from "../utils/index.ts";
 import { isIntrospectable } from "../utils/index.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
-import { IntrospectedBaseClass } from "./class.ts";
+import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 import { IntrospectedEnum } from "./enum.ts";
 
 import type { OptionsLoad } from "../types/index.ts";

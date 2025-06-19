@@ -18,7 +18,7 @@ import {
     Generic
 } from "../gir.ts";
 import { GirDirection } from "@gi.ts/parser";
-import { IntrospectedRecord } from "../gir/class.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
 import { JSField } from "../gir/property.ts";
 
 export default {

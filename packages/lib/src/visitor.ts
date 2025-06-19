@@ -1,6 +1,9 @@
 import { TypeExpression } from './gir.ts'
 import { IntrospectedAlias } from './gir/alias.ts'
-import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass, IntrospectedBaseClass } from './gir/class.ts'
+import { IntrospectedRecord } from './gir/record.ts'
+import { IntrospectedInterface } from './gir/interface.ts'
+import { IntrospectedClass } from './gir/introspected-class.ts'
+import { IntrospectedBaseClass } from './gir/introspected-base-class.ts'
 import { IntrospectedConstant } from './gir/const.ts'
 import { GirEnumMember, IntrospectedError, IntrospectedEnum } from './gir/enum.ts'
 import {

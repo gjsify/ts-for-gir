@@ -28,7 +28,7 @@ import {
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField } from "../gir/property.ts";
 import { IntrospectedAlias } from "../gir/alias.ts";
-import { IntrospectedInterface } from "../gir/class.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
 
 function typeParam(name: string, type: TypeExpression, options: any = {}) {
     return new IntrospectedFunctionParameter({

@@ -11,7 +11,7 @@ import {
 import { IntrospectedClassMember } from "./introspected-class-member.ts";
 import type { Options } from "../types/introspected.ts";
 import { isIntrospectable } from "../utils/index.ts";
-import { IntrospectedClass } from "./class.ts";
+import { IntrospectedClass } from "./introspected-class.ts";
 import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "./function.ts";
 import { IntrospectedClassCallback } from "./callback.ts";
 import type { GirSignalElement, GirCallableParamElement } from "@gi.ts/parser";

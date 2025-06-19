@@ -1,3 +1,4 @@
+export * from './conflicts.ts'
 export * from './documentation.ts'
 export * from './files.ts'
 export * from './gir-parsing.ts'

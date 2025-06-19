@@ -1,5 +1,5 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
-import { IntrospectedBaseClass } from "../gir/class.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
 import { TwoKeyMap } from "../util.ts";
 import { 
     TypeIdentifier, 

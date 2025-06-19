@@ -7,7 +7,9 @@ import {
     ThisType,
 } from "../gir.ts";
 import { IntrospectedEnum } from "../gir/enum.ts";
-import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.ts"; 
+import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
 import {
     IntrospectedFunctionParameter,
     IntrospectedFunction,

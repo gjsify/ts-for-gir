@@ -2,7 +2,10 @@ import { Logger } from "../logger.ts";
 import { FormatGenerator } from "./generator.ts";
 import { IntrospectedNamespace } from "../gir/namespace.ts";
 
-import { IntrospectedBaseClass, IntrospectedRecord, IntrospectedInterface, IntrospectedClass } from "../gir/class.ts";
+import { IntrospectedBaseClass, } from "../gir/introspected-base-class.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedClass } from "../gir/introspected-class.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
 import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
@@ -39,10 +42,9 @@ import {
 import { type IntrospectedMetadata } from "../types/introspected.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.ts";
-import type { AnyIntrospectedType } from "../gir/introspected-base.ts";
 import { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
 
-import type { OptionsGeneration } from "../types/index.ts";
+import type { OptionsGeneration, AnyIntrospectedType } from "../types/index.ts";
 
 export const enum NodeKind {
     class = "class",

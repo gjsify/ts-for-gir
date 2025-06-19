@@ -1,15 +1,13 @@
 import { FormatGenerator } from "./generator.ts";
 import { IntrospectedNamespace } from "../gir/namespace.ts";
 
-import {
-    IntrospectedBaseClass,
-    IntrospectedRecord,
-    IntrospectedInterface,
-    IntrospectedClass,
-    filterConflicts,
-    filterFunctionConflict,
-    FilterBehavior
-} from "../gir/class.ts";
+import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
+import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
+import { FilterBehavior } from "../gir/data.ts";
+import { filterConflicts, filterFunctionConflict } from "../utils/conflicts.ts";
+
 import { promisifyFunctions } from "../gir/promisify.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.ts";
@@ -44,7 +42,7 @@ import {
 } from "../gir.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.ts";
-import type { AnyIntrospectedType } from "../gir/introspected-base.ts";
+import type { AnyIntrospectedType } from "../types/index.ts";
 
 import type { OptionsGeneration } from "../types/options-generation.ts";
 

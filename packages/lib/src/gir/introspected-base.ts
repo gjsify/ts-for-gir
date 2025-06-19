@@ -1,11 +1,8 @@
 import { FormatGenerator } from "../generators/index.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
-import type { IntrospectedMetadata, IntrospectedBaseOptions } from "../types/introspected.ts";
 
-import type { OptionsLoad } from "../types/index.ts";
-
-export type AnyIntrospectedType = IntrospectedBase<any>;
+import type { IntrospectedMetadata, IntrospectedBaseOptions, OptionsLoad, AnyIntrospectedType } from "../types/index.ts";
 
 export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | AnyIntrospectedType | null> {
     name: string;

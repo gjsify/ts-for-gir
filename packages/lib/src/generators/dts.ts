@@ -45,7 +45,8 @@ import {
 } from "../gir.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.ts";
-import type { AnyIntrospectedType } from "../gir/base.ts";
+import type { AnyIntrospectedType } from "../gir/introspected-base.ts";
+
 import type { OptionsGeneration } from "../types/options-generation.ts";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {

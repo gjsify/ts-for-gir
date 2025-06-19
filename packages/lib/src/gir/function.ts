@@ -10,7 +10,11 @@ import {
     FunctionType
 } from "../gir.ts";
 
-import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, type Options } from "./base.ts";
+import { IntrospectedBase } from "./introspected-base.ts";
+import { IntrospectedClassMember } from "./introspected-class-member.ts";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
+import type { IntrospectedOptions } from "../types/index.ts";
+
 import type {
     GirFunctionElement,
     GirMethodElement,
@@ -56,7 +60,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         output_parameters = [],
         namespace,
         ...args
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         raw_name: string;
         return_type?: TypeExpression;
@@ -390,7 +394,7 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
         return_type,
         parent,
         ...args
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         parent: IntrospectedBaseClass | null;
         parameters?: IntrospectedFunctionParameter[];
@@ -474,7 +478,7 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
         isOptional = false,
         isNullable = false,
         ...args
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         parent?:
             | IntrospectedClassFunction
@@ -653,7 +657,7 @@ export class IntrospectedClassFunction<
         parent,
         doc,
         ...args
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         parameters?: IntrospectedFunctionParameter[];
         output_parameters?: IntrospectedFunctionParameter[];
@@ -805,7 +809,7 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
         parent,
         doc,
         ...args
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         parameters: IntrospectedFunctionParameter[];
         output_parameters?: IntrospectedFunctionParameter[];

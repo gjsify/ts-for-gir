@@ -9,7 +9,7 @@ import type {
 import { GirDirection } from "@gi.ts/parser";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { deprecatedVersion, introducedVersion, isDeprecated } from "./girs.ts";
-import type { IntrospectedMetadata } from "../gir/base.ts";
+import type { IntrospectedMetadata } from "../types/introspected.ts";
 import { 
     TypeExpression, 
     VoidType, 

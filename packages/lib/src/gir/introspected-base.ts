@@ -1,26 +1,10 @@
 import { FormatGenerator } from "../generators/index.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
+import type { IntrospectedMetadata, IntrospectedBaseOptions } from "../types/introspected.ts";
 
-import type { IntrospectedBaseClass } from "./class.ts";
 import type { OptionsLoad } from "../types/index.ts";
 
-export interface IntrospectedMetadata {
-    deprecated?: boolean;
-    deprecatedVersion?: string;
-    deprecatedDoc?: string;
-    introducedVersion?: string;
-}
-
-export interface BaseOptions {
-    isPrivate?: boolean;
-    isIntrospectable?: boolean;
-    doc?: string | null;
-}
-
-export type Options<T> = BaseOptions & T;
-
- 
 export type AnyIntrospectedType = IntrospectedBase<any>;
 
 export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | AnyIntrospectedType | null> {
@@ -35,7 +19,7 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
     private _isIntrospectable: boolean;
     private _parent: Parent;
 
-    constructor(name: string, parent: Parent, options: BaseOptions = {}) {
+    constructor(name: string, parent: Parent, options: IntrospectedBaseOptions = {}) {
         this.name = name;
         this._parent = parent;
         this._isPrivate = options.isPrivate ?? false;
@@ -116,37 +100,4 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
         generator: T
     ): (T extends FormatGenerator<infer R> ? R : never) | null;
     abstract asString<T extends FormatGenerator<unknown>>(generator: T): unknown;
-}
-
-export abstract class IntrospectedNamespaceMember extends IntrospectedBase<IntrospectedNamespace> {
-    constructor(name: string, namespace: IntrospectedNamespace, options: BaseOptions = {}) {
-        super(name, namespace, options);
-    }
-
-    get namespace() {
-        return this.parent;
-    }
-
-    static fromXML(
-         
-        element: Record<string, any>,
-         
-        parent: IntrospectedNamespace,
-         
-        options: OptionsLoad
-    ): IntrospectedNamespaceMember | null {
-        throw new Error("GirBase cannot be instantiated");
-    }
-}
-
-export abstract class IntrospectedClassMember<
-    Parent extends IntrospectedBaseClass | null = IntrospectedBaseClass | null
-> extends IntrospectedBase<Parent> {
-    get namespace() {
-        if (!this.parent) {
-            throw new Error(`Failed to get namespace for ${this.name}`);
-        }
-
-        return this.parent.namespace;
-    }
 }

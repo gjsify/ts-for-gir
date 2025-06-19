@@ -1,5 +1,6 @@
 import { TypeExpression } from "../gir.ts";
-import { IntrospectedNamespaceMember, type Options } from "./base.ts";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
+
 import type { GirConstantElement } from "../index.ts";
 
 import { IntrospectedNamespace } from "./namespace.ts";
@@ -7,7 +8,7 @@ import { getType, parseDoc, parseMetadata, sanitizeIdentifierName } from "../uti
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 
-import type { OptionsLoad } from "../types/index.ts";
+import type { OptionsLoad, IntrospectedOptions } from "../types/index.ts"; 
 
 export class IntrospectedConstant extends IntrospectedNamespaceMember {
     type: TypeExpression;
@@ -19,7 +20,7 @@ export class IntrospectedConstant extends IntrospectedNamespaceMember {
         namespace,
         value,
         ...options
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         type: TypeExpression;
         namespace: IntrospectedNamespace;

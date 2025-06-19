@@ -1,7 +1,8 @@
 import { Logger } from './logger.ts'
 import { IntrospectedNamespace } from './gir/namespace.ts'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
-import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './utils/index.ts'
+import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './utils/naming.ts'
+
 
 import type { OptionsBase } from './types/index.ts'
 

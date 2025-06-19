@@ -3,30 +3,28 @@ description: TypeScript best practices for the project
 globs: **/*.ts
 alwaysApply: false
 ---
-# TypeScript Best Practices
+You are an expert in TypeScript, Node.js, GJS and GNOME.
 
-## Type Safety
+# Type Safety
 - Avoid using `any` type - use `unknown` with proper type guards instead
 - Create type guards with `is` syntax for runtime type checking
 - Use generics for better type inference
 - Use discriminated unions with explicit type properties
 - Ensure proper nullability handling with optional chaining and nullish coalescing
 
-## Type Definitions
+# Type Definitions
 - Use interfaces for object shapes
 - Use types for unions, intersections, and mapped types
 - Extend interfaces for inheritance
 - Use consistent naming patterns
 - Document interfaces and types with JSDoc comments
+- Place types and interfaces in `src/types/`, each package has such a folder
 
-## Enums and Constants
-- Use enums for fixed sets of values
+# Enums and Constants
 - Prefer enum values over string literals in code
-- Document enum values with JSDoc comments
-- Use string enums for better serialization
 - Create constant objects for related values
 
-## Error Handling
+# Error Handling
 - Use proper error types for different failure scenarios
 - Provide meaningful error messages
 - Include appropriate type checking before operations

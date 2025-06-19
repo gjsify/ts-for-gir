@@ -1,10 +1,11 @@
 import { parser, type GirXML, type GirRepository, type GirNamespace, type GirInclude } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
 
-import { findFilesInDirs, splitModuleName, pascalCase } from './utils/index.ts'
-import { sanitizeNamespace } from './utils/index.ts'
+import { pascalCase } from './utils/strings.ts'
+import { findFilesInDirs } from './utils/files.ts'
+import { splitModuleName } from './utils/girs.ts'
 import { Logger } from './logger.ts'
-import { transformImportName, transformModuleNamespaceName } from './utils/index.ts'
+import { transformImportName, transformModuleNamespaceName, sanitizeNamespace, } from './utils/naming.ts'
 import { LibraryVersion } from './library-version.ts'
 
 import type { Dependency, OptionsGeneration, FileInfo } from './types/index.ts'

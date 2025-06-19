@@ -37,11 +37,11 @@ import {
     AnyFunctionType,
     TypeConflict,
 } from "../gir.ts";
-import { type IntrospectedMetadata } from "../gir/base.ts";
+import { type IntrospectedMetadata } from "../types/introspected.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.ts";
-import type { AnyIntrospectedType } from "../gir/base.ts";
-import { IntrospectedNamespaceMember } from "../gir/base.ts";
+import type { AnyIntrospectedType } from "../gir/introspected-base.ts";
+import { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
 
 import type { OptionsGeneration } from "../types/index.ts";
 

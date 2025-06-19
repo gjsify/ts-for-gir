@@ -1,5 +1,6 @@
 import { TypeExpression } from "../gir.ts";
-import { IntrospectedNamespaceMember, type Options } from "./base.ts";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
+import type { IntrospectedOptions } from "../types/index.ts";
 
 import type { GirAliasElement } from "../index.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
@@ -20,7 +21,7 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
         type,
         generics = [],
         ...args
-    }: Options<{
+    }: IntrospectedOptions<{
         namespace: IntrospectedNamespace;
         name: string;
         type: TypeExpression;

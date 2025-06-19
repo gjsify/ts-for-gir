@@ -28,7 +28,8 @@ import {
 
 import type { GirNSMember } from './gir/namespace.ts'
 import { IntrospectedAlias } from './gir/alias.ts'
-import { IntrospectedBase, IntrospectedNamespaceMember } from './gir/base.ts'
+import { IntrospectedBase } from './gir/introspected-base.ts'
+import { IntrospectedNamespaceMember } from './gir/introspected-namespace-member.ts'
 import { IntrospectedBaseClass, IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from './gir/class.ts'
 import { IntrospectedConstant } from './gir/const.ts'
 import { IntrospectedEnum, IntrospectedError } from './gir/enum.ts'

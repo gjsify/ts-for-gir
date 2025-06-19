@@ -1,6 +1,7 @@
 import { NumberType, TypeIdentifier } from "../gir.ts";
 
-import { IntrospectedBase, IntrospectedNamespaceMember } from "./base.ts";
+import { IntrospectedBase } from "./introspected-base.ts";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
 import type { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../index.ts";
 
 import { GirComplexRecord, IntrospectedRecord } from "./class.ts";

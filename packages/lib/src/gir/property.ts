@@ -1,5 +1,7 @@
 import { TypeExpression } from "../gir.ts";
-import { IntrospectedBase, IntrospectedClassMember, type Options } from "./base.ts";
+import { IntrospectedBase } from "./introspected-base.ts";
+import { IntrospectedClassMember } from "./introspected-class-member.ts";
+import type { Options } from "../types/introspected.ts";
 import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 
 import { getType, parseDoc, parseMetadata } from "../utils/index.ts";

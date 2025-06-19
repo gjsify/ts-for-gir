@@ -4,7 +4,7 @@ import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/names
 import { override as overrideGLib } from "./dts/glib.ts";
 import { override as overrideGObject } from "./dts/gobject.ts";
 import { DtsGenerator } from "./dts.ts";
-import { IntrospectedNamespaceMember } from "../gir/base.ts";
+import { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
 
 import type { OptionsGeneration } from "../types/index.ts";
 

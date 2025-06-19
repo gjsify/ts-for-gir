@@ -12,7 +12,10 @@ import {
     TypeConflict
 } from "../gir.ts";
 import { TypeExpression } from "../gir.ts";
-import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, type Options } from "./base.ts";
+import { IntrospectedBase } from "./introspected-base.ts";
+import { IntrospectedClassMember } from "./introspected-class-member.ts";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
+import type { IntrospectedOptions } from "../types/index.ts";
 
 import {
     
@@ -356,7 +359,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     generics: Generic[] = [];
 
     constructor(
-        options: Options<{
+        options: IntrospectedOptions<{
             name: string;
             namespace: IntrospectedNamespace;
         }> &

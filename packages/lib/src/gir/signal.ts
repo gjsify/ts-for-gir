@@ -8,7 +8,8 @@ import {
     NullableType,
     ArrayType
 } from "../gir.ts";
-import { IntrospectedClassMember, type Options } from "./base.ts";
+import { IntrospectedClassMember } from "./introspected-class-member.ts";
+import type { Options } from "../types/introspected.ts";
 import { isIntrospectable } from "../utils/index.ts";
 import { IntrospectedClass } from "./class.ts";
 import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedClassCallback } from "./function.ts";

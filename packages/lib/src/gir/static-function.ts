@@ -94,6 +94,17 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
   ): IntrospectedStaticClassFunction {
       const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
 
-      return fn.asStaticClassFunction(parent);
+      // Convert the function to a static class function
+      const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+
+      return new IntrospectedStaticClassFunction({
+          parent,
+          name,
+          output_parameters,
+          parameters,
+          return_type,
+          doc,
+          isIntrospectable
+      });
   }
 }

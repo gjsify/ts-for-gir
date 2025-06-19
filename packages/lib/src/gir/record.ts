@@ -7,12 +7,8 @@ import {
 import { TypeExpression } from "../gir.ts";
 import type { RecordResolution } from "../types/index.ts";
 
-import {
-    
-    ClassStructTypeIdentifier,
-    type GirRecordElement,
-    type GirUnionElement
-} from "../index.ts";
+import { ClassStructTypeIdentifier } from "../gir.ts";
+import type { GirRecordElement, GirUnionElement } from "../types/index.ts";
 
 import {
     IntrospectedClassFunction,

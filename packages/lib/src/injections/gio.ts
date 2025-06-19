@@ -265,7 +265,20 @@ export default {
                     bus_unwatch_name,
                     bus_watch_name_on_connection
                 ]
-                    .map(fn => fn.asStaticClassFunction(DBus))
+                    .map(fn => {
+                        // Convert function to static class function
+                        const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+
+                        return new IntrospectedStaticClassFunction({
+                            parent: DBus,
+                            name,
+                            output_parameters,
+                            parameters,
+                            return_type,
+                            doc,
+                            isIntrospectable
+                        });
+                    })
                     .map(fn => {
                         const member = fn.copy();
 

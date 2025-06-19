@@ -104,7 +104,18 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
   ): IntrospectedVirtualClassFunction {
       const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
 
-      return fn.asVirtualClassFunction(parent);
+      // Convert the function to a virtual class function
+      const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+
+      return new IntrospectedVirtualClassFunction({
+          parent,
+          name,
+          output_parameters,
+          parameters,
+          return_type,
+          doc,
+          isIntrospectable
+      });
   }
 
   asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateVirtualClassFunction"]> {

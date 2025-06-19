@@ -21,7 +21,6 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 import type { OptionsLoad } from "../types/index.ts";
 
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
-import { IntrospectedConstructor } from "./constructor.ts";
 import { IntrospectedStaticClassFunction } from "./static-function.ts";
 import { IntrospectedFunction } from "./function.ts";
 
@@ -77,25 +76,6 @@ export class IntrospectedClassFunction<
             parameters,
             return_type
         }
-    }
-
-    asConstructor(): IntrospectedConstructor {
-        const { name, parent, parameters } = this;
-
-        if (parent instanceof IntrospectedBaseClass) {
-            // Always force constructors to have the correct return type.
-            return new IntrospectedConstructor({
-                name,
-                parent,
-                parameters,
-                return_type: this.parent.getType(),
-                isIntrospectable: this.isIntrospectable
-            });
-        }
-
-        throw new Error(
-            `Attempted to convert GirClassFunction into GirConstructor from invalid enum parent: ${this.parent.name}`
-        );
     }
 
     asStaticClassFunction(parent: IntrospectedClass) {
@@ -177,7 +157,23 @@ export class IntrospectedClassFunction<
     ): IntrospectedClassFunction {
         const fn = IntrospectedFunction.fromXML(element, parent.namespace, options);
 
-        return fn.asClassFunction(parent);
+        // Convert the function to a class function
+        const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+
+        const classFn = new IntrospectedClassFunction({
+            parent,
+            name,
+            output_parameters,
+            parameters,
+            return_type,
+            doc,
+            isIntrospectable
+        });
+
+        classFn.returnTypeDoc = fn.returnTypeDoc;
+        classFn.generics = [...fn.generics];
+
+        return classFn;
     }
 
     return(): TypeExpression {

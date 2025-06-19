@@ -68,7 +68,17 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
       parent: IntrospectedBaseClass,
       options: OptionsLoad
   ): IntrospectedConstructor {
-      return IntrospectedClassFunction.fromXML(m as GirFunctionElement, parent, options).asConstructor();
+      const fn = IntrospectedClassFunction.fromXML(m as GirFunctionElement, parent, options);
+      
+      // Convert the class function to a constructor
+      // Always force constructors to have the correct return type.
+      return new IntrospectedConstructor({
+          name: fn.name,
+          parent,
+          parameters: fn.parameters,
+          return_type: parent.getType(),
+          isIntrospectable: fn.isIntrospectable
+      });
   }
 
   accept(visitor: GirVisitor): IntrospectedConstructor {

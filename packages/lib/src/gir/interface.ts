@@ -28,6 +28,7 @@ import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
+
 import { IntrospectedClass } from "./introspected-class.ts";
 import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 

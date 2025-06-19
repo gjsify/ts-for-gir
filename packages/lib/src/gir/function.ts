@@ -35,9 +35,7 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 import type { OptionsLoad } from "../types/index.ts";
 
 import { IntrospectedFunctionParameter } from "./parameter.ts";
-import { IntrospectedClassFunction } from "./class-function.ts";
-import { IntrospectedVirtualClassFunction } from "./virtual-function.ts";
-import { IntrospectedStaticClassFunction } from "./static-function.ts";
+
 
 export class IntrospectedFunction extends IntrospectedNamespaceMember {
     readonly parameters: IntrospectedFunctionParameter[];
@@ -264,52 +262,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         }
     }
 
-    asClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedClassFunction {
-        const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
 
-        const fn = new IntrospectedClassFunction({
-            parent,
-            name,
-            output_parameters,
-            parameters,
-            return_type,
-            doc,
-            isIntrospectable
-        });
-
-        fn.returnTypeDoc = this.returnTypeDoc;
-        fn.generics = [...this.generics];
-
-        return fn;
-    }
-
-    asVirtualClassFunction(parent: IntrospectedBaseClass): IntrospectedVirtualClassFunction {
-        const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
-
-        return new IntrospectedVirtualClassFunction({
-            parent,
-            name,
-            output_parameters,
-            parameters,
-            return_type,
-            doc,
-            isIntrospectable
-        });
-    }
-
-    asStaticClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedStaticClassFunction {
-        const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
-
-        return new IntrospectedStaticClassFunction({
-            parent,
-            name,
-            output_parameters,
-            parameters,
-            return_type,
-            doc,
-            isIntrospectable
-        });
-    }
 
     asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateFunction"]> {
         return generator.generateFunction(this) as ReturnType<T["generateFunction"]>;

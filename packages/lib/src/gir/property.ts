@@ -4,8 +4,10 @@ import { IntrospectedClassMember } from "./introspected-class-member.ts";
 import type { Options } from "../types/introspected.ts";
 import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 
-import { getType, parseDoc, parseMetadata } from "../utils/index.ts";
-import { isIntrospectable } from "../utils/index.ts";
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { isIntrospectable } from "../utils/girs.ts";
+import { getType } from "../utils/gir-parsing.ts";
+
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedBaseClass } from "./introspected-base-class.ts";

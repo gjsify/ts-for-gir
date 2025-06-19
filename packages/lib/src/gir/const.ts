@@ -4,7 +4,10 @@ import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts"
 import type { GirConstantElement } from "../index.ts";
 
 import { IntrospectedNamespace } from "./namespace.ts";
-import { getType, parseDoc, parseMetadata, sanitizeIdentifierName } from "../utils/index.ts";
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { sanitizeIdentifierName } from "../utils/naming.ts";
+import { getType } from "../utils/gir-parsing.ts";
+
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

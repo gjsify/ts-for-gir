@@ -1,6 +1,7 @@
 import { GirDirection } from "@gi.ts/parser";
 import { NativeType, NeverType } from "../../gir.ts";
-import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "../../gir/function.ts";
+import { IntrospectedClassFunction } from "../../gir/class-function.ts";
+import { IntrospectedFunctionParameter } from "../../gir/parameter.ts";
 import { IntrospectedNamespace } from "../../gir/namespace.ts";
 
 export function override(node: IntrospectedNamespace) {

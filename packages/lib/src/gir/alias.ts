@@ -4,8 +4,11 @@ import type { IntrospectedOptions } from "../types/index.ts";
 
 import type { GirAliasElement } from "../index.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
-import { isIntrospectable } from "../utils/index.ts";
-import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "../utils/index.ts";
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { sanitizeIdentifierName } from "../utils/naming.ts";
+import { getAliasType } from "../utils/types.ts";
+import { isIntrospectable } from "../utils/girs.ts";
+
 import { FormatGenerator, type GenericDescriptor } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

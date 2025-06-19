@@ -1,15 +1,13 @@
 import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
-import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
-import { IntrospectedClass } from "../gir/introspected-class.ts";
-import { IntrospectedInterface } from "../gir/interface.ts";
+import type { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
+import type { IntrospectedClass } from "../gir/introspected-class.ts";
+import type { IntrospectedInterface } from "../gir/interface.ts";
 import { IntrospectedRecord } from "../gir/record.ts";
 import { IntrospectedError } from "../gir/enum.ts";
-import {
-    IntrospectedClassFunction,
-    IntrospectedDirectAllocationConstructor,
-    IntrospectedStaticClassFunction
-} from "../gir/function.ts";
-import { resolveTypeIdentifier } from "../utils/index.ts";
+import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
+import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";
 
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {

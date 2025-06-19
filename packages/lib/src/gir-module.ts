@@ -1,8 +1,9 @@
 import { type GirType } from '@gi.ts/parser'
-import { transformGirDocTagText } from './utils/index.ts'
+import { transformGirDocTagText } from './utils/documentation.ts'
 import { Logger } from './logger.ts'
 import { DependencyManager } from './dependency-manager.ts'
-import { find, isIntrospectable } from './utils/index.ts'
+import { find } from './utils/objects.ts'
+import { isIntrospectable } from './utils/girs.ts'
 import { LibraryVersion } from './library-version.ts'
 
 import type {
@@ -36,14 +37,12 @@ import { IntrospectedRecord } from './gir/record.ts'
 import { IntrospectedInterface } from './gir/interface.ts'
 import { IntrospectedConstant } from './gir/const.ts'
 import { IntrospectedEnum, IntrospectedError } from './gir/enum.ts'
-import {
-    IntrospectedFunction,
-    IntrospectedFunctionParameter,
-    IntrospectedClassFunction,
-} from './gir/function.ts'
+import { IntrospectedFunction } from './gir/function.ts'
+import { IntrospectedFunctionParameter } from './gir/parameter.ts'
+import { IntrospectedClassFunction } from './gir/class-function.ts'
 import { IntrospectedCallback, IntrospectedClassCallback } from './gir/callback.ts'
 import { NSRegistry } from './gir/registry.ts'
-import { isPrimitiveType } from './utils/index.ts'
+import { isPrimitiveType } from './utils/types.ts'
 import { GirVisitor } from './visitor.ts'
 
 import type { OptionsLoad } from './types/index.ts'

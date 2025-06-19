@@ -1,4 +1,4 @@
-import { IntrospectedNamespace } from "./namespace.ts";
+import type { IntrospectedNamespace } from "./namespace.ts";
 import { IntrospectedBase } from "./introspected-base.ts";
 import type { IntrospectedBaseOptions } from "../types/introspected.ts";
 

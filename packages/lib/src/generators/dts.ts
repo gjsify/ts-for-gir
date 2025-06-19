@@ -15,17 +15,17 @@ import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {
     IntrospectedFunction,
-    IntrospectedConstructor,
-    IntrospectedFunctionParameter,
-    IntrospectedDirectAllocationConstructor
 } from "../gir/function.ts";
+import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
+import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import { IntrospectedConstructor } from "../gir/constructor.ts";
+
 import { IntrospectedCallback, IntrospectedClassCallback } from "../gir/callback.ts";
-import {
-    IntrospectedClassFunction,
-    IntrospectedStaticClassFunction,
-    IntrospectedVirtualClassFunction
-} from "../gir/function.ts";
-import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../utils/index.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
+import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { resolveDirectedType } from "../utils/types.ts";
+import { sanitizeIdentifierName, isInvalid } from "../utils/naming.ts";
 import {
     TypeExpression,
     NativeType,

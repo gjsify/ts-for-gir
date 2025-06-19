@@ -1,11 +1,10 @@
 import { IntrospectedNamespace } from "../gir/namespace.ts";
-import {
-    IntrospectedClassFunction,
-    IntrospectedConstructor,
-    IntrospectedFunction,
-    IntrospectedFunctionParameter,
-    IntrospectedStaticClassFunction
-} from "../gir/function.ts";
+import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedConstructor } from "../gir/constructor.ts";
+
 import {
     StringType,
     NativeType,

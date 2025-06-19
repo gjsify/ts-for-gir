@@ -1,4 +1,5 @@
-import { IntrospectedFunction, IntrospectedClassFunction } from "../gir/function.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+import { IntrospectedClassFunction } from "../gir/class-function.ts";
 import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
 import { IntrospectedEnum } from "../gir/enum.ts";
 

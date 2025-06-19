@@ -3,8 +3,8 @@ import type {
 } from "../gir.ts";
 import type {
     IntrospectedClassFunction,
-    IntrospectedConstructor,
-} from "../gir/function.ts";
+} from "../gir/class-function.ts";
+import type { IntrospectedConstructor } from "../gir/constructor.ts";
 import type { IntrospectedClassCallback } from "../gir/callback.ts";
 import type { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import type { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";

@@ -14,8 +14,9 @@ import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
-import { IntrospectedFunction, IntrospectedFunctionParameter } from "./function.ts";
-import { IntrospectedClassFunction } from "./function.ts";
+import { IntrospectedFunction } from "./function.ts";
+import { IntrospectedClassFunction } from "./class-function.ts";
+import type { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 export class IntrospectedCallback extends IntrospectedFunction {

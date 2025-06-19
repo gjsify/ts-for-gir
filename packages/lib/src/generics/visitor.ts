@@ -10,17 +10,15 @@ import { IntrospectedEnum } from "../gir/enum.ts";
 import { IntrospectedClass } from "../gir/introspected-class.ts";
 import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
 import { IntrospectedInterface } from "../gir/interface.ts";
-import {
-    IntrospectedFunctionParameter,
-    IntrospectedFunction,
-    IntrospectedClassFunction,
-    IntrospectedStaticClassFunction,
-    IntrospectedVirtualClassFunction
-} from "../gir/function.ts";
+import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
 import { IntrospectedCallback } from "../gir/callback.ts";
 import { GenericNameGenerator } from "../gir/generics.ts";
 import { NSRegistry } from "../gir/registry.ts";
-import { resolveTypeIdentifier } from "../utils/index.ts";
+import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";
 
 export class GenericVisitor extends GirVisitor {

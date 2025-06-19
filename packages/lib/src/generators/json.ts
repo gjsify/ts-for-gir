@@ -11,18 +11,20 @@ import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.
 import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {
-    IntrospectedFunction,
-    IntrospectedConstructor,
-    IntrospectedFunctionParameter,
-    IntrospectedDirectAllocationConstructor
-} from "../gir/function.ts";
-import { IntrospectedCallback, IntrospectedClassCallback } from "../gir/callback.ts";
-import {
-    IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
-    IntrospectedVirtualClassFunction
-} from "../gir/function.ts";
-import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../utils/index.ts";
+} from "../gir/static-function.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+
+import { IntrospectedConstructor } from "../gir/constructor.ts";
+import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import type { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
+import { IntrospectedClassFunction } from "../gir/class-function.ts";
+
+import { IntrospectedCallback, IntrospectedClassCallback } from "../gir/callback.ts";
+
+import { resolveDirectedType } from "../utils/types.ts";
+import { isInvalid, sanitizeIdentifierName } from "../utils/naming.ts";
 import {
     TypeExpression,
     NativeType,

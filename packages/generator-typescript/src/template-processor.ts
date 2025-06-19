@@ -18,7 +18,7 @@ import {
     DependencyManager,
     transformImportName,
     fileExists,
-    GirNSRegistry,
+    NSRegistry,
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
@@ -32,7 +32,7 @@ export class TemplateProcessor {
         protected readonly packageName: string,
         protected readonly deps: Dependency[],
         protected readonly config: OptionsGeneration,
-        protected readonly registry: GirNSRegistry,
+        protected readonly registry: NSRegistry,
     ) {
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'

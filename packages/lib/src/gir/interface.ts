@@ -7,20 +7,24 @@ import {
 
 import {
     IntrospectedClassFunction,
+} from "./class-function.ts";
+import {
     IntrospectedVirtualClassFunction,
+} from "./virtual-function.ts";
+import {
     IntrospectedStaticClassFunction,
+} from "./static-function.ts";
+import {
     IntrospectedConstructor,
-} from "./function.ts";
+} from "./constructor.ts";
+
 import { IntrospectedClassCallback } from "./callback.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
-import {
-    sanitizeIdentifierName,
-    parseTypeIdentifier,
-    resolveTypeIdentifier,
-    parseDoc,
-    parseMetadata
-} from "../utils/index.ts";
+import { sanitizeIdentifierName } from "../utils/naming.ts";
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { parseTypeIdentifier } from "../utils/types.ts";
+import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";

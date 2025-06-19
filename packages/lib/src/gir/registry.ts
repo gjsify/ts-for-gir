@@ -13,21 +13,10 @@ import { GirVisitor } from "../visitor.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 import { DtsModuleGenerator } from "../generators/dts-modules.ts";
 import { DtsInlineGenerator } from "../generators/dts-inline.ts";
-import type { ParsedGir } from "../types/parsed-gir.ts";
 import { GirModule } from "../index.ts";
 
-import type { OptionsGeneration, OptionsTransform } from "../types/index.ts";
+import type { OptionsGeneration, OptionsTransform, GeneratorConstructor } from "../types/index.ts";
 import { FunctionParametersVisitor } from "../validators/function-parameters.ts";
-
-export interface NSLoader {
-    load(namespace: string, version: string): ParsedGir | null;
-    loadAll(namespace: string): ParsedGir[];
-}
-
-type GeneratorConstructor<T> = {
-     
-    new (namespace: IntrospectedNamespace, options: OptionsGeneration, ...args: any[]): FormatGenerator<T>;
-};
 
 export class NSRegistry {
     mapping: TwoKeyMap<string, string, IntrospectedNamespace> = new TwoKeyMap();

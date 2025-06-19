@@ -10,13 +10,14 @@ import {
 } from "../gir.ts";
 import { IntrospectedClassMember } from "./introspected-class-member.ts";
 import type { Options } from "../types/introspected.ts";
-import { isIntrospectable } from "../utils/index.ts";
+import { isIntrospectable } from "../utils/girs.ts";
 import { IntrospectedClass } from "./introspected-class.ts";
-import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "./function.ts";
+import { IntrospectedClassFunction } from "./class-function.ts";
+import { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedClassCallback } from "./callback.ts";
 import type { GirSignalElement, GirCallableParamElement } from "@gi.ts/parser";
 import { GirDirection } from "@gi.ts/parser";
-import { getType, parseDoc, parseMetadata } from "../utils/index.ts";
+import { getType, parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

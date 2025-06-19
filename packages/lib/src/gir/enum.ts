@@ -6,10 +6,13 @@ import type { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../in
 
 import { IntrospectedRecord } from "./record.ts";
 import { IntrospectedField } from "./property.ts";
-import { IntrospectedStaticClassFunction } from "./function.ts";
+import { IntrospectedStaticClassFunction } from "./static-function.ts";
 import { GirComplexRecord } from "./gir-complex-record.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
-import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "../utils/index.ts";
+
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { sanitizeIdentifierName, sanitizeMemberName } from "../utils/naming.ts";
+
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 

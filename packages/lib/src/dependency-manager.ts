@@ -10,9 +10,9 @@ import { LibraryVersion } from './library-version.ts'
 
 import type { Dependency, OptionsGeneration, FileInfo } from './types/index.ts'
 import type { GirModule } from './gir-module.ts'
-import { GirNSRegistry } from './registry.ts'
+import { NSRegistry } from './gir/registry.ts'
 
-export class DependencyManager extends GirNSRegistry {
+export class DependencyManager extends NSRegistry {
     protected log: Logger
     protected readonly config: OptionsGeneration
     protected _cache: { [packageName: string]: Dependency } = {}

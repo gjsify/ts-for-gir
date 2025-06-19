@@ -10,9 +10,8 @@ import { LibraryVersion } from './library-version.ts'
 
 import type { Dependency, OptionsGeneration, FileInfo } from './types/index.ts'
 import type { GirModule } from './gir-module.ts'
-import { NSRegistry } from './gir/registry.ts'
 
-export class DependencyManager extends NSRegistry {
+export class DependencyManager {
     protected log: Logger
     protected readonly config: OptionsGeneration
     protected _cache: { [packageName: string]: Dependency } = {}
@@ -20,9 +19,7 @@ export class DependencyManager extends NSRegistry {
     static instances: { [key: string]: DependencyManager } = {}
 
     protected constructor(config: OptionsGeneration) {
-        super()
         this.config = config
-
         this.log = new Logger(config.verbose, 'DependencyManager')
     }
 

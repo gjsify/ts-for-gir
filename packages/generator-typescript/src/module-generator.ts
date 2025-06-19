@@ -76,7 +76,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     /**
      * @param _config The config to use without the override config
      */
-    constructor(namespace: GirModule, config: OptionsGeneration) {
+    constructor(namespace: GirModule, config: OptionsGeneration, registry: NSRegistry) {
         super(namespace, config)
 
         this.config = config
@@ -97,12 +97,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 importName: girModule.importName,
                 girModule,
                 pkgData,
-                registry: this.dependencyManager,
             },
             girModule.packageName,
+            registry,
             girModule.transitiveDependencies,
             this.config,
-            this.dependencyManager,
         )
     }
 
@@ -1861,7 +1860,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             await this.exportModuleImportTS(girModule)
             await this.exportModuleImportJS(girModule)
 
-            const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
+            const pkg = new NpmPackage(
+                this.config,
+                this.dependencyManager,
+                _registry,
+                girModule,
+                girModule.transitiveDependencies,
+            )
             await pkg.exportNPMPackage()
         }
     }

@@ -16,7 +16,10 @@ export class TypeDefinitionGenerator implements Generator {
     /**
      * @param _config The config to use without the override config
      */
-    constructor(readonly config: OptionsGeneration) {
+    constructor(
+        readonly config: OptionsGeneration,
+        readonly registry: NSRegistry,
+    ) {
         this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
         this.packageData = new PackageDataParser(this.config)
@@ -31,13 +34,11 @@ export class TypeDefinitionGenerator implements Generator {
         const gjs = dependencyManager.getGjs()
 
         const templateProcessor = new TemplateProcessor(
-            {
-                registry: dependencyManager,
-            },
+            {},
             gjs.packageName,
+            this.registry,
             await dependencyManager.core(),
             config,
-            dependencyManager,
         )
 
         // Package
@@ -72,7 +73,7 @@ export class TypeDefinitionGenerator implements Generator {
             await templateProcessor.create('gjs/gjs-ambient.d.ts', config.outdir, 'gjs-ambient.d.ts')
             await templateProcessor.create('gjs/gjs-ambient.js', config.outdir, 'gjs-ambient.js')
 
-            const pkg = new NpmPackage(config, dependencyManager, gjs, await dependencyManager.core())
+            const pkg = new NpmPackage(config, dependencyManager, this.registry, gjs, await dependencyManager.core())
             await pkg.exportNPMPackage()
         } else {
             const gjsContent = await templateProcessor.load('gjs/gjs.d.ts')
@@ -123,23 +124,20 @@ export class TypeDefinitionGenerator implements Generator {
         if (!config.outdir) return
 
         const templateProcessor = new TemplateProcessor(
-            {
-                registry: dependencyManager,
-                girModules,
-            },
+            girModules,
             'index',
+            this.registry,
             dependencyManager.all(),
             config,
-            dependencyManager,
         )
 
         await templateProcessor.create('gi.d.ts', config.outdir, 'gi.d.ts')
         await templateProcessor.create('index-locally.d.ts', config.outdir, 'index.d.ts')
     }
 
-    public async generate(registry: NSRegistry, module: GirModule) {
-        const moduleGenerator = new ModuleGenerator(module, this.config)
-        await moduleGenerator.exportModule(registry, module)
+    public async generate(module: GirModule) {
+        const moduleGenerator = new ModuleGenerator(module, this.config, this.registry)
+        await moduleGenerator.exportModule(this.registry, module)
     }
 
     public async start() {
@@ -148,7 +146,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    public async finish(_registry: NSRegistry, girModules: GirModule[]) {
+    public async finish(girModules: GirModule[]) {
         // GJS internal stuff
         await this.exportGjs()
 

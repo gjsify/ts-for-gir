@@ -1,7 +1,7 @@
 import {
   UnknownType,
-  TypeExpression,
-  Generic,
+  type TypeExpression,
+  type Generic,
 } from "../gir.ts";
 
 import { IntrospectedClassMember } from "./introspected-class-member.ts";
@@ -11,9 +11,9 @@ import type {
   GirFunctionElement,
   GirConstructorElement,
 } from "../index.ts";
-import { FormatGenerator } from "../generators/generator.ts";
-import { GirVisitor } from "../visitor.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import type { FormatGenerator } from "../generators/generator.ts";
+import type { GirVisitor } from "../visitor.ts";
+import type { IntrospectedBaseClass } from "./introspected-base-class.ts";
 import { IntrospectedClassFunction } from "./class-function.ts";
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
 

@@ -30,9 +30,9 @@ export class TemplateProcessor {
     constructor(
         protected readonly data: TemplateData | undefined,
         protected readonly packageName: string,
+        protected readonly registry: NSRegistry,
         protected readonly deps: Dependency[],
         protected readonly config: OptionsGeneration,
-        protected readonly registry: NSRegistry,
     ) {
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'

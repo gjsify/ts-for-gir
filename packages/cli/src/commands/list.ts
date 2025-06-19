@@ -5,7 +5,7 @@
 import type { Argv, BuilderCallback } from 'yargs'
 import { ModuleLoader } from '../module-loader.ts'
 import { Config } from '../config.ts'
-import { Logger, ERROR_NO_MODULES_FOUND, ResolveType } from '@ts-for-gir/lib'
+import { Logger, ERROR_NO_MODULES_FOUND, ResolveType, NSRegistry } from '@ts-for-gir/lib'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
 
@@ -24,7 +24,8 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
     const generateConfig = Config.getOptionsGeneration(config)
-    const moduleLoader = new ModuleLoader(generateConfig)
+    const registry = new NSRegistry()
+    const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)
     if (Object.keys(grouped).length === 0) {

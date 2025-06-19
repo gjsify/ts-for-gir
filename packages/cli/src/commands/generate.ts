@@ -3,7 +3,7 @@
  */
 
 import type { Argv, BuilderCallback } from 'yargs'
-import { ERROR_NO_MODULES_FOUND, Logger } from '@ts-for-gir/lib'
+import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from '@ts-for-gir/lib'
 import { GeneratorType } from '@ts-for-gir/generator-base'
 import { GenerationHandler } from '../generation-handler.ts'
 import { Config } from '../config.ts'
@@ -29,7 +29,8 @@ const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
     const generateConfig = Config.getOptionsGeneration(config)
-    const moduleLoader = new ModuleLoader(generateConfig)
+    const registry = new NSRegistry()
+    const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,
         config.ignore || [],
@@ -42,12 +43,11 @@ const handler = async (args: ConfigFlags) => {
 
     moduleLoader.parse(keep)
 
-    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES, registry)
 
     const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
 
-    moduleLoader.dependencyManager.registerFormatter('dts', new TypeScriptFormatter())
-    await tsForGir.start(girModules, moduleLoader.dependencyManager)
+    await tsForGir.start(girModules)
 }
 
 const examples: ReadonlyArray<[string, string?]> = [

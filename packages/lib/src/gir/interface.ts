@@ -29,7 +29,7 @@ import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 
-import { IntrospectedClass } from "./introspected-class.ts";
+import type { IntrospectedClass } from "./introspected-class.ts";
 import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
@@ -156,8 +156,11 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
             extends() {
                 if (!superType) return undefined;
                 const resolved = resolveTypeIdentifier(namespace, superType);
-                if (resolved && (resolved instanceof IntrospectedClass || resolved instanceof IntrospectedInterface))
+                if (resolved instanceof IntrospectedInterface) {
                     return resolved.resolveParents();
+                } else if (resolved && resolved.constructor.name === 'IntrospectedClass') {
+                    return (resolved as any).resolveParents();
+                }
                 return undefined;
             },
             node: this,

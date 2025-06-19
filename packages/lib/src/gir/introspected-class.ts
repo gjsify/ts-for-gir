@@ -38,7 +38,7 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 import { 
     type ClassResolution,
 } from "../types/index.ts";
-import { IntrospectedInterface } from "./interface.ts";
+import type { IntrospectedInterface } from "./interface.ts";
 
 const log = new Logger(true, "gir/introspected-class");
 
@@ -431,7 +431,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             implements() {
                 const z = interfaces
                     .map(i => resolveTypeIdentifier(namespace, i))
-                    .filter((i): i is IntrospectedInterface => i instanceof IntrospectedInterface)
+                    .filter((i): i is IntrospectedInterface => i?.constructor?.name === 'IntrospectedInterface')
                     .map(i => i.resolveParents());
 
                 return z;

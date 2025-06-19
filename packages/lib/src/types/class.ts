@@ -5,7 +5,7 @@ import type {
     IntrospectedClassFunction,
 } from "../gir/class-function.ts";
 import type { IntrospectedConstructor } from "../gir/constructor.ts";
-import type { IntrospectedClassCallback } from "../gir/callback.ts";
+import type { IntrospectedClassCallback } from "../gir/class-callback.ts";
 import type { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import type { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
 import type { IntrospectedInterface } from "../gir/interface.ts";

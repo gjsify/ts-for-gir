@@ -20,7 +20,7 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 
-import { IntrospectedClassCallback } from "./callback.ts";
+import { IntrospectedClassCallback } from "./class-callback.ts";
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
 import { IntrospectedStaticClassFunction } from "./static-function.ts";

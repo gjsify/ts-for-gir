@@ -19,7 +19,7 @@ import {
 } from "./class-function.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
 import { IntrospectedDirectAllocationConstructor } from "./direct-allocation-constructor.ts";
-import { IntrospectedClassCallback } from "./callback.ts";
+import { IntrospectedClassCallback } from "./class-callback.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 import { FormatGenerator } from "../generators/generator.ts";

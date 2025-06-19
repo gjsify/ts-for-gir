@@ -24,7 +24,8 @@ import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import type { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
 import { IntrospectedClassFunction } from "../gir/class-function.ts";
 
-import { IntrospectedCallback, IntrospectedClassCallback } from "../gir/callback.ts";
+import { IntrospectedCallback } from "../gir/callback.ts";
+import { IntrospectedClassCallback } from "../gir/class-callback.ts";
 
 import { resolveDirectedType } from "../utils/types.ts";
 import { isInvalid, sanitizeIdentifierName } from "../utils/naming.ts";

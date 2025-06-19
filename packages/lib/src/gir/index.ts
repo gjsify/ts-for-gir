@@ -1,5 +1,6 @@
 export * from "./alias.ts";
 export * from "./callback.ts";
+export * from "./class-callback.ts";
 export * from "./class-function.ts";
 export * from "./direct-allocation-constructor.ts";
 export * from "./function.ts";

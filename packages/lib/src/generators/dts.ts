@@ -22,7 +22,8 @@ import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocatio
 import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 
-import { IntrospectedCallback, IntrospectedClassCallback } from "../gir/callback.ts";
+import { IntrospectedCallback } from "../gir/callback.ts";
+import { IntrospectedClassCallback } from "../gir/class-callback.ts";
 import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
 import { IntrospectedClassFunction } from "../gir/class-function.ts";
 import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";

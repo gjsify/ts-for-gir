@@ -1,4 +1,4 @@
-import {
+import type {
   TypeExpression,
 } from "../gir.ts";
 
@@ -6,14 +6,14 @@ import type {
   GirFunctionElement,
 } from "../index.ts";
 
-import { IntrospectedEnum } from "./enum.ts";
-import { FormatGenerator } from "../generators/generator.ts";
-import { GirVisitor } from "../visitor.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import type { IntrospectedEnum } from "./enum.ts";
+import type { FormatGenerator } from "../generators/generator.ts";
+import type { GirVisitor } from "../visitor.ts";
+import type { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 
-import { IntrospectedFunctionParameter } from "./parameter.ts";
+import type { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedClassFunction } from "./class-function.ts";
 import { IntrospectedFunction } from "./function.ts";
 

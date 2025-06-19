@@ -19,7 +19,7 @@ import { IntrospectedVirtualClassFunction } from "./virtual-function.ts";
 import { IntrospectedStaticClassFunction } from "./static-function.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
 
-import { IntrospectedClassCallback } from "./callback.ts";
+import { IntrospectedClassCallback } from "./class-callback.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
 import type { IntrospectedNamespace } from "./namespace.ts";
 import { sanitizeIdentifierName } from "../utils/naming.ts";

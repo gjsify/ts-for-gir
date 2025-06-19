@@ -5,17 +5,17 @@ import {
 
 import type {
     GirCallbackElement,
-    GirModule,
 } from "../index.ts";
 
 import type { FormatGenerator } from "../generators/generator.ts";
 import type { GirVisitor } from "../visitor.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
-import { IntrospectedFunction } from "./function.ts";
+import { IntrospectedClassFunction } from "./class-function.ts";
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
+import type { IntrospectedBaseClass } from "./introspected-base-class.ts";
 
-export class IntrospectedCallback extends IntrospectedFunction {
+export class IntrospectedClassCallback extends IntrospectedClassFunction {
     asFunctionType(): FunctionType {
         return new FunctionType(
             Object.fromEntries(this.parameters.map(p => [p.name, p.type] as const)),
@@ -29,18 +29,17 @@ export class IntrospectedCallback extends IntrospectedFunction {
         outputParameters,
         parent
     }: {
-        parent?: GirModule;
+        parent?: IntrospectedBaseClass;
         parameters?: IntrospectedFunctionParameter[];
         outputParameters?: IntrospectedFunctionParameter[];
         returnType?: TypeExpression;
-    } = {}): IntrospectedCallback {
-        const cb = new IntrospectedCallback({
+    } = {}): IntrospectedClassCallback {
+        const cb = new IntrospectedClassCallback({
             name: this.name,
-            raw_name: this.raw_name,
             return_type: returnType ?? this.return_type,
             parameters: parameters ?? this.parameters,
             output_parameters: outputParameters ?? this.output_parameters,
-            namespace: parent ?? this.parent
+            parent: parent ?? this.parent
         })._copyBaseProperties(this);
 
         cb.generics = [...this.generics];
@@ -48,7 +47,7 @@ export class IntrospectedCallback extends IntrospectedFunction {
         return cb;
     }
 
-    accept(visitor: GirVisitor): IntrospectedCallback {
+    accept(visitor: GirVisitor): IntrospectedClassCallback {
         const node = this.copy({
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
@@ -59,12 +58,16 @@ export class IntrospectedCallback extends IntrospectedFunction {
             returnType: visitor.visitType?.(this.return_type)
         });
 
-        return visitor.visitCallback?.(node) ?? node;
+        return visitor.visitClassCallback?.(node) ?? node;
     }
 
-    static fromXML(element: GirCallbackElement, namespace: GirModule, options: OptionsLoad): IntrospectedCallback {
-        const ns = namespace;
-        const cb = IntrospectedFunction.fromXML(element, ns, options).asCallback();
+    static fromXML(
+        element: GirCallbackElement,
+        parent: IntrospectedBaseClass,
+        options: OptionsLoad
+    ): IntrospectedClassCallback {
+        const ns = parent.namespace;
+        const cb = IntrospectedClassFunction.fromXML(element, parent, options).asCallback();
 
         const glibTypeName = element.$["glib:type-name"];
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
@@ -82,7 +85,7 @@ export class IntrospectedCallback extends IntrospectedFunction {
         return cb;
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateCallback"]> {
-        return generator.generateCallback(this) as ReturnType<T["generateCallback"]>;
+    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateClassCallback"]> {
+        return generator.generateClassCallback(this) as ReturnType<T["generateClassCallback"]>;
     }
-}
+} 

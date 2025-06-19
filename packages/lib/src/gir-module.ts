@@ -35,7 +35,8 @@ import { IntrospectedError } from './gir/error.ts'
 import { IntrospectedFunction } from './gir/function.ts'
 import type { IntrospectedFunctionParameter } from './gir/parameter.ts'
 import type { IntrospectedClassFunction } from './gir/class-function.ts'
-import { IntrospectedCallback, IntrospectedClassCallback } from './gir/callback.ts'
+import { IntrospectedCallback } from './gir/callback.ts'
+import { IntrospectedClassCallback } from './gir/class-callback.ts'
 import type { NSRegistry } from './gir/registry.ts'
 import { isPrimitiveType } from './utils/types.ts'
 import type { GirVisitor } from './visitor.ts'
@@ -320,7 +321,7 @@ export class GirModule {
 
             // TODO: It might make more sense to move this conversion _before_
             // the _getImport call.
-            const resolvedNamespaces = this.dependencyManager.namespacesForPrefix(namespace)
+            const resolvedNamespaces = this.parent.namespacesForPrefix(namespace)
             if (resolvedNamespaces.length > 0) {
                 this.log.info(
                     `Found namespaces for prefix ${namespace}: ${resolvedNamespaces.map((r) => `${r.namespace} (${r.version})`).join(', ')}`,

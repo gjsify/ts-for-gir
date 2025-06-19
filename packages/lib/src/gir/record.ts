@@ -20,7 +20,7 @@ import {
 import { IntrospectedConstructor } from "./constructor.ts";
 import { IntrospectedStaticClassFunction } from "./static-function.ts";
 
-import { IntrospectedClassCallback } from "./callback.ts";
+import { IntrospectedClassCallback } from "./class-callback.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 import {

@@ -255,7 +255,19 @@ const mergeStaticDefinitions = (node: IntrospectedClass): IntrospectedClass => {
 
     const staticMethods = staticDefinition.members
         .filter(m => m instanceof IntrospectedClassFunction)
-        .map(m => m.asStaticClassFunction(node));
+        .map(m => {
+            // Convert the class function to a static class function
+            const { name, parameters, output_parameters, doc, isIntrospectable } = m;
+
+            return new IntrospectedStaticClassFunction({
+                name,
+                parameters,
+                output_parameters,
+                return_type: m.return(),
+                parent: node,
+                isIntrospectable
+            });
+        });
 
     for (const staticMethod of staticMethods) {
         if (

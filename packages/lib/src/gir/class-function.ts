@@ -21,7 +21,7 @@ import { IntrospectedBaseClass } from "./introspected-base-class.ts";
 import type { OptionsLoad } from "../types/index.ts";
 
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
-import { IntrospectedStaticClassFunction } from "./static-function.ts";
+
 import { IntrospectedFunction } from "./function.ts";
 
 
@@ -78,18 +78,7 @@ export class IntrospectedClassFunction<
         }
     }
 
-    asStaticClassFunction(parent: IntrospectedClass) {
-        const { name, parameters, return_type, output_parameters } = this;
 
-        return new IntrospectedStaticClassFunction({
-            name,
-            parameters,
-            output_parameters,
-            return_type,
-            parent,
-            isIntrospectable: this.isIntrospectable
-        });
-    }
 
     copy({
         parent = this.parent,

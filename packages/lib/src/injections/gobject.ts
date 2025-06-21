@@ -2,10 +2,10 @@ import { IntrospectedNamespace } from "../gir/namespace.ts";
 import {
 
     IntrospectedClassFunction
-} from "../gir/class-function.ts";
+} from "../gir/introspected-classes.ts";
 import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedFunction } from "../gir/function.ts";
-import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
 import {
     NativeType,
     AnyType,
@@ -29,7 +29,7 @@ import {
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField } from "../gir/property.ts";
 import { IntrospectedAlias } from "../gir/alias.ts";
-import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
 
 function typeParam(name: string, type: TypeExpression, options: any = {}) {
     return new IntrospectedFunctionParameter({

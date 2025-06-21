@@ -1,11 +1,11 @@
 import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
-import type { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
-import type { IntrospectedClass } from "../gir/introspected-class.ts";
-import type { IntrospectedInterface } from "../gir/interface.ts";
+import type { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
+import type { IntrospectedClass } from "../gir/introspected-classes.ts";
+import type { IntrospectedInterface } from "../gir/introspected-classes.ts";
 import { IntrospectedRecord } from "../gir/record.ts";
 import { IntrospectedError } from "../gir/error.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
-import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";

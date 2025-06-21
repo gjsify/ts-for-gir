@@ -4,7 +4,7 @@ import { GirDirection } from '@gi.ts/parser'
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedField } from "./property.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import { IntrospectedBaseClass } from "./introspected-classes.ts";
 import { IntrospectedFunctionParameter } from "./parameter.ts";
 
 export class IntrospectedDirectAllocationConstructor extends IntrospectedClassMember {

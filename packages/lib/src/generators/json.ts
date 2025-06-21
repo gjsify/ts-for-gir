@@ -2,10 +2,10 @@ import { Logger } from "../logger.ts";
 import { FormatGenerator } from "./generator.ts";
 import { IntrospectedNamespace } from "../gir/namespace.ts";
 
-import { IntrospectedBaseClass, } from "../gir/introspected-base-class.ts";
+import { IntrospectedBaseClass, } from "../gir/introspected-classes.ts";
 import { IntrospectedRecord } from "../gir/record.ts";
-import { IntrospectedInterface } from "../gir/interface.ts";
-import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
 import { IntrospectedEnum } from "../gir/enum.ts";
 import { IntrospectedError } from "../gir/error.ts";
@@ -15,17 +15,17 @@ import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {
     IntrospectedStaticClassFunction,
-} from "../gir/static-function.ts";
-import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
+} from "../gir/introspected-classes.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedFunction } from "../gir/function.ts";
 
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import type { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
 
 import { IntrospectedCallback } from "../gir/callback.ts";
-import { IntrospectedClassCallback } from "../gir/class-callback.ts";
+import { IntrospectedClassCallback } from "../gir/introspected-classes.ts";
 
 import { resolveDirectedType } from "../utils/types.ts";
 import { isInvalid, sanitizeIdentifierName } from "../utils/naming.ts";

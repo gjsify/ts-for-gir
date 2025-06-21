@@ -1,10 +1,10 @@
 import { FormatGenerator } from "./generator.ts";
 import { IntrospectedNamespace } from "../gir/namespace.ts";
 
-import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
 import { IntrospectedRecord } from "../gir/record.ts";
-import { IntrospectedClass } from "../gir/introspected-class.ts";
-import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
 import { FilterBehavior } from "../gir/data.ts";
 import { filterConflicts, filterFunctionConflict } from "../utils/conflicts.ts";
 
@@ -23,10 +23,10 @@ import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 
 import { IntrospectedCallback } from "../gir/callback.ts";
-import { IntrospectedClassCallback } from "../gir/class-callback.ts";
-import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
-import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedClassCallback } from "../gir/introspected-classes.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
 import { resolveDirectedType } from "../utils/types.ts";
 import { sanitizeIdentifierName, isInvalid } from "../utils/naming.ts";
 import {

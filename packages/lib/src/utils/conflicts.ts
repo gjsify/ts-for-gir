@@ -1,25 +1,26 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import type { IntrospectedFunction } from "../gir/function.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import type { TypeIdentifier } from "../gir.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
-import type { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
-import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
-import { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
+import type { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { ArrayType } from "../gir.ts";
 import { NeverType } from "../gir.ts";
 import { AnyType } from "../gir.ts";
 import { Logger } from "../logger.ts";
-import { IntrospectedClass } from "../gir/introspected-class.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
 import { FilterBehavior } from "../gir/data.ts";
 import { findMap } from "../util.ts";
 import { ConflictType, TypeConflict } from "../gir.ts";
 import { IntrospectedProperty } from "../gir/property.ts";
 import { IntrospectedField } from "../gir/property.ts";
 import { IntrospectedClassMember } from "../gir/introspected-class-member.ts";
+
 
 const log = new Logger(true, "gir/utils/conflicts");
 

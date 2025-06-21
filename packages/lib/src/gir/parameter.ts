@@ -20,11 +20,11 @@ import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
 import { IntrospectedField } from "./property.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import { IntrospectedBaseClass } from "./introspected-classes.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 
-import { IntrospectedClassFunction } from "./class-function.ts";
+import { IntrospectedClassFunction } from "./introspected-classes.ts";
 import { IntrospectedFunction } from "./function.ts";
 import type { IntrospectedConstructor } from "./constructor.ts";
 import type { IntrospectedDirectAllocationConstructor } from "./direct-allocation-constructor.ts";

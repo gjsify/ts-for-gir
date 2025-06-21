@@ -12,11 +12,11 @@ import type { GirRecordElement, GirUnionElement } from "../types/index.ts";
 
 import {
     IntrospectedClassFunction,
-} from "./class-function.ts";
+} from "./introspected-classes.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
-import { IntrospectedStaticClassFunction } from "./static-function.ts";
+import { IntrospectedStaticClassFunction } from "./introspected-classes.ts";
 
-import { IntrospectedClassCallback } from "./class-callback.ts";
+import { IntrospectedClassCallback } from "./introspected-classes.ts";
 import { IntrospectedProperty, IntrospectedField } from "./property.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 import {
@@ -31,7 +31,7 @@ import { sanitizeIdentifierName } from "../utils/naming.ts";
 import { IntrospectedSignal } from "./signal.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import { IntrospectedBaseClass } from "./introspected-classes.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 

@@ -1,8 +1,8 @@
 import { IntrospectedNamespace } from "../gir/namespace.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedFunction } from "../gir/function.ts";
-import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 
 import {
@@ -25,8 +25,8 @@ import {
 import { IntrospectedAlias } from "../gir/alias.ts";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.ts";
-import { IntrospectedClass } from "../gir/introspected-class.ts";
-import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
 
 export default {
     namespace: "Gio",

@@ -13,8 +13,8 @@ import type {
 } from "../index.ts";
 import type { FormatGenerator } from "../generators/generator.ts";
 import type { GirVisitor } from "../visitor.ts";
-import type { IntrospectedBaseClass } from "./introspected-base-class.ts";
-import { IntrospectedClassFunction } from "./class-function.ts";
+import type { IntrospectedBaseClass } from "./introspected-classes.ts";
+import { IntrospectedClassFunction } from "./introspected-classes.ts";
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
 
 import type { OptionsLoad } from "../types/index.ts";

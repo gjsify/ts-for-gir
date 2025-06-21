@@ -2,7 +2,7 @@ import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedFunction } from "../gir/function.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
 

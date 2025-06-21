@@ -13947,7 +13947,7 @@ __metadata:
     typescript: "npm:^5.8.3"
     yargs: "npm:^18.0.0"
   bin:
-    ts-for-gir: ./lib/start.js
+    ts-for-gir: ./src/start.ts
   languageName: unknown
   linkType: soft
 

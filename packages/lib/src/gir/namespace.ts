@@ -2,7 +2,7 @@ import { BinaryType, VoidType, PromiseType, BooleanType, TupleType, TypeIdentifi
 
 import { GirModule } from "../gir-module.ts";
 
-import type { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import type { IntrospectedBaseClass } from "./introspected-classes.ts";
 import { IntrospectedFunction } from "./function.ts";
 import type { IntrospectedEnum } from "./enum.ts";
 import type { IntrospectedConstant } from "./const.ts";

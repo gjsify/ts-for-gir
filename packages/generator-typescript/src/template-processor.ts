@@ -4,9 +4,8 @@
  */
 
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import { join, dirname, relative, extname } from 'path'
+import { join, dirname, relative, extname, resolve } from 'path'
 import ejs from 'ejs'
-import { __dirname } from './utils.ts'
 import {
     Logger,
     APP_NAME,
@@ -22,6 +21,12 @@ import {
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
+import { fileURLToPath } from 'url'
+
+// Get __filename on ESM
+const __filename = fileURLToPath(import.meta.url)
+// Get __dirname on ESM, resolve to the root directory of this package
+export const __dirname = resolve(dirname(__filename), '..')
 
 const TEMPLATE_DIR = join(__dirname, './templates')
 

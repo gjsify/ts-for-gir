@@ -7,14 +7,14 @@ import {
     ThisType,
 } from "../gir.ts";
 import type { IntrospectedEnum } from "../gir/enum.ts";
-import { IntrospectedClass } from "../gir/introspected-class.ts";
-import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
-import type { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
+import type { IntrospectedInterface } from "../gir/introspected-classes.ts";
 import type { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedFunction } from "../gir/function.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
-import { IntrospectedStaticClassFunction } from "../gir/static-function.ts";
-import type { IntrospectedVirtualClassFunction } from "../gir/virtual-function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
+import type { IntrospectedVirtualClassFunction } from "../gir/introspected-classes.ts";
 import type { IntrospectedCallback } from "../gir/callback.ts";
 import { GenericNameGenerator } from "../gir/generics.ts";
 import type { NSRegistry } from "../gir/registry.ts";

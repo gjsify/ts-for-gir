@@ -10,7 +10,7 @@ import { getType } from "../utils/gir-parsing.ts";
 
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import { IntrospectedBaseClass } from "./introspected-classes.ts";
 import { IntrospectedEnum } from "./enum.ts";
 
 import type { OptionsLoad } from "../types/index.ts";

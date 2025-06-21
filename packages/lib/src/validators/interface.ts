@@ -1,4 +1,4 @@
-import { IntrospectedInterface } from "../gir/interface.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
 import { GirVisitor } from "../visitor.ts";
 
 export class InterfaceVisitor extends GirVisitor {

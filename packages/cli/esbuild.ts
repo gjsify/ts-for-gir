@@ -20,5 +20,7 @@ await build({
         'colorette',
         'yargs/*',
         'ejs',
+        'events',
+        'url',
     ],
 })

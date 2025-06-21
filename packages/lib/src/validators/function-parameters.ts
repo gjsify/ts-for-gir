@@ -1,6 +1,6 @@
 import { IntrospectedFunction } from "../gir/function.ts";
-import { IntrospectedClassFunction } from "../gir/class-function.ts";
-import { IntrospectedBaseClass } from "../gir/introspected-base-class.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
 import { IntrospectedEnum } from "../gir/enum.ts";
 
 import { TypeIdentifier, NullableType } from "../gir.ts";

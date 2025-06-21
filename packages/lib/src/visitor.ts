@@ -1,9 +1,9 @@
 import type { TypeExpression } from './gir.ts'
 import type { IntrospectedAlias } from './gir/alias.ts'
 import type { IntrospectedRecord } from './gir/record.ts'
-import type { IntrospectedInterface } from './gir/interface.ts'
-import type { IntrospectedClass } from './gir/introspected-class.ts'
-import type { IntrospectedBaseClass } from './gir/introspected-base-class.ts'
+import type { IntrospectedInterface } from './gir/introspected-classes.ts'
+import type { IntrospectedClass } from './gir/introspected-classes.ts'
+import type { IntrospectedBaseClass } from './gir/introspected-classes.ts'
 import type { IntrospectedConstant } from './gir/const.ts'
 import type { IntrospectedEnum } from './gir/enum.ts'
 import type { IntrospectedError } from './gir/error.ts'
@@ -11,16 +11,16 @@ import type { GirEnumMember } from './gir/enum-member.ts'
 import type {
     IntrospectedFunctionParameter,
 } from './gir/parameter.ts'
-import type { IntrospectedStaticClassFunction } from './gir/static-function.ts'
 import type {
+    IntrospectedStaticClassFunction,
     IntrospectedClassFunction,
-} from './gir/class-function.ts'
+    IntrospectedVirtualClassFunction,
+    IntrospectedClassCallback,
+} from './gir/introspected-classes.ts'
 import type { IntrospectedFunction } from './gir/function.ts'
 import type { IntrospectedConstructor } from './gir/constructor.ts'
-import type { IntrospectedVirtualClassFunction } from './gir/virtual-function.ts'
 import type { IntrospectedDirectAllocationConstructor } from './gir/direct-allocation-constructor.ts'
 import type { IntrospectedCallback } from './gir/callback.ts'
-import type { IntrospectedClassCallback } from './gir/class-callback.ts'
 import type { IntrospectedNamespace } from './gir/namespace.ts'
 import type { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
 import type { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.ts'

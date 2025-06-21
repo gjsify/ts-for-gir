@@ -30,7 +30,7 @@ import { sanitizeIdentifierName } from "../utils/naming.ts";
 import { IntrospectedEnum } from "./enum.ts";
 import { FormatGenerator } from "../generators/generator.ts";
 import { GirVisitor } from "../visitor.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import { IntrospectedBaseClass } from "./introspected-classes.ts";
 
 import type { OptionsLoad } from "../types/index.ts";
 

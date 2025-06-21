@@ -1,6 +1,6 @@
 import type {  GirEnumElement, GirBitfieldElement } from "../index.ts";
 
-import { IntrospectedStaticClassFunction } from "./static-function.ts";
+import { IntrospectedStaticClassFunction } from "./introspected-classes.ts";
 import { IntrospectedNamespace } from "./namespace.ts";
 
 import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";

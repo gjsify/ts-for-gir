@@ -1,12 +1,12 @@
 import { TypeIdentifier, ClosureType, BinaryType, PromiseType, VoidType, TupleType, BooleanType } from "../gir.ts";
 
-import type { IntrospectedClassFunction } from "./class-function.ts";
+import type { IntrospectedClassFunction } from "./introspected-classes.ts";
 import type { IntrospectedFunctionParameter } from "./parameter.ts";
-import { IntrospectedBaseClass } from "./introspected-base-class.ts";
-import { IntrospectedInterface } from "./interface.ts";
-import { IntrospectedStaticClassFunction } from "./static-function.ts";
+import { IntrospectedBaseClass } from "./introspected-classes.ts";
+import { IntrospectedInterface } from "./introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "./introspected-classes.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
-import { IntrospectedVirtualClassFunction } from "./virtual-function.ts";
+import { IntrospectedVirtualClassFunction } from "./introspected-classes.ts";
 
 /**
  * Generates three overloaded function signatures for async methods:

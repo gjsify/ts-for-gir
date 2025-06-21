@@ -1,6 +1,6 @@
 import { IntrospectedBase } from "./introspected-base.ts";
 
-import type { IntrospectedBaseClass } from "./introspected-base-class.ts";
+import type { IntrospectedBaseClass } from "./introspected-classes.ts";
 
 export abstract class IntrospectedClassMember<
     Parent extends IntrospectedBaseClass | null = IntrospectedBaseClass | null

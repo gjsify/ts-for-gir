@@ -1,6 +1,6 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { NativeType, FunctionType, GenericType, GenerifiedType } from "../gir.js";
-import { JSField } from "../gir/property.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { NativeType, FunctionType, GenericType, GenerifiedType } from "../gir.ts";
+import { JSField } from "../gir/property.ts";
 
 export default {
     namespace: "Gtk",

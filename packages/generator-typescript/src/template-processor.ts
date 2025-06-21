@@ -4,9 +4,8 @@
  */
 
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import { join, dirname, relative, extname } from 'path'
+import { join, dirname, relative, extname, resolve } from 'path'
 import ejs from 'ejs'
-import { __dirname } from './utils.js'
 import {
     Logger,
     APP_NAME,
@@ -18,22 +17,39 @@ import {
     DependencyManager,
     transformImportName,
     fileExists,
-    GirNSRegistry,
+    NSRegistry,
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
+import { fileURLToPath } from 'url'
+
+// Get __filename on ESM
+const __filename = fileURLToPath(import.meta.url)
+// Get __dirname on ESM, resolve to the root directory of this package
+export const __dirname = resolve(dirname(__filename), '..')
 
 const TEMPLATE_DIR = join(__dirname, './templates')
 
 export class TemplateProcessor {
     protected log: Logger
+    protected readonly data: TemplateData | undefined
+    protected readonly packageName: string
+    protected readonly registry: NSRegistry
+    protected readonly deps: Dependency[]
+    protected readonly config: OptionsGeneration
     constructor(
-        protected readonly data: TemplateData | undefined,
-        protected readonly packageName: string,
-        protected readonly deps: Dependency[],
-        protected readonly config: OptionsGeneration,
-        protected readonly registry: GirNSRegistry,
+        data: TemplateData | undefined,
+        packageName: string,
+        registry: NSRegistry,
+        deps: Dependency[],
+        config: OptionsGeneration,
     ) {
+        this.data = data
+        this.packageName = packageName
+        this.registry = registry
+        this.deps = deps
+        this.config = config
+
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory

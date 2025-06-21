@@ -1,17 +1,21 @@
-import { NumberType, TypeIdentifier } from "../gir.js";
+import { NumberType, TypeIdentifier } from "../gir.ts";
 
-import { IntrospectedBase, IntrospectedNamespaceMember } from "./base.js";
-import { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../index.js";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
+import type { GirEnumElement, GirBitfieldElement } from "../index.ts";
 
-import { GirComplexRecord, IntrospectedRecord } from "./class.js";
-import { IntrospectedField } from "./property.js";
-import { IntrospectedStaticClassFunction } from "./function.js";
-import { IntrospectedNamespace } from "./namespace.js";
-import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "./util.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
+import { IntrospectedRecord } from "./record.ts";
+import { IntrospectedField } from "./property.ts";
+import { GirComplexRecord } from "./gir-complex-record.ts";
+import { IntrospectedNamespace } from "./namespace.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { sanitizeIdentifierName, sanitizeMemberName } from "../utils/naming.ts";
+
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
+
+import type { OptionsLoad } from "../types/index.ts";
+import { GirEnumMember } from "./enum-member.ts";
 
 export class IntrospectedEnum extends IntrospectedNamespaceMember {
     members = new Map<string, GirEnumMember>();
@@ -131,122 +135,3 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
     }
 }
 
-export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
-    value: string;
-    c_identifier: string;
-
-    constructor(name: string, value: string, parent: IntrospectedEnum, c_identifier: string) {
-        super(name, parent);
-        this.value = value;
-        this.c_identifier = c_identifier;
-    }
-
-    get namespace() {
-        return this.parent.namespace;
-    }
-
-    accept(visitor: GirVisitor): GirEnumMember {
-        const node = this.copy();
-        return visitor.visitEnumMember?.(node) ?? node;
-    }
-
-    copy(): GirEnumMember {
-        const { value, name, parent, c_identifier } = this;
-
-        return new GirEnumMember(name, value, parent, c_identifier)._copyBaseProperties(this);
-    }
-
-    static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: OptionsLoad): GirEnumMember {
-        const upper = element.$.name.toUpperCase();
-        const c_identifier = element.$["c:identifier"];
-
-        const enumMember = new GirEnumMember(upper, element.$.value, parent, c_identifier);
-
-        if (options.loadDocs) {
-            enumMember.doc = parseDoc(element);
-            enumMember.metadata = parseMetadata(element);
-        }
-
-        return enumMember;
-    }
-
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateEnumMember"]> {
-        return generator.generateEnumMember(this) as ReturnType<T["generateEnumMember"]>;
-    }
-}
-
-function isEnumElement(e: unknown): e is GirEnumElement {
-    return typeof e === "object" && e != null && "function" in e;
-}
-
-export class IntrospectedError extends IntrospectedEnum {
-    functions: Map<string, IntrospectedStaticClassFunction> = new Map();
-
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateError"]> {
-        return generator.generateError(this) as ReturnType<T["generateError"]>;
-    }
-
-    copy({
-        members
-    }: {
-        parent?: undefined;
-        members?: Map<string, GirEnumMember>;
-    } = {}): IntrospectedEnum {
-        const { namespace, name, flags } = this;
-
-        const en = new IntrospectedError(name, namespace);
-
-        for (const [key, member] of (members ?? this.members).entries()) {
-            en.members.set(key, member.copy());
-        }
-
-        for (const [key, func] of this.functions.entries()) {
-            en.functions.set(key, func.copy({ parent: en }));
-        }
-
-        en.flags = flags;
-
-        return en._copyBaseProperties(this);
-    }
-
-    static fromXML(
-        element: GirEnumElement | GirBitfieldElement,
-        ns: IntrospectedNamespace,
-        options: OptionsLoad
-    ): IntrospectedEnum {
-        const err = new IntrospectedError(sanitizeMemberName(element.$.name), ns);
-
-        if (element.$["glib:type-name"]) {
-            err.resolve_names.push(element.$["glib:type-name"]);
-
-            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, err.name);
-        }
-
-        if (element.$["c:type"]) {
-            err.resolve_names.push(element.$["c:type"]);
-
-            ns.registerResolveName(element.$["c:type"], ns.namespace, err.name);
-        }
-
-        if (options.loadDocs) {
-            err.doc = parseDoc(element);
-            err.metadata = parseMetadata(element);
-        }
-
-        if (element.member) {
-            element.member.forEach(m => {
-                const member = GirEnumMember.fromXML(m, err, options);
-                err.members.set(member.name, member);
-            });
-        }
-
-        if (isEnumElement(element) && element.function) {
-            element.function.forEach(f => {
-                const func = IntrospectedStaticClassFunction.fromXML(f, err, options);
-                err.functions.set(func.name, func);
-            });
-        }
-
-        return err;
-    }
-}

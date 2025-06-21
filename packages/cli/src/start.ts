@@ -2,8 +2,8 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import { generate, list, doc, copy } from './commands/index.js'
-import { Config } from './config.js'
+import { generate, list, doc, copy } from './commands/index.ts'
+import { Config } from './config.ts'
 
 void yargs(hideBin(process.argv))
     .scriptName(Config.appName)

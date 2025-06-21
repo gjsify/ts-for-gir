@@ -1,4 +1,4 @@
-import type { TsDocTag } from './ts-doc-tag.js'
+import type { TsDocTag } from './ts-doc-tag.ts'
 
 /**
  * A model that represents a comment.

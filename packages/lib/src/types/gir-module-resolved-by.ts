@@ -1,5 +1,5 @@
-import { GirModule } from '../gir-module'
-import { ResolveType } from './resolve-type'
+import type { GirModule } from '../gir-module.ts'
+import type { ResolveType } from './resolve-type.ts'
 
 export interface GirModuleResolvedBy {
     module: GirModule

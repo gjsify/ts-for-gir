@@ -1,22 +1,29 @@
-import { TypeExpression } from './gir.js'
-import { IntrospectedAlias } from './gir/alias.js'
-import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass, IntrospectedBaseClass } from './gir/class.js'
-import { IntrospectedConstant } from './gir/const.js'
-import { GirEnumMember, IntrospectedError, IntrospectedEnum } from './gir/enum.js'
-import {
-    IntrospectedCallback,
-    IntrospectedConstructor,
+import type { TypeExpression } from './gir.ts'
+import type { IntrospectedAlias } from './gir/alias.ts'
+import type { IntrospectedRecord } from './gir/record.ts'
+import type { IntrospectedInterface } from './gir/introspected-classes.ts'
+import type { IntrospectedClass } from './gir/introspected-classes.ts'
+import type { IntrospectedBaseClass } from './gir/introspected-classes.ts'
+import type { IntrospectedConstant } from './gir/const.ts'
+import type { IntrospectedEnum } from './gir/enum.ts'
+import type { IntrospectedError } from './gir/error.ts'
+import type { GirEnumMember } from './gir/enum-member.ts'
+import type {
     IntrospectedFunctionParameter,
-    IntrospectedFunction,
-    IntrospectedClassFunction,
+} from './gir/parameter.ts'
+import type {
     IntrospectedStaticClassFunction,
+    IntrospectedClassFunction,
     IntrospectedVirtualClassFunction,
-    IntrospectedDirectAllocationConstructor,
     IntrospectedClassCallback,
-} from './gir/function.js'
-import { IntrospectedNamespace } from './gir/namespace.js'
-import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
-import { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.js'
+} from './gir/introspected-classes.ts'
+import type { IntrospectedFunction } from './gir/function.ts'
+import type { IntrospectedConstructor } from './gir/constructor.ts'
+import type { IntrospectedDirectAllocationConstructor } from './gir/direct-allocation-constructor.ts'
+import type { IntrospectedCallback } from './gir/callback.ts'
+import type { IntrospectedNamespace } from './gir/namespace.ts'
+import type { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
+import type { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.ts'
 
 export abstract class GirVisitor {
     visitType?: (node: TypeExpression) => TypeExpression

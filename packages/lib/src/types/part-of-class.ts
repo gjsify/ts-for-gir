@@ -1,4 +1,4 @@
-import { PartOfModule, GirClassElement, GirUnionElement, GirInterfaceElement, GirRecordElement } from './index.js'
+import type { PartOfModule, GirClassElement, GirUnionElement, GirInterfaceElement, GirRecordElement } from './index.ts'
 
 // Custom properties, not part of parsed gir xml
 export interface PartOfClass extends PartOfModule {

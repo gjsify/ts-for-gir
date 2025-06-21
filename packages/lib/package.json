@@ -2,25 +2,18 @@
     "name": "@ts-for-gir/lib",
     "version": "4.0.0-beta.25",
     "description": "Typescript .d.ts generator from GIR for gjs",
-    "module": "lib/index.js",
-    "main": "lib/index.js",
+    "main": "src/index.ts",
+    "module": "src/index.ts",
     "type": "module",
     "engines": {
         "node": ">=18"
     },
     "exports": {
-        ".": {
-            "types": "./lib/index.d.ts",
-            "import": "./lib/index.js"
-        }
+        ".": "./src/index.ts"
     },
     "scripts": {
-        "build": "yarn lint && yarn build:ts",
-        "build:ts": "tsc",
-        "clear": "yarn clear:build",
-        "clear:build": "rimraf ./lib",
-        "watch": "yarn build:ts --watch",
         "lint": "eslint . --fix",
+        "check": "tsc --noEmit",
         "update-package-descriptions": "wget https://raw.githubusercontent.com/vala-lang/valadoc-org/master/documentation/packages.xml"
     },
     "repository": {

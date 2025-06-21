@@ -1,34 +1,24 @@
-import { DefaultFormatter } from "../formatters/default.js";
-import { Formatter } from "../formatters/formatter.js";
-import { JSONFormatter } from "../formatters/json.js";
-import { DtsGenerator } from "../generators/dts.js";
-import { JsonGenerator } from "../generators/json.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { generify } from "../generics/generify.js";
-import { inject } from "../injections/inject.js";
-import { TwoKeyMap } from "../util.js";
-import { ClassVisitor } from "../validators/class.js";
-import { InterfaceVisitor } from "../validators/interface.js";
-import { GirVisitor } from "../visitor.js";
-import { IntrospectedNamespace } from "./namespace.js";
-import { DtsModuleGenerator } from "../generators/dts-modules.js";
-import { DtsInlineGenerator } from "../generators/dts-inline.js";
-import { ParsedGir } from "../types/parsed-gir.js";
-import { GirModule } from "../index.js";
+import { DefaultFormatter } from "../formatters/default.ts";
+import { Formatter } from "../formatters/formatter.ts";
+import { JSONFormatter } from "../formatters/json.ts";
+import { DtsGenerator } from "../generators/dts.ts";
+import { JsonGenerator } from "../generators/json.ts";
+import { FormatGenerator } from "../generators/generator.ts";
+import { generify } from "../generics/generify.ts";
+import { inject } from "../injections/inject.ts";
+import { TwoKeyMap } from "../util.ts";
+import { ClassVisitor } from "../validators/class.ts";
+import { InterfaceVisitor } from "../validators/interface.ts";
+import { GirVisitor } from "../visitor.ts";
+import { IntrospectedNamespace } from "./namespace.ts";
+import { DtsModuleGenerator } from "../generators/dts-modules.ts";
+import { DtsInlineGenerator } from "../generators/dts-inline.ts";
+import { GirModule } from "../index.ts";
 
-import type { OptionsGeneration, OptionsTransform } from "../types/index.js";
-import { FunctionParametersVisitor } from "../validators/function-parameters.js";
+import type { OptionsGeneration, OptionsTransform, GeneratorConstructor } from "../types/index.ts";
+import { FunctionParametersVisitor } from "../validators/function-parameters.ts";
 
-export interface NSLoader {
-    load(namespace: string, version: string): ParsedGir | null;
-    loadAll(namespace: string): ParsedGir[];
-}
-
-type GeneratorConstructor<T> = {
-     
-    new (namespace: IntrospectedNamespace, options: OptionsGeneration, ...args: any[]): FormatGenerator<T>;
-};
-
+// TODO: Singleton
 export class NSRegistry {
     mapping: TwoKeyMap<string, string, IntrospectedNamespace> = new TwoKeyMap();
     private formatters: Map<string, Formatter> = new Map();

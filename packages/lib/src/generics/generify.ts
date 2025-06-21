@@ -1,13 +1,13 @@
-import gio from "./gio.js";
-import glib from "./glib.js";
-import gtk from "./gtk.js";
-import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.js";
-import { st1, st12, st13, st14, st15 } from "./st.js";
-import { meta10, meta11, meta12, meta13, meta14, meta15 } from "./meta.js";
+import gio from "./gio.ts";
+import glib from "./glib.ts";
+import gtk from "./gtk.ts";
+import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.ts";
+import { st1, st12, st13, st14, st15 } from "./st.ts";
+import { meta10, meta11, meta12, meta13, meta14, meta15 } from "./meta.ts";
 
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { NSRegistry } from "../gir/registry.js";
-import { GenericVisitor } from "./visitor.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { NSRegistry } from "../gir/registry.ts";
+import { GenericVisitor } from "./visitor.ts";
 
 type NamespaceModifier = (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
 

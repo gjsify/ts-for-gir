@@ -1,4 +1,4 @@
-import type { GirConstantElement } from './types/index.js'
+import type { GirConstantElement } from './types/index.ts'
 
 export class LibraryVersion {
     major: number | undefined

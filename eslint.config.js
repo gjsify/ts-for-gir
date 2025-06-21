@@ -1,4 +1,3 @@
-import eslint from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
@@ -29,6 +28,7 @@ export default [
     // TypeScript files
     {
         files: ['**/*.ts'], // Explicitly specify files to lint
+        ignores: ["**/esbuild.ts"],
         languageOptions: {
             parser: tsparser,
             parserOptions: {

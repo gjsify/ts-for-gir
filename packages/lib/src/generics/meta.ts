@@ -1,5 +1,5 @@
-import { GenerifiedTypeIdentifier } from "../gir.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { GenerifiedTypeIdentifier } from "../gir.ts";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 const metaTemplate = (version: string) => ({
     namespace: "Meta",

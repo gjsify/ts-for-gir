@@ -1,5 +1,5 @@
-import { GenericType, GenerifiedTypeIdentifier } from "../gir.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 const stTemplate = (version: string) => ({
     namespace: "St",

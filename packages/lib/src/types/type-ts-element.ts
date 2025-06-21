@@ -1,4 +1,4 @@
-import { TypeTsFunction, TypeTsProperty } from './index.js'
+import type { TypeTsFunction, TypeTsProperty } from './index.ts'
 
 /** Any typescript element type */
 export type TypeTsElement =

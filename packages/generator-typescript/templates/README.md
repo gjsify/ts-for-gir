@@ -7,10 +7,6 @@
 
 <%- PACKAGE_DESC %> using [<%- APP_NAME %>](<%- APP_SOURCE %>) v<%- APP_VERSION %>.
 
-<%_ if (typeof pkgData !== 'undefined' && pkgData.description) { _%>
-<%- pkgData.description %>
-<%_ } _%>
-
 ## Install
 
 To use this type definitions, install them with NPM:

@@ -1,22 +1,10 @@
-import { Logger } from './logger.js'
-import { IntrospectedNamespace } from './gir/namespace.js'
-import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
-import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './gir/util.js'
-export { sanitizeMemberName, isInvalid } from './gir/util.js'
+import { Logger } from './logger.ts'
+import { IntrospectedNamespace } from './gir/namespace.ts'
+import { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
+import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './utils/naming.ts'
 
-export {
-    IntrospectedBase,
-    Options as IntrospectedOptions,
-    Metadata as IntrospectedMetadata,
-    IntrospectedNamespaceMember,
-    IntrospectedClassMember,
-} from './gir/base.js'
-export { filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/class.js'
-export { promisifyFunctions } from './gir/promisify.js'
-export { resolveDirectedType, resolvePrimitiveType } from './gir/util.js'
-export * from './gir/nodes.js'
 
-import type { OptionsBase } from './types/index.js'
+import type { OptionsBase } from './types/index.ts'
 
 export abstract class TypeExpression {
     isPointer = false
@@ -39,12 +27,16 @@ export abstract class TypeExpression {
 
 export class TypeIdentifier extends TypeExpression {
     readonly log: Logger
+    readonly name: string
+    readonly namespace: string
 
     constructor(
-        readonly name: string,
-        readonly namespace: string,
+        name: string,
+        namespace: string,
     ) {
         super()
+        this.name = name
+        this.namespace = namespace
         this.log = new Logger(true, `TypeIdentifier(${this.namespace}.${name})`)
     }
 
@@ -177,12 +169,17 @@ export class TypeIdentifier extends TypeExpression {
 }
 
 export class ModuleTypeIdentifier extends TypeIdentifier {
+    readonly moduleName: string
+    readonly namespace: string
+
     constructor(
         name: string,
-        readonly moduleName: string,
-        readonly namespace: string,
+        moduleName: string,
+        namespace: string,
     ) {
         super(name, namespace)
+        this.moduleName = moduleName
+        this.namespace = namespace
     }
 
     equals(type: TypeExpression): boolean {

@@ -1,5 +1,6 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { ClassStructTypeIdentifier, IntrospectedRecord } from "../index.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { ClassStructTypeIdentifier } from "../gir.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
 
 export default {
     namespace: "Tracker",

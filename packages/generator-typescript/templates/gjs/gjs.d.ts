@@ -23,9 +23,9 @@
 <%- GLib ? GLib.importDef : '' %>
 
 <%_ if(package){ _%>
-import gettext from './gettext.js';
-import system from './system.js';
-import cairo from './cairo.js';
+import gettext from './gettext.ts';
+import system from './system.ts';
+import cairo from './cairo.ts';
 <%_ } else { _%>
 import gettext from 'gettext';
 import system from 'system';

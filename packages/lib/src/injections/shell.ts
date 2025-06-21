@@ -1,6 +1,6 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { TypeIdentifier, OrType, NullableType } from "../gir.js";
-import { NSRegistry } from "../gir/registry.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { TypeIdentifier, OrType, NullableType } from "../gir.ts";
+import { NSRegistry } from "../gir/registry.ts";
 
 const shellTemplate = (version: string) => ({
     namespace: "Shell",

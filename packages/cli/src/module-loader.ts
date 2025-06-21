@@ -17,16 +17,17 @@ import {
     isIterable,
     WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE,
 } from '@ts-for-gir/lib'
-import { Config } from './config.js'
+import { Config } from './config.ts'
 
-import type {
-    GirModulesGroupedMap,
-    OptionsGeneration,
-    GirModuleResolvedBy,
-    GirModulesGrouped,
-    DependencyMap,
-    Dependency,
-    AnswerVersion,
+import {
+    type GirModulesGroupedMap,
+    type OptionsGeneration,
+    type GirModuleResolvedBy,
+    type GirModulesGrouped,
+    type DependencyMap,
+    type Dependency,
+    type AnswerVersion,
+    NSRegistry,
 } from '@ts-for-gir/lib'
 
 export class ModuleLoader {
@@ -34,7 +35,14 @@ export class ModuleLoader {
     dependencyManager: DependencyManager
     /** Transitive module dependencies */
     modDependencyMap: DependencyMap = {}
-    constructor(protected readonly config: OptionsGeneration) {
+
+    protected readonly config: OptionsGeneration
+
+    constructor(
+        config: OptionsGeneration,
+        protected readonly registry: NSRegistry,
+    ) {
+        this.config = config
         this.log = new Logger(config.verbose, 'ModuleLoader')
         this.dependencyManager = DependencyManager.getInstance(config)
     }
@@ -381,7 +389,7 @@ export class ModuleLoader {
         }
 
         this.log.log(`Loading ${dependency.packageName}...`)
-        const girModule = await GirModule.load(dependency, this.config, this.dependencyManager)
+        const girModule = await GirModule.load(dependency, this.config, this.registry)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)
         return girModule

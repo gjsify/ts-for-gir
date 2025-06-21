@@ -1,4 +1,4 @@
-import { isNumeric } from './numbers.js'
+import { isNumeric } from './numbers.ts'
 
 /**
  * Removes line breaks and consecutive white spaces from a given string

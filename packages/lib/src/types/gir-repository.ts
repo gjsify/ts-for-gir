@@ -1,5 +1,5 @@
 import * as parser from '@gi.ts/parser'
-import { GirNamespace } from './gir-namespace'
+import type { GirNamespace } from './gir-namespace.ts'
 
 export interface GirRepository extends parser.GirRepository {
     namespace?: GirNamespace[]

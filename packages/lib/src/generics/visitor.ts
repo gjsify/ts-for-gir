@@ -5,21 +5,21 @@ import {
     TypeIdentifier,
     GenerifiedTypeIdentifier,
     ThisType,
-    IntrospectedEnum
-} from "../gir.js";
-import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.js";
-import {
-    IntrospectedCallback,
-    IntrospectedFunctionParameter,
-    IntrospectedFunction,
-    IntrospectedClassFunction,
-    IntrospectedStaticClassFunction,
-    IntrospectedVirtualClassFunction
-} from "../gir/function.js";
-import { GenericNameGenerator } from "../gir/generics.js";
-import { NSRegistry } from "../gir/registry.js";
-import { resolveTypeIdentifier } from "../gir/util.js";
-import { GirVisitor } from "../visitor.js";
+} from "../gir.ts";
+import type { IntrospectedEnum } from "../gir/enum.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
+import type { IntrospectedInterface } from "../gir/introspected-classes.ts";
+import type { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
+import type { IntrospectedVirtualClassFunction } from "../gir/introspected-classes.ts";
+import type { IntrospectedCallback } from "../gir/callback.ts";
+import { GenericNameGenerator } from "../gir/generics.ts";
+import type { NSRegistry } from "../gir/registry.ts";
+import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
+import { GirVisitor } from "../visitor.ts";
 
 export class GenericVisitor extends GirVisitor {
     registry: NSRegistry;

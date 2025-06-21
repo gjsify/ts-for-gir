@@ -1,4 +1,4 @@
-import { IntrospectedNamespace } from "../../gir/namespace.js";
+import { IntrospectedNamespace } from "../../gir/namespace.ts";
 
 export function override(node: IntrospectedNamespace) {
     // We provide manually written versions of these types below.

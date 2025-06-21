@@ -6,10 +6,15 @@
 import { blue, yellow, yellowBright, green, red, white, gray } from 'colorette'
 
 export class Logger {
+    private readonly verbose: boolean
+    private readonly moduleName: string
     constructor(
-        private readonly verbose: boolean,
-        private readonly moduleName: string,
-    ) {}
+        verbose: boolean,
+        moduleName: string,
+    ) {
+        this.verbose = verbose
+        this.moduleName = moduleName
+    }
     private static prepend(txt: string, prepend: string): string {
         if (typeof txt === 'string') {
             txt = `${prepend}${txt}`

@@ -1,13 +1,17 @@
-import { TypeExpression } from "../gir.js";
-import { IntrospectedNamespaceMember, Options } from "./base.js";
-import { GirConstantElement } from "../index.js";
+import { TypeExpression } from "../gir.ts";
+import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
 
-import { IntrospectedNamespace } from "./namespace.js";
-import { getType, parseDoc, parseMetadata, sanitizeIdentifierName } from "./util.js";
-import { FormatGenerator } from "../generators/generator.js";
-import { GirVisitor } from "../visitor.js";
+import type { GirConstantElement } from "../index.ts";
 
-import type { OptionsLoad } from "../types/index.js";
+import { IntrospectedNamespace } from "./namespace.ts";
+import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { sanitizeIdentifierName } from "../utils/naming.ts";
+import { getType } from "../utils/gir-parsing.ts";
+
+import { FormatGenerator } from "../generators/generator.ts";
+import { GirVisitor } from "../visitor.ts";
+
+import type { OptionsLoad, IntrospectedOptions } from "../types/index.ts"; 
 
 export class IntrospectedConstant extends IntrospectedNamespaceMember {
     type: TypeExpression;
@@ -19,7 +23,7 @@ export class IntrospectedConstant extends IntrospectedNamespaceMember {
         namespace,
         value,
         ...options
-    }: Options<{
+    }: IntrospectedOptions<{
         name: string;
         type: TypeExpression;
         namespace: IntrospectedNamespace;

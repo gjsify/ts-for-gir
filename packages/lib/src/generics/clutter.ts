@@ -1,5 +1,5 @@
-import { GenericType } from "../gir.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { GenericType } from "../gir.ts";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 export const clutterTemplate = (version: string) => ({
     namespace: "Clutter",

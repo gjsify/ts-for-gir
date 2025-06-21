@@ -1,11 +1,11 @@
-import {
+import type {
     PartOfModule,
     GirClassElement,
     GirRecordElement,
     GirInterfaceElement,
     GirCallableParams,
     GirCallableReturn,
-} from './index.js'
+} from './index.ts'
 import * as parser from '@gi.ts/parser'
 
 export interface GirSignalElement extends PartOfModule, parser.GirSignalElement {

@@ -1,0 +1,26 @@
+import type { IntrospectedNamespace } from "./namespace.ts";
+import { IntrospectedBase } from "./introspected-base.ts";
+import type { IntrospectedBaseOptions } from "../types/introspected.ts";
+
+import type { OptionsLoad } from "../types/index.ts";
+
+export abstract class IntrospectedNamespaceMember extends IntrospectedBase<IntrospectedNamespace> {
+    constructor(name: string, namespace: IntrospectedNamespace, options: IntrospectedBaseOptions = {}) {
+        super(name, namespace, options);
+    }
+
+    get namespace() {
+        return this.parent;
+    }
+
+    static fromXML(
+         
+        element: Record<string, any>,
+         
+        parent: IntrospectedNamespace,
+         
+        options: OptionsLoad
+    ): IntrospectedNamespaceMember | null {
+        throw new Error("GirBase cannot be instantiated");
+    }
+}

@@ -1,9 +1,10 @@
-import { IntrospectedFunction, IntrospectedClassFunction } from "../gir/function.js";
-import { IntrospectedBaseClass } from "../gir/class.js";
-import { IntrospectedEnum } from "../gir/enum.js";
+import { IntrospectedFunction } from "../gir/function.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
+import { IntrospectedEnum } from "../gir/enum.ts";
 
-import { TypeIdentifier, NullableType } from "../gir.js";
-import { GirVisitor } from "../visitor.js";
+import { TypeIdentifier, NullableType } from "../gir.ts";
+import { GirVisitor } from "../visitor.ts";
 
 export class FunctionParametersVisitor extends GirVisitor {
     /**

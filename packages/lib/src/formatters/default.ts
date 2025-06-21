@@ -1,4 +1,4 @@
-import { Formatter } from "./formatter.js";
+import { Formatter } from "./formatter.ts";
 
 export class DefaultFormatter extends Formatter {
     format(source: string): Promise<string> {

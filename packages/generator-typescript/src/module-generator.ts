@@ -62,13 +62,13 @@ import {
 import { GirDirection } from '@gi.ts/parser'
 
 import { TemplateProcessor } from './template-processor.ts'
-import { PackageDataParser } from './package-data-parser.ts'
+// import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from './npm-package.ts'
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
     log: Logger
     dependencyManager: DependencyManager
-    packageData?: PackageDataParser
+    // packageData?: PackageDataParser
 
     config: OptionsGeneration
     moduleTemplateProcessor: TemplateProcessor
@@ -83,12 +83,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         this.log = new Logger(this.config.verbose, ModuleGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        this.packageData = new PackageDataParser(this.config)
+        // this.packageData = new PackageDataParser(this.config)
         const girModule = namespace
-        let pkgData: PackageData | undefined
-        if (this.packageData) {
-            pkgData = this.packageData.get(girModule.packageName)
-        }
         this.moduleTemplateProcessor = new TemplateProcessor(
             {
                 name: girModule.namespace,
@@ -96,7 +92,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 version: girModule.version,
                 importName: girModule.importName,
                 girModule,
-                pkgData,
             },
             girModule.packageName,
             registry,

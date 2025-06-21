@@ -6,11 +6,7 @@
 
 <%- PACKAGE_DESC %> using [<%- APP_NAME %>](<%- APP_SOURCE %>) v<%- APP_VERSION %>.
 
-<%_ if (typeof pkgData !== 'undefined' && pkgData.description) { _%>
-<%- pkgData.description %>
-<%_ } else { _%>
 [GJS](https://gitlab.gnome.org/GNOME/gjs) is a JavaScript runtime for the GNOME ecosystem. Using GJS and the type definitions in this NPM package, you can build GTK applications in JavaScript or TypeScript with type checking, better autocompletion and inline documentations.
-<%_ } _%>
 
 ## Install
 

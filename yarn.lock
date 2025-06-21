@@ -13937,6 +13937,7 @@ __metadata:
     dpdm: "npm:^3.14.0"
     ejs: "npm:^3.1.10"
     esbuild: "npm:^0.25.5"
+    esbuild-node-externals: "npm:^1.18.0"
     eslint: "npm:^9.29.0"
     eslint-config-prettier: "npm:^10.1.5"
     eslint-plugin-prettier: "npm:^5.4.1"
@@ -13947,7 +13948,7 @@ __metadata:
     typescript: "npm:^5.8.3"
     yargs: "npm:^18.0.0"
   bin:
-    ts-for-gir: ./src/start.ts
+    ts-for-gir: ./lib/start.js
   languageName: unknown
   linkType: soft
 
@@ -15348,6 +15349,17 @@ __metadata:
   version: 1.5.2
   resolution: "es-module-lexer@npm:1.5.2"
   checksum: 10/65b437022293fadba1f720edb0d79090e72a20f107407fb79127755f6d659f27100eec1c55c425ed3af34063586848399bb1924fe913680f8ed903f7b6290c1b
+  languageName: node
+  linkType: hard
+
+"esbuild-node-externals@npm:^1.18.0":
+  version: 1.18.0
+  resolution: "esbuild-node-externals@npm:1.18.0"
+  dependencies:
+    find-up: "npm:^5.0.0"
+  peerDependencies:
+    esbuild: 0.12 - 0.25
+  checksum: 10/a1b92c1d7d7517667fe7f62c6adecfad0aa58f2c8bf056991a7b0f44a76fd0c74c408d0b67d681fb47a5fa671d2f8a2f26d9673d7ae51d9d24e8e5517227fc3c
   languageName: node
   linkType: hard
 

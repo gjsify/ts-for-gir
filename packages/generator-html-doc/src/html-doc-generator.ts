@@ -8,10 +8,11 @@ import type { OptionsGeneration, GirModule, NSRegistry } from '@ts-for-gir/lib'
  */
 export class HtmlDocGenerator implements Generator {
     protected log: Logger
-    constructor(
-        protected readonly config: OptionsGeneration,
-        protected readonly registry: NSRegistry,
-    ) {
+    protected readonly config: OptionsGeneration
+    protected readonly registry: NSRegistry
+    constructor(config: OptionsGeneration, registry: NSRegistry) {
+        this.config = config
+        this.registry = registry
         this.log = new Logger(config.verbose, HtmlDocGenerator.name)
     }
 

@@ -2,27 +2,24 @@ import type { Generator } from '@ts-for-gir/generator-base'
 import { Logger, DependencyManager, type NSRegistry, type OptionsGeneration, GirModule } from '@ts-for-gir/lib'
 
 import { TemplateProcessor } from './template-processor.ts'
-import { PackageDataParser } from './package-data-parser.ts'
+//import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from './npm-package.ts'
 import { ModuleGenerator } from './module-generator.ts'
 
 export class TypeDefinitionGenerator implements Generator {
-    log: Logger
-    dependencyManager: DependencyManager
-    packageData?: PackageDataParser
+    readonly log: Logger
+    //readonly moduleGenerator!: ModuleGenerator
+    readonly config: OptionsGeneration
+    readonly registry: NSRegistry
+    readonly dependencyManager: DependencyManager
+    //readonly packageData: PackageDataParser
 
-    module!: ModuleGenerator
-
-    /**
-     * @param _config The config to use without the override config
-     */
-    constructor(
-        readonly config: OptionsGeneration,
-        readonly registry: NSRegistry,
-    ) {
+    constructor(config: OptionsGeneration, registry: NSRegistry) {
+        this.config = config
+        this.registry = registry
         this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        this.packageData = new PackageDataParser(this.config)
+        // this.packageData = new PackageDataParser(this.config)
     }
 
     async exportGjs() {
@@ -141,9 +138,9 @@ export class TypeDefinitionGenerator implements Generator {
     }
 
     public async start() {
-        if (this.packageData) {
-            await this.packageData.start()
-        }
+        // if (this.packageData) {
+        //     await this.packageData.start()
+        // }
     }
 
     public async finish(girModules: GirModule[]) {

@@ -32,13 +32,24 @@ const TEMPLATE_DIR = join(__dirname, './templates')
 
 export class TemplateProcessor {
     protected log: Logger
+    protected readonly data: TemplateData | undefined
+    protected readonly packageName: string
+    protected readonly registry: NSRegistry
+    protected readonly deps: Dependency[]
+    protected readonly config: OptionsGeneration
     constructor(
-        protected readonly data: TemplateData | undefined,
-        protected readonly packageName: string,
-        protected readonly registry: NSRegistry,
-        protected readonly deps: Dependency[],
-        protected readonly config: OptionsGeneration,
+        data: TemplateData | undefined,
+        packageName: string,
+        registry: NSRegistry,
+        deps: Dependency[],
+        config: OptionsGeneration,
     ) {
+        this.data = data
+        this.packageName = packageName
+        this.registry = registry
+        this.deps = deps
+        this.config = config
+
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory

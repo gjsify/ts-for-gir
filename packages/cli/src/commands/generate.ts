@@ -30,6 +30,10 @@ const handler = async (args: ConfigFlags) => {
 
     const generateConfig = Config.getOptionsGeneration(config)
     const registry = new NSRegistry() // TODO: Use singleton
+
+    // Register TypeScript formatter for .d.ts files
+    registry.registerFormatter('dts', new TypeScriptFormatter())
+
     const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,
@@ -75,7 +79,8 @@ class TypeScriptFormatter extends Formatter {
             })
         } catch (error) {
             Logger.warn('[TypeScriptFormatter] Failed to format with prettier, returning original input', error)
-            return Promise.resolve(input)
+            throw error
+            // return Promise.resolve(input)
         }
     }
 }

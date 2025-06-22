@@ -21,14 +21,19 @@ import {
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
-import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
 
-// Get __filename on ESM
-const __filename = fileURLToPath(import.meta.url)
-// Get __dirname on ESM, resolve to the root directory of this package
-export const __dirname = resolve(dirname(__filename), '..')
+const require = createRequire(import.meta.url)
 
-const TEMPLATE_DIR = join(__dirname, './templates')
+// Resolve the templates directory from the @ts-for-gir/templates package
+// Try require.resolve first, fallback to workspace path for development
+let TEMPLATE_DIR: string
+try {
+    TEMPLATE_DIR = join(dirname(require.resolve('@ts-for-gir/templates/package.json')), 'templates')
+} catch (error) {
+    // Fallback for workspace development setup
+    TEMPLATE_DIR = resolve(process.cwd(), '../../templates/templates')
+}
 
 export class TemplateProcessor {
     protected log: Logger
@@ -305,7 +310,7 @@ export class TemplateProcessor {
             const content = await readFile(path, 'utf8')
             return this.removeTypeScriptDirectives(content)
         }
-        throw new Error(`Template '${templateFilename}' not found'`)
+        throw new Error(`Template '${path || templateFilename}' not found'`)
     }
 
     /**

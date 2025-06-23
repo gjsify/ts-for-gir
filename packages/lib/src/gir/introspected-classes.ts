@@ -49,7 +49,6 @@ import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { parseTypeIdentifier } from "../utils/types.ts";
 import { findMap } from "../util.ts";
-import { isStaticClassFunction } from "../utils/function-type-guards.ts";
 import { 
     type ClassResolution as ClassResolutionType,
     type InterfaceResolution as InterfaceResolutionType,
@@ -689,7 +688,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
     hasInstanceSymbol<S extends { name: string }>(s: S): boolean {
         return (
-            this.members.some(p => s.name === p.name && !isStaticClassFunction(p)) ||
+            this.members.some(p => s.name === p.name && !(p instanceof IntrospectedStaticClassFunction)) ||
             this.props.some(p => s.name === p.name) ||
             this.fields.some(p => s.name === p.name)
         );
@@ -748,34 +747,169 @@ export class IntrospectedClass extends IntrospectedBaseClass {
     }
 
     implementedProperties(potentialConflicts: IntrospectedBase<never>[] = []) {
-        const allImplementedProperties: IntrospectedProperty[] = [];
+        const resolution = this.resolveParents();
+        const implementedOnParent = [...(resolution.extends() ?? [])].map(r => r.implements()).flat();
+        const properties = new Map<string, IntrospectedProperty>();
+
         const validateProp = (prop: IntrospectedProperty) =>
             !this.hasInstanceSymbol(prop) &&
-            !potentialConflicts.some(conflict => prop.name === conflict.name);
+            !properties.has(prop.name) &&
+            potentialConflicts.every(p => prop.name !== p.name);
 
-        const resolution = this.resolveParents();
-        resolution.implements().forEach(i => {
-            const properties = i.node.props.filter(validateProp);
-            allImplementedProperties.push(...properties);
-        });
+        for (const implemented of resolution.implements()) {
+            if (implemented.node instanceof IntrospectedClass) continue;
 
-        return allImplementedProperties;
+            if (
+                implementedOnParent.find(p => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0
+            )
+                continue;
+            for (const prop of implemented.node.props) {
+                if (!validateProp(prop)) continue;
+                properties.set(prop.name, prop);
+            }
+        }
+
+        for (const implemented of resolution.implements()) {
+            [...implemented].forEach(e => {
+                if (e.node instanceof IntrospectedClass) return;
+
+                if (implementedOnParent.find(p => p.identifier.equals(e.identifier))?.node.generics.length === 0)
+                    return;
+                for (const prop of e.node.props) {
+                    if (!validateProp(prop)) continue;
+
+                    properties.set(prop.name, prop);
+                }
+            });
+        }
+
+        // If an interface inherits from a class (such as Gtk.Widget)
+        // we need to pull in every property from that class...
+        for (const implemented of resolution.implements()) {
+            const extended = implemented.extends();
+
+            if (extended?.node instanceof IntrospectedClass) {
+                for (const prop of extended.node.props) {
+                    if (!validateProp(prop)) continue;
+
+                    properties.set(prop.name, prop);
+                }
+            }
+        }
+
+        return [...properties.values()];
     }
 
     implementedMethods(potentialConflicts: ClassMember[] = []) {
-        const allImplementedMethods: IntrospectedClassFunction[] = [];
-        const validateMethod = (method: IntrospectedClassFunction) =>
-            !isStaticClassFunction(method) &&
-            !this.hasInstanceSymbol(method) &&
-            !potentialConflicts.some(conflict => method.name === conflict.name);
-
         const resolution = this.resolveParents();
-        resolution.implements().forEach(i => {
-            const methods = i.node.members.filter(validateMethod);
-            allImplementedMethods.push(...methods);
-        });
+        const implementedOnParent = [...(resolution.extends() ?? [])].map(r => r.implements()).flat();
+        const methods = new Map<string, IntrospectedClassFunction>();
 
-        return allImplementedMethods;
+        const validateMethod = (method: IntrospectedClassFunction) =>
+            !(method instanceof IntrospectedStaticClassFunction) &&
+            !this.hasInstanceSymbol(method) &&
+            !methods.has(method.name) &&
+            potentialConflicts.every(m => method.name !== m.name);
+
+        for (const implemented of resolution.implements()) {
+            if (implemented.node instanceof IntrospectedClass) continue;
+
+            if (
+                implementedOnParent.find(p => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0
+            )
+                continue;
+            for (const member of implemented.node.members) {
+                if (!validateMethod(member)) continue;
+                methods.set(member.name, member);
+            }
+        }
+
+        for (const implemented of resolution.implements()) {
+            [...implemented].forEach(e => {
+                if (e.node instanceof IntrospectedClass) return;
+
+                if (implementedOnParent.find(p => p.identifier.equals(e.identifier))?.node.generics.length === 0)
+                    return;
+                for (const member of e.node.members) {
+                    if (!validateMethod(member)) continue;
+
+                    methods.set(member.name, member);
+                }
+            });
+        }
+
+        // If an interface inherits from a class (such as Gtk.Widget)
+        // we need to pull in every method from that class...
+        for (const implemented of resolution.implements()) {
+            const extended = implemented.extends();
+
+            if (extended?.node instanceof IntrospectedClass) {
+                for (const member of extended.node.members) {
+                    if (!validateMethod(member)) continue;
+
+                    methods.set(member.name, member);
+                }
+            }
+        }
+
+        return [...methods.values()].map(f => {
+            const mapping = new Map<string, TypeExpression>();
+            if (f.parent instanceof IntrospectedBaseClass) {
+                const inter = this.interfaces.find(i => i.equals(f.parent.getType()));
+
+                if (inter instanceof GenerifiedTypeIdentifier) {
+                    f.parent.generics.forEach((g, i) => {
+                        if (inter.generics.length > i) {
+                            mapping.set(g.type.identifier, inter.generics[i]);
+                        }
+                    });
+                }
+            }
+
+            const unwrapped = f.return().deepUnwrap();
+            let modifiedReturn = f.return();
+
+            if (unwrapped instanceof GenericType && mapping.has(unwrapped.identifier)) {
+                const mapped = mapping.get(unwrapped.identifier);
+
+                if (mapped) {
+                    modifiedReturn = f.return().rewrap(mapped);
+                }
+                // Handles the case where a class implements an interface and thus copies its virtual methods.
+            } else if (unwrapped.equals(this.getType())) {
+                modifiedReturn = f.return().rewrap(this.getType());
+            }
+
+            return f.copy({
+                parent: this,
+                interfaceParent: f.parent,
+                parameters: f.parameters.map(p => {
+                    const t = p.type.deepUnwrap();
+                    if (t instanceof GenericType && mapping.has(t.identifier)) {
+                        const iden = mapping.get(t.identifier);
+
+                        if (iden) {
+                            return p.copy({ type: p.type.rewrap(iden) });
+                        }
+                    }
+
+                    return p;
+                }),
+                outputParameters: f.output_parameters.map(p => {
+                    const t = p.type.deepUnwrap();
+                    if (t instanceof GenericType && mapping.has(t.identifier)) {
+                        const iden = mapping.get(t.identifier);
+
+                        if (iden) {
+                            return p.copy({ type: p.type.rewrap(iden) });
+                        }
+                    }
+
+                    return p;
+                }),
+                returnType: modifiedReturn
+            });
+        });
     }
 
     resolveParents(): ClassResolution {

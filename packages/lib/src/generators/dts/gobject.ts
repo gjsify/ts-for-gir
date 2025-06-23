@@ -1,29 +1,29 @@
-import { GirDirection } from "@gi.ts/parser";
-import { NativeType, NeverType } from "../../gir.ts";
-import { IntrospectedClassFunction } from "../../gir/introspected-classes.ts";
-import { IntrospectedFunctionParameter } from "../../gir/parameter.ts";
-import { IntrospectedNamespace } from "../../gir/namespace.ts";
+import { GirDirection } from '@gi.ts/parser'
+import { IntrospectedClassFunction } from '../../gir/introspected-classes.ts'
+import type { IntrospectedNamespace } from '../../gir/namespace.ts'
+import { IntrospectedFunctionParameter } from '../../gir/parameter.ts'
+import { NativeType, NeverType } from '../../gir.ts'
 
 export function override(node: IntrospectedNamespace) {
-    const ParamSpec = node.assertClass("ParamSpec");
+    const ParamSpec = node.assertClass('ParamSpec')
 
     // We only inject __type__ for .d.ts files.
     const type_function = new IntrospectedClassFunction({
-        name: "__type__",
+        name: '__type__',
         parent: ParamSpec,
         parameters: [
             new IntrospectedFunctionParameter({
-                name: "arg",
+                name: 'arg',
                 type: NeverType,
-                direction: GirDirection.In
-            })
+                direction: GirDirection.In,
+            }),
         ],
-        return_type: new NativeType("A")
+        return_type: new NativeType('A'),
         // TODO: Add support for generic native type replacement.
         // return_type: UnknownType
-    });
+    })
 
-    ParamSpec.members.push(type_function.copy());
+    ParamSpec.members.push(type_function.copy())
 
     return `
 // GJS OVERRIDES
@@ -118,5 +118,5 @@ export function registerClass<
     },
     klass: T
 ): RegisteredClass<T, Props, Interfaces>;
-`;
+`
 }

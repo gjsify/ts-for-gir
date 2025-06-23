@@ -1,89 +1,89 @@
-import type { IntrospectedNamespace } from "../gir/namespace.ts";
-import { IntrospectedProperty } from "../gir/property.ts";
+import type { IntrospectedNamespace } from '../gir/namespace.ts'
+import { IntrospectedProperty } from '../gir/property.ts'
 
 export default {
-    namespace: "Gee",
-    version: "0.8",
+    namespace: 'Gee',
+    version: '0.8',
     modifier(namespace: IntrospectedNamespace) {
-        const SortedMap = namespace.assertClass("SortedMap");
-        const AbstractSortedMap = namespace.assertClass("AbstractSortedMap");
+        const SortedMap = namespace.assertClass('SortedMap')
+        const AbstractSortedMap = namespace.assertClass('AbstractSortedMap')
 
-        if (SortedMap.props.some(prop => prop.name === "readOnlyView"))
+        if (SortedMap.props.some((prop) => prop.name === 'readOnlyView'))
             AbstractSortedMap.props.push(
                 new IntrospectedProperty({
-                    name: "readOnlyView",
+                    name: 'readOnlyView',
                     type: AbstractSortedMap.getType(),
                     readable: true,
                     writable: false,
                     constructOnly: false,
-                    parent: AbstractSortedMap
-                })
-            );
+                    parent: AbstractSortedMap,
+                }),
+            )
 
-        if (SortedMap.props.some(prop => prop.name === "read_only_view"))
+        if (SortedMap.props.some((prop) => prop.name === 'read_only_view'))
             AbstractSortedMap.props.push(
                 new IntrospectedProperty({
-                    name: "read_only_view",
+                    name: 'read_only_view',
                     type: AbstractSortedMap.getType(),
                     readable: true,
                     writable: false,
                     constructOnly: false,
-                    parent: AbstractSortedMap
-                })
-            );
+                    parent: AbstractSortedMap,
+                }),
+            )
 
-        const AbstractList = namespace.assertClass("AbstractList");
-        const LinkedList = namespace.assertClass("LinkedList");
+        const AbstractList = namespace.assertClass('AbstractList')
+        const LinkedList = namespace.assertClass('LinkedList')
 
-        if (AbstractList.props.some(prop => prop.name === "readOnlyView"))
+        if (AbstractList.props.some((prop) => prop.name === 'readOnlyView'))
             LinkedList.props.push(
                 new IntrospectedProperty({
-                    name: "readOnlyView",
+                    name: 'readOnlyView',
                     type: LinkedList.getType(),
                     readable: true,
                     writable: false,
                     constructOnly: false,
-                    parent: LinkedList
-                })
-            );
+                    parent: LinkedList,
+                }),
+            )
 
-        if (AbstractList.props.some(prop => prop.name === "read_only_view"))
+        if (AbstractList.props.some((prop) => prop.name === 'read_only_view'))
             LinkedList.props.push(
                 new IntrospectedProperty({
-                    name: "read_only_view",
+                    name: 'read_only_view',
                     type: LinkedList.getType(),
                     readable: true,
                     writable: false,
                     constructOnly: false,
-                    parent: LinkedList
-                })
-            );
+                    parent: LinkedList,
+                }),
+            )
 
-        const AbstractBidirList = namespace.assertClass("AbstractBidirList");
-        const UnrolledLinkedList = namespace.assertClass("UnrolledLinkedList");
+        const AbstractBidirList = namespace.assertClass('AbstractBidirList')
+        const UnrolledLinkedList = namespace.assertClass('UnrolledLinkedList')
 
-        if (AbstractBidirList.props.some(prop => prop.name === "readOnlyView"))
+        if (AbstractBidirList.props.some((prop) => prop.name === 'readOnlyView'))
             UnrolledLinkedList.props.push(
                 new IntrospectedProperty({
-                    name: "readOnlyView",
+                    name: 'readOnlyView',
                     type: UnrolledLinkedList.getType(),
                     readable: true,
                     writable: false,
                     constructOnly: false,
-                    parent: UnrolledLinkedList
-                })
-            );
+                    parent: UnrolledLinkedList,
+                }),
+            )
 
-        if (AbstractBidirList.props.some(prop => prop.name === "read_only_view"))
+        if (AbstractBidirList.props.some((prop) => prop.name === 'read_only_view'))
             UnrolledLinkedList.props.push(
                 new IntrospectedProperty({
-                    name: "read_only_view",
+                    name: 'read_only_view',
                     type: UnrolledLinkedList.getType(),
                     readable: true,
                     writable: false,
                     constructOnly: false,
-                    parent: UnrolledLinkedList
-                })
-            );
-    }
-};
+                    parent: UnrolledLinkedList,
+                }),
+            )
+    },
+}

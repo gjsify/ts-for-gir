@@ -1,72 +1,71 @@
-import { Logger } from "../logger.ts";
-import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.ts";
-import { override as overrideGLib } from "./dts/glib.ts";
-import { override as overrideGObject } from "./dts/gobject.ts";
-import { DtsGenerator } from "./dts.ts";
-import { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
-
-import type { OptionsGeneration } from "../types/index.ts";
+import type { IntrospectedNamespaceMember } from '../gir/introspected-namespace-member.ts'
+import { type IntrospectedNamespace, promisifyNamespaceFunctions } from '../gir/namespace.ts'
+import { Logger } from '../logger.ts'
+import type { OptionsGeneration } from '../types/index.ts'
+import { override as overrideGLib } from './dts/glib.ts'
+import { override as overrideGObject } from './dts/gobject.ts'
+import { DtsGenerator } from './dts.ts'
 
 export class DtsInlineGenerator extends DtsGenerator {
-    readonly log: Logger;
+    readonly log: Logger
 
     constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
-        super(namespace, options);
-        this.log = new Logger(options.verbose, DtsInlineGenerator.name);
+        super(namespace, options)
+        this.log = new Logger(options.verbose, DtsInlineGenerator.name)
     }
 
     generateNamespace(node: IntrospectedNamespace): Promise<string | null> {
-        const { namespace, options } = this;
+        const { namespace, options } = this
 
-        this.log.debug(`Resolving the types of ${namespace.namespace}...`);
+        this.log.debug(`Resolving the types of ${namespace.namespace}...`)
 
-        let suffix = "";
+        let suffix = ''
 
-        if (!options.noAdvancedVariants && node.namespace === "GLib") {
-            suffix = `\n${overrideGLib(node)}\n`;
-        } else if (node.namespace === "GObject") {
-            suffix = `\n${overrideGObject(node)}\n`;
+        if (!options.noAdvancedVariants && node.namespace === 'GLib') {
+            suffix = `\n${overrideGLib(node)}\n`
+        } else if (node.namespace === 'GObject') {
+            suffix = `\n${overrideGObject(node)}\n`
         }
 
         try {
-            const { namespace: name, version } = node.dependency;
+            const { namespace: name, version } = node.dependency
 
             const header = `
 /**
  * ${name} ${version}
  * 
- * Generated from ${node.package_version.join(".")}
+ * Generated from ${node.package_version.join('.')}
  */
-`;
+`
             const base = `
 
-`;
+`
 
             if (options.promisify) {
-                promisifyNamespaceFunctions(node);
+                promisifyNamespaceFunctions(node)
             }
 
             const content = Array.from(node.members.values())
-                .map(m => {
+                .map((m) => {
                     return `${(Array.isArray(m) ? m : [m])
-                        .map(m => (m.emit ? (m as IntrospectedNamespaceMember).asString(this) : ""))
-                        .join("\n")}`;
+                        .map((m) => (m.emit ? (m as IntrospectedNamespaceMember).asString(this) : ''))
+                        .join('\n')}`
                 })
-                .join("\n");
+                .join('\n')
 
-            const output = [header, base, content, suffix].join("\n\n");
+            const output = [header, base, content, suffix].join('\n\n')
 
-            this.log.debug(`Printing ${namespace.namespace}...`);
+            this.log.debug(`Printing ${namespace.namespace}...`)
 
-            return Promise.resolve(output);
+            return Promise.resolve(output)
         } catch (err) {
-            this.log.error(`Failed to generate namespace: ${node.namespace}`, err);
+            this.log.error(`Failed to generate namespace: ${node.namespace}`, err)
 
-            return Promise.resolve(null);
+            return Promise.resolve(null)
         }
     }
 
     async stringifyNamespace(node: IntrospectedNamespace): Promise<string | null> {
-        return this.generateNamespace(node);
+        return this.generateNamespace(node)
     }
 }

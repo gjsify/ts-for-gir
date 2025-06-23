@@ -31,7 +31,7 @@
         "test:examples": "yarn build:examples && yarn validate:examples && yarn test:examples:cli-apps",
         "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start && yarn workspace @ts-for-gir-example/gobject-param-spec run start && yarn workspace @ts-for-gir-example/gio-2-async run start && yarn workspace @ts-for-gir-example/gio-2-action-entries run start && yarn workspace @ts-for-gir-example/gio-2-iterate run start",
         "test:tests": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' run test",
-        "build": "yarn workspaces foreach -pti run build",
+        "build": "yarn workspaces foreach --all -pti run build",
         "build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
         "build:all": "yarn build && yarn build:examples",
         "build:types:packages:no-install": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js'",
@@ -78,15 +78,10 @@
     ],
     "devDependencies": {
         "@biomejs/biome": "^2.0.5",
-        "@eslint/js": "^9.29.0",
         "@ts-for-gir/cli": "workspace:^",
         "concurrently": "^9.1.2",
-        "eslint": "^9.29.0",
-        "eslint-config-prettier": "^10.1.5",
-        "prettier": "^3.5.3",
         "rimraf": "^6.0.1",
-        "typescript": "^5.8.3",
-        "typescript-eslint": "^8.34.0"
+        "typescript": "^5.8.3"
     },
     "workspaces": [
         "examples/*",

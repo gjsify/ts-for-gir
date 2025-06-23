@@ -1,13 +1,7 @@
-import type { IntrospectedNamespace } from "../gir/namespace.ts";
-import { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
-import { TwoKeyMap } from "../util.ts";
-import { 
-    TypeIdentifier, 
-    TypeExpression, 
-    GenericType, 
-    AnyType,
-    ThisType
-} from "../gir.ts";
+import type { IntrospectedBaseClass } from '../gir/introspected-classes.ts'
+import type { IntrospectedNamespace } from '../gir/namespace.ts'
+import { AnyType, GenericType, ThisType, type TypeExpression, TypeIdentifier } from '../gir.ts'
+import { TwoKeyMap } from '../util.ts'
 
 /**
  * Resolves a class identifier.
@@ -20,18 +14,18 @@ import {
  */
 export function resolveTypeIdentifier(
     namespace: IntrospectedNamespace,
-    type: TypeIdentifier
+    type: TypeIdentifier,
 ): IntrospectedBaseClass | null {
-    const ns = type.namespace;
-    const name = type.name;
+    const ns = type.namespace
+    const name = type.name
 
-    const resolved_ns = namespace.assertInstalledImport(ns);
+    const resolved_ns = namespace.assertInstalledImport(ns)
 
-    const pclass = resolved_ns.getClass(name);
+    const pclass = resolved_ns.getClass(name)
     if (pclass) {
-        return pclass;
+        return pclass
     } else {
-        return null;
+        return null
     }
 }
 
@@ -41,7 +35,7 @@ export function resolveTypeIdentifier(
  * @param b
  */
 function isTypeConflict(a: TypeExpression, b: TypeExpression) {
-    return !a.equals(b) || !b.equals(a);
+    return !a.equals(b) || !b.equals(a)
 }
 
 /**
@@ -60,63 +54,63 @@ export function isSubtypeOf(
     thisType: TypeIdentifier,
     parentThisType: TypeIdentifier,
     potentialSubtype: TypeExpression,
-    parentType: TypeExpression
+    parentType: TypeExpression,
 ) {
     if (!isTypeConflict(potentialSubtype, parentType)) {
-        return true;
+        return true
     }
 
-    const unwrappedSubtype = potentialSubtype.unwrap();
-    let unwrappedParent = parentType.unwrap();
+    const unwrappedSubtype = potentialSubtype.unwrap()
+    let unwrappedParent = parentType.unwrap()
 
     if (
         (potentialSubtype.equals(ThisType) && unwrappedParent.equals(thisType)) ||
         (parentType.equals(ThisType) && unwrappedSubtype.equals(parentThisType))
     ) {
-        return true;
+        return true
     }
 
-    if (unwrappedParent instanceof GenericType && unwrappedParent.identifier !== "T") {
+    if (unwrappedParent instanceof GenericType && unwrappedParent.identifier !== 'T') {
         // Technically there could be a conflicting generic, but most generic types should specify a replacement for type checking.
         // "T" denotes a local function generic in the current implementation, those can't be ignored.
         if (!unwrappedParent.replacedType) {
-            return true;
+            return true
         }
 
         // Use the generic replaced type as a stand-in.
-        unwrappedParent = unwrappedParent.replacedType;
+        unwrappedParent = unwrappedParent.replacedType
     }
 
     if (!(unwrappedSubtype instanceof TypeIdentifier) || !(unwrappedParent instanceof TypeIdentifier)) {
-        return false;
+        return false
     }
 
     const resolutions =
         namespace.parent.subtypes.get(unwrappedSubtype.name, unwrappedSubtype.namespace) ??
-        new TwoKeyMap<string, string, boolean>();
-    const resolution = resolutions.get(unwrappedParent.name, unwrappedParent.namespace);
+        new TwoKeyMap<string, string, boolean>()
+    const resolution = resolutions.get(unwrappedParent.name, unwrappedParent.namespace)
 
-    if (typeof resolution === "boolean") {
-        return resolution;
+    if (typeof resolution === 'boolean') {
+        return resolution
     }
 
-    const resolved = resolveTypeIdentifier(namespace, unwrappedSubtype);
+    const resolved = resolveTypeIdentifier(namespace, unwrappedSubtype)
 
     if (!resolved) {
-        return false;
+        return false
     }
-    const parentResolution = resolved.resolveParents();
+    const parentResolution = resolved.resolveParents()
 
     // This checks that the two types have the same form, regardless of identifier (e.g. A | null and B | null)
-    const isStructurallySubtype = potentialSubtype.rewrap(AnyType).equals(parentType.rewrap(AnyType));
+    const isStructurallySubtype = potentialSubtype.rewrap(AnyType).equals(parentType.rewrap(AnyType))
 
     const isSubtype =
         isStructurallySubtype &&
-        parentResolution.node.someParent((t: IntrospectedBaseClass) => t.getType().equals(unwrappedParent));
+        parentResolution.node.someParent((t: IntrospectedBaseClass) => t.getType().equals(unwrappedParent))
 
-    resolutions.set(unwrappedParent.name, unwrappedParent.namespace, isSubtype);
+    resolutions.set(unwrappedParent.name, unwrappedParent.namespace, isSubtype)
 
-    namespace.parent.subtypes.set(unwrappedSubtype.name, unwrappedSubtype.namespace, resolutions);
+    namespace.parent.subtypes.set(unwrappedSubtype.name, unwrappedSubtype.namespace, resolutions)
 
-    return isSubtype;
-} 
+    return isSubtype
+}

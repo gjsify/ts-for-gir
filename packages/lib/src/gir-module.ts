@@ -1,46 +1,37 @@
-import { type GirType } from '@gi.ts/parser'
-import { transformGirDocTagText } from './utils/documentation.ts'
-import { Logger } from './logger.ts'
+import type { GirType } from '@gi.ts/parser'
 import { DependencyManager } from './dependency-manager.ts'
-import { find } from './utils/objects.ts'
-import { isIntrospectable } from './utils/girs.ts'
-import { LibraryVersion } from './library-version.ts'
-
-import type {
-    Dependency,
-    GirConstantElement,
-    TsDocTag,
-    GirInterfaceElement,
-    OptionsGeneration,
-    GirEnumElement,
-    GirBitfieldElement,
-} from './types/index.ts'
-import {
-    TypeIdentifier,
-    NullableType,
-    ObjectType,
-} from './gir.ts'
-
-import type { GirNSMember } from './gir/namespace.ts'
 import { IntrospectedAlias } from './gir/alias.ts'
-import { IntrospectedBase } from './gir/introspected-base.ts'
-import type { IntrospectedNamespaceMember } from './gir/introspected-namespace-member.ts'
-import { IntrospectedBaseClass } from './gir/introspected-classes.ts'
-import { IntrospectedClass } from './gir/introspected-classes.ts'
-import { IntrospectedRecord } from './gir/record.ts'
-import { IntrospectedInterface } from './gir/introspected-classes.ts'
+import { IntrospectedCallback } from './gir/callback.ts'
 import { IntrospectedConstant } from './gir/const.ts'
 import { IntrospectedEnum } from './gir/enum.ts'
 import { IntrospectedError } from './gir/error.ts'
 import { IntrospectedFunction } from './gir/function.ts'
+import { IntrospectedBase } from './gir/introspected-base.ts'
+import type { IntrospectedClassCallback, IntrospectedClassFunction } from './gir/introspected-classes.ts'
+import { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface } from './gir/introspected-classes.ts'
+import type { IntrospectedNamespaceMember } from './gir/introspected-namespace-member.ts'
+import type { GirNSMember } from './gir/namespace.ts'
 import type { IntrospectedFunctionParameter } from './gir/parameter.ts'
-import type { IntrospectedClassFunction, IntrospectedClassCallback } from './gir/introspected-classes.ts'
-import { IntrospectedCallback } from './gir/callback.ts'
+import { IntrospectedRecord } from './gir/record.ts'
 import type { NSRegistry } from './gir/registry.ts'
+import { NullableType, ObjectType, TypeIdentifier } from './gir.ts'
+import type { LibraryVersion } from './library-version.ts'
+import { Logger } from './logger.ts'
+import type {
+    Dependency,
+    GirBitfieldElement,
+    GirConstantElement,
+    GirEnumElement,
+    GirInterfaceElement,
+    OptionsGeneration,
+    OptionsLoad,
+    TsDocTag,
+} from './types/index.ts'
+import { transformGirDocTagText } from './utils/documentation.ts'
+import { isIntrospectable } from './utils/girs.ts'
+import { find } from './utils/objects.ts'
 import { isPrimitiveType } from './utils/types.ts'
 import type { GirVisitor } from './visitor.ts'
-
-import type { OptionsLoad } from './types/index.ts'
 
 export class GirModule {
     /**
@@ -148,11 +139,7 @@ export class GirModule {
     parent!: NSRegistry
     config: OptionsGeneration
 
-    constructor(
-        dependency: Dependency,
-        prefixes: string[],
-        config: OptionsGeneration,
-    ) {
+    constructor(dependency: Dependency, prefixes: string[], config: OptionsGeneration) {
         this.dependency = dependency
         this.c_prefixes = [...prefixes]
         this.package_version = ['0', '0']
@@ -246,8 +233,7 @@ export class GirModule {
                 tags.push({
                     paramName: inParam.name,
                     tagName: 'param',
-                    text:
-                        typeof inParam.doc === 'string' ? transformGirDocTagText(inParam.doc) : '',
+                    text: typeof inParam.doc === 'string' ? transformGirDocTagText(inParam.doc) : '',
                 })
             }
         }
@@ -483,9 +469,10 @@ export class GirModule {
             (m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass,
         )
         const res = clazzes
-            .map<
-                [IntrospectedBaseClass, IntrospectedClassCallback | undefined]
-            >((m) => [m, m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name))])
+            .map<[IntrospectedBaseClass, IntrospectedClassCallback | undefined]>((m) => [
+                m,
+                m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name)),
+            ])
             .find((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null)
 
         if (res) {

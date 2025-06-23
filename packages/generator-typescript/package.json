@@ -12,7 +12,6 @@
         ".": "./src/index.ts"
     },
     "scripts": {
-        "lint": "eslint . --fix",
         "check": "tsc --noEmit"
     },
     "repository": {
@@ -36,12 +35,6 @@
         "@types/ejs": "^3.1.5",
         "@types/node": "^24.0.1",
         "@types/xml2js": "^0.4.14",
-        "@typescript-eslint/eslint-plugin": "^8.34.0",
-        "@typescript-eslint/parser": "^8.34.0",
-        "eslint": "^9.29.0",
-        "eslint-config-prettier": "^10.1.5",
-        "eslint-plugin-prettier": "^5.4.1",
-        "prettier": "^3.5.3",
         "typescript": "^5.8.3"
     },
     "dependencies": {

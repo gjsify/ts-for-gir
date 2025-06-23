@@ -1,33 +1,20 @@
-import {
-  ArrayType,
-  TypeExpression,
-} from "../gir.ts";
-
-import { IntrospectedBase } from "./introspected-base.ts";
-import type { IntrospectedOptions } from "../types/index.ts";
-
-import type {
-  GirCallableParamElement,
-} from "../index.ts";
 import { GirDirection } from '@gi.ts/parser'
+import type { FormatGenerator } from '../generators/generator.ts'
+import { ArrayType, type TypeExpression } from '../gir.ts'
 
-import { isIntrospectable } from "../utils/girs.ts";
-import { getType } from "../utils/gir-parsing.ts";
-import { sanitizeMemberName, isInvalid } from "../utils/naming.ts";
-import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
-
-import { IntrospectedSignal } from "./signal.ts";
-import { FormatGenerator } from "../generators/generator.ts";
-import { GirVisitor } from "../visitor.ts";
-import { IntrospectedField } from "./property.ts";
-import { IntrospectedBaseClass } from "./introspected-classes.ts";
-
-import type { OptionsLoad } from "../types/index.ts";
-
-import { IntrospectedClassFunction } from "./introspected-classes.ts";
-import { IntrospectedFunction } from "./function.ts";
-import type { IntrospectedConstructor } from "./constructor.ts";
-import type { IntrospectedDirectAllocationConstructor } from "./direct-allocation-constructor.ts";
+import type { GirCallableParamElement } from '../index.ts'
+import type { IntrospectedOptions, OptionsLoad } from '../types/index.ts'
+import { getType, parseDoc, parseMetadata } from '../utils/gir-parsing.ts'
+import { isIntrospectable } from '../utils/girs.ts'
+import { isInvalid, sanitizeMemberName } from '../utils/naming.ts'
+import type { GirVisitor } from '../visitor.ts'
+import type { IntrospectedConstructor } from './constructor.ts'
+import type { IntrospectedDirectAllocationConstructor } from './direct-allocation-constructor.ts'
+import type { IntrospectedFunction } from './function.ts'
+import { IntrospectedBase } from './introspected-base.ts'
+import { IntrospectedBaseClass, type IntrospectedClassFunction } from './introspected-classes.ts'
+import { IntrospectedField } from './property.ts'
+import type { IntrospectedSignal } from './signal.ts'
 
 export class IntrospectedFunctionParameter extends IntrospectedBase<
     | IntrospectedClassFunction
@@ -37,11 +24,11 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
     | IntrospectedDirectAllocationConstructor
     | null
 > {
-    readonly type: TypeExpression;
-    readonly direction: GirDirection;
-    readonly isVarArgs: boolean = false;
-    readonly isOptional: boolean = false;
-    readonly isNullable: boolean = false;
+    readonly type: TypeExpression
+    readonly direction: GirDirection
+    readonly isVarArgs: boolean = false
+    readonly isOptional: boolean = false
+    readonly isNullable: boolean = false
 
     constructor({
         name,
@@ -54,45 +41,45 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
         isNullable = false,
         ...args
     }: IntrospectedOptions<{
-        name: string;
+        name: string
         parent?:
             | IntrospectedClassFunction
             | IntrospectedFunction
             | IntrospectedSignal
             | IntrospectedConstructor
             | IntrospectedDirectAllocationConstructor
-            | null;
-        type: TypeExpression;
-        direction: GirDirection;
-        doc?: string | null;
-        isVarArgs?: boolean;
-        isOptional?: boolean;
-        isNullable?: boolean;
+            | null
+        type: TypeExpression
+        direction: GirDirection
+        doc?: string | null
+        isVarArgs?: boolean
+        isOptional?: boolean
+        isNullable?: boolean
     }>) {
-        super(name, parent ?? null, { ...args });
+        super(name, parent ?? null, { ...args })
 
-        this.type = type;
-        this.direction = direction;
-        this.doc = doc;
-        this.isVarArgs = isVarArgs;
-        this.isOptional = isOptional;
-        this.isNullable = isNullable;
+        this.type = type
+        this.direction = direction
+        this.doc = doc
+        this.isVarArgs = isVarArgs
+        this.isOptional = isOptional
+        this.isNullable = isNullable
     }
 
     get namespace() {
-        if (!this.parent) throw new Error(`Failed to get namespace for ${this.name}`);
+        if (!this.parent) throw new Error(`Failed to get namespace for ${this.name}`)
 
-        return this.parent.namespace;
+        return this.parent.namespace
     }
 
     asField() {
-        const { name, parent, isOptional: optional, type } = this;
+        const { name, parent, isOptional: optional, type } = this
 
         if (!(parent?.parent instanceof IntrospectedBaseClass)) {
-            throw new Error("Can't convert parameter of non-class function to field");
+            throw new Error("Can't convert parameter of non-class function to field")
         }
 
-        return new IntrospectedField({ name, parent: parent.parent, optional, type });
+        return new IntrospectedField({ name, parent: parent.parent, optional, type })
     }
 
     copy(
@@ -103,15 +90,15 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
                 | IntrospectedSignal
                 | IntrospectedConstructor
                 | IntrospectedDirectAllocationConstructor
-                | null;
-            type?: TypeExpression;
-            isOptional?: boolean;
-            isNullable?: boolean;
+                | null
+            type?: TypeExpression
+            isOptional?: boolean
+            isNullable?: boolean
         } = {
-            parent: this.parent
-        }
+            parent: this.parent,
+        },
     ): IntrospectedFunctionParameter {
-        const { type, parent, direction, isVarArgs, isOptional, isNullable, name, doc } = this;
+        const { type, parent, direction, isVarArgs, isOptional, isNullable, name, doc } = this
 
         return new IntrospectedFunctionParameter({
             parent: options.parent ?? parent,
@@ -121,42 +108,42 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
             isOptional: options.isOptional ?? isOptional,
             isNullable: options.isNullable ?? isNullable,
             type: options.type ?? type,
-            doc
-        })._copyBaseProperties(this);
+            doc,
+        })._copyBaseProperties(this)
     }
 
     accept(visitor: GirVisitor): IntrospectedFunctionParameter {
         const node = this.copy({
-            type: visitor.visitType?.(this.type)
-        });
+            type: visitor.visitType?.(this.type),
+        })
 
-        return visitor.visitParameter?.(node) ?? node;
+        return visitor.visitParameter?.(node) ?? node
     }
 
     asString<T>(generator: FormatGenerator<T>): T {
-        return generator.generateParameter(this);
+        return generator.generateParameter(this)
     }
 
     static fromXML<
-        Parent extends IntrospectedSignal | IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor
+        Parent extends IntrospectedSignal | IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor,
     >(
         parameter: GirCallableParamElement & { $: { name: string } },
         parent: Parent,
-        options: OptionsLoad
+        options: OptionsLoad,
     ): IntrospectedFunctionParameter {
-        const ns = parent.namespace;
-        let name = sanitizeMemberName(parameter.$.name);
+        const ns = parent.namespace
+        let name = sanitizeMemberName(parameter.$.name)
 
         if (isInvalid(name)) {
-            name = `_${name}`;
+            name = `_${name}`
         }
 
-        let isVarArgs = false;
-        let isOptional = false;
-        let isNullable = false;
+        let isVarArgs = false
+        let isOptional = false
+        let isNullable = false
 
-        let type: TypeExpression;
-        let direction: GirDirection;
+        let type: TypeExpression
+        let direction: GirDirection
 
         if (
             !parameter.$.direction ||
@@ -164,31 +151,31 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
             parameter.$.direction === GirDirection.Inout ||
             parameter.$.direction === GirDirection.InOut
         ) {
-            if (name === "...") {
-                isVarArgs = true;
-                name = "args";
+            if (name === '...') {
+                isVarArgs = true
+                name = 'args'
             }
 
             // Default to "in" direction
-            direction = parameter.$.direction || GirDirection.In;
+            direction = parameter.$.direction || GirDirection.In
 
-            const optional = parameter.$.optional === "1";
-            const nullable = parameter.$.nullable === "1";
+            const optional = parameter.$.optional === '1'
+            const nullable = parameter.$.nullable === '1'
 
             if (optional) {
-                isOptional = true;
+                isOptional = true
             }
 
             if (nullable) {
-                isNullable = true;
+                isNullable = true
             }
 
-            type = getType(ns, parameter);
+            type = getType(ns, parameter)
         } else if (parameter.$.direction === GirDirection.Out) {
-            direction = parameter.$.direction;
-            type = getType(ns, parameter);
+            direction = parameter.$.direction
+            type = getType(ns, parameter)
         } else {
-            throw new Error(`Unknown parameter direction: ${parameter.$.direction as string}`);
+            throw new Error(`Unknown parameter direction: ${parameter.$.direction as string}`)
         }
 
         const fp = new IntrospectedFunctionParameter({
@@ -199,14 +186,14 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
             isOptional,
             isNullable,
             name,
-            isIntrospectable: isIntrospectable(parameter)
-        });
+            isIntrospectable: isIntrospectable(parameter),
+        })
 
         if (options.loadDocs) {
-            fp.doc = parseDoc(parameter);
-            fp.metadata = parseMetadata(parameter);
+            fp.doc = parseDoc(parameter)
+            fp.metadata = parseMetadata(parameter)
         }
 
-        return fp;
+        return fp
     }
 }

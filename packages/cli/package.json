@@ -63,18 +63,14 @@
         "@types/inquirer": "^9.0.8",
         "@types/node": "^24.0.1",
         "@types/yargs": "^17.0.33",
-        "@typescript-eslint/eslint-plugin": "^8.34.0",
-        "@typescript-eslint/parser": "^8.34.0",
         "dpdm": "^3.14.0",
         "esbuild": "^0.25.5",
         "esbuild-node-externals": "^1.18.0",
-        "eslint": "^9.29.0",
-        "eslint-config-prettier": "^10.1.5",
-        "eslint-plugin-prettier": "^5.4.1",
         "rimraf": "^6.0.1",
         "typescript": "^5.8.3"
     },
     "dependencies": {
+        "@biomejs/biome": "^2.0.5",
         "@gi.ts/parser": "workspace:^",
         "@inquirer/prompts": "^7.5.3",
         "@ts-for-gir/generator-base": "workspace:^",
@@ -87,7 +83,6 @@
         "ejs": "^3.1.10",
         "glob": "^11.0.3",
         "inquirer": "^12.6.3",
-        "prettier": "^3.5.3",
         "yargs": "^18.0.0"
     }
 }

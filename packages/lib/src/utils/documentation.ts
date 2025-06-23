@@ -38,7 +38,7 @@ function transformGirDocHighlights(description: string): string {
 
 /**
  * Replaces GIR code blocks with markdown code fences
- * 
+ *
  * Replaces:
  * |[<!-- language="C" -->
  *   g_object_notify_by_pspec (self, properties[PROP_FOO]);
@@ -48,7 +48,7 @@ function transformGirDocHighlights(description: string): string {
  * ```c
  *   g_object_notify_by_pspec (self, properties[PROP_FOO]);
  * ```
- * 
+ *
  * @param description The description containing code blocks
  * @returns The description with markdown code fences
  */
@@ -58,4 +58,4 @@ function transformGirDocCodeBlocks(description: string): string {
         .replaceAll(/\|\[/gm, '\n```') // Other code
         .replaceAll(/\]\|/gm, '```\n') // End of code
     return description
-} 
+}

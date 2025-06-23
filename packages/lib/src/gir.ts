@@ -1,10 +1,8 @@
+import type { IntrospectedNamespace } from './gir/namespace.ts'
+import type { IntrospectedField, IntrospectedProperty } from './gir/property.ts'
 import { Logger } from './logger.ts'
-import { IntrospectedNamespace } from './gir/namespace.ts'
-import { IntrospectedProperty, IntrospectedField } from './gir/property.ts'
-import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './utils/naming.ts'
-
-
 import type { OptionsBase } from './types/index.ts'
+import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './utils/naming.ts'
 
 export abstract class TypeExpression {
     isPointer = false
@@ -30,10 +28,7 @@ export class TypeIdentifier extends TypeExpression {
     readonly name: string
     readonly namespace: string
 
-    constructor(
-        name: string,
-        namespace: string,
-    ) {
+    constructor(name: string, namespace: string) {
         super()
         this.name = name
         this.namespace = namespace
@@ -152,7 +147,6 @@ export class TypeIdentifier extends TypeExpression {
         return new TypeIdentifier(name, namespace)
     }
 
-     
     print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
         if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
             // TODO: Move to TypeScript generator...
@@ -172,11 +166,7 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
     readonly moduleName: string
     readonly namespace: string
 
-    constructor(
-        name: string,
-        moduleName: string,
-        namespace: string,
-    ) {
+    constructor(name: string, moduleName: string, namespace: string) {
         super(name, namespace)
         this.moduleName = moduleName
         this.namespace = namespace
@@ -208,12 +198,10 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
         )
     }
 
-     
     protected _resolve(namespace: IntrospectedNamespace, options: OptionsBase): ModuleTypeIdentifier | null {
         return this
     }
 
-     
     print(namespace: IntrospectedNamespace, options: OptionsBase): string {
         if (namespace.namespace === this.namespace) {
             return `${this.moduleName}.${this.name}`
@@ -235,7 +223,6 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
         return type instanceof ClassStructTypeIdentifier && super.equals(type)
     }
 
-     
     print(namespace: IntrospectedNamespace, options: OptionsBase): string {
         if (namespace.namespace === this.namespace) {
             // TODO: Mapping to invalid names should happen at the generator level...

@@ -9,7 +9,6 @@
         "node": ">=18"
     },
     "scripts": {
-        "lint": "eslint . --fix",
         "check": "tsc --noEmit"
     },
     "repository": {
@@ -34,12 +33,6 @@
     },
     "devDependencies": {
         "@types/node": "^24.0.1",
-        "@typescript-eslint/eslint-plugin": "^8.34.0",
-        "@typescript-eslint/parser": "^8.34.0",
-        "eslint": "^9.29.0",
-        "eslint-config-prettier": "^10.1.5",
-        "eslint-plugin-prettier": "^5.4.1",
-        "prettier": "^3.5.3",
         "typescript": "^5.8.3"
     },
     "dependencies": {

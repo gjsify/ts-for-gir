@@ -51,7 +51,7 @@ export const WARN_RENAMED_PARAMETER = (originalName: string, newName: string) =>
 
 export const DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED =
     'The HtmlDocGenerator is currently not implemented. Do nothing...'
-export const START_MODULE = `Start to generate .d.ts files...`
+export const START_MODULE = 'Start to generate .d.ts files...'
 export const FILE_PARSING_DONE = 'Files parsed, loading types...'
 export const TSDATA_PARSING_DONE = 'Typescript data loaded, generating .d.ts...'
 export const GENERATING_TYPES_DONE = 'Done.'

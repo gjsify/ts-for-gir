@@ -1,83 +1,83 @@
-import type { 
-    GirDocElement, 
-    GirInfoAttrs, 
-    GirConstantElement, 
-    GirCallableReturn, 
-    GirFieldElement,
+import type {
     GirCallableParamElement,
+    GirCallableReturn,
+    GirConstantElement,
+    GirDocElement,
+    GirFieldElement,
     GirFunctionElement,
-    GirMethodElement
-} from "@gi.ts/parser";
-import { GirDirection } from "@gi.ts/parser";
-import type { IntrospectedNamespace } from "../gir/namespace.ts";
-import { deprecatedVersion, introducedVersion, isDeprecated } from "./girs.ts";
-import type { IntrospectedMetadata } from "../types/introspected.ts";
-import { 
-    TypeExpression, 
-    VoidType, 
-    ArrayType, 
-    ClosureType, 
-    NullableType, 
-    TypeIdentifier, 
-    GenerifiedTypeIdentifier, 
-    NativeType 
-} from "../gir.ts";
-import { parseTypeExpression, resolvePrimitiveArrayType, isPrimitiveType } from "./types.ts";
+    GirInfoAttrs,
+    GirMethodElement,
+} from '@gi.ts/parser'
+import { GirDirection } from '@gi.ts/parser'
+import type { IntrospectedNamespace } from '../gir/namespace.ts'
+import {
+    ArrayType,
+    ClosureType,
+    GenerifiedTypeIdentifier,
+    NativeType,
+    NullableType,
+    type TypeExpression,
+    TypeIdentifier,
+    VoidType,
+} from '../gir.ts'
+import type { IntrospectedMetadata } from '../types/introspected.ts'
+import { deprecatedVersion, introducedVersion, isDeprecated } from './girs.ts'
+import { isPrimitiveType, parseTypeExpression, resolvePrimitiveArrayType } from './types.ts'
 
 /**
  * Parse documentation from a GIR element
  */
 export function parseDoc(element: GirDocElement): string | null {
-    const el = element.doc?.[0]?._;
+    const el = element.doc?.[0]?._
 
-    return el ? `${el}` : null;
+    return el ? `${el}` : null
 }
 
 /**
  * Parse deprecated documentation from a GIR element
  */
 export function parseDeprecatedDoc(element: GirDocElement): string | null {
-    return element["doc-deprecated"]?.[0]?._ ?? null;
+    return element['doc-deprecated']?.[0]?._ ?? null
 }
 
 /**
  * Parse metadata from a GIR element
  */
 export function parseMetadata(element: { $: GirInfoAttrs } & GirDocElement): IntrospectedMetadata | undefined {
-    const version = introducedVersion(element);
-    const deprecatedIn = deprecatedVersion(element);
-    const deprecated = isDeprecated(element);
-    const doc = parseDeprecatedDoc(element);
+    const version = introducedVersion(element)
+    const deprecatedIn = deprecatedVersion(element)
+    const deprecated = isDeprecated(element)
+    const doc = parseDeprecatedDoc(element)
 
     if (!version && !deprecated && !deprecatedIn && !doc) {
-        return undefined;
+        return undefined
     }
 
     return {
         ...(deprecated ? { deprecated } : {}),
         ...(doc ? { deprecatedDoc: doc } : {}),
         ...(deprecatedIn ? { deprecatedVersion: deprecatedIn } : {}),
-        ...(version ? { introducedVersion: version } : {})
-    };
+        ...(version ? { introducedVersion: version } : {}),
+    }
 }
 
 /**
  * This function determines whether a given type is a "pointer type"...
  * Any type where the c:type ends with *
  */
-function isPointerType(types: import("@gi.ts/parser").GirType[] | undefined) {
-    const type = types?.[0];
-    if (!type) return false;
+function isPointerType(types: import('@gi.ts/parser').GirType[] | undefined) {
+    const type = types?.[0]
+    if (!type) return false
 
-    const ctype = type.$["c:type"];
-    if (!ctype) return false;
+    const ctype = type.$['c:type']
+    if (!ctype) return false
 
-    const typeName = type.$.name;
-    if (!typeName) return false;
+    const typeName = type.$.name
+    if (!typeName) return false
 
-    if (isPrimitiveType(typeName)) return false;
+    if (isPrimitiveType(typeName)) return false
 
-    return ctype.endsWith("*");
+    return ctype.endsWith('*')
 }
 
 /**
@@ -85,146 +85,146 @@ function isPointerType(types: import("@gi.ts/parser").GirType[] | undefined) {
  */
 export function getType(
     ns: IntrospectedNamespace,
-    param?: GirConstantElement | GirCallableReturn | GirFieldElement
+    param?: GirConstantElement | GirCallableReturn | GirFieldElement,
 ): TypeExpression {
-    const modName = ns.namespace;
+    const modName = ns.namespace
 
-    if (!param) return VoidType;
+    if (!param) return VoidType
 
-    let name = "";
-    let arrayDepth: number | null = null;
-    let length: number | null = null;
-    let isPointer = false;
+    let name = ''
+    let arrayDepth: number | null = null
+    let length: number | null = null
+    let isPointer = false
 
-    const parameter = param as GirCallableParamElement;
+    const parameter = param as GirCallableParamElement
     if (parameter.array && parameter.array[0]) {
-        arrayDepth = 1;
+        arrayDepth = 1
 
-        const [array] = parameter.array;
+        const [array] = parameter.array
 
         if (array.$ && array.$.length != null) {
-            length = Number.parseInt(array.$.length, 10);
+            length = Number.parseInt(array.$.length, 10)
 
             if (Number.isNaN(length)) {
-                throw new Error(`Error parsing array length: ${array.$.length}`);
+                throw new Error(`Error parsing array length: ${array.$.length}`)
             }
         }
 
-        if (array.type && array.type[0].$ && array.type[0].$["name"]) {
-            name = array.type[0].$["name"];
+        if (array.type && array.type[0].$ && array.type[0].$['name']) {
+            name = array.type[0].$['name']
         } else if (array.array) {
-            let arr = array;
-            let depth = 1;
+            let arr = array
+            let depth = 1
 
             while (Array.isArray(arr.array)) {
-                arr = arr.array[0];
-                depth++;
+                arr = arr.array[0]
+                depth++
             }
 
-            const possibleName = arr.type?.[0].$["name"];
+            const possibleName = arr.type?.[0].$['name']
             if (possibleName) {
-                name = possibleName;
+                name = possibleName
             } else {
-                name = "unknown";
+                name = 'unknown'
                 console.log(
                     `Failed to find array type in ${ns.packageName}: `,
                     JSON.stringify(parameter.$, null, 4),
-                    "\nMarking as unknown!"
-                );
+                    '\nMarking as unknown!',
+                )
             }
-            arrayDepth = depth;
-            isPointer = isPointerType(array.type);
+            arrayDepth = depth
+            isPointer = isPointerType(array.type)
         } else {
-            name = "unknown";
+            name = 'unknown'
         }
     } else if (parameter.type && parameter.type[0] && parameter.type[0].$) {
-        const possibleName = parameter.type[0].$["name"];
+        const possibleName = parameter.type[0].$['name']
         if (possibleName) {
-            name = possibleName;
+            name = possibleName
         } else {
-            name = "unknown";
+            name = 'unknown'
             console.log(
                 `Failed to find type in ${modName}: `,
                 JSON.stringify(parameter.type[0].$, null, 4),
-                "\nMarking as unknown!"
-            );
+                '\nMarking as unknown!',
+            )
         }
-        isPointer = isPointerType(parameter.type);
-    } else if (parameter.varargs || (parameter.$ && parameter.$.name === "...")) {
-        arrayDepth = 1;
-        name = "any";
+        isPointer = isPointerType(parameter.type)
+    } else if (parameter.varargs || (parameter.$ && parameter.$.name === '...')) {
+        arrayDepth = 1
+        name = 'any'
     } else {
-        name = "unknown";
+        name = 'unknown'
         console.log(
             `Unknown varargs type in ${modName}: `,
             JSON.stringify(parameter.$, null, 4),
-            "\nMarking as unknown!"
-        );
+            '\nMarking as unknown!',
+        )
     }
 
-    let closure = null as null | number;
+    let closure = null as null | number
 
     if (parameter.$ && parameter.$.closure) {
-        closure = Number.parseInt(parameter.$.closure, 10);
+        closure = Number.parseInt(parameter.$.closure, 10)
 
         if (Number.isNaN(closure)) {
-            throw new Error(`Error parsing closure data position: ${parameter.$.closure}`);
+            throw new Error(`Error parsing closure data position: ${parameter.$.closure}`)
         }
     }
 
-    const nullable = parameter.$ && parameter.$["nullable"] === "1";
-    const allowNone = parameter.$ && parameter.$["allow-none"] === "1";
+    const nullable = parameter.$ && parameter.$['nullable'] === '1'
+    const allowNone = parameter.$ && parameter.$['allow-none'] === '1'
 
-    const x = name.split(" ");
+    const x = name.split(' ')
     if (x.length === 1) {
-        name = x[0];
+        name = x[0]
     } else {
-        name = x[1];
+        name = x[1]
     }
 
-    let variableType: TypeExpression = parseTypeExpression(ns.namespace, name);
+    let variableType: TypeExpression = parseTypeExpression(ns.namespace, name)
 
     if (variableType instanceof TypeIdentifier) {
-        if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
+        if (variableType.is('GLib', 'List') || variableType.is('GLib', 'SList')) {
             // TODO: $?.name was not necessary in gi.ts, but TelepathyLogger
             // fails to generate now.
-            const listType = parameter?.type?.[0].type?.[0]?.$?.name;
+            const listType = parameter?.type?.[0].type?.[0]?.$?.name
 
             if (listType) {
-                name = listType;
-                variableType = parseTypeExpression(ns.namespace, name);
+                name = listType
+                variableType = parseTypeExpression(ns.namespace, name)
 
-                arrayDepth = 1;
+                arrayDepth = 1
             }
-        } else if (variableType.is("GLib", "HashTable")) {
-            const keyType = parameter?.type?.[0]?.type?.[0]?.$.name;
-            const valueType = parameter?.type?.[0]?.type?.[1]?.$.name;
+        } else if (variableType.is('GLib', 'HashTable')) {
+            const keyType = parameter?.type?.[0]?.type?.[0]?.$.name
+            const valueType = parameter?.type?.[0]?.type?.[1]?.$.name
 
             if (keyType && valueType) {
-                const key = parseTypeExpression(ns.namespace, keyType);
-                const value = parseTypeExpression(ns.namespace, valueType);
+                const key = parseTypeExpression(ns.namespace, keyType)
+                const value = parseTypeExpression(ns.namespace, valueType)
 
-                variableType = new GenerifiedTypeIdentifier("HashTable", "GLib", [key, value]);
+                variableType = new GenerifiedTypeIdentifier('HashTable', 'GLib', [key, value])
             }
         }
     }
 
     if (arrayDepth != null) {
-        const primitiveArrayType = resolvePrimitiveArrayType(name, arrayDepth);
+        const primitiveArrayType = resolvePrimitiveArrayType(name, arrayDepth)
 
         if (primitiveArrayType) {
-            const [primitiveName, primitiveArrayDepth] = primitiveArrayType;
+            const [primitiveName, primitiveArrayDepth] = primitiveArrayType
 
             variableType = ArrayType.new({
                 type: primitiveName,
                 arrayDepth: primitiveArrayDepth,
-                length
-            });
+                length,
+            })
         } else {
-            variableType = ArrayType.new({ type: variableType, arrayDepth, length });
+            variableType = ArrayType.new({ type: variableType, arrayDepth, length })
         }
     } else if (closure != null) {
-        variableType = ClosureType.new({ type: variableType, user_data: closure });
+        variableType = ClosureType.new({ type: variableType, user_data: closure })
     }
 
     if (
@@ -233,21 +233,23 @@ export function getType(
         (nullable || allowNone) &&
         !(variableType instanceof NativeType)
     ) {
-        return new NullableType(variableType);
+        return new NullableType(variableType)
     }
 
     if ((!parameter.$?.direction || parameter.$.direction === GirDirection.In) && nullable) {
-        return new NullableType(variableType);
+        return new NullableType(variableType)
     }
 
-    variableType.isPointer = isPointer;
+    variableType.isPointer = isPointer
 
-    return variableType;
+    return variableType
 }
 
 /**
  * Check if a function/method element has a shadow attribute
  */
-export function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
-    return obj.$["shadows"] != null;
-} 
+export function hasShadow(
+    obj: GirFunctionElement | GirMethodElement,
+): obj is GirFunctionElement & { $: { shadows: string } } {
+    return obj.$['shadows'] != null
+}

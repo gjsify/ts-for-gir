@@ -3,15 +3,12 @@
  * In addition, the environment or the module currently being processed is also included as prepended to the logging string
  */
 
-import { blue, yellow, yellowBright, green, red, white, gray } from 'colorette'
+import { blue, gray, green, red, white, yellow, yellowBright } from 'colorette'
 
 export class Logger {
     private readonly verbose: boolean
     private readonly moduleName: string
-    constructor(
-        verbose: boolean,
-        moduleName: string,
-    ) {
+    constructor(verbose: boolean, moduleName: string) {
         this.verbose = verbose
         this.moduleName = moduleName
     }
@@ -107,34 +104,34 @@ export class Logger {
         return
     }
     public static info(txt: string, ...args: unknown[]): void {
-        txt = this.prepend(txt, 'INFO: ')
+        txt = Logger.prepend(txt, 'INFO: ')
         return console.info(blue(txt), ...args)
     }
     public static warn(txt: string, ...args: unknown[]): void {
-        txt = this.prepend(txt, 'WARN: ')
+        txt = Logger.prepend(txt, 'WARN: ')
         return console.warn(yellow(txt), ...args)
     }
     public static debug(txt: string, ...args: unknown[]): void {
-        txt = this.prepend(txt, 'DEBUG: ')
+        txt = Logger.prepend(txt, 'DEBUG: ')
         return console.debug(yellowBright(txt), ...args)
     }
     public static error(txt: string, ...args: unknown[]): void {
-        txt = this.prepend(txt, 'ERROR: ')
-        return this.danger(txt, ...args)
+        txt = Logger.prepend(txt, 'ERROR: ')
+        return Logger.danger(txt, ...args)
     }
     public static success(txt: string, ...args: unknown[]): void {
-        this.log(green(txt), ...args)
+        Logger.log(green(txt), ...args)
     }
     public static danger(txt: string, ...args: unknown[]): void {
-        this.log(red(txt), ...args)
+        Logger.log(red(txt), ...args)
     }
     public static white(txt: string, ...args: unknown[]): void {
-        this.log(white(txt), ...args)
+        Logger.log(white(txt), ...args)
     }
     public static yellow(txt: string, ...args: unknown[]): void {
-        this.log(yellow(txt), ...args)
+        Logger.log(yellow(txt), ...args)
     }
     public static gray(txt: string, ...args: unknown[]): void {
-        this.log(gray(txt), ...args)
+        Logger.log(gray(txt), ...args)
     }
 }

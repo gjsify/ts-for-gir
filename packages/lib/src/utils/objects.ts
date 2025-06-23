@@ -1,5 +1,5 @@
- 
 import lodash from 'lodash'
+
 export { inspect } from 'util'
 
 /**

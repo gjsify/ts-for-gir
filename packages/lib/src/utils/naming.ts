@@ -1,73 +1,73 @@
-import { upperCamelCase, isFirstCharNumeric } from './strings.ts'
 import { RESERVED_NAMESPACE_NAMES } from '../constants.ts'
+import { isFirstCharNumeric, upperCamelCase } from './strings.ts'
 
 // Reserved words for identifier sanitization
 const reservedWords = [
-    "abstract",
-    "arguments",
-    "await",
-    "boolean",
-    "break",
-    "byte",
-    "case",
-    "catch",
-    "char",
-    "class",
-    "const",
-    "continue",
-    "constructor", // This isn't technically reserved, but it's problematic.
-    "debugger",
-    "default",
-    "delete",
-    "do",
-    "else",
-    "enum",
-    "eval",
-    "export",
-    "extends",
-    "false",
-    "final",
-    "finally",
-    "for",
-    "function",
-    "goto",
-    "if",
-    "implements",
-    "import",
-    "in",
-    "instanceof",
-    "interface",
-    "let",
-    "native",
-    "new",
-    "null",
-    "package",
-    "private",
-    "protected",
-    "public",
-    "return",
-    "short",
-    "static",
-    "super",
-    "switch",
-    "synchronized",
-    "this",
-    "throw",
-    "throws",
-    "transient",
-    "true",
-    "try",
-    "typeof",
-    "var",
-    "void",
-    "volatile",
-    "while",
-    "with",
-    "yield"
-];
+    'abstract',
+    'arguments',
+    'await',
+    'boolean',
+    'break',
+    'byte',
+    'case',
+    'catch',
+    'char',
+    'class',
+    'const',
+    'continue',
+    'constructor', // This isn't technically reserved, but it's problematic.
+    'debugger',
+    'default',
+    'delete',
+    'do',
+    'else',
+    'enum',
+    'eval',
+    'export',
+    'extends',
+    'false',
+    'final',
+    'finally',
+    'for',
+    'function',
+    'goto',
+    'if',
+    'implements',
+    'import',
+    'in',
+    'instanceof',
+    'interface',
+    'let',
+    'native',
+    'new',
+    'null',
+    'package',
+    'private',
+    'protected',
+    'public',
+    'return',
+    'short',
+    'static',
+    'super',
+    'switch',
+    'synchronized',
+    'this',
+    'throw',
+    'throws',
+    'transient',
+    'true',
+    'try',
+    'typeof',
+    'var',
+    'void',
+    'volatile',
+    'while',
+    'with',
+    'yield',
+]
 
 // Map to store sanitized identifiers
-export const SanitizedIdentifiers = new Map<string, string>();
+export const SanitizedIdentifiers = new Map<string, string>()
 
 /**
  * Transform a package name to import name format (lowercase)
@@ -87,7 +87,7 @@ export function transformImportName(packageName: string): string {
 export function transformModuleNamespaceName(name: string): string {
     // Handle numeric names - prepend 'TODO_' if name starts with a number
     name = transformNumericName(name)
-    
+
     // Convert to upperCamelCase
     name = upperCamelCase(name)
 
@@ -95,7 +95,7 @@ export function transformModuleNamespaceName(name: string): string {
     if (RESERVED_NAMESPACE_NAMES[name]) {
         name = `${name}_`
     }
-    
+
     return name
 }
 
@@ -120,25 +120,25 @@ function transformNumericName(name: string): string {
  */
 export function sanitizeIdentifierName(namespace: string | null, name: string): string {
     // This is a unique case where the name is "empty".
-    if (name === "") {
-        return "''";
+    if (name === '') {
+        return "''"
     }
 
-    let sanitized_name = name.replace(/[^A-z0-9_]/gi, "_");
+    let sanitized_name = name.replace(/[^A-z0-9_]/gi, '_')
 
     if (reservedWords.includes(sanitized_name)) {
-        sanitized_name = `__${sanitized_name}`;
+        sanitized_name = `__${sanitized_name}`
     }
 
     if (sanitized_name.match(/^[^A-z_]/) != null) {
-        sanitized_name = `__${sanitized_name}`;
+        sanitized_name = `__${sanitized_name}`
     }
 
     if (namespace && sanitized_name !== name) {
-        SanitizedIdentifiers.set(`${namespace}.${name}`, `${namespace}.${sanitized_name}`);
+        SanitizedIdentifiers.set(`${namespace}.${name}`, `${namespace}.${sanitized_name}`)
     }
 
-    return sanitized_name;
+    return sanitized_name
 }
 
 /**
@@ -147,11 +147,11 @@ export function sanitizeIdentifierName(namespace: string | null, name: string): 
  * @returns The sanitized namespace
  */
 export function sanitizeNamespace(namespace: string): string {
-    if (namespace === "Tracker_Vala") {
-        return "Tracker";
+    if (namespace === 'Tracker_Vala') {
+        return 'Tracker'
     }
 
-    return namespace;
+    return namespace
 }
 
 /**
@@ -161,11 +161,11 @@ export function sanitizeNamespace(namespace: string): string {
  */
 export function sanitizeMemberName(name: string): string {
     // This is a unique case where the name is "empty".
-    if (name === "") {
-        return "''";
+    if (name === '') {
+        return "''"
     }
 
-    return name.replace(/[^A-z0-9_]/gi, "_");
+    return name.replace(/[^A-z0-9_]/gi, '_')
 }
 
 /**
@@ -175,14 +175,14 @@ export function sanitizeMemberName(name: string): string {
  */
 export function isInvalid(name: string): boolean {
     if (reservedWords.includes(name)) {
-        return true;
+        return true
     }
 
-    const sanitized = sanitizeMemberName(name);
+    const sanitized = sanitizeMemberName(name)
 
     if (sanitized.match(/^[^A-z_]/) != null) {
-        return true;
+        return true
     }
 
-    return false;
-} 
+    return false
+}

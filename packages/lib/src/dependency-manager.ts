@@ -1,15 +1,13 @@
-import { parser, type GirXML, type GirRepository, type GirNamespace, type GirInclude } from '@gi.ts/parser'
+import { type GirInclude, type GirNamespace, type GirRepository, type GirXML, parser } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
-
-import { pascalCase } from './utils/strings.ts'
+import type { GirModule } from './gir-module.ts'
+import { LibraryVersion } from './library-version.ts'
+import { Logger } from './logger.ts'
+import type { Dependency, FileInfo, OptionsGeneration } from './types/index.ts'
 import { findFilesInDirs } from './utils/files.ts'
 import { splitModuleName } from './utils/girs.ts'
-import { Logger } from './logger.ts'
-import { transformImportName, transformModuleNamespaceName, sanitizeNamespace, } from './utils/naming.ts'
-import { LibraryVersion } from './library-version.ts'
-
-import type { Dependency, OptionsGeneration, FileInfo } from './types/index.ts'
-import type { GirModule } from './gir-module.ts'
+import { sanitizeNamespace, transformImportName, transformModuleNamespaceName } from './utils/naming.ts'
+import { pascalCase } from './utils/strings.ts'
 
 export class DependencyManager {
     protected log: Logger
@@ -27,10 +25,10 @@ export class DependencyManager {
      * Get the DependencyManager singleton instance
      */
     static getInstance(config?: OptionsGeneration): DependencyManager {
-        const configKey = config ? JSON.stringify(config) : Object.keys(this.instances)[0]
+        const configKey = config ? JSON.stringify(config) : Object.keys(DependencyManager.instances)[0]
 
-        if (this.instances[configKey]) {
-            return this.instances[configKey]
+        if (DependencyManager.instances[configKey]) {
+            return DependencyManager.instances[configKey]
         }
 
         if (!config) {
@@ -38,7 +36,7 @@ export class DependencyManager {
         }
 
         const instance = new DependencyManager(config)
-        this.instances[configKey] = instance
+        DependencyManager.instances[configKey] = instance
         return instance
     }
 
@@ -194,7 +192,9 @@ export class DependencyManager {
         }
 
         if (filesInfo.length > 1) {
-            this.log.muted(`Use latest version ${latestLibraryVersion.libraryVersion.toString()} from ${latestLibraryVersion.fileInfo.path}`)
+            this.log.muted(
+                `Use latest version ${latestLibraryVersion.libraryVersion.toString()} from ${latestLibraryVersion.fileInfo.path}`,
+            )
         }
 
         return latestLibraryVersion
@@ -220,7 +220,11 @@ export class DependencyManager {
      * @returns The dependency object
      */
     async get(repo: GirRepository, version?: string, noOverride?: boolean): Promise<Dependency>
-    async get(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string, noOverride?: boolean): Promise<Dependency> {
+    async get(
+        namespaceOrPackageNameOrRepo: string | GirRepository,
+        _version?: string,
+        noOverride?: boolean,
+    ): Promise<Dependency> {
         const parsedArgs = this.parseArgs(namespaceOrPackageNameOrRepo, _version, noOverride)
         const { packageName, repo } = parsedArgs
         let { namespace, version } = parsedArgs
@@ -257,14 +261,13 @@ export class DependencyManager {
             ...this.createImportProperties(namespace, packageName, version),
         }
 
-
         // Special case for Cairo
         // This is a special case for Cairo because Cairo in GJS is provided as a built-in module that doesn't
         // follow the standard GI repository pattern.
         // So we need to special case it and redirect to the 'cairo' package.
         // This changes the typescript import definition to use the internal 'cairo' package instead of the 'cairo-1.0' Gir package.
-        if(!noOverride && namespace === 'cairo' && version === '1.0') {
-            dependency.importDef = this.createImportDef('cairo', 'cairo');
+        if (!noOverride && namespace === 'cairo' && version === '1.0') {
+            dependency.importDef = this.createImportDef('cairo', 'cairo')
         }
 
         this._cache[packageName] = dependency
@@ -390,7 +393,11 @@ export class DependencyManager {
         return null
     }
 
-    protected getPseudoPackage(packageName: string, namespace: string = pascalCase(packageName), version = '2.0'): Dependency {
+    protected getPseudoPackage(
+        packageName: string,
+        namespace: string = pascalCase(packageName),
+        version = '2.0',
+    ): Dependency {
         if (this._cache[packageName + '_pseudo']) {
             return this._cache[packageName + '_pseudo']
         }

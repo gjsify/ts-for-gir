@@ -1,22 +1,18 @@
-import { TypeExpression } from "../gir.ts";
-import { IntrospectedNamespaceMember } from "./introspected-namespace-member.ts";
-import type { IntrospectedOptions } from "../types/index.ts";
-
-import type { GirAliasElement } from "../index.ts";
-import { IntrospectedNamespace } from "./namespace.ts";
-import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
-import { sanitizeIdentifierName } from "../utils/naming.ts";
-import { getAliasType } from "../utils/types.ts";
-import { isIntrospectable } from "../utils/girs.ts";
-
-import { FormatGenerator, type GenericDescriptor } from "../generators/generator.ts";
-import { GirVisitor } from "../visitor.ts";
-
-import type { OptionsLoad } from "../types/index.ts";
+import type { FormatGenerator, GenericDescriptor } from '../generators/generator.ts'
+import type { TypeExpression } from '../gir.ts'
+import type { GirAliasElement } from '../index.ts'
+import type { IntrospectedOptions, OptionsLoad } from '../types/index.ts'
+import { parseDoc, parseMetadata } from '../utils/gir-parsing.ts'
+import { isIntrospectable } from '../utils/girs.ts'
+import { sanitizeIdentifierName } from '../utils/naming.ts'
+import { getAliasType } from '../utils/types.ts'
+import type { GirVisitor } from '../visitor.ts'
+import { IntrospectedNamespaceMember } from './introspected-namespace-member.ts'
+import type { IntrospectedNamespace } from './namespace.ts'
 
 export class IntrospectedAlias extends IntrospectedNamespaceMember {
-    readonly type: TypeExpression;
-    readonly generics: GenericDescriptor[];
+    readonly type: TypeExpression
+    readonly generics: GenericDescriptor[]
 
     constructor({
         namespace,
@@ -25,57 +21,57 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
         generics = [],
         ...args
     }: IntrospectedOptions<{
-        namespace: IntrospectedNamespace;
-        name: string;
-        type: TypeExpression;
-        generics?: GenericDescriptor[];
+        namespace: IntrospectedNamespace
+        name: string
+        type: TypeExpression
+        generics?: GenericDescriptor[]
     }>) {
-        super(name, namespace, { ...args });
+        super(name, namespace, { ...args })
 
-        this.type = type;
-        this.generics = generics;
+        this.type = type
+        this.generics = generics
     }
 
     accept(visitor: GirVisitor): IntrospectedAlias {
         const node = this.copy({
-            type: visitor.visitType?.(this.type)
-        });
+            type: visitor.visitType?.(this.type),
+        })
 
-        return visitor.visitAlias?.(node) ?? node;
+        return visitor.visitAlias?.(node) ?? node
     }
 
     copy(options?: { parent?: undefined; type?: TypeExpression }): IntrospectedAlias {
-        const { name, namespace, type } = this;
+        const { name, namespace, type } = this
 
-        return new IntrospectedAlias({ name, namespace, type: options?.type ?? type })._copyBaseProperties(this);
+        return new IntrospectedAlias({ name, namespace, type: options?.type ?? type })._copyBaseProperties(this)
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateAlias"]> {
-        return generator.generateAlias(this) as ReturnType<T["generateAlias"]>;
+    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T['generateAlias']> {
+        return generator.generateAlias(this) as ReturnType<T['generateAlias']>
     }
 
     static fromXML(
         element: GirAliasElement,
         ns: IntrospectedNamespace,
-        options: OptionsLoad
+        options: OptionsLoad,
     ): IntrospectedAlias | null {
         if (!element.$.name) {
-            console.error(`Alias in ${ns.namespace} lacks name.`);
-            return null;
+            console.error(`Alias in ${ns.namespace} lacks name.`)
+            return null
         }
 
         const alias = new IntrospectedAlias({
             namespace: ns,
             name: sanitizeIdentifierName(ns.namespace, element.$.name),
             type: getAliasType(ns.namespace, ns, element),
-            isIntrospectable: isIntrospectable(element)
-        });
+            isIntrospectable: isIntrospectable(element),
+        })
 
         if (options.loadDocs) {
-            alias.doc = parseDoc(element);
-            alias.metadata = parseMetadata(element);
+            alias.doc = parseDoc(element)
+            alias.metadata = parseMetadata(element)
         }
 
-        return alias;
+        return alias
     }
 }

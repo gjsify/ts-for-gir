@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "lib": ["ESNext"],                 
+        "lib": ["ESNext"],
         "target": "ESNext",
         "module": "ESNext",
         "outDir": "lib",
@@ -17,7 +17,7 @@
         "rootDir": "src",
         "resolveJsonModule": true,
         "skipLibCheck": true,
-        "diagnostics": true,
+        "diagnostics": true
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],
     "exclude": ["lib", "node_modules", "**/*.spec.ts", "templates"]

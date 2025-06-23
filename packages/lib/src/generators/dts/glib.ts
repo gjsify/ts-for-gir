@@ -1,11 +1,11 @@
-import { IntrospectedNamespace } from "../../gir/namespace.ts";
+import type { IntrospectedNamespace } from '../../gir/namespace.ts'
 
 export function override(node: IntrospectedNamespace) {
     // We provide manually written versions of these types below.
-    node.assertClass("Variant").noEmit();
-    node.assertClass("VariantType").noEmit();
-    node.assertClass("VariantBuilder").noEmit();
-    node.assertClass("VariantDict").noEmit();
+    node.assertClass('Variant').noEmit()
+    node.assertClass('VariantType').noEmit()
+    node.assertClass('VariantBuilder').noEmit()
+    node.assertClass('VariantDict').noEmit()
 
     return `
     // Variant parsing inspired by https://jamie.build/ slightly infamous JSON-in-TypeScript parsing.
@@ -512,5 +512,5 @@ export function override(node: IntrospectedNamespace) {
         static string_is_valid(type_string: string): boolean;
         static string_scan(string: string, limit?: string | null): [boolean, string | null];
     }
-    `;
+    `
 }

@@ -1,9 +1,10 @@
-import { join } from 'path'
 import { constants } from 'fs'
-import { readFile, access } from 'fs/promises'
+import { access, readFile } from 'fs/promises'
 import { glob } from 'glob'
+import { join } from 'path'
 
 import type { FileInfo } from '../types/index.ts'
+
 export { inspect } from 'util'
 
 /**

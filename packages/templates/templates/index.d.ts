@@ -13,5 +13,5 @@ import './<%= importName %>-ambient.d.ts';
 import './<%= importName %>-import.d.ts';
 <%_ } _%>
 
-import <%= name %> from './<%= importName %>.ts';
+import <%= name %> from './<%= importName %>.js';
 export default <%= name %>;

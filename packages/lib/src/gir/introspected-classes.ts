@@ -651,9 +651,32 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                     returnType: 'void'
                 });
             });
+
+            // Generate detailed signals for signals with detailed=true
+            this.signals.forEach(signal => {
+                if (signal.detailed) {
+                    uniquePropertyNames.forEach(propertyName => {
+                        allSignals.push({
+                            name: `${signal.name}::${propertyName}`,
+                            signal: signal,
+                            isNotifySignal: false,
+                            isDetailSignal: true,
+                            parameterTypes: signal.parameters.map(p => this.getPropertyTypeString(p.type)),
+                            returnType: this.getPropertyTypeString(signal.return_type)
+                        });
+                    });
+                }
+            });
         }
 
         return allSignals;
+    }
+
+    private getPropertyTypeString(type: any): string {
+        // Simple type conversion - this might need to be adjusted based on actual type structure
+        if (typeof type === 'string') return type;
+        if (type && type.toString) return type.toString();
+        return 'any';
     }
 
     private getAllProperties(): IntrospectedProperty[] {

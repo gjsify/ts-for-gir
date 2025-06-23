@@ -121,7 +121,7 @@ export class TypeDefinitionGenerator implements Generator {
         if (!config.outdir) return
 
         const templateProcessor = new TemplateProcessor(
-            girModules,
+            { girModules },
             'index',
             this.registry,
             dependencyManager.all(),

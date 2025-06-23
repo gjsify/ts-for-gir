@@ -1,69 +1,68 @@
+import { GirDirection } from '@gi.ts/parser'
 import {
-    Logger,
-    generateIndent,
-    removeNamespace,
-    removeClassModule,
-    DependencyManager,
-    type PackageData,
-    TypeExpression,
-    type NSRegistry,
-    IntrospectedClass,
-    IntrospectedRecord,
-    IntrospectedInterface,
-    IntrospectedBaseClass,
-    IntrospectedField,
-    type TsDocTag,
-    upperCamelCase,
-    filterFunctionConflict,
-    resolveDirectedType,
-    TypeConflict,
-    ConflictType,
-    BinaryType,
-    AnyType,
-    StringType,
     AnyFunctionType,
-    NumberType,
+    AnyType,
     ArrayType,
-    FilterBehavior,
-    VoidType,
+    BinaryType,
     BooleanType,
-    ThisType,
     ClassStructTypeIdentifier,
-    type OptionsGeneration,
-    GirModule,
-    IntrospectedFunction,
+    ConflictType,
+    DependencyManager,
+    FilterBehavior,
+    FormatGenerator,
+    filterConflicts,
+    filterFunctionConflict,
+    type Generic,
+    type GirEnumMember,
+    type GirModule,
+    generateIndent,
+    IntrospectedAlias,
+    type IntrospectedBaseClass,
     IntrospectedCallback,
-    IntrospectedSignal,
-    IntrospectedProperty,
-    IntrospectedConstant,
+    IntrospectedClass,
     IntrospectedClassCallback,
     IntrospectedClassFunction,
+    IntrospectedConstant,
     IntrospectedConstructor,
     IntrospectedDirectAllocationConstructor,
+    type IntrospectedEnum,
+    type IntrospectedError,
+    IntrospectedField,
+    type IntrospectedFunction,
     IntrospectedFunctionParameter,
+    IntrospectedInterface,
+    type IntrospectedNamespaceMember,
+    IntrospectedProperty,
+    IntrospectedRecord,
+    type IntrospectedSignal,
+    IntrospectedSignalType,
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction,
-    IntrospectedNamespaceMember,
-    IntrospectedAlias,
-    IntrospectedEnum,
-    IntrospectedSignalType,
-    IntrospectedError,
-    FormatGenerator,
-    type Generic,
-    NativeType,
     isInvalid,
-    filterConflicts,
+    Logger,
+    NativeType,
+    type NSRegistry,
+    NumberType,
+    type OptionsGeneration,
+    type PackageData,
     printGirDocComment,
     promisifyFunctions,
-    transformGirDocText,
-    GirEnumMember,
     promisifyNamespaceFunctions,
+    removeClassModule,
+    removeNamespace,
+    resolveDirectedType,
+    StringType,
+    ThisType,
+    type TsDocTag,
+    TypeConflict,
+    type TypeExpression,
+    transformGirDocText,
+    upperCamelCase,
+    VoidType,
 } from '@ts-for-gir/lib'
-import { GirDirection } from '@gi.ts/parser'
-
-import { TemplateProcessor } from './template-processor.ts'
 // import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from './npm-package.ts'
+import { TemplateProcessor } from './template-processor.ts'
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
     log: Logger
@@ -300,11 +299,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             switch (type.conflictType) {
                 case ConflictType.FUNCTION_NAME_CONFLICT:
                 case ConflictType.FIELD_NAME_CONFLICT:
-                    getterSetterAnnotation =
-                        setterAnnotation = `// This accessor conflicts with a field or function name in a parent class or interface.\n`
+                    getterSetterAnnotation = setterAnnotation =
+                        '// This accessor conflicts with a field or function name in a parent class or interface.\n'
                 case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
-                    getterSetterAnnotation =
-                        getterAnnotation = `// This accessor conflicts with a property or field in a parent class or interface.\n`
+                    getterSetterAnnotation = getterAnnotation =
+                        '// This accessor conflicts with a property or field in a parent class or interface.\n'
                     type = new BinaryType(type.unwrap(), AnyType)
                     // A child class cannot have an accessor declared if the parent has a property
                     printAsProperty = true
@@ -371,11 +370,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         if (type instanceof TypeConflict) {
             if (type.conflictType === ConflictType.PROPERTY_ACCESSOR_CONFLICT) {
-                commentOut = `\n// @ts-expect-error This property conflicts with an accessor in a parent class or interface.\n`
+                commentOut =
+                    '\n// @ts-expect-error This property conflicts with an accessor in a parent class or interface.\n'
 
                 type = type.unwrap()
             } else if (type.conflictType === ConflictType.FUNCTION_NAME_CONFLICT) {
-                commentOut = `\n// This field conflicts with a function in a parent class or interface.\n`
+                commentOut = '\n// This field conflicts with a function in a parent class or interface.\n'
 
                 type = new BinaryType(type.unwrap(), AnyType)
             } else {
@@ -795,13 +795,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             return desc
         }
 
-        desc.push(``)
+        desc.push('')
         desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
         desc.push(`export namespace ${name} {`)
         const gtypeNamespace = namespace.namespace === 'GObject' ? '' : 'GObject.'
         desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`)
-        desc.push(`}`)
-        desc.push(``)
+        desc.push('}')
+        desc.push('')
 
         desc.push(this.generateExport('enum', name, '{', indentCount))
         if (girEnum.members) {
@@ -900,7 +900,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         const genericTypes = this.generateGenericParameters(girClass.generics)
 
         // Remove namespace and class module name
-        const constructPropInterfaceName = `ConstructorProps`
+        const constructPropInterfaceName = 'ConstructorProps'
 
         // Only add the "extends" if the parent type will be generated (it has props)...
         if (superTypeIdentifier) {
@@ -960,7 +960,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     girClass,
                     girClass.fields.filter((field) => field.isStatic),
                 ),
-                `Static fields`,
+                'Static fields',
                 indentCount,
             ),
         )
@@ -1010,7 +1010,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     girClass,
                     girClass.fields.filter((field) => !field.isStatic),
                 ),
-                `Fields`,
+                'Fields',
                 indentCount,
             ),
         )
@@ -1035,7 +1035,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         def.push(
             ...this.generateProperties(
                 filterConflicts(girClass.namespace, girClass, girClass.props),
-                `Properties`,
+                'Properties',
                 indentCount,
             ),
         )
@@ -1057,7 +1057,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     [],
                 ),
                 indentCount,
-                `Static methods`,
+                'Static methods',
             ),
         )
 
@@ -1083,7 +1083,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     ),
                 ),
                 indentCount,
-                `Methods`,
+                'Methods',
             ),
         )
 
@@ -1124,7 +1124,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         )
 
         if (def.length) {
-            def.unshift(...this.addInfoComment(`Constructors`, indentCount))
+            def.unshift(...this.addInfoComment('Constructors', indentCount))
         }
 
         return def
@@ -1149,7 +1149,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     [],
                 ),
                 indentCount,
-                `Virtual methods`,
+                'Virtual methods',
             ),
         )
 
@@ -1233,7 +1233,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             const isGObjectObject = girClass.name === 'Object' && girClass.namespace.namespace === 'GObject'
 
             if (isGObjectObject) {
-                def.push(` {`)
+                def.push(' {')
             } else {
                 // All other classes inherit from GObject.Object's signal signatures as fallback
                 const gobjectNamespace = this.namespace.assertInstalledImport('GObject')
@@ -1335,7 +1335,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 // Type-safe overload for known signals
                 `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
                 // Fallback overload for dynamic signals
-                `connect(signal: string, callback: (...args: any[]) => any): number;`,
+                'connect(signal: string, callback: (...args: any[]) => any): number;',
             )
         }
 
@@ -1344,7 +1344,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 // Type-safe overload for known signals
                 `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
                 // Fallback overload for dynamic signals
-                `connect_after(signal: string, callback: (...args: any[]) => any): number;`,
+                'connect_after(signal: string, callback: (...args: any[]) => any): number;',
             )
         }
 
@@ -1354,7 +1354,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 // Type-safe overload for known signals
                 `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
                 // Fallback overload for dynamic signals
-                `emit(signal: string, ...args: any[]): void;`,
+                'emit(signal: string, ...args: any[]): void;',
             )
         }
 
@@ -1366,7 +1366,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         const signalDescs = this.generateSignals(girClass)
 
-        def.push(...this.mergeDescs(signalDescs, `Signals`, 1))
+        def.push(...this.mergeDescs(signalDescs, 'Signals', 1))
 
         return def
     }
@@ -1393,16 +1393,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         if (!bodyDef.length) {
             return []
         }
+        def.push(`${indent}${exp}namespace ${girClass.name} {`)
 
-        // START BODY
-        {
-            def.push(`${indent}${exp}namespace ${girClass.name} {`)
+        // Properties interface for construction
+        def.push(...bodyDef)
 
-            // Properties interface for construction
-            def.push(...bodyDef)
-
-            def.push(`${indent}}`, '')
-        }
+        def.push(`${indent}}`, '')
         // END BODY
 
         return def
@@ -1436,35 +1432,27 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         ]
         const ext = implementationNames.length ? ` extends ${implementationNames.join(', ')}` : ''
         const interfaceHead = `${girClass.name}${genericParameters}${ext}`
+        def.push(this.generateExport('interface', interfaceHead, '{'))
 
-        // START INTERFACE
-        {
-            def.push(this.generateExport('interface', interfaceHead, '{'))
-
-            if (girClass.__ts__indexSignature) {
-                def.push(`\n${girClass.__ts__indexSignature}\n`)
-            }
-
-            // START BODY
-            {
-                // Properties
-                def.push(...this.generateClassProperties(girClass))
-
-                // Fields
-                def.push(...this.generateClassMemberFields(girClass))
-
-                // Methods
-                def.push(...this.generateClassMethods(girClass))
-
-                // Virtual methods
-                def.push(...this.generateClassVirtualMethods(girClass))
-            }
-            // END BODY
-
-            // END INTERFACE
-            def.push('}')
-            def.push('')
+        if (girClass.__ts__indexSignature) {
+            def.push(`\n${girClass.__ts__indexSignature}\n`)
         }
+        // Properties
+        def.push(...this.generateClassProperties(girClass))
+
+        // Fields
+        def.push(...this.generateClassMemberFields(girClass))
+
+        // Methods
+        def.push(...this.generateClassMethods(girClass))
+
+        // Virtual methods
+        def.push(...this.generateClassVirtualMethods(girClass))
+        // END BODY
+
+        // END INTERFACE
+        def.push('}')
+        def.push('')
 
         return def
     }
@@ -1549,61 +1537,57 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             if (girClass.__ts__indexSignature) {
                 def.push(`\n${girClass.__ts__indexSignature}\n`)
             }
+            // Static Properties
+            def.push(...this.generateClassProperties(girClass))
 
-            // START BODY
-            {
-                // Static Properties
-                def.push(...this.generateClassProperties(girClass))
+            // $signals property (instance property for type-safe signal access)
+            def.push(...this.generateClassSignalsProperty(girClass))
 
-                // $signals property (instance property for type-safe signal access)
-                def.push(...this.generateClassSignalsProperty(girClass))
+            // Static and member Fields
+            def.push(...this.generateClassFields(girClass))
 
-                // Static and member Fields
-                def.push(...this.generateClassFields(girClass))
+            // Constructors
+            def.push(...this.generateClassConstructors(girClass))
 
-                // Constructors
-                def.push(...this.generateClassConstructors(girClass))
+            if (girClass instanceof IntrospectedClass) {
+                // Signals
+                def.push(...this.generateClassSignals(girClass))
+            }
 
-                if (girClass instanceof IntrospectedClass) {
-                    // Signals
-                    def.push(...this.generateClassSignals(girClass))
-                }
+            // Static Methods
+            def.push(...this.generateClassStaticMethods(girClass))
 
-                // Static Methods
-                def.push(...this.generateClassStaticMethods(girClass))
+            // Virtual methods
+            def.push(...this.generateClassVirtualMethods(girClass))
 
-                // Virtual methods
-                def.push(...this.generateClassVirtualMethods(girClass))
+            // Methods
+            def.push(...this.generateClassMethods(girClass))
 
-                // Methods
-                def.push(...this.generateClassMethods(girClass))
+            if (girClass instanceof IntrospectedClass) {
+                const implementedProperties = girClass
+                    .implementedProperties()
+                    .map((prop) => prop.copy({ parent: girClass }))
+                const implementedMethods = girClass
+                    .implementedMethods(implementedProperties)
+                    .map((method) => method.copy({ parent: girClass }))
 
-                if (girClass instanceof IntrospectedClass) {
-                    const implementedProperties = girClass
-                        .implementedProperties()
-                        .map((prop) => prop.copy({ parent: girClass }))
-                    const implementedMethods = girClass
-                        .implementedMethods(implementedProperties)
-                        .map((method) => method.copy({ parent: girClass }))
+                const generatedImplementedProperties = filterConflicts(
+                    girClass.namespace,
+                    girClass,
+                    implementedProperties,
+                ).flatMap((m) => m.asString(this))
 
-                    const generatedImplementedProperties = filterConflicts(
-                        girClass.namespace,
-                        girClass,
-                        implementedProperties,
-                    ).flatMap((m) => m.asString(this))
+                if (generatedImplementedProperties.length > 0)
+                    def.push('\n// Inherited properties', ...generatedImplementedProperties)
 
-                    if (generatedImplementedProperties.length > 0)
-                        def.push('\n// Inherited properties', ...generatedImplementedProperties)
+                const filteredImplMethods = promisifyIfEnabled(
+                    this.options,
+                    filterFunctionConflict(girClass.namespace, girClass, implementedMethods, []),
+                )
+                const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this))
 
-                    const filteredImplMethods = promisifyIfEnabled(
-                        this.options,
-                        filterFunctionConflict(girClass.namespace, girClass, implementedMethods, []),
-                    )
-                    const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this))
-
-                    if (generatedImplementedMethods.length > 0)
-                        def.push('\n// Inherited methods', ...generatedImplementedMethods)
-                }
+                if (generatedImplementedMethods.length > 0)
+                    def.push('\n// Inherited methods', ...generatedImplementedMethods)
             }
             // END BODY
 
@@ -1621,7 +1605,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     async exportModuleIndexJS(): Promise<void> {
         const template = 'index.js'
-        const target = `index.js`
+        const target = 'index.js'
 
         if (this.config.outdir) {
             await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
@@ -1633,7 +1617,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     async exportModuleIndexTS(): Promise<void> {
         const template = 'index.d.ts'
-        const target = `index.d.ts`
+        const target = 'index.d.ts'
 
         if (this.config.outdir) {
             await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
@@ -1832,7 +1816,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         out.unshift(`export namespace ${girModule.namespace} {`)
         out.unshift('')
 
-        out.push(`}`)
+        out.push('}')
         out.push('')
         out.push(`export default ${girModule.namespace};`)
 

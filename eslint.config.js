@@ -1,21 +1,18 @@
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsparser from '@typescript-eslint/parser';
-import prettier from 'eslint-config-prettier';
+import js from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import prettier from 'eslint-config-prettier'
 
-export default [
-    // Base config for all files
+export default tseslint.config(
+    // Global ignores
     {
         ignores: [
             '**/node_modules/**',
-            '**/cli/lib/**',
-            '**/generator-base/lib/**',
-            '**/generator-html-doc/lib/**',
-            '**/lib/lib/**',
-            '**/generator-typescript/lib/**',
-            '**/parser/lib/**',
-            '**/tmp/**',
+            '**/lib/**',
             '**/dist/**',
+            '**/build/**',
+            '**/tmp/**',
             '**/test/**',
+            '**/tests/**',
             '**/templates/**',
             '**/examples/**',
             '**/@types/**',
@@ -25,41 +22,41 @@ export default [
         ]
     },
 
-    // TypeScript files
+    // Base JavaScript recommendations
+    js.configs.recommended,
+
+    // TypeScript files with recommended rules
+    ...tseslint.configs.recommended,
+
+    // TypeScript files configuration
     {
-        files: ['**/*.ts'], // Explicitly specify files to lint
-        ignores: ["**/esbuild.ts"],
+        files: ['**/*.ts'],
+        ignores: ['**/esbuild.ts'],
         languageOptions: {
-            parser: tsparser,
             parserOptions: {
-                project: ['./packages/*/tsconfig.json'],
+                project: true,
+                tsconfigRootDir: import.meta.dirname,
             },
-            globals: {
-                imports: true
-            }
-        },
-        plugins: {
-            '@typescript-eslint': tseslint
         },
         rules: {
-            'semi': ['error', 'never'],
-            'quotes': ['error', 'single'],
-            'no-debugger': 'off',
-            '@typescript-eslint/triple-slash-reference': 'off',
-            'camelcase': 'off',
-            '@typescript-eslint/camelcase': 'off'
+            // Only essential custom rules for a simplified setup
+            '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+            '@typescript-eslint/no-explicit-any': 'warn', // Allow 'any' but warn about it
+            'no-fallthrough': 'warn', // Warn about missing break statements
         }
     },
 
-    // Special rules for .d.ts files
+    // Special rules for .d.ts files  
     {
         files: ['**/*.d.ts'],
         rules: {
             '@typescript-eslint/no-explicit-any': 'off',
             '@typescript-eslint/ban-types': 'off',
-            '@typescript-eslint/no-unused-vars': 'off'
+            '@typescript-eslint/no-unused-vars': 'off',
+            '@typescript-eslint/triple-slash-reference': 'off',
         }
     },
 
+    // Prettier integration (disables conflicting rules)
     prettier
-]; 
+) 

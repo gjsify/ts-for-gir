@@ -1,55 +1,55 @@
 {
-  "name": "@ts-for-gir/generator-typescript",
-  "version": "4.0.0-beta.25",
-  "description": "TypeScript type definition generator for ts-for-gir",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
-  "type": "module",
-  "engines": {
-    "node": ">=18"
-  },
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "scripts": {
-    "lint": "eslint . --fix",
-    "check": "tsc --noEmit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gjsify/ts-for-gir.git"
-  },
-  "author": "Pascal Garber <pascal@artandcode.studio>",
-  "files": [
-    "lib",
-    "packages.xml"
-  ],
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/gjsify/ts-for-gir/issues"
-  },
-  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
-  "keywords": [
-    "generator"
-  ],
-  "devDependencies": {
-    "@types/ejs": "^3.1.5",
-    "@types/node": "^24.0.1",
-    "@types/xml2js": "^0.4.14",
-    "@typescript-eslint/eslint-plugin": "^8.34.0",
-    "@typescript-eslint/parser": "^8.34.0",
-    "eslint": "^9.29.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.1",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "@gi.ts/parser": "workspace:^",
-    "@ts-for-gir/generator-base": "workspace:^",
-    "@ts-for-gir/lib": "workspace:^",
-    "@ts-for-gir/templates": "workspace:^",
-    "ejs": "^3.1.10",
-    "xml2js": "^0.6.2"
-  }
+    "name": "@ts-for-gir/generator-typescript",
+    "version": "4.0.0-beta.25",
+    "description": "TypeScript type definition generator for ts-for-gir",
+    "main": "src/index.ts",
+    "module": "src/index.ts",
+    "type": "module",
+    "engines": {
+        "node": ">=18"
+    },
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "lint": "eslint . --fix",
+        "check": "tsc --noEmit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    },
+    "author": "Pascal Garber <pascal@artandcode.studio>",
+    "files": [
+        "lib",
+        "packages.xml"
+    ],
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/gjsify/ts-for-gir/issues"
+    },
+    "homepage": "https://github.com/gjsify/ts-for-gir#readme",
+    "keywords": [
+        "generator"
+    ],
+    "devDependencies": {
+        "@types/ejs": "^3.1.5",
+        "@types/node": "^24.0.1",
+        "@types/xml2js": "^0.4.14",
+        "@typescript-eslint/eslint-plugin": "^8.34.0",
+        "@typescript-eslint/parser": "^8.34.0",
+        "eslint": "^9.29.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.4.1",
+        "prettier": "^3.5.3",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "@gi.ts/parser": "workspace:^",
+        "@ts-for-gir/generator-base": "workspace:^",
+        "@ts-for-gir/lib": "workspace:^",
+        "@ts-for-gir/templates": "workspace:^",
+        "ejs": "^3.1.10",
+        "xml2js": "^0.6.2"
+    }
 }

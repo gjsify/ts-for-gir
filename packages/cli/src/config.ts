@@ -1,14 +1,14 @@
 /**
  * Default values, parse the config file and handle CLI flags
  */
-import type { Options } from 'yargs'
-import { cosmiconfig, type Options as ConfigSearchOptions } from 'cosmiconfig'
-import { join, extname, dirname, resolve } from 'path'
-import { writeFile } from 'fs/promises'
-import { existsSync } from 'fs'
-import { merge, isEqual, Logger, APP_NAME, APP_USAGE, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from '@ts-for-gir/lib'
 
-import type { UserConfig, ConfigFlags, UserConfigLoadResult, OptionsGeneration } from '@ts-for-gir/lib'
+import type { ConfigFlags, OptionsGeneration, UserConfig, UserConfigLoadResult } from '@ts-for-gir/lib'
+import { APP_NAME, APP_USAGE, ERROR_CONFIG_EXTENSION_UNSUPPORTED, isEqual, Logger, merge } from '@ts-for-gir/lib'
+import { type Options as ConfigSearchOptions, cosmiconfig } from 'cosmiconfig'
+import { existsSync } from 'fs'
+import { writeFile } from 'fs/promises'
+import { dirname, extname, join, resolve } from 'path'
+import type { Options } from 'yargs'
 
 export class Config {
     static appName = APP_NAME
@@ -228,8 +228,8 @@ export class Config {
      * @param configsToAdd
      */
     public static async addToConfig(configsToAdd: Partial<UserConfig>, configName?: string): Promise<void> {
-        const userConfig = await this.loadConfigFile(configName)
-        const path = userConfig?.filepath || this.configFilePath
+        const userConfig = await Config.loadConfigFile(configName)
+        const path = userConfig?.filepath || Config.configFilePath
         const configToStore = {}
         merge(configToStore, userConfig?.config || {}, configsToAdd)
         const fileExtension = extname(path)
@@ -303,7 +303,7 @@ export class Config {
      * @param options
      */
     public static async load(options: ConfigFlags): Promise<UserConfig> {
-        const configFile = await this.loadConfigFile(options.configName)
+        const configFile = await Config.loadConfigFile(options.configName)
         const configFileData = configFile?.config || {}
 
         const config: UserConfig = {
@@ -429,7 +429,7 @@ export class Config {
             })
         }
 
-        return this.validate(config)
+        return Config.validate(config)
     }
 }
 

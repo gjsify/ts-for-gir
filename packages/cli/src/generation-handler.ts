@@ -1,18 +1,18 @@
-import { mkdir } from 'fs/promises'
-import {
-    GirModule,
-    Logger,
-    START_MODULE,
-    FILE_PARSING_DONE,
-    TSDATA_PARSING_DONE,
-    GENERATING_TYPES_DONE,
-    ERROR_NO_MODULE_SPECIFIED,
-} from '@ts-for-gir/lib'
-import { GeneratorType, type Generator } from '@ts-for-gir/generator-base'
-import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
+import { type Generator, GeneratorType } from '@ts-for-gir/generator-base'
 import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
-
-import { type OptionsGeneration, NSRegistry } from '@ts-for-gir/lib'
+import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
+import {
+    ERROR_NO_MODULE_SPECIFIED,
+    FILE_PARSING_DONE,
+    GENERATING_TYPES_DONE,
+    type GirModule,
+    Logger,
+    type NSRegistry,
+    type OptionsGeneration,
+    START_MODULE,
+    TSDATA_PARSING_DONE,
+} from '@ts-for-gir/lib'
+import { mkdir } from 'fs/promises'
 
 export class GenerationHandler {
     log: Logger
@@ -39,7 +39,7 @@ export class GenerationHandler {
     public async start(girModules: GirModule[]): Promise<void> {
         this.log.info(START_MODULE)
 
-        if (girModules.length == 0) {
+        if (girModules.length === 0) {
             this.log.error(ERROR_NO_MODULE_SPECIFIED)
         }
 

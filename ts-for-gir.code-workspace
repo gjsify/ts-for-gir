@@ -1,6 +1,6 @@
 {
     "extensions": {
-        "recommendations": ["arcanis.vscode-zipfs", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+        "recommendations": ["arcanis.vscode-zipfs", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
     },
     "launch": {
         "version": "0.2.0",
@@ -17,10 +17,10 @@
                     "--configName=.ts-for-gir.vda1.rc.js",
                     "--verbose",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
+                "sourceMaps": true
             },
             {
                 "name": "build:types:gtk2",
@@ -34,10 +34,10 @@
                     "--configName=.ts-for-gir.gtk2.rc.js",
                     "--verbose",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
+                "sourceMaps": true
             },
             {
                 "name": "build:types:gtk3",
@@ -51,10 +51,10 @@
                     "--configName=.ts-for-gir.gtk3.rc.js",
                     "--verbose",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
+                "sourceMaps": true
             },
             {
                 "name": "build:types:gtk4",
@@ -68,10 +68,10 @@
                     "--configName=.ts-for-gir.gtk4.rc.js",
                     "--verbose",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
+                "sourceMaps": true
             },
             {
                 "name": "build:types:gio",
@@ -86,10 +86,10 @@
                     "--verbose",
                     "--promisify",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
+                "sourceMaps": true
             },
             {
                 "name": "build:types",
@@ -103,10 +103,10 @@
                     "--configName=.ts-for-gir.all.rc.js",
                     "--verbose",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
+                "sourceMaps": true
             },
             {
                 "name": "build:types:local",
@@ -121,44 +121,44 @@
                     "--verbose",
                     "--environments=gjs",
                     "--outdir",
-                    "../../../tmp",
+                    "../../../tmp"
                 ],
                 "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
-                "sourceMaps": true,
-            },
-        ],
+                "sourceMaps": true
+            }
+        ]
     },
     "folders": [
         {
-            "path": ".",
+            "path": "."
         },
         {
-            "path": "packages/parser",
+            "path": "packages/parser"
         },
         {
-            "path": "packages/lib",
+            "path": "packages/lib"
         },
         {
-            "path": "packages/cli",
+            "path": "packages/cli"
         },
         {
-            "path": "packages/generator-base",
+            "path": "packages/generator-base"
         },
         {
-            "path": "packages/generator-typescript",
+            "path": "packages/generator-typescript"
         },
         {
-            "path": "packages/generator-html-doc",
-        },
+            "path": "packages/generator-html-doc"
+        }
     ],
     "settings": {
         "search.exclude": {
             "**/.yarn": true,
-            "**/.pnp.*": true,
+            "**/.pnp.*": true
         },
         "editor.tabSize": 4,
         "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": "explicit",
+            "source.fixAll.eslint": "explicit"
         },
         "eslint.validate": ["typescript"],
         "cSpell.words": [
@@ -563,7 +563,7 @@
             "yalign",
             "ypad",
             "YTHICKNESS",
-            "zorder",
+            "zorder"
         ],
 
         "typescript.enablePromptUseWorkspaceTsdk": true,
@@ -584,7 +584,7 @@
                     "editor.lineHighlightBorder": "#0000",
                     "panel.background": "#000",
                     "sideBar.background": "#000",
-                    "terminal.background": "#000",
+                    "terminal.background": "#000"
                 },
                 "[GitHub Light Default]": {
                     "activityBar.background": "#fff",
@@ -593,10 +593,10 @@
                     "editor.lineHighlightBorder": "#fff0",
                     "panel.background": "#fff",
                     "sideBar.background": "#fff",
-                    "terminal.background": "#fff",
-                },
+                    "terminal.background": "#fff"
+                }
             },
-            "window.zoomLevel": 2,
+            "window.zoomLevel": 2
         },
         "presentation-mode.configBackup": {
             "editor.fontSize": "undefined",
@@ -607,7 +607,7 @@
             "workbench.statusBar.visible": "undefined",
             "workbench.colorTheme": "undefined",
             "workbench.colorCustomizations": "undefined",
-            "window.zoomLevel": "undefined",
+            "window.zoomLevel": "undefined"
         },
         "typescript.tsdk": "ts-for-gir/.yarn/sdks/typescript/lib",
         "eslint.nodePath": "ts-for-gir/.yarn/sdks",
@@ -619,7 +619,7 @@
             "**/CVS": true,
             "**/.DS_Store": true,
             "**/Thumbs.db": true,
-            "packages/**": true,
-        },
-    },
+            "packages/**": true
+        }
+    }
 }

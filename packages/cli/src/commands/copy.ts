@@ -2,14 +2,13 @@
  * Everything you need for the `ts-for-gir copy` command is located here
  */
 
+import { copyFile, mkdir } from 'node:fs/promises'
+import { basename, join } from 'node:path'
+import type { ConfigFlags, GirModuleResolvedBy, UserConfig } from '@ts-for-gir/lib'
+import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from '@ts-for-gir/lib'
 import type { Argv, BuilderCallback } from 'yargs'
-import { copyFile, mkdir } from 'fs/promises'
-import { basename, join } from 'path'
-import { ModuleLoader } from '../module-loader.ts'
 import { Config } from '../config.ts'
-import { Logger, ERROR_NO_MODULES_FOUND, NSRegistry } from '@ts-for-gir/lib'
-
-import type { ConfigFlags, UserConfig, GirModuleResolvedBy } from '@ts-for-gir/lib'
+import { ModuleLoader } from '../module-loader.ts'
 
 const command = 'copy [modules..]'
 
@@ -29,7 +28,7 @@ const copyGirFile = async (config: UserConfig, depModule: GirModuleResolvedBy) =
         return
     }
     if (!config.outdir) {
-        Logger.error(`outdir not found`)
+        Logger.error('outdir not found')
         return
     }
     const filename = basename(depModule.path)
@@ -54,7 +53,7 @@ const handler = async (args: ConfigFlags) => {
     }
 
     if (!config.outdir) {
-        Logger.error(`outdir not found`)
+        Logger.error('outdir not found')
         return
     }
 
@@ -77,7 +76,7 @@ const handler = async (args: ConfigFlags) => {
 }
 
 const examples: ReadonlyArray<[string, string?]> = [
-    [`${Config.appName} copy -o ./gir`, `Copy found *.gir files to ./gir`],
+    [`${Config.appName} copy -o ./gir`, 'Copy found *.gir files to ./gir'],
     [
         `${Config.appName} copy -g /usr/share/gir-1.0 --ignore=Gtk-3.0 xrandr-1.3 -o ./gir`,
         'Copy all found *.gir files in /usr/share/gir-1.0 excluding Gtk-3.0 and xrandr-1.3 to ./gir',

@@ -1,10 +1,9 @@
 import type { Generator } from '@ts-for-gir/generator-base'
-import { Logger, DependencyManager, type NSRegistry, type OptionsGeneration, GirModule } from '@ts-for-gir/lib'
-
-import { TemplateProcessor } from './template-processor.ts'
+import { DependencyManager, type GirModule, Logger, type NSRegistry, type OptionsGeneration } from '@ts-for-gir/lib'
+import { ModuleGenerator } from './module-generator.ts'
 //import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from './npm-package.ts'
-import { ModuleGenerator } from './module-generator.ts'
+import { TemplateProcessor } from './template-processor.ts'
 
 export class TypeDefinitionGenerator implements Generator {
     readonly log: Logger

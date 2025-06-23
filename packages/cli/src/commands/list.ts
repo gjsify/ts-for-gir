@@ -2,12 +2,11 @@
  * Everything you need for the `ts-for-gir list` command is located here
  */
 
-import type { Argv, BuilderCallback } from 'yargs'
-import { ModuleLoader } from '../module-loader.ts'
-import { Config } from '../config.ts'
-import { Logger, ERROR_NO_MODULES_FOUND, ResolveType, NSRegistry } from '@ts-for-gir/lib'
-
 import type { ConfigFlags } from '@ts-for-gir/lib'
+import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry, ResolveType } from '@ts-for-gir/lib'
+import type { Argv, BuilderCallback } from 'yargs'
+import { Config } from '../config.ts'
+import { ModuleLoader } from '../module-loader.ts'
 
 const command = 'list [modules..]'
 
@@ -85,7 +84,7 @@ const handler = async (args: ConfigFlags) => {
 }
 
 const examples: ReadonlyArray<[string, string?]> = [
-    [`${Config.appName} list -g ./vala-girs/gir-1.0`, `Lists all available GIR modules in ./vala-girs/gir-1.0`],
+    [`${Config.appName} list -g ./vala-girs/gir-1.0`, 'Lists all available GIR modules in ./vala-girs/gir-1.0'],
     [
         `${Config.appName} list --ignore=Gtk-3.0 xrandr-1.3`,
         'Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3',

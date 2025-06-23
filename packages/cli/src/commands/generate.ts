@@ -2,16 +2,14 @@
  * Everything you need for the `ts-for-gir generate` command is located here
  */
 
-import type { Argv, BuilderCallback } from 'yargs'
-import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from '@ts-for-gir/lib'
 import { GeneratorType } from '@ts-for-gir/generator-base'
-import { GenerationHandler } from '../generation-handler.ts'
-import { Config } from '../config.ts'
-import { ModuleLoader } from '../module-loader.ts'
-import prettier from 'prettier'
-
 import type { ConfigFlags } from '@ts-for-gir/lib'
-import { Formatter } from '@ts-for-gir/lib'
+import { ERROR_NO_MODULES_FOUND, Formatter, Logger, NSRegistry } from '@ts-for-gir/lib'
+import prettier from 'prettier'
+import type { Argv, BuilderCallback } from 'yargs'
+import { Config } from '../config.ts'
+import { GenerationHandler } from '../generation-handler.ts'
+import { ModuleLoader } from '../module-loader.ts'
 
 const command = 'generate [modules..]'
 

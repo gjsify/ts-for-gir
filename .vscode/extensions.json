@@ -1,8 +1,8 @@
 {
-  "recommendations": [
-    "arcanis.vscode-zipfs",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "yoavbls.pretty-ts-errors"
-  ]
+    "recommendations": [
+        "arcanis.vscode-zipfs",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "yoavbls.pretty-ts-errors"
+    ]
 }

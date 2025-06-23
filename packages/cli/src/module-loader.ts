@@ -2,33 +2,30 @@
  * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
  */
 
-import { type Question } from 'inquirer'
 import { select } from '@inquirer/prompts'
-import { glob } from 'glob'
-import { basename, join } from 'path'
-import { bold } from 'colorette'
 import {
+    type AnswerVersion,
+    type Dependency,
     DependencyManager,
-    ResolveType,
+    type DependencyMap,
     GirModule,
-    Logger,
-    splitModuleName,
-    union,
-    isIterable,
-    WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE,
-} from '@ts-for-gir/lib'
-import { Config } from './config.ts'
-
-import {
-    type GirModulesGroupedMap,
-    type OptionsGeneration,
     type GirModuleResolvedBy,
     type GirModulesGrouped,
-    type DependencyMap,
-    type Dependency,
-    type AnswerVersion,
-    NSRegistry,
+    type GirModulesGroupedMap,
+    isIterable,
+    Logger,
+    type NSRegistry,
+    type OptionsGeneration,
+    ResolveType,
+    splitModuleName,
+    union,
+    WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE,
 } from '@ts-for-gir/lib'
+import { bold } from 'colorette'
+import { glob } from 'glob'
+import type { Question } from 'inquirer'
+import { basename, join } from 'path'
+import { Config } from './config.ts'
 
 export class ModuleLoader {
     log: Logger
@@ -114,7 +111,7 @@ export class ModuleLoader {
     }
 
     protected generateContinueQuestion(
-        message = `do you want to continue?`,
+        message = 'do you want to continue?',
         choices = ['Yes', 'Go back'],
     ): { message: string; choices: string[] } {
         return {
@@ -124,7 +121,7 @@ export class ModuleLoader {
     }
 
     protected generateIgnoreDepsQuestion(
-        message = `Do you want to ignore them too?`,
+        message = 'Do you want to ignore them too?',
         choices = ['Yes', 'No', 'Go back'],
     ): { message: string; choices: string[] } {
         return {
@@ -307,7 +304,7 @@ export class ModuleLoader {
         if (ignore && ignore.length > 0) {
             const ignoreLogList = '- ' + ignore.join('\n- ')
 
-            this.log.log(bold(`\n The following modules will be ignored:`))
+            this.log.log(bold('\n The following modules will be ignored:'))
             this.log.log(`\n${ignoreLogList}\n`)
             await this.askAddToIgnoreToConfigPrompt(ignore)
         }

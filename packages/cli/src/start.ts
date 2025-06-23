@@ -2,7 +2,7 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import { generate, list, doc, copy } from './commands/index.ts'
+import { copy, doc, generate, list } from './commands/index.ts'
 import { Config } from './config.ts'
 
 void yargs(hideBin(process.argv))

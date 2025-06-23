@@ -1,10 +1,10 @@
 import {
-    Logger,
     type Dependency,
-    DependencyManager,
-    type OptionsGeneration,
+    type DependencyManager,
     GirModule,
-    NSRegistry,
+    Logger,
+    type NSRegistry,
+    type OptionsGeneration,
 } from '@ts-for-gir/lib'
 import { TemplateProcessor } from './template-processor.ts'
 

@@ -3,25 +3,24 @@
  * For example, the signal methods are generated here
  */
 
-import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import { join, dirname, relative, extname, resolve } from 'path'
-import ejs from 'ejs'
+import type { Dependency, OptionsGeneration, TemplateData } from '@ts-for-gir/lib'
 import {
-    Logger,
     APP_NAME,
-    APP_USAGE,
     APP_SOURCE,
+    APP_USAGE,
     APP_VERSION,
+    DependencyManager,
+    fileExists,
+    Logger,
+    type NSRegistry,
     PACKAGE_DESC,
     PACKAGE_KEYWORDS,
-    DependencyManager,
     transformImportName,
-    fileExists,
-    NSRegistry,
 } from '@ts-for-gir/lib'
-
-import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
+import ejs from 'ejs'
+import { mkdir, readdir, readFile, writeFile } from 'fs/promises'
 import { createRequire } from 'module'
+import { dirname, extname, join, relative, resolve } from 'path'
 
 const require = createRequire(import.meta.url)
 

@@ -1,3 +1,2 @@
-export * from './template-processor.js'
-export * from './type-definition-generator.js'
-export * from './package-data-parser.js'
+export * from './template-processor.ts'
+export * from './type-definition-generator.ts'

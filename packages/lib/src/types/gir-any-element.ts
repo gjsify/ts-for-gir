@@ -1,4 +1,4 @@
-import {
+import type {
     GirBitfieldElement,
     GirCallbackElement,
     GirClassElement,
@@ -15,7 +15,7 @@ import {
     GirConstructorElement,
     GirFieldElement,
     GirPropertyElement,
-} from './index.js'
+} from './index.ts'
 export type GirAnyElement =
     | GirBitfieldElement
     | GirCallbackElement

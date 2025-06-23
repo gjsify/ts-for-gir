@@ -5,7 +5,7 @@ import type {
     GirMethodElement,
     GirRecordElement,
     PartOfModule,
-} from './index.js'
+} from './index.ts'
 import * as parser from '@gi.ts/parser'
 
 export interface GirUnionElement extends PartOfModule, parser.GirUnionElement {

@@ -1,11 +1,10 @@
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import {
-    IntrospectedClassFunction,
-    IntrospectedConstructor,
-    IntrospectedFunction,
-    IntrospectedFunctionParameter,
-    IntrospectedStaticClassFunction
-} from "../gir/function.js";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedConstructor } from "../gir/constructor.ts";
+
 import {
     StringType,
     NativeType,
@@ -22,11 +21,12 @@ import {
     BooleanType,
     TypeIdentifier,
     ThisType,
-    IntrospectedAlias
-} from "../gir.js";
+} from "../gir.ts";
+import { IntrospectedAlias } from "../gir/alias.ts";
 import { GirDirection } from "@gi.ts/parser";
-import { IntrospectedField, JSField } from "../gir/property.js";
-import { IntrospectedClass, IntrospectedInterface } from "../gir/class.js";
+import { IntrospectedField, JSField } from "../gir/property.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
 
 export default {
     namespace: "Gio",
@@ -265,7 +265,20 @@ export default {
                     bus_unwatch_name,
                     bus_watch_name_on_connection
                 ]
-                    .map(fn => fn.asStaticClassFunction(DBus))
+                    .map(fn => {
+                        // Convert function to static class function
+                        const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+
+                        return new IntrospectedStaticClassFunction({
+                            parent: DBus,
+                            name,
+                            output_parameters,
+                            parameters,
+                            return_type,
+                            doc,
+                            isIntrospectable
+                        });
+                    })
                     .map(fn => {
                         const member = fn.copy();
 

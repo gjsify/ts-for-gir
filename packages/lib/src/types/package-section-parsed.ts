@@ -1,4 +1,4 @@
-import type { PackageDataParsed } from './index.js'
+import type { PackageDataParsed } from './index.ts'
 
 export interface PackageSectionParsed {
     $: {

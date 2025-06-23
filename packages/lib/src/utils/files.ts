@@ -3,7 +3,7 @@ import { constants } from 'fs'
 import { readFile, access } from 'fs/promises'
 import { glob } from 'glob'
 
-import { FileInfo } from '../types/index.js'
+import type { FileInfo } from '../types/index.ts'
 export { inspect } from 'util'
 
 /**

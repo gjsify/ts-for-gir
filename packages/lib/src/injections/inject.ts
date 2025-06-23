@@ -1,13 +1,13 @@
-import glib from "./glib.js";
-import gobject from "./gobject.js";
-import gio from "./gio.js";
-import tracker1 from "./tracker1.js";
-import gee08 from "./gee08.js";
-import gee1 from "./gee1.js";
-import gtk4 from "./gtk4.js";
-import { shell14, shell15 } from "./shell.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
-import { NSRegistry } from "../gir/registry.js";
+import glib from "./glib.ts";
+import gobject from "./gobject.ts";
+import gio from "./gio.ts";
+import tracker1 from "./tracker1.ts";
+import gee08 from "./gee08.ts";
+import gee1 from "./gee1.ts";
+import gtk4 from "./gtk4.ts";
+import { shell14, shell15 } from "./shell.ts";
+import type { IntrospectedNamespace } from "../gir/namespace.ts";
+import type { NSRegistry } from "../gir/registry.ts";
 
 export type NamespaceInjection = (namespace: IntrospectedNamespace, registry: NSRegistry) => void;
 

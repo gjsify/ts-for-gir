@@ -1,4 +1,4 @@
-import {
+import type {
     GirConstructorElement,
     GirFieldElement,
     GirFunctionElement,
@@ -6,7 +6,7 @@ import {
     GirPropertyElement,
     GirUnionElement,
     PartOfModule,
-} from './index.js'
+} from './index.ts'
 
 import * as parser from '@gi.ts/parser'
 

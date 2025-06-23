@@ -1,13 +1,14 @@
-import { AnyType, NativeType, TypeIdentifier } from "../gir.js";
-import { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface, IntrospectedRecord } from "../gir/class.js";
-import { IntrospectedError } from "../gir/enum.js";
-import {
-    IntrospectedClassFunction,
-    IntrospectedDirectAllocationConstructor,
-    IntrospectedStaticClassFunction
-} from "../gir/function.js";
-import { resolveTypeIdentifier } from "../gir/util.js";
-import { GirVisitor } from "../visitor.js";
+import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
+import type { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
+import type { IntrospectedClass } from "../gir/introspected-classes.ts";
+import type { IntrospectedInterface } from "../gir/introspected-classes.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
+import { IntrospectedError } from "../gir/error.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
+import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
+import { GirVisitor } from "../visitor.ts";
 
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
     node.fields = node.fields.filter(field => field.isIntrospectable);
@@ -254,7 +255,19 @@ const mergeStaticDefinitions = (node: IntrospectedClass): IntrospectedClass => {
 
     const staticMethods = staticDefinition.members
         .filter(m => m instanceof IntrospectedClassFunction)
-        .map(m => m.asStaticClassFunction(node));
+        .map(m => {
+            // Convert the class function to a static class function
+            const { name, parameters, output_parameters, doc, isIntrospectable } = m;
+
+            return new IntrospectedStaticClassFunction({
+                name,
+                parameters,
+                output_parameters,
+                return_type: m.return(),
+                parent: node,
+                isIntrospectable
+            });
+        });
 
     for (const staticMethod of staticMethods) {
         if (

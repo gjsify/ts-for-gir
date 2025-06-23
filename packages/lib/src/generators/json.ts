@@ -1,26 +1,34 @@
-import { Logger } from "../logger.js";
-import { FormatGenerator } from "./generator.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { Logger } from "../logger.ts";
+import { FormatGenerator } from "./generator.ts";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 
-import { IntrospectedBaseClass, IntrospectedRecord, IntrospectedInterface, IntrospectedClass } from "../gir/class.js";
-import { IntrospectedConstant } from "../gir/const.js";
-import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
-import { IntrospectedProperty, IntrospectedField } from "../gir/property.js";
-import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
+import { IntrospectedBaseClass, } from "../gir/introspected-classes.ts";
+import { IntrospectedRecord } from "../gir/record.ts";
+import { IntrospectedInterface } from "../gir/introspected-classes.ts";
+import { IntrospectedClass } from "../gir/introspected-classes.ts";
+import { IntrospectedConstant } from "../gir/const.ts";
+import { IntrospectedEnum } from "../gir/enum.ts";
+import { IntrospectedError } from "../gir/error.ts";
+import { GirEnumMember } from "../gir/enum-member.ts";
+
+import { IntrospectedProperty, IntrospectedField } from "../gir/property.ts";
+import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.ts";
 import {
-    IntrospectedFunction,
-    IntrospectedConstructor,
-    IntrospectedFunctionParameter,
-    IntrospectedCallback,
-    IntrospectedDirectAllocationConstructor,
-    IntrospectedClassCallback
-} from "../gir/function.js";
-import {
-    IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
-    IntrospectedVirtualClassFunction
-} from "../gir/function.js";
-import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.js";
+} from "../gir/introspected-classes.ts";
+import { IntrospectedVirtualClassFunction } from "../gir/introspected-classes.ts";
+import { IntrospectedFunction } from "../gir/function.ts";
+
+import { IntrospectedConstructor } from "../gir/constructor.ts";
+import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
+import type { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
+import { IntrospectedClassFunction } from "../gir/introspected-classes.ts";
+
+import { IntrospectedCallback } from "../gir/callback.ts";
+import { IntrospectedClassCallback } from "../gir/introspected-classes.ts";
+
+import { resolveDirectedType } from "../utils/types.ts";
+import { isInvalid, sanitizeIdentifierName } from "../utils/naming.ts";
 import {
     TypeExpression,
     NativeType,
@@ -36,13 +44,13 @@ import {
     ClosureType,
     AnyFunctionType,
     TypeConflict,
-    IntrospectedMetadata
-} from "../gir.js";
+} from "../gir.ts";
+import { type IntrospectedMetadata } from "../types/introspected.ts";
 import { GirDirection } from "@gi.ts/parser";
-import { IntrospectedAlias } from "../gir/alias.js";
-import { AnyIntrospectedType, IntrospectedNamespaceMember } from "../gir/base.js";
+import { IntrospectedAlias } from "../gir/alias.ts";
+import { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
 
-import type { OptionsGeneration } from "../types/index.js";
+import type { OptionsGeneration, AnyIntrospectedType } from "../types/index.ts";
 
 export const enum NodeKind {
     class = "class",

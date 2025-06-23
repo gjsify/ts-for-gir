@@ -2,25 +2,18 @@
   "name": "@ts-for-gir/generator-typescript",
   "version": "4.0.0-beta.25",
   "description": "TypeScript type definition generator for ts-for-gir",
-  "module": "lib/index.js",
-  "main": "lib/index.js",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "engines": {
     "node": ">=18"
   },
   "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "yarn lint && yarn build:ts",
-    "build:ts": "tsc",
-    "clear": "yarn clear:build",
-    "clear:build": "rimraf ./lib",
-    "watch": "yarn build:ts --watch",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -29,7 +22,6 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
     "lib",
-    "templates",
     "packages.xml"
   ],
   "license": "Apache-2.0",
@@ -50,12 +42,13 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
     "prettier": "^3.5.3",
-    "rimraf": "^6.0.1",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@gi.ts/parser": "workspace:^",
     "@ts-for-gir/generator-base": "workspace:^",
     "@ts-for-gir/lib": "workspace:^",
+    "@ts-for-gir/templates": "workspace:^",
     "ejs": "^3.1.10",
     "xml2js": "^0.6.2"
   }

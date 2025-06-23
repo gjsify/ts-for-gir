@@ -1,4 +1,4 @@
-import {
+import type {
     TypeGirClass,
     TypeGirMethod,
     TypeGirVariable,
@@ -9,7 +9,7 @@ import {
     TypeGirParameter,
     TypeGirProperty,
     TypeGirFunction,
-} from './index.js'
+} from './index.ts'
 
 /** Any gir element type */
 export type TypeGirElement =

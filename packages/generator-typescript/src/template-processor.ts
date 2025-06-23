@@ -4,9 +4,8 @@
  */
 
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import { join, dirname, relative, extname } from 'path'
+import { join, dirname, relative, extname, resolve } from 'path'
 import ejs from 'ejs'
-import { __dirname } from './utils.js'
 import {
     Logger,
     APP_NAME,
@@ -18,22 +17,44 @@ import {
     DependencyManager,
     transformImportName,
     fileExists,
-    GirNSRegistry,
+    NSRegistry,
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
+import { createRequire } from 'module'
 
-const TEMPLATE_DIR = join(__dirname, './templates')
+const require = createRequire(import.meta.url)
+
+// Resolve the templates directory from the @ts-for-gir/templates package
+// Try require.resolve first, fallback to workspace path for development
+let TEMPLATE_DIR: string
+try {
+    TEMPLATE_DIR = join(dirname(require.resolve('@ts-for-gir/templates/package.json')), 'templates')
+} catch (error) {
+    // Fallback for workspace development setup
+    TEMPLATE_DIR = resolve(process.cwd(), '../../templates/templates')
+}
 
 export class TemplateProcessor {
     protected log: Logger
+    protected readonly data: TemplateData | undefined
+    protected readonly packageName: string
+    protected readonly registry: NSRegistry
+    protected readonly deps: Dependency[]
+    protected readonly config: OptionsGeneration
     constructor(
-        protected readonly data: TemplateData | undefined,
-        protected readonly packageName: string,
-        protected readonly deps: Dependency[],
-        protected readonly config: OptionsGeneration,
-        protected readonly registry: GirNSRegistry,
+        data: TemplateData | undefined,
+        packageName: string,
+        registry: NSRegistry,
+        deps: Dependency[],
+        config: OptionsGeneration,
     ) {
+        this.data = data
+        this.packageName = packageName
+        this.registry = registry
+        this.deps = deps
+        this.config = config
+
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory
@@ -289,7 +310,7 @@ export class TemplateProcessor {
             const content = await readFile(path, 'utf8')
             return this.removeTypeScriptDirectives(content)
         }
-        throw new Error(`Template '${templateFilename}' not found'`)
+        throw new Error(`Template '${path || templateFilename}' not found'`)
     }
 
     /**

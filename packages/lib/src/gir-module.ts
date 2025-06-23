@@ -1,50 +1,46 @@
-// TODO move this class into a web-worker? https://www.npmjs.com/package/web-worker
- 
-import { transformGirDocTagText } from './utils/index.js'
-import { Logger } from './logger.js'
-import { DependencyManager } from './dependency-manager.js'
-import { find, isIntrospectable } from './utils/index.js'
-import { LibraryVersion } from './library-version.js'
+import { type GirType } from '@gi.ts/parser'
+import { transformGirDocTagText } from './utils/documentation.ts'
+import { Logger } from './logger.ts'
+import { DependencyManager } from './dependency-manager.ts'
+import { find } from './utils/objects.ts'
+import { isIntrospectable } from './utils/girs.ts'
+import { LibraryVersion } from './library-version.ts'
 
 import type {
     Dependency,
-    GirType,
     GirConstantElement,
     TsDocTag,
     GirInterfaceElement,
     OptionsGeneration,
     GirEnumElement,
     GirBitfieldElement,
-} from './types/index.js'
+} from './types/index.ts'
 import {
-    ClosureType,
     TypeIdentifier,
-    PromiseType,
-    VoidType,
-    BooleanType,
-    TupleType,
-    BinaryType,
     NullableType,
     ObjectType,
-    GirNSMember,
-} from './gir.js'
-import { IntrospectedAlias } from './gir/alias.js'
-import { IntrospectedBase, IntrospectedNamespaceMember } from './gir/base.js'
-import { IntrospectedBaseClass, IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from './gir/class.js'
-import { IntrospectedConstant } from './gir/const.js'
-import { IntrospectedEnum, IntrospectedError } from './gir/enum.js'
-import {
-    IntrospectedFunction,
-    IntrospectedCallback,
-    IntrospectedClassCallback,
-    IntrospectedFunctionParameter,
-    IntrospectedClassFunction,
-} from './gir/function.js'
-import { NSRegistry } from './gir/registry.js'
-import { isPrimitiveType } from './gir/util.js'
-import { GirVisitor } from './visitor.js'
+} from './gir.ts'
 
-import type { OptionsLoad } from './types/index.js'
+import type { GirNSMember } from './gir/namespace.ts'
+import { IntrospectedAlias } from './gir/alias.ts'
+import { IntrospectedBase } from './gir/introspected-base.ts'
+import type { IntrospectedNamespaceMember } from './gir/introspected-namespace-member.ts'
+import { IntrospectedBaseClass } from './gir/introspected-classes.ts'
+import { IntrospectedClass } from './gir/introspected-classes.ts'
+import { IntrospectedRecord } from './gir/record.ts'
+import { IntrospectedInterface } from './gir/introspected-classes.ts'
+import { IntrospectedConstant } from './gir/const.ts'
+import { IntrospectedEnum } from './gir/enum.ts'
+import { IntrospectedError } from './gir/error.ts'
+import { IntrospectedFunction } from './gir/function.ts'
+import type { IntrospectedFunctionParameter } from './gir/parameter.ts'
+import type { IntrospectedClassFunction, IntrospectedClassCallback } from './gir/introspected-classes.ts'
+import { IntrospectedCallback } from './gir/callback.ts'
+import type { NSRegistry } from './gir/registry.ts'
+import { isPrimitiveType } from './utils/types.ts'
+import type { GirVisitor } from './visitor.ts'
+
+import type { OptionsLoad } from './types/index.ts'
 
 export class GirModule {
     /**
@@ -67,7 +63,7 @@ export class GirModule {
     }
     /**
      * E.g. 'Gtk40'
-     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
+     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.ts";`
      */
     get importNamespace(): string {
         return this.dependency.importNamespace
@@ -81,7 +77,7 @@ export class GirModule {
     }
 
     /**
-     * Import path for the package E.g. './Gtk-4.0.js' or '@girs/Gtk-4.0'
+     * Import path for the package E.g. './Gtk-4.0.ts' or '@girs/Gtk-4.0'
      */
     get importPath(): string {
         return this.dependency.importPath
@@ -141,6 +137,7 @@ export class GirModule {
     constNames: { [varName: string]: GirConstantElement } = {}
 
     readonly c_prefixes: string[]
+    readonly dependency: Dependency
 
     private _members?: Map<string, GirNSMember | GirNSMember[]>
     private _enum_constants?: Map<string, readonly [string, string]>
@@ -152,10 +149,11 @@ export class GirModule {
     config: OptionsGeneration
 
     constructor(
-        readonly dependency: Dependency,
+        dependency: Dependency,
         prefixes: string[],
         config: OptionsGeneration,
     ) {
+        this.dependency = dependency
         this.c_prefixes = [...prefixes]
         this.package_version = ['0', '0']
         this.config = config
@@ -322,7 +320,7 @@ export class GirModule {
 
             // TODO: It might make more sense to move this conversion _before_
             // the _getImport call.
-            const resolvedNamespaces = this.dependencyManager.namespacesForPrefix(namespace)
+            const resolvedNamespaces = this.parent.namespacesForPrefix(namespace)
             if (resolvedNamespaces.length > 0) {
                 this.log.info(
                     `Found namespaces for prefix ${namespace}: ${resolvedNamespaces.map((r) => `${r.namespace} (${r.version})`).join(', ')}`,
@@ -704,62 +702,4 @@ export class GirModule {
                 .forEach((c) => this.members.set(c.name, c))
         }
     }
-}
-
-export function promisifyNamespaceFunctions(namespace: GirModule) {
-    return namespace.members.forEach((node) => {
-        if (!(node instanceof IntrospectedFunction)) return
-
-        if (node.parameters.length < 1) return
-
-        const last_param = node.parameters[node.parameters.length - 1]
-
-        if (!last_param) return
-
-        const last_param_unwrapped = last_param.type.unwrap()
-
-        if (!(last_param_unwrapped instanceof ClosureType)) return
-
-        const internal = last_param_unwrapped.type
-
-        if (internal instanceof TypeIdentifier && internal.is('Gio', 'AsyncReadyCallback')) {
-            const async_res = [
-                ...Array.from(namespace.members.values()).filter(
-                    (m): m is IntrospectedFunction => m instanceof IntrospectedFunction,
-                ),
-            ].find((m) => m.name === `${node.name.replace(/_async$/, '')}_finish` || m.name === `${node.name}_finish`)
-
-            if (async_res) {
-                const async_parameters = node.parameters.slice(0, -1).map((p) => p.copy())
-                const sync_parameters = node.parameters.map((p) => p.copy({ isOptional: false }))
-                const output_parameters = async_res.output_parameters
-
-                let async_return = new PromiseType(async_res.return())
-
-                if (output_parameters.length > 0) {
-                    const raw_return = async_res.return()
-                    if (raw_return.equals(VoidType) || raw_return.equals(BooleanType)) {
-                        const [output_type, ...output_types] = output_parameters.map((op) => op.type)
-                        async_return = new PromiseType(new TupleType(output_type, ...output_types))
-                    } else {
-                        const [...output_types] = output_parameters.map((op) => op.type)
-                        async_return = new PromiseType(new TupleType(raw_return, ...output_types))
-                    }
-                }
-
-                namespace.members.set(node.name, [
-                    node.copy({
-                        parameters: async_parameters,
-                        return_type: async_return,
-                    }),
-                    node.copy({
-                        parameters: sync_parameters,
-                    }),
-                    node.copy({
-                        return_type: new BinaryType(async_return, node.return()),
-                    }),
-                ])
-            }
-        }
-    })
 }

@@ -4,16 +4,15 @@ import {
     removeNamespace,
     removeClassModule,
     DependencyManager,
-    PackageData,
+    type PackageData,
     TypeExpression,
-    NSRegistry,
+    type NSRegistry,
     IntrospectedClass,
     IntrospectedRecord,
     IntrospectedInterface,
     IntrospectedBaseClass,
     IntrospectedField,
-    GirDirection,
-    TsDocTag,
+    type TsDocTag,
     upperCamelCase,
     filterFunctionConflict,
     resolveDirectedType,
@@ -30,8 +29,7 @@ import {
     BooleanType,
     ThisType,
     ClassStructTypeIdentifier,
-    promisifyNamespaceFunctions,
-    OptionsGeneration,
+    type OptionsGeneration,
     GirModule,
     IntrospectedFunction,
     IntrospectedCallback,
@@ -49,26 +47,28 @@ import {
     IntrospectedAlias,
     IntrospectedEnum,
     IntrospectedSignalType,
-    IntrospectedEnumMember,
     IntrospectedError,
     FormatGenerator,
-    Generic,
+    type Generic,
     NativeType,
     isInvalid,
     filterConflicts,
     printGirDocComment,
     promisifyFunctions,
     transformGirDocText,
+    GirEnumMember,
+    promisifyNamespaceFunctions,
 } from '@ts-for-gir/lib'
+import { GirDirection } from '@gi.ts/parser'
 
-import { TemplateProcessor } from './template-processor.js'
-import { PackageDataParser } from './package-data-parser.js'
-import { NpmPackage } from './npm-package.js'
+import { TemplateProcessor } from './template-processor.ts'
+// import { PackageDataParser } from './package-data-parser.ts'
+import { NpmPackage } from './npm-package.ts'
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
     log: Logger
     dependencyManager: DependencyManager
-    packageData?: PackageDataParser
+    // packageData?: PackageDataParser
 
     config: OptionsGeneration
     moduleTemplateProcessor: TemplateProcessor
@@ -76,19 +76,15 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     /**
      * @param _config The config to use without the override config
      */
-    constructor(namespace: GirModule, config: OptionsGeneration) {
+    constructor(namespace: GirModule, config: OptionsGeneration, registry: NSRegistry) {
         super(namespace, config)
 
         this.config = config
 
         this.log = new Logger(this.config.verbose, ModuleGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        this.packageData = new PackageDataParser(this.config)
+        // this.packageData = new PackageDataParser(this.config)
         const girModule = namespace
-        let pkgData: PackageData | undefined
-        if (this.packageData) {
-            pkgData = this.packageData.get(girModule.packageName)
-        }
         this.moduleTemplateProcessor = new TemplateProcessor(
             {
                 name: girModule.namespace,
@@ -96,13 +92,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 version: girModule.version,
                 importName: girModule.importName,
                 girModule,
-                pkgData,
-                registry: this.dependencyManager,
             },
             girModule.packageName,
+            registry,
             girModule.transitiveDependencies,
             this.config,
-            this.dependencyManager,
         )
     }
 
@@ -820,7 +814,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         return desc
     }
 
-    generateEnumMember(tsMember: IntrospectedEnumMember, indentCount = 1) {
+    generateEnumMember(tsMember: GirEnumMember, indentCount = 1) {
         const desc: string[] = []
 
         desc.push(...this.addGirDocComment(tsMember.doc, [], indentCount))
@@ -1861,7 +1855,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             await this.exportModuleImportTS(girModule)
             await this.exportModuleImportJS(girModule)
 
-            const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
+            const pkg = new NpmPackage(
+                this.config,
+                this.dependencyManager,
+                _registry,
+                girModule,
+                girModule.transitiveDependencies,
+            )
             await pkg.exportNPMPackage()
         }
     }

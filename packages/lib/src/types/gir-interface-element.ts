@@ -1,20 +1,18 @@
-import {
+import type {
     GirCallbackElement,
     GirConstantElement,
     GirConstructorElement,
     GirFieldElement,
     GirFunctionElement,
-    GirImplements,
     GirMethodElement,
-    GirPrerequisite,
     GirPropertyElement,
     GirSignalElement,
     GirVirtualMethodElement,
     PartOfModule,
-} from './index.js'
-import * as parser from '@gi.ts/parser'
+} from './index.ts'
+import  { type GirImplements, type GirPrerequisite, type GirInterfaceElement as GirInterfaceElementParser } from '@gi.ts/parser'
 
-export interface GirInterfaceElement extends PartOfModule, parser.GirInterfaceElement {
+export interface GirInterfaceElement extends PartOfModule, GirInterfaceElementParser {
     prerequisite?: GirPrerequisite[]
     implements?: GirImplements[]
     function?: GirFunctionElement[]

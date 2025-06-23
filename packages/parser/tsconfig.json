@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ES2020",
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "strictBindCallApply": true,
-    "removeComments": true,
+    "lib": ["ESNext"],                 
+    "target": "ESNext",
+    "module": "ESNext",
+    "outDir": "lib",
+    "strict": true,
+    "noImplicitAny": false,
     "strictNullChecks": true,
-    "declaration": true,
-    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
     "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "rootDir": "src",
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "diagnostics": true,
-    "lib": [
-      "ES2019"
-    ]
   },
   "include": [
     "./src/**/*.ts"

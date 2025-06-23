@@ -1,2 +1,2 @@
-export * from './generator-type.js'
-export * from './generator.js'
+export * from './generator-type.ts'
+export * from './generator.ts'

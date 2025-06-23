@@ -2,12 +2,12 @@
  * Everything you need for the `ts-for-gir generate` command is located here
  */
 
-import { Argv, BuilderCallback } from 'yargs'
-import { ERROR_NO_MODULES_FOUND, Logger } from '@ts-for-gir/lib'
+import type { Argv, BuilderCallback } from 'yargs'
+import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from '@ts-for-gir/lib'
 import { GeneratorType } from '@ts-for-gir/generator-base'
-import { GenerationHandler } from '../generation-handler.js'
-import { Config } from '../config.js'
-import { ModuleLoader } from '../module-loader.js'
+import { GenerationHandler } from '../generation-handler.ts'
+import { Config } from '../config.ts'
+import { ModuleLoader } from '../module-loader.ts'
 import prettier from 'prettier'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
@@ -17,7 +17,6 @@ const command = 'generate [modules..]'
 
 const description = 'Generates Typescript type definition .d.ts files from GIR for GJS'
 
- 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.generateOptions)
     for (const optionName of optionNames) {
@@ -26,12 +25,16 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     return yargs.example(examples) as Argv<ConfigFlags>
 }
 
- 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
     const generateConfig = Config.getOptionsGeneration(config)
-    const moduleLoader = new ModuleLoader(generateConfig)
+    const registry = new NSRegistry() // TODO: Use singleton
+
+    // Register TypeScript formatter for .d.ts files
+    registry.registerFormatter('dts', new TypeScriptFormatter())
+
+    const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,
         config.ignore || [],
@@ -44,12 +47,11 @@ const handler = async (args: ConfigFlags) => {
 
     moduleLoader.parse(keep)
 
-    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES, registry)
 
     const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
 
-    moduleLoader.dependencyManager.registerFormatter('dts', new TypeScriptFormatter())
-    await tsForGir.start(girModules, moduleLoader.dependencyManager)
+    await tsForGir.start(girModules)
 }
 
 const examples: ReadonlyArray<[string, string?]> = [
@@ -77,7 +79,8 @@ class TypeScriptFormatter extends Formatter {
             })
         } catch (error) {
             Logger.warn('[TypeScriptFormatter] Failed to format with prettier, returning original input', error)
-            return Promise.resolve(input)
+            throw error
+            // return Promise.resolve(input)
         }
     }
 }

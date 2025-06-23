@@ -2,12 +2,12 @@
  * Everything you need for the `ts-for-gir copy` command is located here
  */
 
-import { Argv, BuilderCallback } from 'yargs'
+import type { Argv, BuilderCallback } from 'yargs'
 import { copyFile, mkdir } from 'fs/promises'
 import { basename, join } from 'path'
-import { ModuleLoader } from '../module-loader.js'
-import { Config } from '../config.js'
-import { Logger, ERROR_NO_MODULES_FOUND } from '@ts-for-gir/lib'
+import { ModuleLoader } from '../module-loader.ts'
+import { Config } from '../config.ts'
+import { Logger, ERROR_NO_MODULES_FOUND, NSRegistry } from '@ts-for-gir/lib'
 
 import type { ConfigFlags, UserConfig, GirModuleResolvedBy } from '@ts-for-gir/lib'
 
@@ -15,7 +15,6 @@ const command = 'copy [modules..]'
 
 const description = 'Scan for *.gir files and copy them to a new directory'
 
- 
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.copyOptions)
     for (const optionName of optionNames) {
@@ -43,11 +42,11 @@ const copyGirFile = async (config: UserConfig, depModule: GirModuleResolvedBy) =
     await copyFile(depModule.path, dest)
 }
 
- 
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
     const generateConfig = Config.getOptionsGeneration(config)
-    const moduleLoader = new ModuleLoader(generateConfig)
+    const registry = new NSRegistry() // TODO: Use singleton
+    const moduleLoader = new ModuleLoader(generateConfig, registry)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)
     if (Object.keys(grouped).length === 0) {

@@ -1,5 +1,5 @@
-import { LibraryVersion } from './library-version.js'
-import { __dirname, readJsonFile } from './utils/index.js'
+import { LibraryVersion } from './library-version.ts'
+import { readJsonFile } from './utils/files.ts'
 import { join } from 'path'
 
 export const COMMENT_REG_EXP = /\/\*.*\*\//g
@@ -14,7 +14,7 @@ export const PACKAGE = await readJsonFile<{
     license: string
     homepage: string
     author: string
-}>(join(__dirname, './package.json'))
+}>(join(process.cwd(), './package.json'))
 
 export const APP_NAME = 'ts-for-gir'
 export const APP_USAGE = 'TypeScript type definition generator for GObject introspection GIR files'

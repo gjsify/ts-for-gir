@@ -4,7 +4,7 @@
 
 import GLib from 'gi://GLib?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
-import { dbusIfaceXml } from './dbus-ifrace-xml.js'
+import { dbusIfaceXml } from './dbus-ifrace-xml.ts'
 
 // An example of the service-side implementation of the above interface.
 class Service {

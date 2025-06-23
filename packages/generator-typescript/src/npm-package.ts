@@ -1,5 +1,12 @@
-import { Logger, Dependency, DependencyManager, OptionsGeneration, GirModule } from '@ts-for-gir/lib'
-import { TemplateProcessor } from './template-processor.js'
+import {
+    Logger,
+    type Dependency,
+    DependencyManager,
+    type OptionsGeneration,
+    GirModule,
+    NSRegistry,
+} from '@ts-for-gir/lib'
+import { TemplateProcessor } from './template-processor.ts'
 
 export class NpmPackage<Wrapped extends Dependency | GirModule> {
     config: OptionsGeneration
@@ -11,6 +18,7 @@ export class NpmPackage<Wrapped extends Dependency | GirModule> {
     constructor(
         config: OptionsGeneration,
         dependencyManager: DependencyManager,
+        registry: NSRegistry,
         dependencyOrModule: Wrapped,
         deps: Dependency[],
     ) {
@@ -28,13 +36,13 @@ export class NpmPackage<Wrapped extends Dependency | GirModule> {
                 namespace: dependencyOrModule.namespace,
                 version: dependencyOrModule.version,
                 importName: dependencyOrModule.importName,
-                registry: this.dependencyManager,
+                // registry: registry,
                 girModule: dependencyOrModule instanceof GirModule ? dependencyOrModule : undefined,
             },
             dependencyOrModule.packageName,
+            registry,
             deps,
             this.config,
-            this.dependencyManager,
         )
     }
 

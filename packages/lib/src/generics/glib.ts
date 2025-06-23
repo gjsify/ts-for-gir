@@ -1,5 +1,5 @@
-import { AnyType, StringType } from "../gir.js";
-import { IntrospectedNamespace } from "../gir/namespace.js";
+import { AnyType, StringType } from "../gir.ts";
+import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 export default {
     namespace: "GLib",

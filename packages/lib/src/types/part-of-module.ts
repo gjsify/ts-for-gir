@@ -1,4 +1,4 @@
-import { GirModule } from '../gir-module'
+import type { GirModule } from '../gir-module.ts'
 
 // Custom properties, not part of parsed gir xml
 export interface PartOfModule {

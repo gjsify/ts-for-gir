@@ -1,6 +1,6 @@
 import * as parser from '@gi.ts/parser'
-import { GirCallableParamElement } from './gir-callable-param-element'
-import { GirInstanceParameter } from './gir-instance-parameter'
+import type { GirCallableParamElement } from './gir-callable-param-element.ts'
+import type { GirInstanceParameter } from './gir-instance-parameter.ts'
 
 export interface GirCallableParams extends parser.GirCallableParams {
     parameter: GirCallableParamElement[]

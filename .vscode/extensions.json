@@ -1,3 +1,7 @@
 {
-    "recommendations": ["arcanis.vscode-zipfs", "biomejs.biome", "yoavbls.pretty-ts-errors"]
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "biomejs.biome",
+    "yoavbls.pretty-ts-errors"
+  ]
 }

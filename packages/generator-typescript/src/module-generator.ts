@@ -295,6 +295,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 case ConflictType.FIELD_NAME_CONFLICT:
                     getterSetterAnnotation = setterAnnotation =
                         '// This accessor conflicts with a field or function name in a parent class or interface.\n'
+                    type = new BinaryType(type.unwrap(), AnyType)
                     break
                 case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
                     getterSetterAnnotation = getterAnnotation =
@@ -317,7 +318,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
             if (construct && !(type instanceof BinaryType)) {
                 // For constructor properties we just convert to any.
-                type = new BinaryType(type, AnyType)
+                type = new BinaryType(type instanceof TypeConflict ? type.unwrap() : type, AnyType)
             }
         }
 

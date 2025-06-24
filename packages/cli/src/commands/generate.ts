@@ -2,10 +2,10 @@
  * Everything you need for the `ts-for-gir generate` command is located here
  */
 
-import { spawn } from 'node:child_process'
 import { GeneratorType } from '@ts-for-gir/generator-base'
 import type { ConfigFlags } from '@ts-for-gir/lib'
 import { ERROR_NO_MODULES_FOUND, Formatter, Logger, NSRegistry } from '@ts-for-gir/lib'
+import prettier from 'prettier'
 import type { Argv, BuilderCallback } from 'yargs'
 import { appName, generateOptions, getOptionsGeneration, load } from '../config.ts'
 import { GenerationHandler } from '../generation-handler.ts'
@@ -68,45 +68,18 @@ const examples: ReadonlyArray<[string, string?]> = [
 ]
 
 class TypeScriptFormatter extends Formatter {
-    async format(input: string): Promise<string> {
+    format(input: string): Promise<string> {
         try {
-            // Use Biome for formatting TypeScript code
-            const biomeProcess = spawn('biome', ['format', '--stdin-file-path=temp.ts'], {
-                stdio: ['pipe', 'pipe', 'pipe'],
-            })
-
-            let output = ''
-            let error = ''
-
-            biomeProcess.stdout.on('data', (data) => {
-                output += data.toString()
-            })
-
-            biomeProcess.stderr.on('data', (data) => {
-                error += data.toString()
-            })
-
-            biomeProcess.stdin.write(input)
-            biomeProcess.stdin.end()
-
-            return new Promise((resolve) => {
-                biomeProcess.on('close', (code) => {
-                    if (code === 0) {
-                        resolve(output)
-                    } else {
-                        logger.warn('[TypeScriptFormatter] Biome formatting failed, returning original input', error)
-                        resolve(input) // Fallback to original input
-                    }
-                })
-
-                biomeProcess.on('error', (err) => {
-                    logger.warn('[TypeScriptFormatter] Failed to spawn biome process, returning original input', err)
-                    resolve(input) // Fallback to original input
-                })
+            return prettier.format(input, {
+                singleQuote: true,
+                parser: 'typescript',
+                printWidth: 120,
+                tabWidth: 4,
             })
         } catch (error) {
-            logger.warn('[TypeScriptFormatter] Failed to format with Biome, returning original input', error)
-            return input
+            Logger.warn('[TypeScriptFormatter] Failed to format with prettier, returning original input', error)
+            throw error
+            // return Promise.resolve(input)
         }
     }
 }

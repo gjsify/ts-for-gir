@@ -13820,7 +13820,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/cli@workspace:packages/cli"
   dependencies:
-    "@biomejs/biome": "npm:^2.0.5"
     "@gi.ts/parser": "workspace:^"
     "@inquirer/prompts": "npm:^7.5.3"
     "@ts-for-gir/generator-base": "workspace:^"
@@ -13840,6 +13839,7 @@ __metadata:
     esbuild-node-externals: "npm:^1.18.0"
     glob: "npm:^11.0.3"
     inquirer: "npm:^12.6.3"
+    prettier: "npm:^3.6.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:^5.8.3"
     yargs: "npm:^18.0.0"
@@ -16922,6 +16922,15 @@ __metadata:
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
   checksum: 10/6d7e21a772e8b05bf102636918654dac097bac013f0dc8346b72ac3604fc16829646f94ea862acccd8f82e910b00e2c11c1f0ea276543565d278c7ca35516a7c
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "prettier@npm:3.6.0"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/5c0db5a8e32d2ac9824d8bc652990dfd534bc7a7c6f26d99d50c9146a2d9befb3cd1cc86c4aee71caf6b264d421a4b4b5961e31a62dda3790b8fec2521a76eef
   languageName: node
   linkType: hard
 

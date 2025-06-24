@@ -296,6 +296,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     getterSetterAnnotation = setterAnnotation =
                         '// This accessor conflicts with a field or function name in a parent class or interface.\n'
                     type = new BinaryType(type.unwrap(), AnyType)
+                    // A child class cannot have an accessor declared if the parent has a function
+                    printAsProperty = true
                     break
                 case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
                     getterSetterAnnotation = getterAnnotation =

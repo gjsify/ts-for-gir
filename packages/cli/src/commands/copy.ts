@@ -9,12 +9,13 @@ import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from '@ts-for-gir/lib'
 import type { Argv, BuilderCallback } from 'yargs'
 import { Config } from '../config.ts'
 import { ModuleLoader } from '../module-loader.ts'
+import type { CopyCommandArgs } from '../types/index.ts'
 
 const command = 'copy [modules..]'
 
 const description = 'Scan for *.gir files and copy them to a new directory'
 
-const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
+const builder: BuilderCallback<CopyCommandArgs, ConfigFlags> = (yargs: Argv<CopyCommandArgs>) => {
     const optionNames = Object.keys(Config.copyOptions)
     for (const optionName of optionNames) {
         yargs = yargs.option(optionName, Config.copyOptions[optionName])

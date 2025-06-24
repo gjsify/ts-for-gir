@@ -9,12 +9,13 @@ import type { Argv, BuilderCallback } from 'yargs'
 import { Config } from '../config.ts'
 import { GenerationHandler } from '../generation-handler.ts'
 import { ModuleLoader } from '../module-loader.ts'
+import type { DocCommandArgs } from '../types/index.ts'
 
 const command = 'doc [modules..]'
 
 const description = 'The HTML documentation generator is not yet implemented, but feel free to implement it 🤗'
 
-const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
+const builder: BuilderCallback<DocCommandArgs, ConfigFlags> = (yargs: Argv<DocCommandArgs>) => {
     const optionNames = Object.keys(Config.docOptions)
     for (const optionName of optionNames) {
         yargs = yargs.option(optionName, Config.docOptions[optionName])

@@ -10,12 +10,13 @@ import type { Argv, BuilderCallback } from 'yargs'
 import { Config } from '../config.ts'
 import { GenerationHandler } from '../generation-handler.ts'
 import { ModuleLoader } from '../module-loader.ts'
+import type { GenerateCommandArgs } from '../types/index.ts'
 
 const command = 'generate [modules..]'
 
 const description = 'Generates Typescript type definition .d.ts files from GIR for GJS'
 
-const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
+const builder: BuilderCallback<GenerateCommandArgs, ConfigFlags> = (yargs: Argv<GenerateCommandArgs>) => {
     const optionNames = Object.keys(Config.generateOptions)
     for (const optionName of optionNames) {
         yargs = yargs.option(optionName, Config.generateOptions[optionName])

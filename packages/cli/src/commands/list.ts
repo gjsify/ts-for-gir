@@ -7,12 +7,13 @@ import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry, ResolveType } from '@ts-for
 import type { Argv, BuilderCallback } from 'yargs'
 import { Config } from '../config.ts'
 import { ModuleLoader } from '../module-loader.ts'
+import type { ListCommandArgs } from '../types/index.ts'
 
 const command = 'list [modules..]'
 
 const description = 'Lists all available GIR modules'
 
-const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
+const builder: BuilderCallback<ListCommandArgs, ConfigFlags> = (yargs: Argv<ListCommandArgs>) => {
     const optionNames = Object.keys(Config.listOptions)
     for (const optionName of optionNames) {
         yargs = yargs.option(optionName, Config.listOptions[optionName])

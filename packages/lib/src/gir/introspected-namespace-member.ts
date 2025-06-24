@@ -1,4 +1,4 @@
-import type { OptionsLoad } from '../types/index.ts'
+import type { GirMemberElement, OptionsLoad, PartOfClass, PartOfModule } from '../types/index.ts'
 import type { IntrospectedBaseOptions } from '../types/introspected.ts'
 import { IntrospectedBase } from './introspected-base.ts'
 import type { IntrospectedNamespace } from './namespace.ts'
@@ -13,11 +13,11 @@ export abstract class IntrospectedNamespaceMember extends IntrospectedBase<Intro
     }
 
     static fromXML(
-        element: Record<string, any>,
+        _element: PartOfClass | PartOfModule | GirMemberElement,
 
-        parent: IntrospectedNamespace,
+        _parent: IntrospectedNamespace,
 
-        options: OptionsLoad,
+        _options: OptionsLoad,
     ): IntrospectedNamespaceMember | null {
         throw new Error('GirBase cannot be instantiated')
     }

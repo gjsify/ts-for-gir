@@ -5,7 +5,7 @@ import { NullableType, OrType, TypeIdentifier } from '../gir.ts'
 const shellTemplate = (version: string) => ({
     namespace: 'Shell',
     version,
-    modifier(namespace: IntrospectedNamespace, registry: NSRegistry) {
+    modifier(namespace: IntrospectedNamespace, _registry: NSRegistry) {
         // Get the GLSLEffect class which contains the add_glsl_snippet method
         const GLSLEffect = namespace.assertClass('GLSLEffect')
 

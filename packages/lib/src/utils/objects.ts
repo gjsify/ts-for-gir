@@ -1,6 +1,6 @@
 import lodash from 'lodash'
 
-export { inspect } from 'util'
+export { inspect } from 'node:util'
 
 /**
  * Performs a deep comparison between two values to determine if they are
@@ -125,5 +125,5 @@ export const isIterable = (obj: unknown[]): boolean => {
  * @param source
  */
 export const union = <T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> => {
-    return (target = new Set<T>([...target, ...source]))
+    return new Set<T>([...target, ...source])
 }

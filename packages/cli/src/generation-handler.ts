@@ -1,3 +1,4 @@
+import { mkdir } from 'node:fs/promises'
 import { type Generator, GeneratorType } from '@ts-for-gir/generator-base'
 import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
@@ -12,7 +13,6 @@ import {
     START_MODULE,
     TSDATA_PARSING_DONE,
 } from '@ts-for-gir/lib'
-import { mkdir } from 'fs/promises'
 
 export class GenerationHandler {
     log: Logger

@@ -1,4 +1,4 @@
-import type { GirAliasElement, GirType } from '@gi.ts/parser'
+import type { GirAliasElement } from '@gi.ts/parser'
 import { GirDirection } from '@gi.ts/parser'
 import type { IntrospectedNamespace } from '../gir/namespace.ts'
 import {
@@ -6,12 +6,8 @@ import {
     ArrayType,
     BinaryType,
     BooleanType,
-    ClosureType,
-    GenericType,
-    GenerifiedTypeIdentifier,
     NativeType,
     NeverType,
-    NullableType,
     NumberType,
     ObjectType,
     StringType,
@@ -26,8 +22,12 @@ import {
 /**
  * Get the type expression for an alias element
  */
-export function getAliasType(namespace: string, ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
-    let name = parameter.type?.[0].$['name'] || 'unknown'
+export function getAliasType(
+    namespace: string,
+    _ns: IntrospectedNamespace,
+    parameter: GirAliasElement,
+): TypeExpression {
+    let name = parameter.type?.[0].$.name || 'unknown'
 
     const nameParts = name.split(' ')
 
@@ -129,7 +129,7 @@ export function isPrimitiveType(name: string): boolean {
 export function resolvePrimitiveType(name: string): TypeExpression | null {
     switch (name) {
         case '':
-            console.error("Resolving '' to any on " + name)
+            console.error(`Resolving '' to any on ${name}`)
             return AnyType
         case 'filename':
             return StringType
@@ -242,23 +242,4 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
     }
 
     return null
-}
-
-/**
- * This function determines whether a given type is a "pointer type"...
- * Any type where the c:type ends with *
- */
-function isPointerType(types: GirType[] | undefined) {
-    const type = types?.[0]
-    if (!type) return false
-
-    const ctype = type.$['c:type']
-    if (!ctype) return false
-
-    const typeName = type.$.name
-    if (!typeName) return false
-
-    if (isPrimitiveType(typeName)) return false
-
-    return ctype.endsWith('*')
 }

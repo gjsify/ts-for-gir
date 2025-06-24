@@ -74,7 +74,7 @@ export default {
         // GLib.Error
 
         {
-            const Error = namespace.assertClass('Error')
+            const GLibError = namespace.assertClass('Error')
 
             const fixQuark = <T extends IntrospectedConstructor | IntrospectedClassFunction>(c: T): T => {
                 return c.copy({
@@ -90,15 +90,18 @@ export default {
                 }) as T
             }
 
-            if (Error.mainConstructor && !(Error.mainConstructor instanceof IntrospectedDirectAllocationConstructor))
-                Error.mainConstructor = fixQuark(Error.mainConstructor)
+            if (
+                GLibError.mainConstructor &&
+                !(GLibError.mainConstructor instanceof IntrospectedDirectAllocationConstructor)
+            )
+                GLibError.mainConstructor = fixQuark(GLibError.mainConstructor)
 
-            Error.constructors = Error.constructors.map((c) => fixQuark(c))
-            Error.members = Error.members.map((m) => fixQuark(m))
-            Error.fields.push(
+            GLibError.constructors = GLibError.constructors.map((c) => fixQuark(c))
+            GLibError.members = GLibError.members.map((m) => fixQuark(m))
+            GLibError.fields.push(
                 new JSField({
                     name: 'stack',
-                    parent: Error,
+                    parent: GLibError,
                     type: StringType,
                 }),
             )

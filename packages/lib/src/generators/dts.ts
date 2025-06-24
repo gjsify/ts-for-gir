@@ -18,7 +18,7 @@ import {
     IntrospectedStaticClassFunction,
     type IntrospectedVirtualClassFunction,
 } from '../gir/introspected-classes.ts'
-import type { IntrospectedNamespace } from '../gir/namespace.ts'
+
 import { IntrospectedFunctionParameter } from '../gir/parameter.ts'
 import { promisifyFunctions } from '../gir/promisify.ts'
 import type { IntrospectedField, IntrospectedProperty } from '../gir/property.ts'
@@ -39,7 +39,7 @@ import {
     VoidType,
 } from '../gir.ts'
 import type { AnyIntrospectedType } from '../types/index.ts'
-import type { OptionsGeneration } from '../types/options-generation.ts'
+
 import { filterConflicts, filterFunctionConflict } from '../utils/conflicts.ts'
 import { isInvalid, sanitizeIdentifierName } from '../utils/naming.ts'
 import { resolveDirectedType } from '../utils/types.ts'
@@ -57,10 +57,6 @@ export function versionImportFormat(versionFormat: string, namespace: string, ve
 }
 
 export abstract class DtsGenerator extends FormatGenerator<string> {
-    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
-        super(namespace, options)
-    }
-
     protected generateParameters(parameters: IntrospectedFunctionParameter[]): string {
         return parameters
             .map((p) => {
@@ -542,7 +538,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
         })
 
         let default_signals = [] as IntrospectedClassFunction[]
-        let hasConnect, hasConnectAfter, hasEmit
+        let hasConnect: boolean, hasConnectAfter: boolean, hasEmit: boolean
 
         if (node.signals.length > 0) {
             hasConnect = node.members.some((m) => m.name === 'connect')
@@ -689,6 +685,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
                 case ConflictType.FIELD_NAME_CONFLICT:
                     getterSetterAnnotation = setterAnnotation =
                         '// This accessor conflicts with a property, field, or function name in a parent class or interface.\n'
+                    break
                 case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
                     getterSetterAnnotation = getterAnnotation =
                         '// This accessor conflicts with a property, field, or function name in a parent class or interface.\n'

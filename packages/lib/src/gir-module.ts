@@ -33,6 +33,8 @@ import { find } from './utils/objects.ts'
 import { isPrimitiveType } from './utils/types.ts'
 import type { GirVisitor } from './visitor.ts'
 
+const logger = new Logger(false, 'GirModule')
+
 export class GirModule {
     /**
      * E.g. 'Gtk'
@@ -502,8 +504,8 @@ export class GirModule {
             throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`)
         }
 
-        const modName = ns.$['name']
-        const version = ns.$['version']
+        const modName = ns.$.name
+        const version = ns.$.version
 
         if (!modName) {
             throw new Error('Invalid GIR file: no namespace name specified.')
@@ -526,7 +528,7 @@ export class GirModule {
         const unknownPrefixes = prefixes?.filter((pre) => pre !== modName)
 
         if (unknownPrefixes && unknownPrefixes.length > 0) {
-            Logger.log(`Found additional prefixes for ${modName}: ${unknownPrefixes.join(', ')}`)
+            logger.log(`Found additional prefixes for ${modName}: ${unknownPrefixes.join(', ')}`)
 
             building.prefixes.push(...unknownPrefixes)
         }
@@ -668,7 +670,7 @@ export class GirModule {
                 // Avoid attempting to alias non-introspectable symbols.
                 .map((b) => {
                     b.type = b.type
-                        ?.filter((t): t is NamedType => !!(t && t.$.name))
+                        ?.filter((t): t is NamedType => !!t?.$.name)
                         .map((t) => {
                             if (
                                 t.$.name &&

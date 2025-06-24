@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 import type { LibraryVersion } from './library-version.ts'
 import { readJsonFile } from './utils/files.ts'
 

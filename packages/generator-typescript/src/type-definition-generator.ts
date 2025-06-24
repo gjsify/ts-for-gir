@@ -73,39 +73,39 @@ export class TypeDefinitionGenerator implements Generator {
             await pkg.exportNPMPackage()
         } else {
             const gjsContent = await templateProcessor.load('gjs/gjs.d.ts')
-            await templateProcessor.write(gjsContent.prepend + '\n' + gjsContent.append, config.outdir, 'gjs.d.ts')
+            await templateProcessor.write(`${gjsContent.prepend}\n${gjsContent.append}`, config.outdir, 'gjs.d.ts')
 
             const gettextContent = await templateProcessor.load('gjs/gettext.d.ts')
             await templateProcessor.write(
-                gettextContent.prepend + '\n' + gettextContent.append,
+                `${gettextContent.prepend}\n${gettextContent.append}`,
                 config.outdir,
                 'gettext.d.ts',
             )
 
             const systemContent = await templateProcessor.load('gjs/system.d.ts')
             await templateProcessor.write(
-                systemContent.prepend + '\n' + systemContent.append,
+                `${systemContent.prepend}\n${systemContent.append}`,
                 config.outdir,
                 'system.d.ts',
             )
 
             const cairoContent = await templateProcessor.load('gjs/cairo.d.ts')
             await templateProcessor.write(
-                cairoContent.prepend + '\n' + cairoContent.append,
+                `${cairoContent.prepend}\n${cairoContent.append}`,
                 config.outdir,
                 'cairo.d.ts',
             )
 
             const consoleContent = await templateProcessor.load('gjs/console.d.ts')
             await templateProcessor.write(
-                consoleContent.prepend + '\n' + consoleContent.append,
+                `${consoleContent.prepend}\n${consoleContent.append}`,
                 config.outdir,
                 'console.d.ts',
             )
 
             // Additional DOM types supported by GJS
             const domContent = await templateProcessor.load('gjs/dom.d.ts')
-            await templateProcessor.write(domContent.prepend + '\n' + domContent.append, config.outdir, 'dom.d.ts')
+            await templateProcessor.write(`${domContent.prepend}\n${domContent.append}`, config.outdir, 'dom.d.ts')
         }
     }
 

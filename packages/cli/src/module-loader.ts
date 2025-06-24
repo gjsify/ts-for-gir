@@ -2,6 +2,7 @@
  * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
  */
 
+import { basename, join } from 'node:path'
 import { select } from '@inquirer/prompts'
 import {
     type AnswerVersion,
@@ -24,8 +25,7 @@ import {
 import { bold } from 'colorette'
 import { glob } from 'glob'
 import type { Question } from 'inquirer'
-import { basename, join } from 'path'
-import { Config } from './config.ts'
+import { addToConfig, configFilePath } from './config.ts'
 
 export class ModuleLoader {
     log: Logger
@@ -302,7 +302,7 @@ export class ModuleLoader {
             }
         }
         if (ignore && ignore.length > 0) {
-            const ignoreLogList = '- ' + ignore.join('\n- ')
+            const ignoreLogList = `- ${ignore.join('\n- ')}`
 
             this.log.log(bold('\n The following modules will be ignored:'))
             this.log.log(`\n${ignoreLogList}\n`)
@@ -321,7 +321,7 @@ export class ModuleLoader {
      */
     protected async askAddToIgnoreToConfigPrompt(ignoredModules: string[] | Set<string>): Promise<void> {
         const shouldAdd = await select<'Yes' | 'No'>({
-            message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?\n  Config path: '${Config.configFilePath}'`,
+            message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?\n  Config path: '${configFilePath}'`,
             choices: [
                 { value: 'No', name: 'No' },
                 { value: 'Yes', name: 'Yes' },
@@ -329,10 +329,10 @@ export class ModuleLoader {
         })
 
         if (shouldAdd === 'Yes') {
-            await Config.addToConfig({
+            await addToConfig({
                 ignore: Array.from(ignoredModules),
             })
-            this.log.log(`Add ignored modules to '${Config.configFilePath}'`)
+            this.log.log(`Add ignored modules to '${configFilePath}'`)
         }
     }
 
@@ -358,7 +358,7 @@ export class ModuleLoader {
      * @param girModule
      */
     protected extendDependencyMapByGirModule(girModule: GirModule): void {
-        this.modDependencyMap[girModule.packageName] = girModule.dependencies!
+        this.modDependencyMap[girModule.packageName] = girModule.dependencies || []
     }
 
     /**
@@ -446,7 +446,7 @@ export class ModuleLoader {
                         this.log.warn(WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE(dependency.packageName))
                         failedGirModules.add(dependency.packageName)
                     }
-                } else if (girModule && girModule.packageName) {
+                } else if (girModule?.packageName) {
                     const addModule = {
                         packageName: girModule.packageName,
                         module: girModule,
@@ -504,7 +504,7 @@ export class ModuleLoader {
             }
             const filename = `${globPackageNames[i]}.gir`
             const pattern = this.config.girDirectories.map((girDirectory) => join(girDirectory, filename))
-            const ignoreGirs = ignore.map((girDirectory) => girDirectory + '.gir')
+            const ignoreGirs = ignore.map((girDirectory) => `${girDirectory}.gir`)
             const files = await glob(pattern, { ignore: ignoreGirs })
             files.forEach((file) => foundFiles.add(file))
         }

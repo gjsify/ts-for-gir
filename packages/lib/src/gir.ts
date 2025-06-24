@@ -198,11 +198,11 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
         )
     }
 
-    protected _resolve(namespace: IntrospectedNamespace, options: OptionsBase): ModuleTypeIdentifier | null {
+    protected _resolve(_namespace: IntrospectedNamespace, _options: OptionsBase): ModuleTypeIdentifier | null {
         return this
     }
 
-    print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+    print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
         if (namespace.namespace === this.namespace) {
             return `${this.moduleName}.${this.name}`
         } else {
@@ -215,15 +215,11 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
  * This class overrides the default printing for types
  */
 export class ClassStructTypeIdentifier extends TypeIdentifier {
-    constructor(name: string, namespace: string) {
-        super(name, namespace)
-    }
-
     equals(type: TypeExpression): boolean {
         return type instanceof ClassStructTypeIdentifier && super.equals(type)
     }
 
-    print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+    print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
         if (namespace.namespace === this.namespace) {
             // TODO: Mapping to invalid names should happen at the generator level...
             return `typeof ${isInvalid(this.name) ? `__${this.name}` : this.name}`
@@ -364,10 +360,6 @@ export class TupleType extends OrType {
 }
 
 export class BinaryType extends OrType {
-    constructor(primary: TypeExpression, secondary: TypeExpression) {
-        super(primary, secondary)
-    }
-
     unwrap(): TypeExpression {
         return this
     }

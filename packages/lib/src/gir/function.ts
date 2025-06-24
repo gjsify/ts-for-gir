@@ -11,14 +11,12 @@ import {
     VoidType,
 } from '../gir.ts'
 
-import type { GirFunctionElement, GirMethodElement, GirModule, GirVirtualMethodElement } from '../index.ts'
+import type { GirFunctionElement, GirMethodElement, GirModule } from '../index.ts'
 import type { IntrospectedOptions, OptionsLoad } from '../types/index.ts'
 import { getType, hasShadow, parseDoc, parseMetadata } from '../utils/gir-parsing.ts'
 import { isIntrospectable } from '../utils/girs.ts'
 import { sanitizeIdentifierName } from '../utils/naming.ts'
 import type { GirVisitor } from '../visitor.ts'
-import { IntrospectedEnum } from './enum.ts'
-import { IntrospectedBaseClass } from './introspected-classes.ts'
 import { IntrospectedNamespaceMember } from './introspected-namespace-member.ts'
 import type { IntrospectedNamespace } from './namespace.ts'
 
@@ -110,8 +108,8 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         let name = sanitizeIdentifierName(null, raw_name)
 
         if (hasShadow(element)) {
-            raw_name = element.$['shadows']
-            name = sanitizeIdentifierName(null, element.$['shadows'])
+            raw_name = element.$.shadows
+            name = sanitizeIdentifierName(null, element.$.shadows)
         }
 
         // TODO: Don't create a useless function object here

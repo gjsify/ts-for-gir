@@ -3,6 +3,9 @@
  * For example, the signal methods are generated here
  */
 
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
+import { dirname, extname, join, relative, resolve } from 'node:path'
 import type { Dependency, OptionsGeneration, TemplateData } from '@ts-for-gir/lib'
 import {
     APP_NAME,
@@ -18,9 +21,6 @@ import {
     transformImportName,
 } from '@ts-for-gir/lib'
 import ejs from 'ejs'
-import { mkdir, readdir, readFile, writeFile } from 'fs/promises'
-import { createRequire } from 'module'
-import { dirname, extname, join, relative, resolve } from 'path'
 
 const require = createRequire(import.meta.url)
 
@@ -29,7 +29,7 @@ const require = createRequire(import.meta.url)
 let TEMPLATE_DIR: string
 try {
     TEMPLATE_DIR = join(dirname(require.resolve('@ts-for-gir/templates/package.json')), 'templates')
-} catch (error) {
+} catch (_error) {
     // Fallback for workspace development setup
     TEMPLATE_DIR = resolve(process.cwd(), '../../templates/templates')
 }
@@ -85,7 +85,7 @@ export class TemplateProcessor {
             appendTemplateFilename = appendTemplateFilename.replace('.d.ts', '.append.d.ts')
         } else if (extname(appendTemplateFilename)) {
             const ext = extname(appendTemplateFilename)
-            appendTemplateFilename = appendTemplateFilename.replace(ext, '.append' + ext)
+            appendTemplateFilename = appendTemplateFilename.replace(ext, `.append${ext}`)
         } else {
             appendTemplateFilename += '.append'
         }
@@ -154,7 +154,7 @@ export class TemplateProcessor {
         overrideTemplateData: TemplateData = {},
     ): Promise<string> {
         const { prepend, append } = await this.load(templateFilename, ejsOptions, overrideTemplateData)
-        const code = prepend + '\n' + content + '\n' + append
+        const code = `${prepend}\n${content}\n${append}`
         await this.write(code, baseOutputPath, outputFilename)
         return code
     }
@@ -183,7 +183,7 @@ export class TemplateProcessor {
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(rendered)) {
             const destPath = join(baseOutputPath, outputDirname, filename)
-            result[destPath] = rendered[filename] + '\n' + append
+            result[destPath] = `${rendered[filename]}\n${append}`
             await this.write(result[destPath], baseOutputPath, join(outputDirname, filename))
         }
 

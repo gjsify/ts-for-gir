@@ -1,5 +1,5 @@
-import { dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 // Get __filename on ESM
 const __filename = fileURLToPath(import.meta.url)

@@ -3,7 +3,7 @@
  * In addition, the environment or the module currently being processed is also included as prepended to the logging string
  */
 
-import { blue, gray, green, red, white, yellow, yellowBright } from 'colorette'
+import { blue, gray, green, red, yellow, yellowBright } from 'colorette'
 
 export class Logger {
     private readonly verbose: boolean
@@ -29,7 +29,7 @@ export class Logger {
         }
         if (logLevel) {
             if (this.moduleName.length > 0) {
-                txt = Logger.prepend(txt, ' ' + logLevel)
+                txt = Logger.prepend(txt, ` ${logLevel}`)
             } else {
                 txt = Logger.prepend(txt, logLevel)
             }
@@ -45,7 +45,7 @@ export class Logger {
         if (!this.verbose) {
             return
         }
-        return console.log(...args)
+        console.log(...args)
     }
     public dir(...args: unknown[]): void {
         if (!this.verbose) {
@@ -60,25 +60,25 @@ export class Logger {
         if (!this.verbose) {
             return
         }
-        return console.info(blue(txt), ...args)
+        console.info(blue(txt), ...args)
     }
     public warn(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         txt = this.prependInfo(txt, 'WARN:')
-        return console.warn(yellow(txt), ...args)
+        console.warn(yellow(txt), ...args)
     }
     public debug(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         txt = this.prependInfo(txt, 'DEBUG:')
-        return console.debug(yellowBright(txt), ...args)
+        console.debug(yellowBright(txt), ...args)
     }
     public error(txt: string, ...args: unknown[]): void {
         txt = this.prependInfo(txt, 'ERROR:')
-        return this.danger(txt, ...args)
+        this.danger(txt, ...args)
     }
     public success(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
@@ -92,46 +92,13 @@ export class Logger {
     public muted(txt: string, ...args: unknown[]): void {
         this.log(gray(txt), ...args)
     }
-
-    // Static versions (Here it must be ensured that Verbose is activated)
-    public static log(...args: unknown[]): void {
-        return console.log(...args)
+    public white(txt: string, ...args: unknown[]): void {
+        this.log(txt, ...args)
     }
-    public static dir(...args: unknown[]): void {
-        args.forEach((arg) => {
-            console.dir(arg)
-        })
-        return
+    public yellow(txt: string, ...args: unknown[]): void {
+        this.log(yellow(txt), ...args)
     }
-    public static info(txt: string, ...args: unknown[]): void {
-        txt = Logger.prepend(txt, 'INFO: ')
-        return console.info(blue(txt), ...args)
-    }
-    public static warn(txt: string, ...args: unknown[]): void {
-        txt = Logger.prepend(txt, 'WARN: ')
-        return console.warn(yellow(txt), ...args)
-    }
-    public static debug(txt: string, ...args: unknown[]): void {
-        txt = Logger.prepend(txt, 'DEBUG: ')
-        return console.debug(yellowBright(txt), ...args)
-    }
-    public static error(txt: string, ...args: unknown[]): void {
-        txt = Logger.prepend(txt, 'ERROR: ')
-        return Logger.danger(txt, ...args)
-    }
-    public static success(txt: string, ...args: unknown[]): void {
-        Logger.log(green(txt), ...args)
-    }
-    public static danger(txt: string, ...args: unknown[]): void {
-        Logger.log(red(txt), ...args)
-    }
-    public static white(txt: string, ...args: unknown[]): void {
-        Logger.log(white(txt), ...args)
-    }
-    public static yellow(txt: string, ...args: unknown[]): void {
-        Logger.log(yellow(txt), ...args)
-    }
-    public static gray(txt: string, ...args: unknown[]): void {
-        Logger.log(gray(txt), ...args)
+    public gray(txt: string, ...args: unknown[]): void {
+        this.log(gray(txt), ...args)
     }
 }

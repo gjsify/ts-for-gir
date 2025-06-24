@@ -240,8 +240,8 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 
             // Constructors
             if (Array.isArray(element.constructor)) {
-                element.constructor.forEach((constructor) => {
-                    const c = IntrospectedConstructor.fromXML(constructor, clazz, options)
+                element.constructor.forEach((ctor) => {
+                    const c = IntrospectedConstructor.fromXML(ctor, clazz, options)
 
                     clazz.constructors.push(c)
                 })

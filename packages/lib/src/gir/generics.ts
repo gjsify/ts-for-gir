@@ -32,7 +32,7 @@ export function* getGenericNames(start: string = 'A') {
 
     let i = startIteration
 
-    names = names.map((s) => (i == 0 ? s : `${s}${i}`))
+    names = names.map((s) => (i === 0 ? s : `${s}${i}`))
 
     const StartLetter = start[0]
     const position = GenericNames.indexOf(StartLetter)
@@ -53,16 +53,14 @@ export function* getGenericNames(start: string = 'A') {
     return 'ThisShouldNeverHappen'
 }
 
-export class GenericNameGenerator {
-    static new(): () => string {
-        const genericNames = getGenericNames()
+export function createGenericNameGenerator(): () => string {
+    const genericNames = getGenericNames()
 
-        return () => genericNames.next().value
-    }
+    return () => genericNames.next().value
+}
 
-    static at(start: string): () => string {
-        const genericNames = getGenericNames(start)
+export function createGenericNameGeneratorAt(start: string): () => string {
+    const genericNames = getGenericNames(start)
 
-        return () => genericNames.next().value
-    }
+    return () => genericNames.next().value
 }

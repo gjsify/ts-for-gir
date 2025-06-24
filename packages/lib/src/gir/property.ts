@@ -76,7 +76,7 @@ export class IntrospectedField extends IntrospectedClassMember {
 
     static fromXML(field: GirFieldElement, parent: IntrospectedBaseClass): IntrospectedField {
         const namespace = parent.namespace
-        const name = field.$['name']
+        const name = field.$.name
         const _name = name.replace(/[-]/g, '_')
         const f = new IntrospectedField({
             name: _name,
@@ -183,7 +183,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
         options: OptionsLoad,
     ): IntrospectedProperty {
         const ns = parent.namespace
-        const name = element.$['name']
+        const name = element.$.name
         const _name = name.replace(/[-]/g, '_')
         const property = new IntrospectedProperty({
             name: _name,

@@ -1,5 +1,11 @@
 import type { FormatGenerator } from '../generators/index.ts'
-import type { AnyIntrospectedType, IntrospectedBaseOptions, IntrospectedMetadata, OptionsLoad } from '../types/index.ts'
+import type {
+    AnyIntrospectedType,
+    GirMemberElement,
+    IntrospectedBaseOptions,
+    IntrospectedMetadata,
+    OptionsLoad,
+} from '../types/index.ts'
 import type { GirVisitor } from '../visitor.ts'
 import type { IntrospectedNamespace } from './namespace.ts'
 
@@ -82,11 +88,11 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
     abstract accept(visitor: GirVisitor): IntrospectedBase<Parent>
 
     static fromXML(
-        element: Record<string, any>,
+        _element: GirMemberElement,
 
-        parent: IntrospectedNamespace | AnyIntrospectedType,
+        _parent: IntrospectedNamespace | AnyIntrospectedType,
 
-        options: OptionsLoad,
+        _options: OptionsLoad,
     ): AnyIntrospectedType | null {
         throw new Error('GirBase cannot be instantiated')
     }

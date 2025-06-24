@@ -375,7 +375,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         function formatReference(identifier: string, member_name: string, punc?: string): string | null {
             const parts = identifier
                 .split(/([A-Z])/)
-                .filter((p) => p != '')
+                .filter((p) => p !== '')
                 .reduce((prev, next) => {
                     if (next.toUpperCase() === next) {
                         prev.push(`${next}`)
@@ -622,7 +622,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         }))
     }
 
-    generateCallbackType(node: IntrospectedCallback | IntrospectedClassCallback): [Json, Json] {
+    generateCallbackType(_node: IntrospectedCallback | IntrospectedClassCallback): [Json, Json] {
         return [{}, {}]
     }
 
@@ -794,20 +794,20 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
         const Extends = this.extends(node)
 
-        const Properties = node.props.map((v) => v && v.asString(this))
+        const Properties = node.props.map((v) => v?.asString(this))
 
         const Methods = node.members
             .filter(
                 (m) =>
                     !(m instanceof IntrospectedStaticClassFunction) && !(m instanceof IntrospectedVirtualClassFunction),
             )
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
         const StaticMethods = node.members
             .filter((m): m is IntrospectedStaticClassFunction => m instanceof IntrospectedStaticClassFunction)
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
         const VirtualMethods = node.members
             .filter((m): m is IntrospectedVirtualClassFunction => m instanceof IntrospectedVirtualClassFunction)
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
 
         return {
             kind: NodeKind.interface,
@@ -827,9 +827,9 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
         const Extends = this.extends(node)
 
-        const Properties = node.props.map((v) => v && v.asString(this))
+        const Properties = node.props.map((v) => v?.asString(this))
 
-        const Fields = node.fields.map((v) => v && v.asString(this))
+        const Fields = node.fields.map((v) => v?.asString(this))
 
         const Constructors = node.constructors.map((v) => v && this.generateConstructorFunction(v))
 
@@ -838,15 +838,15 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 (m) =>
                     !(m instanceof IntrospectedStaticClassFunction) && !(m instanceof IntrospectedVirtualClassFunction),
             )
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
         const StaticMethods = node.members
             .filter((m): m is IntrospectedStaticClassFunction => m instanceof IntrospectedStaticClassFunction)
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
         const VirtualMethods = node.members
             .filter((m): m is IntrospectedVirtualClassFunction => m instanceof IntrospectedVirtualClassFunction)
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
 
-        const Callbacks = node.callbacks.map((c) => c && c.asString(this))
+        const Callbacks = node.callbacks.map((c) => c?.asString(this))
 
         return {
             kind: NodeKind.record,
@@ -907,13 +907,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 (m) =>
                     !(m instanceof IntrospectedStaticClassFunction) && !(m instanceof IntrospectedVirtualClassFunction),
             )
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
         const StaticMethods = node.members
             .filter((m): m is IntrospectedStaticClassFunction => m instanceof IntrospectedStaticClassFunction)
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
         const VirtualMethods = node.members
             .filter((m): m is IntrospectedVirtualClassFunction => m instanceof IntrospectedVirtualClassFunction)
-            .map((v) => v && v.asString(this))
+            .map((v) => v?.asString(this))
 
         // TODO Move these to a cleaner place.
 
@@ -973,7 +973,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         })
 
         const default_signals = [] as IntrospectedClassFunction[]
-        let hasConnect, hasConnectAfter, hasEmit
+        let hasConnect: boolean, hasConnectAfter: boolean, hasEmit: boolean
 
         if (node.signals.length > 0) {
             hasConnect = node.members.some((m) => m.name === 'connect')
@@ -1240,9 +1240,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
         const { namespace, version } = node.dependency
 
-        const members = Array.from(node.members.values())
-            .flatMap((m) => m)
-            .filter(shouldGenerate)
+        const members = Array.from(node.members.values()).flat().filter(shouldGenerate)
 
         const classes = members
             .filter((m): m is IntrospectedClass => m instanceof IntrospectedClass)

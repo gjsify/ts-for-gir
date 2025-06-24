@@ -22,9 +22,7 @@ import type {
     ClassDefinition,
     ClassMember,
     ClassResolution,
-    ClassResolution as ClassResolutionType,
     InterfaceResolution,
-    InterfaceResolution as InterfaceResolutionType,
     IntrospectedOptions,
     OptionsLoad,
     RecordResolution,
@@ -39,7 +37,7 @@ import { IntrospectedConstructor } from './constructor.ts'
 import type { IntrospectedDirectAllocationConstructor } from './direct-allocation-constructor.ts'
 import type { IntrospectedEnum } from './enum.ts'
 import { IntrospectedFunction } from './function.ts'
-import { GenericNameGenerator } from './generics.ts'
+import { createGenericNameGenerator, createGenericNameGeneratorAt } from './generics.ts'
 import { IntrospectedBase } from './introspected-base.ts'
 import { IntrospectedNamespaceMember } from './introspected-namespace-member.ts'
 import type { IntrospectedNamespace } from './namespace.ts'
@@ -540,7 +538,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
         callbacks?: IntrospectedClassCallback[]
     }): IntrospectedBaseClass
 
-    getGenericName = GenericNameGenerator.new()
+    getGenericName = createGenericNameGenerator()
 
     abstract resolveParents(): RecordResolution | InterfaceResolution | ClassResolution
     abstract someParent(predicate: (b: IntrospectedBaseClass) => boolean): boolean
@@ -569,9 +567,9 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     }
 
     static fromXML(
-        element: GirClassElement | GirInterfaceElement | GirRecordElement,
-        ns: IntrospectedNamespace,
-        options: OptionsLoad,
+        _element: GirClassElement | GirInterfaceElement | GirRecordElement,
+        _ns: IntrospectedNamespace,
+        _options: OptionsLoad,
     ): IntrospectedBaseClass {
         throw new Error('fromXML is not implemented on GirBaseClass')
     }
@@ -667,10 +665,10 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         return allSignals
     }
 
-    private getPropertyTypeString(type: any): string {
+    private getPropertyTypeString(type: TypeExpression): string {
         // Simple type conversion - this might need to be adjusted based on actual type structure
         if (typeof type === 'string') return type
-        if (type && type.toString) return type.toString()
+        if (type?.toString) return type.toString()
         return 'any'
     }
 
@@ -1009,7 +1007,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             klass.mainConstructor = this.mainConstructor.copy({ parent: klass })
         }
 
-        klass.getGenericName = GenericNameGenerator.at(this.getGenericName())
+        klass.getGenericName = createGenericNameGeneratorAt(this.getGenericName())
         return klass._copyBaseProperties(this)
     }
 
@@ -1058,8 +1056,8 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
             if (Array.isArray(element.constructor)) {
                 clazz.constructors.push(
-                    ...element.constructor.map((constructor) =>
-                        IntrospectedConstructor.fromXML(constructor, clazz, options),
+                    ...element.constructor.map((constructorElement) =>
+                        IntrospectedConstructor.fromXML(constructorElement, clazz, options),
                     ),
                 )
             }
@@ -1163,16 +1161,6 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 export class IntrospectedInterface extends IntrospectedBaseClass {
     interfaces: TypeIdentifier[] = []
     noParent: boolean = false
-
-    constructor(
-        options: IntrospectedOptions<{
-            name: string
-            namespace: IntrospectedNamespace
-        }> &
-            Partial<ClassDefinition>,
-    ) {
-        super(options)
-    }
 
     accept(visitor: GirVisitor): IntrospectedInterface {
         const node = this.copy({
@@ -1307,7 +1295,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         }
 
         try {
-            if (element.prerequisite && element.prerequisite[0]) {
+            if (element.prerequisite?.[0]) {
                 const [prerequisite] = element.prerequisite
                 if (prerequisite.$.name) {
                     iface.superType = parseTypeIdentifier(namespace.namespace, prerequisite.$.name)
@@ -1316,8 +1304,8 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 
             if (Array.isArray(element.constructor)) {
                 iface.constructors.push(
-                    ...element.constructor.map((constructor) =>
-                        IntrospectedConstructor.fromXML(constructor, iface, options),
+                    ...element.constructor.map((constructorElement) =>
+                        IntrospectedConstructor.fromXML(constructorElement, iface, options),
                     ),
                 )
             }

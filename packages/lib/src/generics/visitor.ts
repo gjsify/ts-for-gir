@@ -1,7 +1,7 @@
 import type { IntrospectedCallback } from '../gir/callback.ts'
 import type { IntrospectedEnum } from '../gir/enum.ts'
 import { IntrospectedFunction } from '../gir/function.ts'
-import { GenericNameGenerator } from '../gir/generics.ts'
+import { createGenericNameGenerator } from '../gir/generics.ts'
 import type { IntrospectedInterface, IntrospectedVirtualClassFunction } from '../gir/introspected-classes.ts'
 import {
     IntrospectedBaseClass,
@@ -37,7 +37,7 @@ export class GenericVisitor extends GirVisitor {
         })
 
         if (shouldGenerify) {
-            const generateName = GenericNameGenerator.new()
+            const generateName = createGenericNameGenerator()
 
             const generics = [] as Generic[]
 

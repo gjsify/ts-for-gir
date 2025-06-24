@@ -71,7 +71,7 @@ export interface GirNamespace {
     callback?: GirCallbackElement[]
     constant?: GirConstantElement[]
     annotation?: GirAnnotation[]
-    ['glib:boxed']?: GirBoxedElement[]
+    'glib:boxed'?: GirBoxedElement[]
 }
 
 // See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/parser/src/xml.ts

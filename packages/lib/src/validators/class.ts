@@ -135,7 +135,7 @@ const removeComplexFields = <T extends IntrospectedBaseClass>(node: T): T => {
             const classNode = resolveTypeIdentifier(namespace, type)
 
             // Don't allow private or disguised fields
-            if (classNode && classNode.isPrivate) {
+            if (classNode?.isPrivate) {
                 return false
             }
 
@@ -254,7 +254,7 @@ const mergeStaticDefinitions = (node: IntrospectedClass): IntrospectedClass => {
         .filter((m) => m instanceof IntrospectedClassFunction)
         .map((m) => {
             // Convert the class function to a static class function
-            const { name, parameters, output_parameters, doc, isIntrospectable } = m
+            const { name, parameters, output_parameters, isIntrospectable } = m
 
             return new IntrospectedStaticClassFunction({
                 name,

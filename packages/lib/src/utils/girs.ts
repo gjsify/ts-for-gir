@@ -34,7 +34,7 @@ export const splitModuleName = (packageName: string): { packageName: string; nam
 
 /** Remove namespace prefix */
 export const removeNamespace = (type: string, namespace: string) => {
-    if (type.startsWith(namespace + '.')) {
+    if (type.startsWith(`${namespace}.`)) {
         type = type.substring(namespace.length + 1)
     }
     return type
@@ -47,8 +47,8 @@ export const removeClassModule = removeNamespace
  * Add namespace prefix
  */
 export const addNamespace = (type: string, namespace: string) => {
-    if (!type.startsWith(namespace + '.')) {
-        type = namespace + '.' + type
+    if (!type.startsWith(`${namespace}.`)) {
+        type = `${namespace}.${type}`
     }
     return type
 }
@@ -108,6 +108,6 @@ export const printGirDocComment = (tsDoc: TsDoc, config: { noComments: boolean }
 
 export const isIntrospectable = (e: { $?: GirInfoAttrs }) =>
     !e || !e.$ || !e.$.introspectable || e.$.introspectable === '1'
-export const isDeprecated = (e: { $: GirInfoAttrs }) => e && e.$ && e.$.deprecated === '1'
+export const isDeprecated = (e: { $: GirInfoAttrs }) => e?.$ && e.$.deprecated === '1'
 export const deprecatedVersion = (e: { $: GirInfoAttrs }) => e?.$?.['deprecated-version']
 export const introducedVersion = (e: { $: GirInfoAttrs }) => e?.$?.version

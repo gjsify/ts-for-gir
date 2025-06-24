@@ -1,5 +1,5 @@
+import { readFile } from 'node:fs/promises'
 import { type GirInclude, type GirNamespace, type GirRepository, type GirXML, parser } from '@gi.ts/parser'
-import { readFile } from 'fs/promises'
 import type { GirModule } from './gir-module.ts'
 import { LibraryVersion } from './library-version.ts'
 import { Logger } from './logger.ts'
@@ -398,8 +398,8 @@ export class DependencyManager {
         namespace: string = pascalCase(packageName),
         version = '2.0',
     ): Dependency {
-        if (this._cache[packageName + '_pseudo']) {
-            return this._cache[packageName + '_pseudo']
+        if (this._cache[`${packageName}_pseudo`]) {
+            return this._cache[`${packageName}_pseudo`]
         }
 
         const dep: Dependency = {
@@ -416,7 +416,7 @@ export class DependencyManager {
             ...this.createImportProperties(packageName, packageName, version),
         }
 
-        this._cache[packageName + '_pseudo'] = dep
+        this._cache[`${packageName}_pseudo`] = dep
 
         return dep
     }

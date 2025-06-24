@@ -1,8 +1,6 @@
 import { GirDirection } from '@gi.ts/parser'
 import {
-    AnyFunctionType,
     AnyType,
-    ArrayType,
     BinaryType,
     BooleanType,
     ClassStructTypeIdentifier,
@@ -44,20 +42,16 @@ import {
     type NSRegistry,
     NumberType,
     type OptionsGeneration,
-    type PackageData,
     printGirDocComment,
     promisifyFunctions,
     promisifyNamespaceFunctions,
     removeClassModule,
     removeNamespace,
     resolveDirectedType,
-    StringType,
-    ThisType,
     type TsDocTag,
     TypeConflict,
     type TypeExpression,
     transformGirDocText,
-    upperCamelCase,
     VoidType,
 } from '@ts-for-gir/lib'
 // import { PackageDataParser } from './package-data-parser.ts'
@@ -271,7 +265,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         const exp = !this.config.noNamespace ? '' : 'export '
         const indent = generateIndent(indentCount)
         if (!definition.startsWith(':')) {
-            definition = ' ' + definition
+            definition = ` ${definition}`
         }
         return `${indent}${exp}${type} ${name}${definition}`
     }
@@ -301,6 +295,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 case ConflictType.FIELD_NAME_CONFLICT:
                     getterSetterAnnotation = setterAnnotation =
                         '// This accessor conflicts with a field or function name in a parent class or interface.\n'
+                    break
                 case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
                     getterSetterAnnotation = getterAnnotation =
                         '// This accessor conflicts with a property or field in a parent class or interface.\n'
@@ -754,7 +749,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(this.generateExport('interface', `${interfaceHead}`, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)
-        def.push(indent + '}')
+        def.push(`${indent}}`)
 
         return def
     }
@@ -1118,8 +1113,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         def.push(
-            ...filterFunctionConflict(girClass.parent, girClass, girClass.constructors, []).flatMap((constructor) =>
-                this.generateConstructorFunction(constructor),
+            ...filterFunctionConflict(girClass.parent, girClass, girClass.constructors, []).flatMap(
+                (constructorFunction) => this.generateConstructorFunction(constructorFunction),
             ),
         )
 
@@ -1158,7 +1153,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0) {
         const def: string[] = []
-        const tsSignals = girClass.signals
+        const _tsSignals = girClass.signals
 
         // No separate callback interfaces generated. All callback types are inlined directly in SignalSignatures.
 
@@ -1213,7 +1208,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             .filter((iface) => iface.node instanceof IntrospectedInterface)
             .filter((iface) => {
                 // Only include interfaces that actually define signals
-                return (iface.node as any).signals && (iface.node as any).signals.length > 0
+                const node = iface.node as unknown as { signals?: unknown[] }
+                return node.signals && node.signals.length > 0
             })
             .map((iface) => {
                 const interfaceTypeIdentifier = iface.identifier

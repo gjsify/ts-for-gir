@@ -30,7 +30,7 @@ import {
     VoidType,
 } from '../gir.ts'
 
-function typeParam(name: string, type: TypeExpression, options: any = {}) {
+function typeParam(name: string, type: TypeExpression, options: Record<string, unknown> = {}) {
     return new IntrospectedFunctionParameter({
         name,
         direction: GirDirection.In,
@@ -39,11 +39,11 @@ function typeParam(name: string, type: TypeExpression, options: any = {}) {
     })
 }
 
-function anyParam(name: string, options: any = {}) {
+function anyParam(name: string, options: Record<string, unknown> = {}) {
     return typeParam(name, AnyType, options)
 }
 
-function stringParam(name: string, options: any = {}) {
+function stringParam(name: string, options: Record<string, unknown> = {}) {
     return typeParam(name, StringType, options)
 }
 
@@ -57,7 +57,7 @@ function stringParam(name: string, options: any = {}) {
  * @returns An IntrospectedFunctionParameter with nullable string type
  * @see https://gjs.guide/guides/gobject/basics.html#properties
  */
-function nullableStringParam(name: string, options: any = {}) {
+function nullableStringParam(name: string, options: Record<string, unknown> = {}) {
     return typeParam(name, new NullableType(StringType), {
         doc: 'A nullable string parameter, commonly used for optional documentation fields in GObject properties',
         ...options,
@@ -505,15 +505,15 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`
         )
 
         {
-            const Object = namespace.assertClass('Object')
+            const GObject = namespace.assertClass('Object')
             const Value = namespace.assertClass('Value')
 
-            const get_property = Object.members.findIndex((m) => m.name === 'get_property')
-            const set_property = Object.members.findIndex((m) => m.name === 'set_property')
+            const get_property = GObject.members.findIndex((m) => m.name === 'get_property')
+            const set_property = GObject.members.findIndex((m) => m.name === 'set_property')
 
-            Object.members[get_property] = new IntrospectedClassFunction({
+            GObject.members[get_property] = new IntrospectedClassFunction({
                 name: 'get_property',
-                parent: Object,
+                parent: GObject,
                 parameters: [
                     new IntrospectedFunctionParameter({
                         name: 'property_name',
@@ -541,9 +541,9 @@ In general, a copy is made of the property contents and the caller is responsibl
 Note that GObject.Object.get_property is really intended for language bindings, GObject.Object.get is much more convenient for C programming.`,
             })
 
-            Object.members[set_property] = new IntrospectedClassFunction({
+            GObject.members[set_property] = new IntrospectedClassFunction({
                 name: 'set_property',
-                parent: Object,
+                parent: GObject,
                 parameters: [
                     new IntrospectedFunctionParameter({
                         name: 'property_name',
@@ -568,7 +568,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
             // documentation states they can be null. This is a bug in the upstream GIR file.
 
             // Find all bind_property_full methods
-            const allBindPropertyFull = Object.members.filter(
+            const allBindPropertyFull = GObject.members.filter(
                 (m) => m.name === 'bind_property_full' && m instanceof IntrospectedClassFunction,
             ) as IntrospectedClassFunction[]
 
@@ -601,16 +601,16 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 })
 
                 // Find the index and replace
-                const bindPropertyFullIndex = Object.members.findIndex((m) => m === bindPropertyFullWithClosures)
-                Object.members[bindPropertyFullIndex] = bindPropertyFullWithClosures.copy({
+                const bindPropertyFullIndex = GObject.members.findIndex((m) => m === bindPropertyFullWithClosures)
+                GObject.members[bindPropertyFullIndex] = bindPropertyFullWithClosures.copy({
                     parameters: correctedParameters,
                 })
             }
 
-            Object.members.push(
+            GObject.members.push(
                 new IntrospectedStaticClassFunction({
                     name: '_classInit',
-                    parent: Object,
+                    parent: GObject,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'klass',
@@ -622,7 +622,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 }),
                 new IntrospectedClassFunction({
                     name: 'disconnect',
-                    parent: Object,
+                    parent: GObject,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'id',
@@ -636,13 +636,13 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 }),
                 new IntrospectedClassFunction({
                     name: 'set',
-                    parent: Object,
+                    parent: GObject,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'properties',
                             type: new NativeType('{ [key: string]: any }'),
                             direction: GirDirection.In,
-                            doc: 'Object containing the properties to set',
+                            doc: 'GObject containing the properties to set',
                         }),
                     ],
                     return_type: VoidType,
@@ -650,7 +650,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 }),
                 new IntrospectedClassFunction({
                     name: 'block_signal_handler',
-                    parent: Object,
+                    parent: GObject,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'id',
@@ -664,7 +664,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 }),
                 new IntrospectedClassFunction({
                     name: 'unblock_signal_handler',
-                    parent: Object,
+                    parent: GObject,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'id',
@@ -678,7 +678,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 }),
                 new IntrospectedClassFunction({
                     name: 'stop_emission_by_name',
-                    parent: Object,
+                    parent: GObject,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'detailedName',
@@ -709,7 +709,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'instance',
-                            type: Object.getType(),
+                            type: GObject.getType(),
                             direction: GirDirection.In,
                         }),
                         new IntrospectedFunctionParameter({
@@ -733,7 +733,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'instance',
-                            type: Object.getType(),
+                            type: GObject.getType(),
                             direction: GirDirection.In,
                         }),
                         new IntrospectedFunctionParameter({
@@ -757,7 +757,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: 'instance',
-                            type: Object.getType(),
+                            type: GObject.getType(),
                             direction: GirDirection.In,
                         }),
                         new IntrospectedFunctionParameter({
@@ -777,9 +777,9 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                 direction: GirDirection.In,
                 isVarArgs: true,
                 type: new BinaryType(
-                    new TupleType(Object.getType(), NativeType.of('SignalMatch')),
+                    new TupleType(GObject.getType(), NativeType.of('SignalMatch')),
                     new TupleType(
-                        Object.getType(),
+                        GObject.getType(),
                         new TypeIdentifier('SignalMatchType', 'GObject'),
                         NumberType,
                         new TypeIdentifier('Quark', 'GLib'),
@@ -795,7 +795,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                     name: 'instance',
                     direction: GirDirection.In,
 
-                    type: Object.getType(),
+                    type: GObject.getType(),
                 }),
                 new IntrospectedFunctionParameter({
                     name: 'match',
@@ -809,7 +809,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
                     name: 'instance',
                     direction: GirDirection.In,
 
-                    type: Object.getType(),
+                    type: GObject.getType(),
                 }),
                 new IntrospectedFunctionParameter({
                     name: 'match',

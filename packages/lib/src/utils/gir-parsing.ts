@@ -97,7 +97,7 @@ export function getType(
     let isPointer = false
 
     const parameter = param as GirCallableParamElement
-    if (parameter.array && parameter.array[0]) {
+    if (parameter.array?.[0]) {
         arrayDepth = 1
 
         const [array] = parameter.array
@@ -110,8 +110,8 @@ export function getType(
             }
         }
 
-        if (array.type && array.type[0].$ && array.type[0].$['name']) {
-            name = array.type[0].$['name']
+        if (array.type?.[0].$?.name) {
+            name = array.type[0].$.name
         } else if (array.array) {
             let arr = array
             let depth = 1
@@ -121,7 +121,7 @@ export function getType(
                 depth++
             }
 
-            const possibleName = arr.type?.[0].$['name']
+            const possibleName = arr.type?.[0].$.name
             if (possibleName) {
                 name = possibleName
             } else {
@@ -137,8 +137,8 @@ export function getType(
         } else {
             name = 'unknown'
         }
-    } else if (parameter.type && parameter.type[0] && parameter.type[0].$) {
-        const possibleName = parameter.type[0].$['name']
+    } else if (parameter.type?.[0]?.$) {
+        const possibleName = parameter.type[0].$.name
         if (possibleName) {
             name = possibleName
         } else {
@@ -164,7 +164,7 @@ export function getType(
 
     let closure = null as null | number
 
-    if (parameter.$ && parameter.$.closure) {
+    if (parameter.$?.closure) {
         closure = Number.parseInt(parameter.$.closure, 10)
 
         if (Number.isNaN(closure)) {
@@ -172,7 +172,7 @@ export function getType(
         }
     }
 
-    const nullable = parameter.$ && parameter.$['nullable'] === '1'
+    const nullable = parameter.$ && parameter.$.nullable === '1'
     const allowNone = parameter.$ && parameter.$['allow-none'] === '1'
 
     const x = name.split(' ')
@@ -251,5 +251,5 @@ export function getType(
 export function hasShadow(
     obj: GirFunctionElement | GirMethodElement,
 ): obj is GirFunctionElement & { $: { shadows: string } } {
-    return obj.$['shadows'] != null
+    return obj.$.shadows != null
 }

@@ -190,7 +190,9 @@ export function promisifyFunctions(functions: IntrospectedClassFunction[]): Intr
             node,
             parent,
             node.interfaceParent instanceof IntrospectedInterface ? node.interfaceParent : undefined,
-        )!
+        )
+
+        if (!async_res) return node
 
         // Create parameters for Promise version (without callback)
         const async_parameters = node.parameters.slice(0, -1).map((p) => p.copy({ parent: node }))

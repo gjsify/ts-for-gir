@@ -1,17 +1,18 @@
 #!/usr/bin/env node
-import yargs from 'yargs'
+import yargs, { type CommandModule } from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
 import { copy, doc, generate, list } from './commands/index.ts'
-import { Config } from './config.ts'
+import { appName, usage } from './config.ts'
 
 void yargs(hideBin(process.argv))
-    .scriptName(Config.appName)
+    .scriptName(appName)
     .strict()
-    .usage(Config.usage)
-    .command(generate.command, generate.description, generate.builder, generate.handler)
-    .command(list.command, list.description, list.builder, list.handler)
-    .command(copy.command, copy.description, copy.builder, copy.handler)
-    .command(doc.command, doc.description, doc.builder, doc.handler)
+    .usage(usage)
+    // TODO: Fix this
+    .command(generate as unknown as CommandModule)
+    .command(list as unknown as CommandModule)
+    .command(copy as unknown as CommandModule)
+    .command(doc as unknown as CommandModule)
     .demandCommand(1)
     .help().argv

@@ -1,11 +1,11 @@
-import { constants } from 'fs'
-import { access, readFile } from 'fs/promises'
+import { constants } from 'node:fs'
+import { access, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { glob } from 'glob'
-import { join } from 'path'
 
 import type { FileInfo } from '../types/index.ts'
 
-export { inspect } from 'util'
+export { inspect } from 'node:util'
 
 /**
  * Asynchronously checks if a file exists

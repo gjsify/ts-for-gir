@@ -92,7 +92,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
             isIntrospectable: isIntrospectable(element),
         })
 
-        if (element.parameters && element.parameters[0].parameter) {
+        if (element.parameters?.[0].parameter) {
             signal.parameters.push(
                 ...element.parameters[0].parameter
                     .filter((p): p is GirCallableParamElement & { $: { name: string } } => !!p.$.name)

@@ -17,7 +17,7 @@
         "format:check": "biome format .",
         "check": "biome check .",
         "check:fix": "biome check . --fix",
-        "check:workspaces": "yarn workspaces foreach -pti run check",
+        "check:workspaces": "yarn workspaces foreach -v --all -pti run check",
         "update:submodules": "git submodule foreach git pull",
         "update:packages": "yarn upgrade-interactive",
         "update": "yarn update:submodules && yarn update:packages",

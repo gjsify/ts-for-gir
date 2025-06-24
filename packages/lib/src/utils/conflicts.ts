@@ -79,7 +79,7 @@ export function filterFunctionConflict<
                 base.someParent((resolved_parent) => {
                     const parentType = resolved_parent.getType()
                     return [...resolved_parent.constructors, ...resolved_parent.members].some((p) => {
-                        if (p.name && p.name == next.name) {
+                        if (p.name && p.name === next.name) {
                             const conflicting = isConflictingFunction(ns, nextType, next, parentType, p)
 
                             if (conflicting) {
@@ -166,13 +166,13 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
     elements: T[],
     behavior = FilterBehavior.PRESERVE,
 ): T[] {
-    const filtered = [...elements.filter((p) => p && p.name)]
+    const filtered = [...elements.filter((p) => p?.name)]
     const prev = [] as T[]
     const thisType = c.getType()
     for (const next of filtered) {
         const field_conflicts = c.findParentMap((resolved_parent) => {
             return findMap([...resolved_parent.fields], (p) => {
-                if (p.name && p.name == next.name) {
+                if (p.name && p.name === next.name) {
                     if (next instanceof IntrospectedProperty) {
                         return ConflictType.ACCESSOR_PROPERTY_CONFLICT
                     }
@@ -192,7 +192,7 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
         const prop_conflicts = !field_conflicts
             ? c.findParentMap((resolved_parent) => {
                   return findMap([...resolved_parent.props], (p) => {
-                      if (p.name && p.name == next.name) {
+                      if (p.name && p.name === next.name) {
                           // TODO: This is very TypeScript-specific but until we include which parent
                           // a conflict originates from in the return, we have to handle this here
                           // and not in the generator...
@@ -224,7 +224,7 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
             !field_conflicts && !prop_conflicts
                 ? c.findParentMap((resolved_parent) =>
                       findMap([...resolved_parent.constructors, ...resolved_parent.members], (p) => {
-                          if (p.name && p.name == next.name) {
+                          if (p.name && p.name === next.name) {
                               if (
                                   !(next instanceof IntrospectedClassFunction) ||
                                   isConflictingFunction(ns, thisType, next, resolved_parent.getType(), p)

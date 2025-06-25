@@ -77,9 +77,8 @@ class TypeScriptFormatter extends Formatter {
                 tabWidth: 4,
             })
         } catch (error) {
-            Logger.warn('[TypeScriptFormatter] Failed to format with prettier, returning original input', error)
-            throw error
-            // return Promise.resolve(input)
+            logger.warn('[TypeScriptFormatter] Failed to format with prettier, returning original input', error)
+            return Promise.resolve(input)
         }
     }
 }

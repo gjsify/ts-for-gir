@@ -225,6 +225,10 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
                 ? c.findParentMap((resolved_parent) =>
                       findMap([...resolved_parent.constructors, ...resolved_parent.members], (p) => {
                           if (p.name && p.name === next.name) {
+                              if (next instanceof IntrospectedProperty) {
+                                  // Properties that conflict with parent functions should be treated as FUNCTION_NAME_CONFLICT
+                                  return ConflictType.FUNCTION_NAME_CONFLICT
+                              }
                               if (
                                   !(next instanceof IntrospectedClassFunction) ||
                                   isConflictingFunction(ns, thisType, next, resolved_parent.getType(), p)

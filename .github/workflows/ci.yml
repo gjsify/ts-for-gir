@@ -43,7 +43,7 @@ jobs:
     - name: Show diff
       run: (cd ./types && git diff | cat)
     - run: yarn check:types
-    - run: yarn test:unit
+    - run: yarn test:locally
     - run: yarn build:examples
     - run: yarn check:examples
     - run: yarn test:examples:cli

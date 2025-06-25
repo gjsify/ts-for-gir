@@ -5,7 +5,7 @@
     "scripts": {
         "test": "yarn clear && yarn generate && yarn check && yarn build",
         "generate": "ts-for-gir generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
-        "check": "tsc --project tsconfig.json --noEmit",
+        "check": "tsc --noEmit",
         "build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
         "clear": "rm -rf @types"
     },

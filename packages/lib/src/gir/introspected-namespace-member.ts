@@ -1,26 +1,24 @@
-import type { IntrospectedNamespace } from "./namespace.ts";
-import { IntrospectedBase } from "./introspected-base.ts";
+import type { GirMemberElement, OptionsLoad, PartOfClass, PartOfModule } from "../types/index.ts";
 import type { IntrospectedBaseOptions } from "../types/introspected.ts";
-
-import type { OptionsLoad } from "../types/index.ts";
+import { IntrospectedBase } from "./introspected-base.ts";
+import type { IntrospectedNamespace } from "./namespace.ts";
 
 export abstract class IntrospectedNamespaceMember extends IntrospectedBase<IntrospectedNamespace> {
-    constructor(name: string, namespace: IntrospectedNamespace, options: IntrospectedBaseOptions = {}) {
-        super(name, namespace, options);
-    }
+	constructor(name: string, namespace: IntrospectedNamespace, options: IntrospectedBaseOptions = {}) {
+		super(name, namespace, options);
+	}
 
-    get namespace() {
-        return this.parent;
-    }
+	get namespace() {
+		return this.parent;
+	}
 
-    static fromXML(
-         
-        element: Record<string, any>,
-         
-        parent: IntrospectedNamespace,
-         
-        options: OptionsLoad
-    ): IntrospectedNamespaceMember | null {
-        throw new Error("GirBase cannot be instantiated");
-    }
+	static fromXML(
+		_element: PartOfClass | PartOfModule | GirMemberElement,
+
+		_parent: IntrospectedNamespace,
+
+		_options: OptionsLoad,
+	): IntrospectedNamespaceMember | null {
+		throw new Error("GirBase cannot be instantiated");
+	}
 }

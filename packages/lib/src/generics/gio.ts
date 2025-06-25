@@ -1,66 +1,64 @@
+import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { AnyType, Generic, GenericType, GenerifiedTypeIdentifier, StringType, TypeIdentifier } from "../gir.ts";
-import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 export default {
-    namespace: "Gio",
-    version: "2.0",
-    modifier: (namespace: IntrospectedNamespace) => {
-        const AsyncInitable = namespace.getClass("AsyncInitable");
+	namespace: "Gio",
+	version: "2.0",
+	modifier: (namespace: IntrospectedNamespace) => {
+		const AsyncInitable = namespace.getClass("AsyncInitable");
 
-        if (!AsyncInitable) {
-            throw new Error("Gio.AsyncInitable not found.");
-        }
+		if (!AsyncInitable) {
+			throw new Error("Gio.AsyncInitable not found.");
+		}
 
-        const GObject = namespace.assertInstalledImport("GObject").assertClass("Object");
+		const GObject = namespace.assertInstalledImport("GObject").assertClass("Object");
 
-        AsyncInitable.addGeneric({
-            constraint: GObject.getType(),
-            default: GObject.getType(),
-            propagate: false
-        });
+		AsyncInitable.addGeneric({
+			constraint: GObject.getType(),
+			default: GObject.getType(),
+			propagate: false,
+		});
 
-        const ListModel = namespace.getClass("ListModel");
+		const ListModel = namespace.getClass("ListModel");
 
-        if (!ListModel) {
-            throw new Error("Gio.ListModel not found.");
-        }
+		if (!ListModel) {
+			throw new Error("Gio.ListModel not found.");
+		}
 
-        ListModel.addGeneric({
-            default: GObject.getType(),
-            constraint: GObject.getType()
-        });
+		ListModel.addGeneric({
+			default: GObject.getType(),
+			constraint: GObject.getType(),
+		});
 
-        const ListStore = namespace.getClass("ListStore");
+		const ListStore = namespace.getClass("ListStore");
 
-        if (!ListStore) {
-            throw new Error("Gio.ListStore not found.");
-        }
+		if (!ListStore) {
+			throw new Error("Gio.ListStore not found.");
+		}
 
-        ListStore.addGeneric({
-            deriveFrom: ListModel.getType(),
-            default: GObject.getType(),
-            constraint: GObject.getType()
-        });
+		ListStore.addGeneric({
+			deriveFrom: ListModel.getType(),
+			default: GObject.getType(),
+			constraint: GObject.getType(),
+		});
 
-        const Settings = namespace.assertClass("Settings");
+		const Settings = namespace.assertClass("Settings");
 
-        Settings.members = Settings.members.map(m => {
-            if (m.name === "get_value" || m.name === "get_default_value" || m.name === "get_user_value") {
-                m.generics.push(new Generic(new GenericType("T"), AnyType, undefined, StringType));
-                const returnType = m.return().deepUnwrap();
+		Settings.members = Settings.members.map((m) => {
+			if (m.name === "get_value" || m.name === "get_default_value" || m.name === "get_user_value") {
+				m.generics.push(new Generic(new GenericType("T"), AnyType, undefined, StringType));
+				const returnType = m.return().deepUnwrap();
 
-                if (returnType instanceof TypeIdentifier && returnType.is("GLib", "Variant")) {
-                    return m.copy({
-                        returnType: m
-                            .return()
-                            .rewrap(new GenerifiedTypeIdentifier("Variant", "GLib", [new GenericType("T")]))
-                    });
-                }
+				if (returnType instanceof TypeIdentifier && returnType.is("GLib", "Variant")) {
+					return m.copy({
+						returnType: m.return().rewrap(new GenerifiedTypeIdentifier("Variant", "GLib", [new GenericType("T")])),
+					});
+				}
 
-                return m;
-            }
+				return m;
+			}
 
-            return m;
-        });
-    }
+			return m;
+		});
+	},
 };

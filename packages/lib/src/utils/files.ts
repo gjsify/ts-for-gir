@@ -1,10 +1,11 @@
-import { join } from 'path'
-import { constants } from 'fs'
-import { readFile, access } from 'fs/promises'
-import { glob } from 'glob'
+import { constants } from "node:fs";
+import { access, readFile } from "node:fs/promises";
+import { join } from "node:path";
+import { glob } from "glob";
 
-import type { FileInfo } from '../types/index.ts'
-export { inspect } from 'util'
+import type { FileInfo } from "../types/index.ts";
+
+export { inspect } from "node:util";
 
 /**
  * Asynchronously checks if a file exists
@@ -12,13 +13,13 @@ export { inspect } from 'util'
  * @returns A promise that resolves to true if the file exists, false otherwise
  */
 export const fileExists = async (filePath: string): Promise<boolean> => {
-    try {
-        await access(filePath, constants.F_OK)
-        return true
-    } catch {
-        return false
-    }
-}
+	try {
+		await access(filePath, constants.F_OK);
+		return true;
+	} catch {
+		return false;
+	}
+};
 
 /**
  * Find a file in a list of directories
@@ -27,37 +28,37 @@ export const fileExists = async (filePath: string): Promise<boolean> => {
  * @returns The file info
  */
 export const findFilesInDirs = async (dirs: string[], filename: string): Promise<FileInfo[]> => {
-    const filesInfo: FileInfo[] = []
+	const filesInfo: FileInfo[] = [];
 
-    const pattern = dirs.map((dir) => join(dir, filename))
-    const _files = await glob(pattern)
+	const pattern = dirs.map((dir) => join(dir, filename));
+	const _files = await glob(pattern);
 
-    // Remove duplicates
-    const files = [...new Set(_files)]
+	// Remove duplicates
+	const files = [...new Set(_files)];
 
-    for (const filePath of files) {
-        const fileInfo: FileInfo = {
-            path: null,
-            filename,
-            exists: false,
-        }
-        fileInfo.exists = await fileExists(filePath)
-        if (fileInfo.exists) {
-            fileInfo.path = filePath
-            filesInfo.push(fileInfo)
-        }
-    }
+	for (const filePath of files) {
+		const fileInfo: FileInfo = {
+			path: null,
+			filename,
+			exists: false,
+		};
+		fileInfo.exists = await fileExists(filePath);
+		if (fileInfo.exists) {
+			fileInfo.path = filePath;
+			filesInfo.push(fileInfo);
+		}
+	}
 
-    if (filesInfo.length === 0) {
-        filesInfo.push({
-            path: null,
-            filename,
-            exists: false,
-        })
-    }
+	if (filesInfo.length === 0) {
+		filesInfo.push({
+			path: null,
+			filename,
+			exists: false,
+		});
+	}
 
-    return filesInfo
-}
+	return filesInfo;
+};
 
 /**
  * Read a JSON file
@@ -65,6 +66,6 @@ export const findFilesInDirs = async (dirs: string[], filename: string): Promise
  * @returns The parsed JSON
  */
 export const readJsonFile = async <T = unknown>(filePath: string): Promise<T> => {
-    const fileContent = await readFile(filePath, 'utf8')
-    return JSON.parse(fileContent) as T
-}
+	const fileContent = await readFile(filePath, "utf8");
+	return JSON.parse(fileContent) as T;
+};

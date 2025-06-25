@@ -1,1 +1,1 @@
-export * from './html-doc-generator.ts'
+export * from "./html-doc-generator.ts";

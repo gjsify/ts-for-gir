@@ -1,19 +1,17 @@
 {
-  "compilerOptions": {
-    "lib": ["ESNext"],
-    "types": ["@girs/gjs"],
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-  },
-  "include": ["global.d.ts"],
-  "files": [
-    "main.ts"
-  ]
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"types": ["@girs/gjs"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"include": ["global.d.ts"],
+	"files": ["main.ts"]
 }

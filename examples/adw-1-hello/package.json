@@ -1,31 +1,31 @@
 {
-  "name": "@ts-for-gir-example/adw-1-hello-example",
-  "version": "4.0.0-beta.25",
-  "description": "Simple GJS Typescript hello-world example using Libadwaita",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:app": "vite build",
-    "build": "yarn build:app",
-    "start:app": "gjs -m dist/main.js",
-    "debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
-    "start": "yarn build && yarn start:app",
-    "validate": "yarn validate:types",
-    "validate:types": "tsc --noEmit",
-    "clear": "rm -rf dist"
-  },
-  "author": "Pascal Garber <pascal@artandcode.studio>",
-  "license": "MIT",
-  "devDependencies": {
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5"
-  },
-  "dependencies": {
-    "@girs/adw-1": "workspace:^",
-    "@girs/gio-2.0": "workspace:^",
-    "@girs/gjs": "workspace:^",
-    "@girs/glib-2.0": "workspace:^",
-    "@girs/gtk-4.0": "workspace:^"
-  }
+	"name": "@ts-for-gir-example/adw-1-hello-example",
+	"version": "4.0.0-beta.25",
+	"description": "Simple GJS Typescript hello-world example using Libadwaita",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:app": "vite build",
+		"build": "yarn build:app",
+		"start:app": "gjs -m dist/main.js",
+		"debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
+		"start": "yarn build && yarn start:app",
+		"validate": "yarn validate:types",
+		"validate:types": "tsc --noEmit",
+		"clear": "rm -rf dist"
+	},
+	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"license": "MIT",
+	"devDependencies": {
+		"typescript": "^5.8.3",
+		"vite": "^6.3.5"
+	},
+	"dependencies": {
+		"@girs/adw-1": "workspace:^",
+		"@girs/gio-2.0": "workspace:^",
+		"@girs/gjs": "workspace:^",
+		"@girs/glib-2.0": "workspace:^",
+		"@girs/gtk-4.0": "workspace:^"
+	}
 }

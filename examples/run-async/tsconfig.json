@@ -1,13 +1,11 @@
 {
-  "compilerOptions": {  
-    "lib": ["ESNext"],
-    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2.0"],
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "noImplicitAny": true,
-  },
-  "files": [
-    "main.ts",
-  ]
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2.0"],
+		"target": "ESNext",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"noImplicitAny": true
+	},
+	"files": ["main.ts"]
 }

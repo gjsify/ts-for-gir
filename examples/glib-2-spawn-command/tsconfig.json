@@ -1,16 +1,16 @@
 {
-    "compilerOptions": {
-        "lib": ["ESNext"],
-        "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0"],
-        "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
-        "strict": true,
-        "noImplicitAny": false,
-        "strictNullChecks": true,
-        "noImplicitThis": true,
-        "alwaysStrict": true,
-        "skipLibCheck": false
-    },
-    "files": ["main.ts"]
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"strict": true,
+		"noImplicitAny": false,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"skipLibCheck": false
+	},
+	"files": ["main.ts"]
 }

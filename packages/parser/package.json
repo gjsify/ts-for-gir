@@ -1,33 +1,27 @@
 {
-  "name": "@gi.ts/parser",
-  "version": "4.0.0-beta.25",
-  "description": "Parser for GObject Introspection XML files",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
-  "scripts": {
-    "check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "fast-xml-parser": "^5.2.5"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.34.0",
-    "@typescript-eslint/parser": "^8.34.0",
-    "eslint": "^9.29.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.1",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
-  }
+	"name": "@gi.ts/parser",
+	"version": "4.0.0-beta.25",
+	"description": "Parser for GObject Introspection XML files",
+	"main": "src/index.ts",
+	"module": "src/index.ts",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"license": "MIT",
+	"scripts": {
+		"check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"fast-xml-parser": "^5.2.5"
+	},
+	"devDependencies": {
+		"typescript": "^5.8.3"
+	}
 }

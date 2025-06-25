@@ -1,30 +1,30 @@
+import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { GenerifiedTypeIdentifier } from "../gir.ts";
-import { IntrospectedNamespace } from "../gir/namespace.ts";
 
 const metaTemplate = (version: string) => ({
-    namespace: "Meta",
-    version,
-    modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
-        if (!inferGenerics) {
-            return;
-        }
+	namespace: "Meta",
+	version,
+	modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
+		if (!inferGenerics) {
+			return;
+		}
 
-        // Connect BackgroundActor to BackgroundContent
+		// Connect BackgroundActor to BackgroundContent
 
-        const LayoutManager = namespace.assertInstalledImport("Clutter").assertClass("LayoutManager");
+		const LayoutManager = namespace.assertInstalledImport("Clutter").assertClass("LayoutManager");
 
-        const BackgroundContent = namespace.assertClass("BackgroundContent");
-        const BackgroundActor = namespace.assertClass("BackgroundActor");
+		const BackgroundContent = namespace.assertClass("BackgroundContent");
+		const BackgroundActor = namespace.assertClass("BackgroundActor");
 
-        const parent = BackgroundActor.superType;
+		const parent = BackgroundActor.superType;
 
-        if (parent) {
-            BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent.namespace, [
-                LayoutManager.getType(),
-                BackgroundContent.getType()
-            ]);
-        }
-    }
+		if (parent) {
+			BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent.namespace, [
+				LayoutManager.getType(),
+				BackgroundContent.getType(),
+			]);
+		}
+	},
 });
 
 export const meta10 = metaTemplate("10");

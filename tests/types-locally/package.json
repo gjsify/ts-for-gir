@@ -3,9 +3,9 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "test": "yarn clear && yarn generate && yarn check && yarn build",
+        "test": "yarn clear && yarn generate && yarn check:types && yarn build",
         "generate": "ts-for-gir generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
-        "check": "tsc --noEmit",
+        "check:types": "tsc --noEmit",
         "build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
         "clear": "rm -rf @types"
     },

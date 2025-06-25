@@ -12,4 +12,4 @@ await build({
     target: "firefox115", // Since GJS 1.77.2
     format: 'esm',
     external: ['gi://*', 'resource://*', 'gettext', 'system', 'cairo'],
-})
+}); 

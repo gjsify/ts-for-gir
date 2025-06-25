@@ -3,11 +3,11 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "clear": "rm -rf @types",
-        "test": "yarn clear && yarn generate:types && yarn validate:types && yarn build",
-        "generate:types": "ts-for-gir generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
-        "validate:types": "tsc --project tsconfig.json --noEmit",
-        "build": "yarn node esbuild.js"
+        "test": "yarn clear && yarn generate && yarn check && yarn build",
+        "generate": "ts-for-gir generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
+        "check": "tsc --project tsconfig.json --noEmit",
+        "build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+        "clear": "rm -rf @types"
     },
     "devDependencies": {
         "@ts-for-gir/cli": "workspace:^",

@@ -15,14 +15,9 @@
 		"start": "yarn node --max_old_space_size=9216 lib/start.js",
 		"dev": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
 		"build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
-		"chmod": "chmod +x ./lib/start.js",
-		"check:types": "tsc --noEmit",
-		"check:deps": "dpdm -T ./src/index.ts",
-		"check": "yarn check:types && yarn check:deps",
-		"clear": "yarn clear:build",
-		"clear:build": "rimraf ./lib",
-		"lint": "eslint . --fix",
-		"watch": "yarn build:ts --watch"
+		"check": "tsc --noEmit",
+		"clear": "rimraf ./lib",
+		"watch": "yarn build --watch"
 	},
 	"repository": {
 		"type": "git",

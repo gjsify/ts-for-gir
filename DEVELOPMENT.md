@@ -74,7 +74,7 @@ yarn build
 Generate example type definitions:
 
 ```bash
-yarn build:types:packages:gtk4
+yarn build:types:gtk4
 ```
 
 ## Gir XML Format
@@ -96,7 +96,7 @@ npm install -g yarn
 To validate all your generated type definition files in this project run 
 
 ```bash
-yarn validate:types:packages
+yarn check:types
 ```
 
 ## Test
@@ -114,7 +114,7 @@ git submodule update --init
 Now you can run the test with
 
 ```bash
-yarn test:girs:packages
+yarn test:types
 ```
 
 ## Update gir files

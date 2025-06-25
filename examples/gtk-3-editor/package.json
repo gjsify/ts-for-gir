@@ -28,10 +28,10 @@
 	"author": "",
 	"license": "Apache-2.0",
 	"devDependencies": {
-		"@parcel/config-default": "^2.15.2",
-		"@parcel/plugin": "^2.15.2",
-		"@parcel/resolver-default": "^2.15.2",
-		"parcel": "^2.15.2",
+		"@parcel/config-default": "^2.15.4",
+		"@parcel/plugin": "^2.15.4",
+		"@parcel/resolver-default": "^2.15.4",
+		"parcel": "^2.15.4",
 		"parcel-plugin-externals": "^0.5.2",
 		"typescript": "^5.8.3"
 	},

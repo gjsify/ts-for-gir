@@ -61,7 +61,7 @@
 	"devDependencies": {
 		"@types/ejs": "^3.1.5",
 		"@types/inquirer": "^9.0.8",
-		"@types/node": "^24.0.1",
+		"@types/node": "^24.0.4",
 		"@types/yargs": "^17.0.33",
 		"dpdm": "^3.14.0",
 		"esbuild": "^0.25.5",
@@ -82,7 +82,7 @@
 		"ejs": "^3.1.10",
 		"glob": "^11.0.3",
 		"inquirer": "^12.6.3",
-		"prettier": "^3.6.0",
+		"prettier": "^3.6.1",
 		"yargs": "^18.0.0"
 	}
 }

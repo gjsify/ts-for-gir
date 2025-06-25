@@ -23,7 +23,7 @@ function cat(filename: string) {
 	const file = Gio.file_new_for_path(filename);
 
 	file.load_contents_async(null, (obj, res) => {
-		let contents: Uint8Array;
+		let contents: Uint8Array | undefined;
 		try {
 			contents = obj?.load_contents_finish(res)?.[1];
 		} catch (e) {

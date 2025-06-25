@@ -37,6 +37,7 @@ jobs:
     - run: node --version
     - run: gjs --version
     - run: yarn install
+    - run: yarn check
     - run: yarn build
     - run: yarn build:types:packages
     - name: Show diff

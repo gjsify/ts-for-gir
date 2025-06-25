@@ -5,66 +5,66 @@
 
 // Include this in case both GTK3 and GTK4 installed, otherwise an exception
 // will be thrown
-import Gtk from '@girs/gtk-3.0';
+import Gtk from "@girs/gtk-3.0";
 
 // Initialize Gtk before you start calling anything from the import
 Gtk.init(null);
 
 // Construct a top-level window
-let win = new Gtk.Window({
-    type: Gtk.WindowType.TOPLEVEL,
-    title: 'A default title',
-    defaultWidth: 300,
-    defaultHeight: 250,
-    // A decent example of how constants are mapped:
-    //     'Gtk' and 'WindowPosition' from the enum name GtkWindowPosition,
-    //     'CENTER' from the enum's constant GTK_WIN_POS_CENTER
-    windowPosition: Gtk.WindowPosition.CENTER,
+const win = new Gtk.Window({
+	type: Gtk.WindowType.TOPLEVEL,
+	title: "A default title",
+	defaultWidth: 300,
+	defaultHeight: 250,
+	// A decent example of how constants are mapped:
+	//     'Gtk' and 'WindowPosition' from the enum name GtkWindowPosition,
+	//     'CENTER' from the enum's constant GTK_WIN_POS_CENTER
+	windowPosition: Gtk.WindowPosition.CENTER,
 });
 
 // Object properties can also be set or changed after construction, unless they
 // are marked construct-only.
-win.title = 'Hello World!';
+win.title = "Hello World!";
 
 // This is a callback function
 function onDeleteEvent() {
-    log('delete-event emitted');
-    // If you return false in the "delete_event" signal handler, Gtk will emit
-    // the "destroy" signal.
-    //
-    // Returning true gives you a chance to pop up 'are you sure you want to
-    // quit?' type dialogs.
-    return false;
+	log("delete-event emitted");
+	// If you return false in the "delete_event" signal handler, Gtk will emit
+	// the "destroy" signal.
+	//
+	// Returning true gives you a chance to pop up 'are you sure you want to
+	// quit?' type dialogs.
+	return false;
 }
 
 // When the window is given the "delete_event" signal (this is given by the
 // window manager, usually by the "close" option, or on the titlebar), we ask
 // it to call the onDeleteEvent() function as defined above.
-win.connect('delete-event', onDeleteEvent);
+win.connect("delete-event", onDeleteEvent);
 
 // GJS will warn when calling a C function with unexpected arguments...
 //
 //     window.connect("destroy", Gtk.main_quit);
 //
 // ...so use arrow functions for inline callbacks with arguments to adjust
-win.connect('destroy', () => {
-    Gtk.main_quit();
+win.connect("destroy", () => {
+	Gtk.main_quit();
 });
 
 // Create a button to close the window
-let button = new Gtk.Button({
-    label: 'Close the Window',
-    // Set visible to 'true' if you don't want to call button.show() later
-    visible: true,
-    // Another example of constant mapping:
-    //     'Gtk' and 'Align' are taken from the GtkAlign enum,
-    //     'CENTER' from the constant GTK_ALIGN_CENTER
-    valign: Gtk.Align.CENTER,
-    halign: Gtk.Align.CENTER,
+const button = new Gtk.Button({
+	label: "Close the Window",
+	// Set visible to 'true' if you don't want to call button.show() later
+	visible: true,
+	// Another example of constant mapping:
+	//     'Gtk' and 'Align' are taken from the GtkAlign enum,
+	//     'CENTER' from the constant GTK_ALIGN_CENTER
+	valign: Gtk.Align.CENTER,
+	halign: Gtk.Align.CENTER,
 });
 
 // Connect to the 'clicked' signal, using another way to call an arrow function
-button.connect('clicked', () => win.destroy());
+button.connect("clicked", () => win.destroy());
 
 // Add the button to the window
 win.add(button);

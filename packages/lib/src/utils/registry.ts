@@ -1,5 +1,5 @@
-import { SanitizedIdentifiers } from './naming.ts'
+import { SanitizedIdentifiers } from "./naming.ts";
 
 export function getSanitizedIdentifiers(): ReadonlyMap<string, string> {
-    return SanitizedIdentifiers
+	return SanitizedIdentifiers;
 }

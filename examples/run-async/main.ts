@@ -5,12 +5,15 @@
 import Gio from "gi://Gio";
 
 const gioApp = new Gio.Application();
-gioApp.runAsync(ARGV).then((exitStatus: number) => {
-  log(`Exited with status: ${exitStatus}`);
-}).catch((error: unknown) => {
-  logError(error);
-});
+gioApp
+	.runAsync(ARGV)
+	.then((exitStatus: number) => {
+		log(`Exited with status: ${exitStatus}`);
+	})
+	.catch((error: unknown) => {
+		logError(error);
+	});
 
 setTimeout(() => {
-  gioApp.quit();
+	gioApp.quit();
 }, 1000);

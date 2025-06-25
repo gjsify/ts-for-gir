@@ -6,18 +6,17 @@
 // This example demonstrates that Promises always execute prior
 // to timeouts. It should log "java" then "script".
 
-const promise = new Promise(r => {
-    let i = 100;
-    while (i--)
-        ;
+const promise = new Promise((r) => {
+	let i = 100;
+	while (i--);
 
-    r(undefined);
+	r(undefined);
 });
 
 setTimeout(() => {
-    promise.then(() => log('java'));
+	promise.then(() => log("java"));
 });
 
 setTimeout(() => {
-    log('script');
+	log("script");
 });

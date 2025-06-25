@@ -1,17 +1,22 @@
 {
-  "compilerOptions": {
-    "lib": ["ESNext"],
-    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2.0", "@girs/gobject-2.0", "@girs/gtk-4.0", "@girs/graphene-1.0"],
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-  },
-  "files": [
-    "index.ts"
-  ]
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"types": [
+			"@girs/gjs",
+			"@girs/gjs/dom",
+			"@girs/gio-2.0",
+			"@girs/gobject-2.0",
+			"@girs/gtk-4.0",
+			"@girs/graphene-1.0"
+		],
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true
+	},
+	"files": ["index.ts"]
 }

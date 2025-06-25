@@ -1,30 +1,30 @@
 {
-  "name": "@ts-for-gir-example/gtk-4-signal-helpers",
-  "version": "4.0.0-beta.25",
-  "description": "GTK 4 example demonstrating advanced signal helper types for meta-programming",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:app": "tsc",
-    "build": "yarn build:app",
-    "start:app": "gjs -m dist/main.js",
-    "debug:app": "GTK_DEBUG=interactive yarn start:app",
-    "start": "yarn build && yarn start:app",
-    "validate": "yarn validate:types",
-    "validate:types": "tsc --noEmit",
-    "clear": "rm -rf dist @types"
-  },
-  "author": "Pascal Garber <pascal@artandcode.studio>",
-  "license": "MIT",
-  "devDependencies": {
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "@girs/gio-2.0": "workspace:^",
-    "@girs/gjs": "workspace:^",
-    "@girs/glib-2.0": "workspace:^",
-    "@girs/gobject-2.0": "workspace:^",
-    "@girs/gtk-4.0": "workspace:^"
-  }
+	"name": "@ts-for-gir-example/gtk-4-signal-helpers",
+	"version": "4.0.0-beta.25",
+	"description": "GTK 4 example demonstrating advanced signal helper types for meta-programming",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:app": "tsc",
+		"build": "yarn build:app",
+		"start:app": "gjs -m dist/main.js",
+		"debug:app": "GTK_DEBUG=interactive yarn start:app",
+		"start": "yarn build && yarn start:app",
+		"validate": "yarn validate:types",
+		"validate:types": "tsc --noEmit",
+		"clear": "rm -rf dist @types"
+	},
+	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"license": "MIT",
+	"devDependencies": {
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"@girs/gio-2.0": "workspace:^",
+		"@girs/gjs": "workspace:^",
+		"@girs/glib-2.0": "workspace:^",
+		"@girs/gobject-2.0": "workspace:^",
+		"@girs/gtk-4.0": "workspace:^"
+	}
 }

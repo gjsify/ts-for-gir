@@ -1,4 +1,5 @@
-import type Gio from 'gi://Gio?version=2.0';
+import type Gio from "gi://Gio?version=2.0";
+import type GLib from "gi://GLib?version=2.0";
 
 /*
  * An XML DBus Interface
@@ -24,20 +25,25 @@ export const dbusIfaceXml = `
  * The handwritten interface for `ifaceXml`
  */
 export interface DbusIfaceXml {
+	// SimpleMethod
+	SimpleMethodRemote(callback: (value: "", error: GLib.Error | null, fdList: Gio.UnixFDList | null) => void): void;
+	SimpleMethodSync(): void;
+	SimpleMethodAsync(): Promise<void>;
 
-    // SimpleMethod
-    SimpleMethodRemote(callback: (value: '', error: any, fdList: Gio.UnixFDList | null) => void): void;
-    SimpleMethodSync(): void;
-    SimpleMethodAsync(): Promise<void>;
+	// ComplexMethod
+	ComplexMethodRemote(
+		input: string,
+		callback: (value: number, error: GLib.Error | null, fdList: Gio.UnixFDList | null) => void,
+	): void;
+	ComplexMethodSync(input: string): number;
+	ComplexMethodAsync(input: string): Promise<number>;
 
-    // ComplexMethod
-    ComplexMethodRemote(input: string, callback: (value: number, error: any, fdList: Gio.UnixFDList | null) => void): void;
-    ComplexMethodSync(input: string): number;
-    ComplexMethodAsync(input: string): Promise<number>;
+	// TestSignal
+	connectSignal(
+		name: "TestSignal",
+		callback: (proxy: Gio.DBusProxy, name: string, args: [string, boolean]) => boolean | undefined,
+	): number;
 
-    // TestSignal
-    connectSignal(name: "TestSignal", callback: (proxy: Gio.DBusProxy, name: string, args: [string, boolean]) => boolean | void): number
-
-    readonly ReadOnlyProperty: string;
-    ReadWriteProperty: boolean;
+	readonly ReadOnlyProperty: string;
+	ReadWriteProperty: boolean;
 }

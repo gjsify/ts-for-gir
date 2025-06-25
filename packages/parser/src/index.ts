@@ -1,3 +1,3 @@
-export * as parser from './parser.ts'
+export * as parser from "./parser.ts";
 
-export * from './xml.ts'
+export * from "./xml.ts";

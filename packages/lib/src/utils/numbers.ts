@@ -4,5 +4,5 @@
  * @returns Whether the string is numeric or not
  */
 export const isNumeric = (str: string): boolean => {
-    return !Number.isNaN(Number(str) - parseFloat(str))
-}
+	return !Number.isNaN(Number(str) - parseFloat(str));
+};

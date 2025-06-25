@@ -1,6 +1,6 @@
-import lodash from 'lodash'
+import lodash from "lodash";
 
-export { inspect } from 'node:util'
+export { inspect } from "node:util";
 
 /**
  * Performs a deep comparison between two values to determine if they are
@@ -27,7 +27,7 @@ export { inspect } from 'node:util'
  * object === other;
  * // => false
  */
-export const isEqual = lodash.isEqual
+export const isEqual = lodash.isEqual;
 
 /**
  * Creates an array of values by running each element in collection through iteratee. The iteratee is
@@ -45,7 +45,7 @@ export const isEqual = lodash.isEqual
  * @param iteratee The function invoked per iteration.
  * @return Returns the new mapped array.
  */
-export const map = lodash.map
+export const map = lodash.map;
 
 /**
  * Iterates over elements of collection, returning the first element predicate returns truthy for.
@@ -56,7 +56,7 @@ export const map = lodash.map
  * @param fromIndex The index to search from.
  * @return Returns the matched element, else undefined.
  */
-export const find = lodash.find
+export const find = lodash.find;
 
 /**
  * Recursively merges own and inherited enumerable properties of source
@@ -85,7 +85,7 @@ export const find = lodash.find
  * _.merge(users, ages);
  * // => { 'data': [{ 'user': 'barney', 'age': 36 }, { 'user': 'fred', 'age': 40 }] }
  */
-export const merge = lodash.merge
+export const merge = lodash.merge;
 
 /**
  * Creates a shallow clone of value.
@@ -98,7 +98,7 @@ export const merge = lodash.merge
  * @param value The value to clone.
  * @return Returns the cloned value.
  */
-export const clone = lodash.clone
+export const clone = lodash.clone;
 
 /**
  * This method is like clone except that it recursively clones value.
@@ -106,7 +106,7 @@ export const clone = lodash.clone
  * @param value The value to recursively clone.
  * @return Returns the deep cloned value.
  */
-export const cloneDeep = lodash.cloneDeep
+export const cloneDeep = lodash.cloneDeep;
 
 /**
  * Checking whether some variable is iterable
@@ -115,8 +115,8 @@ export const cloneDeep = lodash.cloneDeep
  * @returns Whether the variable is iterable or not
  */
 export const isIterable = (obj: unknown[]): boolean => {
-    return obj != null && typeof obj[Symbol.iterator] === 'function'
-}
+	return obj != null && typeof obj[Symbol.iterator] === "function";
+};
 
 /**
  * Union (a ∪ b): create a set that contains the elements of both set a and set b.
@@ -125,5 +125,5 @@ export const isIterable = (obj: unknown[]): boolean => {
  * @param source
  */
 export const union = <T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> => {
-    return new Set<T>([...target, ...source])
-}
+	return new Set<T>([...target, ...source]);
+};

@@ -1,4 +1,4 @@
-declare module '*.glade' {
-    const glade: string
-    export default glade
+declare module "*.glade" {
+	const glade: string;
+	export default glade;
 }

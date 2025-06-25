@@ -1,20 +1,17 @@
 {
-  "compilerOptions": {   
-    "lib": ["ESNext"],
-    "types": ["@girs/gjs", "@girs/gio-2.0"],
-    "target": "ESNext",
-    "module": "ESNext",
-    "allowImportingTsExtensions": true,
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-  },
-  "files": [
-    "dbus-client.ts",
-    "dbus-server.ts",
-  ]
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"types": ["@girs/gjs", "@girs/gio-2.0"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"allowImportingTsExtensions": true,
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true
+	},
+	"files": ["dbus-client.ts", "dbus-server.ts"]
 }

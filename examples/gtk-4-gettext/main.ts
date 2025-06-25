@@ -8,31 +8,32 @@
  * the label should show a translation of 'Print help'
  */
 
-import Gtk from 'gi://Gtk?version=4.0';
-import GLib from 'gi://GLib';
+import GLib from "gi://GLib";
+import Gtk from "gi://Gtk?version=4.0";
+
 const { gettext } = imports;
 
 imports.package.init({
-  name: "ts-for-gir-example",
-  version: "0.0.1",
-  prefix: "@ts-for-gir-example",
-  libdir: "/usr/lib",
+	name: "ts-for-gir-example",
+	version: "0.0.1",
+	prefix: "@ts-for-gir-example",
+	libdir: "/usr/lib",
 });
 
 pkg.initGettext();
 
-gettext.bindtextdomain('gnome-shell', '/usr/share/locale');
-gettext.textdomain('gnome-shell');
+gettext.bindtextdomain("gnome-shell", "/usr/share/locale");
+gettext.textdomain("gnome-shell");
 
 Gtk.init();
 
 const w = new Gtk.Window({});
 w.set_default_size(250, 250);
-w.set_child(new Gtk.Label({label: gettext.gettext('Print help')}));
+w.set_child(new Gtk.Label({ label: gettext.gettext("Print help") }));
 w.present();
 
 // Simple test to check if the gettext function works
-print(gettext.gettext('Print help') === _!('Print help'))
+print(gettext.gettext("Print help") === _?.("Print help"));
 
 const loop = new GLib.MainLoop(null, false);
 loop.run();

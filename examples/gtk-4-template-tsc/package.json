@@ -6,13 +6,9 @@
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build:app": "tsc",
-		"build": "yarn build:app",
-		"start:app": "gjs -m dist/main.js",
-		"debug:app": "GTK_DEBUG=interactive yarn start:app",
-		"start": "yarn build && yarn start:app",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
+		"build": "tsc",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",

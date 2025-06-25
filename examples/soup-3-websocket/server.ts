@@ -5,3 +5,4 @@
  * - https://yz.mit.edu/wp/web-sockets-tutorial-with-simple-python-server/
  * - https://github.com/websockets/websocket-echo-server/blob/master/index.js
  */
+console.log("Would you like create a server example? Than please open a PR");

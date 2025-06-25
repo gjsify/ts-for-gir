@@ -1,32 +1,27 @@
 {
-	"name": "@ts-for-gir-example/gtk-4-template-vite",
+	"name": "@ts-for-gir-example/gtk-4-template-vite-example",
 	"version": "4.0.0-beta.25",
-	"description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files over the Vite bundler",
+	"description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
 	"type": "module",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build:app": "vite build",
-		"build": "yarn build:app",
-		"start:app": "gjs -m dist/main.js",
-		"debug:app": "GTK_DEBUG=interactive yarn start:app",
-		"start": "yarn build && yarn start:app",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
-		"clear": "rm -rf dist @types"
+		"build": "vite build",
+		"start:debug": "GTK_DEBUG=interactive gjs -m dist/main.js",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
+		"clear": "rm -rf dist"
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",
 	"license": "MIT",
 	"devDependencies": {
 		"typescript": "^5.8.3",
-		"vite": "^7.0.0"
+		"vite": "^6.0.7"
 	},
 	"dependencies": {
-		"@girs/gdk-4.0": "workspace:^",
 		"@girs/gio-2.0": "workspace:^",
 		"@girs/gjs": "workspace:^",
 		"@girs/glib-2.0": "workspace:^",
-		"@girs/gobject-2.0": "workspace:^",
 		"@girs/gtk-4.0": "workspace:^"
 	}
 }

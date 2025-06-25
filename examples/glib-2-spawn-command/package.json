@@ -5,17 +5,10 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"start": "yarn build && yarn start:gjs",
-		"start:gjs": "gjs -m dist/main.js",
-		"watch": "yarn build:app --watch",
-		"build": "yarn build:app",
-		"build:app": "yarn clear:ts && webpack --env production",
-		"clear:types": "rm -rf ./@types",
-		"clear:ts": "rm -rf ./dist",
-		"clear": "yarn clear:ts && yarn clear:types",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "webpack --env production",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
+		"clear": "rm -rf dist"
 	},
 	"author": "",
 	"license": "Apache-2.0",

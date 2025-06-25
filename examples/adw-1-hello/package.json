@@ -6,13 +6,10 @@
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build:app": "vite build",
-		"build": "yarn build:app",
-		"start:app": "gjs -m dist/main.js",
-		"debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
-		"start": "yarn build && yarn start:app",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
+		"build": "vite build",
+		"start:debug": "GTK_DEBUG=interactive gjs -m dist/main.js",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
 		"clear": "rm -rf dist"
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",

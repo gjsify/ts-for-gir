@@ -11,5 +11,5 @@
 		"noImplicitThis": true,
 		"alwaysStrict": true
 	},
-	"files": ["index.ts"]
+	"files": ["main.ts"]
 }

@@ -8,9 +8,8 @@
 		"node": ">=18"
 	},
 	"scripts": {
-		"dev": "yarn run start",
 		"start": "yarn workspace @ts-for-gir/cli run start",
-		"start:dev": "yarn workspace @ts-for-gir/cli run start:dev",
+		"dev": "yarn workspace @ts-for-gir/cli run dev",
 		"format": "biome check . --write --unsafe",
 		"check": "yarn check:biome && yarn workspaces foreach -v --all -pti run check",
 		"check:biome": "biome check .",

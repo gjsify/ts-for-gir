@@ -6,7 +6,11 @@
 		"source.organizeImports.biome": "explicit"
 	},
 	"editor.tabSize": 4,
+	"biome.enabled": true,
 	"eslint.enable": false,
+	"prettier.enable": false,
+	"deno.enable": false,
+	"deno.lint": false,
 	"[typescript]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
@@ -16,8 +20,6 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"deno.enable": false,
-	"deno.lint": false,
 	"search.exclude": {
 		"**/.yarn": true,
 		"**/.pnp.*": true

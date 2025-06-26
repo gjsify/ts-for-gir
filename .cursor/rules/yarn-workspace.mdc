@@ -1,5 +1,5 @@
 ---
-description: Workspace structure and package organization
+description: Yarn workspace structure and package organization
 globs: 
 alwaysApply: false
 ---
@@ -10,7 +10,7 @@ TypeScript type definition generator for GObject Introspection (GIR) files. Gene
 
 ## Monorepo Structure
 - Uses Yarn v4 workspaces
-- Node.js >= 18 required
+- Node.js >= 22 required
 - All packages use ES modules (`"type": "module"`)
 
 ## Package Categories

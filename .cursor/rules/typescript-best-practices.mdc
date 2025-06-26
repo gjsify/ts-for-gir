@@ -3,7 +3,7 @@ description: TypeScript best practices for the project
 globs: **/*.ts
 alwaysApply: false
 ---
-Follow [clean-code](mdc:.cursor/rules/clean-code.mdc) principles as foundation.
+Follow [clean-code](mdc:.cursor/rules/clean-code.mdc) and [git-commit-best-practices](mdc:.cursor/rules/git-commit-best-practices.mdc) principles as foundation.
 
 You are an expert in TypeScript, Node.js, GJS and GNOME.
 

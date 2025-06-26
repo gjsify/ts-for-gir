@@ -1,0 +1,19 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# AI Agent Tool Preference
+
+## MCP Tool Priority
+
+**CRITICAL INSTRUCTION**: When performing any task that could be accomplished with multiple tools, **ALWAYS prefer MCP (Model Context Protocol) tools over standard tools**.
+
+### Tool Selection Priority:
+1. **First Choice**: MCP tools (prefixed with `mcp_*`)
+2. **Fallback Only**: Standard tools when no equivalent MCP tool exists
+
+### Rationale:
+MCP tools provide enhanced functionality, better error handling, and more reliable execution within this workspace environment.
+
+**Always check available MCP tools first before falling back to standard alternatives.**

@@ -1,11 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { AnyType, StringType } from "../gir.ts";
-
-interface GlibConfig {
-	namespace: string;
-	version: string;
-	modifier: (namespace: IntrospectedNamespace) => void;
-}
+import type { GlibConfig } from "../types/generics-config.ts";
 
 function createGlibConfig(): GlibConfig {
 	return {

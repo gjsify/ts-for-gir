@@ -1,11 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { AnyType, Generic, GenericType, GenerifiedTypeIdentifier, StringType, TypeIdentifier } from "../gir.ts";
-
-interface GioConfig {
-	namespace: string;
-	version: string;
-	modifier: (namespace: IntrospectedNamespace) => void;
-}
+import type { GioConfig } from "../types/generics-config.ts";
 
 function createGioConfig(): GioConfig {
 	return {

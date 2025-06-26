@@ -1,11 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { GenerifiedTypeIdentifier } from "../gir.ts";
-
-interface MetaTemplateConfig {
-	namespace: string;
-	version: string;
-	modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
-}
+import type { MetaTemplateConfig } from "../types/generics-config.ts";
 
 function createMetaTemplate(version: string): MetaTemplateConfig {
 	return {

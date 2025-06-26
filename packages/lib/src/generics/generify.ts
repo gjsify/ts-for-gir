@@ -1,5 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import type { NSRegistry } from "../gir/registry.ts";
+import type { NamespaceDefinition } from "../types/generics-config.ts";
 import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.ts";
 import gio from "./gio.ts";
 import glib from "./glib.ts";
@@ -7,14 +8,6 @@ import gtk from "./gtk.ts";
 import { meta10, meta11, meta12, meta13, meta14, meta15 } from "./meta.ts";
 import { st1, st12, st13, st14, st15 } from "./st.ts";
 import { GenericVisitor } from "./visitor.ts";
-
-type NamespaceModifier = (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
-
-interface NamespaceDefinition {
-	namespace: string;
-	version: string;
-	modifier: NamespaceModifier;
-}
 
 // Core namespace definitions that are required
 const CORE_DEFINITIONS: NamespaceDefinition[] = [gio, glib];

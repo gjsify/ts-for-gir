@@ -1,12 +1,7 @@
 import type { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { Generic, GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
-
-interface GtkConfig {
-	namespace: string;
-	version: string;
-	modifier: (namespace: IntrospectedNamespace) => void;
-}
+import type { GtkConfig } from "../types/generics-config.ts";
 
 function createGtkConfig(): GtkConfig {
 	return {

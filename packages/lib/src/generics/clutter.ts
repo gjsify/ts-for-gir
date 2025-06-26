@@ -1,11 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { GenericType } from "../gir.ts";
-
-interface ClutterTemplateConfig {
-	namespace: string;
-	version: string;
-	modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
-}
+import type { ClutterTemplateConfig } from "../types/generics-config.ts";
 
 function createClutterTemplate(version: string): ClutterTemplateConfig {
 	return {

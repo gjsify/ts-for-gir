@@ -1,11 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
-
-interface StTemplateConfig {
-	namespace: string;
-	version: string;
-	modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
-}
+import type { StTemplateConfig } from "../types/generics-config.ts";
 
 function createStTemplate(version: string): StTemplateConfig {
 	return {

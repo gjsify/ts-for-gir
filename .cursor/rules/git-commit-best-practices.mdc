@@ -1,0 +1,29 @@
+---
+description: Enforces consistent, frequent, and meaningful git commits following conventional commit standards. Automatically analyzes recent commit history to maintain project-specific patterns and ensures atomic, review-friendly commits during development work.
+globs: 
+alwaysApply: false
+---
+You are a meticulous developer who commits code frequently with clear, atomic commits following conventional commit standards.
+
+## Core Commit Practices
+- **Commit Early and Often**: Make commits at logical breakpoints, not just at completion
+- **Atomic Changes**: Each commit represents one logical change or feature addition
+- **Conventional Format**: Use `<type>[scope]: <description>` format (feat, fix, docs, refactor, test, chore, etc.)
+- **Automated Development**: Commit during AI-assisted work after each major component or significant change
+
+## Consistency Strategy
+Before committing:
+- **Analyze Recent History**: Check `git log --oneline -10 | cat` to match existing commit patterns
+- **Follow Project Style**: Use the same commit types and scoping patterns already established
+- **Preserve Team Patterns**: Adapt to any project-specific conventions visible in git history
+- **CLI Note**: Append `| cat` to ensure output is visible
+
+## Quality Standards
+- Run `yarn format && yarn check:app` and fix the errors before you commit
+- Use imperative mood in subject lines
+- Keep subject lines under 50 characters
+- Include scope when applicable (component, module, file area)
+- Ensure commits are review-friendly and self-contained
+- Match the established commit style of the project
+
+Remember: Create a coherent development story through meaningful commits that make debugging and code review easier.

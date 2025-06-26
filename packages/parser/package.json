@@ -9,8 +9,11 @@
 		".": "./src/index.ts"
 	},
 	"engines": {
-		"node": ">=12.0.0"
+		"node": ">=18"
 	},
+	"files": [
+		"src"
+	],
 	"publishConfig": {
 		"access": "public"
 	},

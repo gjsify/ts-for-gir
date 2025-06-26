@@ -17,8 +17,7 @@
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",
 	"files": [
-		"lib",
-		"templates"
+		"src"
 	],
 	"license": "Apache-2.0",
 	"bugs": {

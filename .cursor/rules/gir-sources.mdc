@@ -33,4 +33,3 @@ alwaysApply: false
 1. Install system package with GIR files
 2. Run `yarn copy:girs` to copy to project
 3. Generate types: `yarn ts-for-gir generate ModuleName-Version`
-4. Add to `.ts-for-gir.packages-all.rc.js` if needed

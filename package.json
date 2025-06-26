@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"start": "yarn workspace @ts-for-gir/cli run start",
-		"dev": "yarn workspace @ts-for-gir/cli run dev",
+		"start:prod": "yarn workspace @ts-for-gir/cli run start:prod",
 		"format": "biome check . --write --unsafe",
 		"check": "yarn check:lint && yarn workspaces foreach -v --all -pti run check",
 		"check:lint": "biome check .",
@@ -26,7 +26,6 @@
 		"build": "yarn workspaces foreach --all --no-private -pti run build",
 		"build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
 		"build:types": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
-		"build:types:gtk4": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-gtk4.rc.js' && yarn install",
 		"copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
 		"check:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run check",
 		"check:types": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",

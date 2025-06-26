@@ -12,8 +12,8 @@
 		"node": ">=22"
 	},
 	"scripts": {
-		"start": "yarn node --max_old_space_size=9216 lib/start.js",
-		"dev": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
+		"start:prod": "yarn node --max_old_space_size=9216 lib/start.js",
+		"start": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
 		"build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
 		"check": "tsc --noEmit",
 		"clear": "rimraf ./lib",

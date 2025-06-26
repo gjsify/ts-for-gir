@@ -200,77 +200,139 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 
 		const clazz = new IntrospectedRecord({ name, namespace });
 
-		clazz.setPrivate(
-			element.$.name.startsWith("_") ||
-				("disguised" in element.$ && element.$.disguised === "1") ||
-				("opaque" in element.$ && element.$.opaque === "1"),
-		);
+		IntrospectedRecord.configureRecordProperties(element, clazz);
+		IntrospectedRecord.setupTypeStructOrResolveNames(element, clazz, namespace, name);
+		IntrospectedRecord.parseRecordDocumentation(element, clazz, options);
+		IntrospectedRecord.parseRecordMembers(element, clazz, options);
 
-		if (typeof element.$["glib:is-gtype-struct-for"] === "string" && !!element.$["glib:is-gtype-struct-for"]) {
-			const structFor = parseTypeIdentifier(namespace.namespace, element.$["glib:is-gtype-struct-for"]);
+		return clazz;
+	}
 
-			// This let's replace these references when generating.
-			clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.namespace);
-		} else {
-			if (element.$["glib:type-name"]) {
-				clazz.resolve_names.push(element.$["glib:type-name"]);
+	private static configureRecordProperties(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+	): void {
+		const isPrivate = IntrospectedRecord.isRecordPrivate(element);
+		clazz.setPrivate(isPrivate);
 
-				namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
-			}
+		const isForeign = "foreign" in element.$ && element.$.foreign === "1";
+		clazz._isForeign = isForeign;
+	}
 
-			if (element.$["c:type"]) {
-				clazz.resolve_names.push(element.$["c:type"]);
-
-				namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
-			}
+	private static isRecordPrivate(element: GirRecordElement | GirUnionElement): boolean {
+		if (!element.$.name) {
+			return false;
 		}
 
+		return (
+			element.$.name.startsWith("_") ||
+			("disguised" in element.$ && element.$.disguised === "1") ||
+			("opaque" in element.$ && element.$.opaque === "1")
+		);
+	}
+
+	private static setupTypeStructOrResolveNames(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		namespace: IntrospectedNamespace,
+		name: string,
+	): void {
+		const gtypeStructFor = element.$["glib:is-gtype-struct-for"];
+
+		if (typeof gtypeStructFor === "string" && gtypeStructFor) {
+			const structFor = parseTypeIdentifier(namespace.namespace, gtypeStructFor);
+			clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.namespace);
+		} else {
+			IntrospectedRecord.registerResolveNames(element, clazz, namespace, name);
+		}
+	}
+
+	private static registerResolveNames(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		namespace: IntrospectedNamespace,
+		name: string,
+	): void {
+		if (element.$["glib:type-name"]) {
+			clazz.resolve_names.push(element.$["glib:type-name"]);
+			namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
+		}
+
+		if (element.$["c:type"]) {
+			clazz.resolve_names.push(element.$["c:type"]);
+			namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
+		}
+	}
+
+	private static parseRecordDocumentation(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		options: OptionsLoad,
+	): void {
 		if (options.loadDocs) {
 			clazz.doc = parseDoc(element);
 			clazz.metadata = parseMetadata(element);
 		}
+	}
 
+	private static parseRecordMembers(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		options: OptionsLoad,
+	): void {
 		try {
-			// Instance Methods
-			if (element.method) {
-				clazz.members.push(
-					...element.method.map((method) => IntrospectedClassFunction.fromXML(method, clazz, options)),
-				);
-			}
-
-			// Constructors
-			if (Array.isArray(element.constructor)) {
-				element.constructor.forEach((ctor) => {
-					const c = IntrospectedConstructor.fromXML(ctor, clazz, options);
-
-					clazz.constructors.push(c);
-				});
-			}
-
-			// Static methods (functions)
-			if (element.function) {
-				clazz.members.push(
-					...element.function.map((func) => IntrospectedStaticClassFunction.fromXML(func, clazz, options)),
-				);
-			}
-
-			// Is this a foreign type? (don't allow construction if foreign)
-
-			clazz._isForeign = "foreign" in element.$ && element.$.foreign === "1";
-
-			// Fields (for "non-class" records)
-			if (element.field) {
-				clazz.fields.push(
-					...element.field
-						.filter((field) => !("callback" in field))
-						.map((field) => IntrospectedField.fromXML(field, clazz)),
-				);
-			}
+			IntrospectedRecord.parseRecordMethods(element, clazz, options);
+			IntrospectedRecord.parseRecordConstructors(element, clazz, options);
+			IntrospectedRecord.parseRecordStaticMethods(element, clazz, options);
+			IntrospectedRecord.parseRecordFields(element, clazz);
 		} catch (e) {
 			log.error(`Failed to parse record: ${clazz.name}.`, e);
 		}
+	}
 
-		return clazz;
+	private static parseRecordMethods(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		options: OptionsLoad,
+	): void {
+		if (element.method) {
+			clazz.members.push(...element.method.map((method) => IntrospectedClassFunction.fromXML(method, clazz, options)));
+		}
+	}
+
+	private static parseRecordConstructors(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		options: OptionsLoad,
+	): void {
+		if (Array.isArray(element.constructor)) {
+			element.constructor.forEach((ctor) => {
+				const c = IntrospectedConstructor.fromXML(ctor, clazz, options);
+				clazz.constructors.push(c);
+			});
+		}
+	}
+
+	private static parseRecordStaticMethods(
+		element: GirRecordElement | GirUnionElement,
+		clazz: IntrospectedRecord,
+		options: OptionsLoad,
+	): void {
+		if (element.function) {
+			clazz.members.push(
+				...element.function.map((func) => IntrospectedStaticClassFunction.fromXML(func, clazz, options)),
+			);
+		}
+	}
+
+	private static parseRecordFields(element: GirRecordElement | GirUnionElement, clazz: IntrospectedRecord): void {
+		if (element.field) {
+			clazz.fields.push(
+				...element.field
+					.filter((field) => !("callback" in field))
+					.map((field) => IntrospectedField.fromXML(field, clazz)),
+			);
+		}
 	}
 
 	/**

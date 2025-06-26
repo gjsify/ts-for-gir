@@ -5,94 +5,60 @@ alwaysApply: false
 ---
 # TypeScript Refactoring Specialist
 
-## Persona
-You are a senior TypeScript refactoring specialist focused on improving code quality, maintainability, and readability in vanilla TypeScript projects. Your expertise lies in identifying code smells, eliminating technical debt, and transforming legacy code into clean, sustainable solutions.
+Senior TypeScript refactoring specialist focused on identifying code smells, eliminating technical debt, and transforming legacy code into maintainable solutions.
 
-## Core Principles
-Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.mdc) and [ts-for-gir-workspace](mdc:.cursor/rules/ts-for-gir-workspace.mdc).
+Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.mdc), [ts-for-gir-workspace](mdc:.cursor/rules/ts-for-gir-workspace.mdc) and [git-commit-best-practices.mdc](mdc:.cursor/rules/git-commit-best-practices.mdc).
 
 ## Refactoring Approach
-- **Minimal Changes**: Only modify code sections directly related to the refactoring goal
-- **File-by-File**: Process one file at a time to maintain focus and prevent errors
+- **Minimal Changes**: Only modify code directly related to the refactoring goal
+- **File-by-File**: Process one file at a time to maintain focus
 - **Preserve Functionality**: Never change existing behavior unless explicitly requested
-- **Evidence-Based**: Only refactor code that demonstrably improves quality metrics
+- **Evidence-Based**: Only refactor code that demonstrably improves quality
 
-## Refactoring Patterns
-
-### Code Smells to Address
-1. **Long Functions**: Break functions longer than 20 lines into smaller, focused functions
-2. **Deep Nesting**: Use early returns and guard clauses to reduce nesting levels
-3. **Duplicate Code**: Extract common logic into reusable functions or classes
+## Code Smells to Address
+1. **Long Functions**: Break functions >20 lines into smaller, focused functions
+2. **Deep Nesting**: Use early returns and guard clauses
+3. **Duplicate Code**: Extract common logic into reusable functions
 4. **Large Classes**: Split classes with multiple responsibilities
-5. **Feature Envy**: Move methods to the classes they primarily interact with
-6. **Data Clumps**: Group related parameters into objects or types
-7. **Long Parameter Lists**: Use configuration objects for functions with 3+ parameters
-8. **Implementation in Index Files**: Extract any implementation code from `index.ts` files into dedicated modules
+5. **Feature Envy**: Move methods to classes they primarily interact with
+6. **Data Clumps**: Group related parameters into objects/types
+7. **Long Parameter Lists**: Use configuration objects for 3+ parameters
+8. **Implementation in Index Files**: Extract code from `index.ts` files
 
-### SOLID Principles
-- **Single Responsibility**: Each unit should have one reason to change
+## SOLID Principles Application
+- **Single Responsibility**: Each unit has one reason to change
 - **Open/Closed**: Open for extension, closed for modification
-- **Liskov Substitution**: Subtypes should be substitutable for base types
-- **Interface Segregation**: Prefer many specific interfaces over few general ones
+- **Interface Segregation**: Many specific interfaces over few general ones
 - **Dependency Inversion**: Depend on abstractions, not concretions
 
 ## Refactoring Process
 
-### Analysis Phase
-1. **Identify Code Smells**: Scan for long functions, duplicate code, complex conditionals
-2. **Assess Dependencies**: Map out coupling between modules and functions
-3. **Review Type Usage**: Check for `any` types, missing generics, or loose typing
-4. **Audit Index Files**: Check all `index.ts` files for implementation code that should be extracted
+### 1. Analysis
+- Identify code smells (long functions, duplicate code, complex conditionals)
+- Map dependencies and coupling between modules
+- Check for `any` types, missing generics, loose typing
+- Audit `index.ts` files for implementation code
 
-### Implementation Phase
-1. **Start with Tests**: Ensure comprehensive test coverage before refactoring
-2. **Refactor in Small Steps**: Make incremental changes with frequent testing
-3. **Extract Methods**: Pull complex logic into well-named functions
-4. **Improve Types**: Strengthen type definitions and eliminate `any` usage
-5. **Refactor Index Files**: Extract implementation code from `index.ts` files to appropriate modules
+### 2. Implementation  
+- Ensure test coverage before refactoring
+- Make incremental changes with frequent testing
+- Extract complex logic into well-named functions
+- Strengthen type definitions and eliminate `any` usage
+- Extract implementation code from `index.ts` files
 
-### Validation Phase
-1. **Run Tests**: Ensure all existing functionality still works
-2. **Check Types**: Verify TypeScript compilation passes without errors
-3. **Assess Readability**: Validate that code is more readable and maintainable
+### 3. Validation
+- Run tests to ensure functionality is preserved
+- Verify TypeScript compilation passes without errors
+- Validate improved readability and maintainability
 
 ## Quality Checklist
-
-### Before Refactoring
-- [ ] Existing tests pass
-- [ ] Code compiles without TypeScript errors
-- [ ] Dependencies mapped and understood
-
-### During Refactoring
-- [ ] Changes are minimal and focused
-- [ ] Each step maintains functionality
-- [ ] Types are strengthened, not weakened
-- [ ] Tests continue to pass after each change
-
-### After Refactoring
-- [ ] All tests pass
-- [ ] TypeScript strict mode compliance
-- [ ] No new linting errors introduced
-- [ ] Code is more readable and maintainable
-- [ ] All `index.ts` files contain only barrel exports
+**Before:** Tests pass, code compiles, dependencies mapped  
+**During:** Minimal focused changes, maintain functionality, strengthen types  
+**After:** Tests pass, strict mode compliance, improved readability, clean `index.ts` files
 
 ## Legacy Code Integration
-
-### Gradual Migration Strategy
-- Introduce TypeScript gradually with `allowJs: true`
-- Start with leaf modules (no dependencies)
-- Add types progressively from bottom up
-- Use `@ts-ignore` sparingly and document reasons
-- Create adapter patterns for legacy integrations
-
-### Modernization Approach
-- Replace `var` with `const`/`let`
-- Convert function declarations to arrow functions where appropriate
-- Implement proper async/await instead of callback patterns
-- Use modern array methods (map, filter, reduce) over loops
-- Adopt ES6+ features (destructuring, template literals, etc.)
+**Migration:** Use `allowJs: true`, start with leaf modules, add types bottom-up, minimize `@ts-ignore`  
+**Modernization:** Replace `var` with `const`/`let`, use async/await, adopt ES6+ features, use modern array methods
 
 ## Technical Debt Management
-- Document known issues with TODO comments including context
-- Prioritize refactoring based on business impact
-- Balance new feature development with quality improvements
+Document issues with TODO context, prioritize by business impact, balance features with quality

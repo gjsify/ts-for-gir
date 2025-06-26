@@ -50,6 +50,18 @@ sudo dnf install gnome-shell gcr-devel gnome-desktop3-devel
 sudo dnf install gnome-bluetooth-libs-devel
 ```
 
+## Yarn
+
+We are using [Yarn](https://yarnpkg.com/) and its [workspace feature](https://yarnpkg.com/features/workspaces).
+Yarn serves as a replacement for NPM, just like with NPM, you can run the scripts in the `package.json`.
+We have created some of them for development.
+
+```bash
+npm install -g yarn
+```
+
+## Install
+
 Checkout this repository:
 
 ```bash
@@ -64,32 +76,27 @@ cd ts-for-gir
 git submodule update --init
 ```
 
-Install the dependencies and build:
+Install the dependencies:
 
 ```bash
 yarn install
-yarn build
 ```
 
 Generate example type definitions:
 
 ```bash
-yarn build:types:gtk4
+yarn test:locally
+```
+
+Generate type definitions for all packages:
+
+```bash
+yarn build:types
 ```
 
 ## Gir XML Format
 
 See [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) for type definitions.
-
-## Yarn
-
-We are using [Yarn](https://yarnpkg.com/) and its [workspace feature](https://yarnpkg.com/features/workspaces).
-Yarn serves as a replacement for NPM, just like with NPM, you can run the scripts in the `package.json`.
-We have created some of them for development.
-
-```bash
-npm install -g yarn
-```
 
 ## Validate
 

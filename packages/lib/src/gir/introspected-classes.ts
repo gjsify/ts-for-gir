@@ -18,6 +18,7 @@ import type {
 	GirVirtualMethodElement,
 } from "../index.ts";
 import { Logger } from "../logger.ts";
+import type { ResolutionNode } from "../types/class.ts";
 import type {
 	ClassDefinition,
 	ClassMember,
@@ -46,6 +47,18 @@ import { IntrospectedField, IntrospectedProperty } from "./property.ts";
 import { IntrospectedSignal } from "./signal.ts";
 
 const log = new Logger(true, "gir/introspected-classes");
+
+/**
+ * Represents a signal with metadata
+ */
+export interface SignalDescriptor {
+	name: string;
+	signal?: IntrospectedSignal;
+	isNotifySignal?: boolean;
+	isDetailSignal?: boolean;
+	parameterTypes?: string[];
+	returnType?: string;
+}
 
 /**
  * Base class for all class functions
@@ -591,77 +604,91 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		super({ name, namespace });
 	}
 
-	getAllSignals(): Array<{
-		name: string;
-		signal?: IntrospectedSignal;
-		isNotifySignal?: boolean;
-		isDetailSignal?: boolean;
-		parameterTypes?: string[];
-		returnType?: string;
-	}> {
-		const allSignals: Array<{
-			name: string;
-			signal?: IntrospectedSignal;
-			isNotifySignal?: boolean;
-			isDetailSignal?: boolean;
-			parameterTypes?: string[];
-			returnType?: string;
-		}> = [];
+	getAllSignals(): SignalDescriptor[] {
+		const allSignals = this.getBaseSignals();
 
-		this.signals.forEach((signal) => {
-			allSignals.push({
-				name: signal.name,
-				signal: signal,
-				isNotifySignal: false,
-				isDetailSignal: false,
-			});
-		});
-
-		const isGObjectObject = this.name === "Object" && this.namespace.namespace === "GObject";
-		const hasNotifySignal = this.signals.some((signal) => signal.name === "notify");
-		const hasGObjectParent = this.someParent(
-			(p: IntrospectedClass | IntrospectedInterface) => p.namespace.namespace === "GObject" && p.name === "Object",
-		);
-
-		if (isGObjectObject || hasNotifySignal || hasGObjectParent) {
-			const allProperties = this.getAllProperties();
-			const uniquePropertyNames = new Set(
-				allProperties.map((prop) =>
-					prop.name
-						.replace(/_/g, "-")
-						.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-						.toLowerCase(),
-				),
-			);
-
-			uniquePropertyNames.forEach((propertyName) => {
-				allSignals.push({
-					name: `notify::${propertyName}`,
-					isNotifySignal: true,
-					isDetailSignal: false,
-					parameterTypes: ["GObject.ParamSpec"],
-					returnType: "void",
-				});
-			});
-
-			// Generate detailed signals for signals with detailed=true
-			this.signals.forEach((signal) => {
-				if (signal.detailed) {
-					uniquePropertyNames.forEach((propertyName) => {
-						allSignals.push({
-							name: `${signal.name}::${propertyName}`,
-							signal: signal,
-							isNotifySignal: false,
-							isDetailSignal: true,
-							parameterTypes: signal.parameters.map((p) => this.getPropertyTypeString(p.type)),
-							returnType: this.getPropertyTypeString(signal.return_type),
-						});
-					});
-				}
-			});
+		if (this.hasGObjectSupport()) {
+			this.addNotifySignals(allSignals);
+			this.addDetailedSignals(allSignals);
 		}
 
 		return allSignals;
+	}
+
+	private getBaseSignals() {
+		return this.signals.map((signal) => ({
+			name: signal.name,
+			signal: signal,
+			isNotifySignal: false,
+			isDetailSignal: false,
+		}));
+	}
+
+	private hasGObjectSupport(): boolean {
+		const isGObjectObject = this.isGObjectObject();
+		const hasNotifySignal = this.hasExplicitNotifySignal();
+		const hasGObjectParent = this.hasGObjectParent();
+
+		return isGObjectObject || hasNotifySignal || hasGObjectParent;
+	}
+
+	private isGObjectObject(): boolean {
+		return this.name === "Object" && this.namespace.namespace === "GObject";
+	}
+
+	private hasExplicitNotifySignal(): boolean {
+		return this.signals.some((signal) => signal.name === "notify");
+	}
+
+	private hasGObjectParent(): boolean {
+		return this.someParent(
+			(p: IntrospectedClass | IntrospectedInterface) => p.namespace.namespace === "GObject" && p.name === "Object",
+		);
+	}
+
+	private addNotifySignals(allSignals: SignalDescriptor[]): void {
+		const propertyNames = this.getUniquePropertyNames();
+
+		propertyNames.forEach((propertyName) => {
+			allSignals.push({
+				name: `notify::${propertyName}`,
+				isNotifySignal: true,
+				isDetailSignal: false,
+				parameterTypes: ["GObject.ParamSpec"],
+				returnType: "void",
+			});
+		});
+	}
+
+	private addDetailedSignals(allSignals: SignalDescriptor[]): void {
+		const propertyNames = this.getUniquePropertyNames();
+
+		this.signals.forEach((signal) => {
+			if (signal.detailed) {
+				propertyNames.forEach((propertyName) => {
+					allSignals.push({
+						name: `${signal.name}::${propertyName}`,
+						signal: signal,
+						isNotifySignal: false,
+						isDetailSignal: true,
+						parameterTypes: signal.parameters.map((p) => this.getPropertyTypeString(p.type)),
+						returnType: this.getPropertyTypeString(signal.return_type),
+					});
+				});
+			}
+		});
+	}
+
+	private getUniquePropertyNames(): Set<string> {
+		const allProperties = this.getAllProperties();
+		return new Set(
+			allProperties.map((prop) =>
+				prop.name
+					.replace(/_/g, "-")
+					.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+					.toLowerCase(),
+			),
+		);
 	}
 
 	private getPropertyTypeString(type: TypeExpression): string {
@@ -769,50 +796,85 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		const implementedOnParent = [...(resolution.extends() ?? [])].flatMap((r) => r.implements());
 		const properties = new Map<string, IntrospectedProperty>();
 
-		const validateProp = (prop: IntrospectedProperty) =>
+		const isValidProperty = (prop: IntrospectedProperty) =>
 			!this.hasInstanceSymbol(prop) &&
 			!properties.has(prop.name) &&
-			potentialConflicts.every((p) => prop.name !== p.name);
+			potentialConflicts.every((conflict) => prop.name !== conflict.name);
 
-		for (const implemented of resolution.implements()) {
-			if (implemented.node instanceof IntrospectedClass) continue;
-
-			if (implementedOnParent.find((p) => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0)
-				continue;
-			for (const prop of implemented.node.props) {
-				if (!validateProp(prop)) continue;
-				properties.set(prop.name, prop);
-			}
-		}
-
-		for (const implemented of resolution.implements()) {
-			[...implemented].forEach((e) => {
-				if (e.node instanceof IntrospectedClass) return;
-
-				if (implementedOnParent.find((p) => p.identifier.equals(e.identifier))?.node.generics.length === 0) return;
-				for (const prop of e.node.props) {
-					if (!validateProp(prop)) continue;
-
-					properties.set(prop.name, prop);
-				}
-			});
-		}
-
-		// If an interface inherits from a class (such as Gtk.Widget)
-		// we need to pull in every property from that class...
-		for (const implemented of resolution.implements()) {
-			const extended = implemented.extends();
-
-			if (extended?.node instanceof IntrospectedClass) {
-				for (const prop of extended.node.props) {
-					if (!validateProp(prop)) continue;
-
-					properties.set(prop.name, prop);
-				}
-			}
-		}
+		this.collectFromDirectImplementations(resolution, implementedOnParent, properties, "props", isValidProperty);
+		this.collectFromNestedImplementations(resolution, implementedOnParent, properties, "props", isValidProperty);
+		this.collectFromClassInheritance(resolution, properties, "props", isValidProperty);
 
 		return [...properties.values()];
+	}
+
+	private collectFromDirectImplementations<T extends IntrospectedProperty | IntrospectedClassFunction>(
+		resolution: ClassResolution,
+		implementedOnParent: InterfaceResolution[],
+		collection: Map<string, T>,
+		property: "props" | "members",
+		validator: (item: T) => boolean,
+	): void {
+		for (const implemented of resolution.implements()) {
+			if (this.shouldSkipImplementation(implemented, implementedOnParent)) {
+				continue;
+			}
+
+			const items = implemented.node[property] as T[];
+			for (const item of items) {
+				if (validator(item)) {
+					collection.set(item.name, item);
+				}
+			}
+		}
+	}
+
+	private collectFromNestedImplementations<T extends IntrospectedProperty | IntrospectedClassFunction>(
+		resolution: ClassResolution,
+		implementedOnParent: InterfaceResolution[],
+		collection: Map<string, T>,
+		property: "props" | "members",
+		validator: (item: T) => boolean,
+	): void {
+		for (const implemented of resolution.implements()) {
+			if (this.shouldSkipImplementation(implemented, implementedOnParent)) {
+				continue;
+			}
+
+			for (const nestedImplemented of implemented.node.interfaces) {
+				const resolved = resolveTypeIdentifier(implemented.node.namespace, nestedImplemented);
+				if (resolved instanceof IntrospectedInterface) {
+					const items = resolved[property] as T[];
+					for (const item of items) {
+						if (validator(item)) {
+							collection.set(item.name, item);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private collectFromClassInheritance<T extends IntrospectedProperty | IntrospectedClassFunction>(
+		resolution: ClassResolution,
+		collection: Map<string, T>,
+		property: "props" | "members",
+		validator: (item: T) => boolean,
+	): void {
+		for (const inherited of resolution) {
+			for (const implemented of inherited.implements()) {
+				const items = implemented.node[property] as T[];
+				for (const item of items) {
+					if (validator(item)) {
+						collection.set(item.name, item);
+					}
+				}
+			}
+		}
+	}
+
+	private shouldSkipImplementation(implemented: ResolutionNode, implementedOnParent: InterfaceResolution[]): boolean {
+		return implementedOnParent.some((parent) => parent.identifier.equals(implemented.identifier));
 	}
 
 	implementedMethods(potentialConflicts: ClassMember[] = []) {
@@ -820,51 +882,21 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		const implementedOnParent = [...(resolution.extends() ?? [])].flatMap((r) => r.implements());
 		const methods = new Map<string, IntrospectedClassFunction>();
 
-		const validateMethod = (method: IntrospectedClassFunction) =>
+		const isValidMethod = (method: IntrospectedClassFunction) =>
 			!(method instanceof IntrospectedStaticClassFunction) &&
 			!this.hasInstanceSymbol(method) &&
 			!methods.has(method.name) &&
 			potentialConflicts.every((m) => method.name !== m.name);
 
-		for (const implemented of resolution.implements()) {
-			if (implemented.node instanceof IntrospectedClass) continue;
+		this.collectFromDirectImplementations(resolution, implementedOnParent, methods, "members", isValidMethod);
+		this.collectFromNestedImplementations(resolution, implementedOnParent, methods, "members", isValidMethod);
+		this.collectFromClassInheritance(resolution, methods, "members", isValidMethod);
 
-			if (implementedOnParent.find((p) => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0)
-				continue;
-			for (const member of implemented.node.members) {
-				if (!validateMethod(member)) continue;
-				methods.set(member.name, member);
-			}
-		}
+		return this.mapImplementedMethods([...methods.values()]);
+	}
 
-		for (const implemented of resolution.implements()) {
-			[...implemented].forEach((e) => {
-				if (e.node instanceof IntrospectedClass) return;
-
-				if (implementedOnParent.find((p) => p.identifier.equals(e.identifier))?.node.generics.length === 0) return;
-				for (const member of e.node.members) {
-					if (!validateMethod(member)) continue;
-
-					methods.set(member.name, member);
-				}
-			});
-		}
-
-		// If an interface inherits from a class (such as Gtk.Widget)
-		// we need to pull in every method from that class...
-		for (const implemented of resolution.implements()) {
-			const extended = implemented.extends();
-
-			if (extended?.node instanceof IntrospectedClass) {
-				for (const member of extended.node.members) {
-					if (!validateMethod(member)) continue;
-
-					methods.set(member.name, member);
-				}
-			}
-		}
-
-		return [...methods.values()].map((f) => {
+	private mapImplementedMethods(methods: IntrospectedClassFunction[]): IntrospectedClassFunction[] {
+		return methods.map((f) => {
 			const mapping = new Map<string, TypeExpression>();
 			if (f.parent instanceof IntrospectedBaseClass) {
 				const inter = this.interfaces.find((i) => i.equals(f.parent.getType()));
@@ -1012,11 +1044,39 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
 		const clazz = new IntrospectedClass(name, ns);
 
+		IntrospectedClass.parseBasicProperties(element, clazz, ns, options);
+		IntrospectedClass.parseResolveNames(element, clazz, ns, name);
+		IntrospectedClass.parseInheritanceAndMembers(element, clazz, ns, options);
+
+		return clazz;
+	}
+
+	private static parseBasicProperties(
+		element: GirClassElement,
+		clazz: IntrospectedClass,
+		ns: IntrospectedNamespace,
+		options: OptionsLoad,
+	): void {
 		if (options.loadDocs) {
 			clazz.doc = parseDoc(element);
 			clazz.metadata = parseMetadata(element);
 		}
 
+		if (element.$.parent) {
+			clazz.superType = parseTypeIdentifier(ns.namespace, element.$.parent);
+		}
+
+		if (element.$.abstract) {
+			clazz.isAbstract = true;
+		}
+	}
+
+	private static parseResolveNames(
+		element: GirClassElement,
+		clazz: IntrospectedClass,
+		ns: IntrospectedNamespace,
+		name: string,
+	): void {
 		if (element.$["glib:type-name"]) {
 			clazz.resolve_names.push(element.$["glib:type-name"]);
 			ns.registerResolveName(element.$["glib:type-name"], ns.namespace, name);
@@ -1033,106 +1093,130 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 			clazz.resolve_names.push(typeStruct);
 			ns.registerResolveName(typeStruct, ns.namespace, name);
 		}
+	}
 
+	private static parseInheritanceAndMembers(
+		element: GirClassElement,
+		clazz: IntrospectedClass,
+		ns: IntrospectedNamespace,
+		options: OptionsLoad,
+	): void {
 		try {
-			if (element.$.parent) {
-				clazz.superType = parseTypeIdentifier(ns.namespace, element.$.parent);
-			}
-
-			if (element.$.abstract) {
-				clazz.isAbstract = true;
-			}
-
-			if (Array.isArray(element.constructor)) {
-				clazz.constructors.push(
-					...element.constructor.map((constructorElement) =>
-						IntrospectedConstructor.fromXML(constructorElement, clazz, options),
-					),
-				);
-			}
-
-			if (element["glib:signal"]) {
-				clazz.signals.push(
-					...element["glib:signal"].map((signal) => IntrospectedSignal.fromXML(signal, clazz, options)),
-				);
-			}
-
-			if (element.property) {
-				element.property.forEach((prop) => {
-					const property = IntrospectedProperty.fromXML(prop, clazz, options);
-					switch (options.propertyCase) {
-						case "both": {
-							clazz.props.push(property);
-							const camelCase = property.toCamelCase();
-							if (property.name !== camelCase.name) {
-								clazz.props.push(camelCase);
-							}
-							break;
-						}
-						case "camel":
-							clazz.props.push(property.toCamelCase());
-							break;
-						case "underscore":
-							clazz.props.push(property);
-							break;
-					}
-				});
-			}
-
-			if (element.method) {
-				clazz.members.push(
-					...element.method.map((method) => IntrospectedClassFunction.fromXML(method, clazz, options)),
-				);
-			}
-
-			if (element.field) {
-				element.field
-					.filter((field) => !("callback" in field))
-					.forEach((field) => {
-						const f = IntrospectedField.fromXML(field, clazz);
-						clazz.fields.push(f);
-					});
-			}
-
-			if (element.implements) {
-				element.implements.forEach((implementee) => {
-					const name = implementee.$.name;
-					const type = parseTypeIdentifier(ns.namespace, name);
-					if (type) {
-						clazz.interfaces.push(type);
-					}
-				});
-			}
-
-			if (element.callback) {
-				if (options.verbose) {
-					element.callback.forEach((callback) => {
-						log.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
-					});
-				}
-				clazz.callbacks.push(
-					...element.callback.map((callback) => IntrospectedClassCallback.fromXML(callback, clazz, options)),
-				);
-			}
-
-			if (element["virtual-method"]) {
-				clazz.members.push(
-					...element["virtual-method"].map((method) =>
-						IntrospectedVirtualClassFunction.fromXML(method, clazz, options),
-					),
-				);
-			}
-
-			if (element.function) {
-				clazz.members.push(
-					...element.function.map((func) => IntrospectedStaticClassFunction.fromXML(func, clazz, options)),
-				);
-			}
+			IntrospectedClass.parseConstructors(element, clazz, options);
+			IntrospectedClass.parseSignals(element, clazz, options);
+			IntrospectedClass.parseProperties(element, clazz, options);
+			IntrospectedClass.parseMethods(element, clazz, options);
+			IntrospectedClass.parseFields(element, clazz);
+			IntrospectedClass.parseInterfaces(element, clazz, ns);
+			IntrospectedClass.parseCallbacks(element, clazz, ns, options);
+			IntrospectedClass.parseVirtualMethods(element, clazz, options);
+			IntrospectedClass.parseStaticFunctions(element, clazz, options);
 		} catch (e) {
 			log.error(`Failed to parse class: ${clazz.name} in ${ns.namespace}.`, e);
 		}
+	}
 
-		return clazz;
+	private static parseConstructors(element: GirClassElement, clazz: IntrospectedClass, options: OptionsLoad): void {
+		if (Array.isArray(element.constructor)) {
+			clazz.constructors.push(
+				...element.constructor.map((constructorElement) =>
+					IntrospectedConstructor.fromXML(constructorElement, clazz, options),
+				),
+			);
+		}
+	}
+
+	private static parseSignals(element: GirClassElement, clazz: IntrospectedClass, options: OptionsLoad): void {
+		if (element["glib:signal"]) {
+			clazz.signals.push(...element["glib:signal"].map((signal) => IntrospectedSignal.fromXML(signal, clazz, options)));
+		}
+	}
+
+	private static parseProperties(element: GirClassElement, clazz: IntrospectedClass, options: OptionsLoad): void {
+		if (!element.property) return;
+
+		element.property.forEach((prop) => {
+			const property = IntrospectedProperty.fromXML(prop, clazz, options);
+			switch (options.propertyCase) {
+				case "both": {
+					clazz.props.push(property);
+					const camelCase = property.toCamelCase();
+					if (property.name !== camelCase.name) {
+						clazz.props.push(camelCase);
+					}
+					break;
+				}
+				case "camel":
+					clazz.props.push(property.toCamelCase());
+					break;
+				case "underscore":
+					clazz.props.push(property);
+					break;
+			}
+		});
+	}
+
+	private static parseMethods(element: GirClassElement, clazz: IntrospectedClass, options: OptionsLoad): void {
+		if (element.method) {
+			clazz.members.push(...element.method.map((method) => IntrospectedClassFunction.fromXML(method, clazz, options)));
+		}
+	}
+
+	private static parseFields(element: GirClassElement, clazz: IntrospectedClass): void {
+		if (element.field) {
+			element.field
+				.filter((field) => !("callback" in field))
+				.forEach((field) => {
+					const f = IntrospectedField.fromXML(field, clazz);
+					clazz.fields.push(f);
+				});
+		}
+	}
+
+	private static parseInterfaces(element: GirClassElement, clazz: IntrospectedClass, ns: IntrospectedNamespace): void {
+		if (element.implements) {
+			element.implements.forEach((implementee) => {
+				const name = implementee.$.name;
+				const type = parseTypeIdentifier(ns.namespace, name);
+				if (type) {
+					clazz.interfaces.push(type);
+				}
+			});
+		}
+	}
+
+	private static parseCallbacks(
+		element: GirClassElement,
+		clazz: IntrospectedClass,
+		ns: IntrospectedNamespace,
+		options: OptionsLoad,
+	): void {
+		if (element.callback) {
+			if (options.verbose) {
+				element.callback.forEach((callback) => {
+					log.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
+				});
+			}
+			clazz.callbacks.push(
+				...element.callback.map((callback) => IntrospectedClassCallback.fromXML(callback, clazz, options)),
+			);
+		}
+	}
+
+	private static parseVirtualMethods(element: GirClassElement, clazz: IntrospectedClass, options: OptionsLoad): void {
+		if (element["virtual-method"]) {
+			clazz.members.push(
+				...element["virtual-method"].map((method) => IntrospectedVirtualClassFunction.fromXML(method, clazz, options)),
+			);
+		}
+	}
+
+	private static parseStaticFunctions(element: GirClassElement, clazz: IntrospectedClass, options: OptionsLoad): void {
+		if (element.function) {
+			clazz.members.push(
+				...element.function.map((func) => IntrospectedStaticClassFunction.fromXML(func, clazz, options)),
+			);
+		}
 	}
 
 	registerStaticDefinition(typeStruct: string) {
@@ -1266,11 +1350,38 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 
 		const iface = new IntrospectedInterface({ name, namespace });
 
+		IntrospectedInterface.parseInterfaceBasicProperties(element, iface, namespace, options);
+		IntrospectedInterface.parseInterfaceResolveNames(element, iface, namespace, name);
+		IntrospectedInterface.parseInterfaceMembers(element, iface, namespace, options);
+
+		return iface;
+	}
+
+	private static parseInterfaceBasicProperties(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		namespace: IntrospectedNamespace,
+		options: OptionsLoad,
+	): void {
 		if (options.loadDocs) {
 			iface.doc = parseDoc(element);
 			iface.metadata = parseMetadata(element);
 		}
 
+		if (element.prerequisite?.[0]) {
+			const [prerequisite] = element.prerequisite;
+			if (prerequisite.$.name) {
+				iface.superType = parseTypeIdentifier(namespace.namespace, prerequisite.$.name);
+			}
+		}
+	}
+
+	private static parseInterfaceResolveNames(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		namespace: IntrospectedNamespace,
+		name: string,
+	): void {
 		if (element.$["glib:type-name"]) {
 			iface.resolve_names.push(element.$["glib:type-name"]);
 			namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
@@ -1280,89 +1391,130 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			iface.resolve_names.push(element.$["c:type"]);
 			namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
 		}
+	}
 
+	private static parseInterfaceMembers(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		namespace: IntrospectedNamespace,
+		options: OptionsLoad,
+	): void {
 		try {
-			if (element.prerequisite?.[0]) {
-				const [prerequisite] = element.prerequisite;
-				if (prerequisite.$.name) {
-					iface.superType = parseTypeIdentifier(namespace.namespace, prerequisite.$.name);
-				}
-			}
-
-			if (Array.isArray(element.constructor)) {
-				iface.constructors.push(
-					...element.constructor.map((constructorElement) =>
-						IntrospectedConstructor.fromXML(constructorElement, iface, options),
-					),
-				);
-			}
-
-			if (element.property) {
-				element.property.forEach((prop) => {
-					const property = IntrospectedProperty.fromXML(prop, iface, options);
-					switch (options.propertyCase) {
-						case "both": {
-							iface.props.push(property);
-							const camelCase = property.toCamelCase();
-							if (property.name !== camelCase.name) {
-								iface.props.push(camelCase);
-							}
-							break;
-						}
-						case "camel":
-							iface.props.push(property.toCamelCase());
-							break;
-						case "underscore":
-							iface.props.push(property);
-							break;
-					}
-				});
-			}
-
-			if (element.method) {
-				iface.members.push(
-					...element.method.map((method) => IntrospectedClassFunction.fromXML(method, iface, options)),
-				);
-			}
-
-			if (element.field) {
-				element.field
-					.filter((field) => !("callback" in field))
-					.forEach((field) => {
-						const f = IntrospectedField.fromXML(field, iface);
-						iface.fields.push(f);
-					});
-			}
-
-			if (element.callback) {
-				if (options.verbose) {
-					element.callback.forEach((callback) => {
-						log.debug(`Adding callback ${callback.$.name} for ${namespace.namespace}`);
-					});
-				}
-				iface.callbacks.push(
-					...element.callback.map((callback) => IntrospectedClassCallback.fromXML(callback, iface, options)),
-				);
-			}
-
-			if (element["virtual-method"]) {
-				iface.members.push(
-					...element["virtual-method"].map((method) =>
-						IntrospectedVirtualClassFunction.fromXML(method, iface, options),
-					),
-				);
-			}
-
-			if (element.function) {
-				iface.members.push(
-					...element.function.map((func) => IntrospectedStaticClassFunction.fromXML(func, iface, options)),
-				);
-			}
+			IntrospectedInterface.parseInterfaceConstructors(element, iface, options);
+			IntrospectedInterface.parseInterfaceProperties(element, iface, options);
+			IntrospectedInterface.parseInterfaceMethods(element, iface, options);
+			IntrospectedInterface.parseInterfaceFields(element, iface);
+			IntrospectedInterface.parseInterfaceCallbacks(element, iface, namespace, options);
+			IntrospectedInterface.parseInterfaceVirtualMethods(element, iface, options);
+			IntrospectedInterface.parseInterfaceStaticFunctions(element, iface, options);
 		} catch (e) {
 			log.error(`Failed to parse interface: ${iface.name} in ${namespace.namespace}.`, e);
 		}
+	}
 
-		return iface;
+	private static parseInterfaceConstructors(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (Array.isArray(element.constructor)) {
+			iface.constructors.push(
+				...element.constructor.map((constructorElement) =>
+					IntrospectedConstructor.fromXML(constructorElement, iface, options),
+				),
+			);
+		}
+	}
+
+	private static parseInterfaceProperties(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (!element.property) return;
+
+		element.property.forEach((prop) => {
+			const property = IntrospectedProperty.fromXML(prop, iface, options);
+			switch (options.propertyCase) {
+				case "both": {
+					iface.props.push(property);
+					const camelCase = property.toCamelCase();
+					if (property.name !== camelCase.name) {
+						iface.props.push(camelCase);
+					}
+					break;
+				}
+				case "camel":
+					iface.props.push(property.toCamelCase());
+					break;
+				case "underscore":
+					iface.props.push(property);
+					break;
+			}
+		});
+	}
+
+	private static parseInterfaceMethods(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (element.method) {
+			iface.members.push(...element.method.map((method) => IntrospectedClassFunction.fromXML(method, iface, options)));
+		}
+	}
+
+	private static parseInterfaceFields(element: GirInterfaceElement, iface: IntrospectedInterface): void {
+		if (element.field) {
+			element.field
+				.filter((field) => !("callback" in field))
+				.forEach((field) => {
+					const f = IntrospectedField.fromXML(field, iface);
+					iface.fields.push(f);
+				});
+		}
+	}
+
+	private static parseInterfaceCallbacks(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		namespace: IntrospectedNamespace,
+		options: OptionsLoad,
+	): void {
+		if (element.callback) {
+			if (options.verbose) {
+				element.callback.forEach((callback) => {
+					log.debug(`Adding callback ${callback.$.name} for ${namespace.namespace}`);
+				});
+			}
+			iface.callbacks.push(
+				...element.callback.map((callback) => IntrospectedClassCallback.fromXML(callback, iface, options)),
+			);
+		}
+	}
+
+	private static parseInterfaceVirtualMethods(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (element["virtual-method"]) {
+			iface.members.push(
+				...element["virtual-method"].map((method) => IntrospectedVirtualClassFunction.fromXML(method, iface, options)),
+			);
+		}
+	}
+
+	private static parseInterfaceStaticFunctions(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (element.function) {
+			iface.members.push(
+				...element.function.map((func) => IntrospectedStaticClassFunction.fromXML(func, iface, options)),
+			);
+		}
 	}
 
 	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateInterface"]> {

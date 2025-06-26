@@ -13,6 +13,6 @@
       "alwaysStrict": true,
       "diagnostics": true
     },
-    "include": ["main.ts", "@types/**/*.d.ts"],
+    "include": ["main.ts", "@types/index.d.ts"],
     "exclude": []
   }

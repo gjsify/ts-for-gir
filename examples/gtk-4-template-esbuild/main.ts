@@ -13,6 +13,9 @@ import Template from "./gtk4-template.ui";
 
 Gtk.init();
 
+console.log("Style", Style);
+console.log("Template", Template);
+
 class ExampleWindow extends Gtk.Window {
 	public declare box: Gtk.Box | null;
 	protected declare _button: Gtk.Button | null;

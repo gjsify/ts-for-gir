@@ -6,14 +6,9 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build:app": "yarn node esbuild.js",
-		"build": "yarn build:app",
-		"start:app": "gjs -m dist/main.js main.ts",
-		"debug:app": "GTK_DEBUG=interactive yarn start:app",
-		"start": "yarn build && yarn start:app",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+		"start": "gjs -m dist/main.js main.ts",
+		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types "
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",

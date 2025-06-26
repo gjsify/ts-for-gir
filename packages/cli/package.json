@@ -6,24 +6,14 @@
 	"module": "src/index.ts",
 	"type": "module",
 	"bin": {
-		"ts-for-gir": "./lib/start.js"
+		"ts-for-gir": "src/start"
 	},
 	"engines": {
-		"node": ">=22"
+		"node": ">=22.7.0"
 	},
 	"scripts": {
-		"start": "yarn node --max_old_space_size=9216 lib/start.js",
-		"start:dev": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
-		"chmod": "chmod +x ./lib/start.js",
-		"build:ts": "tsc",
-		"clear": "yarn clear:build",
-		"clear:build": "rimraf ./lib",
-		"watch": "yarn build:ts --watch",
-		"lint": "eslint . --fix",
-		"check:types": "tsc --noEmit",
-		"check:deps": "dpdm -T ./src/index.ts",
-		"check": "yarn check:types && yarn check:deps"
+		"start": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
+		"check": "tsc --noEmit"
 	},
 	"repository": {
 		"type": "git",
@@ -31,10 +21,7 @@
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",
 	"files": [
-		"src",
-		"bin",
-		"lib",
-		"templates"
+		"src"
 	],
 	"license": "Apache-2.0",
 	"bugs": {
@@ -64,9 +51,6 @@
 		"@types/node": "^24.0.4",
 		"@types/yargs": "^17.0.33",
 		"dpdm": "^3.14.0",
-		"esbuild": "^0.25.5",
-		"esbuild-node-externals": "^1.18.0",
-		"rimraf": "^6.0.1",
 		"typescript": "^5.8.3"
 	},
 	"dependencies": {

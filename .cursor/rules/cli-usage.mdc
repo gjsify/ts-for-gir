@@ -24,10 +24,7 @@ npx @ts-for-gir/cli generate Gtk-4.0 Gio-2.0 GLib-2.0
 
 ## Config Files
 Located in project root:
-- `.ts-for-gir.all.rc.js` - Generate all available types
-- `.ts-for-gir.gtk4.rc.js` - GTK4 specific generation
 - `.ts-for-gir.packages-all.rc.js` - Generate npm packages
-- `.ts-for-gir.packages-gtk4.rc.js` - GTK4 npm packages
 
 ## Config Structure
 ```javascript

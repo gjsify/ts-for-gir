@@ -12,8 +12,7 @@
 		".": "./src/index.ts"
 	},
 	"scripts": {
-		"check": "tsc --noEmit",
-		"update-package-descriptions": "wget https://raw.githubusercontent.com/vala-lang/valadoc-org/master/documentation/packages.xml"
+		"check": "tsc --noEmit"
 	},
 	"repository": {
 		"type": "git",
@@ -21,7 +20,7 @@
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",
 	"files": [
-		"lib"
+		"src"
 	],
 	"license": "Apache-2.0",
 	"bugs": {

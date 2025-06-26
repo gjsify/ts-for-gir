@@ -17,13 +17,10 @@
 	"private": true,
 	"scripts": {
 		"build": "parcel build main.ts",
-		"clear": "rm -rf ./dist",
-		"start": "yarn clear && yarn build && yarn start:app",
-		"start:app": "gjs -m dist/main.js",
 		"watch": "yarn build --watch",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
+		"clear": "rm -rf dist .parcel-cache @types"
 	},
 	"author": "",
 	"license": "Apache-2.0",

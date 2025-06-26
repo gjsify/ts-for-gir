@@ -37,13 +37,12 @@ jobs:
     - run: node --version
     - run: gjs --version
     - run: yarn install
-    - run: yarn check
-    - run: yarn build
-    - run: yarn build:types:packages
+    - run: yarn check:lint
+    - run: yarn test:locally
+    - run: yarn build:types
     - name: Show diff
       run: (cd ./types && git diff | cat)
-    - run: yarn validate:types:packages
-    - run: yarn test:tests
     - run: yarn build:examples
-    - run: yarn validate:examples
-    - run: yarn test:examples:cli-apps
+    - run: yarn check:examples
+    - run: yarn test:examples:cli
+    - run: yarn check

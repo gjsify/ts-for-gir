@@ -5,12 +5,9 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"build:app": "tsc",
-		"build": "yarn build:app",
-		"start:app": "gjs -m dist/main.js",
-		"start": "yarn build && yarn start:app",
-		"validate": "yarn validate:types",
-		"validate:types": "tsc --noEmit",
+		"build": "tsc",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
 		"clear": "rm -rf dist"
 	},
 	"devDependencies": {

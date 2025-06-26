@@ -50,6 +50,18 @@ sudo dnf install gnome-shell gcr-devel gnome-desktop3-devel
 sudo dnf install gnome-bluetooth-libs-devel
 ```
 
+## Yarn
+
+We are using [Yarn](https://yarnpkg.com/) and its [workspace feature](https://yarnpkg.com/features/workspaces).
+Yarn serves as a replacement for NPM, just like with NPM, you can run the scripts in the `package.json`.
+We have created some of them for development.
+
+```bash
+npm install -g yarn
+```
+
+## Install
+
 Checkout this repository:
 
 ```bash
@@ -64,39 +76,66 @@ cd ts-for-gir
 git submodule update --init
 ```
 
-Install the dependencies and build:
+Install the dependencies:
 
 ```bash
 yarn install
-yarn build
 ```
 
-Generate example type definitions:
+## Quick Start - No Build Required!
+Ts-for-gir runs directly as TypeScript files for faster development, so you don't need to build it.
+
+To generate example type definitions for testing, just run:
 
 ```bash
-yarn build:types:packages:gtk4
+yarn test:locally
+```
+
+To generate type definitions for all packages, run:
+
+```bash
+yarn build:types
+```
+
+## Running ts-for-gir
+
+To start ts-for-gir directly without building, run:
+
+```bash
+yarn start --help
+```
+
+To generate types for a specific module, run:
+
+```bash
+yarn start generate Gtk-4.0
+```
+
+## Examples
+
+Examples still need to be built since GJS cannot execute TypeScript directly.
+
+To build all examples, run:
+
+```bash
+yarn build:examples
+
+# Run a specific example
+cd examples/gtk-4-hello
+yarn build
+yarn start
 ```
 
 ## Gir XML Format
 
 See [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) for type definitions.
 
-## Yarn
-
-We are using [Yarn](https://yarnpkg.com/) and its [workspace feature](https://yarnpkg.com/features/workspaces).
-Yarn serves as a replacement for NPM, just like with NPM, you can run the scripts in the `package.json`.
-We have created some of them for development.
-
-```bash
-npm install -g yarn
-```
-
 ## Validate
 
 To validate all your generated type definition files in this project run 
 
 ```bash
-yarn validate:types:packages
+yarn check:types
 ```
 
 ## Test
@@ -114,7 +153,7 @@ git submodule update --init
 Now you can run the test with
 
 ```bash
-yarn test:girs:packages
+yarn test:types
 ```
 
 ## Update gir files

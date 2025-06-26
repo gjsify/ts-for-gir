@@ -1,18 +1,17 @@
 {
 	"name": "@ts-for-gir-example/soup-3-http-example",
 	"version": "4.0.0-beta.25",
-	"description": "GJS example showing how to build a http server/client using Soap 3",
+	"description": "Simple GJS Soup 3 HTTP client/server example app",
+	"main": "index.js",
 	"type": "module",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "yarn node esbuild.js",
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
 		"start:server": "gjs -m dist/http-server.js",
 		"start:client": "gjs -m dist/http-client.js",
-		"debug:server": "GTK_DEBUG=interactive yarn start:server",
-		"debug:client": "GTK_DEBUG=interactive yarn start:client",
-		"start": "yarn build && concurrently 'yarn:start:*'",
-		"validate": "tsc --project tsconfig.json --noEmit",
+		"start": "concurrently 'yarn:start:*'",
+		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},
 	"author": "Pascal Garber <pascal@artandcode.studio>",

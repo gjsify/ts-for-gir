@@ -18,7 +18,6 @@ import type {
 	GirVirtualMethodElement,
 } from "../index.ts";
 import { Logger } from "../logger.ts";
-import type { ResolutionNode } from "../types/class.ts";
 import type {
 	ClassDefinition,
 	ClassMember,
@@ -796,85 +795,50 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		const implementedOnParent = [...(resolution.extends() ?? [])].flatMap((r) => r.implements());
 		const properties = new Map<string, IntrospectedProperty>();
 
-		const isValidProperty = (prop: IntrospectedProperty) =>
+		const validateProp = (prop: IntrospectedProperty) =>
 			!this.hasInstanceSymbol(prop) &&
 			!properties.has(prop.name) &&
-			potentialConflicts.every((conflict) => prop.name !== conflict.name);
+			potentialConflicts.every((p) => prop.name !== p.name);
 
-		this.collectFromDirectImplementations(resolution, implementedOnParent, properties, "props", isValidProperty);
-		this.collectFromNestedImplementations(resolution, implementedOnParent, properties, "props", isValidProperty);
-		this.collectFromClassInheritance(resolution, properties, "props", isValidProperty);
+		for (const implemented of resolution.implements()) {
+			if (implemented.node instanceof IntrospectedClass) continue;
+
+			if (implementedOnParent.find((p) => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0)
+				continue;
+			for (const prop of implemented.node.props) {
+				if (!validateProp(prop)) continue;
+				properties.set(prop.name, prop);
+			}
+		}
+
+		for (const implemented of resolution.implements()) {
+			[...implemented].forEach((e) => {
+				if (e.node instanceof IntrospectedClass) return;
+
+				if (implementedOnParent.find((p) => p.identifier.equals(e.identifier))?.node.generics.length === 0) return;
+				for (const prop of e.node.props) {
+					if (!validateProp(prop)) continue;
+
+					properties.set(prop.name, prop);
+				}
+			});
+		}
+
+		// If an interface inherits from a class (such as Gtk.Widget)
+		// we need to pull in every property from that class...
+		for (const implemented of resolution.implements()) {
+			const extended = implemented.extends();
+
+			if (extended?.node instanceof IntrospectedClass) {
+				for (const prop of extended.node.props) {
+					if (!validateProp(prop)) continue;
+
+					properties.set(prop.name, prop);
+				}
+			}
+		}
 
 		return [...properties.values()];
-	}
-
-	private collectFromDirectImplementations<T extends IntrospectedProperty | IntrospectedClassFunction>(
-		resolution: ClassResolution,
-		implementedOnParent: InterfaceResolution[],
-		collection: Map<string, T>,
-		property: "props" | "members",
-		validator: (item: T) => boolean,
-	): void {
-		for (const implemented of resolution.implements()) {
-			if (this.shouldSkipImplementation(implemented, implementedOnParent)) {
-				continue;
-			}
-
-			const items = implemented.node[property] as T[];
-			for (const item of items) {
-				if (validator(item)) {
-					collection.set(item.name, item);
-				}
-			}
-		}
-	}
-
-	private collectFromNestedImplementations<T extends IntrospectedProperty | IntrospectedClassFunction>(
-		resolution: ClassResolution,
-		implementedOnParent: InterfaceResolution[],
-		collection: Map<string, T>,
-		property: "props" | "members",
-		validator: (item: T) => boolean,
-	): void {
-		for (const implemented of resolution.implements()) {
-			if (this.shouldSkipImplementation(implemented, implementedOnParent)) {
-				continue;
-			}
-
-			for (const nestedImplemented of implemented.node.interfaces) {
-				const resolved = resolveTypeIdentifier(implemented.node.namespace, nestedImplemented);
-				if (resolved instanceof IntrospectedInterface) {
-					const items = resolved[property] as T[];
-					for (const item of items) {
-						if (validator(item)) {
-							collection.set(item.name, item);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	private collectFromClassInheritance<T extends IntrospectedProperty | IntrospectedClassFunction>(
-		resolution: ClassResolution,
-		collection: Map<string, T>,
-		property: "props" | "members",
-		validator: (item: T) => boolean,
-	): void {
-		for (const inherited of resolution) {
-			for (const implemented of inherited.implements()) {
-				const items = implemented.node[property] as T[];
-				for (const item of items) {
-					if (validator(item)) {
-						collection.set(item.name, item);
-					}
-				}
-			}
-		}
-	}
-
-	private shouldSkipImplementation(implemented: ResolutionNode, implementedOnParent: InterfaceResolution[]): boolean {
-		return implementedOnParent.some((parent) => parent.identifier.equals(implemented.identifier));
 	}
 
 	implementedMethods(potentialConflicts: ClassMember[] = []) {
@@ -882,21 +846,51 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		const implementedOnParent = [...(resolution.extends() ?? [])].flatMap((r) => r.implements());
 		const methods = new Map<string, IntrospectedClassFunction>();
 
-		const isValidMethod = (method: IntrospectedClassFunction) =>
+		const validateMethod = (method: IntrospectedClassFunction) =>
 			!(method instanceof IntrospectedStaticClassFunction) &&
 			!this.hasInstanceSymbol(method) &&
 			!methods.has(method.name) &&
 			potentialConflicts.every((m) => method.name !== m.name);
 
-		this.collectFromDirectImplementations(resolution, implementedOnParent, methods, "members", isValidMethod);
-		this.collectFromNestedImplementations(resolution, implementedOnParent, methods, "members", isValidMethod);
-		this.collectFromClassInheritance(resolution, methods, "members", isValidMethod);
+		for (const implemented of resolution.implements()) {
+			if (implemented.node instanceof IntrospectedClass) continue;
 
-		return this.mapImplementedMethods([...methods.values()]);
-	}
+			if (implementedOnParent.find((p) => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0)
+				continue;
+			for (const member of implemented.node.members) {
+				if (!validateMethod(member)) continue;
+				methods.set(member.name, member);
+			}
+		}
 
-	private mapImplementedMethods(methods: IntrospectedClassFunction[]): IntrospectedClassFunction[] {
-		return methods.map((f) => {
+		for (const implemented of resolution.implements()) {
+			[...implemented].forEach((e) => {
+				if (e.node instanceof IntrospectedClass) return;
+
+				if (implementedOnParent.find((p) => p.identifier.equals(e.identifier))?.node.generics.length === 0) return;
+				for (const member of e.node.members) {
+					if (!validateMethod(member)) continue;
+
+					methods.set(member.name, member);
+				}
+			});
+		}
+
+		// If an interface inherits from a class (such as Gtk.Widget)
+		// we need to pull in every method from that class...
+		for (const implemented of resolution.implements()) {
+			const extended = implemented.extends();
+
+			if (extended?.node instanceof IntrospectedClass) {
+				for (const member of extended.node.members) {
+					if (!validateMethod(member)) continue;
+
+					methods.set(member.name, member);
+				}
+			}
+		}
+
+		return [...methods.values()].map((f) => {
 			const mapping = new Map<string, TypeExpression>();
 			if (f.parent instanceof IntrospectedBaseClass) {
 				const inter = this.interfaces.find((i) => i.equals(f.parent.getType()));

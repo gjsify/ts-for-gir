@@ -11,8 +11,11 @@
 		"start": "yarn workspace @ts-for-gir/cli run start",
 		"start:prod": "yarn workspace @ts-for-gir/cli run start:prod",
 		"format": "biome check . --write --unsafe",
-		"check": "yarn check:lint && yarn workspaces foreach -v --all -pti run check",
 		"check:lint": "biome check .",
+		"check:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run check",
+		"check:types": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",
+		"check:app": "yarn check:lint && yarn workspaces foreach -v --all --include '@ts-for-gir/*' --include '@gi.ts/*' -pti run check",
+		"check": "yarn check:lint && yarn workspaces foreach -v --all -pti run check",
 		"update:submodules": "git submodule foreach git pull",
 		"update:packages": "yarn upgrade-interactive",
 		"update": "yarn update:submodules && yarn update:packages",
@@ -27,8 +30,6 @@
 		"build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
 		"build:types": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
 		"copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
-		"check:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run check",
-		"check:types": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",
 		"clear": "yarn workspaces foreach -v --all --parallel run clear"
 	},
 	"repository": {

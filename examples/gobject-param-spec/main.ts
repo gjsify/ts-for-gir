@@ -56,6 +56,17 @@ class ExampleObject extends GObject.Object {
 						false, // default value BEFORE flags
 					),
 
+					// Float property demonstrating GObject.TYPE_FLOAT
+					ratio: GObject.ParamSpec.float(
+						"ratio", // name (required)
+						"Ratio", // nick (optional)
+						"A floating point ratio value", // blurb (optional)
+						GObject.ParamFlags.READWRITE,
+						0.0, // minimum
+						1.0, // maximum
+						0.5, // default value
+					),
+
 					// Object property demonstrating GObject.ParamSpec.object
 					file: GObject.ParamSpec.object(
 						"file", // name (required)
@@ -75,6 +86,7 @@ class ExampleObject extends GObject.Object {
 	protected declare _minimalProperty: string;
 	protected declare _count: number;
 	protected declare _active: boolean;
+	protected declare _ratio: number;
 	protected declare _file: Gio.File | null;
 
 	// Property getters/setters
@@ -108,6 +120,14 @@ class ExampleObject extends GObject.Object {
 
 	set active(value: boolean) {
 		this._active = value;
+	}
+
+	get ratio(): number {
+		return this._ratio;
+	}
+
+	set ratio(value: number) {
+		this._ratio = value;
 	}
 
 	get file(): Gio.File | null {

@@ -1,7 +1,7 @@
 ---
-description: Guidelines for writing clean, maintainable, and human-readable code. Apply these rules when writing or reviewing code to ensure consistency and quality.
+description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Clean Code Guidelines
 
@@ -26,6 +26,8 @@ alwaysApply: false
 - Don't comment on what the code does - make the code self-documenting
 - Use comments to explain why something is done a certain way
 - Document APIs, complex algorithms, and non-obvious side effects
+- Write JSDoc comments for public interfaces to generate TypeDoc documentation
+- Include parameter descriptions, return types, and usage examples in public API docs
 
 ## Single Responsibility
 - Each function should do exactly one thing

@@ -16,6 +16,8 @@ To use an example:
 3. Run `yarn build` to build the example
 4. Run `yarn start` to run the example
 
+**Note:** Examples must be built because GJS cannot execute TypeScript directly. However, the core ts-for-gir packages no longer require building and run directly as TypeScript files.
+
 The examples use the `@girs/*` NPM packages for TypeScript definitions. These are pre-generated type definitions that you can also generate yourself using the ts-for-gir CLI with the `--package` option. For more information on CLI options, see the [CLI documentation](/packages/cli/README.md).
 
 ## Quality Assurance and Testing
@@ -38,38 +40,38 @@ This collaborative approach helps us improve the quality of the type definitions
 
 ### GTK 4 Examples
 
-| Example | Description | Bundler |
-|---------|-------------|---------|
-| [GTK 4 Template (Vite)](gtk-4-template-vite) | Modern UI with Vite for template and CSS loading | Vite |
-| [GTK 4 Template (esbuild)](gtk-4-template-esbuild) | Template-based UI using esbuild for asset loading | esbuild |
-| [GTK 4 Template (TSC)](gtk-4-template-tsc) | Pure TypeScript compilation with runtime asset loading | TSC |
-| [GTK 4 ListStore](gtk-4-list-store) | Data management with TreeView and ListStore | esbuild |
-| [GTK 4 Custom Widget](gtk-4-custom-widget) | Creating custom widgets and virtual functions | esbuild |
+| Example                                            | Description                                            | Bundler |
+| -------------------------------------------------- | ------------------------------------------------------ | ------- |
+| [GTK 4 Template (Vite)](gtk-4-template-vite)       | Modern UI with Vite for template and CSS loading       | Vite    |
+| [GTK 4 Template (esbuild)](gtk-4-template-esbuild) | Template-based UI using esbuild for asset loading      | esbuild |
+| [GTK 4 Template (TSC)](gtk-4-template-tsc)         | Pure TypeScript compilation with runtime asset loading | TSC     |
+| [GTK 4 ListStore](gtk-4-list-store)                | Data management with TreeView and ListStore            | esbuild |
+| [GTK 4 Custom Widget](gtk-4-custom-widget)         | Creating custom widgets and virtual functions          | esbuild |
 
 ### GTK 3 Examples
 
-| Example | Description | Bundler |
-|---------|-------------|---------|
-| [GTK 3 Browser](gtk-3-browser) | Web browser using WebKit | Webpack |
-| [GTK 3 Builder](gtk-3-builder) | UI design with Glade/Builder | Webpack |
-| [GTK 3 Calculator](gtk-3-calc) | Simple calculator application | esbuild |
-| [GTK 3 Clutter](gtk-3-clutter-tsc) | Graphics with Clutter integration | TSC |
-| [GTK 3 Editor](gtk-3-editor) | Text editor application | Parcel |
-| [GTK 3 Hello World](gtk-3-hello) | Minimal GTK 3 application | Rollup |
+| Example                            | Description                       | Bundler |
+| ---------------------------------- | --------------------------------- | ------- |
+| [GTK 3 Browser](gtk-3-browser)     | Web browser using WebKit          | Webpack |
+| [GTK 3 Builder](gtk-3-builder)     | UI design with Glade/Builder      | Webpack |
+| [GTK 3 Calculator](gtk-3-calc)     | Simple calculator application     | esbuild |
+| [GTK 3 Clutter](gtk-3-clutter-tsc) | Graphics with Clutter integration | TSC     |
+| [GTK 3 Editor](gtk-3-editor)       | Text editor application           | Parcel  |
+| [GTK 3 Hello World](gtk-3-hello)   | Minimal GTK 3 application         | Rollup  |
 
 ### Libadwaita Examples
 
-| Example | Description | Bundler |
-|---------|-------------|---------|
-| [Adwaita Hello World](adw-1-hello) | Modern GNOME UI with Libadwaita | Vite |
+| Example                            | Description                     | Bundler |
+| ---------------------------------- | ------------------------------- | ------- |
+| [Adwaita Hello World](adw-1-hello) | Modern GNOME UI with Libadwaita | Vite    |
 
 ### Gio and Other Libraries
 
-| Example | Description | Bundler |
-|---------|-------------|---------|
-| [Gio Cat](gio-2-cat) | File system operations with Gio | esbuild |
-| [Gio DBus](gio-2-dbus) | DBus client/server communication | esbuild |
-| [Soup HTTP](soup-3-http) | HTTP client/server with Soup 3 | esbuild |
+| Example                  | Description                      | Bundler |
+| ------------------------ | -------------------------------- | ------- |
+| [Gio Cat](gio-2-cat)     | File system operations with Gio  | esbuild |
+| [Gio DBus](gio-2-dbus)   | DBus client/server communication | esbuild |
+| [Soup HTTP](soup-3-http) | HTTP client/server with Soup 3   | esbuild |
 
 ## How to Run Examples
 
@@ -78,7 +80,7 @@ For most examples, you can use:
 ```bash
 cd examples/<example-directory>
 yarn install
-yarn start
+yarn start  # This will build and run the example
 ```
 
 Some examples like the DBus and HTTP examples have separate client and server parts:
@@ -87,14 +89,12 @@ Some examples like the DBus and HTTP examples have separate client and server pa
 # For DBus example
 cd examples/gio-2-dbus
 yarn install
-yarn build
 yarn start:server  # In one terminal
 yarn start:client  # In another terminal
 
 # For HTTP example
 cd examples/soup-3-http
 yarn install
-yarn build
 yarn start:server  # In one terminal
 yarn start:client  # In another terminal
 ```

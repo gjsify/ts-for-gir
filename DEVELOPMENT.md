@@ -82,16 +82,48 @@ Install the dependencies:
 yarn install
 ```
 
-Generate example type definitions:
+## Quick Start - No Build Required!
+Ts-for-gir runs directly as TypeScript files for faster development, so you don't need to build it.
+
+To generate example type definitions for testing, just run:
 
 ```bash
 yarn test:locally
 ```
 
-Generate type definitions for all packages:
+To generate type definitions for all packages, run:
 
 ```bash
 yarn build:types
+```
+
+## Running ts-for-gir
+
+To start ts-for-gir directly without building, run:
+
+```bash
+yarn start --help
+```
+
+To generate types for a specific module, run:
+
+```bash
+yarn start generate Gtk-4.0
+```
+
+## Examples
+
+Examples still need to be built since GJS cannot execute TypeScript directly.
+
+To build all examples, run:
+
+```bash
+yarn build:examples
+
+# Run a specific example
+cd examples/gtk-4-hello
+yarn build
+yarn start
 ```
 
 ## Gir XML Format

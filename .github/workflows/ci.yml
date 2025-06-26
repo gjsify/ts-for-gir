@@ -38,7 +38,6 @@ jobs:
     - run: gjs --version
     - run: yarn install
     - run: yarn check
-    - run: yarn build
     - run: yarn test:locally
     - run: yarn build:types
     - name: Show diff

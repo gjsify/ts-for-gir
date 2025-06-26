@@ -147,6 +147,7 @@ obj.full_property = "New Value";
 obj.minimal_property = "Test";
 obj.count = 42;
 obj.active = true;
+obj.ratio = 0.75;
 
 // Set the file property with a Gio.File object
 const testFile = Gio.File.new_for_path("/tmp/test.txt");
@@ -157,6 +158,7 @@ console.log("Full Property:", obj.full_property);
 console.log("Minimal Property:", obj.minimal_property);
 console.log("Count:", obj.count);
 console.log("Active:", obj.active);
+console.log("Ratio:", obj.ratio);
 console.log("File Path:", obj.file?.get_path());
 
 // Get property info using GObject introspection
@@ -235,11 +237,27 @@ objectValue.set_object(newFile);
 obj.set_property("file", objectValue);
 console.log("Property after set_property:", obj.file?.get_path());
 
+// Example 5: Get/Set float property (explicit GObject.TYPE_FLOAT usage)
+console.log("\nExample 5: Float property");
+// Create a GObject.Value for float
+const floatValue = new GObject.Value();
+floatValue.init(GObject.TYPE_FLOAT);
+
+// Get the property value
+obj.get_property("ratio", floatValue);
+console.log("Get value from GObject.Value:", floatValue.get_float());
+
+// Modify and set
+floatValue.set_float(0.25);
+obj.set_property("ratio", floatValue);
+console.log("Property after set_property:", obj.ratio);
+
 // Clean up the GObject.Value instances
 stringValue.unset();
 boolValue.unset();
 intValue.unset();
 objectValue.unset();
+floatValue.unset();
 
 // Demonstrate property binding between GObject instances
 console.log("\n=== Property Binding Examples ===");

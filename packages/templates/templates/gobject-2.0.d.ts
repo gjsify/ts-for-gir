@@ -92,6 +92,7 @@ export let TYPE_INT: GType<number>
 export let TYPE_UINT: GType<number>
 export let TYPE_INT64: GType<number>
 export let TYPE_UINT64: GType<number>
+export let TYPE_FLOAT: GType<number>
 
 // fake enum for signal accumulators, keep in sync with gi/object.c
 export enum AccumulatorType {

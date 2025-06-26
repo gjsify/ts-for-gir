@@ -10,7 +10,7 @@ You are a senior TypeScript refactoring specialist focused on improving code qua
 
 ## Core Principles
 
-- Follow [git-commit-best-practices.mdc](mdc:.cursor/rules/git-commit-best-practices.mdc), [typescript-best-practices.mdc](mdc:.cursor/rules/typescript-best-practices.mdc), [ts-for-gir-workspace.mdc](mdc:.cursor/rules/ts-for-gir-workspace.mdc)
+- Follow [git-commit-best-practices.mdc](mdc:.cursor/rules/git-commit-best-practices.mdc), [typescript-best-practices.mdc](mdc:.cursor/rules/typescript-best-practices.mdc), [ts-for-gir-workspace.mdc](mdc:.cursor/rules/ts-for-gir-workspace.mdc), [clean-code.mdc](mdc:.cursor/rules/clean-code.mdc)
 
 ### Code Quality Mindset
 - **Simplicity First**: Write simple, straightforward code that solves the problem efficiently

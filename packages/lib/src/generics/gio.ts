@@ -1,3 +1,4 @@
+import type { IntrospectedBaseClass, IntrospectedClassFunction } from "../gir/introspected-classes.ts";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { AnyType, Generic, GenericType, GenerifiedTypeIdentifier, StringType, TypeIdentifier } from "../gir.ts";
 import type { GioConfig } from "../types/generics-config.ts";
@@ -21,7 +22,7 @@ function applyGioGenerics(namespace: IntrospectedNamespace): void {
 	setupSettingsValueMethods(namespace);
 }
 
-function setupAsyncInitable(namespace: IntrospectedNamespace, GObject: ReturnType<any>): void {
+function setupAsyncInitable(namespace: IntrospectedNamespace, GObject: IntrospectedBaseClass): void {
 	const AsyncInitable = namespace.getClass("AsyncInitable");
 	if (!AsyncInitable) {
 		throw new Error("Gio.AsyncInitable not found.");
@@ -34,7 +35,7 @@ function setupAsyncInitable(namespace: IntrospectedNamespace, GObject: ReturnTyp
 	});
 }
 
-function setupListModel(namespace: IntrospectedNamespace, GObject: ReturnType<any>): void {
+function setupListModel(namespace: IntrospectedNamespace, GObject: IntrospectedBaseClass): void {
 	const ListModel = namespace.getClass("ListModel");
 	if (!ListModel) {
 		throw new Error("Gio.ListModel not found.");
@@ -46,7 +47,7 @@ function setupListModel(namespace: IntrospectedNamespace, GObject: ReturnType<an
 	});
 }
 
-function setupListStore(namespace: IntrospectedNamespace, GObject: ReturnType<any>): void {
+function setupListStore(namespace: IntrospectedNamespace, GObject: IntrospectedBaseClass): void {
 	const ListModel = namespace.getClass("ListModel");
 	const ListStore = namespace.getClass("ListStore");
 
@@ -74,7 +75,7 @@ function setupSettingsValueMethods(namespace: IntrospectedNamespace): void {
 	});
 }
 
-function updateSettingsMethod(method: any): any {
+function updateSettingsMethod(method: IntrospectedClassFunction): IntrospectedClassFunction {
 	method.generics.push(new Generic(new GenericType("T"), AnyType, undefined, StringType));
 
 	const returnType = method.return().deepUnwrap();

@@ -41,7 +41,7 @@ export class DependencyResolver {
 		const rule = dependencyRules[packageName];
 
 		if (rule) {
-			rule.forEach(({ namespace, version, required }) => {
+			rule.forEach(({ namespace, version }) => {
 				const requiredPackage = `${namespace}-${version}`;
 				if (!this.hasDependency(transitiveDependencies, requiredPackage)) {
 					transitiveDependencies.push(this.getDependency(namespace, version));

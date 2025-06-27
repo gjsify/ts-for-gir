@@ -1,4 +1,6 @@
 import type { IntrospectedCallback } from "../gir/callback.ts";
+import type { IntrospectedConstructor } from "../gir/constructor.ts";
+import type { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";
 import type { IntrospectedEnum } from "../gir/enum.ts";
 import { IntrospectedFunction } from "../gir/function.ts";
 import { createGenericNameGenerator } from "../gir/generics.ts";
@@ -11,6 +13,7 @@ import {
 } from "../gir/introspected-classes.ts";
 import type { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import type { NSRegistry } from "../gir/registry.ts";
+import type { IntrospectedSignal } from "../gir/signal.ts";
 import {
 	ClosureType,
 	Generic,
@@ -347,6 +350,10 @@ export class GenericVisitor extends GirVisitor {
 		}
 
 		const member = node.parent;
+		if (!member) {
+			return null;
+		}
+
 		const generifiedType = this.createAsyncReadyCallbackType(member, internal);
 
 		if (generifiedType) {
@@ -358,7 +365,15 @@ export class GenericVisitor extends GirVisitor {
 		return null;
 	}
 
-	private createAsyncReadyCallbackType(member: any, internal: TypeIdentifier): GenerifiedTypeIdentifier | null {
+	private createAsyncReadyCallbackType(
+		member:
+			| IntrospectedFunction
+			| IntrospectedClassFunction
+			| IntrospectedSignal
+			| IntrospectedConstructor
+			| IntrospectedDirectAllocationConstructor,
+		internal: TypeIdentifier,
+	): GenerifiedTypeIdentifier | null {
 		if (member instanceof IntrospectedFunction && member.parameters.length >= 2) {
 			return new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parameters[0].type]);
 		}

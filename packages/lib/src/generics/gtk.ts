@@ -42,7 +42,7 @@ function getGtkClasses(namespace: IntrospectedNamespace) {
 	>;
 }
 
-function setupStringListGenerics(classes: ReturnType<typeof getGtkClasses>, GObject: any): void {
+function setupStringListGenerics(classes: ReturnType<typeof getGtkClasses>, GObject: IntrospectedBaseClass): void {
 	const { StringList, StringObject } = classes;
 
 	StringList.addGeneric({
@@ -51,7 +51,7 @@ function setupStringListGenerics(classes: ReturnType<typeof getGtkClasses>, GObj
 	});
 }
 
-function updateBindModelMethods(classes: ReturnType<typeof getGtkClasses>, GObject: any): void {
+function updateBindModelMethods(classes: ReturnType<typeof getGtkClasses>, GObject: IntrospectedBaseClass): void {
 	const { FlowBox, ListBox } = classes;
 
 	const bindModelConfigs = [
@@ -64,7 +64,11 @@ function updateBindModelMethods(classes: ReturnType<typeof getGtkClasses>, GObje
 	}
 }
 
-function updateBindModelMethod(cls: IntrospectedBaseClass, widgetFuncName: string, GObject: any): void {
+function updateBindModelMethod(
+	cls: IntrospectedBaseClass,
+	widgetFuncName: string,
+	GObject: IntrospectedBaseClass,
+): void {
 	cls.members = cls.members.map((member) => {
 		if (member.name !== "bind_model") {
 			return member;

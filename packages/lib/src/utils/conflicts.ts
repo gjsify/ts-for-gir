@@ -74,9 +74,12 @@ export function filterFunctionConflict<
 		.reduce((prev, next) => {
 			const conflictResult = checkFunctionConflicts(ns, base, next, conflict_ids, nextType);
 
-			if (conflictResult.hasConflict) {
-				if (conflictResult.shouldOmit || isInheritedMethods) {
-					log.warn(`Omitting ${next.name} due to field or property conflict.`);
+			if (conflictResult.shouldOmit) {
+				// Always omit methods that conflict with properties/fields
+				log.warn(`Omitting ${next.name} due to field or property conflict.`);
+			} else if (conflictResult.hasConflict) {
+				if (isInheritedMethods) {
+					log.warn(`Omitting ${next.name} due to parent method conflict.`);
 				} else {
 					const neverFunction = createNeverFunction(next, base, conflictResult.message);
 					prev.push(next, neverFunction as T);

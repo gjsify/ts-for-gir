@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import type { GirXML } from "./xml.ts";
+import type { GirXML } from "./gir-types.ts";
 
 //  TODO: Treat properties that contain only one element like `repository`, 'namespace', 'package', ...  as an object instead of an array
 const isArrayProperty = [

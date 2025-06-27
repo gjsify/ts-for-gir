@@ -66,235 +66,235 @@ export interface PartOfModule {
  */
 export interface PartOfClass extends PartOfModule {
 	/** The class/union/interface/record this element is defined in */
-	_class?: GirClassElementExtended | GirUnionElementExtended | GirInterfaceElementExtended | GirRecordElementExtended;
+	_class?: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement;
 }
 
 // Extended GIR types that include runtime context
 // These extend the base XML types with additional processing information
 
 /**
- * Extended GIR alias element with runtime context.
+ * GIR alias element with runtime context.
  * Represents a type substitution (typedef in C).
  */
-export interface GirAliasElementExtended extends PartOfClass, BaseGirAliasElement {}
+export interface GirAliasElement extends PartOfClass, BaseGirAliasElement {}
 
 /**
- * Extended GIR annotation with runtime context.
+ * GIR annotation with runtime context.
  * Represents user-defined annotations from source code.
  */
-export interface GirAnnotationExtended extends BaseGirAnnotation {
+export interface GirAnnotation extends BaseGirAnnotation {
 	// Annotations typically don't need runtime context
 }
 
 /**
- * Extended GIR bitfield element with runtime context.
+ * GIR bitfield element with runtime context.
  * Represents a bit field definition.
  */
-export interface GirBitfieldElementExtended extends PartOfModule, BaseGirBitfieldElement {
-	member: GirMemberElementExtended[];
-	function: GirFunctionElementExtended[];
+export interface GirBitfieldElement extends PartOfModule, BaseGirBitfieldElement {
+	member: GirMemberElement[];
+	function: GirFunctionElement[];
 }
 
 /**
- * Extended GIR callback element with runtime context.
+ * GIR callback element with runtime context.
  * Represents a callback closure/function pointer.
  */
-export interface GirCallbackElementExtended extends PartOfModule, BaseGirCallbackElement {
-	parameters?: [GirCallableParamsExtended];
-	"return-value"?: GirCallableReturnExtended[];
+export interface GirCallbackElement extends PartOfModule, BaseGirCallbackElement {
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
 }
 
 /**
- * Extended GIR callable parameter element with runtime context.
+ * GIR callable parameter element with runtime context.
  */
-export interface GirCallableParamElementExtended extends PartOfClass, BaseGirCallableParamElement {}
+export interface GirCallableParamElement extends PartOfClass, BaseGirCallableParamElement {}
 
 /**
- * Extended GIR callable parameters with runtime context.
+ * GIR callable parameters with runtime context.
  */
-export interface GirCallableParamsExtended extends BaseGirCallableParams {
-	parameter: GirCallableParamElementExtended[];
+export interface GirCallableParams extends BaseGirCallableParams {
+	parameter: GirCallableParamElement[];
 	"instance-parameter"?: GirInstanceParameter[];
 }
 
 /**
- * Extended GIR callable return value with runtime context.
+ * GIR callable return value with runtime context.
  */
-export interface GirCallableReturnExtended extends PartOfClass, BaseGirCallableReturn {
+export interface GirCallableReturn extends PartOfClass, BaseGirCallableReturn {
 	type?: GirType[];
 }
 
 /**
- * Extended GIR class element with runtime context.
+ * GIR class element with runtime context.
  * Represents a GObject class definition.
  */
-export interface GirClassElementExtended extends PartOfModule, BaseGirClassElement {
+export interface GirClassElement extends PartOfModule, BaseGirClassElement {
 	implements?: GirImplements[];
-	constructor?: GirConstructorElementExtended[];
-	method?: GirMethodElementExtended[];
-	function?: GirFunctionElementExtended[];
-	"virtual-method"?: GirVirtualMethodElementExtended[];
-	field?: GirFieldElementExtended[];
-	property?: GirPropertyElementExtended[];
-	signal?: GirSignalElementExtended[];
-	"glib:signal"?: GirSignalElementExtended[];
-	union?: GirUnionElementExtended[];
-	constant?: GirConstantElementExtended[];
-	record?: GirRecordElementExtended[];
-	callback?: GirCallbackElementExtended[];
+	constructor?: GirConstructorElement[];
+	method?: GirMethodElement[];
+	function?: GirFunctionElement[];
+	"virtual-method"?: GirVirtualMethodElement[];
+	field?: GirFieldElement[];
+	property?: GirPropertyElement[];
+	signal?: GirSignalElement[];
+	"glib:signal"?: GirSignalElement[];
+	union?: GirUnionElement[];
+	constant?: GirConstantElement[];
+	record?: GirRecordElement[];
+	callback?: GirCallbackElement[];
 }
 
 /**
- * Extended GIR constant element with runtime context.
+ * GIR constant element with runtime context.
  * Represents a constant value definition.
  */
-export interface GirConstantElementExtended extends PartOfModule, BaseGirConstantElement {}
+export interface GirConstantElement extends PartOfModule, BaseGirConstantElement {}
 
 /**
- * Extended GIR constructor element with runtime context.
+ * GIR constructor element with runtime context.
  * Represents a class constructor.
  */
-export interface GirConstructorElementExtended extends PartOfClass, BaseGirConstructorElement {
-	parameters?: [GirCallableParamsExtended];
-	"return-value"?: GirCallableReturnExtended[];
+export interface GirConstructorElement extends PartOfClass, BaseGirConstructorElement {
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
 }
 
 /**
- * Extended GIR enumeration element with runtime context.
+ * GIR enumeration element with runtime context.
  * Represents an enumeration type.
  */
-export interface GirEnumElementExtended extends PartOfModule, BaseGirEnumElement {
-	member?: GirMemberElementExtended[];
-	function?: GirFunctionElementExtended[];
+export interface GirEnumElement extends PartOfModule, BaseGirEnumElement {
+	member?: GirMemberElement[];
+	function?: GirFunctionElement[];
 }
 
 /**
- * Extended GIR field element with runtime context.
+ * GIR field element with runtime context.
  * Represents a struct/union field.
  */
-export interface GirFieldElementExtended extends PartOfClass, BaseGirFieldElement {
-	callback?: GirCallbackElementExtended[];
+export interface GirFieldElement extends PartOfClass, BaseGirFieldElement {
+	callback?: GirCallbackElement[];
 }
 
 /**
- * Extended GIR function element with runtime context.
+ * GIR function element with runtime context.
  * Represents a standalone function.
  */
-export interface GirFunctionElementExtended extends PartOfClass, BaseGirFunctionElement {
-	parameters?: [GirCallableParamsExtended];
-	"return-value"?: GirCallableReturnExtended[];
+export interface GirFunctionElement extends PartOfClass, BaseGirFunctionElement {
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
 }
 
 /**
- * Extended GIR interface element with runtime context.
+ * GIR interface element with runtime context.
  * Represents an abstract interface.
  */
-export interface GirInterfaceElementExtended extends PartOfModule, BaseGirInterfaceElement {
+export interface GirInterfaceElement extends PartOfModule, BaseGirInterfaceElement {
 	prerequisite?: GirPrerequisite[];
 	implements?: GirImplements[];
-	function?: GirFunctionElementExtended[];
-	constructor?: GirConstructorElementExtended[];
-	method?: GirMethodElementExtended[];
-	"virtual-method"?: GirVirtualMethodElementExtended[];
-	field?: GirFieldElementExtended[];
-	property?: GirPropertyElementExtended[];
-	signal?: GirSignalElementExtended[];
-	"glib:signal"?: GirSignalElementExtended[];
-	callback?: GirCallbackElementExtended[];
-	constant?: GirConstantElementExtended[];
+	function?: GirFunctionElement[];
+	constructor?: GirConstructorElement[];
+	method?: GirMethodElement[];
+	"virtual-method"?: GirVirtualMethodElement[];
+	field?: GirFieldElement[];
+	property?: GirPropertyElement[];
+	signal?: GirSignalElement[];
+	"glib:signal"?: GirSignalElement[];
+	callback?: GirCallbackElement[];
+	constant?: GirConstantElement[];
 }
 
 /**
- * Extended GIR member element with runtime context.
+ * GIR member element with runtime context.
  * Represents an enumeration or bitfield member.
  */
-export interface GirMemberElementExtended extends BaseGirMemberElement {
+export interface GirMemberElement extends BaseGirMemberElement {
 	// Members typically don't need additional runtime context
 }
 
 /**
- * Extended GIR method element with runtime context.
+ * GIR method element with runtime context.
  * Represents a class/interface method.
  */
-export interface GirMethodElementExtended extends PartOfClass, BaseGirMethodElement {
-	parameters?: [GirCallableParamsExtended];
-	"return-value"?: GirCallableReturnExtended[];
+export interface GirMethodElement extends PartOfClass, BaseGirMethodElement {
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
 }
 
 /**
- * Extended GIR namespace with runtime context.
+ * GIR namespace with runtime context.
  * Represents a GIR namespace containing all definitions.
  */
-export interface GirNamespaceExtended extends BaseGirNamespace {
-	alias?: GirAliasElementExtended[];
-	class?: GirClassElementExtended[];
-	interface?: GirInterfaceElementExtended[];
-	record?: GirRecordElementExtended[];
-	enumeration?: GirEnumElementExtended[];
-	function?: GirFunctionElementExtended[];
-	union?: GirUnionElementExtended[];
-	bitfield?: GirBitfieldElementExtended[];
-	callback?: GirCallbackElementExtended[];
-	constant?: GirConstantElementExtended[];
-	annotation?: GirAnnotationExtended[];
+export interface GirNamespace extends BaseGirNamespace {
+	alias?: GirAliasElement[];
+	class?: GirClassElement[];
+	interface?: GirInterfaceElement[];
+	record?: GirRecordElement[];
+	enumeration?: GirEnumElement[];
+	function?: GirFunctionElement[];
+	union?: GirUnionElement[];
+	bitfield?: GirBitfieldElement[];
+	callback?: GirCallbackElement[];
+	constant?: GirConstantElement[];
+	annotation?: GirAnnotation[];
 	"glib:boxed"?: GirBoxedElement[];
 }
 
 /**
- * Extended GIR property element with runtime context.
+ * GIR property element with runtime context.
  * Represents a class/interface property.
  */
-export interface GirPropertyElementExtended extends PartOfClass, BaseGirPropertyElement {}
+export interface GirPropertyElement extends PartOfClass, BaseGirPropertyElement {}
 
 /**
- * Extended GIR record element with runtime context.
+ * GIR record element with runtime context.
  * Represents a C struct definition.
  */
-export interface GirRecordElementExtended extends PartOfModule, BaseGirRecordElement {
-	field?: GirFieldElementExtended[];
-	function?: GirFunctionElementExtended[];
-	union?: GirUnionElementExtended[];
-	method?: GirMethodElementExtended[];
-	constructor?: GirConstructorElementExtended[];
-	property?: GirPropertyElementExtended[];
+export interface GirRecordElement extends PartOfModule, BaseGirRecordElement {
+	field?: GirFieldElement[];
+	function?: GirFunctionElement[];
+	union?: GirUnionElement[];
+	method?: GirMethodElement[];
+	constructor?: GirConstructorElement[];
+	property?: GirPropertyElement[];
 }
 
 /**
- * Extended GIR repository with runtime context.
+ * GIR repository with runtime context.
  * Root element of a GIR file.
  */
-export interface GirRepositoryExtended extends BaseGirRepository {
-	namespace?: GirNamespaceExtended[];
+export interface GirRepository extends BaseGirRepository {
+	namespace?: GirNamespace[];
 }
 
 /**
- * Extended GIR signal element with runtime context.
+ * GIR signal element with runtime context.
  * Represents a GObject signal.
  */
-export interface GirSignalElementExtended extends PartOfModule, BaseGirSignalElement {
-	parameters?: [GirCallableParamsExtended];
-	"return-value"?: GirCallableReturnExtended[];
+export interface GirSignalElement extends PartOfModule, BaseGirSignalElement {
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
 }
 
 /**
- * Extended GIR union element with runtime context.
+ * GIR union element with runtime context.
  * Represents a C union definition.
  */
-export interface GirUnionElementExtended extends PartOfModule, BaseGirUnionElement {
-	field?: GirFieldElementExtended[];
-	constructor?: GirConstructorElementExtended[];
-	method?: GirMethodElementExtended[];
-	function?: GirFunctionElementExtended[];
-	record?: GirRecordElementExtended[];
+export interface GirUnionElement extends PartOfModule, BaseGirUnionElement {
+	field?: GirFieldElement[];
+	constructor?: GirConstructorElement[];
+	method?: GirMethodElement[];
+	function?: GirFunctionElement[];
+	record?: GirRecordElement[];
 }
 
 /**
- * Extended GIR virtual method element with runtime context.
+ * GIR virtual method element with runtime context.
  * Represents a virtual method in a class/interface.
  */
-export interface GirVirtualMethodElementExtended extends PartOfClass, BaseGirVirtualMethodElement {
-	parameters?: [GirCallableParamsExtended];
-	"return-value"?: GirCallableReturnExtended[];
+export interface GirVirtualMethodElement extends PartOfClass, BaseGirVirtualMethodElement {
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
 }
 
 // Module grouping types for processing
@@ -312,28 +312,3 @@ export interface GirModulesGrouped {
 export interface GirModulesGroupedMap {
 	[namespace: string]: GirModulesGrouped;
 }
-
-// Convenience type aliases for backward compatibility
-export type GirAliasElement = GirAliasElementExtended;
-export type GirAnnotation = GirAnnotationExtended;
-export type GirBitfieldElement = GirBitfieldElementExtended;
-export type GirCallbackElement = GirCallbackElementExtended;
-export type GirCallableParamElement = GirCallableParamElementExtended;
-export type GirCallableParams = GirCallableParamsExtended;
-export type GirCallableReturn = GirCallableReturnExtended;
-export type GirClassElement = GirClassElementExtended;
-export type GirConstantElement = GirConstantElementExtended;
-export type GirConstructorElement = GirConstructorElementExtended;
-export type GirEnumElement = GirEnumElementExtended;
-export type GirFieldElement = GirFieldElementExtended;
-export type GirFunctionElement = GirFunctionElementExtended;
-export type GirInterfaceElement = GirInterfaceElementExtended;
-export type GirMemberElement = GirMemberElementExtended;
-export type GirMethodElement = GirMethodElementExtended;
-export type GirNamespace = GirNamespaceExtended;
-export type GirPropertyElement = GirPropertyElementExtended;
-export type GirRecordElement = GirRecordElementExtended;
-export type GirRepository = GirRepositoryExtended;
-export type GirSignalElement = GirSignalElementExtended;
-export type GirUnionElement = GirUnionElementExtended;
-export type GirVirtualMethodElement = GirVirtualMethodElementExtended;

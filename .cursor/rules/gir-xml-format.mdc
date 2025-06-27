@@ -1,0 +1,184 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# GIR XML Format Reference
+
+AI reference guide for understanding GObject Introspection (GIR) XML files used to generate TypeScript type definitions.
+
+Based on the GObject Introspection specification (https://gitlab.gnome.org/GNOME/gobject-introspection/-/raw/main/docs/gir-1.2.rnc) and implemented in `packages/parser`.
+
+## Overview
+
+GIR XML files describe C libraries using GObject introspection metadata for language binding generation:
+- **Purpose**: Machine-readable API descriptions of C libraries
+- **Location**: `girs/` directory contains GIR XML files (e.g., `Gtk-4.0.gir`, `GLib-2.0.gir`)
+- **Output**: Parsed into TypeScript definitions in `types/` directory
+- **Format**: XML with specific namespaces and structure defined by GObject introspection
+
+## XML Namespaces
+
+```xml
+xmlns:core="http://www.gtk.org/introspection/core/1.0"
+xmlns:c="http://www.gtk.org/introspection/c/1.0" 
+xmlns:glib="http://www.gtk.org/introspection/glib/1.0"
+xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+```
+
+**Key Prefix Patterns:**
+- `c:*` - C-specific attributes (types, identifiers, symbols)
+- `glib:*` - GLib/GObject specific attributes (type system integration)
+- `doc:*` - Documentation elements
+- No prefix - Core introspection elements
+
+## Hierarchical Structure
+
+```
+Repository (root)
+├── Include (dependencies)
+├── Package (pkg-config info)
+└── Namespace (main container)
+    ├── Class (GObject classes)
+    ├── Interface (abstract interfaces)
+    ├── Record (C structs)
+    ├── Enumeration (enums)
+    ├── Function (standalone functions)
+    ├── Union (C unions)
+    ├── Bitfield (bit fields)
+    ├── Callback (function pointers)
+    ├── Constant (constants)
+    └── Alias (typedefs)
+```
+
+## Core Element Types
+
+### Repository & Namespace
+- **Repository**: Root element containing version and namespace info
+- **Namespace**: Maps metadata to C functionality (e.g., name="Gtk", version="4.0")
+- **Attributes**: `c:identifier-prefixes`, `c:symbol-prefixes`, `shared-library`
+
+### Type Definitions
+- **Class**: GObject inherited classes with methods, properties, signals
+- **Interface**: Abstract interfaces with virtual methods
+- **Record**: C structs with fields and functions
+- **Enumeration**: Enum types with members and values
+- **Union**: C unions with discriminated fields
+
+### Callable Elements
+- **Function**: Standalone functions with parameters and return values
+- **Method**: Class/interface methods with instance parameters
+- **Constructor**: Object constructors
+- **Virtual-Method**: Virtual methods in classes/interfaces
+- **Callback**: Function pointer types
+
+## Common Attributes
+
+### Info Attributes (on most elements)
+- `introspectable="0|1"` - Whether element is introspectable
+- `deprecated="0|1"` - Deprecation status
+- `deprecated-version` - Version when deprecated
+- `version` - Version when introduced
+- `stability` - "Stable", "Unstable", or "Private"
+
+### Type System Integration
+- `glib:type-name` - GObject type system name
+- `glib:get-type` - Function to get GObject type
+- `c:type` - Corresponding C type
+- `c:identifier` - C identifier/symbol name
+
+### Parameter/Return Attributes
+- `direction="in|out|inout"` - Parameter direction
+- `transfer-ownership="none|container|full"` - Memory ownership
+- `nullable="0|1"` - Can be null
+- `optional="0|1"` - Parameter is optional
+- `scope="notified|async|call|forever"` - Callback lifetime
+
+## Type Representation
+
+### Simple Types
+```xml
+<type name="utf8" c:type="gchar*"/>
+<type name="gboolean" c:type="gboolean"/>
+```
+
+### Array Types
+```xml
+<array zero-terminated="1" c:type="gchar**">
+  <type name="utf8" c:type="gchar*"/>
+</array>
+```
+
+### Generic Types
+```xml
+<type name="GLib.List" c:type="GList*">
+  <type name="utf8"/>
+</type>
+```
+
+## Documentation Elements
+
+- `<doc>` - Main documentation with filename, line, column
+- `<doc-deprecated>` - Deprecated usage documentation
+- `<source-position>` - Source code location
+- `<annotation>` - Custom annotations from source
+
+## Parser Implementation Notes
+
+**From `xml.ts`:**
+- Grammar modified to prefer potentially undefined values
+- XML parsing handles missing optional elements gracefully
+- Many keys preserve `glib:` prefixes in TypeScript interfaces
+- Boolean attributes use `"0"|"1"` string values, not true/false
+- Numbers often stored as strings (`GirUnparsedNumber`) for XML compatibility
+
+## Common Patterns
+
+### Class Definition
+```xml
+<class name="Window" 
+       c:type="GtkWindow" 
+       glib:type-name="GtkWindow"
+       glib:get-type="gtk_window_get_type"
+       parent="Widget">
+  <method name="set_title" c:identifier="gtk_window_set_title">
+    <parameters>
+      <parameter name="title" direction="in" transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </parameter>
+    </parameters>
+  </method>
+</class>
+```
+
+### Function with Parameters
+```xml
+<function name="init" c:identifier="gtk_init">
+  <parameters>
+    <parameter name="argc" direction="inout" transfer-ownership="full">
+      <type name="gint" c:type="int*"/>
+    </parameter>
+  </parameters>
+  <return-value transfer-ownership="none">
+    <type name="none" c:type="void"/>
+  </return-value>
+</function>
+```
+
+## TypeScript Generation Mapping
+
+**GIR Element → TypeScript Output:**
+- `<class>` → `class` declarations with inheritance
+- `<method>` → Method signatures with proper typing
+- `<property>` → Property declarations with getters/setters
+- `<signal>` → Event handler interfaces
+- `<enumeration>` → Enum or const assertions
+- `<record>` → Interface definitions
+- `<callback>` → Function type definitions
+
+**Critical for Type Generation:**
+- Parameter directions affect TypeScript signatures
+- Transfer ownership affects memory management annotations
+- Nullable attributes determine optional typing (`?` operator)
+- Array specifications generate proper array or tuple types
+- Generic type parameters create TypeScript generic constraints

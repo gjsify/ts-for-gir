@@ -27,7 +27,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Resolve the path to the actual TypeScript CLI entry point
-const tsPath = resolve(__dirname, './start.ts');
+const tsPath = resolve(__dirname, '../src/start.ts');
 
 // Configure Node.js arguments for TypeScript execution
 const nodeArgs = [

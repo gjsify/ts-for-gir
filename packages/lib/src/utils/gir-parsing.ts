@@ -103,11 +103,7 @@ export function getType(
 		const [array] = parameter.array;
 
 		if (array.$ && array.$.length != null) {
-			length = Number.parseInt(array.$.length, 10);
-
-			if (Number.isNaN(length)) {
-				throw new Error(`Error parsing array length: ${array.$.length}`);
-			}
+			length = array.$.length;
 		}
 
 		if (array.type?.[0].$?.name) {
@@ -161,11 +157,7 @@ export function getType(
 	let closure = null as null | number;
 
 	if (parameter.$?.closure) {
-		closure = Number.parseInt(parameter.$.closure, 10);
-
-		if (Number.isNaN(closure)) {
-			throw new Error(`Error parsing closure data position: ${parameter.$.closure}`);
-		}
+		closure = parameter.$.closure;
 	}
 
 	const nullable = parameter.$ && parameter.$.nullable === "1";

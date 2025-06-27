@@ -42,7 +42,7 @@ export type {
     PartOfClass,
     PartOfModule,
     // Re-export base XML types that are still needed
-    GirUnparsedNumber,
+    
     GirInstanceParameter,
 } from '@gi.ts/parser'
 

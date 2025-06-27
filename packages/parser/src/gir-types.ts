@@ -25,9 +25,6 @@ export enum GirTransferOwnershipType {
 	None = "none",
 }
 
-/** A type alias for fields which *should* be treated as numerical */
-export type GirUnparsedNumber = string;
-
 /** A type alias for 'binary' (boolean) fields */
 export type GirBoolean = "0" | "1";
 
@@ -40,16 +37,16 @@ export interface GirXML {
 }
 
 export interface GirInfoAttrs {
-	/** Binary attribute which is GirBoolean(false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
+	/** Binary attribute which is "0" (false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
 	introspectable?: GirBoolean;
-	/** Binary attribute which isBinaryOption (true) if the element has been deprecated */
-	deprecated?: string;
+	/** Binary attribute which is "1" (true) if the element has been deprecated */
+	deprecated?: GirBoolean;
 	/** Version number from which this element is deprecated */
 	"deprecated-version"?: string;
 	/** version number of an element */
 	version?: string;
-	/** give the statibility status of the element. Can take the values "Stable", "Unstable" or "Private" */
-	stability?: string[];
+	/** give the stability status of the element. Can take the values "Stable", "Unstable" or "Private" */
+	stability?: string;
 }
 
 export interface GirDocElement {
@@ -74,13 +71,13 @@ export interface GirDocElement {
 				"xml:space"?: "preserve";
 				/** Preserve the original formatting of the documentation from the source code. Recommended to use this instead of xml:space */
 				"xml:whitespace"?: "preserve";
-				/** a text value about the stability of the documentation. Usually a simple description like stable or unstable */
 			};
+			/** a text value about the stability of the documentation. Usually a simple description like stable or unstable */
 			_: string;
 		},
 	];
 	/** documentation of an element */
-	doc: [
+	doc?: [
 		{
 			$: {
 				/** Preserve the original formatting of the documentation from the source code */
@@ -92,40 +89,43 @@ export interface GirDocElement {
 				/** The first line of the documentation in the source code */
 				line: string;
 				/** The first column of the documentation in the source code */
-				column: string;
-				/** the text of the documentation */
+				column?: string;
 			};
+			/** the text of the documentation */
 			_: string;
 		},
 	];
 	/** Deprecated documentation of an element. Kept for historical reasons in general */
-	"doc-deprecated": [
+	"doc-deprecated"?: [
 		{
 			$: {
 				/** Preserve the original formatting of the documentation from the source code */
 				"xml:space"?: "preserve";
 				/** Keep the whitespace as they were in the source code */
 				"xml:whitespace"?: "preserve";
-				/** the text of the deprecated documentation */
 			};
+			/** the text of the deprecated documentation */
 			_: string;
 		},
 	];
 	/** Position of the documentation in the original source code */
-	"source-position": [
+	"source-position"?: [
 		{
-			/** File name of the source of the documentation */
-			filename: string;
-			/** The first line of the documentation in the source code */
-			line: string;
-			/** The first column of the documentation in the source code */
-			column: string[];
+			$: {
+				/** File name of the source of the documentation */
+				filename: string;
+				/** The first line of the documentation in the source code */
+				line: string;
+				/** The first column of the documentation in the source code */
+				column?: string;
+			};
 		},
 	];
 }
 
 export interface GirInfoElements extends GirDocElement {
-	annotation: GirAnnotation[];
+	/** Annotations from the source code (note: XML element name is 'attribute', not 'annotation') */
+	attribute?: GirAnnotation[];
 }
 
 export interface GirTransferOwnership {
@@ -149,7 +149,13 @@ export interface GirCallableAttrs {
 	/** Binary attribute, true if the callable can throw an error */
 	throws?: GirBoolean;
 	/** if for backward compatibility reason the callable has a name in the source code but should be known by another one, this attribute contains the new name */
-	"moved-to"?: string[];
+	"moved-to"?: string;
+	/** The name of the asynchronous version of this callable */
+	"glib:async-func"?: string;
+	/** The name of the synchronous version of this callable */
+	"glib:sync-func"?: string;
+	/** The name of the callable which finishes the asynchronous operation of this function */
+	"glib:finish-func"?: string;
 }
 
 export interface GirAnyType {
@@ -214,9 +220,17 @@ export interface GirInclude {
 }
 
 export interface GirPackage {
-	/** @deprecated package name containing the library */
+	/** The pkg-config file provided by the library */
 	$: {
-		/** name of the package */
+		/** name of the pkg-config file, minus the extension */
+		name: string;
+	};
+}
+
+export interface GirDocFormat {
+	/** Format used for the included documentation */
+	$: {
+		/** Name of the documentation format. Valid values are: gi-docgen, gtk-doc-docbook, gtk-doc-markdown, hotdoc, unknown */
 		name: string;
 	};
 }
@@ -227,7 +241,7 @@ export interface GirAnnotation {
 		/** name of the attribute */
 		name: string;
 		/** value of the attribute */
-		value: string[];
+		value: string;
 	};
 }
 
@@ -240,8 +254,10 @@ export interface GirImplements {
 }
 
 export interface GirPrerequisite {
+	/** Interface which is pre-required to implement another interface */
 	$: {
-		name?: string;
+		/** name of the required interface */
+		name: string;
 	};
 }
 
@@ -261,12 +277,12 @@ export interface GirType extends GirDocElement {
 		name?: string;
 		/** the C representation of the type */
 		"c:type"?: string;
-		/** Binary attribute which is BinaryOption(false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
+		/** Binary attribute which is "0" (false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
 		introspectable?: GirBoolean;
 	};
 
 	array?: GirArrayType[];
-	type: GirType[];
+	type?: GirType[];
 }
 
 export interface GirArrayType {
@@ -277,11 +293,11 @@ export interface GirArrayType {
 		/** Binary attribute, true if the last element of the array is zero. For example, in an array of pointers, the last pointer would be NULL */
 		"zero-terminated"?: GirBoolean;
 		/** size of an array of predetermined fixed size. For example a C array declared as char arr[5]. */
-		"fixed-size"?: GirUnparsedNumber /** integer */;
-		/** Binary attribute which is GirBoolean (false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
+		"fixed-size"?: number;
+		/** Binary attribute which is "0" (false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
 		introspectable?: GirBoolean;
 		/** 0-based index of parameter element that specifies the length of the array */
-		length?: GirUnparsedNumber /** integer */;
+		length?: number;
 		/** the C representation of the array type */
 		"c:type"?: string;
 	};
@@ -301,18 +317,16 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
 			name?: string;
 			/** Binary attribute, `true` if the parameter can have a null value */
 			nullable?: GirBoolean;
-			/** @deprecated Replaced by {@link allow-none} */
-			"null-ok"?: GirBoolean;
-			/** @deprecated Replaced by {@link nullable} and {@link optional} */
+			/** @deprecated Replaced by nullable and optional */
 			"allow-none"?: GirBoolean;
-			/** Binary attribute which is GirBoolean(false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
+			/** Binary attribute which is "0" (false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
 			introspectable?: GirBoolean;
 			/** the parameter is a user_data for callbacks. The value points to a different parameter that is the actual callback */
-			closure?: GirUnparsedNumber /** integer */;
+			closure?: number;
 			/** the parameter is a destroy_data for callbacks. The value points to a different parameter that is the actual callback */
-			destroy?: GirUnparsedNumber /** integer */;
-			/** the parameter is a callback, the value indicates the lifetime of the call. For language bindings which want to know when the resources required to do the call can be freed. "notified" valid until a GDestroyNotify argument is called, "async" only valid for the duration of the first callback invocation (can only be called once), "call" only valid for the duration of the call, can be called multiple times during the call.  */
-			scope?: "notified" | "async" | "call";
+			destroy?: number;
+			/** the parameter is a callback, the value indicates the lifetime of the call. For language bindings which want to know when the resources required to do the call can be freed. "notified" valid until a GDestroyNotify argument is called, "async" only valid for the duration of the first callback invocation (can only be called once), "call" only valid for the duration of the call, can be called multiple times during the call, "forever" valid until the process terminates.  */
+			scope?: "notified" | "async" | "call" | "forever";
 			/** direction of the parameter. "in" goes into the callable, "out" for output parameters from the callable (reference in C++, var in Pascal, etc...), "inout" for both (like a pre-allocated structure which will be filled-in by the callable) */
 			direction?: GirDirection;
 			/** Binary attribute, `true` if the caller should allocate the parameter before calling the callable */
@@ -328,7 +342,7 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
 
 export interface GirCallableParams {
 	/** parameters element of a callable, that is in general parameters of a function or similar */
-	parameter: GirCallableParamElement[];
+	parameter?: GirCallableParamElement[];
 	/** instance-parameter is a parameter of a C function which is an instance of an existing object. So the callable is surely a method of a class, and this parameter points to the instance of the object. In C++, this would be equivalent to the pointer this which is not passed to the method, in Python it's equivalent to self. */
 	"instance-parameter"?: GirInstanceParameter[];
 }
@@ -338,45 +352,39 @@ export interface GirCallableParams {
  * So the callable is surely a method of a class, and this parameter points to the instance of the object.
  * In C++, this would be equivalent to the pointer this which is not passed to the method, in Python it's equivalent to self.
  **/
-export interface GirInstanceParameter extends GirAnyType {
-	$: Partial<{
-		/** name of the instance-parameter */ name: string;
+export interface GirInstanceParameter extends GirAnyType, GirDocElement {
+	$: {
+		/** name of the instance-parameter */
+		name: string;
 		/** Binary attribute, true if the parameter can have a null value */
 		nullable?: GirBoolean;
 		/** @deprecated Replaced by nullable and optional */
 		"allow-none"?: GirBoolean;
-		/** @deprecated Replaced by {@link allow-none} */
-		"null-ok"?: GirBoolean;
 		/** direction of the parameter. "in" goes into the callable, "out" for output parameters from the callable (reference in C++, var in Pascal, etc...), "inout" for both (like a pre-allocated structure which will be filled-in by the callable) */
 		direction?: GirDirection;
 		/** Binary attribute, true if the caller should allocate the parameter before calling the callable */
 		"caller-allocates"?: GirBoolean;
-	}> &
-		Partial<GirTransferOwnership>;
-	type?: GirType[];
+	} & Partial<GirTransferOwnership>;
 }
 
 export interface GirCallableReturn extends PartOfClass, GirAnyType, GirDocElement {
 	/** return value of a callable */
 	$: {
-		name?: string;
-		/** Binary attribute which is BinaryOption(false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
+		/** Binary attribute which is "0" (false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
 		introspectable?: GirBoolean;
 		/** Binary attribute, true if the parameter can have a null value */
 		nullable?: GirBoolean;
 		/** the parameter is a user_data for callbacks. The value points to a different parameter that is the actual callback */
-		closure?: GirUnparsedNumber /** integer */;
-		/** the parameter is a callback, the value indicates the lifetime of the call. For language bindings which want to know when the resources required to do the call can be freed. "notified" valid until a GDestroyNotify argument is called, "async" only valid for the duration of the first callback invocationi (can only be called once), "call" only valid for the duration of the call, can be called multiple times during the call.  */
-		scope?: "notified" | "async" | "call";
+		closure?: number;
+		/** the parameter is a callback, the value indicates the lifetime of the call. For language bindings which want to know when the resources required to do the call can be freed. "notified" valid until a GDestroyNotify argument is called, "async" only valid for the duration of the first callback invocation (can only be called once), "call" only valid for the duration of the call, can be called multiple times during the call, "forever" valid until the process terminates.  */
+		scope?: "notified" | "async" | "call" | "forever";
 		/** the parameter is a destroy_data for callbacks. The value points to a different parameter that is the actual callback */
-		destroy?: GirUnparsedNumber /** integer */;
+		destroy?: number;
 		/**  Binary attribute, true if the parameter can be omitted from the introspected output */
 		skip?: GirBoolean;
 		/** @deprecated Replaced by nullable and optional */
 		"allow-none"?: GirBoolean;
 	} & Partial<GirTransferOwnership>;
-
-	type?: GirType[];
 }
 
 // ========================================
@@ -396,17 +404,18 @@ export interface GirRepository {
 
 	/* Other elements a repository can contain */
 	include?: GirInclude[];
-	"c:include": GirCInclude[];
-	package: GirPackage[];
+	"c:include"?: GirCInclude[];
+	package?: GirPackage[];
 	namespace?: GirNamespace[];
+	"doc:format"?: GirDocFormat[];
 }
 
 /** Namespace which maps metadata entries to C functionality. This a similar concept to namespace in C++, but for GObject-based C libraries */
 export interface GirNamespace {
 	$: GirInfoAttrs & {
-		/** name of the namespace. For example, 'Gtk' (technically optional) */
+		/** name of the namespace. For example, 'Gtk' */
 		name: string;
-		/** version number of the namespace (technically optional) */
+		/** version number of the namespace */
 		version: string;
 		/** prefixes to filter out from C identifiers for data structures and types. For example, GtkWindow will be Window. If c:symbol-prefixes is not used, then this element is used for both */
 		"c:identifier-prefixes"?: string;
@@ -425,12 +434,15 @@ export interface GirNamespace {
 	record?: GirRecordElement[];
 	enumeration?: GirEnumElement[];
 	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
+	"function-macro"?: GirFunctionMacroElement[];
 	union?: GirUnionElement[];
 	bitfield?: GirBitfieldElement[];
 	callback?: GirCallbackElement[];
 	constant?: GirConstantElement[];
 	annotation?: GirAnnotation[];
 	"glib:boxed"?: GirBoxedElement[];
+	docsection?: GirDocSectionElement[];
 }
 
 // ========================================
@@ -467,14 +479,16 @@ export interface GirClassElement extends PartOfModule, GirInfoElements {
 		/** Binary attribute to declare the class fundamental or not (top-level class which do not derives from any other type) */
 		"glib:fundamental"?: GirBoolean;
 		/** Binary attribute to declare the class final or not (non-derivable class in a derivable hierarchy) */
-		final: GirBoolean;
+		final?: GirBoolean;
 	};
 
 	/* Other elements a class can contain */
 	implements?: GirImplements[];
 	constructor?: GirConstructorElement[];
 	method?: GirMethodElement[];
+	"method-inline"?: GirMethodInlineElement[];
 	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
 	"virtual-method"?: GirVirtualMethodElement[];
 	field?: GirFieldElement[];
 	property?: GirPropertyElement[];
@@ -507,8 +521,10 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
 	prerequisite?: GirPrerequisite[];
 	implements?: GirImplements[];
 	function?: GirFunctionElement[];
-	constructor?: GirConstructorElement[]; // Typed as optional
+	"function-inline"?: GirFunctionInlineElement[];
+	constructor?: GirConstructorElement[];
 	method?: GirMethodElement[];
+	"method-inline"?: GirMethodInlineElement[];
 	"virtual-method"?: GirVirtualMethodElement[];
 	field?: GirFieldElement[];
 	property?: GirPropertyElement[];
@@ -551,15 +567,21 @@ export interface GirRecordElement extends PartOfModule, GirInfoElements {
 		"c:symbol-prefix"?: string;
 		/** Binary attribute to tell if the record is foreign, that is it is not available in a g-i supported library */
 		foreign?: GirBoolean;
-		/** Name of the GObject compatible gtype this record represents. If }, this record will be hidden from generated public APIs. */
+		/** Name of the GObject compatible gtype this record represents. If empty, this record will be hidden from generated public APIs. */
 		"glib:is-gtype-struct-for"?: string;
+		/** Name of the function used to copy the record */
+		"copy-function"?: string;
+		/** Name of the function used to free the record */
+		"free-function"?: string;
 	};
 
 	/* Other elements a record can contain */
 	field?: GirFieldElement[];
 	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
 	union?: GirUnionElement[];
 	method?: GirMethodElement[];
+	"method-inline"?: GirMethodInlineElement[];
 	constructor?: GirConstructorElement[];
 	property?: GirPropertyElement[];
 }
@@ -577,12 +599,18 @@ export interface GirUnionElement extends PartOfModule, GirInfoElements {
 		"glib:type-name"?: string;
 		/** function to retrieve the GObject compatible type of the element */
 		"glib:get-type"?: string;
+		/** Name of the function used to copy the union */
+		"copy-function"?: string;
+		/** Name of the function used to free the union */
+		"free-function"?: string;
 	};
 
 	field?: GirFieldElement[];
 	constructor?: GirConstructorElement[];
 	method?: GirMethodElement[];
+	"method-inline"?: GirMethodInlineElement[];
 	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
 	record?: GirRecordElement[];
 }
 
@@ -601,6 +629,7 @@ export interface GirBoxedElement {
 
 	/* Other elements a Boxed type can contain */
 	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
 }
 
 // ========================================
@@ -650,7 +679,7 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
 		setter?: string;
 		/** The getter function for this property */
 		getter?: string;
-		/** The value of the property when it is not set */
+		/** The default value of the property, as a string; if missing, the default value is zero for integer types, and null for pointer types */
 		"default-value"?: string;
 	} & Partial<GirTransferOwnership>;
 }
@@ -667,7 +696,7 @@ export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyTyp
 		/** Binary attribute, true if the field is private to the structure or has public ("0") visibility */
 		private?: GirBoolean;
 		/** number of bits of the field */
-		bits?: GirUnparsedNumber /** integer */;
+		bits?: number;
 	};
 
 	/* Other elements a property can contain */
@@ -694,6 +723,7 @@ export interface GirEnumElement extends PartOfModule, GirInfoElements {
 	};
 	member?: GirMemberElement[];
 	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
 }
 
 /** element defining a bit field (as in C) */
@@ -709,8 +739,9 @@ export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
 		"glib:get-type"?: string;
 	};
 
-	member: GirMemberElement[];
-	function: GirFunctionElement[];
+	member?: GirMemberElement[];
+	function?: GirFunctionElement[];
+	"function-inline"?: GirFunctionInlineElement[];
 }
 
 /** element defining a member of a bit field or an enumeration */
@@ -741,15 +772,38 @@ export interface GirFunctionElement extends PartOfClass, GirDocElement {
 	"return-value"?: GirCallableReturn[];
 }
 
+/** element defining an inline function */
+export interface GirFunctionInlineElement extends PartOfClass, GirDocElement {
+	$: GirInfoAttrs & GirCallableAttrs;
+
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
+}
+
+/** element defining a pre-processor macro that behaves like a function. Unlike functions, function macros do not have a return value. */
+export interface GirFunctionMacroElement extends PartOfClass, GirInfoElements {
+	$: GirInfoAttrs & GirCallableAttrs;
+
+	parameters?: [GirCallableParams];
+}
+
 /** element defining a method from a class */
 export interface GirMethodElement extends PartOfClass, GirDocElement {
 	$: GirInfoAttrs &
 		GirCallableAttrs & {
 			/** The GObject property that is set by this method */
-			"glib:set-property": string;
+			"glib:set-property"?: string;
 			/** The GObject property that is retrieved by this method */
-			"glib:get-property": string;
+			"glib:get-property"?: string;
 		};
+
+	parameters?: [GirCallableParams];
+	"return-value"?: GirCallableReturn[];
+}
+
+/** element defining an inline method from a type */
+export interface GirMethodInlineElement extends PartOfClass, GirInfoElements {
+	$: GirInfoAttrs & GirCallableAttrs;
 
 	parameters?: [GirCallableParams];
 	"return-value"?: GirCallableReturn[];
@@ -783,8 +837,6 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
 		"c:type"?: string;
 		/** Binary attribute, true if the callback can throw an error */
 		throws?: GirBoolean;
-		// TODO: I believe callbacks have this as a valid property
-		"glib:type-name"?: string;
 	};
 
 	/* Other elements a property can contain */
@@ -811,11 +863,29 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
 		"no-hooks"?: GirBoolean;
 		/** Binary attribute, true if signals emitted for an object while currently being in emission for this very object will not be emitted recursively, but instead cause the first emission to be restarted (https://docs.gtk.org/gobject/flags.SignalFlags.html) */
 		"no-recurse"?: GirBoolean;
+		/** The emitter method for the signal */
+		emitter?: string;
 	};
 	/* Other elements a property can contain */
 
 	parameters?: [GirCallableParams];
 	"return-value"?: GirCallableReturn[];
+}
+
+// ========================================
+// DOCUMENTATION ELEMENTS
+// ========================================
+
+/** element defining a gtk-doc documentation section */
+export interface GirDocSectionElement {
+	$: {
+		name: string;
+	};
+
+	doc?: GirDocElement["doc"];
+	"doc-version"?: GirDocElement["doc-version"];
+	"doc-stability"?: GirDocElement["doc-stability"];
+	"doc-deprecated"?: GirDocElement["doc-deprecated"];
 }
 
 // ========================================

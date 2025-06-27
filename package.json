@@ -5,12 +5,16 @@
 	"type": "module",
 	"private": true,
 	"engines": {
-		"node": ">=18"
+		"node": ">=22.7.0"
 	},
 	"scripts": {
+		"clear": "yarn workspaces foreach -v --all --parallel run clear",
 		"start": "yarn workspace @ts-for-gir/cli run start",
-		"start:prod": "yarn workspace @ts-for-gir/cli run start:prod",
 		"format": "biome check . --write --unsafe",
+		"build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
+		"build:types": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
+		"build": "yarn build:examples && yarn build:types",
+		"copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
 		"check:lint": "biome check .",
 		"check:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run check",
 		"check:types": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",
@@ -21,15 +25,12 @@
 		"update": "yarn update:submodules && yarn update:packages",
 		"publish:app": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tolerate-republish --tag latest --access public",
 		"publish:types": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tolerate-republish --tag latest --access public",
-		"test": "yarn build && yarn test:types && yarn test:examples && yarn test:locally",
+		"publish": "yarn publish:app && yarn publish:types",
 		"test:types": "yarn build:types && yarn check:types",
 		"test:examples": "yarn build:examples && yarn check:examples && yarn test:examples:cli",
 		"test:examples:cli": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start && yarn workspace @ts-for-gir-example/gobject-param-spec run start && yarn workspace @ts-for-gir-example/gio-2-async run start && yarn workspace @ts-for-gir-example/gio-2-action-entries run start && yarn workspace @ts-for-gir-example/gio-2-iterate run start",
 		"test:locally": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' run test",
-		"build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
-		"build:types": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
-		"copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
-		"clear": "yarn workspaces foreach -v --all --parallel run clear"
+		"test": "yarn build && yarn test:types && yarn test:examples && yarn test:locally"
 	},
 	"repository": {
 		"type": "git",

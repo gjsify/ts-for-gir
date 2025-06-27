@@ -5,7 +5,9 @@
 	"main": "src/index.ts",
 	"module": "src/index.ts",
 	"type": "module",
-	"bin": "bin/ts-for-gir.js",
+	"bin": {
+		"ts-for-gir": "bin/ts-for-gir.js"
+	},
 	"engines": {
 		"node": ">=22.7.0"
 	},

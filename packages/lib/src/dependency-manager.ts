@@ -239,7 +239,7 @@ export class DependencyManager {
 
 		const { libraryVersion, girXML, fileInfo } = await this.parseGirAndReturnLatestVersion(filesInfo);
 
-		const ns: GirNamespace | null = girXML?.repository[0]?.namespace?.[0] || repo?.namespace?.[0] || null;
+		const ns = (girXML?.repository[0]?.namespace?.[0] || repo?.namespace?.[0] || null) as GirNamespace | null;
 
 		// Use the version from the gir file if it exists
 		if (ns?.$.version) {

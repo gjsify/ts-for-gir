@@ -7,7 +7,7 @@ alwaysApply: false
 
 Senior TypeScript refactoring specialist focused on identifying code smells, eliminating technical debt, and transforming legacy code into maintainable solutions.
 
-Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.mdc), [ts-for-gir-workspace](mdc:.cursor/rules/ts-for-gir-workspace.mdc) and [git-commit-best-practices.mdc](mdc:.cursor/rules/git-commit-best-practices.mdc).
+Follow [clean-code.mdc](mdc:.cursor/rules/clean-code.mdc), [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.mdc), [ts-for-gir-workspace](mdc:.cursor/rules/ts-for-gir-workspace.mdc) and [git-commit-best-practices.mdc](mdc:.cursor/rules/git-commit-best-practices.mdc).
 
 ## Refactoring Approach
 - **Minimal Changes**: Only modify code directly related to the refactoring goal

@@ -11,35 +11,45 @@ export * from './file-info.ts'
 export * from './format.ts'
 export * from './generator-constructor.ts'
 export * from './generics-config.ts'
-export * from './gir-alias-element.ts'
-export * from './gir-annotation.ts'
+// Re-export GIR types from parser (consolidated types)
+export type {
+    GirAliasElement,
+    GirAnnotation,
+    GirBitfieldElement,
+    GirCallableParamElement,
+    GirCallableParams,
+    GirCallableReturn,
+    GirCallbackElement,
+    GirClassElement,
+    GirConstantElement,
+    GirConstructorElement,
+    GirEnumElement,
+    GirFieldElement,
+    GirFunctionElement,
+    GirInterfaceElement,
+    GirMemberElement,
+    GirMethodElement,
+    GirModuleResolvedBy,
+    GirModulesGrouped,
+    GirModulesGroupedMap,
+    GirNamespace,
+    GirPropertyElement,
+    GirRecordElement,
+    GirRepository,
+    GirSignalElement,
+    GirUnionElement,
+    GirVirtualMethodElement,
+    PartOfClass,
+    PartOfModule,
+    // Re-export base XML types that are still needed
+    GirUnparsedNumber,
+    GirInstanceParameter,
+} from '@gi.ts/parser'
+
+// Export the actual GirModule class
+export { GirModule } from '../gir-module.ts'
+
 export * from './gir-any-element.ts'
-export * from './gir-bitfield-element.ts'
-export * from './gir-callable-param-element.ts'
-export * from './gir-callable-params.ts'
-export * from './gir-callable-return.ts'
-export * from './gir-callback-element.ts'
-export * from './gir-class-element.ts'
-export * from './gir-constant-element.ts'
-export * from './gir-constructor-element.ts'
-export * from './gir-enum-element.ts'
-export * from './gir-field-element.ts'
-export * from './gir-function-element.ts'
-export * from './gir-instance-parameter.ts'
-export * from './gir-interface-element.ts'
-export * from './gir-namespace.ts'
-export * from './gir-member-element.ts'
-export * from './gir-method-element.ts'
-export * from './gir-module-resolved-by.ts'
-export * from './gir-modules-grouped-map.ts'
-export * from './gir-modules-grouped.ts'
-export * from './gir-property-element.ts'
-export * from './gir-record-element.ts'
-export * from './gir-repository.ts'
-export * from './gir-signal.ts'
-export * from './gir-union-element.ts'
-export * from './gir-unparsed-number.ts'
-export * from './gir-virtual-method.ts'
 export * from './inheritance-table.ts'
 export * from './introspected.ts'
 export * from './local-name-check.ts'
@@ -58,8 +68,6 @@ export * from './package-data.ts'
 export * from './package-section-parsed.ts'
 export * from './parsed-gir.ts'
 export * from './parsed-package-data.ts'
-export * from './part-of-class.ts'
-export * from './part-of-module.ts'
 export * from './property-case.ts'
 export * from './resolve-type.ts'
 export * from './template-data.ts'

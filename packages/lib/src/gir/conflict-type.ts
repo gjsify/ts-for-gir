@@ -1,6 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
-import type { OptionsBase } from "./index.ts";
 import { TypeExpression } from "../gir.ts";
+import type { OptionsBase } from "../types/index.ts";
 
 /**
  * Defines different types of conflicts that can occur in type definitions
@@ -17,7 +17,7 @@ export enum ConflictType {
  * Represents a type conflict that needs to be resolved by generators.
  * This is used to handle type conflicts by wrapping conflicting types
  * with information about why they are conflicting.
- * 
+ *
  * TypeConflict will throw if it is printed or resolved, so generators
  * must unwrap it and "resolve" the conflict. Some generators like JSON
  * just disregard this info, other generators like DTS attempt to
@@ -49,16 +49,12 @@ export class TypeConflict extends TypeExpression {
 	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
 		const resolvedType = this.type.resolve(namespace, options);
 		const typeString = resolvedType.print(namespace, options);
-		throw new Error(
-			`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`,
-		);
+		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
 		const resolvedType = this.type.resolve(namespace, options);
 		const typeString = resolvedType.print(namespace, options);
-		throw new Error(
-			`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`,
-		);
+		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
 	}
-} 
+}

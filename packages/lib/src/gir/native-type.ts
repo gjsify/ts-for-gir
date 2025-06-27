@@ -1,6 +1,6 @@
-import type { IntrospectedNamespace } from "../gir/namespace.ts";
-import type { OptionsBase } from "./index.ts";
 import { TypeExpression } from "../gir.ts";
+import type { OptionsBase } from "../types/index.ts";
+import type { IntrospectedNamespace } from "./namespace.ts";
 
 /**
  * Represents a native TypeScript type that doesn't need resolution
@@ -54,4 +54,4 @@ export const NUMBER_TYPE = new NativeType("number");
 export const NULL_TYPE = new NativeType("null");
 export const VOID_TYPE = new NativeType("void");
 export const UNKNOWN_TYPE = new NativeType("unknown");
-export const ANY_FUNCTION_TYPE = new NativeType("(...args: any[]) => any"); 
+export const ANY_FUNCTION_TYPE = new NativeType("(...args: any[]) => any");

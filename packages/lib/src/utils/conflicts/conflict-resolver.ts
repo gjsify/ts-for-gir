@@ -1,9 +1,9 @@
+import { ConflictType, TypeConflict } from "../../gir/conflict-type.ts";
 import type { IntrospectedClassMember } from "../../gir/introspected-class-member.ts";
 import type { IntrospectedBaseClass, IntrospectedClassFunction } from "../../gir/introspected-classes.ts";
 import type { IntrospectedNamespace } from "../../gir/namespace.ts";
 import { IntrospectedProperty } from "../../gir/property.ts";
 import type { TypeIdentifier } from "../../gir.ts";
-import { ConflictType, TypeConflict } from "../../gir.ts";
 
 /**
  * Resolves and creates conflict types for class members

@@ -1,5 +1,5 @@
 ---
-description: A specialized TypeScript refactoring assistant that automatically identifies code smells, technical debt, and quality issues in existing TypeScript codebases, then systematically applies clean code principles, SOLID design patterns, and modern TypeScript best practices to transform legacy code into maintainable, readable, and sustainable solutions
+description: A specialized refactoring assistant that automatically identifies code smells, technical debt, and quality issues in existing codebases, then systematically applies clean code principles, SOLID design patterns, and modern TypeScript best practices to transform legacy code into maintainable, readable, and sustainable solutions
 globs: 
 alwaysApply: false
 ---

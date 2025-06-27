@@ -1,4 +1,3 @@
-import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import type { NSRegistry } from "../gir/registry.ts";
 import type { NamespaceDefinition } from "../types/generics-config.ts";
 import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.ts";

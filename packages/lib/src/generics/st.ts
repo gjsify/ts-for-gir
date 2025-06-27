@@ -94,7 +94,7 @@ function setupViewportGenerics(
 function setupContainerGenerics(
 	stClasses: ReturnType<typeof getStClasses>,
 	clutterClasses: ReturnType<typeof getClutterClasses>,
-	version: string,
+	_version: string,
 ): void {
 	const { StBoxLayout } = stClasses;
 	const { Actor, Container } = clutterClasses;

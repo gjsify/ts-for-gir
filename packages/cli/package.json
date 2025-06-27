@@ -6,14 +6,15 @@
 	"module": "src/index.ts",
 	"type": "module",
 	"bin": {
-		"ts-for-gir": "src/start"
+		"ts-for-gir": "src/start.js"
 	},
 	"engines": {
 		"node": ">=22.7.0"
 	},
 	"scripts": {
 		"start": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
-		"check": "tsc --noEmit"
+		"check:types": "tsc --noEmit",
+		"check:deps": "dpdm -T src/index.ts"
 	},
 	"repository": {
 		"type": "git",

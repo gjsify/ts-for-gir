@@ -1,4 +1,20 @@
+import { ConflictType, TypeConflict } from "./gir/conflict-type.ts";
 import type { IntrospectedNamespace } from "./gir/namespace.ts";
+import {
+	ANY_FUNCTION_TYPE as AnyFunctionType,
+	ANY_TYPE as AnyType,
+	BOOLEAN_TYPE as BooleanType,
+	NativeType,
+	NEVER_TYPE as NeverType,
+	NULL_TYPE as NullType,
+	NUMBER_TYPE as NumberType,
+	OBJECT_TYPE as ObjectType,
+	STRING_TYPE as StringType,
+	THIS_TYPE as ThisType,
+	UINT8_ARRAY_TYPE as Uint8ArrayType,
+	UNKNOWN_TYPE as UnknownType,
+	VOID_TYPE as VoidType,
+} from "./gir/native-type.ts";
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
 import { Logger } from "./logger.ts";
 import type { OptionsBase } from "./types/index.ts";
@@ -256,44 +272,6 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 	}
 }
 
-export class NativeType extends TypeExpression {
-	readonly expression: (options?: OptionsBase) => string;
-
-	constructor(expression: ((options?: OptionsBase) => string) | string) {
-		super();
-
-		this.expression = typeof expression === "string" ? () => expression : expression;
-	}
-
-	rewrap(type: TypeExpression): TypeExpression {
-		return type;
-	}
-
-	resolve(): TypeExpression {
-		return this;
-	}
-
-	print(_namespace: IntrospectedNamespace, options: OptionsBase) {
-		return this.expression(options);
-	}
-
-	equals(type: TypeExpression, options?: OptionsBase): boolean {
-		return type instanceof NativeType && this.expression(options) === type.expression(options);
-	}
-
-	unwrap(): TypeExpression {
-		return this;
-	}
-
-	static withGenerator(generator: (options?: OptionsBase) => string): TypeExpression {
-		return new NativeType(generator);
-	}
-
-	static of(nativeType: string) {
-		return new NativeType(nativeType);
-	}
-}
-
 export class OrType extends TypeExpression {
 	readonly types: ReadonlyArray<TypeExpression>;
 
@@ -454,15 +432,15 @@ export class Generic {
 		constraint?: TypeExpression,
 		propagate = true,
 	) {
+		this._deriveFrom = deriveFrom ?? null;
 		this._genericType = genericType;
 		this._defaultType = defaultType ?? null;
-		this._deriveFrom = deriveFrom ?? null;
 		this._constraint = constraint ?? null;
 		this._propagate = propagate;
 	}
 
 	unwrap() {
-		return this.type;
+		return this._genericType;
 	}
 
 	get propagate() {
@@ -498,7 +476,7 @@ export class GenerifiedType extends TypeExpression {
 	}
 
 	resolve(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return new GenerifiedType(this.type.resolve(namespace, options), this.generic.resolve());
+		return new GenerifiedType(this.type.resolve(namespace, options), this.generic);
 	}
 
 	unwrap() {
@@ -506,19 +484,19 @@ export class GenerifiedType extends TypeExpression {
 	}
 
 	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return `${this.type.print(namespace, options)}<${this.generic.print()}>`;
+		return this.type.rootPrint(namespace, options);
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return `${this.type.print(namespace, options)}<${this.generic.print()}>`;
+		return this.type.print(namespace, options);
 	}
 
 	equals(type: TypeExpression): boolean {
 		if (type instanceof GenerifiedType) {
-			return type.type.equals(this.type) && type.generic.equals(this.generic);
+			return this.type.equals(type.type) && this.generic.equals(type.generic);
 		}
 
-		return false;
+		return this.type.equals(type);
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
@@ -532,13 +510,15 @@ export class GenericType extends TypeExpression {
 
 	constructor(identifier: string, replacedType?: TypeExpression) {
 		super();
+
 		this.identifier = identifier;
 		this.replacedType = replacedType;
 	}
 
 	equals(type: TypeExpression): boolean {
 		if (type instanceof GenericType) {
-			return type.identifier === this.identifier;
+			const genericType = type;
+			return this.identifier === genericType.identifier;
 		}
 
 		return false;
@@ -557,7 +537,7 @@ export class GenericType extends TypeExpression {
 	}
 
 	print(): string {
-		return `${this.identifier}`;
+		return this.identifier;
 	}
 }
 
@@ -567,11 +547,11 @@ export class NullableType extends BinaryType {
 	}
 
 	unwrap() {
-		return this.type;
+		return this.a;
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
-		return new NullableType(this.type.rewrap(type));
+		return new NullableType(this.a.rewrap(type));
 	}
 
 	get type() {
@@ -592,7 +572,7 @@ export class PromiseType extends TypeExpression {
 	}
 
 	unwrap() {
-		return this.type;
+		return this;
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
@@ -604,83 +584,15 @@ export class PromiseType extends TypeExpression {
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		// TODO: Optimize this check.
-		if (!namespace.hasSymbol("Promise")) {
-			return `Promise<${this.type.print(namespace, options)}>`;
+		if (this.type.equals(VoidType)) {
+			return "Promise<void>";
 		}
 
-		return `globalThis.Promise<${this.type.print(namespace, options)}>`;
-	}
-}
-
-/**
- * A list of possible type conflicts.
- *
- * The format is CHILD_PARENT_CONFLICT so
- * ACCESSOR_PROPERTY_CONFLICT means there
- * is an accessor on a child class and a
- * property on the parent class, which is a
- * conflict.
- *
- * Starts at '1' because the value is often
- * used as truthy.
- */
-export enum ConflictType {
-	PROPERTY_NAME_CONFLICT = 1,
-	FIELD_NAME_CONFLICT,
-	FUNCTION_NAME_CONFLICT,
-	ACCESSOR_PROPERTY_CONFLICT,
-	PROPERTY_ACCESSOR_CONFLICT,
-}
-
-/**
- * This is one of the more interesting usages of our type
- * system. To handle type conflicts we wrap conflicting types
- * in this class with a ConflictType to denote why they are a
- * conflict.
- *
- * TypeConflict will throw if it is printed or resolved, so generators
- * must unwrap it and "resolve" the conflict. Some generators like JSON
- * just disregard this info, other generators like DTS attempt to
- * resolve the conflicts so the typing stays sound.
- */
-export class TypeConflict extends TypeExpression {
-	readonly conflictType: ConflictType;
-	readonly type: TypeExpression;
-
-	constructor(type: TypeExpression, conflictType: ConflictType) {
-		super();
-		this.type = type;
-		this.conflictType = conflictType;
+		return `Promise<${this.type.print(namespace, options)}>`;
 	}
 
-	rewrap(type: TypeExpression) {
-		return new TypeConflict(this.type.rewrap(type), this.conflictType);
-	}
-
-	unwrap() {
-		return this.type;
-	}
-
-	// TODO: This constant "true" is a remnant of the Anyified type.
-	equals() {
-		return true;
-	}
-
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
-		throw new Error(
-			`Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-				namespace.namespace
-			}`,
-		);
-	}
-
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		throw new Error(
-			`Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-				namespace.namespace
-			}`,
-		);
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+		return this.print(namespace, options);
 	}
 }
 
@@ -815,17 +727,22 @@ export class ArrayType extends TypeExpression {
 	}
 }
 
-export const ThisType = new NativeType("this");
-export const ObjectType = new NativeType("object");
-export const AnyType = new NativeType("any");
-export const NeverType = new NativeType("never");
-export const Uint8ArrayType = new NativeType("Uint8Array");
-export const BooleanType = new NativeType("boolean");
-export const StringType = new NativeType("string");
-export const NumberType = new NativeType("number");
-export const NullType = new NativeType("null");
-export const VoidType = new NativeType("void");
-export const UnknownType = new NativeType("unknown");
-export const AnyFunctionType = new NativeType("(...args: any[]) => any");
-
 export type GirClassField = IntrospectedProperty | IntrospectedField;
+
+export {
+	NativeType,
+	ConflictType,
+	TypeConflict,
+	ThisType,
+	ObjectType,
+	AnyType,
+	NeverType,
+	Uint8ArrayType,
+	BooleanType,
+	StringType,
+	NumberType,
+	NullType,
+	VoidType,
+	UnknownType,
+	AnyFunctionType,
+};

@@ -1,6 +1,6 @@
 export * from "./alias.ts";
 export * from "./callback.ts";
-export * from "./conflict-type.ts";
+
 export * from "./const.ts";
 export * from "./constructor.ts";
 export * from "./data.ts";
@@ -16,7 +16,7 @@ export * from "./introspected-class-member.ts";
 export * from "./introspected-classes.ts";
 export * from "./introspected-namespace-member.ts";
 export * from "./namespace.ts";
-export * from "./native-type.ts";
+
 export * from "./parameter.ts";
 export * from "./promisify.ts";
 export * from "./property.ts";

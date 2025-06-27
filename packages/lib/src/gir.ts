@@ -1,20 +1,25 @@
-import { ConflictType, TypeConflict } from "./gir/conflict-type.ts";
 import type { IntrospectedNamespace } from "./gir/namespace.ts";
-import {
-	ANY_FUNCTION_TYPE as AnyFunctionType,
-	ANY_TYPE as AnyType,
-	BOOLEAN_TYPE as BooleanType,
-	NativeType,
-	NEVER_TYPE as NeverType,
-	NULL_TYPE as NullType,
-	NUMBER_TYPE as NumberType,
-	OBJECT_TYPE as ObjectType,
-	STRING_TYPE as StringType,
-	THIS_TYPE as ThisType,
-	UINT8_ARRAY_TYPE as Uint8ArrayType,
-	UNKNOWN_TYPE as UnknownType,
-	VOID_TYPE as VoidType,
-} from "./gir/native-type.ts";
+
+/**
+ * A list of possible type conflicts.
+ *
+ * The format is CHILD_PARENT_CONFLICT so
+ * ACCESSOR_PROPERTY_CONFLICT means there
+ * is an accessor on a child class and a
+ * property on the parent class, which is a
+ * conflict.
+ *
+ * Starts at '1' because the value is often
+ * used as truthy.
+ */
+export enum ConflictType {
+	PROPERTY_NAME_CONFLICT = 1,
+	FIELD_NAME_CONFLICT,
+	FUNCTION_NAME_CONFLICT,
+	ACCESSOR_PROPERTY_CONFLICT,
+	PROPERTY_ACCESSOR_CONFLICT,
+}
+
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
 import { Logger } from "./logger.ts";
 import type { OptionsBase } from "./types/index.ts";
@@ -269,6 +274,43 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 		}
 
 		return iden;
+	}
+}
+
+export class NativeType extends TypeExpression {
+	readonly expression: (options?: OptionsBase) => string;
+
+	constructor(expression: ((options?: OptionsBase) => string) | string) {
+		super();
+		this.expression = typeof expression === "string" ? () => expression : expression;
+	}
+
+	rewrap(type: TypeExpression): TypeExpression {
+		return type;
+	}
+
+	resolve(): TypeExpression {
+		return this;
+	}
+
+	print(_namespace: IntrospectedNamespace, options: OptionsBase): string {
+		return this.expression(options);
+	}
+
+	equals(type: TypeExpression, options?: OptionsBase): boolean {
+		return type instanceof NativeType && this.expression(options) === type.expression(options);
+	}
+
+	unwrap(): TypeExpression {
+		return this;
+	}
+
+	static withGenerator(generator: (options?: OptionsBase) => string): TypeExpression {
+		return new NativeType(generator);
+	}
+
+	static of(nativeType: string): NativeType {
+		return new NativeType(nativeType);
 	}
 }
 
@@ -596,6 +638,53 @@ export class PromiseType extends TypeExpression {
 	}
 }
 
+/**
+ * This is one of the more interesting usages of our type
+ * system. To handle type conflicts we wrap conflicting types
+ * in this class with a ConflictType to denote why they are a
+ * conflict.
+ *
+ * TypeConflict will throw if it is printed or resolved, so generators
+ * must unwrap it and "resolve" the conflict. Some generators like JSON
+ * just disregard this info, other generators like DTS attempt to
+ * resolve the conflicts so the typing stays sound.
+ */
+export class TypeConflict extends TypeExpression {
+	readonly conflictType: ConflictType;
+	readonly type: TypeExpression;
+
+	constructor(type: TypeExpression, conflictType: ConflictType) {
+		super();
+		this.type = type;
+		this.conflictType = conflictType;
+	}
+
+	rewrap(type: TypeExpression): TypeConflict {
+		return new TypeConflict(this.type.rewrap(type), this.conflictType);
+	}
+
+	unwrap(): TypeExpression {
+		return this.type;
+	}
+
+	// TODO: This constant "true" is a remnant of the Anyified type.
+	equals(): boolean {
+		return true;
+	}
+
+	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+		const resolvedType = this.type.resolve(namespace, options);
+		const typeString = resolvedType.print(namespace, options);
+		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
+	}
+
+	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+		const resolvedType = this.type.resolve(namespace, options);
+		const typeString = resolvedType.print(namespace, options);
+		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
+	}
+}
+
 export class ClosureType extends TypeExpression {
 	type: TypeExpression;
 	user_data: number | null = null;
@@ -727,22 +816,18 @@ export class ArrayType extends TypeExpression {
 	}
 }
 
-export type GirClassField = IntrospectedProperty | IntrospectedField;
+// Common native types as constants
+export const ThisType = new NativeType("this");
+export const ObjectType = new NativeType("object");
+export const AnyType = new NativeType("any");
+export const NeverType = new NativeType("never");
+export const Uint8ArrayType = new NativeType("Uint8Array");
+export const BooleanType = new NativeType("boolean");
+export const StringType = new NativeType("string");
+export const NumberType = new NativeType("number");
+export const NullType = new NativeType("null");
+export const VoidType = new NativeType("void");
+export const UnknownType = new NativeType("unknown");
+export const AnyFunctionType = new NativeType("(...args: any[]) => any");
 
-export {
-	NativeType,
-	ConflictType,
-	TypeConflict,
-	ThisType,
-	ObjectType,
-	AnyType,
-	NeverType,
-	Uint8ArrayType,
-	BooleanType,
-	StringType,
-	NumberType,
-	NullType,
-	VoidType,
-	UnknownType,
-	AnyFunctionType,
-};
+export type GirClassField = IntrospectedProperty | IntrospectedField;

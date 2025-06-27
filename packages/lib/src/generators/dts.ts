@@ -292,6 +292,11 @@ ${this.docString(node)}export enum ${node.name} {
 		const nonStaticFunctions = functions.filter((f) => !(f instanceof IntrospectedStaticClassFunction));
 		const nonStaticFields = node.fields.filter((f) => !f.isStatic);
 
+		// Filter out methods that conflict with properties (have same name as a property)
+		// In TypeScript interfaces, you cannot have both properties and methods with the same name
+		const propertyNames = new Set(node.props.map((p) => p.name));
+		const nonConflictingFunctions = nonStaticFunctions.filter((f) => !propertyNames.has(f.name));
+
 		const hasNamespace = isGObject || staticFunctions.length > 0 || node.callbacks.length > 0;
 
 		if (isGObject) {
@@ -331,8 +336,8 @@ export interface ${name}Prototype${Generics}${Extends} {${node.__ts__indexSignat
     ${filterConflicts(node.namespace, node, nonStaticFields)
 			.map((p) => p.asString(this))
 			.join("\n")}
-    ${nonStaticFunctions.length > 0 ? "// Members\n" : ""}
-    ${nonStaticFunctions.map((m) => m.asString(this)).join("\n")}
+    ${nonConflictingFunctions.length > 0 ? "// Methods\n" : ""}
+    ${nonConflictingFunctions.map((m) => m.asString(this)).join("\n")}
     }${hasNamespace ? `\n\nexport const ${name}: ${name}Namespace;\n` : ""}`;
 	}
 
@@ -475,7 +480,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
 			.map((m) => m.asString(this))
 			.join("\n    ");
 
-		const FilteredImplMethods = filterFunctionConflict(node.namespace, node, implementedMethods, []);
+		const FilteredImplMethods = filterFunctionConflict(node.namespace, node, implementedMethods, [], true);
 		const ImplementedMethods = (options.promisify ? promisifyFunctions(FilteredImplMethods) : FilteredImplMethods)
 			.map((m) => m.asString(this))
 			.join("\n    ");

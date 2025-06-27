@@ -60,7 +60,13 @@ export function filterFunctionConflict<
 		| IntrospectedVirtualClassFunction
 		| IntrospectedClassFunction
 		| IntrospectedConstructor,
->(ns: IntrospectedNamespace, base: IntrospectedBaseClass, elements: T[], conflict_ids: string[]): T[] {
+>(
+	ns: IntrospectedNamespace,
+	base: IntrospectedBaseClass,
+	elements: T[],
+	conflict_ids: string[],
+	isInheritedMethods: boolean = false,
+): T[] {
 	const nextType = base.getType();
 
 	return elements
@@ -69,7 +75,7 @@ export function filterFunctionConflict<
 			const conflictResult = checkFunctionConflicts(ns, base, next, conflict_ids, nextType);
 
 			if (conflictResult.hasConflict) {
-				if (conflictResult.shouldOmit) {
+				if (conflictResult.shouldOmit || isInheritedMethods) {
 					log.warn(`Omitting ${next.name} due to field or property conflict.`);
 				} else {
 					const neverFunction = createNeverFunction(next, base, conflictResult.message);

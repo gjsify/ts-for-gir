@@ -530,7 +530,7 @@ export class GenerifiedType extends TypeExpression {
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return this.type.print(namespace, options);
+		return `${this.type.print(namespace, options)}<${this.generic.print()}>`;
 	}
 
 	equals(type: TypeExpression): boolean {
@@ -627,10 +627,10 @@ export class PromiseType extends TypeExpression {
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
 		if (this.type.equals(VoidType)) {
-			return "Promise<void>";
+			return "globalThis.Promise<void>";
 		}
 
-		return `Promise<${this.type.print(namespace, options)}>`;
+		return `globalThis.Promise<${this.type.print(namespace, options)}>`;
 	}
 
 	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {

@@ -69,6 +69,3 @@ export const clutter13 = createClutterTemplate("13");
 export const clutter14 = createClutterTemplate("14");
 export const clutter15 = createClutterTemplate("15");
 export const clutter16 = createClutterTemplate("16");
-
-// For backward compatibility
-export const clutterTemplate = createClutterTemplate;

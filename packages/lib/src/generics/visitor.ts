@@ -11,10 +11,21 @@ import {
 } from "../gir/introspected-classes.ts";
 import type { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import type { NSRegistry } from "../gir/registry.ts";
-import { ClosureType, Generic, GenericType, GenerifiedTypeIdentifier, ThisType, TypeIdentifier } from "../gir.ts";
+import {
+	ClosureType,
+	Generic,
+	GenericType,
+	GenerifiedTypeIdentifier,
+	ThisType,
+	type TypeExpression,
+	TypeIdentifier,
+} from "../gir.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";
 
+/**
+ * Visitor that handles generic type inference and transformations
+ */
 export class GenericVisitor extends GirVisitor {
 	private readonly registry: NSRegistry;
 	private readonly inferGenerics: boolean;
@@ -115,38 +126,44 @@ export class GenericVisitor extends GirVisitor {
 	}
 
 	private shouldGenerifyCallback(node: IntrospectedCallback): boolean {
-		return node.parameters.some((p) => {
-			const type = p.type.unwrap();
-			return type instanceof TypeIdentifier && type.is("GObject", "Object");
-		});
+		return node.parameters.some((parameter) => this.isGObjectType(parameter.type.unwrap()));
+	}
+
+	private isGObjectType(type: TypeExpression): boolean {
+		return type instanceof TypeIdentifier && type.is("GObject", "Object");
 	}
 
 	private createGenerifiedCallback(node: IntrospectedCallback): IntrospectedCallback {
 		const generateName = createGenericNameGenerator();
 		const generics: Generic[] = [];
 
-		const generifiedParameters = node.parameters.map((p) => {
-			const type = p.type.unwrap();
+		const generifiedParameters = node.parameters.map((parameter) => {
+			const type = parameter.type.unwrap();
 
-			if (type instanceof TypeIdentifier && type.is("GObject", "Object")) {
-				const identifier = generateName();
-				const generic = new GenericType(identifier, type);
-				generics.push(new Generic(generic, type));
+			if (this.isGObjectType(type)) {
+				const { identifier, generic } = this.createGeneric(generateName(), type as TypeIdentifier);
+				generics.push(generic);
 
-				return p.copy({
-					type: p.type.rewrap(generic),
+				return parameter.copy({
+					type: parameter.type.rewrap(identifier),
 				});
 			}
 
-			return p;
+			return parameter;
 		});
 
-		const generified = node.copy({
+		const generifiedCallback = node.copy({
 			parameters: generifiedParameters,
 		});
 
-		generified.generics = generics;
-		return generified;
+		generifiedCallback.generics = generics;
+		return generifiedCallback;
+	}
+
+	private createGeneric(identifier: string, baseType: TypeIdentifier): { identifier: GenericType; generic: Generic } {
+		const genericType = new GenericType(identifier, baseType);
+		const generic = new Generic(genericType, baseType);
+		return { identifier: genericType, generic };
 	}
 
 	private processInterfaces<T extends IntrospectedBaseClass>(node: T, derivatives: Generic[]): void {
@@ -154,28 +171,40 @@ export class GenericVisitor extends GirVisitor {
 			return;
 		}
 
-		const resolvedInterfaces = node.interfaces
+		const resolvedInterfaces = this.resolveInterfaces(node);
+		node.interfaces = node.interfaces.map((iface) =>
+			this.processInterface(node, iface, derivatives, resolvedInterfaces),
+		);
+	}
+
+	private resolveInterfaces(node: IntrospectedClass): IntrospectedBaseClass[] {
+		return node.interfaces
 			.map((i) => resolveTypeIdentifier(node.namespace, i))
 			.filter((c): c is IntrospectedBaseClass => c != null);
+	}
 
-		node.interfaces = node.interfaces.map((iface) => {
-			const generic = derivatives.filter((d) => d.parent?.is(iface.namespace, iface.name));
+	private processInterface<T extends IntrospectedBaseClass>(
+		node: T,
+		iface: TypeIdentifier,
+		derivatives: Generic[],
+		resolvedInterfaces: IntrospectedBaseClass[],
+	): TypeIdentifier {
+		const matchingGenerics = derivatives.filter((d) => d.parent?.is(iface.namespace, iface.name));
 
-			if (generic.length > 0) {
-				return new GenerifiedTypeIdentifier(
-					iface.name,
-					iface.namespace,
-					generic.map((g) => g.type),
-				);
-			}
+		if (matchingGenerics.length > 0) {
+			return new GenerifiedTypeIdentifier(
+				iface.name,
+				iface.namespace,
+				matchingGenerics.map((g) => g.type),
+			);
+		}
 
-			const resolved = resolvedInterfaces.find((i) => i.getType().equals(iface));
-			if (resolved) {
-				return this.processResolvedInterface(node, iface, resolved);
-			}
+		const resolved = resolvedInterfaces.find((i) => i.getType().equals(iface));
+		if (resolved) {
+			return this.processResolvedInterface(node, iface, resolved);
+		}
 
-			return iface;
-		});
+		return iface;
 	}
 
 	private processResolvedInterface<T extends IntrospectedBaseClass>(
@@ -190,27 +219,51 @@ export class GenericVisitor extends GirVisitor {
 		const [generic] = resolved.generics;
 
 		if (generic.propagate) {
-			const constrainedGeneric = node.generics.find(
-				(d) => generic.constraint && d.constraint?.equals(generic.constraint),
-			);
-
-			if (constrainedGeneric) {
-				return new GenerifiedTypeIdentifier(iface.name, iface.namespace, [constrainedGeneric.type]);
-			}
-
-			if (!generic.defaultType?.equals(node.getType()) && !generic.constraint?.equals(node.getType())) {
-				node.addGeneric({
-					constraint: generic.constraint ?? undefined,
-					default: generic.defaultType ?? undefined,
-					deriveFrom: resolved.getType(),
-				});
-
-				const firstGeneric = node.generics[node.generics.length - 1];
-				return new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [firstGeneric.type]);
-			}
+			return this.handlePropagatingInterfaceGeneric(node, iface, resolved, generic);
 		}
 
 		return new GenerifiedTypeIdentifier(iface.name, iface.namespace, [node.getType()]);
+	}
+
+	private handlePropagatingInterfaceGeneric<T extends IntrospectedBaseClass>(
+		node: T,
+		iface: TypeIdentifier,
+		resolved: IntrospectedBaseClass,
+		generic: Generic,
+	): TypeIdentifier {
+		const constrainedGeneric = this.findConstrainedGeneric(node, generic);
+
+		if (constrainedGeneric) {
+			return new GenerifiedTypeIdentifier(iface.name, iface.namespace, [constrainedGeneric.type]);
+		}
+
+		if (this.shouldAddNewGeneric(node, generic)) {
+			this.addGenericToNode(node, resolved, generic);
+			const firstGeneric = node.generics[node.generics.length - 1];
+			return new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [firstGeneric.type]);
+		}
+
+		return new GenerifiedTypeIdentifier(iface.name, iface.namespace, [node.getType()]);
+	}
+
+	private findConstrainedGeneric<T extends IntrospectedBaseClass>(node: T, generic: Generic): Generic | undefined {
+		return node.generics.find((d) => generic.constraint && d.constraint?.equals(generic.constraint));
+	}
+
+	private shouldAddNewGeneric<T extends IntrospectedBaseClass>(node: T, generic: Generic): boolean {
+		return !generic.defaultType?.equals(node.getType()) && !generic.constraint?.equals(node.getType());
+	}
+
+	private addGenericToNode<T extends IntrospectedBaseClass>(
+		node: T,
+		resolved: IntrospectedBaseClass,
+		generic: Generic,
+	): void {
+		node.addGeneric({
+			constraint: generic.constraint ?? undefined,
+			default: generic.defaultType ?? undefined,
+			deriveFrom: resolved.getType(),
+		});
 	}
 
 	private processSuperType<T extends IntrospectedBaseClass>(node: T, derivatives: Generic[]): void {
@@ -219,17 +272,17 @@ export class GenericVisitor extends GirVisitor {
 		}
 
 		const parentType = node.superType;
-		const generic = derivatives.filter((d) => d.parent?.is(parentType.namespace, parentType.name));
+		const matchingGenerics = derivatives.filter((d) => d.parent?.is(parentType.namespace, parentType.name));
 
 		if (node.superType instanceof GenerifiedTypeIdentifier) {
 			return;
 		}
 
-		if (generic.length > 0) {
+		if (matchingGenerics.length > 0) {
 			node.superType = new GenerifiedTypeIdentifier(
 				parentType.name,
 				parentType.namespace,
-				generic.map((g) => g.type),
+				matchingGenerics.map((g) => g.type),
 			);
 			return;
 		}
@@ -260,9 +313,7 @@ export class GenericVisitor extends GirVisitor {
 		resolved: IntrospectedBaseClass,
 		generic: Generic,
 	): void {
-		const constrainedGeneric = node.generics.find(
-			(d) => generic.constraint && d.constraint?.equals(generic.constraint),
-		);
+		const constrainedGeneric = this.findConstrainedGeneric(node, generic);
 
 		if (constrainedGeneric) {
 			node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [
@@ -271,13 +322,8 @@ export class GenericVisitor extends GirVisitor {
 			return;
 		}
 
-		if (!generic.defaultType?.equals(node.getType()) && !generic.constraint?.equals(node.getType())) {
-			node.addGeneric({
-				constraint: generic.constraint ?? undefined,
-				default: generic.defaultType ?? undefined,
-				deriveFrom: resolved.getType(),
-			});
-
+		if (this.shouldAddNewGeneric(node, generic)) {
+			this.addGenericToNode(node, resolved, generic);
 			const firstGeneric = node.generics[node.generics.length - 1];
 			node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [firstGeneric.type]);
 		} else if (this.shouldUseNodeType(node, generic)) {
@@ -301,27 +347,28 @@ export class GenericVisitor extends GirVisitor {
 		}
 
 		const member = node.parent;
+		const generifiedType = this.createAsyncReadyCallbackType(member, internal);
 
-		if (member instanceof IntrospectedFunction && member.parameters.length >= 2) {
+		if (generifiedType) {
 			return node.copy({
-				type: node.type.rewrap(
-					new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parameters[0].type]),
-				),
+				type: node.type.rewrap(generifiedType),
 			});
+		}
+
+		return null;
+	}
+
+	private createAsyncReadyCallbackType(member: any, internal: TypeIdentifier): GenerifiedTypeIdentifier | null {
+		if (member instanceof IntrospectedFunction && member.parameters.length >= 2) {
+			return new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parameters[0].type]);
 		}
 
 		if (member instanceof IntrospectedStaticClassFunction) {
-			return node.copy({
-				type: node.type.rewrap(
-					new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parent.getType()]),
-				),
-			});
+			return new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parent.getType()]);
 		}
 
 		if (member instanceof IntrospectedClassFunction) {
-			return node.copy({
-				type: node.type.rewrap(new GenerifiedTypeIdentifier(internal.name, internal.namespace, [ThisType])),
-			});
+			return new GenerifiedTypeIdentifier(internal.name, internal.namespace, [ThisType]);
 		}
 
 		return null;
@@ -337,22 +384,26 @@ export class GenericVisitor extends GirVisitor {
 	}
 
 	private generifyStandaloneClassFunction<T extends IntrospectedClassFunction>(node: T): T {
-		const unwrapped = node.return().unwrap();
-
-		if (node.parent.getType().is("GObject", "Object")) {
+		if (this.shouldSkipFunctionGenerification(node)) {
 			return node;
 		}
 
-		if (unwrapped instanceof TypeIdentifier && unwrapped.is("GObject", "Object")) {
-			const genericReturnType = new GenericType("T", unwrapped);
+		const unwrapped = node.return().unwrap();
+
+		if (this.isGObjectType(unwrapped)) {
+			const genericReturnType = new GenericType("T", unwrapped as TypeIdentifier);
 			const copied = node.copy({
 				returnType: genericReturnType,
 			});
-			copied.generics.push(new Generic(genericReturnType, unwrapped, unwrapped));
+			copied.generics.push(new Generic(genericReturnType, unwrapped as TypeIdentifier, unwrapped as TypeIdentifier));
 			return copied as T;
 		}
 
 		return node;
+	}
+
+	private shouldSkipFunctionGenerification<T extends IntrospectedClassFunction>(node: T): boolean {
+		return node.parent.getType().is("GObject", "Object");
 	}
 
 	private processClassFunctionWithGenerics<T extends IntrospectedBaseClass | IntrospectedEnum>(
@@ -364,14 +415,7 @@ export class GenericVisitor extends GirVisitor {
 			return null;
 		}
 
-		let returnType = node.return();
-
-		for (const generic of clazz.generics) {
-			if (generic.defaultType?.equals(node.return().deepUnwrap())) {
-				returnType = node.return().rewrap(generic.type);
-				break;
-			}
-		}
+		const returnType = this.processReturnTypeWithGenerics(node.return(), clazz.generics);
 
 		return node.copy({
 			parameters: this.processParametersWithGenerics(node.parameters, clazz.generics),
@@ -380,35 +424,49 @@ export class GenericVisitor extends GirVisitor {
 		});
 	}
 
+	private processReturnTypeWithGenerics(returnType: TypeExpression, generics: Generic[]): TypeExpression {
+		for (const generic of generics) {
+			if (generic.defaultType?.equals(returnType.deepUnwrap())) {
+				return returnType.rewrap(generic.type);
+			}
+		}
+		return returnType;
+	}
+
 	private processParametersWithGenerics(
 		parameters: IntrospectedFunctionParameter[],
 		generics: Generic[],
 	): IntrospectedFunctionParameter[] {
-		return parameters.map((p) => {
-			for (const generic of generics) {
-				if (generic.defaultType?.equals(p.type.deepUnwrap())) {
-					return p.copy({
-						type: p.type.rewrap(generic.type),
-					});
-				}
+		return parameters.map((parameter) => this.processParameterWithGenerics(parameter, generics));
+	}
+
+	private processParameterWithGenerics(
+		parameter: IntrospectedFunctionParameter,
+		generics: Generic[],
+	): IntrospectedFunctionParameter {
+		for (const generic of generics) {
+			if (generic.defaultType?.equals(parameter.type.deepUnwrap())) {
+				return parameter.copy({
+					type: parameter.type.rewrap(generic.type),
+				});
 			}
-			return p;
-		});
+		}
+		return parameter;
 	}
 
 	private processOutputParametersWithGenerics(
 		outputParameters: IntrospectedFunctionParameter[],
 		generics: Generic[],
 	): IntrospectedFunctionParameter[] {
-		return outputParameters.map((p) => {
+		return outputParameters.map((parameter) => {
 			for (const generic of generics) {
-				if (generic.defaultType?.equals(p.type.unwrap())) {
-					return p.copy({
-						type: p.type.rewrap(generic.type),
+				if (generic.defaultType?.equals(parameter.type.unwrap())) {
+					return parameter.copy({
+						type: parameter.type.rewrap(generic.type),
 					});
 				}
 			}
-			return p;
+			return parameter;
 		});
 	}
 }

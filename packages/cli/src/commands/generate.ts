@@ -4,7 +4,7 @@
 
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, Formatter, Logger, NSRegistry } from "@ts-for-gir/lib";
+import { ERROR_NO_MODULES_FOUND, Formatter, type GirModule, Logger, NSRegistry } from "@ts-for-gir/lib";
 import prettier from "prettier";
 import type { Argv, BuilderCallback } from "yargs";
 import { appName, generateOptions, getOptionsGeneration, load } from "../config.ts";
@@ -51,7 +51,7 @@ const handler = async (args: ConfigFlags) => {
 
 	const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES, registry);
 
-	const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module);
+	const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule);
 
 	await tsForGir.start(girModules);
 };

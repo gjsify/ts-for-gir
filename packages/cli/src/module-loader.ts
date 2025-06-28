@@ -443,6 +443,8 @@ export class ModuleLoader {
 					}
 				} else if (girModule?.packageName) {
 					const addModule = {
+						namespace: dependency.namespace,
+						version: dependency.version,
 						packageName: girModule.packageName,
 						module: girModule,
 						resolvedBy,

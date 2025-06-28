@@ -23,6 +23,7 @@ import type {
 	GirConstantElement,
 	GirEnumElement,
 	GirInterfaceElement,
+	IGirModule,
 	OptionsGeneration,
 	OptionsLoad,
 	TsDocTag,
@@ -35,7 +36,7 @@ import type { GirVisitor } from "./visitor.ts";
 
 const logger = new Logger(false, "GirModule");
 
-export class GirModule {
+export class GirModule implements IGirModule {
 	/**
 	 * E.g. 'Gtk'
 	 */

@@ -11,6 +11,11 @@
 // ENUMS AND BASIC TYPES
 // ========================================
 
+export enum ResolveType {
+	DEPENDENCE,
+	BY_HAND,
+}
+
 export enum GirDirection {
 	In = "in",
 	Inout = "inout",
@@ -891,18 +896,5 @@ export interface GirDocSectionElement {
 // ========================================
 // MODULE GROUPING TYPES
 // ========================================
-
-export interface GirModuleResolvedBy {
-	namespace: string;
-	version: string;
-	modifier?: string;
-}
-
-export interface GirModulesGrouped {
-	namespace: string;
-	modules: GirModule[];
-}
-
-export interface GirModulesGroupedMap {
-	[namespace: string]: GirModulesGrouped;
-}
+// Note: GirModuleResolvedBy, GirModulesGrouped, and GirModulesGroupedMap
+// have been moved to @ts-for-gir/lib as they are operational types, not parse types

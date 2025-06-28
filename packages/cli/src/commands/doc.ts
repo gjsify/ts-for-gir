@@ -4,7 +4,7 @@
 
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from "@ts-for-gir/lib";
+import { ERROR_NO_MODULES_FOUND, type GirModule, Logger, NSRegistry } from "@ts-for-gir/lib";
 import type { Argv, BuilderCallback } from "yargs";
 import { docOptions, getOptionsGeneration, load } from "../config.ts";
 import { GenerationHandler } from "../generation-handler.ts";
@@ -42,7 +42,7 @@ const handler = async (args: ConfigFlags) => {
 	}
 	const tsForGir = new GenerationHandler(generateConfig, GeneratorType.HTML_DOC, registry);
 
-	await tsForGir.start(Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module));
+	await tsForGir.start(Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule));
 };
 
 const examples: ReadonlyArray<[string, string?]> = [];

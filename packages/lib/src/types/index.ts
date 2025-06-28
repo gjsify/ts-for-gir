@@ -11,6 +11,8 @@ export * from './file-info.ts'
 export * from './format.ts'
 export * from './generator-constructor.ts'
 export * from './generics-config.ts'
+export * from './gir-module-interface.ts'
+export * from './gir-module-resolved.ts'
 // Re-export GIR types from parser (consolidated types)
 export type {
     GirAliasElement,
@@ -29,9 +31,6 @@ export type {
     GirInterfaceElement,
     GirMemberElement,
     GirMethodElement,
-    GirModuleResolvedBy,
-    GirModulesGrouped,
-    GirModulesGroupedMap,
     GirNamespace,
     GirPropertyElement,
     GirRecordElement,

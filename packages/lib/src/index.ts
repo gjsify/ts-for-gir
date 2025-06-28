@@ -8,6 +8,7 @@ export * from "./gir-module.ts";
 export * from "./library-version.ts";
 export * from "./logger.ts";
 export * from "./messages.ts";
+export * from "./templates/index.ts";
 export * from "./types/index.ts";
 export * from "./types/ts-doc-tag.ts";
 export * from "./utils/index.ts";

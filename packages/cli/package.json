@@ -14,7 +14,8 @@
 	"scripts": {
 		"start": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
 		"check:types": "tsc --noEmit",
-		"check:deps": "dpdm -T src/index.ts"
+		"check:deps": "dpdm -T src/index.ts",
+		"check": "yarn check:types && yarn check:deps"
 	},
 	"repository": {
 		"type": "git",

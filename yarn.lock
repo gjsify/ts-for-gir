@@ -13749,6 +13749,7 @@ __metadata:
   resolution: "@ts-for-gir/lib@workspace:packages/lib"
   dependencies:
     "@gi.ts/parser": "workspace:^"
+    "@ts-for-gir/templates": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/lodash": "npm:^4.17.18"
     "@types/node": "npm:^24.0.4"

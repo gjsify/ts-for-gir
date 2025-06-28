@@ -1,6 +1,8 @@
 import { GirDirection } from "@gi.ts/parser";
 import {
 	AnyType,
+	addInfoComment,
+	addTSDocCommentLines,
 	BinaryType,
 	BooleanType,
 	ClassStructTypeIdentifier,
@@ -14,6 +16,7 @@ import {
 	type GirEnumMember,
 	type GirModule,
 	generateIndent,
+	generateMemberName,
 	IntrospectedAlias,
 	type IntrospectedBaseClass,
 	IntrospectedCallback,
@@ -25,12 +28,12 @@ import {
 	IntrospectedDirectAllocationConstructor,
 	type IntrospectedEnum,
 	type IntrospectedError,
-	IntrospectedField,
+	type IntrospectedField,
 	type IntrospectedFunction,
 	IntrospectedFunctionParameter,
 	IntrospectedInterface,
 	type IntrospectedNamespaceMember,
-	IntrospectedProperty,
+	type IntrospectedProperty,
 	IntrospectedRecord,
 	type IntrospectedSignal,
 	IntrospectedSignalType,
@@ -38,6 +41,7 @@ import {
 	IntrospectedVirtualClassFunction,
 	isInvalid,
 	Logger,
+	mergeDescs,
 	NativeType,
 	type NSRegistry,
 	NumberType,
@@ -276,7 +280,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount));
 
 		const indent = generateIndent(indentCount);
-		const name = this.generateMemberName(tsProp);
+		const name = generateMemberName(tsProp);
 
 		const { readable, writable, constructOnly } = tsProp;
 
@@ -357,7 +361,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount));
 
 		const indent = generateIndent(indentCount);
-		const name = this.generateMemberName(tsProp);
+		const name = generateMemberName(tsProp);
 		const staticStr = isStatic ? "static " : "";
 		const readonly = !tsProp.writable ? "readonly " : "";
 		const affix = tsProp.optional ? "?" : "";
@@ -393,7 +397,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (def.length > 0) {
-			def.unshift(...this.addInfoComment(comment, indentCount));
+			def.unshift(...addInfoComment(comment, indentCount));
 		}
 
 		return def;
@@ -406,25 +410,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (def.length > 0) {
-			def.unshift(...this.addInfoComment(comment, indentCount));
+			def.unshift(...addInfoComment(comment, indentCount));
 		}
 
 		return def;
-	}
-
-	generateMemberName(tsVar: IntrospectedProperty | IntrospectedConstant | IntrospectedField) {
-		const name = tsVar.name;
-		const invalid = isInvalid(name);
-		const hasInvalidName = invalid && (tsVar instanceof IntrospectedProperty || tsVar instanceof IntrospectedField);
-		const Name = hasInvalidName ? `"${name}"` : name;
-
-		if (!Name) {
-			throw new Error('[generateVariable] "name" not set!');
-		}
-
-		const ComputedName = "computed" in tsVar && tsVar.computed ? `[${name}]` : Name;
-
-		return `${ComputedName}`;
 	}
 
 	/**
@@ -462,14 +451,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	 * @param indentCount
 	 */
 	addTSDocCommentLines(lines: string[], indentCount = 0): string[] {
-		const def: string[] = [];
-		const indent = generateIndent(indentCount);
-		def.push(`${indent}/**`);
-		for (const line of lines) {
-			def.push(`${indent} * ${line}`);
-		}
-		def.push(`${indent} */`);
-		return def;
+		return addTSDocCommentLines(lines, indentCount);
 	}
 
 	/**
@@ -542,7 +524,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (def.length > 0) {
-			def.unshift(...this.addInfoComment(comment, indentCount));
+			def.unshift(...addInfoComment(comment, indentCount));
 		}
 
 		return def;
@@ -717,7 +699,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (def.length > 0) {
-			def.unshift(...this.addInfoComment(comment, indentCount));
+			def.unshift(...addInfoComment(comment, indentCount));
 		}
 
 		return def;
@@ -768,7 +750,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (def.length > 0) {
-			def.unshift(...this.addInfoComment(comment, indentCount));
+			def.unshift(...addInfoComment(comment, indentCount));
 		}
 
 		return def;
@@ -835,7 +817,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const indent = generateIndent(indentCount);
 		const exp = !this.config.noNamespace ? "" : "export ";
 
-		const ComputedName = this.generateMemberName(tsConst);
+		const ComputedName = generateMemberName(tsConst);
 		const typeStr = this.generateType(tsConst.type);
 
 		desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr}`);
@@ -917,7 +899,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			ext = `extends ${[superTypeExtends, ...interfaceExtends].join(", ")}`;
 		}
 
-		def.push(...this.addInfoComment("Constructor properties interface", indentCount));
+		def.push(...addInfoComment("Constructor properties interface", indentCount));
 
 		// Include properties from parent interfaces...
 		const { props } = girClass;
@@ -1101,7 +1083,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		);
 
 		if (def.length) {
-			def.unshift(...this.addInfoComment("Constructors", indentCount));
+			def.unshift(...addInfoComment("Constructors", indentCount));
 		}
 
 		return def;
@@ -1341,7 +1323,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const signalDescs = this.generateSignals(girClass);
 
-		def.push(...this.mergeDescs(signalDescs, "Signals", 1));
+		def.push(...mergeDescs(signalDescs, "Signals", 1));
 
 		return def;
 	}

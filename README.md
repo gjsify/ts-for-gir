@@ -83,6 +83,7 @@ ts-for-gir consists of several packages:
 - [`@ts-for-gir/cli`](/packages/cli) - Command-line interface for generating TypeScript definitions
 - [`@gi.ts/parser`](/packages/parser) - Parser for GObject Introspection XML files
 - [`@ts-for-gir/lib`](/packages/lib) - Core library for processing GIR data
+- [`@ts-for-gir/reporter`](/packages/reporter) - Reporting system for problems and statistics with dependency injection
 - [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) - TypeScript definition generator
 - [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator (experimental)
 

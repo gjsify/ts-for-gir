@@ -1,5 +1,5 @@
 ---
-description: 
+description: Instructions for creating new packages in the ts-for-gir yarn workspace
 globs: 
 alwaysApply: false
 ---
@@ -7,6 +7,13 @@ alwaysApply: false
 
 ## Purpose
 Instructions for creating new packages in the ts-for-gir yarn workspace. Packages export TypeScript directly without build steps. Use this guide to create new functionality packages or extract existing functionality into separate packages.
+
+See also
+  * [yarn-workspace.mdc](mdc:.cursor/rules/yarn-workspace.mdc)
+  * [development-workflow.mdc](mdc:.cursor/rules/development-workflow.mdc)
+  * [clean-code.mdc](mdc:.cursor/rules/clean-code.mdc)
+  * [refactoring.mdc](mdc:.cursor/rules/refactoring.mdc)
+
 
 ## Package Structure Template
 

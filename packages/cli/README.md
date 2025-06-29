@@ -114,6 +114,11 @@ Options:
                                                        [boolean] [default: true]
       --package                 Generate the typescript types with package.json
                                 support               [boolean] [default: false]
+      --reporter                Enable generation problem reporter and create a
+                                detailed report file [boolean] [default: false]
+      --reporterOutput          Output file path for the reporter (default: 
+                                ts-for-gir-report.json)
+                                           [string] [default: "ts-for-gir-report.json"]
 
 Examples:
   ts-for-gir generate                       Run 'ts-for-gir generate' in your gjs
@@ -402,4 +407,20 @@ declare module "gi://Gtk" {
   import Gtk from "gi://Gtk?version=4.0";
   export default Gtk;
 }
+```
+
+## reporter
+
+The `--reporter` option enables the generation of a problem reporter and creates a detailed report file.
+
+```bash
+ts-for-gir generate * --reporter
+```
+
+## reporterOutput
+
+The `--reporterOutput` option specifies the output file path for the reporter. The default value is `ts-for-gir-report.json`.
+
+```bash
+ts-for-gir generate * --reporterOutput custom-report.json
 ```

@@ -34,6 +34,8 @@ export const defaults = {
 	// and we'd need to test it works with the updated bindings
 	noAdvancedVariants: true,
 	package: false,
+	reporter: false,
+	reporterOutput: "ts-for-gir-report.json",
 };
 
 /**

@@ -4,7 +4,15 @@
 
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, type GirModule, Logger, NSRegistry } from "@ts-for-gir/lib";
+import {
+	configureConflictsReporter,
+	ERROR_NO_MODULES_FOUND,
+	type GirModule,
+	Logger,
+	NSRegistry,
+	ReporterService,
+	TypeIdentifier,
+} from "@ts-for-gir/lib";
 import { appName, generateOptions, getOptionsGeneration, load } from "../config.ts";
 import { TypeScriptFormatter } from "../formatters/typescript-formatter.ts";
 import { GenerationHandler } from "../generation-handler.ts";
@@ -41,24 +49,56 @@ const handler = async (args: ConfigFlags) => {
 	registry.registerFormatter("dts", new TypeScriptFormatter());
 
 	const moduleLoader = new ModuleLoader(generateConfig, registry);
-	const { keep } = await moduleLoader.getModulesResolved(
-		config.modules,
-		config.ignore || [],
-		config.ignoreVersionConflicts,
-	);
 
-	if (keep.length === 0) {
-		logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories));
-		return;
+	// Configure reporters BEFORE parsing to capture all problems
+	if (generateConfig.reporter) {
+		TypeIdentifier.configureReporter(generateConfig.reporter, generateConfig.reporterOutput);
+		configureConflictsReporter(generateConfig.reporter, generateConfig.reporterOutput);
 	}
 
-	moduleLoader.parse(keep);
+	let tsForGir: GenerationHandler | null = null;
 
-	const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES, registry);
+	try {
+		const { keep } = await moduleLoader.getModulesResolved(
+			config.modules,
+			config.ignore || [],
+			config.ignoreVersionConflicts,
+		);
 
-	const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule);
+		if (keep.length === 0) {
+			logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories));
+			return;
+		}
 
-	await tsForGir.start(girModules);
+		moduleLoader.parse(keep);
+
+		tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES, registry);
+
+		const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule);
+
+		await tsForGir.start(girModules);
+	} catch (error) {
+		// If reporter is enabled and tsForGir was created, make sure the report is generated
+		if (generateConfig.reporter && tsForGir) {
+			const service = ReporterService.getInstance();
+
+			// Log the error to the reporter
+			if (tsForGir.log) {
+				tsForGir.log.reportGenerationFailure(
+					"Main",
+					error instanceof Error ? error : new Error(String(error)),
+					"Generation failed",
+				);
+			}
+
+			// Generate and save the report
+			await service.printComprehensiveSummary();
+			await service.saveComprehensiveReport();
+		}
+
+		// Re-throw the error to maintain existing behavior
+		throw error;
+	}
 };
 
 export const generate = {

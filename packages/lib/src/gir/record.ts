@@ -1,6 +1,6 @@
+import { ConsoleReporter } from "@ts-for-gir/reporter";
 import type { FormatGenerator } from "../generators/generator.ts";
 import { ArrayType, ClassStructTypeIdentifier, NativeType, type TypeExpression, TypeIdentifier } from "../gir.ts";
-import { Logger } from "../logger.ts";
 import type { GirRecordElement, GirUnionElement, OptionsLoad, RecordResolution } from "../types/index.ts";
 import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
 import { sanitizeIdentifierName } from "../utils/naming.ts";
@@ -18,7 +18,7 @@ import type { IntrospectedNamespace } from "./namespace.ts";
 import { IntrospectedField, type IntrospectedProperty } from "./property.ts";
 import type { IntrospectedSignal } from "./signal.ts";
 
-const log = new Logger(true, "gir/class");
+const log = new ConsoleReporter(true, "gir/class", true);
 
 export class IntrospectedRecord extends IntrospectedBaseClass {
 	private _isForeign: boolean = false;
@@ -286,7 +286,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 			IntrospectedRecord.parseRecordStaticMethods(element, clazz, options);
 			IntrospectedRecord.parseRecordFields(element, clazz);
 		} catch (e) {
-			log.error(`Failed to parse record: ${clazz.name}.`, e);
+			log.reportParsingFailure(clazz.name, "record", clazz.namespace.namespace, e as Error);
 		}
 	}
 

@@ -1,4 +1,5 @@
 import type { GirType } from "@gi.ts/parser";
+import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
 import { DependencyManager } from "./dependency-manager.ts";
 import { IntrospectedAlias } from "./gir/alias.ts";
 import { IntrospectedCallback } from "./gir/callback.ts";
@@ -16,7 +17,6 @@ import { IntrospectedRecord } from "./gir/record.ts";
 import type { NSRegistry } from "./gir/registry.ts";
 import { NullableType, ObjectType, TypeIdentifier } from "./gir.ts";
 import type { LibraryVersion } from "./library-version.ts";
-import { Logger } from "./logger.ts";
 import type {
 	Dependency,
 	GirBitfieldElement,
@@ -34,7 +34,7 @@ import { find } from "./utils/objects.ts";
 import { isPrimitiveType } from "./utils/types.ts";
 import type { GirVisitor } from "./visitor.ts";
 
-const logger = new Logger(false, "GirModule");
+const logger = new ConsoleReporter(false, "GirModule", false);
 
 export class GirModule implements IGirModule {
 	/**
@@ -120,7 +120,7 @@ export class GirModule implements IGirModule {
 
 	dependencyManager: DependencyManager;
 
-	log!: Logger;
+	log!: ConsoleReporter;
 
 	extends?: string;
 
@@ -533,7 +533,18 @@ export class GirModule implements IGirModule {
 			building.prefixes.push(...unknownPrefixes);
 		}
 
-		building.log = new Logger(config.verbose, `GirModule(${building.packageName})`);
+		building.log = new ConsoleReporter(
+			config.verbose,
+			`GirModule(${building.packageName})`,
+			config.reporter,
+			config.reporterOutput,
+		);
+
+		// Register with reporter service if reporting is enabled
+		if (config.reporter) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter(`GirModule(${building.packageName})`, building.log);
+		}
 
 		return building;
 	}
@@ -547,6 +558,8 @@ export class GirModule implements IGirModule {
 			loadDocs: !this.config.noComments,
 			propertyCase: "both",
 			verbose: this.config.verbose,
+			reporter: this.config.reporter,
+			reporterOutput: this.config.reporterOutput,
 		};
 		if (!girXML) {
 			throw new Error(`Failed to load gir xml of ${this.dependency.packageName}`);

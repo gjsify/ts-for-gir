@@ -1,7 +1,15 @@
 # TODO
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
-- Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
+
+# 4.0.0-beta.26
+- Extract reporting system into new `@ts-for-gir/reporter` package with dependency injection pattern
+- Add comprehensive problem tracking and statistics generation capabilities
+- Implement structured reporting for type resolution issues, conflicts, and generation problems
+- Add support for console and file output with colorized formatting
+- Provide `ReporterService` for managing multiple reporter instances
+- Migrate all existing reporter functionality from `@ts-for-gir/lib` to the new dedicated package
+- Add complete documentation and examples for the new reporter system
 
 # 3.2.8
 - Upgrade dependencies

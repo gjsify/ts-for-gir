@@ -47,4 +47,12 @@ export interface UserConfig {
      * Generate the typescript types with package.json support
      */
     package: boolean
+    /**
+     * Enable generation problem reporter and create a detailed report file
+     */
+    reporter: boolean
+    /**
+     * Output file path for the reporter
+     */
+    reporterOutput: string
 }

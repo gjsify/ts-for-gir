@@ -13749,6 +13749,7 @@ __metadata:
   resolution: "@ts-for-gir/lib@workspace:packages/lib"
   dependencies:
     "@gi.ts/parser": "workspace:^"
+    "@ts-for-gir/reporter": "workspace:^"
     "@ts-for-gir/templates": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/lodash": "npm:^4.17.18"
@@ -13758,6 +13759,16 @@ __metadata:
     glob: "npm:^11.0.3"
     lodash: "npm:^4.17.21"
     rimraf: "npm:^6.0.1"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/reporter@workspace:^, @ts-for-gir/reporter@workspace:packages/reporter":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/reporter@workspace:packages/reporter"
+  dependencies:
+    "@types/node": "npm:^24.0.4"
+    colorette: "npm:^2.0.20"
     typescript: "npm:^5.8.3"
   languageName: unknown
   linkType: soft

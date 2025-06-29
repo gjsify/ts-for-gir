@@ -3,26 +3,44 @@ import { type Generator, GeneratorType } from "@ts-for-gir/generator-base";
 import { HtmlDocGenerator } from "@ts-for-gir/generator-html-doc";
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import {
+	configureConflictsReporter,
 	ERROR_NO_MODULE_SPECIFIED,
 	FILE_PARSING_DONE,
 	GENERATING_TYPES_DONE,
 	type GirModule,
-	Logger,
 	type NSRegistry,
 	type OptionsGeneration,
+	Reporter,
+	ReporterService,
 	START_MODULE,
 	TSDATA_PARSING_DONE,
+	TypeIdentifier,
 } from "@ts-for-gir/lib";
 
 export class GenerationHandler {
-	log: Logger;
+	log: Reporter;
 	generator: Generator;
 	protected readonly config: OptionsGeneration;
 	protected readonly registry: NSRegistry;
+	private readonly reporterService: ReporterService;
+
 	constructor(config: OptionsGeneration, type: GeneratorType, registry: NSRegistry) {
 		this.registry = registry;
 		this.config = config;
-		this.log = new Logger(config.verbose, "GenerationHandler");
+		this.log = new Reporter(config.verbose, "GenerationHandler", config.reporter, config.reporterOutput);
+		this.reporterService = ReporterService.getInstance();
+
+		// Configure the reporter service
+		this.reporterService.configure(config.reporter, config.reporterOutput);
+
+		// Configure TypeIdentifier and ConflictsReporter globally
+		TypeIdentifier.configureReporter(config.reporter, config.reporterOutput);
+		configureConflictsReporter(config.reporter, config.reporterOutput);
+
+		// Register the main handler reporter
+		if (config.reporter) {
+			this.reporterService.registerReporter("GenerationHandler", this.log);
+		}
 
 		switch (type) {
 			case GeneratorType.TYPES:
@@ -47,25 +65,58 @@ export class GenerationHandler {
 
 		this.log.info(TSDATA_PARSING_DONE);
 
-		if (this.config.outdir) {
-			await mkdir(this.config.outdir, { recursive: true });
+		try {
+			if (this.config.outdir) {
+				await mkdir(this.config.outdir, { recursive: true });
+			}
+
+			// TODO: Put this somewhere that makes sense
+			this.registry.transform({
+				inferGenerics: true,
+				verbose: this.config.verbose,
+				reporter: this.config.reporter,
+				reporterOutput: this.config.reporterOutput,
+			});
+
+			await this.generator.start();
+
+			for (const girModule of girModules) {
+				this.log.log(` - ${girModule.packageName} ...`);
+				await this.generator.generate(girModule);
+			}
+
+			await this.generator.finish(girModules);
+
+			this.log.success(GENERATING_TYPES_DONE);
+		} finally {
+			// Generate comprehensive report if reporter is enabled
+			// This will run even if there's an error
+			if (this.config.reporter) {
+				await this.generateComprehensiveReport();
+			}
 		}
+	}
 
-		// TODO: Put this somewhere that makes sense
-		this.registry.transform({
-			inferGenerics: true,
-			verbose: this.config.verbose,
-		});
+	private async generateComprehensiveReport(): Promise<void> {
+		try {
+			// Print comprehensive summary to console
+			this.reporterService.printComprehensiveSummary();
 
-		await this.generator.start();
+			// Save comprehensive report to file
+			await this.reporterService.saveComprehensiveReport();
 
-		for (const girModule of girModules) {
-			this.log.log(` - ${girModule.packageName} ...`);
-			await this.generator.generate(girModule);
+			// Log final statistics
+			const report = this.reporterService.generateComprehensiveReport();
+			const totalProblems = report.statistics.totalProblems;
+			const modulesProcessed = this.reporterService.getReporters().size;
+
+			if (totalProblems > 0) {
+				this.log.info(`📊 Generated comprehensive report: ${totalProblems} issues across ${modulesProcessed} modules`);
+			} else {
+				this.log.success("🎉 Generation completed without any reported issues across all modules!");
+			}
+		} catch (error) {
+			this.log.danger(`Failed to generate comprehensive report: ${error}`);
 		}
-
-		await this.generator.finish(girModules);
-
-		this.log.success(GENERATING_TYPES_DONE);
 	}
 }

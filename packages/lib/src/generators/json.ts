@@ -1,4 +1,5 @@
 import { GirDirection } from "@gi.ts/parser";
+import { ConsoleReporter } from "@ts-for-gir/reporter";
 import { IntrospectedAlias } from "../gir/alias.ts";
 import { IntrospectedCallback } from "../gir/callback.ts";
 import { IntrospectedConstant } from "../gir/const.ts";
@@ -39,7 +40,6 @@ import {
 	TypeIdentifier,
 	VoidType,
 } from "../gir.ts";
-import { Logger } from "../logger.ts";
 import type { AnyIntrospectedType, OptionsGeneration } from "../types/index.ts";
 import type { IntrospectedMetadata } from "../types/introspected.ts";
 import { isInvalid, sanitizeIdentifierName } from "../utils/naming.ts";
@@ -328,11 +328,11 @@ export interface NamespaceJson extends Json {
 }
 
 export class JsonGenerator extends FormatGenerator<Json> {
-	readonly log: Logger;
+	readonly log: ConsoleReporter;
 
 	constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		super(namespace, options);
-		this.log = new Logger(options.verbose, JsonGenerator.name);
+		this.log = new ConsoleReporter(options.verbose, JsonGenerator.name, options.reporter, options.reporterOutput);
 	}
 
 	/**
@@ -1339,7 +1339,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
 			return JSON.stringify(output, null, 4);
 		} catch (err) {
-			this.log.error(`Failed to generate namespace: "${node.namespace}"`, err);
+			this.log.reportGenerationFailure(node.namespace, err as Error, "JSON");
 			return null;
 		}
 	}

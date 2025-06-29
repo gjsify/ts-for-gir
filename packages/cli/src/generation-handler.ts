@@ -59,32 +59,35 @@ export class GenerationHandler {
 
 		this.log.info(TSDATA_PARSING_DONE);
 
-		if (this.config.outdir) {
-			await mkdir(this.config.outdir, { recursive: true });
-		}
+		try {
+			if (this.config.outdir) {
+				await mkdir(this.config.outdir, { recursive: true });
+			}
 
-		// TODO: Put this somewhere that makes sense
-		this.registry.transform({
-			inferGenerics: true,
-			verbose: this.config.verbose,
-			reporter: this.config.reporter,
-			reporterOutput: this.config.reporterOutput,
-		});
+			// TODO: Put this somewhere that makes sense
+			this.registry.transform({
+				inferGenerics: true,
+				verbose: this.config.verbose,
+				reporter: this.config.reporter,
+				reporterOutput: this.config.reporterOutput,
+			});
 
-		await this.generator.start();
+			await this.generator.start();
 
-		for (const girModule of girModules) {
-			this.log.log(` - ${girModule.packageName} ...`);
-			await this.generator.generate(girModule);
-		}
+			for (const girModule of girModules) {
+				this.log.log(` - ${girModule.packageName} ...`);
+				await this.generator.generate(girModule);
+			}
 
-		await this.generator.finish(girModules);
+			await this.generator.finish(girModules);
 
-		this.log.success(GENERATING_TYPES_DONE);
-
-		// Generate comprehensive report if reporter is enabled
-		if (this.config.reporter) {
-			await this.generateComprehensiveReport();
+			this.log.success(GENERATING_TYPES_DONE);
+		} finally {
+			// Generate comprehensive report if reporter is enabled
+			// This will run even if there's an error
+			if (this.config.reporter) {
+				await this.generateComprehensiveReport();
+			}
 		}
 	}
 

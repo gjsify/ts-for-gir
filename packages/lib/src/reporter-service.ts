@@ -5,7 +5,15 @@
 
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import type { GenerationReport, ProblemEntry, Reporter, ReportStatistics } from "./reporter.ts";
+import { blue, gray, green, red, yellow } from "colorette";
+import {
+	type GenerationReport,
+	ProblemCategory,
+	type ProblemEntry,
+	type ProblemTypeStatistics,
+	type Reporter,
+	type ReportStatistics,
+} from "./reporter.ts";
 
 /**
  * Centralized service for managing multiple Reporter instances
@@ -115,6 +123,11 @@ export class ReporterService {
 				byModule: {},
 				totalProblems: 0,
 				mostProblematicModules: [],
+				typeStatistics: {
+					commonUnresolvedTypes: [],
+					commonTypeConflicts: [],
+					problematicNamespaces: [],
+				},
 				startTime: new Date(),
 				endTime: new Date(),
 				durationMs: 0,
@@ -151,11 +164,75 @@ export class ReporterService {
 
 		const byModule: Record<string, number> = {};
 
+		// Type-specific tracking
+		const unresolvedTypes: Record<string, { count: number; namespaces: Set<string> }> = {};
+		const typeConflicts: Record<string, { count: number; examples: Set<string> }> = {};
+		const namespaceProblems: Record<string, { count: number; types: Set<string> }> = {};
+
 		for (const problem of allProblems) {
 			bySeverity[problem.severity] = (bySeverity[problem.severity] || 0) + 1;
 			byCategory[problem.category] = (byCategory[problem.category] || 0) + 1;
 			byModule[problem.module] = (byModule[problem.module] || 0) + 1;
+
+			// Track type resolution problems
+			if (problem.category === "type_resolution" && problem.typeName) {
+				if (!unresolvedTypes[problem.typeName]) {
+					unresolvedTypes[problem.typeName] = { count: 0, namespaces: new Set() };
+				}
+				unresolvedTypes[problem.typeName].count++;
+				if (problem.location) {
+					unresolvedTypes[problem.typeName].namespaces.add(problem.location);
+				}
+
+				// Track namespace problems
+				if (problem.location) {
+					if (!namespaceProblems[problem.location]) {
+						namespaceProblems[problem.location] = { count: 0, types: new Set() };
+					}
+					namespaceProblems[problem.location].count++;
+					namespaceProblems[problem.location].types.add(problem.typeName);
+				}
+			}
+
+			// Track type conflicts
+			if (problem.category === "type_conflict" && problem.metadata?.conflictType) {
+				const conflictType = problem.metadata.conflictType as string;
+				if (!typeConflicts[conflictType]) {
+					typeConflicts[conflictType] = { count: 0, examples: new Set() };
+				}
+				typeConflicts[conflictType].count++;
+				if (problem.typeName) {
+					typeConflicts[conflictType].examples.add(problem.typeName);
+				}
+			}
 		}
+
+		// Convert to arrays and sort
+		const commonUnresolvedTypes = Object.entries(unresolvedTypes)
+			.map(([type, data]) => ({
+				type,
+				count: data.count,
+				namespaces: Array.from(data.namespaces),
+			}))
+			.sort((a, b) => b.count - a.count)
+			.slice(0, 20);
+
+		const commonTypeConflicts = Object.entries(typeConflicts)
+			.map(([conflictType, data]) => ({
+				conflictType,
+				count: data.count,
+				examples: Array.from(data.examples).slice(0, 5),
+			}))
+			.sort((a, b) => b.count - a.count);
+
+		const problematicNamespaces = Object.entries(namespaceProblems)
+			.map(([namespace, data]) => ({
+				namespace,
+				problems: data.count,
+				types: Array.from(data.types).slice(0, 10),
+			}))
+			.sort((a, b) => b.problems - a.problems)
+			.slice(0, 10);
 
 		const mostProblematicModules = Object.entries(byModule)
 			.sort(([, a], [, b]) => b - a)
@@ -168,6 +245,11 @@ export class ReporterService {
 			byModule,
 			totalProblems: allProblems.length,
 			mostProblematicModules,
+			typeStatistics: {
+				commonUnresolvedTypes,
+				commonTypeConflicts,
+				problematicNamespaces,
+			},
 			startTime,
 			endTime,
 			durationMs,
@@ -180,6 +262,19 @@ export class ReporterService {
 	public generateComprehensiveReport(): GenerationReport {
 		const statistics = this.generateComprehensiveStatistics();
 		const allProblems = this.collectAllProblems();
+
+		// Generate problems by category
+		const problemsByCategory = Object.values(ProblemCategory).reduce(
+			(acc, category) => {
+				acc[category] = [];
+				return acc;
+			},
+			{} as Record<ProblemCategory, ProblemEntry[]>,
+		);
+
+		for (const problem of allProblems) {
+			problemsByCategory[problem.category].push(problem);
+		}
 
 		// Generate summary
 		const errorCount = statistics.bySeverity.error || 0;
@@ -238,6 +333,7 @@ export class ReporterService {
 			},
 			statistics,
 			problems: allProblems,
+			problemsByCategory,
 			summary: {
 				status,
 				keyIssues,
@@ -270,10 +366,6 @@ export class ReporterService {
 	 * Print comprehensive summary to console
 	 */
 	public printComprehensiveSummary(): void {
-		if (!this.config.enabled) {
-			return;
-		}
-
 		const report = this.generateComprehensiveReport();
 		const { statistics, summary } = report;
 
@@ -281,41 +373,84 @@ export class ReporterService {
 		console.log("📊 COMPREHENSIVE GENERATION REPORT");
 		console.log("=".repeat(60));
 
-		// Status
-		const statusEmoji = summary.status === "success" ? "✅" : summary.status === "partial" ? "⚠️" : "❌";
-		console.log(`${statusEmoji} Status: ${summary.status.toUpperCase()}`);
+		// Overall status
+		const statusColor = summary.status === "success" ? green : summary.status === "partial" ? yellow : red;
+		console.log(`\n🎯 Overall Status: ${statusColor(summary.status.toUpperCase())}`);
 
-		// Statistics
-		console.log(`\n📈 Overall Statistics:`);
-		console.log(`  Total Problems: ${statistics.totalProblems}`);
-		console.log(`  Modules Processed: ${this.reporters.size}`);
-		console.log(`  Duration: ${Math.round((statistics.durationMs || 0) / 1000)}s`);
+		// Total statistics
+		console.log(`\n📈 Total Statistics:`);
+		console.log(`  ⏱️  Duration: ${Math.round((statistics.durationMs || 0) / 1000)}s`);
+		console.log(`  📁 Modules Processed: ${this.reporters.size}`);
+		console.log(`  ⚠️  Total Problems: ${statistics.totalProblems}`);
 
+		// Severity breakdown
 		if (statistics.totalProblems > 0) {
 			console.log(`\n🔍 Problems by Severity:`);
 			for (const [severity, count] of Object.entries(statistics.bySeverity)) {
 				if (count > 0) {
-					const emoji = severity === "error" || severity === "critical" ? "🔴" : severity === "warning" ? "🟡" : "🔵";
-					console.log(`  ${emoji} ${severity}: ${count}`);
+					const icon = severity === "error" || severity === "critical" ? "❌" : severity === "warning" ? "⚠️" : "ℹ️";
+					const color = severity === "error" || severity === "critical" ? red : severity === "warning" ? yellow : blue;
+					console.log(`  ${icon} ${color(severity.toUpperCase())}: ${count}`);
 				}
 			}
 
+			// Category breakdown
 			console.log(`\n📂 Problems by Category:`);
 			for (const [category, count] of Object.entries(statistics.byCategory)) {
 				if (count > 0) {
-					console.log(`  • ${category.replace(/_/g, " ")}: ${count}`);
+					const categoryName = category.replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+					console.log(`  • ${categoryName}: ${count}`);
 				}
 			}
 
+			// Type-specific statistics
+			if (statistics.typeStatistics.commonUnresolvedTypes.length > 0) {
+				console.log(`\n❌ Top Unresolved Types:`);
+				statistics.typeStatistics.commonUnresolvedTypes.slice(0, 10).forEach(({ type, count, namespaces }) => {
+					console.log(`  ${red(type)}: ${count} occurrences`);
+					if (namespaces.length <= 3) {
+						console.log(`    └─ In: ${gray(namespaces.join(", "))}`);
+					} else {
+						console.log(`    └─ In: ${gray(`${namespaces.slice(0, 3).join(", ")} and ${namespaces.length - 3} more`)}`);
+					}
+				});
+			}
+
+			if (statistics.typeStatistics.commonTypeConflicts.length > 0) {
+				console.log(`\n⚔️  Type Conflicts Summary:`);
+				statistics.typeStatistics.commonTypeConflicts.forEach(({ conflictType, count, examples }) => {
+					console.log(`  ${yellow(conflictType.replace(/_/g, " "))}: ${count} conflicts`);
+					if (examples.length > 0) {
+						const exampleList = examples.slice(0, 3).join(", ");
+						const moreExamples = examples.length > 3 ? ` and ${examples.length - 3} more` : "";
+						console.log(`    └─ Examples: ${gray(exampleList + moreExamples)}`);
+					}
+				});
+			}
+
+			if (statistics.typeStatistics.problematicNamespaces.length > 0) {
+				console.log(`\n🚨 Most Problematic Namespaces:`);
+				statistics.typeStatistics.problematicNamespaces.slice(0, 10).forEach(({ namespace, problems, types }) => {
+					console.log(`  ${namespace}: ${red(problems.toString())} problems`);
+					if (types.length > 0) {
+						const typeList = types.slice(0, 5).join(", ");
+						const moreTypes = types.length > 5 ? ` and ${types.length - 5} more` : "";
+						console.log(`    └─ Problem types: ${gray(typeList + moreTypes)}`);
+					}
+				});
+			}
+
+			// Module breakdown
 			if (statistics.mostProblematicModules.length > 0) {
-				console.log(`\n🚨 Most Problematic Modules:`);
-				statistics.mostProblematicModules.slice(0, 5).forEach(({ module, count }) => {
-					console.log(`  📦 ${module}: ${count} issues`);
+				console.log(`\n📦 Most Problematic Modules:`);
+				statistics.mostProblematicModules.slice(0, 10).forEach(({ module, count }) => {
+					const percentage = Math.round((count / statistics.totalProblems) * 100);
+					console.log(`  ${module}: ${count} issues (${percentage}%)`);
 				});
 			}
 		}
 
-		// Key Issues
+		// Key issues
 		if (summary.keyIssues.length > 0) {
 			console.log(`\n⚠️  Key Issues:`);
 			summary.keyIssues.forEach((issue) => console.log(`  • ${issue}`));
@@ -327,7 +462,9 @@ export class ReporterService {
 			summary.recommendations.forEach((rec) => console.log(`  • ${rec}`));
 		}
 
-		console.log(`${"=".repeat(60)}\n`);
+		console.log(`\n${"=".repeat(60)}`);
+		console.log(`📝 Detailed report: ${this.config.outputPath || "ts-for-gir-report.json"}`);
+		console.log("=".repeat(60) + "\n");
 	}
 
 	/**

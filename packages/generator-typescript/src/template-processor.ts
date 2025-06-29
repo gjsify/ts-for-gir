@@ -27,6 +27,7 @@ export class TemplateProcessor extends TemplateEngine {
 	protected readonly registry: NSRegistry;
 	protected readonly deps: Dependency[];
 	protected readonly config: OptionsGeneration;
+	protected readonly reporter: Reporter;
 
 	constructor(
 		data: TemplateData | undefined,
@@ -64,7 +65,7 @@ export class TemplateProcessor extends TemplateEngine {
 			...this.config,
 			packageName: this.packageName,
 		};
-		this.log = new Reporter(
+		this.reporter = new Reporter(
 			config.verbose,
 			`TemplateProcessor (${this.packageName})`,
 			config.reporter,
@@ -74,7 +75,7 @@ export class TemplateProcessor extends TemplateEngine {
 		// Register with reporter service if reporting is enabled
 		if (config.reporter) {
 			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter(`TemplateProcessor(${packageName})`, this.log);
+			reporterService.registerReporter(`TemplateProcessor(${packageName})`, this.reporter);
 		}
 	}
 
@@ -194,16 +195,16 @@ export class TemplateProcessor extends TemplateEngine {
 		if (!this.config.noPrettyPrint) {
 			try {
 				if (outputFilename.endsWith(".d.ts")) {
-					this.log.info("Formatting", outputPath);
+					this.reporter.info("Formatting", outputPath);
 					content = await this.registry.getFormatter("dts").format(content);
 				}
 				// TODO: Fix me
 				// if (outputFilename.endsWith('.json')) {
-				//     this.log.info('Formatting', outputPath)
+				//     this.reporter.info('Formatting', outputPath)
 				//     content = await this.registry.getFormatter('json').format(content)
 				// }
 			} catch (error) {
-				this.log.error("Failed to format output...", error);
+				this.reporter.error("Failed to format output...", error);
 			}
 		}
 

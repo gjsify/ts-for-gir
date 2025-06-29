@@ -21,46 +21,47 @@ import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
 // Global reporter configuration for conflicts
-class ConflictsReporter {
-	private static instance: Reporter | null = null;
-	private static config: { enabled: boolean; output: string } = { enabled: false, output: "ts-for-gir-report.json" };
+let conflictsReporterInstance: Reporter | null = null;
+let conflictsReporterConfig: { enabled: boolean; output: string } = {
+	enabled: false,
+	output: "ts-for-gir-report.json",
+};
 
-	static configureReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
-		ConflictsReporter.config = { enabled, output };
+function configureConflictsReporterInternal(enabled: boolean, output: string = "ts-for-gir-report.json") {
+	conflictsReporterConfig = { enabled, output };
 
-		// Reset instance to force recreation with new config
-		if (ConflictsReporter.instance) {
-			ConflictsReporter.instance = null;
-		}
-
-		// Create and register the global reporter if enabled
-		if (enabled) {
-			ConflictsReporter.instance = new Reporter(true, "conflicts", enabled, output);
-			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter("conflicts", ConflictsReporter.instance);
-		}
+	// Reset instance to force recreation with new config
+	if (conflictsReporterInstance) {
+		conflictsReporterInstance = null;
 	}
 
-	static getInstance(): Reporter {
-		if (!ConflictsReporter.instance) {
-			const config = ConflictsReporter.config;
-			ConflictsReporter.instance = new Reporter(true, "conflicts", config.enabled, config.output);
-
-			// Register with reporter service if reporting is enabled
-			if (config.enabled) {
-				const reporterService = ReporterService.getInstance();
-				reporterService.registerReporter("conflicts", ConflictsReporter.instance);
-			}
-		}
-		return ConflictsReporter.instance;
+	// Create and register the global reporter if enabled
+	if (enabled) {
+		conflictsReporterInstance = new Reporter(true, "conflicts", enabled, output);
+		const reporterService = ReporterService.getInstance();
+		reporterService.registerReporter("conflicts", conflictsReporterInstance);
 	}
 }
 
-const log = ConflictsReporter.getInstance();
+function getConflictsReporterInstance(): Reporter {
+	if (!conflictsReporterInstance) {
+		const config = conflictsReporterConfig;
+		conflictsReporterInstance = new Reporter(true, "conflicts", config.enabled, config.output);
+
+		// Register with reporter service if reporting is enabled
+		if (config.enabled) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter("conflicts", conflictsReporterInstance);
+		}
+	}
+	return conflictsReporterInstance;
+}
+
+const log = getConflictsReporterInstance();
 
 // Export function to configure conflicts reporter
 export function configureConflictsReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
-	ConflictsReporter.configureReporter(enabled, output);
+	configureConflictsReporterInternal(enabled, output);
 }
 
 // Constants for GObject methods that always conflict

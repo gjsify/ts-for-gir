@@ -16,7 +16,8 @@ import { IntrospectedRecord } from "./gir/record.ts";
 import type { NSRegistry } from "./gir/registry.ts";
 import { NullableType, ObjectType, TypeIdentifier } from "./gir.ts";
 import type { LibraryVersion } from "./library-version.ts";
-import { Logger } from "./logger.ts";
+import { Reporter } from "./reporter.ts";
+import { ReporterService } from "./reporter-service.ts";
 import type {
 	Dependency,
 	GirBitfieldElement,
@@ -34,7 +35,7 @@ import { find } from "./utils/objects.ts";
 import { isPrimitiveType } from "./utils/types.ts";
 import type { GirVisitor } from "./visitor.ts";
 
-const logger = new Logger(false, "GirModule");
+const logger = new Reporter(false, "GirModule", false);
 
 export class GirModule implements IGirModule {
 	/**
@@ -120,7 +121,7 @@ export class GirModule implements IGirModule {
 
 	dependencyManager: DependencyManager;
 
-	log!: Logger;
+	log!: Reporter;
 
 	extends?: string;
 
@@ -533,7 +534,18 @@ export class GirModule implements IGirModule {
 			building.prefixes.push(...unknownPrefixes);
 		}
 
-		building.log = new Logger(config.verbose, `GirModule(${building.packageName})`);
+		building.log = new Reporter(
+			config.verbose,
+			`GirModule(${building.packageName})`,
+			config.reporter,
+			config.reporterOutput,
+		);
+
+		// Register with reporter service if reporting is enabled
+		if (config.reporter) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter(`GirModule(${building.packageName})`, building.log);
+		}
 
 		return building;
 	}

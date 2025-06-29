@@ -16,10 +16,52 @@ import { IntrospectedField, IntrospectedProperty } from "../gir/property.ts";
 import type { TypeIdentifier } from "../gir.ts";
 import { AnyType, ArrayType, ConflictType, NeverType, TypeConflict } from "../gir.ts";
 import { Reporter } from "../reporter.ts";
+import { ReporterService } from "../reporter-service.ts";
 import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
-const log = new Reporter(true, "gir/utils/conflicts", true);
+// Global reporter configuration for conflicts
+class ConflictsReporter {
+	private static instance: Reporter | null = null;
+	private static config: { enabled: boolean; output: string } = { enabled: false, output: "ts-for-gir-report.json" };
+
+	static configureReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
+		ConflictsReporter.config = { enabled, output };
+
+		// Reset instance to force recreation with new config
+		if (ConflictsReporter.instance) {
+			ConflictsReporter.instance = null;
+		}
+
+		// Create and register the global reporter if enabled
+		if (enabled) {
+			ConflictsReporter.instance = new Reporter(true, "conflicts", enabled, output);
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter("conflicts", ConflictsReporter.instance);
+		}
+	}
+
+	static getInstance(): Reporter {
+		if (!ConflictsReporter.instance) {
+			const config = ConflictsReporter.config;
+			ConflictsReporter.instance = new Reporter(true, "conflicts", config.enabled, config.output);
+
+			// Register with reporter service if reporting is enabled
+			if (config.enabled) {
+				const reporterService = ReporterService.getInstance();
+				reporterService.registerReporter("conflicts", ConflictsReporter.instance);
+			}
+		}
+		return ConflictsReporter.instance;
+	}
+}
+
+const log = ConflictsReporter.getInstance();
+
+// Export function to configure conflicts reporter
+export function configureConflictsReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
+	ConflictsReporter.configureReporter(enabled, output);
+}
 
 // Constants for GObject methods that always conflict
 const GOBJECT_RESERVED_METHODS = ["connect", "connect_after", "emit"] as const;

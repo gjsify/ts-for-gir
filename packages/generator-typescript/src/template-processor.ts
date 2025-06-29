@@ -11,10 +11,11 @@ import {
 	APP_USAGE,
 	APP_VERSION,
 	DependencyManager,
-	Logger,
 	type NSRegistry,
 	PACKAGE_DESC,
 	PACKAGE_KEYWORDS,
+	Reporter,
+	ReporterService,
 	TemplateEngine,
 	transformImportName,
 } from "@ts-for-gir/lib";
@@ -63,7 +64,18 @@ export class TemplateProcessor extends TemplateEngine {
 			...this.config,
 			packageName: this.packageName,
 		};
-		this.log = new Logger(config.verbose, `TemplateProcessor (${this.packageName})`);
+		this.log = new Reporter(
+			config.verbose,
+			`TemplateProcessor (${this.packageName})`,
+			config.reporter,
+			config.reporterOutput,
+		);
+
+		// Register with reporter service if reporting is enabled
+		if (config.reporter) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter(`TemplateProcessor(${packageName})`, this.log);
+		}
 	}
 
 	/**

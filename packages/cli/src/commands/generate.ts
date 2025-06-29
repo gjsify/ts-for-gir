@@ -4,7 +4,15 @@
 
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, type GirModule, Logger, NSRegistry, ReporterService } from "@ts-for-gir/lib";
+import {
+	configureConflictsReporter,
+	ERROR_NO_MODULES_FOUND,
+	type GirModule,
+	Logger,
+	NSRegistry,
+	ReporterService,
+	TypeIdentifier,
+} from "@ts-for-gir/lib";
 import { appName, generateOptions, getOptionsGeneration, load } from "../config.ts";
 import { TypeScriptFormatter } from "../formatters/typescript-formatter.ts";
 import { GenerationHandler } from "../generation-handler.ts";
@@ -41,6 +49,12 @@ const handler = async (args: ConfigFlags) => {
 	registry.registerFormatter("dts", new TypeScriptFormatter());
 
 	const moduleLoader = new ModuleLoader(generateConfig, registry);
+
+	// Configure reporters BEFORE parsing to capture all problems
+	if (generateConfig.reporter) {
+		TypeIdentifier.configureReporter(generateConfig.reporter, generateConfig.reporterOutput);
+		configureConflictsReporter(generateConfig.reporter, generateConfig.reporterOutput);
+	}
 
 	let tsForGir: GenerationHandler | null = null;
 

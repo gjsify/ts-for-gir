@@ -22,6 +22,7 @@ export enum ConflictType {
 
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
 import { Reporter } from "./reporter.ts";
+import { ReporterService } from "./reporter-service.ts";
 import type { OptionsBase } from "./types/index.ts";
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
 
@@ -45,15 +46,53 @@ export abstract class TypeExpression {
 }
 
 export class TypeIdentifier extends TypeExpression {
-	readonly log: Reporter;
 	readonly name: string;
 	readonly namespace: string;
+
+	// Global reporter configuration and instance
+	private static reporterConfig: { enabled: boolean; output: string } = {
+		enabled: false,
+		output: "ts-for-gir-report.json",
+	};
+	private static globalReporter: Reporter | null = null;
+
+	static configureReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
+		TypeIdentifier.reporterConfig = { enabled, output };
+
+		// Reset global reporter to force recreation with new config
+		if (TypeIdentifier.globalReporter) {
+			TypeIdentifier.globalReporter = null;
+		}
+
+		// Create and register the global reporter if enabled
+		if (enabled) {
+			TypeIdentifier.globalReporter = new Reporter(true, "TypeIdentifier", enabled, output);
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
+		}
+	}
+
+	private static getReporter(): Reporter {
+		if (!TypeIdentifier.globalReporter) {
+			const config = TypeIdentifier.reporterConfig;
+			TypeIdentifier.globalReporter = new Reporter(true, "TypeIdentifier", config.enabled, config.output);
+
+			if (config.enabled) {
+				const reporterService = ReporterService.getInstance();
+				reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
+			}
+		}
+		return TypeIdentifier.globalReporter;
+	}
+
+	get log(): Reporter {
+		return TypeIdentifier.getReporter();
+	}
 
 	constructor(name: string, namespace: string) {
 		super();
 		this.name = name;
 		this.namespace = namespace;
-		this.log = new Reporter(true, `TypeIdentifier(${this.namespace}.${name})`, true);
 	}
 
 	equals(type: TypeExpression): boolean {

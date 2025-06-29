@@ -3,6 +3,7 @@ import { type Generator, GeneratorType } from "@ts-for-gir/generator-base";
 import { HtmlDocGenerator } from "@ts-for-gir/generator-html-doc";
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import {
+	configureConflictsReporter,
 	ERROR_NO_MODULE_SPECIFIED,
 	FILE_PARSING_DONE,
 	GENERATING_TYPES_DONE,
@@ -13,6 +14,7 @@ import {
 	ReporterService,
 	START_MODULE,
 	TSDATA_PARSING_DONE,
+	TypeIdentifier,
 } from "@ts-for-gir/lib";
 
 export class GenerationHandler {
@@ -30,6 +32,10 @@ export class GenerationHandler {
 
 		// Configure the reporter service
 		this.reporterService.configure(config.reporter, config.reporterOutput);
+
+		// Configure TypeIdentifier and ConflictsReporter globally
+		TypeIdentifier.configureReporter(config.reporter, config.reporterOutput);
+		configureConflictsReporter(config.reporter, config.reporterOutput);
 
 		// Register the main handler reporter
 		if (config.reporter) {

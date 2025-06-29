@@ -21,7 +21,7 @@ export enum ConflictType {
 }
 
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
-import { Logger } from "./logger.ts";
+import { Reporter } from "./reporter.ts";
 import type { OptionsBase } from "./types/index.ts";
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
 
@@ -45,7 +45,7 @@ export abstract class TypeExpression {
 }
 
 export class TypeIdentifier extends TypeExpression {
-	readonly log: Logger;
+	readonly log: Reporter;
 	readonly name: string;
 	readonly namespace: string;
 
@@ -53,7 +53,7 @@ export class TypeIdentifier extends TypeExpression {
 		super();
 		this.name = name;
 		this.namespace = namespace;
-		this.log = new Logger(true, `TypeIdentifier(${this.namespace}.${name})`);
+		this.log = new Reporter(true, `TypeIdentifier(${this.namespace}.${name})`, true);
 	}
 
 	equals(type: TypeExpression): boolean {
@@ -117,14 +117,22 @@ export class TypeIdentifier extends TypeExpression {
 		if (!cb && !resolved_name && !c_resolved_name) {
 			// Don't warn if a missing import is at fault, this will be dealt with later.
 			if (namespace.namespace === ns.namespace) {
-				this.log.warn(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`);
+				this.log.reportTypeResolutionWarning(
+					this.name,
+					this.namespace,
+					`Attempting to fall back on c:type inference for ${ns.namespace}.${name}`,
+					`Fallback to c:type inference attempted`,
+				);
 			}
 
 			[cb, corrected_name] = ns.findClassCallback(`${ns.namespace}${name}`);
 
 			if (cb) {
-				this.log.warn(
-					`Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
+				this.log.reportTypeResolutionWarning(
+					this.name,
+					this.namespace,
+					`Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}`,
+					`Successfully resolved using c:type fallback`,
 				);
 			}
 		}
@@ -138,17 +146,30 @@ export class TypeIdentifier extends TypeExpression {
 		} else if (resolved_name) {
 			return new TypeIdentifier(resolved_name, ns.namespace);
 		} else if (c_resolved_name) {
-			this.log.warn(
-				`Fall back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
+			this.log.reportTypeResolutionWarning(
+				this.name,
+				this.namespace,
+				`Fall back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}`,
+				`Using c:type as fallback for type resolution`,
 			);
 
 			return new TypeIdentifier(c_resolved_name, ns.namespace);
 		} else if (namespace.namespace === ns.namespace) {
-			this.log.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`);
+			this.log.reportTypeResolutionError(
+				this.name,
+				ns.namespace,
+				`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`,
+				`Type resolution failed within the same namespace`,
+			);
 			return null;
 		}
 
-		this.log.error(`Type ${this.name} could not be resolved in ${namespace.namespace} ${namespace.version}`);
+		this.log.reportTypeResolutionError(
+			this.name,
+			this.namespace,
+			`Type ${this.name} could not be resolved in ${namespace.namespace} ${namespace.version}`,
+			`Failed to resolve type during namespace processing`,
+		);
 		return null;
 	}
 

@@ -162,9 +162,11 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 			(v) => typeof v === "boolean",
 		);
 		mergeConfigValue(userConfig, configFileData, "package", options.package.default, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "reporter", options.reporter.default, (v) => typeof v === "boolean");
 
 		// String options
 		mergeConfigValue(userConfig, configFileData, "npmScope", options.npmScope.default);
+		mergeConfigValue(userConfig, configFileData, "reporterOutput", options.reporterOutput.default);
 
 		// Array options
 		mergeConfigValue(userConfig, configFileData, "girDirectories", options.girDirectories.default);

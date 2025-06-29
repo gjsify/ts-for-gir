@@ -128,6 +128,18 @@ export const options: { [name: string]: Options } = {
 		default: defaults.package,
 		normalize: true,
 	},
+	reporter: {
+		type: "boolean",
+		description: "Enable generation problem reporter and create a detailed report file",
+		default: defaults.reporter,
+		normalize: true,
+	},
+	reporterOutput: {
+		type: "string",
+		description: "Output file path for the reporter (default: ts-for-gir-report.json)",
+		default: defaults.reporterOutput,
+		normalize: true,
+	},
 };
 
 /**
@@ -152,6 +164,8 @@ export const generateOptions = {
 	noPrettyPrint: options.noPrettyPrint,
 	noAdvancedVariants: options.noAdvancedVariants,
 	package: options.package,
+	reporter: options.reporter,
+	reporterOutput: options.reporterOutput,
 };
 
 export const listOptions = {
@@ -182,4 +196,6 @@ export const docOptions = {
 	verbose: options.verbose,
 	ignoreVersionConflicts: options.ignoreVersionConflicts,
 	configName: options.configName,
+	reporter: options.reporter,
+	reporterOutput: options.reporterOutput,
 };

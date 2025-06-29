@@ -15,11 +15,11 @@ import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedField, IntrospectedProperty } from "../gir/property.ts";
 import type { TypeIdentifier } from "../gir.ts";
 import { AnyType, ArrayType, ConflictType, NeverType, TypeConflict } from "../gir.ts";
-import { Logger } from "../logger.ts";
+import { Reporter } from "../reporter.ts";
 import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
-const log = new Logger(true, "gir/utils/conflicts");
+const log = new Reporter(true, "gir/utils/conflicts", true);
 
 // Constants for GObject methods that always conflict
 const GOBJECT_RESERVED_METHODS = ["connect", "connect_after", "emit"] as const;
@@ -76,10 +76,20 @@ export function filterFunctionConflict<
 
 			if (conflictResult.shouldOmit) {
 				// Always omit methods that conflict with properties/fields
-				log.warn(`Omitting ${next.name} due to field or property conflict.`);
+				log.reportTypeConflict(
+					"field_property",
+					next.name,
+					next.parent?.namespace.namespace || "unknown",
+					"Field/property name conflict",
+				);
 			} else if (conflictResult.hasConflict) {
 				if (isInheritedMethods) {
-					log.warn(`Omitting ${next.name} due to parent method conflict.`);
+					log.reportTypeConflict(
+						"method",
+						next.name,
+						next.parent?.namespace.namespace || "unknown",
+						"Parent method conflict",
+					);
 				} else {
 					const neverFunction = createNeverFunction(next, base, conflictResult.message);
 					prev.push(next, neverFunction as T);
@@ -386,7 +396,12 @@ function checkPropertyConflicts<T extends IntrospectedClassMember | Introspected
 					element instanceof IntrospectedProperty &&
 					!isSubtypeOf(ns, thisType, resolved_parent.getType(), element.type, p.type)
 				) {
-					log.warn(`>> Conflict in ${element.parent?.name}.${element.name} with ${p.parent?.name}.${p.name}.`);
+					log.reportTypeConflict(
+						"general",
+						element.name,
+						element.parent?.namespace.namespace || "unknown",
+						`Conflict with ${p.parent?.name}.${p.name}`,
+					);
 					return ConflictType.PROPERTY_NAME_CONFLICT;
 				}
 			}

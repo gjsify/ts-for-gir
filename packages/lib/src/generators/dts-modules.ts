@@ -1,17 +1,17 @@
 import type { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
 import { type IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.ts";
-import { Logger } from "../logger.ts";
+import { Reporter } from "../reporter.ts";
 import type { OptionsGeneration } from "../types/index.ts";
 import { override as overrideGLib } from "./dts/glib.ts";
 import { override as overrideGObject } from "./dts/gobject.ts";
 import { DtsGenerator } from "./dts.ts";
 
 export class DtsModuleGenerator extends DtsGenerator {
-	readonly log: Logger;
+	readonly log: Reporter;
 
 	constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		super(namespace, options);
-		this.log = new Logger(options.verbose, DtsModuleGenerator.name);
+		this.log = new Reporter(options.verbose, DtsModuleGenerator.name, options.reporter, options.reporterOutput);
 	}
 
 	generateNamespace(node: IntrospectedNamespace): Promise<string | null> {
@@ -105,8 +105,7 @@ export const __version__: string;
 
 			return Promise.resolve(output);
 		} catch (err) {
-			this.log.error(`Failed to generate namespace: "${node.namespace}":`, err);
-
+			this.log.reportGenerationFailure(node.namespace, err as Error, "DTS Module");
 			return Promise.resolve(null);
 		}
 	}

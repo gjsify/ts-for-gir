@@ -1,4 +1,5 @@
 import { GirDirection } from "@gi.ts/parser";
+import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import { FilterBehavior } from "../gir/data.ts";
 import type { IntrospectedFunction } from "../gir/function.ts";
@@ -15,13 +16,11 @@ import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedField, IntrospectedProperty } from "../gir/property.ts";
 import type { TypeIdentifier } from "../gir.ts";
 import { AnyType, ArrayType, ConflictType, NeverType, TypeConflict } from "../gir.ts";
-import { Reporter } from "../reporter.ts";
-import { ReporterService } from "../reporter-service.ts";
 import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
 // Global reporter configuration for conflicts
-let conflictsReporterInstance: Reporter | null = null;
+let conflictsReporterInstance: ConsoleReporter | null = null;
 let conflictsReporterConfig: { enabled: boolean; output: string } = {
 	enabled: false,
 	output: "ts-for-gir-report.json",
@@ -37,16 +36,16 @@ function configureConflictsReporterInternal(enabled: boolean, output: string = "
 
 	// Create and register the global reporter if enabled
 	if (enabled) {
-		conflictsReporterInstance = new Reporter(true, "conflicts", enabled, output);
+		conflictsReporterInstance = new ConsoleReporter(true, "conflicts", enabled, output);
 		const reporterService = ReporterService.getInstance();
 		reporterService.registerReporter("conflicts", conflictsReporterInstance);
 	}
 }
 
-function getConflictsReporterInstance(): Reporter {
+function getConflictsReporterInstance(): ConsoleReporter {
 	if (!conflictsReporterInstance) {
 		const config = conflictsReporterConfig;
-		conflictsReporterInstance = new Reporter(true, "conflicts", config.enabled, config.output);
+		conflictsReporterInstance = new ConsoleReporter(true, "conflicts", config.enabled, config.output);
 
 		// Register with reporter service if reporting is enabled
 		if (config.enabled) {

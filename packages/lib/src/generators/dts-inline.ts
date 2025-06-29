@@ -1,17 +1,17 @@
+import { ConsoleReporter } from "@ts-for-gir/reporter";
 import type { IntrospectedNamespaceMember } from "../gir/introspected-namespace-member.ts";
 import { type IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.ts";
-import { Reporter } from "../reporter.ts";
 import type { OptionsGeneration } from "../types/index.ts";
 import { override as overrideGLib } from "./dts/glib.ts";
 import { override as overrideGObject } from "./dts/gobject.ts";
 import { DtsGenerator } from "./dts.ts";
 
 export class DtsInlineGenerator extends DtsGenerator {
-	readonly log: Reporter;
+	readonly log: ConsoleReporter;
 
 	constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		super(namespace, options);
-		this.log = new Reporter(options.verbose, DtsInlineGenerator.name, options.reporter, options.reporterOutput);
+		this.log = new ConsoleReporter(options.verbose, DtsInlineGenerator.name, options.reporter, options.reporterOutput);
 	}
 
 	generateNamespace(node: IntrospectedNamespace): Promise<string | null> {

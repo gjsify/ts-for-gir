@@ -1,3 +1,4 @@
+import { ConsoleReporter } from "@ts-for-gir/reporter";
 import type { FormatGenerator } from "../generators/generator.ts";
 import {
 	FunctionType,
@@ -17,7 +18,6 @@ import type {
 	GirRecordElement,
 	GirVirtualMethodElement,
 } from "../index.ts";
-import { Reporter } from "../reporter.ts";
 import type {
 	ClassDefinition,
 	ClassMember,
@@ -45,7 +45,7 @@ import type { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedField, IntrospectedProperty } from "./property.ts";
 import { IntrospectedSignal } from "./signal.ts";
 
-const log = new Reporter(true, "gir/introspected-classes", true);
+const log = new ConsoleReporter(true, "gir/introspected-classes", true);
 
 /**
  * Represents a signal with metadata

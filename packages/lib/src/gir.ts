@@ -20,9 +20,8 @@ export enum ConflictType {
 	PROPERTY_ACCESSOR_CONFLICT,
 }
 
+import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
-import { Reporter } from "./reporter.ts";
-import { ReporterService } from "./reporter-service.ts";
 import type { OptionsBase } from "./types/index.ts";
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
 
@@ -54,7 +53,7 @@ export class TypeIdentifier extends TypeExpression {
 		enabled: false,
 		output: "ts-for-gir-report.json",
 	};
-	private static globalReporter: Reporter | null = null;
+	private static globalReporter: ConsoleReporter | null = null;
 
 	static configureReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
 		TypeIdentifier.reporterConfig = { enabled, output };
@@ -66,16 +65,16 @@ export class TypeIdentifier extends TypeExpression {
 
 		// Create and register the global reporter if enabled
 		if (enabled) {
-			TypeIdentifier.globalReporter = new Reporter(true, "TypeIdentifier", enabled, output);
+			TypeIdentifier.globalReporter = new ConsoleReporter(true, "TypeIdentifier", enabled, output);
 			const reporterService = ReporterService.getInstance();
 			reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
 		}
 	}
 
-	private static getReporter(): Reporter {
+	private static getReporter(): ConsoleReporter {
 		if (!TypeIdentifier.globalReporter) {
 			const config = TypeIdentifier.reporterConfig;
-			TypeIdentifier.globalReporter = new Reporter(true, "TypeIdentifier", config.enabled, config.output);
+			TypeIdentifier.globalReporter = new ConsoleReporter(true, "TypeIdentifier", config.enabled, config.output);
 
 			if (config.enabled) {
 				const reporterService = ReporterService.getInstance();
@@ -85,7 +84,7 @@ export class TypeIdentifier extends TypeExpression {
 		return TypeIdentifier.globalReporter;
 	}
 
-	get log(): Reporter {
+	get log(): ConsoleReporter {
 		return TypeIdentifier.getReporter();
 	}
 

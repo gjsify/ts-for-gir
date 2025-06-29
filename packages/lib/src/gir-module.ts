@@ -547,6 +547,8 @@ export class GirModule implements IGirModule {
 			loadDocs: !this.config.noComments,
 			propertyCase: "both",
 			verbose: this.config.verbose,
+			reporter: this.config.reporter,
+			reporterOutput: this.config.reporterOutput,
 		};
 		if (!girXML) {
 			throw new Error(`Failed to load gir xml of ${this.dependency.packageName}`);

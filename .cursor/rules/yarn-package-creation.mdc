@@ -1,0 +1,122 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Yarn Package Creation Guide
+
+## Purpose
+Instructions for creating new packages in the ts-for-gir yarn workspace. Packages export TypeScript directly without build steps. Use this guide to create new functionality packages or extract existing functionality into separate packages.
+
+## Package Structure Template
+
+### Directory Structure
+```
+packages/[package-name]/
+├── src/
+│   └── index.ts          # Main export file
+├── package.json          # Package configuration
+└── tsconfig.json         # Optional TypeScript config (if needed)
+```
+
+### Package Naming Convention
+- Core packages: `@ts-for-gir/[name]` (e.g., @ts-for-gir/validator, @ts-for-gir/utils)
+- Parser packages: `@gi.ts/[name]` (only for GIR parsing related packages)
+- Examples: `@ts-for-gir-example/[name]` (for demonstration purposes)
+- Tests: `@ts-for-gir-test/[name]` (for testing purposes)
+
+### Standard package.json Template
+```json
+{
+  "name": "@ts-for-gir/[package-name]",
+  "version": "4.0.0-beta.25",
+  "description": "[Package description]",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "files": ["src"],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
+  "keywords": ["gjs", "typescript", "generate", "gir", "gobject-introspection"],
+  "devDependencies": {
+    "@types/node": "^24.0.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    // Add workspace dependencies using "workspace:^"
+    // Add external dependencies as needed
+  }
+}
+```
+
+## Package Creation Checklist
+
+### 1. Create Directory Structure
+- Create `packages/[package-name]/` directory
+- Create `src/` subdirectory
+- Create `src/index.ts` with main exports
+
+### 2. Configure package.json
+- Use standard template above
+- Update name, description, and keywords
+- Add dependencies using `workspace:^` for internal packages
+- Ensure `"type": "module"` is set
+- Point main/module/exports to `src/index.ts`
+
+### 3. TypeScript Configuration
+- Package inherits root TypeScript config automatically
+- Only add local `tsconfig.json` if special configuration needed
+- Use `yarn check` script for type checking only (no build)
+
+### 4. Key Principles
+- **No Build Required**: Packages export TypeScript files directly
+- **Formatting at Root**: Use root `yarn format` command
+- **Type Checking Only**: Use `tsc --noEmit` for validation
+- **Workspace Dependencies**: Always use `workspace:^` for internal packages
+- **ES Modules**: All packages must use `"type": "module"`
+
+### 5. Integration Steps
+- Add package to root workspace if needed (auto-detected in packages/*)
+- Update consuming packages to import new package
+- Add to relevant test/check scripts in root package.json if applicable
+- Update documentation and examples as needed
+
+## Common Use Cases
+
+### Creating Utility Package
+- Extract shared utilities from existing packages
+- Name: `@ts-for-gir/utils` or `@ts-for-gir/[specific-util]`
+- Dependencies: Minimal, focus on pure functions
+
+### Creating Generator Extension
+- Extend generator functionality
+- Name: `@ts-for-gir/generator-[type]`
+- Dependencies: `@ts-for-gir/generator-base`, `@ts-for-gir/lib`
+
+### Creating Parser Extension
+- Extend GIR parsing capabilities
+- Name: `@gi.ts/[parser-type]`
+- Dependencies: `@gi.ts/parser` base package
+
+### Extracting Existing Functionality
+- Move related code from existing package to new package
+- Update imports in original package
+- Ensure no circular dependencies
+- Update package dependencies accordingly

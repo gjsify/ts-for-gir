@@ -10,7 +10,6 @@ import {
 	type GenerationReport,
 	ProblemCategory,
 	type ProblemEntry,
-	type ProblemTypeStatistics,
 	type Reporter,
 	type ReportStatistics,
 } from "./reporter.ts";
@@ -464,7 +463,7 @@ export class ReporterService {
 
 		console.log(`\n${"=".repeat(60)}`);
 		console.log(`📝 Detailed report: ${this.config.outputPath || "ts-for-gir-report.json"}`);
-		console.log("=".repeat(60) + "\n");
+		console.log(`${"=".repeat(60)}\n`);
 	}
 
 	/**

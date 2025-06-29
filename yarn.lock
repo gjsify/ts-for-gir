@@ -13701,7 +13701,7 @@ __metadata:
     typescript: "npm:^5.8.3"
     yargs: "npm:^18.0.0"
   bin:
-    ts-for-gir: src/start
+    ts-for-gir: bin/ts-for-gir.js
   languageName: unknown
   linkType: soft
 
@@ -13749,6 +13749,7 @@ __metadata:
   resolution: "@ts-for-gir/lib@workspace:packages/lib"
   dependencies:
     "@gi.ts/parser": "workspace:^"
+    "@ts-for-gir/templates": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/lodash": "npm:^4.17.18"
     "@types/node": "npm:^24.0.4"

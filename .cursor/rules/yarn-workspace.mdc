@@ -1,0 +1,51 @@
+---
+description: Yarn workspace structure and package organization
+globs: 
+alwaysApply: false
+---
+# ts-for-gir Workspace Structure
+
+## Purpose
+TypeScript type definition generator for GObject Introspection (GIR) files. Generates TypeScript definitions for GNOME libraries to use with GJS (GNOME JavaScript).
+
+## Monorepo Structure
+- Uses Yarn v4 workspaces
+- Node.js >= 22 required
+- All packages use ES modules (`"type": "module"`)
+
+## Package Categories
+
+### Core Generator Packages (`/packages/*`)
+- `@ts-for-gir/cli` - Main CLI tool, entry point for users
+- `@gi.ts/parser` - GIR XML parser (uses different namespace)
+- `@ts-for-gir/lib` - Core library with shared functionality
+- `@ts-for-gir/generator-base` - Base classes for generators
+- `@ts-for-gir/generator-typescript` - TypeScript definition generator
+- `@ts-for-gir/generator-html-doc` - HTML documentation generator
+- `@ts-for-gir/templates` - Additional templates for the generated `.d.ts` files
+
+**Important:** Core packages run directly as TypeScript files - no build step required!
+
+### Generated Type Packages (`/types/*`)
+- Namespace: `@girs/*` (e.g., @girs/gtk-4.0, @girs/glib-2.0)
+- Auto-generated - DO NOT manually edit
+- Published to npm: https://github.com/gjsify/types
+
+### Examples (`/examples/*`)
+- Namespace: `@ts-for-gir-example/*`
+- Private packages demonstrating usage
+- Use workspace `@girs/*` packages
+- **Require building** since GJS cannot execute TypeScript directly
+
+### Tests (`/tests/*`)
+- Namespace: `@ts-for-gir-test/*`
+- Automated tests for the generator
+
+## Key Commands
+- `yarn start` - Run CLI directly (no build needed)
+- `yarn build:types` - Generate all type packages
+- `yarn build:examples` - Build all examples for GJS execution
+- `yarn copy:girs` - Copy system GIR files
+- `yarn test` - Run full test suite
+- `yarn test:locally` - Quick local testing
+- `yarn check` - Type checking across all packages

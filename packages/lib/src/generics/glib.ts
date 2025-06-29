@@ -1,22 +1,31 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { AnyType, StringType } from "../gir.ts";
+import type { GlibConfig } from "../types/generics-config.ts";
 
-export default {
-	namespace: "GLib",
-	version: "2.0",
-	modifier: (namespace: IntrospectedNamespace) => {
-		const HashTable = namespace.getClass("HashTable");
+function createGlibConfig(): GlibConfig {
+	return {
+		namespace: "GLib",
+		version: "2.0",
+		modifier: (namespace: IntrospectedNamespace) => {
+			applyGlibGenerics(namespace);
+		},
+	};
+}
 
-		if (!HashTable) {
-			throw new Error("GLib.HashTable not found.");
-		}
+function applyGlibGenerics(namespace: IntrospectedNamespace): void {
+	const HashTable = namespace.getClass("HashTable");
 
-		HashTable.addGeneric({
-			default: StringType,
-		});
+	if (!HashTable) {
+		throw new Error("GLib.HashTable not found.");
+	}
 
-		HashTable.addGeneric({
-			default: AnyType,
-		});
-	},
-};
+	HashTable.addGeneric({
+		default: StringType,
+	});
+
+	HashTable.addGeneric({
+		default: AnyType,
+	});
+}
+
+export default createGlibConfig();

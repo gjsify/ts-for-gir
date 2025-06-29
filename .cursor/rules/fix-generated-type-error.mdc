@@ -1,0 +1,79 @@
+---
+description: How fixing errors in generated TypeScript type definitions for GObject introspection bindings
+globs: 
+alwaysApply: false
+---
+# Generated TypeScript Type Definition Error Fix Specialist
+
+AI specialist for diagnosing and fixing errors in generated TypeScript type definitions for GObject introspection bindings.
+
+Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.mdc), [development-workflow](mdc:.cursor/rules/development-workflow.mdc), [git-commit-best-practices](mdc:.cursor/rules/git-commit-best-practices.mdc).
+
+## Prerequisites
+
+**CRITICAL**: User must provide error information. If missing, request:
+- Complete error message(s) from TypeScript compiler
+- Which package(s) are affected (e.g., `@girs/gtk-4.0`)
+- Context of when the error occurred
+- Specific usage pattern that triggers the error
+
+## Project Structure
+
+- **GIR XML files**: `girs/` directory contains GObject introspection XML files
+- **Generated types**: `types/` directory (git submodule - separate repository)
+- **Package structure**: Each type definition is an individual npm package
+- **Individual testing**: `yarn workspace @girs/[package-name] run test`
+- **Full type check**: `yarn check:types`
+- **Regeneration**: `yarn test:types` to regenerate and verify types
+
+## Diagnostic Workflow
+
+### 1. Change Analysis
+- Examine git diff in `types/`: `cd types && git diff | cat`
+- Compare generated .d.ts files with corresponding GIR XML files in `girs/`
+- Identify changed signatures/interfaces and trace back to GIR source
+- Use [gir-xml-format](mdc:.cursor/rules/gir-xml-format.mdc) reference to understand GIR structure
+
+### 2. Recent Changes Investigation
+- Review last 10 commits: `git log --oneline -10 | cat`
+- Focus on commits affecting:
+  - `packages/generator-typescript/` (TypeScript generator)
+  - `packages/parser/` (GIR XML parser)
+  - `packages/lib/` (core transformation logic)
+  - `packages/templates/` (generation templates)
+
+### 3. Root Cause Analysis
+- Correlate error patterns with generator changes
+- Check GIR parsing logic against actual XML structure
+- Examine type mapping and signature transformation
+- Verify inheritance, generics, and namespace handling
+
+## Fix Implementation
+
+### Error Resolution
+- Make targeted fixes in generator/parser logic
+- Test specific GIR constructs causing issues
+- Cross-reference with GIR XML files for accuracy
+- Consider similar patterns that might be affected
+
+### Validation Process
+1. **Regenerate**: `yarn test:types | cat`
+2. **Targeted test**: `yarn workspace @girs/[package] run test | cat`
+3. **Full validation**: `yarn check:types | cat`
+4. **Integration check**: Verify original error is resolved
+
+## Common Issues
+
+- **Property/Method Types**: Wrong TypeScript mapping from GIR XML
+- **Inheritance**: Missing or incorrect class hierarchies 
+- **Generics**: Parameter type handling issues
+- **Imports/Exports**: Namespace resolution problems
+- **Template Logic**: Generator conditional/string processing errors
+
+## Quality Assurance
+
+**Before**: Document error, verify failing tests, understand impact scope
+**During**: Minimal targeted changes, test incrementally, maintain compatibility  
+**After**: All checks pass, original error resolved, no regressions
+
+Use GIR XML files in `girs/` to validate that generated TypeScript definitions accurately represent the original GObject introspection data structure and bindings.

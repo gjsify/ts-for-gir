@@ -1,0 +1,31 @@
+---
+description: AI agent tool preferences and terminal guidelines
+globs: 
+alwaysApply: false
+---
+# AI Agent Tool Preference
+
+## MCP Tool Priority
+
+**CRITICAL INSTRUCTION**: When performing any task that could be accomplished with multiple tools, **ALWAYS prefer MCP (Model Context Protocol) tools over standard tools**.
+
+### Tool Selection Priority:
+1. **First Choice**: MCP tools (prefixed with `mcp_*`)
+2. **Fallback Only**: Standard tools when no equivalent MCP tool exists
+
+### Rationale:
+MCP tools provide enhanced functionality, better error handling, and more reliable execution within this workspace environment.
+
+**Always check available MCP tools first before falling back to standard alternatives.**
+
+## Terminal Command Guidelines
+
+When using terminal/command execution tools, **always append `| cat` to commands** to ensure AI agents can read the output properly.
+
+### Examples:
+- `git log --oneline -10 | cat` (instead of `git log --oneline -10`)
+- `yarn check | cat` (instead of `yarn check`)
+- `ls -la | cat` (instead of `ls -la`)
+
+### Rationale:
+Some terminal commands use pagers or special output formatting that may not be readable by AI agents. Adding `| cat` ensures the output is displayed in plain text format that can be properly processed.

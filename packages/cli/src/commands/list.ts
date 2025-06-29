@@ -4,10 +4,10 @@
 
 import type { ConfigFlags } from "@ts-for-gir/lib";
 import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry, ResolveType } from "@ts-for-gir/lib";
-import type { Argv, BuilderCallback } from "yargs";
 import { appName, getOptionsGeneration, listOptions, load } from "../config.ts";
 import { ModuleLoader } from "../module-loader.ts";
 import type { ListCommandArgs } from "../types/index.ts";
+import { createBuilder } from "./command-builder.ts";
 
 const command = "list [modules..]";
 
@@ -15,13 +15,15 @@ const description = "Lists all available GIR modules";
 
 const logger = new Logger(false, "ListCommand");
 
-const builder: BuilderCallback<ListCommandArgs, ConfigFlags> = (yargs: Argv<ListCommandArgs>) => {
-	const optionNames = Object.keys(listOptions);
-	for (const optionName of optionNames) {
-		yargs = yargs.option(optionName, listOptions[optionName]);
-	}
-	return yargs.example(examples) as Argv<ConfigFlags>;
-};
+const examples: ReadonlyArray<[string, string?]> = [
+	[`${appName} list -g ./vala-girs/gir-1.0`, "Lists all available GIR modules in ./vala-girs/gir-1.0"],
+	[
+		`${appName} list --ignore=Gtk-3.0 xrandr-1.3`,
+		"Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3",
+	],
+];
+
+const builder = createBuilder<ListCommandArgs>(listOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
 	const config = await load(args);
@@ -81,14 +83,6 @@ const handler = async (args: ConfigFlags) => {
 		}
 	}
 };
-
-const examples: ReadonlyArray<[string, string?]> = [
-	[`${appName} list -g ./vala-girs/gir-1.0`, "Lists all available GIR modules in ./vala-girs/gir-1.0"],
-	[
-		`${appName} list --ignore=Gtk-3.0 xrandr-1.3`,
-		"Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3",
-	],
-];
 
 export const list = {
 	command,

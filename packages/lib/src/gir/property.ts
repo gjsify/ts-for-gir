@@ -12,14 +12,12 @@ import { IntrospectedClassMember } from "./introspected-class-member.ts";
 import type { IntrospectedBaseClass } from "./introspected-classes.ts";
 
 export class IntrospectedField extends IntrospectedClassMember {
-	type: TypeExpression;
-
-	// TODO: Make these properties readonly
-	optional: boolean = false;
-	computed: boolean;
-	isStatic: boolean;
-	writable: boolean;
-	isNative: boolean = false;
+	readonly type: TypeExpression;
+	readonly optional: boolean = false;
+	readonly computed: boolean;
+	readonly isStatic: boolean;
+	readonly writable: boolean;
+	readonly isNative: boolean = false;
 
 	copy(options?: { parent?: IntrospectedBaseClass; type?: TypeExpression; isStatic?: boolean }): IntrospectedField {
 		const { type, name, parent, optional, computed, isStatic, writable } = this;

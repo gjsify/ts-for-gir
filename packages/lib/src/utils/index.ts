@@ -1,6 +1,7 @@
 export * from "./conflicts.ts";
 export * from "./documentation.ts";
 export * from "./files.ts";
+export * from "./generation.ts";
 export * from "./gir-parsing.ts";
 export * from "./girs.ts";
 export * from "./naming.ts";

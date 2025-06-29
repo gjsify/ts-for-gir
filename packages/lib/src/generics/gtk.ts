@@ -1,65 +1,99 @@
 import type { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { Generic, GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
+import type { GtkConfig } from "../types/generics-config.ts";
 
-export default {
-	namespace: "Gtk",
-	version: "4.0",
-	modifier: (namespace: IntrospectedNamespace) => {
-		const FlowBox = namespace.getClass("FlowBox");
-		const ListBox = namespace.getClass("ListBox");
-		const StringList = namespace.getClass("StringList");
-		const StringObject = namespace.getClass("StringObject");
-		const GObject = namespace.assertInstalledImport("GObject").assertClass("Object");
+function createGtkConfig(): GtkConfig {
+	return {
+		namespace: "Gtk",
+		version: "4.0",
+		modifier: (namespace: IntrospectedNamespace) => {
+			applyGtkGenerics(namespace);
+		},
+	};
+}
 
-		if (!FlowBox) {
-			throw new Error("Gtk.FlowBox not found.");
+function applyGtkGenerics(namespace: IntrospectedNamespace): void {
+	const classes = getGtkClasses(namespace);
+	const GObject = namespace.assertInstalledImport("GObject").assertClass("Object");
+
+	setupStringListGenerics(classes, GObject);
+	updateBindModelMethods(classes, GObject);
+}
+
+function getGtkClasses(namespace: IntrospectedNamespace) {
+	const requiredClasses = {
+		FlowBox: namespace.getClass("FlowBox"),
+		ListBox: namespace.getClass("ListBox"),
+		StringList: namespace.getClass("StringList"),
+		StringObject: namespace.getClass("StringObject"),
+	};
+
+	// Validate required classes exist
+	for (const [name, cls] of Object.entries(requiredClasses)) {
+		if (!cls) {
+			throw new Error(`Gtk.${name} not found.`);
+		}
+	}
+
+	return requiredClasses as Record<
+		keyof typeof requiredClasses,
+		NonNullable<(typeof requiredClasses)[keyof typeof requiredClasses]>
+	>;
+}
+
+function setupStringListGenerics(classes: ReturnType<typeof getGtkClasses>, GObject: IntrospectedBaseClass): void {
+	const { StringList, StringObject } = classes;
+
+	StringList.addGeneric({
+		default: StringObject.getType(),
+		constraint: GObject.getType(),
+	});
+}
+
+function updateBindModelMethods(classes: ReturnType<typeof getGtkClasses>, GObject: IntrospectedBaseClass): void {
+	const { FlowBox, ListBox } = classes;
+
+	const bindModelConfigs = [
+		{ cls: FlowBox, widgetFuncName: "FlowBoxCreateWidgetFunc" },
+		{ cls: ListBox, widgetFuncName: "ListBoxCreateWidgetFunc" },
+	];
+
+	for (const config of bindModelConfigs) {
+		updateBindModelMethod(config.cls, config.widgetFuncName, GObject);
+	}
+}
+
+function updateBindModelMethod(
+	cls: IntrospectedBaseClass,
+	widgetFuncName: string,
+	GObject: IntrospectedBaseClass,
+): void {
+	cls.members = cls.members.map((member) => {
+		if (member.name !== "bind_model") {
+			return member;
 		}
 
-		if (!ListBox) {
-			throw new Error("Gtk.ListBox not found.");
-		}
+		member.generics.push(new Generic(new GenericType("A"), GObject.getType(), undefined, GObject.getType()));
 
-		if (!StringList) {
-			throw new Error("Gtk.StringList not found.");
-		}
-
-		if (!StringObject) {
-			throw new Error("Gtk.StringObject not found.");
-		}
-
-		// Add generic support for StringList
-		StringList.addGeneric({
-			default: StringObject.getType(),
-			constraint: GObject.getType(),
-		});
-
-		// Update bind_model methods to use generics
-		const updateBindModelMethod = (cls: IntrospectedBaseClass, widgetFuncName: string) => {
-			cls.members = cls.members.map((m) => {
-				if (m.name === "bind_model") {
-					m.generics.push(new Generic(new GenericType("A"), GObject.getType(), undefined, GObject.getType()));
-					return m.copy({
-						parameters: m.parameters.map((p) => {
-							if (p.name === "model") {
-								return p.copy({
-									type: new GenerifiedTypeIdentifier("ListModel", "Gio", [new GenericType("A")]),
-								});
-							}
-							if (p.name === "create_widget_func") {
-								return p.copy({
-									type: new GenerifiedTypeIdentifier(widgetFuncName, "Gtk", [new GenericType("A")]),
-								});
-							}
-							return p;
-						}),
+		return member.copy({
+			parameters: member.parameters.map((param) => {
+				if (param.name === "model") {
+					return param.copy({
+						type: new GenerifiedTypeIdentifier("ListModel", "Gio", [new GenericType("A")]),
 					});
 				}
-				return m;
-			});
-		};
 
-		updateBindModelMethod(FlowBox, "FlowBoxCreateWidgetFunc");
-		updateBindModelMethod(ListBox, "ListBoxCreateWidgetFunc");
-	},
-};
+				if (param.name === "create_widget_func") {
+					return param.copy({
+						type: new GenerifiedTypeIdentifier(widgetFuncName, "Gtk", [new GenericType("A")]),
+					});
+				}
+
+				return param;
+			}),
+		});
+	});
+}
+
+export default createGtkConfig();

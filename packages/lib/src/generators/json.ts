@@ -344,261 +344,296 @@ export class JsonGenerator extends FormatGenerator<Json> {
 	private generateDoc(doc: string): string {
 		const { namespace } = this;
 
-		function resolveClass(
-			ns: IntrospectedNamespace,
-			className: string,
-		): readonly [IntrospectedNamespaceMember | null, boolean] {
-			let classes = ns.getMembers(className);
+		// Replace references with formatted versions
+		doc = doc.replace(
+			/(#?)([A-Z][a-z][A-Za-z0-9]*(?:[A-Z][a-z]*[A-Za-z0-9]*)*)([:.]([a-z_-]+))?([^a-zA-Z0-9]|$)/g,
+			(_, prefix, className, memberPart, memberName, suffix) => {
+				if (prefix !== "#") return _; // Only process references starting with #
 
-			let plural = false;
+				const memberSeparator = memberPart?.[0];
+				const formattedRef = this.formatClassReference(namespace, className, memberName, memberSeparator);
 
-			if (classes.length === 0 && className.endsWith("Class")) {
-				classes = ns.getMembers(className.slice(0, -5));
-			}
+				return formattedRef ? `${formattedRef}${suffix}` : _;
+			},
+		);
 
-			if (classes.length === 0 && className.endsWith("Iface")) {
-				classes = ns.getMembers(className.slice(0, -5));
-			}
+		// Replace function references
+		doc = doc.replace(/([a-z_][a-z0-9_]*)\(\)/g, (_, funcName) => {
+			const formattedRef = this.formatFunctionReference(namespace, funcName);
+			return formattedRef ? formattedRef : _;
+		});
 
-			if (classes.length === 0 && className.endsWith("Interface")) {
-				classes = ns.getMembers(className.slice(0, -9));
-			}
+		return doc;
+	}
 
-			if (classes.length === 0 && className.endsWith("s")) {
-				plural = true;
-				classes = ns.getMembers(className.slice(0, -1));
-			}
+	private resolveClass(
+		ns: IntrospectedNamespace,
+		className: string,
+	): readonly [IntrospectedNamespaceMember | null, boolean] {
+		let classes = ns.getMembers(className);
+		let plural = false;
 
-			return [classes[0] ?? null, plural] as const;
-		}
+		// Try various class name suffixes
+		const suffixes = [
+			{ suffix: "Class", remove: 5 },
+			{ suffix: "Iface", remove: 5 },
+			{ suffix: "Interface", remove: 9 },
+		];
 
-		function formatReference(identifier: string, member_name: string, punc?: string): string | null {
-			const parts = identifier
-				.split(/([A-Z])/)
-				.filter((p) => p !== "")
-				.reduce((prev, next) => {
-					if (next.toUpperCase() === next) {
-						prev.push(`${next}`);
-					} else {
-						const lastCapital = prev.pop();
-
-						prev.push(`${lastCapital}${next}`);
-					}
-
-					return prev;
-				}, [] as string[]);
-
-			const [base_part] = parts;
-
-			const [, , namespaces, className] = parts.slice(1).reduce(
-				([underscore, camel, ns, selected], next) => {
-					const next_underscore = [underscore, next.toLowerCase()].join("_");
-
-					const namespaces = namespace.getImportsForCPrefix(next_underscore);
-					const nextCamel = camel + capitalize(next);
-
-					if (namespaces.length > 0) {
-						return [next_underscore, nextCamel, namespaces, capitalize(next)] as const;
-					}
-
-					return [next_underscore, nextCamel, ns, selected + capitalize(next)] as const;
-				},
-				[
-					base_part.toLowerCase(),
-					capitalize(base_part),
-					namespace.getImportsForCPrefix(base_part.toLowerCase()),
-					"" as string,
-				] as const,
-			);
-
-			let ns = namespaces.find((n) => n.hasSymbol(className));
-
-			if (!ns) {
-				ns = namespaces.find((n) => {
-					const [c] = resolveClass(n, className);
-
-					return c != null;
-				});
-			}
-
-			if (ns) {
-				const is_prop = punc === ":";
-				const modified_name = is_prop ? member_name.replace(/[-]/g, "_") : member_name;
-
-				const [clazz, plural] = resolveClass(ns, className);
-
-				if (clazz instanceof IntrospectedBaseClass || clazz instanceof IntrospectedEnum) {
-					const r = `#${plural ? "{" : ""}${ns.namespace}.${clazz.name}${punc ? `${punc}${modified_name}` : ""}${
-						plural ? "}s" : ""
-					}`;
-					return r;
-				}
-
-				return `#${ns.namespace}${punc ? ` (${punc}${modified_name})` : ""}`;
-			} else {
-				return null;
+		for (const { suffix, remove } of suffixes) {
+			if (classes.length === 0 && className.endsWith(suffix)) {
+				classes = ns.getMembers(className.slice(0, -remove));
+				break;
 			}
 		}
 
-		function formatFunctionReference(func: string, upper = false): string | null {
-			// namespace_class_do_thing()
-
-			const parts = func.toLowerCase().split("_");
-
-			// ['namespace', 'class', 'do', 'thing']
-
-			const [base_part] = parts;
-
-			// ['namespace']
-
-			const namespaceBase = [
-				base_part.toLowerCase(),
-				capitalize(base_part),
-				namespace.getImportsForCPrefix(base_part.toLowerCase()),
-				0 as number,
-			] as const;
-
-			// ['namespace', 'Namespace', { Namespace }, -1]
-
-			const [, , namespaces, i] = parts.slice(1).reduce(([prev, camel, currentNamespaces, selected], next, i) => {
-				const underscore = [prev, next.toLowerCase()].join("_");
-				const namespaces = namespace.getImportsForCPrefix(underscore);
-				const identifier = camel + capitalize(next);
-
-				// We've found namespace(s) which matches the c_prefix
-				if (namespaces.length > 0) {
-					return [underscore, identifier, namespaces, i] as const;
-				}
-
-				return [underscore, identifier, currentNamespaces, selected] as const;
-			}, namespaceBase);
-
-			// If no namespaces are found for the function's c_prefix, we return the original reference.
-			if (namespaces.length === 0) {
-				return null;
-			}
-
-			// ['class', 'do', 'thing']
-
-			const nameParts = parts.slice(i + 1);
-
-			// 'class_do_thing'
-
-			const functionName = nameParts.join("_");
-			const functionNamespace = namespaces.find((n) => n.hasSymbol(functionName.toLowerCase()));
-			const constNamespace = namespaces.find((n) => n.hasSymbol(functionName.toUpperCase()));
-			const enumNamespace = namespaces.find((n) => n.enum_constants.has(func.toUpperCase()));
-
-			if (functionNamespace) {
-				const [member = null] = functionNamespace.getMembers(functionName.toLowerCase());
-
-				if (member instanceof IntrospectedFunction) {
-					return `${functionNamespace.namespace}.${member.name}`;
-				}
-
-				return null;
-			} else if (constNamespace) {
-				const [member = null] = constNamespace.getMembers(functionName.toUpperCase());
-
-				if (member instanceof IntrospectedConstant) {
-					return `${constNamespace.namespace}.${member.name}`;
-				}
-
-				return null;
-			} else if (enumNamespace) {
-				const constantInfo = enumNamespace.enum_constants.get(func.toUpperCase());
-
-				if (constantInfo) {
-					const [enumName, memberName] = constantInfo;
-
-					const [klass = null] = enumNamespace.getMembers(enumName);
-
-					if (klass instanceof IntrospectedEnum) {
-						return `${enumNamespace.namespace}.${klass.name}.${memberName.toUpperCase()}`;
-					}
-				}
-
-				return null;
-			} else {
-				// ['class', 'do', 'thing']
-
-				const { selectedClassName, resolvedNamespace, selectedIndex } = parts.slice(i + 1).reduce(
-					({ className, selectedClassName, resolvedNamespace, selectedIndex }, next, i) => {
-						// Class
-						const identifier = `${className}${capitalize(next)}`;
-
-						const withSymbol = namespaces.find((n) => n.hasSymbol(identifier));
-
-						if (withSymbol) {
-							// { className: Class, resolvedNamespace: {Namespace}, selectedIndex: 0 }
-							return {
-								className: identifier,
-								selectedClassName: identifier,
-								resolvedNamespace: withSymbol,
-								selectedIndex: i,
-							} as const;
-						}
-
-						return { className: identifier, selectedClassName, resolvedNamespace, selectedIndex } as const;
-					},
-					{
-						className: "" as string,
-						selectedClassName: "" as string,
-						resolvedNamespace: null as IntrospectedNamespace | null,
-						selectedIndex: -1,
-					},
-				);
-
-				if (resolvedNamespace && selectedIndex >= 0) {
-					const nextIndex = i + selectedIndex + 1 /* (slice omits first index) */ + 1; /* (the next index) */
-					const functionName = parts.slice(nextIndex).join("_");
-
-					const [klass] = resolveClass(resolvedNamespace, selectedClassName);
-
-					if (klass instanceof IntrospectedBaseClass || klass instanceof IntrospectedEnum) {
-						return `${resolvedNamespace.namespace}.${klass.name}.${upper ? functionName.toUpperCase() : functionName}`;
-					}
-
-					return `${resolvedNamespace.namespace}.${selectedClassName}.${
-						upper ? functionName.toUpperCase() : functionName
-					}`;
-				}
-			}
-
-			return null;
+		// Try plural form
+		if (classes.length === 0 && className.endsWith("s")) {
+			plural = true;
+			classes = ns.getMembers(className.slice(0, -1));
 		}
 
-		return `${doc}`
-			.replace(/[#]{0,1}([A-Z][A-z]+)\.([a-z_]+)\(\)/g, (original, identifier: string, member_name: string) => {
-				const resolved = formatReference(identifier, member_name, ".");
-				return resolved != null ? `${resolved}()` : original;
-			})
-			.replace(
-				/#([A-Z][A-z]*)(([:]{1,2})([a-z-]+)){0,1}/g,
-				(original, identifier: string, _: string, punc: string, member_name: string) => {
-					const resolved = formatReference(identifier, member_name, punc);
-					return resolved != null ? resolved : original;
-				},
-			)
-			.replace(
-				/([A-Z][A-z]*)(([:]{1,2})([a-z-]+))/g,
-				(original, identifier: string, _: string, punc: string, member_name: string) => {
-					const resolved = formatReference(identifier, member_name, punc);
-					return resolved != null ? resolved : original;
-				},
-			)
-			.replace(/(\s)([a-z_]+)\(\)/g, (original: string, w: string, func: string) => {
-				const resolved = formatFunctionReference(func);
-				return resolved != null ? `${w}${resolved}()` : original;
-			})
-			.replace(/%([A-Z_]+)/g, (original: string, identifier: string) => {
-				const resolved = formatFunctionReference(identifier.toLowerCase(), true);
-				return resolved != null ? `%${resolved}` : original;
-			})
-			.replace(/#([A-Z_]+)/g, (original: string, identifier: string) => {
-				const resolved = formatFunctionReference(identifier.toLowerCase(), true);
-				return resolved != null ? `#${resolved}` : original;
+		return [classes[0] ?? null, plural] as const;
+	}
+
+	private formatClassReference(
+		namespace: IntrospectedNamespace,
+		identifier: string,
+		memberName?: string,
+		punctuation?: string,
+	): string | null {
+		const parts = this.parseIdentifierParts(identifier);
+		const namespaceInfo = this.findNamespaceForIdentifier(namespace, parts);
+
+		if (!namespaceInfo) return null;
+
+		const { resolvedNamespace, className } = namespaceInfo;
+		const [clazz, plural] = this.resolveClass(resolvedNamespace, className);
+
+		if (!clazz) return null;
+
+		return this.buildClassReference(resolvedNamespace, clazz, memberName, punctuation, plural);
+	}
+
+	private parseIdentifierParts(identifier: string): string[] {
+		return identifier
+			.split(/([A-Z])/)
+			.filter((p) => p !== "")
+			.reduce((prev, next) => {
+				if (next.toUpperCase() === next) {
+					prev.push(`${next}`);
+				} else {
+					const lastCapital = prev.pop();
+					prev.push(`${lastCapital}${next}`);
+				}
+				return prev;
+			}, [] as string[]);
+	}
+
+	private findNamespaceForIdentifier(
+		namespace: IntrospectedNamespace,
+		parts: string[],
+	): { resolvedNamespace: IntrospectedNamespace; className: string } | null {
+		const [basePart] = parts;
+
+		const [, , namespaces, className] = parts.slice(1).reduce(
+			([underscore, camel, ns, selected], next) => {
+				const nextUnderscore = [underscore, next.toLowerCase()].join("_");
+				const foundNamespaces = namespace.getImportsForCPrefix(nextUnderscore);
+				const nextCamel = camel + capitalize(next);
+
+				if (foundNamespaces.length > 0) {
+					return [nextUnderscore, nextCamel, foundNamespaces, capitalize(next)] as const;
+				}
+
+				return [nextUnderscore, nextCamel, ns, selected + capitalize(next)] as const;
+			},
+			[
+				basePart.toLowerCase(),
+				capitalize(basePart),
+				namespace.getImportsForCPrefix(basePart.toLowerCase()),
+				"" as string,
+			] as const,
+		);
+
+		// Find namespace that has the symbol or class
+		let resolvedNamespace = namespaces.find((n) => n.hasSymbol(className));
+
+		if (!resolvedNamespace) {
+			resolvedNamespace = namespaces.find((n) => {
+				const [c] = this.resolveClass(n, className);
+				return c != null;
 			});
+		}
+
+		return resolvedNamespace ? { resolvedNamespace, className } : null;
+	}
+
+	private buildClassReference(
+		namespace: IntrospectedNamespace,
+		clazz: IntrospectedNamespaceMember,
+		memberName?: string,
+		punctuation?: string,
+		plural?: boolean,
+	): string {
+		if (clazz instanceof IntrospectedBaseClass || clazz instanceof IntrospectedEnum) {
+			const isProperty = punctuation === ":";
+			const modifiedName = isProperty && memberName ? memberName.replace(/[-]/g, "_") : memberName;
+
+			return `#${plural ? "{" : ""}${namespace.namespace}.${clazz.name}${
+				punctuation && modifiedName ? `${punctuation}${modifiedName}` : ""
+			}${plural ? "}s" : ""}`;
+		}
+
+		return `#${namespace.namespace}${punctuation && memberName ? ` (${punctuation}${memberName})` : ""}`;
+	}
+
+	private formatFunctionReference(namespace: IntrospectedNamespace, func: string): string | null {
+		const parts = func.toLowerCase().split("_");
+		const namespaceInfo = this.findNamespaceForFunction(namespace, parts);
+
+		if (!namespaceInfo) return null;
+
+		const { namespaces, nameParts, baseIndex } = namespaceInfo;
+		const functionName = nameParts.join("_");
+
+		// Try different lookup strategies
+		return this.tryFunctionLookupStrategies(namespaces, functionName, func, parts, baseIndex);
+	}
+
+	private findNamespaceForFunction(
+		namespace: IntrospectedNamespace,
+		parts: string[],
+	): { namespaces: IntrospectedNamespace[]; nameParts: string[]; baseIndex: number } | null {
+		const [basePart] = parts;
+		const namespaceBase = [
+			basePart.toLowerCase(),
+			capitalize(basePart),
+			namespace.getImportsForCPrefix(basePart.toLowerCase()),
+			0 as number,
+		] as const;
+
+		const [, , namespaces, baseIndex] = parts.slice(1).reduce(([prev, camel, currentNamespaces, selected], next, i) => {
+			const underscore = [prev, next.toLowerCase()].join("_");
+			const foundNamespaces = namespace.getImportsForCPrefix(underscore);
+			const identifier = camel + capitalize(next);
+
+			// We've found namespace(s) which matches the c_prefix
+			if (foundNamespaces.length > 0) {
+				return [underscore, identifier, foundNamespaces, i] as const;
+			}
+
+			return [underscore, identifier, currentNamespaces, selected] as const;
+		}, namespaceBase);
+
+		if (namespaces.length === 0) return null;
+
+		const nameParts = parts.slice(baseIndex + 1);
+		return { namespaces, nameParts, baseIndex };
+	}
+
+	private tryFunctionLookupStrategies(
+		namespaces: IntrospectedNamespace[],
+		functionName: string,
+		originalFunc: string,
+		parts: string[],
+		baseIndex: number,
+	): string | null {
+		// Strategy 1: Direct function lookup
+		const directResult = this.tryDirectFunctionLookup(namespaces, functionName);
+		if (directResult) return directResult;
+
+		// Strategy 2: Constant lookup
+		const constantResult = this.tryConstantLookup(namespaces, functionName);
+		if (constantResult) return constantResult;
+
+		// Strategy 3: Enum constant lookup
+		const enumResult = this.tryEnumConstantLookup(namespaces, originalFunc);
+		if (enumResult) return enumResult;
+
+		// Strategy 4: Class method lookup
+		return this.tryClassMethodLookup(namespaces, parts, baseIndex);
+	}
+
+	private tryDirectFunctionLookup(namespaces: IntrospectedNamespace[], functionName: string): string | null {
+		const functionNamespace = namespaces.find((n) => n.hasSymbol(functionName.toLowerCase()));
+		if (!functionNamespace) return null;
+
+		const [member = null] = functionNamespace.getMembers(functionName.toLowerCase());
+		if (member instanceof IntrospectedFunction) {
+			return `${functionNamespace.namespace}.${member.name}`;
+		}
+
+		return null;
+	}
+
+	private tryConstantLookup(namespaces: IntrospectedNamespace[], functionName: string): string | null {
+		const constNamespace = namespaces.find((n) => n.hasSymbol(functionName.toUpperCase()));
+		if (!constNamespace) return null;
+
+		const [member = null] = constNamespace.getMembers(functionName.toUpperCase());
+		if (member instanceof IntrospectedConstant) {
+			return `${constNamespace.namespace}.${member.name}`;
+		}
+
+		return null;
+	}
+
+	private tryEnumConstantLookup(namespaces: IntrospectedNamespace[], func: string): string | null {
+		const enumNamespace = namespaces.find((n) => n.enum_constants.has(func.toUpperCase()));
+		if (!enumNamespace) return null;
+
+		const constantInfo = enumNamespace.enum_constants.get(func.toUpperCase());
+		if (!constantInfo) return null;
+
+		const [enumName, memberName] = constantInfo;
+		const [klass = null] = enumNamespace.getMembers(enumName);
+
+		if (klass instanceof IntrospectedEnum) {
+			return `${enumNamespace.namespace}.${klass.name}.${memberName.toUpperCase()}`;
+		}
+
+		return null;
+	}
+
+	private tryClassMethodLookup(namespaces: IntrospectedNamespace[], parts: string[], baseIndex: number): string | null {
+		const nameParts = parts.slice(baseIndex + 1);
+
+		const { selectedClassName, resolvedNamespace, selectedIndex } = nameParts.reduce(
+			({ className, selectedClassName, resolvedNamespace, selectedIndex }, next, i) => {
+				const identifier = `${className}${capitalize(next)}`;
+				const withSymbol = namespaces.find((n) => n.hasSymbol(identifier));
+
+				if (withSymbol) {
+					return {
+						className: identifier,
+						selectedClassName: identifier,
+						resolvedNamespace: withSymbol,
+						selectedIndex: i,
+					} as const;
+				}
+
+				return { className: identifier, selectedClassName, resolvedNamespace, selectedIndex } as const;
+			},
+			{
+				className: "" as string,
+				selectedClassName: "" as string,
+				resolvedNamespace: null as IntrospectedNamespace | null,
+				selectedIndex: -1,
+			},
+		);
+
+		if (!resolvedNamespace || selectedIndex < 0) return null;
+
+		const nextIndex = baseIndex + selectedIndex + 2; // +1 for slice, +1 for next index
+		const methodName = parts.slice(nextIndex).join("_");
+
+		const [klass] = this.resolveClass(resolvedNamespace, selectedClassName);
+		if (klass instanceof IntrospectedBaseClass || klass instanceof IntrospectedEnum) {
+			return `${resolvedNamespace.namespace}.${klass.name}.${methodName}`;
+		}
+
+		return `${resolvedNamespace.namespace}.${selectedClassName}.${methodName}`;
 	}
 
 	private generateMetadata(metadata: IntrospectedMetadata): MetadataJson {
@@ -1236,7 +1271,6 @@ export class JsonGenerator extends FormatGenerator<Json> {
 			.filter((m): m is IntrospectedClass => m instanceof IntrospectedClass)
 			.map((m) => m.asString(this));
 		const interfaces = members
-
 			.filter((m): m is IntrospectedInterface => m instanceof IntrospectedInterface)
 			.map((m) => m.asString(this));
 		const records = members
@@ -1246,13 +1280,11 @@ export class JsonGenerator extends FormatGenerator<Json> {
 			.filter((m): m is IntrospectedConstant => m instanceof IntrospectedConstant)
 			.map((m) => m.asString(this));
 		const callbacks = members
-
 			.filter((m): m is IntrospectedCallback => m instanceof IntrospectedCallback)
 			.map((m) => m.asString(this));
 		// Functions can have overrides.
 		const functions = [
 			...members
-
 				.filter(
 					(m): m is IntrospectedFunction => !(m instanceof IntrospectedCallback) && m instanceof IntrospectedFunction,
 				)
@@ -1267,7 +1299,6 @@ export class JsonGenerator extends FormatGenerator<Json> {
 			.filter((m): m is IntrospectedError => m instanceof IntrospectedError)
 			.map((m) => m.asString(this));
 		const enums = members
-
 			.filter((m): m is IntrospectedEnum => !(m instanceof IntrospectedError) && m instanceof IntrospectedEnum)
 			.map((m) => m.asString(this));
 		const alias = members

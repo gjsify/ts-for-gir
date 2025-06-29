@@ -112,100 +112,89 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 			name = sanitizeIdentifierName(null, element.$.shadows);
 		}
 
-		// TODO: Don't create a useless function object here
-		let fn = new IntrospectedFunction({
+		const return_type = IntrospectedFunction.parseReturnType(element, ns);
+		const { input_parameters, output_parameters, returnTypeDoc } = IntrospectedFunction.parseParameters(
+			element,
+			ns,
+			return_type,
+			options,
+		);
+
+		const fn = new IntrospectedFunction({
 			name,
 			raw_name,
+			namespace: ns,
+			parameters: input_parameters,
+			output_parameters,
+			return_type,
+			isIntrospectable: isIntrospectable(element),
+		});
+
+		fn.returnTypeDoc = returnTypeDoc;
+
+		if (options.loadDocs) {
+			fn.doc = parseDoc(element);
+			fn.metadata = parseMetadata(element);
+		}
+
+		return fn;
+	}
+
+	private static parseReturnType(
+		element: GirFunctionElement | GirMethodElement,
+		ns: IntrospectedNamespace,
+	): TypeExpression {
+		if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
+			const value = element["return-value"][0];
+			return getType(ns, value);
+		}
+		return VoidType;
+	}
+
+	private static parseParameters(
+		element: GirFunctionElement | GirMethodElement,
+		ns: IntrospectedNamespace,
+		return_type: TypeExpression,
+		options: OptionsLoad,
+	): {
+		input_parameters: IntrospectedFunctionParameter[];
+		output_parameters: IntrospectedFunctionParameter[];
+		returnTypeDoc: string | null;
+	} {
+		let returnTypeDoc: string | null = null;
+
+		if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
+			const value = element["return-value"][0];
+			returnTypeDoc = parseDoc(value);
+		}
+
+		if (!element.parameters) {
+			return { input_parameters: [], output_parameters: [], returnTypeDoc };
+		}
+
+		const param = element.parameters[0].parameter;
+		if (!param) {
+			return { input_parameters: [], output_parameters: [], returnTypeDoc };
+		}
+
+		// Create a temporary function for parameter processing
+		const tempFn = new IntrospectedFunction({
+			name: "temp",
+			raw_name: "temp",
 			namespace: ns,
 			isIntrospectable: isIntrospectable(element),
 		});
 
-		let return_type: TypeExpression;
+		const inputs = param.filter((p): p is typeof p & { $: { name: string } } => !!p.$.name);
+		let parameters = inputs.map((i) => IntrospectedFunctionParameter.fromXML(i, tempFn, options));
 
-		if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
-			const value = element["return-value"][0];
+		const unwrapped = return_type.unwrap();
+		const length_params = unwrapped instanceof ArrayType && unwrapped.length != null ? [unwrapped.length] : [];
+		const user_data_params: number[] = [];
 
-			return_type = getType(ns, value);
-
-			fn.returnTypeDoc = parseDoc(value);
-		} else {
-			return_type = VoidType;
-		}
-
-		let parameters: IntrospectedFunctionParameter[] = [];
-
-		if (element.parameters) {
-			const param = element.parameters[0].parameter;
-
-			if (param) {
-				const inputs = param.filter((p): p is typeof p & { $: { name: string } } => {
-					return !!p.$.name;
-				});
-
-				parameters.push(...inputs.map((i) => IntrospectedFunctionParameter.fromXML(i, fn, options)));
-
-				const unwrapped = return_type.unwrap();
-
-				const length_params =
-					unwrapped instanceof ArrayType && unwrapped.length != null ? [unwrapped.length] : ([] as number[]);
-				const user_data_params = [] as number[];
-
-				parameters = parameters
-					.map((p) => {
-						const unwrapped_type = p.type.unwrap();
-
-						if (unwrapped_type instanceof ArrayType && unwrapped_type.length != null) {
-							length_params.push(unwrapped_type.length);
-
-							return p;
-						}
-
-						if (unwrapped_type instanceof ClosureType && unwrapped_type.user_data != null) {
-							user_data_params.push(unwrapped_type.user_data);
-
-							return p;
-						}
-
-						return p;
-					})
-					.filter((_, i) => {
-						// We remove any length parameters.
-						return !length_params.includes(i) && !user_data_params.includes(i);
-					})
-					.filter((v) => !(v.type instanceof TypeIdentifier && v.type.is("GLib", "DestroyNotify")))
-					.reverse()
-					.reduce(
-						({ allowOptions, params }, p) => {
-							const { type, isOptional } = p;
-
-							if (allowOptions) {
-								if (type instanceof NullableType) {
-									params.push(p.copy({ isOptional: true }));
-								} else if (!isOptional) {
-									params.push(p);
-									return { allowOptions: false, params };
-								} else {
-									params.push(p);
-								}
-							} else {
-								if (isOptional) {
-									params.push(p.copy({ type: new NullableType(type), isOptional: false }));
-								} else {
-									params.push(p);
-								}
-							}
-
-							return { allowOptions, params };
-						},
-						{
-							allowOptions: true,
-							params: [] as IntrospectedFunctionParameter[],
-						},
-					)
-					.params.reverse()
-					.filter((p): p is IntrospectedFunctionParameter => p != null);
-			}
-		}
+		parameters = IntrospectedFunction.processParameterTypes(parameters, length_params, user_data_params);
+		parameters = IntrospectedFunction.filterParameters(parameters, length_params, user_data_params);
+		parameters = IntrospectedFunction.processOptionalParameters(parameters);
 
 		const input_parameters = parameters.filter(
 			(param) => param.direction === GirDirection.In || param.direction === GirDirection.Inout,
@@ -216,19 +205,74 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 			)
 			.map((parameter) => parameter.copy({ isOptional: false }));
 
-		fn = fn.copy({
-			parent: ns,
-			parameters: input_parameters,
-			outputParameters: output_parameters,
-			return_type,
+		return { input_parameters, output_parameters, returnTypeDoc };
+	}
+
+	private static processParameterTypes(
+		parameters: IntrospectedFunctionParameter[],
+		length_params: number[],
+		user_data_params: number[],
+	): IntrospectedFunctionParameter[] {
+		return parameters.map((p) => {
+			const unwrapped_type = p.type.unwrap();
+
+			if (unwrapped_type instanceof ArrayType && unwrapped_type.length != null) {
+				length_params.push(unwrapped_type.length);
+			}
+
+			if (unwrapped_type instanceof ClosureType && unwrapped_type.user_data != null) {
+				user_data_params.push(unwrapped_type.user_data);
+			}
+
+			return p;
 		});
+	}
 
-		if (options.loadDocs) {
-			fn.doc = parseDoc(element);
-			fn.metadata = parseMetadata(element);
-		}
+	private static filterParameters(
+		parameters: IntrospectedFunctionParameter[],
+		length_params: number[],
+		user_data_params: number[],
+	): IntrospectedFunctionParameter[] {
+		return parameters
+			.filter((_, i) => !length_params.includes(i) && !user_data_params.includes(i))
+			.filter((v) => !(v.type instanceof TypeIdentifier && v.type.is("GLib", "DestroyNotify")));
+	}
 
-		return fn;
+	private static processOptionalParameters(
+		parameters: IntrospectedFunctionParameter[],
+	): IntrospectedFunctionParameter[] {
+		return parameters
+			.reverse()
+			.reduce(
+				({ allowOptions, params }, p) => {
+					const { type, isOptional } = p;
+
+					if (allowOptions) {
+						if (type instanceof NullableType) {
+							params.push(p.copy({ isOptional: true }));
+						} else if (!isOptional) {
+							params.push(p);
+							return { allowOptions: false, params };
+						} else {
+							params.push(p);
+						}
+					} else {
+						if (isOptional) {
+							params.push(p.copy({ type: new NullableType(type), isOptional: false }));
+						} else {
+							params.push(p);
+						}
+					}
+
+					return { allowOptions, params };
+				},
+				{
+					allowOptions: true,
+					params: [] as IntrospectedFunctionParameter[],
+				},
+			)
+			.params.reverse()
+			.filter((p): p is IntrospectedFunctionParameter => p != null);
 	}
 
 	return() {

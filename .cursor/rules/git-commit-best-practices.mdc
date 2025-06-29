@@ -1,0 +1,47 @@
+---
+description: Enforces consistent, frequent, and meaningful git commits following conventional commit standards. Automatically analyzes recent commit history to maintain project-specific patterns and ensures atomic, review-friendly commits during development work.
+globs: 
+alwaysApply: false
+---
+You are a meticulous developer who commits code frequently with clear, atomic commits following conventional commit standards.
+
+## Core Philosophy for AI Development
+- **Regular Commits for Large Tasks**: Break down complex changes into meaningful, logical commits
+- **Working Code Only**: Never commit broken or non-functional code - always validate before committing
+- **Continuous Validation**: Use yarn commands regularly to ensure code quality and functionality
+
+## Validation Strategy
+Before every commit, validate your code using the commands from [yarn-workspace.mdc](mdc:.cursor/rules/yarn-workspace.mdc):
+
+**For regular commits (recommended):**
+- `yarn check:app` - Fast check for core packages and linting
+- `yarn check:lint` - Quick linting only
+- `yarn test:locally` - Quick local testing to catch breaking changes
+- `yarn format` - Code formatting consistency
+
+**For major changes only:**
+- `yarn check` - ⚠️ **WARNING**: Very slow! Full type checking across ALL packages. Only use after larger changes and when types are already built (see scripts in [package.json](mdc:file:package.json))
+
+Always fix all errors and warnings before proceeding with the commit
+
+## Commit Practices for AI Agents
+- **Atomic Changes**: Each commit represents one logical change or feature addition
+- **Conventional Format**: Use `<type>[scope]: <description>` format (feat, fix, docs, refactor, test, chore, etc.)
+- **Regular Progress Commits**: For larger tasks, commit at logical milestones, not just at completion
+- **Self-Contained**: Each commit should leave the codebase in a working state
+
+## Consistency Strategy
+Before committing:
+- **Analyze Recent History**: Check `git log --oneline -10 | cat` to match existing commit patterns
+- **Follow Project Style**: Use the same commit types and scoping patterns already established
+- **Preserve Team Patterns**: Adapt to any project-specific conventions visible in git history
+
+## Quality Standards
+- Use imperative mood in subject lines ("Add feature" not "Added feature")
+- Keep subject lines under 50 characters
+- Include scope when applicable (component, module, file area)
+- Ensure commits are review-friendly and tell a coherent development story
+- Match the established commit style of the project
+
+## Key Principle for AI Agents
+**Always ensure the codebase remains functional after each commit.** Use the yarn workspace commands (see [yarn-workspace.mdc](mdc:.cursor/rules/yarn-workspace.mdc)) to validate your changes before committing. This maintains a clean development history and makes debugging easier.

@@ -23,6 +23,7 @@ import type {
 	GirConstantElement,
 	GirEnumElement,
 	GirInterfaceElement,
+	IGirModule,
 	OptionsGeneration,
 	OptionsLoad,
 	TsDocTag,
@@ -35,7 +36,7 @@ import type { GirVisitor } from "./visitor.ts";
 
 const logger = new Logger(false, "GirModule");
 
-export class GirModule {
+export class GirModule implements IGirModule {
 	/**
 	 * E.g. 'Gtk'
 	 */
@@ -499,7 +500,8 @@ export class GirModule {
 			throw new Error(`Failed to load gir xml of ${dependency.packageName}`);
 		}
 		if (!ns) {
-			throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`);
+			const packageName = girXML.repository[0].package?.[0]?.$.name || "unknown package";
+			throw new Error(`Missing namespace in ${packageName}`);
 		}
 
 		const modName = ns.$.name;
@@ -550,7 +552,8 @@ export class GirModule {
 			throw new Error(`Failed to load gir xml of ${this.dependency.packageName}`);
 		}
 		if (!ns) {
-			throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`);
+			const packageName = girXML.repository[0].package?.[0]?.$.name || "unknown package";
+			throw new Error(`Missing namespace in ${packageName}`);
 		}
 
 		const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {

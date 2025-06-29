@@ -1,5 +1,5 @@
-import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import type { NSRegistry } from "../gir/registry.ts";
+import type { NamespaceDefinition } from "../types/generics-config.ts";
 import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.ts";
 import gio from "./gio.ts";
 import glib from "./glib.ts";
@@ -8,52 +8,67 @@ import { meta10, meta11, meta12, meta13, meta14, meta15 } from "./meta.ts";
 import { st1, st12, st13, st14, st15 } from "./st.ts";
 import { GenericVisitor } from "./visitor.ts";
 
-type NamespaceModifier = (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
+// Core namespace definitions that are required
+const CORE_DEFINITIONS: NamespaceDefinition[] = [gio, glib];
 
-function generifyDefinitions(registry: NSRegistry, inferGenerics: boolean, required: boolean = true) {
-	return (definition: { namespace: string; version: string; modifier: NamespaceModifier }) => {
-		const version = definition.version;
-		const ns = registry.namespace(definition.namespace, version);
+// Optional namespace definitions
+const OPTIONAL_DEFINITIONS: NamespaceDefinition[] = [
+	gtk,
+	clutter10,
+	clutter11,
+	clutter12,
+	clutter13,
+	clutter14,
+	clutter15,
+	st1,
+	st12,
+	st13,
+	st14,
+	st15,
+	meta10,
+	meta11,
+	meta12,
+	meta13,
+	meta14,
+	meta15,
+];
 
-		if (ns) {
-			definition.modifier(ns, inferGenerics);
+function createDefinitionProcessor(registry: NSRegistry, inferGenerics: boolean, required: boolean = true) {
+	return (definition: NamespaceDefinition) => {
+		const { namespace: namespaceName, version, modifier } = definition;
+		const namespace = registry.namespace(namespaceName, version);
+
+		if (namespace) {
+			modifier(namespace, inferGenerics);
 			return;
 		}
 
 		if (required) {
-			throw new Error(`Could not generify ${definition.namespace} ${definition.version}`);
+			throw new Error(`Could not generify ${namespaceName} ${version}`);
 		}
 	};
 }
 
-export function generify(registry: NSRegistry, inferGenerics: boolean) {
-	const $ = generifyDefinitions(registry, inferGenerics);
+function applyDefinitions(
+	definitions: NamespaceDefinition[],
+	processor: (definition: NamespaceDefinition) => void,
+): void {
+	for (const definition of definitions) {
+		processor(definition);
+	}
+}
 
-	$(gio);
-	$(glib);
-	const $_ = generifyDefinitions(registry, inferGenerics, false);
+export function generify(registry: NSRegistry, inferGenerics: boolean): void {
+	const processCoreDefinition = createDefinitionProcessor(registry, inferGenerics, true);
+	const processOptionalDefinition = createDefinitionProcessor(registry, inferGenerics, false);
 
-	$_(gtk);
+	// Apply core definitions (required)
+	applyDefinitions(CORE_DEFINITIONS, processCoreDefinition);
 
-	$_(clutter10);
-	$_(clutter11);
-	$_(clutter12);
-	$_(clutter13);
-	$_(clutter14);
-	$_(clutter15);
-	$_(st1);
-	$_(st12);
-	$_(st13);
-	$_(st14);
-	$_(st15);
-	$_(meta10);
-	$_(meta11);
-	$_(meta12);
-	$_(meta13);
-	$_(meta14);
-	$_(meta15);
+	// Apply optional definitions
+	applyDefinitions(OPTIONAL_DEFINITIONS, processOptionalDefinition);
 
+	// Register visitor for runtime transformations
 	const visitor = new GenericVisitor(registry, inferGenerics);
-
 	registry.registerTransformation(visitor);
 }

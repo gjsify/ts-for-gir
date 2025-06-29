@@ -3,9 +3,7 @@
  * For example, the signal methods are generated here
  */
 
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
-import { createRequire } from "node:module";
-import { dirname, extname, join, relative, resolve } from "node:path";
+import { dirname, join, relative } from "node:path";
 import type { Dependency, OptionsGeneration, TemplateData } from "@ts-for-gir/lib";
 import {
 	APP_NAME,
@@ -13,34 +11,22 @@ import {
 	APP_USAGE,
 	APP_VERSION,
 	DependencyManager,
-	fileExists,
 	Logger,
 	type NSRegistry,
 	PACKAGE_DESC,
 	PACKAGE_KEYWORDS,
+	TemplateEngine,
 	transformImportName,
 } from "@ts-for-gir/lib";
-import ejs from "ejs";
+import type ejs from "ejs";
 
-const require = createRequire(import.meta.url);
-
-// Resolve the templates directory from the @ts-for-gir/templates package
-// Try require.resolve first, fallback to workspace path for development
-let TEMPLATE_DIR: string;
-try {
-	TEMPLATE_DIR = join(dirname(require.resolve("@ts-for-gir/templates/package.json")), "templates");
-} catch (_error) {
-	// Fallback for workspace development setup
-	TEMPLATE_DIR = resolve(process.cwd(), "../../templates/templates");
-}
-
-export class TemplateProcessor {
-	protected log: Logger;
-	protected readonly data: TemplateData | undefined;
+export class TemplateProcessor extends TemplateEngine {
+	protected readonly data: TemplateData;
 	protected readonly packageName: string;
 	protected readonly registry: NSRegistry;
 	protected readonly deps: Dependency[];
 	protected readonly config: OptionsGeneration;
+
 	constructor(
 		data: TemplateData | undefined,
 		packageName: string,
@@ -48,7 +34,7 @@ export class TemplateProcessor {
 		deps: Dependency[],
 		config: OptionsGeneration,
 	) {
-		this.data = data;
+		super(); // Initialize TemplateEngine
 		this.packageName = packageName;
 		this.registry = registry;
 		this.deps = deps;
@@ -61,12 +47,12 @@ export class TemplateProcessor {
 		const typeDir = outdir;
 
 		this.data = {
-			...this.data,
+			...data,
 			APP_NAME,
 			APP_USAGE,
 			APP_SOURCE,
 			APP_VERSION,
-			PACKAGE_DESC: PACKAGE_DESC(packageName, this.data?.girModule?.libraryVersion),
+			PACKAGE_DESC: PACKAGE_DESC(packageName, data?.girModule?.libraryVersion),
 			PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
 			importName: transformImportName(packageName),
 			dep,
@@ -74,44 +60,25 @@ export class TemplateProcessor {
 			typeDir,
 			join,
 			dirname,
+			...this.config,
+			packageName: this.packageName,
 		};
 		this.log = new Logger(config.verbose, `TemplateProcessor (${this.packageName})`);
-	}
-
-	protected getAppendTemplateName(templateFilename: string) {
-		let appendTemplateFilename = templateFilename;
-
-		if (appendTemplateFilename.endsWith(".d.ts")) {
-			appendTemplateFilename = appendTemplateFilename.replace(".d.ts", ".append.d.ts");
-		} else if (extname(appendTemplateFilename)) {
-			const ext = extname(appendTemplateFilename);
-			appendTemplateFilename = appendTemplateFilename.replace(ext, `.append${ext}`);
-		} else {
-			appendTemplateFilename += ".append";
-		}
-		return appendTemplateFilename;
 	}
 
 	/**
 	 * Loads and renders a template and gets the rendered templates back
 	 * @param templateFilename
+	 * @param ejsOptions EJS options
+	 * @param overrideTemplateData Override template data if you want
 	 */
 	public async load(
 		templateFilename: string,
 		ejsOptions: Partial<ejs.Options> = {},
 		overrideTemplateData: TemplateData = {},
 	): Promise<{ prepend: string; append: string }> {
-		const fileContent = await this.read(templateFilename);
-		const prepend = await this.render(fileContent, ejsOptions, overrideTemplateData);
-		let append = "";
-
-		const appendTemplateFilename = this.getAppendTemplateName(templateFilename);
-		if (await this.exists(appendTemplateFilename)) {
-			const appendFileContent = await this.read(appendTemplateFilename);
-			append = await this.render(appendFileContent, ejsOptions, overrideTemplateData);
-		}
-
-		return { prepend, append };
+		const mergedData = { ...this.data, ...overrideTemplateData };
+		return super.load(templateFilename, mergedData, ejsOptions);
 	}
 
 	/**
@@ -128,11 +95,8 @@ export class TemplateProcessor {
 		ejsOptions: Partial<ejs.Options> = {},
 		overrideTemplateData: TemplateData = {},
 	): Promise<{ [path: string]: string }> {
-		const fileContents = await this.readAll(templateDirname, fileExtension);
-		for (const file of Object.keys(fileContents)) {
-			fileContents[file] = await this.render(fileContents[file], ejsOptions, overrideTemplateData);
-		}
-		return fileContents;
+		const mergedData = { ...this.data, ...overrideTemplateData };
+		return super.loadAll(templateDirname, fileExtension, mergedData, ejsOptions);
 	}
 
 	/**
@@ -190,6 +154,10 @@ export class TemplateProcessor {
 		return result;
 	}
 
+	/**
+	 * Gets the output path for a file based on package configuration
+	 * This is TypeScript-specific logic for handling package.json mode
+	 */
 	public getOutputPath(baseOutputPath: string, outputFilename: string): string {
 		// Create a directory for each package if package.json mode is enabled otherwise use the output directory directly
 		const filePath = this.config.package
@@ -201,6 +169,7 @@ export class TemplateProcessor {
 
 	/**
 	 * Writes (and optionally formats) the `content` to the filesystem
+	 * Includes TypeScript-specific formatting logic
 	 * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
 	 * @param baseOutputPath The base output directory path where the templates should be written to
 	 * @param outputFilename The filename of the output file
@@ -209,6 +178,7 @@ export class TemplateProcessor {
 	public async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
 		const outputPath = this.getOutputPath(baseOutputPath, outputFilename);
 
+		// TypeScript-specific formatting logic
 		if (!this.config.noPrettyPrint) {
 			try {
 				if (outputFilename.endsWith(".d.ts")) {
@@ -225,116 +195,8 @@ export class TemplateProcessor {
 			}
 		}
 
-		this.log.info("Writing to", outputPath);
-
-		// write template result file
-		await mkdir(dirname(outputPath), { recursive: true });
-		await writeFile(outputPath, content, { encoding: "utf8", flag: "w" });
-
-		return Promise.resolve(outputPath);
-	}
-
-	/**
-	 *
-	 * @param templateString The template content string that should be rendered
-	 * @param options EJS options
-	 * @param overrideTemplateData Override template data if you want
-	 * @returns
-	 */
-	protected async render(
-		templateString: string,
-		options: Partial<ejs.Options> = {},
-		overrideTemplateData: TemplateData = {},
-	): Promise<string> {
-		try {
-			const renderedTpl = await ejs.render(
-				templateString,
-				{
-					...this.config,
-					...this.data,
-					packageName: this.packageName,
-					...overrideTemplateData,
-				},
-				{
-					async: true,
-					...options,
-				},
-			);
-			return renderedTpl;
-		} catch (error) {
-			this.log.error(`Error on render "${templateString}":`, error);
-			throw error;
-		}
-	}
-
-	/**
-	 * Checks if the template file or directory exists and returns the path if found
-	 * Tries first to load the file / directory from the environment-specific template folder and otherwise looks for it in the general template folder
-	 * @param templateFilename
-	 */
-	public async exists(templateFilename: string): Promise<string | null> {
-		const fullEnvironmentTemplatePath = join(TEMPLATE_DIR, templateFilename);
-		const fullGeneralTemplatePath = join(TEMPLATE_DIR, templateFilename);
-		if (await fileExists(fullEnvironmentTemplatePath)) {
-			return fullEnvironmentTemplatePath;
-		}
-		if (await fileExists(fullGeneralTemplatePath)) {
-			return fullGeneralTemplatePath;
-		}
-		return null;
-	}
-
-	/**
-	 * Removes TypeScript directive comments from the first line of a template
-	 * @param content The template content
-	 * @return The template content without TypeScript directives in the first line
-	 */
-	protected removeTypeScriptDirectives(content: string): string {
-		const lines = content.split("\n");
-		if (lines.length > 0 && (lines[0].includes("// @ts-nocheck") || lines[0].includes("// @ts-ignore"))) {
-			lines.shift(); // Remove the first line
-			return lines.join("\n");
-		}
-		return content;
-	}
-
-	/**
-	 * Reads a template file from filesystem and gets the raw string back
-	 * @param templateFilename
-	 * @return The raw template content
-	 */
-	protected async read(templateFilename: string) {
-		const path = await this.exists(templateFilename);
-		if (path) {
-			const content = await readFile(path, "utf8");
-			return this.removeTypeScriptDirectives(content);
-		}
-		throw new Error(`Template '${path || templateFilename}' not found'`);
-	}
-
-	/**
-	 * Reads all template files from a directory and gets the raw strings back
-	 * @param templateDirname
-	 * @param fileExtension
-	 * @return The raw template contents
-	 * @throws Error if the template directory does not exist
-	 * @throws Error if the template directory is empty
-	 */
-	protected async readAll(templateDirname: string, fileExtension: string) {
-		const path = await this.exists(templateDirname);
-		if (path) {
-			const files = (await readdir(path)).filter((file) => file.endsWith(fileExtension));
-			if (files.length === 0) {
-				throw new Error(`Template directory '${templateDirname}' is empty'`);
-			}
-			const results: { [path: string]: string } = {};
-			for (const file of files) {
-				const content = await readFile(join(path, file), "utf8");
-				results[file] = this.removeTypeScriptDirectives(content);
-			}
-			return results;
-		}
-		throw new Error(`Template directory '${templateDirname}' not found'`);
+		// Use the base class writeFile method
+		return super.writeFile(content, outputPath);
 	}
 }
 

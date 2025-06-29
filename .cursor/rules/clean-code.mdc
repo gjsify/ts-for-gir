@@ -1,9 +1,16 @@
 ---
-description: Guidelines for writing clean, maintainable, and human-readable code. Apply these rules when writing or reviewing code to ensure consistency and quality.
+description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Clean Code Guidelines
+
+## Code Quality Mindset
+- **Simplicity First**: Write simple, straightforward code that solves the problem efficiently
+- **Readability Over Cleverness**: Code should be self-documenting and easy to understand
+- **Maintainability**: Every change should make the code easier to maintain long-term
+- **Performance Awareness**: Keep performance in mind without over-optimizing at readability's expense
+- **Testability**: Structure code to be easily testable and verifiable
 
 ## Constants Over Magic Numbers
 - Replace hard-coded values with named constants
@@ -19,6 +26,8 @@ alwaysApply: false
 - Don't comment on what the code does - make the code self-documenting
 - Use comments to explain why something is done a certain way
 - Document APIs, complex algorithms, and non-obvious side effects
+- Write JSDoc comments for public interfaces to generate TypeDoc documentation
+- Include parameter descriptions, return types, and usage examples in public API docs
 
 ## Single Responsibility
 - Each function should do exactly one thing
@@ -39,6 +48,17 @@ alwaysApply: false
 - Hide implementation details
 - Expose clear interfaces
 - Move nested conditionals into well-named functions
+
+## Early Returns
+- Use early returns to reduce nesting and improve readability
+- Implement guard clauses to handle edge cases first
+- Avoid deep conditional nesting
+
+## Function Design
+- Keep functions pure when possible (no side effects)
+- Use descriptive parameter names and return types
+- Add JSDoc comments for complex functions or public APIs
+- Limit function parameters to 3 or fewer (use objects for more)
 
 ## Code Quality Maintenance
 - Refactor continuously

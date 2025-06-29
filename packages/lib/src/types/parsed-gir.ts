@@ -1,5 +1,4 @@
-import type { GirXML } from '@gi.ts/parser'
-import type { GirRepository } from './gir-repository.ts'
+import type { GirXML, GirRepository } from '@gi.ts/parser'
 
 export interface ParsedGir extends GirXML {
     repository: GirRepository[]

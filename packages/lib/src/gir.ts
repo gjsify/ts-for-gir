@@ -1,4 +1,25 @@
 import type { IntrospectedNamespace } from "./gir/namespace.ts";
+
+/**
+ * A list of possible type conflicts.
+ *
+ * The format is CHILD_PARENT_CONFLICT so
+ * ACCESSOR_PROPERTY_CONFLICT means there
+ * is an accessor on a child class and a
+ * property on the parent class, which is a
+ * conflict.
+ *
+ * Starts at '1' because the value is often
+ * used as truthy.
+ */
+export enum ConflictType {
+	PROPERTY_NAME_CONFLICT = 1,
+	FIELD_NAME_CONFLICT,
+	FUNCTION_NAME_CONFLICT,
+	ACCESSOR_PROPERTY_CONFLICT,
+	PROPERTY_ACCESSOR_CONFLICT,
+}
+
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
 import { Logger } from "./logger.ts";
 import type { OptionsBase } from "./types/index.ts";
@@ -261,7 +282,6 @@ export class NativeType extends TypeExpression {
 
 	constructor(expression: ((options?: OptionsBase) => string) | string) {
 		super();
-
 		this.expression = typeof expression === "string" ? () => expression : expression;
 	}
 
@@ -273,7 +293,7 @@ export class NativeType extends TypeExpression {
 		return this;
 	}
 
-	print(_namespace: IntrospectedNamespace, options: OptionsBase) {
+	print(_namespace: IntrospectedNamespace, options: OptionsBase): string {
 		return this.expression(options);
 	}
 
@@ -289,7 +309,7 @@ export class NativeType extends TypeExpression {
 		return new NativeType(generator);
 	}
 
-	static of(nativeType: string) {
+	static of(nativeType: string): NativeType {
 		return new NativeType(nativeType);
 	}
 }
@@ -454,15 +474,15 @@ export class Generic {
 		constraint?: TypeExpression,
 		propagate = true,
 	) {
+		this._deriveFrom = deriveFrom ?? null;
 		this._genericType = genericType;
 		this._defaultType = defaultType ?? null;
-		this._deriveFrom = deriveFrom ?? null;
 		this._constraint = constraint ?? null;
 		this._propagate = propagate;
 	}
 
 	unwrap() {
-		return this.type;
+		return this._genericType;
 	}
 
 	get propagate() {
@@ -498,7 +518,7 @@ export class GenerifiedType extends TypeExpression {
 	}
 
 	resolve(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return new GenerifiedType(this.type.resolve(namespace, options), this.generic.resolve());
+		return new GenerifiedType(this.type.resolve(namespace, options), this.generic);
 	}
 
 	unwrap() {
@@ -506,7 +526,7 @@ export class GenerifiedType extends TypeExpression {
 	}
 
 	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return `${this.type.print(namespace, options)}<${this.generic.print()}>`;
+		return this.type.rootPrint(namespace, options);
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase) {
@@ -515,10 +535,10 @@ export class GenerifiedType extends TypeExpression {
 
 	equals(type: TypeExpression): boolean {
 		if (type instanceof GenerifiedType) {
-			return type.type.equals(this.type) && type.generic.equals(this.generic);
+			return this.type.equals(type.type) && this.generic.equals(type.generic);
 		}
 
-		return false;
+		return this.type.equals(type);
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
@@ -532,13 +552,15 @@ export class GenericType extends TypeExpression {
 
 	constructor(identifier: string, replacedType?: TypeExpression) {
 		super();
+
 		this.identifier = identifier;
 		this.replacedType = replacedType;
 	}
 
 	equals(type: TypeExpression): boolean {
 		if (type instanceof GenericType) {
-			return type.identifier === this.identifier;
+			const genericType = type;
+			return this.identifier === genericType.identifier;
 		}
 
 		return false;
@@ -557,7 +579,7 @@ export class GenericType extends TypeExpression {
 	}
 
 	print(): string {
-		return `${this.identifier}`;
+		return this.identifier;
 	}
 }
 
@@ -567,11 +589,11 @@ export class NullableType extends BinaryType {
 	}
 
 	unwrap() {
-		return this.type;
+		return this.a;
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
-		return new NullableType(this.type.rewrap(type));
+		return new NullableType(this.a.rewrap(type));
 	}
 
 	get type() {
@@ -592,7 +614,7 @@ export class PromiseType extends TypeExpression {
 	}
 
 	unwrap() {
-		return this.type;
+		return this;
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
@@ -604,33 +626,16 @@ export class PromiseType extends TypeExpression {
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		// TODO: Optimize this check.
-		if (!namespace.hasSymbol("Promise")) {
-			return `Promise<${this.type.print(namespace, options)}>`;
+		if (this.type.equals(VoidType)) {
+			return "globalThis.Promise<void>";
 		}
 
 		return `globalThis.Promise<${this.type.print(namespace, options)}>`;
 	}
-}
 
-/**
- * A list of possible type conflicts.
- *
- * The format is CHILD_PARENT_CONFLICT so
- * ACCESSOR_PROPERTY_CONFLICT means there
- * is an accessor on a child class and a
- * property on the parent class, which is a
- * conflict.
- *
- * Starts at '1' because the value is often
- * used as truthy.
- */
-export enum ConflictType {
-	PROPERTY_NAME_CONFLICT = 1,
-	FIELD_NAME_CONFLICT,
-	FUNCTION_NAME_CONFLICT,
-	ACCESSOR_PROPERTY_CONFLICT,
-	PROPERTY_ACCESSOR_CONFLICT,
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+		return this.print(namespace, options);
+	}
 }
 
 /**
@@ -654,33 +659,29 @@ export class TypeConflict extends TypeExpression {
 		this.conflictType = conflictType;
 	}
 
-	rewrap(type: TypeExpression) {
+	rewrap(type: TypeExpression): TypeConflict {
 		return new TypeConflict(this.type.rewrap(type), this.conflictType);
 	}
 
-	unwrap() {
+	unwrap(): TypeExpression {
 		return this.type;
 	}
 
 	// TODO: This constant "true" is a remnant of the Anyified type.
-	equals() {
+	equals(): boolean {
 		return true;
 	}
 
 	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
-		throw new Error(
-			`Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-				namespace.namespace
-			}`,
-		);
+		const resolvedType = this.type.resolve(namespace, options);
+		const typeString = resolvedType.print(namespace, options);
+		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		throw new Error(
-			`Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-				namespace.namespace
-			}`,
-		);
+		const resolvedType = this.type.resolve(namespace, options);
+		const typeString = resolvedType.print(namespace, options);
+		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
 	}
 }
 
@@ -815,6 +816,7 @@ export class ArrayType extends TypeExpression {
 	}
 }
 
+// Common native types as constants
 export const ThisType = new NativeType("this");
 export const ObjectType = new NativeType("object");
 export const AnyType = new NativeType("any");

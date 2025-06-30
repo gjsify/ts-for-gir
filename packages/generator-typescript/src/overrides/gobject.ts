@@ -42,7 +42,7 @@ export function override(node: IntrospectedNamespace) {
 				propertyMember.noEmit();
 			}
 		}
-	} catch (error) {
+	} catch (_error) {
 		// Ignore if Property doesn't exist
 	}
 

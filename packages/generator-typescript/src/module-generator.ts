@@ -61,7 +61,21 @@ import {
 } from "@ts-for-gir/lib";
 // import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from "./npm-package.ts";
+import { override as overrideGLib } from "./overrides/glib.ts";
+import { override as overrideGObject } from "./overrides/gobject.ts";
 import { TemplateProcessor } from "./template-processor.ts";
+
+/**
+ * Module generator output format enum
+ */
+export enum ModuleGeneratorFormat {
+	/** Output as string array (default) */
+	StringArray = "string-array",
+	/** Output as single string */
+	String = "string",
+	/** Output as module declaration */
+	ModuleDeclaration = "module-declaration",
+}
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
 	log: Reporter;
@@ -70,6 +84,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	config: OptionsGeneration;
 	moduleTemplateProcessor: TemplateProcessor;
+	/** Output format for the generator */
+	private outputFormat: ModuleGeneratorFormat = ModuleGeneratorFormat.StringArray;
 
 	/**
 	 * @param _config The config to use without the override config
@@ -107,6 +123,59 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			girModule.transitiveDependencies,
 			this.config,
 		);
+	}
+
+	/**
+	 * Sets the output format for the generator
+	 */
+	setOutputFormat(format: ModuleGeneratorFormat): void {
+		this.outputFormat = format;
+	}
+
+	/**
+	 * Converts output based on the current format setting
+	 */
+	private formatOutput(output: string[]): string[] | string {
+		switch (this.outputFormat) {
+			case ModuleGeneratorFormat.String:
+			case ModuleGeneratorFormat.ModuleDeclaration:
+				return output.join("\n");
+			default:
+				return output;
+		}
+	}
+
+	/**
+	 * Wraps content in module declarations for ModuleDeclaration format
+	 */
+	private wrapInModuleDeclaration(content: string, girModule: GirModule): string {
+		const { namespace: name, version } = girModule.dependency;
+
+		const header = `
+/**
+ * ${name} ${version}
+ * 
+ * Generated from ${girModule.package_version.join(".")}
+ */
+`;
+
+		const moduleIdentifier = `gi://${name}`;
+		const versionedNamespaceIdentifier = `${name}${girModule.dependency.version.split(".")[0].replace(/[^A-z0-9_]/g, "_")}`;
+		const versionedModuleIdentifier = `${moduleIdentifier}?version=${girModule.dependency.version}`;
+
+		const [versionedModuleHeader, versionedModuleSuffix] = [
+			`declare module "${versionedModuleIdentifier}" {
+          namespace ${versionedNamespaceIdentifier} {`,
+			`};
+
+        export default ${versionedNamespaceIdentifier};
+      }`,
+		];
+		const moduleDefinition = `declare module "${moduleIdentifier}" {
+        export * from "${versionedModuleIdentifier}";
+      }`;
+
+		return [header, versionedModuleHeader, content, versionedModuleSuffix, moduleDefinition].join("\n\n");
 	}
 
 	generateClassCallback(node: IntrospectedClassCallback): string[] {
@@ -1566,7 +1635,37 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	async stringifyNamespace(node: GirModule): Promise<string | null> {
-		return (await this.generateNamespace(node))?.join("\n") ?? null;
+		const result = await this.generateNamespace(node);
+		return result?.join("\n") ?? null;
+	}
+
+	/**
+	 * Generates a namespace as a string (similar to DtsGenerator)
+	 */
+	async generateNamespaceString(node: GirModule): Promise<string | null> {
+		const result = await this.generateNamespace(node);
+		return result?.join("\n") ?? null;
+	}
+
+	/**
+	 * Generates a module declaration (similar to DtsModuleGenerator)
+	 */
+	async generateModuleDeclaration(node: GirModule): Promise<string | null> {
+		try {
+			this.log.debug(`Resolving the types of ${node.namespace}...`);
+
+			const result = await this.generateModule(node);
+			if (!result) {
+				this.log.reportGenerationFailure(node.namespace, new Error("Failed to generate module"), "Module Declaration");
+				return null;
+			}
+
+			const content = result.join("\n");
+			return this.wrapInModuleDeclaration(content, node);
+		} catch (err) {
+			this.log.reportGenerationFailure(node.namespace, err as Error, "Module Declaration");
+			return null;
+		}
 	}
 
 	async exportModuleIndexJS(): Promise<void> {
@@ -1665,28 +1764,30 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			return;
 		}
 
+		// Output is always an array now
+		const outputArray = output;
+
 		// Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
 		// E.g. used for GObject-2.0 to help define GObject classes in js;
 		// these aren't part of gi.
 		if (await this.moduleTemplateProcessor.exists(explicitTemplate)) {
 			const { append: appendExplicit, prepend: prependExplicit } =
 				await this.moduleTemplateProcessor.load(explicitTemplate);
-			output.unshift(prependExplicit);
-			output.push(appendExplicit);
+			outputArray.unshift(prependExplicit);
+			outputArray.push(appendExplicit);
 		}
 
 		const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-		output.unshift(prepend);
-		output.push(append);
+		outputArray.unshift(prepend);
+		outputArray.push(append);
 
 		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.write(output.join("\n"), this.config.outdir, target);
+			await this.moduleTemplateProcessor.write(outputArray.join("\n"), this.config.outdir, target);
 		} else {
-			this.log.log(output.join("\n"));
+			this.log.log(outputArray.join("\n"));
 		}
 	}
 
-	// TODO: @ewlsh Port `noAdvancedVariants` option from `DtsModuleGenerator` to `ModuleGenerator`?
 	async generateModule(girModule: GirModule): Promise<string[]> {
 		const out: string[] = [];
 
@@ -1696,6 +1797,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		if (this.options.promisify) {
 			promisifyNamespaceFunctions(girModule);
+		}
+
+		// Apply overrides BEFORE generating members so noEmit() takes effect
+		let overrideSuffix = "";
+		if (!this.options.noAdvancedVariants && girModule.namespace === "GLib") {
+			overrideSuffix = overrideGLib(girModule);
+			// The override function has already called noEmit() on the classes
+		} else if (girModule.namespace === "GObject") {
+			overrideSuffix = overrideGObject(girModule);
+			// The override function has already called noEmit() on the classes
 		}
 
 		if (girModule.members) {
@@ -1762,6 +1873,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			),
 		);
 
+		// Add the override suffix after generating members
+		if (overrideSuffix) {
+			out.push("", overrideSuffix);
+		}
+
 		return Promise.resolve(out);
 	}
 
@@ -1787,6 +1903,22 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		out.push(`export default ${girModule.namespace};`);
 
 		return Promise.resolve(out);
+	}
+
+	/**
+	 * Generates a module as a single string (DTS compatibility)
+	 */
+	async generateModuleString(girModule: GirModule): Promise<string> {
+		const result = await this.generateModule(girModule);
+		return result.join("\n");
+	}
+
+	/**
+	 * Generates a namespace as a single string (DTS compatibility)
+	 */
+	async generateNamespaceAsString(girModule: GirModule): Promise<string> {
+		const result = await this.generateNamespace(girModule);
+		return result.join("\n");
 	}
 
 	async exportModule(_registry: NSRegistry, girModule: GirModule) {

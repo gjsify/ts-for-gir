@@ -33,79 +33,111 @@ export function override(node: IntrospectedNamespace) {
 		const propertyMember = node.members.get("Property");
 		if (propertyMember) {
 			if (Array.isArray(propertyMember)) {
-				propertyMember.forEach((member) => member.noEmit());
-			} else {
+				propertyMember.forEach((m) => {
+					if ("noEmit" in m && typeof m.noEmit === "function") {
+						m.noEmit();
+					}
+				});
+			} else if ("noEmit" in propertyMember && typeof propertyMember.noEmit === "function") {
 				propertyMember.noEmit();
 			}
 		}
-	} catch (e) {
-		// Property might not exist in all GObject versions
-	}
-
-	try {
-		const signalDefMember = node.members.get("SignalDefinition");
-		if (signalDefMember) {
-			if (Array.isArray(signalDefMember)) {
-				signalDefMember.forEach((member) => member.noEmit());
-			} else {
-				signalDefMember.noEmit();
-			}
-		}
-	} catch (e) {
-		// SignalDefinition might not exist in all GObject versions
+	} catch (error) {
+		// Ignore if Property doesn't exist
 	}
 
 	return `
-// GJS OVERRIDES
+export type AdvGjsParameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;
 
-export function registerClass<
-    P extends {},
-    T extends new (...args: any[]) => P,
-    >(
-        klass: T
-    ): RegisteredClass<T, {}, []>;
+// __type__ forces all GTypes to not match structurally.
+export type AdvGType<T = unknown> = {
+    __type__(arg: never): T;
+    name: string;
+};
 
-export type Property<K extends ParamSpec> = K extends ParamSpec<infer T>
-    ? T
-    : any;
+// Extra interfaces used to help define GObject classes in js; these
+// aren't part of gi.
+export interface AdvSignalDefinition {
+    flags?: SignalFlags;
+    accumulator: number;
+    return_type?: AdvGType;
+    param_types?: AdvGType[];
+}
 
-export type Properties<
+export interface AdvMetaInfo<Props, Interfaces, Sigs> {
+    GTypeName?: string;
+    GTypeFlags?: TypeFlags;
+    Properties?: Props;
+    Signals?: Sigs;
+    Implements?: Interfaces;
+    CssName?: string;
+    Template?: Uint8Array | GLib.Bytes | string;
+    Children?: string[];
+    InternalChildren?: string[];
+    Requires?: Object[];
+}
+
+export type AdvProperty<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any;
+
+export type AdvProperties<
     Prototype extends {},
     Properties extends { [key: string]: ParamSpec }
-    > = Omit<{
-        [key in (keyof Properties | keyof Prototype)]: key extends keyof Prototype ? never :
-        key extends keyof Properties ? Property<Properties[key]> : never;
-    }, keyof Prototype>;
+> = Omit<{
+    [key in keyof Properties | keyof Prototype]: key extends keyof Prototype
+        ? never
+        : key extends keyof Properties
+          ? AdvProperty<Properties[key]>
+          : never;
+}, keyof Prototype>;
 
-export type SignalDefinition = {
-    param_types?: readonly GType[];
+export type AdvSignalSignatures = {
+    [signal: string]: (...args: any[]) => any;
+};
+
+export type AdvSignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer R
+    ? (source: Emitter, ...args: P) => R
+    : never;
+
+export function registerClass<P extends {}, T extends new (...args: any[]) => P>(
+    klass: T,
+): RegisteredClass<T, {}, []>
+
+export type AdvSignalDefinitionType = {
+    param_types?: readonly AdvGType[];
     [key: string]: any;
 };
 
-type UnionToIntersection<T> =
-    (T extends any ? (x: T) => any : never) extends
-    (x: infer R) => any ? R : never
+type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any ? R : never;
 
-type IFaces<Interfaces extends { $gtype: GType<any> }[]> = { [key in keyof Interfaces]: Interfaces[key] extends { $gtype: GType<infer I> } ? I : never };
+type IFaces<Interfaces extends { $gtype: AdvGType<any> }[]> = {
+    [key in keyof Interfaces]: Interfaces[key] extends { $gtype: AdvGType<infer I> } ? I : never;
+};
 
-export type RegisteredPrototype<P extends {}, Props extends { [key: string]: ParamSpec }, Interfaces extends any[]> =
-    Properties<P, SnakeToCamel<Props> & SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P;
+export type RegisteredPrototype<
+    P extends {},
+    Props extends { [key: string]: ParamSpec },
+    Interfaces extends any[],
+> = AdvProperties<P, SnakeToCamel<Props> & SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P;
 
-type SnakeToUnderscoreCase<S extends string> =
-    S extends \`\${infer T}-\${infer U}\` ? \`\${T}_\${SnakeToUnderscoreCase<U>}\` :
-    S extends \`\${infer T}\` ? \`\${T}\` :
-    never;
+type SnakeToUnderscoreCase<S extends string> = S extends \`\${infer T}-\${infer U}\`
+    ? \`\${T}_\${SnakeToUnderscoreCase<U>}\`
+    : S extends \`\${infer T}\`
+      ? \`\${T}\`
+      : never;
 
-type SnakeToCamelCase<S extends string> =
-    S extends \`\${infer T}-\${infer U}\` ? \`\${Lowercase<T>}\${SnakeToPascalCase<U>}\` :
-    S extends \`\${infer T}\` ? \`\${Lowercase<T>}\` :
-    SnakeToPascalCase<S>;
+type SnakeToCamelCase<S extends string> = S extends \`\${infer T}-\${infer U}\`
+    ? \`\${Lowercase<T>}\${SnakeToPascalCase<U>}\`
+    : S extends \`\${infer T}\`
+      ? \`\${Lowercase<T>}\`
+      : SnakeToPascalCase<S>;
 
-type SnakeToPascalCase<S extends string> =
-    string extends S ? string :
-    S extends \`\${infer T}-\${infer U}\` ? \`\${Capitalize<Lowercase<T>>}\${SnakeToPascalCase<U>}\` :
-    S extends \`\${infer T}\` ? \`\${Capitalize<Lowercase<T>>}\` :
-    never;
+type SnakeToPascalCase<S extends string> = string extends S
+    ? string
+    : S extends \`\${infer T}-\${infer U}\`
+      ? \`\${Capitalize<Lowercase<T>>}\${SnakeToPascalCase<U>}\`
+      : S extends \`\${infer T}\`
+        ? \`\${Capitalize<Lowercase<T>>}\`
+        : never;
 
 type SnakeToCamel<T> = { [P in keyof T as P extends string ? SnakeToCamelCase<P> : P]: T[P] };
 type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUnderscoreCase<P> : P]: T[P] };
@@ -117,23 +149,27 @@ type Init = { _init(...args: any[]): void };
 export type RegisteredClass<
     T extends Ctor,
     Props extends { [key: string]: ParamSpec },
-    Interfaces extends { $gtype: GType<any> }[]
-    > = T extends { prototype: infer P } ? {
-        $gtype: GType<RegisteredClass<T, Props, IFaces<Interfaces>>>;
-        new(...args: P extends Init ? Parameters<P["_init"]> : [void]): RegisteredPrototype<P, Props, IFaces<Interfaces>>;
-        prototype: RegisteredPrototype<P, Props, IFaces<Interfaces>>;
-    } : never;
+    Interfaces extends { $gtype: AdvGType<any> }[],
+> = T extends { prototype: infer P }
+    ? {
+          $gtype: AdvGType<RegisteredClass<T, Props, IFaces<Interfaces>>>;
+          new (
+              ...args: P extends Init ? Parameters<P['_init']> : [void]
+          ): RegisteredPrototype<P, Props, IFaces<Interfaces>>;
+          prototype: RegisteredPrototype<P, Props, IFaces<Interfaces>>;
+      }
+    : never;
 
 export function registerClass<
     T extends Ctor,
     Props extends { [key: string]: ParamSpec },
-    Interfaces extends { $gtype: GType }[],
+    Interfaces extends { $gtype: AdvGType }[],
     Sigs extends {
         [key: string]: {
-            param_types?: readonly GType[];
+            param_types?: readonly AdvGType[];
             [key: string]: any;
-        }
-    }
+        };
+    },
 >(
     options: {
         GTypeName?: string;
@@ -146,7 +182,7 @@ export function registerClass<
         Children?: string[];
         InternalChildren?: string[];
     },
-    klass: T
-): RegisteredClass<T, Props, Interfaces>;
+    klass: T,
+): RegisteredClass<T, Props, Interfaces>
 `;
 }

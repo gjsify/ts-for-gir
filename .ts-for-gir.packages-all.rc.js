@@ -16,6 +16,7 @@ export default {
     promisify: true,
     workspace: true,
     onlyVersionPrefix: false,
+    noAdvancedVariants: false,
     package: true,
     reporter: true
 }

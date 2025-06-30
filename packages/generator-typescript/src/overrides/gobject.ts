@@ -150,7 +150,7 @@ export type RegisteredClass<
     T extends Ctor,
     Props extends { [key: string]: ParamSpec },
     Interfaces extends { $gtype: AdvGType<any> }[],
-> = T extends { prototype: infer P }
+> = T extends { prototype: infer P extends {} }
     ? {
           $gtype: AdvGType<RegisteredClass<T, Props, IFaces<Interfaces>>>;
           new (

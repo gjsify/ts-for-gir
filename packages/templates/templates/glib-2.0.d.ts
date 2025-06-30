@@ -4,8 +4,8 @@
 // Variant parsing inspired by https://jamie.build/ slightly infamous JSON-in-TypeScript parsing.
 
 type CreateIndexType<Key extends string, Value extends any> =
-    Key extends \`s\` | \`o\` | \`g\` ? { [key: string]: Value } :
-    Key extends \`n\` | \`q\` | \`t\` | \`d\` | \`u\` | \`i\` | \`x\` | \`y\` ? { [key: number]: Value } : never;
+    Key extends 's' | 'o' | 'g' ? { [key: string]: Value } :
+    Key extends 'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y' ? { [key: number]: Value } : never;
 
 type VariantTypeError<T extends string> = { error: true } & T;
 
@@ -16,16 +16,16 @@ type $ParseDeepVariantDict<State extends string, Memo extends Record<string, any
     string extends State
     ? VariantTypeError<"$ParseDeepVariantDict: 'string' is not a supported type.">
     // Hitting the first '}' indicates the dictionary type is complete
-    : State extends \`}\${infer State}\`
+    : State extends `}${infer State}`
     ? [Memo, State]
     // This separates the key (basic type) from the rest of the remaining expression.
-    : State extends \`\${infer Key}\${''}\${infer State}\`
-    ? $ParseDeepVariantValue<State> extends [infer Value, \`\${infer State}\`]
-    ? State extends \`}\${infer State}\`
+    : State extends `${infer Key}${'}'}${infer State}`
+    ? $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`]
+    ? State extends `}${infer State}`
     ? [CreateIndexType<Key, Value>, State]
-    : VariantTypeError<\`$ParseDeepVariantDict encountered an invalid variant string: \${State} (1)\`>
-    : VariantTypeError<\`$ParseDeepVariantValue returned unexpected value for: \${State}\`>
-    : VariantTypeError<\`$ParseDeepVariantDict encountered an invalid variant string: \${State} (2)\`>;
+    : VariantTypeError<`$ParseDeepVariantDict encountered an invalid variant string: ${State} (1)`>
+    : VariantTypeError<`$ParseDeepVariantValue returned unexpected value for: ${State}`>
+    : VariantTypeError<`$ParseDeepVariantDict encountered an invalid variant string: ${State} (2)`>;
 
 /**
  * Handles parsing values within a tuple (e.g. (vvv)) where v is any possible variant type string.
@@ -33,15 +33,15 @@ type $ParseDeepVariantDict<State extends string, Memo extends Record<string, any
 type $ParseDeepVariantArray<State extends string, Memo extends any[] = []> =
     string extends State
     ? VariantTypeError<"$ParseDeepVariantArray: 'string' is not a supported type.">
-    : State extends \`)\${infer State}\`
+    : State extends `)${infer State}`
     ? [Memo, State]
-    : $ParseDeepVariantValue<State> extends [infer Value, \`\${infer State}\`]
-    ? State extends \`\${infer NextValue})\${infer NextState}\`
+    : $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`]
+    ? State extends `${infer NextValue})${infer NextState}`
     ? $ParseDeepVariantArray<State, [...Memo, Value]>
-    : State extends \`)\${infer State}\`
+    : State extends `)${infer State}`
     ? [[...Memo, Value], State]
-    : VariantTypeError<\`1: $ParseDeepVariantArray encountered an invalid variant string: \${State}\`>
-    : VariantTypeError<\`2: $ParseDeepVariantValue returned unexpected value for: \${State}\`>;
+    : VariantTypeError<`1: $ParseDeepVariantArray encountered an invalid variant string: ${State}`>
+    : VariantTypeError<`2: $ParseDeepVariantValue returned unexpected value for: ${State}`>;
 
 /**
  * Handles parsing {kv} without an 'a' prefix (key-value pair) where k is a basic type
@@ -50,15 +50,15 @@ type $ParseDeepVariantArray<State extends string, Memo extends any[] = []> =
 type $ParseDeepVariantKeyValue<State extends string, Memo extends any[] = []> =
     string extends State
     ? VariantTypeError<"$ParseDeepVariantKeyValue: 'string' is not a supported type.">
-    : State extends \`}\${infer State}\`
+    : State extends `}${infer State}`
     ? [Memo, State]
-    : State extends \`\${infer Key}\${''}\${infer State}\`
-    ? $ParseDeepVariantValue<State> extends [infer Value, \`\${infer State}\`]
-    ? State extends \`}\${infer State}\`
+    : State extends `${infer Key}${'}'}${infer State}`
+    ? $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`]
+    ? State extends `}${infer State}`
     ? [[...Memo, $ParseVariant<Key>, Value], State]
-    : VariantTypeError<\`$ParseDeepVariantKeyValue encountered an invalid variant string: \${State} (1)\`>
-    : VariantTypeError<\`$ParseDeepVariantKeyValue returned unexpected value for: \${State}\`>
-    : VariantTypeError<\`$ParseDeepVariantKeyValue encountered an invalid variant string: \${State} (2)\`>;
+    : VariantTypeError<`$ParseDeepVariantKeyValue encountered an invalid variant string: ${State} (1)`>
+    : VariantTypeError<`$ParseDeepVariantKeyValue returned unexpected value for: ${State}`>
+    : VariantTypeError<`$ParseDeepVariantKeyValue encountered an invalid variant string: ${State} (2)`>;
 
 /**
  * Handles parsing any variant 'value' or base unit.
@@ -77,33 +77,33 @@ type $ParseDeepVariantKeyValue<State extends string, Memo extends any[] = []> =
 type $ParseDeepVariantValue<State extends string> =
     string extends State
     ? unknown
-    : State extends \`\${'s' | 'o' | 'g'}\${infer State}\`
+    : State extends `${'s' | 'o' | 'g'}${infer State}`
     ? [string, State]
-    : State extends \`\${'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y'}\${infer State}\`
+    : State extends `${'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y'}${infer State}`
     ? [number, State]
-    : State extends \`b\${infer State}\`
+    : State extends `b${infer State}`
     ? [boolean, State]
-    : State extends \`v\${infer State}\`
+    : State extends `v${infer State}`
     ? [Variant, State]
-    : State extends \`\${'h' | '?'}\${infer State}\`
+    : State extends `${'h' | '?'}${infer State}`
     ? [unknown, State]
-    : State extends \`(\${infer State}\`
+    : State extends `(${infer State}`
     ? $ParseDeepVariantArray<State>
-    : State extends \`a{\${infer State}\`
+    : State extends `a{${infer State}`
     ? $ParseDeepVariantDict<State>
-    : State extends \`{\${infer State}\`
+    : State extends `{${infer State}`
     ? $ParseDeepVariantKeyValue<State>
-    : State extends \`ay\${infer State}\` ?
+    : State extends `ay${infer State}` ?
     [Uint8Array, State]
-    : State extends \`m\${infer State}\`
-    ? $ParseDeepVariantValue<State> extends [infer Value, \`\${infer State}\`]
+    : State extends `m${infer State}`
+    ? $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`]
       ? [Value | null, State]
-      : VariantTypeError<\`$ParseDeepVariantValue encountered an invalid variant string: \${State} (3)\`>
-    : State extends \`a\${infer State}\` ?
-    $ParseDeepVariantValue<State> extends [infer Value, \`\${infer State}\`] ?
+      : VariantTypeError<`$ParseDeepVariantValue encountered an invalid variant string: ${State} (3)`>
+    : State extends `a${infer State}` ?
+    $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`] ?
     [Value[], State]
-    : VariantTypeError<\`$ParseDeepVariantValue encountered an invalid variant string: \${State} (1)\`>
-    : VariantTypeError<\`$ParseDeepVariantValue encountered an invalid variant string: \${State} (2)\`>;
+    : VariantTypeError<`$ParseDeepVariantValue encountered an invalid variant string: ${State} (1)`>
+    : VariantTypeError<`$ParseDeepVariantValue encountered an invalid variant string: ${State} (2)`>;
 
 type $ParseDeepVariant<T extends string> =
     $ParseDeepVariantValue<T> extends infer Result
@@ -122,9 +122,9 @@ type $VariantTypeToString<T extends VariantType> = T extends VariantType<infer S
 
 type $ToTuple<T extends readonly VariantType[]> =
     T extends [] ? '' :
-    T extends [VariantType<infer S>] ? \`\${S}\` :
+    T extends [VariantType<infer S>] ? `${S}` :
     T extends [VariantType<infer S>, ...infer U] ? (
-        U extends [...VariantType[]] ? \`\${S}\${$ToTuple<U>}\` : never) :
+        U extends [...VariantType[]] ? `${S}${$ToTuple<U>}` : never) :
     '?';
 
 type $ElementSig<E extends any> =
@@ -145,14 +145,14 @@ export class Variant<S extends string = any> {
         children: typeof child_type extends VariantType<any>
           ? Variant<$VariantTypeToString<typeof child_type>>[]
           : Variant<C>[]
-      ): Variant<\`a\${C}\`>;
+      ): Variant<`a${C}`>;
     static new_boolean(value: boolean): Variant<'b'>;
     static new_byte(value: number): Variant<'y'>;
     static new_bytestring(string: Uint8Array | string): Variant<'ay'>;
     static new_bytestring_array(strv: string[]): Variant<'aay'>;
     static new_dict_entry(key: Variant, value: Variant): Variant<'{vv}'>;
     static new_double(value: number): Variant<'d'>;
-    static new_fixed_array<C extends string = 'a?'>(element_type: VariantType<C>, elements: Variant<$VariantTypeToString<typeof element_type>>[] | null, n_elements: number, element_size: number): Variant<\`a\${C}\`>;
+    static new_fixed_array<C extends string = 'a?'>(element_type: VariantType<C>, elements: Variant<$VariantTypeToString<typeof element_type>>[] | null, n_elements: number, element_size: number): Variant<`a${C}`>;
     static new_from_bytes<C extends string>(type: VariantType<C>, bytes: Bytes | Uint8Array, trusted: boolean): Variant<C>;
     static new_from_data<C extends string>(type: VariantType<C>, data: Uint8Array | string, trusted: boolean, user_data?: any | null): Variant<C>;
     static new_handle(value: number): Variant<'h'>;
@@ -165,7 +165,7 @@ export class Variant<S extends string = any> {
     static new_signature(signature: string): Variant<'g'>;
     static new_string(string: string): Variant<'s'>;
     static new_strv(strv: string[]): Variant<'as'>;
-    static new_tuple<Items extends (ReadonlyArray<VariantType> | readonly [VariantType])>(children: Items): Variant<\`(\${$ToTuple<Items>})\`>;
+    static new_tuple<Items extends (ReadonlyArray<VariantType> | readonly [VariantType])>(children: Items): Variant<`(${$ToTuple<Items>})`>;
     static new_uint16(value: number): Variant<'q'>;
     static new_uint32(value: number): Variant<'u'>;
     static new_uint64(value: number): Variant<'t'>;
@@ -269,10 +269,10 @@ export class VariantType<S extends string = any> {
     constructor(copy: VariantType<S>);
     // Constructors
     static ["new"]<S extends string>(type_string: S): VariantType<S>;
-    static new_array<S extends string>(element: VariantType<S>): VariantType<\`a\${S}\`>;
-    static new_dict_entry<K extends string, V extends string>(key: VariantType<K>, value: VariantType<V>): VariantType<\`{\${K}\${V}}\`>;
-    static new_maybe<S extends string>(element: VariantType<S>): VariantType<\`m\${S}\`>;
-    static new_tuple<Items extends (ReadonlyArray<VariantType> | readonly [VariantType])>(items: Items): VariantType<\`(\${$ToTuple<Items>})\`>;
+    static new_array<S extends string>(element: VariantType<S>): VariantType<`a${S}`>;
+    static new_dict_entry<K extends string, V extends string>(key: VariantType<K>, value: VariantType<V>): VariantType<`{${K}${V}}`>;
+    static new_maybe<S extends string>(element: VariantType<S>): VariantType<`m${S}`>;
+    static new_tuple<Items extends (ReadonlyArray<VariantType> | readonly [VariantType])>(items: Items): VariantType<`(${$ToTuple<Items>})`>;
     // Members
     copy(): VariantType<S>;
     dup_string(): string;

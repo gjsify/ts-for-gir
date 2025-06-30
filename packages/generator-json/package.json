@@ -1,0 +1,48 @@
+{
+	"name": "@ts-for-gir/generator-json",
+	"version": "4.0.0-beta.25",
+	"description": "JSON generator for ts-for-gir",
+	"main": "src/index.ts",
+	"module": "src/index.ts",
+	"type": "module",
+	"engines": {
+		"node": ">=18"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"check": "tsc --noEmit"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gjsify/ts-for-gir.git"
+	},
+	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"files": [
+		"src"
+	],
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/gjsify/ts-for-gir/issues"
+	},
+	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
+	"keywords": [
+		"gjs",
+		"typescript",
+		"generate",
+		"gir",
+		"gobject-introspection",
+		"json"
+	],
+	"devDependencies": {
+		"@types/node": "^24.0.4",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"@gi.ts/parser": "workspace:^",
+		"@ts-for-gir/generator-base": "workspace:^",
+		"@ts-for-gir/lib": "workspace:^",
+		"@ts-for-gir/reporter": "workspace:^"
+	}
+}

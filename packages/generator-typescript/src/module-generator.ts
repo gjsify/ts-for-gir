@@ -75,6 +75,8 @@ export enum ModuleGeneratorFormat {
 	String = "string",
 	/** Output as module declaration */
 	ModuleDeclaration = "module-declaration",
+	/** Output as inline DTS format */
+	Inline = "inline",
 }
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
@@ -139,6 +141,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		switch (this.outputFormat) {
 			case ModuleGeneratorFormat.String:
 			case ModuleGeneratorFormat.ModuleDeclaration:
+			case ModuleGeneratorFormat.Inline:
 				return output.join("\n");
 			default:
 				return output;
@@ -1664,6 +1667,44 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			return this.wrapInModuleDeclaration(content, node);
 		} catch (err) {
 			this.log.reportGenerationFailure(node.namespace, err as Error, "Module Declaration");
+			return null;
+		}
+	}
+
+	/**
+	 * Generates inline DTS content (similar to DtsInlineGenerator)
+	 */
+	async generateInline(node: GirModule): Promise<string | null> {
+		try {
+			this.log.debug(`Resolving the types of ${node.namespace}...`);
+
+			const { namespace: name, version } = node.dependency;
+
+			const header = `
+/**
+ * ${name} ${version}
+ * 
+ * Generated from ${node.package_version.join(".")}
+ */
+`;
+			const base = `
+
+`;
+
+			const result = await this.generateModule(node);
+			if (!result) {
+				this.log.reportGenerationFailure(node.namespace, new Error("Failed to generate inline content"), "DTS Inline");
+				return null;
+			}
+
+			const content = result.join("\n");
+			const output = [header, base, content].join("\n\n");
+
+			this.log.debug(`Printing ${node.namespace}...`);
+
+			return output;
+		} catch (err) {
+			this.log.reportGenerationFailure(node.namespace, err as Error, "DTS Inline");
 			return null;
 		}
 	}

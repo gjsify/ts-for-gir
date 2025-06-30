@@ -1,6 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { type Generator, GeneratorType } from "@ts-for-gir/generator-base";
 import { HtmlDocGenerator } from "@ts-for-gir/generator-html-doc";
+import { JsonDefinitionGenerator } from "@ts-for-gir/generator-json";
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import {
 	configureConflictsReporter,
@@ -48,6 +49,9 @@ export class GenerationHandler {
 				break;
 			case GeneratorType.HTML_DOC:
 				this.generator = new HtmlDocGenerator(config, this.registry);
+				break;
+			case GeneratorType.JSON:
+				this.generator = new JsonDefinitionGenerator(config, this.registry);
 				break;
 			default:
 				throw new Error("Unknown Generator");

@@ -17,4 +17,5 @@ export default {
     workspace: true,
     onlyVersionPrefix: false,
     package: true,
+    reporter: true
 }

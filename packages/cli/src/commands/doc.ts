@@ -4,7 +4,14 @@
 
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, type GirModule, Logger, NSRegistry } from "@ts-for-gir/lib";
+import {
+	configureConflictsReporter,
+	ERROR_NO_MODULES_FOUND,
+	type GirModule,
+	Logger,
+	NSRegistry,
+	TypeIdentifier,
+} from "@ts-for-gir/lib";
 import type { Argv, BuilderCallback } from "yargs";
 import { docOptions, getOptionsGeneration, load } from "../config.ts";
 import { GenerationHandler } from "../generation-handler.ts";
@@ -30,6 +37,13 @@ const handler = async (args: ConfigFlags) => {
 
 	const generateConfig = getOptionsGeneration(config);
 	const registry = new NSRegistry(); // TODO: Use singleton
+
+	// Configure reporters BEFORE parsing to capture all problems
+	if (generateConfig.reporter) {
+		TypeIdentifier.configureReporter(generateConfig.reporter, generateConfig.reporterOutput);
+		configureConflictsReporter(generateConfig.reporter, generateConfig.reporterOutput);
+	}
+
 	const moduleLoader = new ModuleLoader(generateConfig, registry);
 	const { keep } = await moduleLoader.getModulesResolved(
 		config.modules,

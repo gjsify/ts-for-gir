@@ -1,12 +1,19 @@
 import type { Generator } from "@ts-for-gir/generator-base";
-import { DependencyManager, type GirModule, Logger, type NSRegistry, type OptionsGeneration } from "@ts-for-gir/lib";
+import {
+	DependencyManager,
+	type GirModule,
+	type NSRegistry,
+	type OptionsGeneration,
+	Reporter,
+	ReporterService,
+} from "@ts-for-gir/lib";
 import { ModuleGenerator } from "./module-generator.ts";
 //import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from "./npm-package.ts";
 import { TemplateProcessor } from "./template-processor.ts";
 
 export class TypeDefinitionGenerator implements Generator {
-	readonly log: Logger;
+	readonly log: Reporter;
 	//readonly moduleGenerator!: ModuleGenerator
 	readonly config: OptionsGeneration;
 	readonly registry: NSRegistry;
@@ -16,7 +23,19 @@ export class TypeDefinitionGenerator implements Generator {
 	constructor(config: OptionsGeneration, registry: NSRegistry) {
 		this.config = config;
 		this.registry = registry;
-		this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name);
+		this.log = new Reporter(
+			this.config.verbose,
+			TypeDefinitionGenerator.name,
+			this.config.reporter,
+			this.config.reporterOutput,
+		);
+
+		// Register with reporter service if reporting is enabled
+		if (this.config.reporter) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter(TypeDefinitionGenerator.name, this.log);
+		}
+
 		this.dependencyManager = DependencyManager.getInstance(this.config);
 		// this.packageData = new PackageDataParser(this.config)
 	}

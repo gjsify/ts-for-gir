@@ -19,6 +19,7 @@ TypeScript type definition generator for GObject Introspection (GIR) files. Gene
 - `@ts-for-gir/cli` - Main CLI tool, entry point for users
 - `@gi.ts/parser` - GIR XML parser (uses different namespace)
 - `@ts-for-gir/lib` - Core library with shared functionality
+- `@ts-for-gir/reporter` - Reporting system for problems and statistics with dependency injection
 - `@ts-for-gir/generator-base` - Base classes for generators
 - `@ts-for-gir/generator-typescript` - TypeScript definition generator
 - `@ts-for-gir/generator-html-doc` - HTML documentation generator

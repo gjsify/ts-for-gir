@@ -1,20 +1,65 @@
-import { join } from "node:path";
+import { createRequire } from "node:module";
+import { dirname, join } from "node:path";
 import type { LibraryVersion } from "./library-version.ts";
-import { readJsonFile } from "./utils/files.ts";
+
+const require = createRequire(import.meta.url);
 
 export const COMMENT_REG_EXP = /\/\*.*\*\//g;
 export const PARAM_REG_EXP = /[0-9a-zA-Z_]*:/g;
 export const OPT_PARAM_REG_EXP = /[0-9a-zA-Z_]*\?:/g;
 export const NEW_LINE_REG_EXP = /[\n\r]+/g;
 
-export const PACKAGE = await readJsonFile<{
+/**
+ * Package information interface for workspace root package.json
+ */
+interface WorkspacePackage {
 	name: string;
 	version: string;
 	description: string;
 	license: string;
 	homepage: string;
 	author: string;
-}>(join(process.cwd(), "./package.json"));
+}
+
+/**
+ * Resolves the workspace root package.json path
+ * Uses require.resolve to find the correct path regardless of execution context
+ */
+function resolveWorkspacePackageJson(): string {
+	try {
+		// Try to resolve from the workspace root by going up from this package
+		// @ts-for-gir/lib -> ts-for-gir root
+		return require.resolve("../../../package.json");
+	} catch {
+		// Fallback: try to resolve from current package's package.json location
+		try {
+			const currentPackageJson = require.resolve("@ts-for-gir/lib/package.json");
+			return join(dirname(dirname(currentPackageJson)), "package.json");
+		} catch {
+			throw new Error("Unable to resolve workspace package.json path");
+		}
+	}
+}
+
+/**
+ * Reads and parses the workspace package.json file synchronously
+ * Contains version and metadata shared across all workspace packages
+ */
+function readWorkspacePackageSync(): WorkspacePackage {
+	try {
+		const packagePath = resolveWorkspacePackageJson();
+		// Use dynamic import to avoid top-level await in constants
+		const { readFileSync } = require("node:fs");
+		const content = readFileSync(packagePath, "utf-8");
+		return JSON.parse(content) as WorkspacePackage;
+	} catch (error) {
+		const message = error instanceof Error ? error.message : "Unknown error";
+		throw new Error(`Failed to read workspace package.json: ${message}`);
+	}
+}
+
+// Read package information once at module load
+export const PACKAGE = readWorkspacePackageSync();
 
 export const APP_NAME = "ts-for-gir";
 export const APP_USAGE = "TypeScript type definition generator for GObject introspection GIR files";

@@ -1,3 +1,4 @@
+import { ConsoleReporter } from "@ts-for-gir/reporter";
 import type { FormatGenerator } from "../generators/generator.ts";
 import {
 	FunctionType,
@@ -17,7 +18,6 @@ import type {
 	GirRecordElement,
 	GirVirtualMethodElement,
 } from "../index.ts";
-import { Logger } from "../logger.ts";
 import type {
 	ClassDefinition,
 	ClassMember,
@@ -45,7 +45,7 @@ import type { IntrospectedFunctionParameter } from "./parameter.ts";
 import { IntrospectedField, IntrospectedProperty } from "./property.ts";
 import { IntrospectedSignal } from "./signal.ts";
 
-const log = new Logger(true, "gir/introspected-classes");
+const log = new ConsoleReporter(true, "gir/introspected-classes", true);
 
 /**
  * Represents a signal with metadata
@@ -1106,7 +1106,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 			IntrospectedClass.parseVirtualMethods(element, clazz, options);
 			IntrospectedClass.parseStaticFunctions(element, clazz, options);
 		} catch (e) {
-			log.error(`Failed to parse class: ${clazz.name} in ${ns.namespace}.`, e);
+			log.reportParsingFailure(clazz.name, "class", ns.namespace, e as Error);
 		}
 	}
 
@@ -1402,7 +1402,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			IntrospectedInterface.parseInterfaceVirtualMethods(element, iface, options);
 			IntrospectedInterface.parseInterfaceStaticFunctions(element, iface, options);
 		} catch (e) {
-			log.error(`Failed to parse interface: ${iface.name} in ${namespace.namespace}.`, e);
+			log.reportParsingFailure(iface.name, "interface", namespace.namespace, e as Error);
 		}
 	}
 

@@ -1,3 +1,4 @@
+export * from "./analyze.ts";
 export * from "./copy.ts";
 export * from "./doc.ts";
 export * from "./generate.ts";

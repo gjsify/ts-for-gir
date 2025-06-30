@@ -1,4 +1,5 @@
 import { GirDirection } from "@gi.ts/parser";
+import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import { FilterBehavior } from "../gir/data.ts";
 import type { IntrospectedFunction } from "../gir/function.ts";
@@ -15,11 +16,52 @@ import { IntrospectedFunctionParameter } from "../gir/parameter.ts";
 import { IntrospectedField, IntrospectedProperty } from "../gir/property.ts";
 import type { TypeIdentifier } from "../gir.ts";
 import { AnyType, ArrayType, ConflictType, NeverType, TypeConflict } from "../gir.ts";
-import { Logger } from "../logger.ts";
 import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
-const log = new Logger(true, "gir/utils/conflicts");
+// Global reporter configuration for conflicts
+let conflictsReporterInstance: ConsoleReporter | null = null;
+let conflictsReporterConfig: { enabled: boolean; output: string } = {
+	enabled: false,
+	output: "ts-for-gir-report.json",
+};
+
+function configureConflictsReporterInternal(enabled: boolean, output: string = "ts-for-gir-report.json") {
+	conflictsReporterConfig = { enabled, output };
+
+	// Reset instance to force recreation with new config
+	if (conflictsReporterInstance) {
+		conflictsReporterInstance = null;
+	}
+
+	// Create and register the global reporter if enabled
+	if (enabled) {
+		conflictsReporterInstance = new ConsoleReporter(true, "conflicts", enabled, output);
+		const reporterService = ReporterService.getInstance();
+		reporterService.registerReporter("conflicts", conflictsReporterInstance);
+	}
+}
+
+function getConflictsReporterInstance(): ConsoleReporter {
+	if (!conflictsReporterInstance) {
+		const config = conflictsReporterConfig;
+		conflictsReporterInstance = new ConsoleReporter(true, "conflicts", config.enabled, config.output);
+
+		// Register with reporter service if reporting is enabled
+		if (config.enabled) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter("conflicts", conflictsReporterInstance);
+		}
+	}
+	return conflictsReporterInstance;
+}
+
+const log = getConflictsReporterInstance();
+
+// Export function to configure conflicts reporter
+export function configureConflictsReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
+	configureConflictsReporterInternal(enabled, output);
+}
 
 // Constants for GObject methods that always conflict
 const GOBJECT_RESERVED_METHODS = ["connect", "connect_after", "emit"] as const;
@@ -76,10 +118,20 @@ export function filterFunctionConflict<
 
 			if (conflictResult.shouldOmit) {
 				// Always omit methods that conflict with properties/fields
-				log.warn(`Omitting ${next.name} due to field or property conflict.`);
+				log.reportTypeConflict(
+					"field_property",
+					next.name,
+					next.parent?.namespace.namespace || "unknown",
+					"Field/property name conflict",
+				);
 			} else if (conflictResult.hasConflict) {
 				if (isInheritedMethods) {
-					log.warn(`Omitting ${next.name} due to parent method conflict.`);
+					log.reportTypeConflict(
+						"method",
+						next.name,
+						next.parent?.namespace.namespace || "unknown",
+						"Parent method conflict",
+					);
 				} else {
 					const neverFunction = createNeverFunction(next, base, conflictResult.message);
 					prev.push(next, neverFunction as T);
@@ -386,7 +438,12 @@ function checkPropertyConflicts<T extends IntrospectedClassMember | Introspected
 					element instanceof IntrospectedProperty &&
 					!isSubtypeOf(ns, thisType, resolved_parent.getType(), element.type, p.type)
 				) {
-					log.warn(`>> Conflict in ${element.parent?.name}.${element.name} with ${p.parent?.name}.${p.name}.`);
+					log.reportTypeConflict(
+						"general",
+						element.name,
+						element.parent?.namespace.namespace || "unknown",
+						`Conflict with ${p.parent?.name}.${p.name}`,
+					);
 					return ConflictType.PROPERTY_NAME_CONFLICT;
 				}
 			}

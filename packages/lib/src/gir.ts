@@ -20,8 +20,8 @@ export enum ConflictType {
 	PROPERTY_ACCESSOR_CONFLICT,
 }
 
+import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
-import { Logger } from "./logger.ts";
 import type { OptionsBase } from "./types/index.ts";
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
 
@@ -45,15 +45,53 @@ export abstract class TypeExpression {
 }
 
 export class TypeIdentifier extends TypeExpression {
-	readonly log: Logger;
 	readonly name: string;
 	readonly namespace: string;
+
+	// Global reporter configuration and instance
+	private static reporterConfig: { enabled: boolean; output: string } = {
+		enabled: false,
+		output: "ts-for-gir-report.json",
+	};
+	private static globalReporter: ConsoleReporter | null = null;
+
+	static configureReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
+		TypeIdentifier.reporterConfig = { enabled, output };
+
+		// Reset global reporter to force recreation with new config
+		if (TypeIdentifier.globalReporter) {
+			TypeIdentifier.globalReporter = null;
+		}
+
+		// Create and register the global reporter if enabled
+		if (enabled) {
+			TypeIdentifier.globalReporter = new ConsoleReporter(true, "TypeIdentifier", enabled, output);
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
+		}
+	}
+
+	private static getReporter(): ConsoleReporter {
+		if (!TypeIdentifier.globalReporter) {
+			const config = TypeIdentifier.reporterConfig;
+			TypeIdentifier.globalReporter = new ConsoleReporter(true, "TypeIdentifier", config.enabled, config.output);
+
+			if (config.enabled) {
+				const reporterService = ReporterService.getInstance();
+				reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
+			}
+		}
+		return TypeIdentifier.globalReporter;
+	}
+
+	get log(): ConsoleReporter {
+		return TypeIdentifier.getReporter();
+	}
 
 	constructor(name: string, namespace: string) {
 		super();
 		this.name = name;
 		this.namespace = namespace;
-		this.log = new Logger(true, `TypeIdentifier(${this.namespace}.${name})`);
 	}
 
 	equals(type: TypeExpression): boolean {
@@ -117,14 +155,22 @@ export class TypeIdentifier extends TypeExpression {
 		if (!cb && !resolved_name && !c_resolved_name) {
 			// Don't warn if a missing import is at fault, this will be dealt with later.
 			if (namespace.namespace === ns.namespace) {
-				this.log.warn(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`);
+				this.log.reportTypeResolutionWarning(
+					this.name,
+					this.namespace,
+					`Attempting to fall back on c:type inference for ${ns.namespace}.${name}`,
+					`Fallback to c:type inference attempted`,
+				);
 			}
 
 			[cb, corrected_name] = ns.findClassCallback(`${ns.namespace}${name}`);
 
 			if (cb) {
-				this.log.warn(
-					`Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
+				this.log.reportTypeResolutionWarning(
+					this.name,
+					this.namespace,
+					`Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}`,
+					`Successfully resolved using c:type fallback`,
 				);
 			}
 		}
@@ -138,17 +184,30 @@ export class TypeIdentifier extends TypeExpression {
 		} else if (resolved_name) {
 			return new TypeIdentifier(resolved_name, ns.namespace);
 		} else if (c_resolved_name) {
-			this.log.warn(
-				`Fall back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
+			this.log.reportTypeResolutionWarning(
+				this.name,
+				this.namespace,
+				`Fall back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}`,
+				`Using c:type as fallback for type resolution`,
 			);
 
 			return new TypeIdentifier(c_resolved_name, ns.namespace);
 		} else if (namespace.namespace === ns.namespace) {
-			this.log.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`);
+			this.log.reportTypeResolutionError(
+				this.name,
+				ns.namespace,
+				`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`,
+				`Type resolution failed within the same namespace`,
+			);
 			return null;
 		}
 
-		this.log.error(`Type ${this.name} could not be resolved in ${namespace.namespace} ${namespace.version}`);
+		this.log.reportTypeResolutionError(
+			this.name,
+			this.namespace,
+			`Type ${this.name} could not be resolved in ${namespace.namespace} ${namespace.version}`,
+			`Failed to resolve type during namespace processing`,
+		);
 		return null;
 	}
 

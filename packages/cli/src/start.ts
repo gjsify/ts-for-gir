@@ -2,7 +2,7 @@
 import yargs, { type CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { copy, doc, generate, list } from "./commands/index.ts";
+import { analyze, copy, doc, generate, list } from "./commands/index.ts";
 import { appName, usage } from "./config.ts";
 
 void yargs(hideBin(process.argv))
@@ -10,6 +10,7 @@ void yargs(hideBin(process.argv))
 	.strict()
 	.usage(usage)
 	// TODO: Fix this
+	.command(analyze as unknown as CommandModule)
 	.command(generate as unknown as CommandModule)
 	.command(list as unknown as CommandModule)
 	.command(copy as unknown as CommandModule)

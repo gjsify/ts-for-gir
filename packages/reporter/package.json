@@ -1,7 +1,7 @@
 {
-	"name": "@ts-for-gir/lib",
+	"name": "@ts-for-gir/reporter",
 	"version": "4.0.0-beta.25",
-	"description": "Typescript .d.ts generator from GIR for gjs",
+	"description": "Problem reporting and comprehensive generation analysis for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
 	"type": "module",
@@ -33,27 +33,14 @@
 		"generate",
 		"gir",
 		"gobject-introspection",
-		"gnome",
-		"gtk",
-		"glib",
-		"gobject",
-		"dts",
-		"type definitions"
+		"reporter",
+		"analysis"
 	],
 	"devDependencies": {
-		"@types/ejs": "^3.1.5",
-		"@types/lodash": "^4.17.18",
 		"@types/node": "^24.0.4",
-		"rimraf": "^6.0.1",
 		"typescript": "^5.8.3"
 	},
 	"dependencies": {
-		"@gi.ts/parser": "workspace:^",
-		"@ts-for-gir/reporter": "workspace:^",
-		"@ts-for-gir/templates": "workspace:^",
-		"colorette": "^2.0.20",
-		"ejs": "^3.1.10",
-		"glob": "^11.0.3",
-		"lodash": "^4.17.21"
+		"colorette": "^2.0.20"
 	}
 }

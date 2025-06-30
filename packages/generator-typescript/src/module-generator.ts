@@ -40,7 +40,6 @@ import {
 	IntrospectedStaticClassFunction,
 	IntrospectedVirtualClassFunction,
 	isInvalid,
-	Logger,
 	mergeDescs,
 	NativeType,
 	type NSRegistry,
@@ -49,6 +48,8 @@ import {
 	printGirDocComment,
 	promisifyFunctions,
 	promisifyNamespaceFunctions,
+	Reporter,
+	ReporterService,
 	removeClassModule,
 	removeNamespace,
 	resolveDirectedType,
@@ -63,7 +64,7 @@ import { NpmPackage } from "./npm-package.ts";
 import { TemplateProcessor } from "./template-processor.ts";
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
-	log: Logger;
+	log: Reporter;
 	dependencyManager: DependencyManager;
 	// packageData?: PackageDataParser
 
@@ -78,7 +79,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		this.config = config;
 
-		this.log = new Logger(this.config.verbose, ModuleGenerator.name);
+		this.log = new Reporter(
+			this.config.verbose,
+			ModuleGenerator.name,
+			this.config.reporter,
+			this.config.reporterOutput,
+		);
+
+		// Register with reporter service if reporting is enabled
+		if (this.config.reporter) {
+			const reporterService = ReporterService.getInstance();
+			reporterService.registerReporter(`${ModuleGenerator.name}(${namespace.packageName})`, this.log);
+		}
 		this.dependencyManager = DependencyManager.getInstance(this.config);
 		// this.packageData = new PackageDataParser(this.config)
 		const girModule = namespace;

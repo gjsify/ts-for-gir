@@ -128,6 +128,18 @@ export const options: { [name: string]: Options } = {
 		default: defaults.package,
 		normalize: true,
 	},
+	reporter: {
+		type: "boolean",
+		description: "Enable generation problem reporter and create a detailed report file",
+		default: defaults.reporter,
+		normalize: true,
+	},
+	reporterOutput: {
+		type: "string",
+		description: "Output file path for the reporter (default: ts-for-gir-report.json)",
+		default: defaults.reporterOutput,
+		normalize: true,
+	},
 };
 
 /**
@@ -152,6 +164,8 @@ export const generateOptions = {
 	noPrettyPrint: options.noPrettyPrint,
 	noAdvancedVariants: options.noAdvancedVariants,
 	package: options.package,
+	reporter: options.reporter,
+	reporterOutput: options.reporterOutput,
 };
 
 export const listOptions = {
@@ -182,4 +196,97 @@ export const docOptions = {
 	verbose: options.verbose,
 	ignoreVersionConflicts: options.ignoreVersionConflicts,
 	configName: options.configName,
+	reporter: options.reporter,
+	reporterOutput: options.reporterOutput,
+};
+
+export const analyzeOptions = {
+	reportFile: {
+		type: "string" as const,
+		alias: "f",
+		description: "Path to the report file to analyze",
+		demandOption: true,
+		normalize: true,
+	},
+	severity: {
+		type: "string" as const,
+		alias: "s",
+		description: "Filter by problem severity (debug, info, warning, error, critical)",
+		array: true,
+		choices: ["debug", "info", "warning", "error", "critical"],
+	},
+	category: {
+		type: "string" as const,
+		alias: "c",
+		description: "Filter by problem category",
+		array: true,
+		choices: [
+			"type_resolution",
+			"parsing_failure",
+			"generation_failure",
+			"type_conflict",
+			"dependency_issue",
+			"configuration",
+			"io_error",
+			"general",
+		],
+	},
+	namespace: {
+		type: "string" as const,
+		alias: "n",
+		description: "Filter by namespace/module",
+		array: true,
+	},
+	type: {
+		type: "string" as const,
+		alias: "t",
+		description: "Filter by specific type name",
+		array: true,
+	},
+	top: {
+		type: "number" as const,
+		description: "Show top N most problematic items",
+		default: 10,
+	},
+	export: {
+		type: "string" as const,
+		alias: "e",
+		description: "Export filtered results to file",
+		normalize: true,
+	},
+	format: {
+		type: "string" as const,
+		description: "Output format (json, csv, table)",
+		choices: ["json", "csv", "table"],
+		default: "table",
+	},
+	detailed: {
+		type: "boolean" as const,
+		alias: "d",
+		description: "Show detailed problem information",
+		default: false,
+	},
+	summary: {
+		type: "boolean" as const,
+		description: "Show summary statistics only",
+		default: false,
+	},
+	search: {
+		type: "string" as const,
+		description: "Search for problems containing specific text",
+	},
+	since: {
+		type: "string" as const,
+		description: "Show problems from a specific time range (ISO date)",
+	},
+	until: {
+		type: "string" as const,
+		description: "Show problems until a specific time (ISO date)",
+	},
+	verbose: {
+		type: "boolean" as const,
+		alias: "v",
+		description: "Switch on/off the verbose mode",
+		default: false,
+	},
 };

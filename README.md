@@ -43,6 +43,13 @@ npx @ts-for-gir/cli generate Gtk-4.0
 
 For detailed CLI options and advanced usage, see the [CLI documentation](/packages/cli/README.md).
 
+**Debug Generation Issues:**
+If you encounter type generation problems, enable the reporter and use the analyze command:
+```bash
+npx @ts-for-gir/cli generate Gtk-4.0 --reporter
+npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
+```
+
 ## Example Projects
 
 The repository includes numerous example projects that demonstrate how to use the generated TypeScript definitions with various bundlers and libraries. These examples serve as great starting points for your own GJS applications.
@@ -80,9 +87,10 @@ All pre-generated NPM packages can be found on [gjsify/types](https://github.com
 
 ts-for-gir consists of several packages:
 
-- [`@ts-for-gir/cli`](/packages/cli) - Command-line interface for generating TypeScript definitions
+- [`@ts-for-gir/cli`](/packages/cli) - Command-line interface for generating TypeScript definitions and analyzing reports
 - [`@gi.ts/parser`](/packages/parser) - Parser for GObject Introspection XML files
 - [`@ts-for-gir/lib`](/packages/lib) - Core library for processing GIR data
+- [`@ts-for-gir/reporter`](/packages/reporter) - Reporting system for problems and statistics with dependency injection
 - [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) - TypeScript definition generator
 - [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator (experimental)
 

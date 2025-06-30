@@ -10,3 +10,6 @@ export * from './command-definition.ts'
 
 // Command type definitions
 export * from './commands.ts'
+
+// Report analysis types
+export * from './report-types.ts'

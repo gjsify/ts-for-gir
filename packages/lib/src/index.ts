@@ -1,3 +1,5 @@
+// Re-export from the reporter package for compatibility
+export * from "@ts-for-gir/reporter";
 export * from "./constants.ts";
 export * from "./dependency-manager.ts";
 export * from "./formatters/index.ts";

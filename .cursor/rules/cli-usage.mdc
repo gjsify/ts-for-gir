@@ -10,33 +10,33 @@ alwaysApply: false
 ### Generate Types
 ```bash
 # Generate specific module
-npx @ts-for-gir/cli generate Gtk-4.0
+yarn ts-for-gir generate Gtk-4.0
 
 # Generate multiple modules with reporter enabled
-npx @ts-for-gir/cli generate Gtk-4.0 Gio-2.0 --reporter --reporterOutput=./debug-report.json
+yarn ts-for-gir generate Gtk-4.0 Gio-2.0 --reporter --reporterOutput=./debug-report.json
 ```
 
 ### Debug & Error Analysis (AI-Optimized)
 ```bash
 # CRITICAL FOR AI AGENTS: Use analyze command to debug type generation issues
-npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
+yarn ts-for-gir analyze -f ./ts-for-gir-report.json
 
 # Show only critical errors and type resolution failures
-npx @ts-for-gir/cli analyze -f ./report.json --severity critical error --category type_resolution
+yarn ts-for-gir analyze -f ./report.json --severity critical error --category type_resolution
 
 # Export specific problems for detailed AI analysis
-npx @ts-for-gir/cli analyze -f ./report.json --search "Unable to resolve" --export unresolved-types.json
+yarn ts-for-gir analyze -f ./report.json --search "Unable to resolve" --export unresolved-types.json
 
 # Find problems in specific namespaces/modules
-npx @ts-for-gir/cli analyze -f ./report.json --namespace Gtk --format table
+yarn ts-for-gir analyze -f ./report.json --namespace Gtk --format table
 
 # Analyze specific problematic types
-npx @ts-for-gir/cli analyze -f ./report.json --type time_t gpointer --format json
+yarn ts-for-gir analyze -f ./report.json --type time_t gpointer --format json
 ```
 
 ### List Available Modules
 ```bash
-npx @ts-for-gir/cli list
+yarn ts-for-gir list
 ```
 
 ## AI Error Detection Workflow
@@ -44,20 +44,20 @@ npx @ts-for-gir/cli list
 **Step 1: Generate with Reporter**
 Always enable the reporter when generating types to capture detailed problem information:
 ```bash
-npx @ts-for-gir/cli generate [modules] --reporter --verbose
+yarn ts-for-gir generate [modules] --reporter --verbose
 ```
 
 **Step 2: Analyze Report File**
 Use the analyze command to identify patterns and specific issues:
 ```bash
 # Quick overview of all problems
-npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
+yarn ts-for-gir analyze -f ./ts-for-gir-report.json
 
 # Focus on critical issues only
-npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json --severity critical error --top 20
+yarn ts-for-gir analyze -f ./ts-for-gir-report.json --severity critical error --top 20
 
 # Export problematic types for AI processing
-npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json --category type_resolution --export type-issues.json
+yarn ts-for-gir analyze -f ./ts-for-gir-report.json --category type_resolution --export type-issues.json
 ```
 
 **Step 3: Pattern Analysis**
@@ -105,16 +105,16 @@ export default {
 **Useful Analyze Command Combinations for AI:**
 ```bash
 # Get overview statistics
-npx @ts-for-gir/cli analyze -f ./report.json --format summary
+yarn ts-for-gir analyze -f ./report.json --format summary
 
 # Export all critical issues as JSON for programmatic analysis
-npx @ts-for-gir/cli analyze -f ./report.json --severity critical --format json --export critical-issues.json
+yarn ts-for-gir analyze -f ./report.json --severity critical --format json --export critical-issues.json
 
 # Find all unresolved types across modules
-npx @ts-for-gir/cli analyze -f ./report.json --search "Unable to resolve" --format table
+yarn ts-for-gir analyze -f ./report.json --search "Unable to resolve" --format table
 
 # Analyze top problematic namespaces
-npx @ts-for-gir/cli analyze -f ./report.json --top 10 --format json
+yarn ts-for-gir analyze -f ./report.json --top 10 --format json
 ```
 
 ## Generation Targets

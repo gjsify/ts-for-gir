@@ -44,7 +44,6 @@ export interface GenerationReport {
 	metadata: {
 		version: string;
 		generatedAt: Date;
-		reporterVersion: string;
 	};
 	/** Aggregated statistics */
 	statistics: ReportStatistics;

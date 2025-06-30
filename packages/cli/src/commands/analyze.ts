@@ -125,7 +125,7 @@ const displaySummary = (report: ReportData, args: AnalyzeCommandArgs): void => {
 
 	// Basic info
 	console.log(`Generated: ${report.metadata.generatedAt}`);
-	console.log(`Reporter Version: ${report.metadata.reporterVersion}`);
+	console.log(`Version: ${report.metadata.version}`);
 	console.log(`Total Problems: ${statistics.totalProblems}`);
 
 	if (statistics.durationMs) {

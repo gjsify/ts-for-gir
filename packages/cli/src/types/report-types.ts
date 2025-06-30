@@ -25,7 +25,6 @@ export interface ReportStatistics {
 export interface ReportMetadata {
 	version: string;
 	generatedAt: string | Date;
-	reporterVersion: string;
 }
 
 export interface ReportData {

@@ -9,6 +9,9 @@ import { ReporterBase } from "./reporter-base.ts";
 import type { GenerationReport, ProblemEntry, ReporterConfig, ReportStatistics } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
 
+// Use the same version as the workspace - all packages should have identical versions
+const REPORTER_VERSION = "4.0.0-beta.25";
+
 /**
  * Console Reporter implementation with full logging capabilities
  */
@@ -475,9 +478,9 @@ export class ConsoleReporter extends ReporterBase {
 
 		return {
 			metadata: {
-				version: "1.0.0",
+				version: REPORTER_VERSION,
 				generatedAt: new Date(),
-				reporterVersion: "1.0.0",
+				reporterVersion: REPORTER_VERSION,
 			},
 			statistics,
 			problems: [...this.problems],

@@ -74,3 +74,37 @@ export interface DocCommandArgs extends BaseCommandArgs {
     /** Skip prompts for library version selection when multiple versions are detected */
     ignoreVersionConflicts: boolean
 }
+
+/**
+ * Arguments for the analyze command
+ */
+export interface AnalyzeCommandArgs {
+    /** Path to the report file to analyze */
+    reportFile: string
+    /** Filter by problem severity (debug, info, warning, error, critical) */
+    severity?: string[]
+    /** Filter by problem category */
+    category?: string[]
+    /** Filter by namespace/module */
+    namespace?: string[]
+    /** Filter by specific type name */
+    type?: string[]
+    /** Show top N most problematic items */
+    top?: number
+    /** Export filtered results to file */
+    export?: string
+    /** Output format (json, csv, table) */
+    format?: string
+    /** Show detailed problem information */
+    detailed?: boolean
+    /** Show summary statistics only */
+    summary?: boolean
+    /** Search for problems containing specific text */
+    search?: string
+    /** Show problems from a specific time range (ISO date) */
+    since?: string
+    /** Show problems until a specific time (ISO date) */
+    until?: string
+    /** Switch on/off the verbose mode */
+    verbose?: boolean
+}

@@ -62,6 +62,7 @@
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-typescript": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
+		"@ts-for-gir/reporter": "workspace:^",
 		"@ts-for-gir/templates": "workspace:^",
 		"colorette": "^2.0.20",
 		"cosmiconfig": "^9.0.0",

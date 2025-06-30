@@ -5,21 +5,74 @@ alwaysApply: false
 ---
 # CLI Usage and Commands
 
-## Basic Generation
+## Core Commands
+
+### Generate Types
 ```bash
 # Generate specific module
 npx @ts-for-gir/cli generate Gtk-4.0
 
-# Generate multiple modules
-npx @ts-for-gir/cli generate Gtk-4.0 Gio-2.0 GLib-2.0
+# Generate multiple modules with reporter enabled
+npx @ts-for-gir/cli generate Gtk-4.0 Gio-2.0 --reporter --reporterOutput=./debug-report.json
 ```
 
+### Debug & Error Analysis (AI-Optimized)
+```bash
+# CRITICAL FOR AI AGENTS: Use analyze command to debug type generation issues
+npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
+
+# Show only critical errors and type resolution failures
+npx @ts-for-gir/cli analyze -f ./report.json --severity critical error --category type_resolution
+
+# Export specific problems for detailed AI analysis
+npx @ts-for-gir/cli analyze -f ./report.json --search "Unable to resolve" --export unresolved-types.json
+
+# Find problems in specific namespaces/modules
+npx @ts-for-gir/cli analyze -f ./report.json --namespace Gtk --format table
+
+# Analyze specific problematic types
+npx @ts-for-gir/cli analyze -f ./report.json --type time_t gpointer --format json
+```
+
+### List Available Modules
+```bash
+npx @ts-for-gir/cli list
+```
+
+## AI Error Detection Workflow
+
+**Step 1: Generate with Reporter**
+Always enable the reporter when generating types to capture detailed problem information:
+```bash
+npx @ts-for-gir/cli generate [modules] --reporter --verbose
+```
+
+**Step 2: Analyze Report File**
+Use the analyze command to identify patterns and specific issues:
+```bash
+# Quick overview of all problems
+npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
+
+# Focus on critical issues only
+npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json --severity critical error --top 20
+
+# Export problematic types for AI processing
+npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json --category type_resolution --export type-issues.json
+```
+
+**Step 3: Pattern Analysis**
+The analyze command provides AI-friendly structured output for:
+- Most problematic types across modules
+- Common error categories and patterns
+- Namespace-specific issues
+- Type resolution failures
+
 ## Important CLI Options
+- `--reporter`: Enable problem reporting (ESSENTIAL for AI debugging)
+- `--reporterOutput`: Specify report file path
 - `--outdir`: Output directory (default: `@types`)
 - `--girDirectories`: Additional GIR search paths
-- `--moduleType`: `esm` or `commonjs`
-- `--packageVersion`: Version for generated packages
-- `--verbose`: Detailed output
+- `--verbose`: Detailed output for debugging
 - `--configName`: Use specific config file
 
 ## Config Files
@@ -36,7 +89,32 @@ export default {
   packageVersion: '4.0.0-beta.25',
   npmScope: '@girs',
   package: true, // generate package.json
+  reporter: true, // ENABLE for AI analysis
+  reporterOutput: './analysis-report.json'
 }
+```
+
+## AI Analysis Patterns
+
+**Common Error Categories to Focus On:**
+- `type_resolution`: Unresolved type references
+- `parsing_failure`: GIR parsing issues  
+- `generation_error`: TypeScript generation problems
+- `validation_error`: Type validation failures
+
+**Useful Analyze Command Combinations for AI:**
+```bash
+# Get overview statistics
+npx @ts-for-gir/cli analyze -f ./report.json --format summary
+
+# Export all critical issues as JSON for programmatic analysis
+npx @ts-for-gir/cli analyze -f ./report.json --severity critical --format json --export critical-issues.json
+
+# Find all unresolved types across modules
+npx @ts-for-gir/cli analyze -f ./report.json --search "Unable to resolve" --format table
+
+# Analyze top problematic namespaces
+npx @ts-for-gir/cli analyze -f ./report.json --top 10 --format json
 ```
 
 ## Generation Targets

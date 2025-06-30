@@ -175,6 +175,8 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
 		case "gdouble":
 		case "gssize":
 		case "gsize":
+		case "time_t": // C standard library time type (seconds since Unix epoch)
+		case "ulong": // C standard library unsigned long type
 			return NumberType;
 		case "gboolean":
 			return BooleanType;

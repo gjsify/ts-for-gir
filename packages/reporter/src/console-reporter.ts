@@ -6,6 +6,7 @@
 import { writeFile } from "node:fs/promises";
 import { blue, gray, green, red, yellow, yellowBright } from "colorette";
 import { REPORTER_VERSION } from "./constants.ts";
+import { analyzeError, analyzeWarning } from "./message-analyzer.ts";
 import { ReporterBase } from "./reporter-base.ts";
 import type { GenerationReport, ProblemEntry, ReporterConfig, ReportStatistics } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
@@ -65,42 +66,18 @@ export class ConsoleReporter extends ReporterBase {
 	public warn(txt: string, ...args: unknown[]): void {
 		// Analyze message for specific problem types
 		if (this.config.enabled) {
-			// Type resolution warnings
-			if (
-				txt.includes("Attempting to fall back on c:type inference") ||
-				txt.includes("Falling back on c:type inference")
-			) {
-				const matches = txt.match(/for\s+(\w+)\.(\w+)/);
-				if (matches) {
-					const [, namespace, typeName] = matches;
-					this.reportTypeResolutionWarning(
-						typeName,
-						namespace,
-						txt,
-						args.length > 0 ? JSON.stringify(args) : undefined,
-					);
-					return;
-				}
+			const analyzed = analyzeWarning(txt, args);
+			if (analyzed) {
+				this.addProblem(
+					analyzed.severity,
+					analyzed.category,
+					txt,
+					analyzed.details,
+					analyzed.typeName,
+					analyzed.namespace || this.config.moduleName,
+					analyzed.metadata,
+				);
 			}
-			// Type conflicts
-			else if (txt.includes("Type conflict")) {
-				const conflictMatch = txt.match(/Type conflict \((\w+)\):\s*(\w+)/);
-				if (conflictMatch) {
-					const [, conflictType, elementName] = conflictMatch;
-					const detailsMatch = txt.match(/Conflict with (.+)$/);
-					const details = detailsMatch ? detailsMatch[1] : undefined;
-					this.reportTypeConflict(conflictType, elementName, this.config.moduleName, details);
-					return;
-				}
-			}
-
-			// Fall back to general warning
-			this.addProblem(
-				ProblemSeverity.WARNING,
-				ProblemCategory.GENERAL,
-				txt,
-				args.length > 0 ? JSON.stringify(args) : undefined,
-			);
 		}
 
 		if (!this.config.verbose) {
@@ -121,55 +98,18 @@ export class ConsoleReporter extends ReporterBase {
 	public error(txt: string, ...args: unknown[]): void {
 		// Analyze message for specific problem types
 		if (this.config.enabled) {
-			// Type resolution errors
-			if (txt.includes("Unable to resolve type") || txt.includes("could not be resolved")) {
-				const unresolvedMatch = txt.match(/Unable to resolve type (\w+) in same namespace (\w+)!/);
-				if (unresolvedMatch) {
-					const [, typeName, namespace] = unresolvedMatch;
-					this.reportTypeResolutionError(typeName, namespace, txt, args.length > 0 ? JSON.stringify(args) : undefined);
-					return;
-				}
-
-				const couldNotResolveMatch = txt.match(/Type (\w+) could not be resolved in (\w+)/);
-				if (couldNotResolveMatch) {
-					const [, typeName, context] = couldNotResolveMatch;
-					const namespaceMatch = context.match(/(\w+)\s+[\d.]+/);
-					const namespace = namespaceMatch ? namespaceMatch[1] : context;
-					this.reportTypeResolutionError(typeName, namespace, txt, args.length > 0 ? JSON.stringify(args) : undefined);
-					return;
-				}
+			const analyzed = analyzeError(txt, args);
+			if (analyzed) {
+				this.addProblem(
+					analyzed.severity,
+					analyzed.category,
+					txt,
+					analyzed.details,
+					analyzed.typeName,
+					analyzed.namespace || this.config.moduleName,
+					analyzed.metadata,
+				);
 			}
-			// Parsing failures
-			else if (txt.includes("Failed to parse")) {
-				const parseMatch = txt.match(/Failed to parse (\w+):\s*(.+)/);
-				if (parseMatch) {
-					const [, itemType, itemName] = parseMatch;
-					this.reportParsingFailure(
-						itemName,
-						itemType,
-						this.config.moduleName,
-						args.length > 0 ? String(args[0]) : txt,
-					);
-					return;
-				}
-			}
-			// Generation failures
-			else if (txt.includes("Failed to generate")) {
-				const genMatch = txt.match(/Failed to generate (.+):\s*(.+)/);
-				if (genMatch) {
-					const [, context, namespace] = genMatch;
-					this.reportGenerationFailure(namespace, args.length > 0 ? String(args[0]) : txt, context);
-					return;
-				}
-			}
-
-			// Fall back to general error
-			this.addProblem(
-				ProblemSeverity.ERROR,
-				ProblemCategory.GENERAL,
-				txt,
-				args.length > 0 ? JSON.stringify(args) : undefined,
-			);
 		}
 
 		const formattedTxt = this.prependInfo(txt, "ERROR:");

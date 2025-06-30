@@ -3,17 +3,13 @@
  * and creates comprehensive reports across the entire generation process.
  */
 
-import { readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
-import { join, resolve } from "node:path";
+import { resolve } from "node:path";
 import { blue, green, red, yellow } from "colorette";
+import { REPORTER_VERSION } from "./constants.ts";
 import type { ReporterBase } from "./reporter-base.ts";
 import type { GenerationReport, ProblemEntry, ReportStatistics } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
-
-// Read version from package.json (same as all workspace packages)
-const PACKAGE = JSON.parse(readFileSync(join(process.cwd(), "./package.json"), "utf-8")) as { version: string };
-const REPORTER_VERSION = PACKAGE.version;
 
 /**
  * Centralized service for managing multiple Reporter instances

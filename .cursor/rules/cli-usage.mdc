@@ -1,5 +1,5 @@
 ---
-description: CLI usage and generation commands
+description: ts-for-git CLI usage, generation and analyze commands
 globs: 
 alwaysApply: false
 ---

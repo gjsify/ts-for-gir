@@ -13686,6 +13686,7 @@ __metadata:
     "@ts-for-gir/generator-html-doc": "workspace:^"
     "@ts-for-gir/generator-typescript": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
+    "@ts-for-gir/reporter": "workspace:^"
     "@ts-for-gir/templates": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/inquirer": "npm:^9.0.8"

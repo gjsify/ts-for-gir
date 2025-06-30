@@ -26,15 +26,65 @@ Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.m
 - **Full type check**: `yarn check:types`
 - **Regeneration**: `yarn test:types` to regenerate and verify types
 
+## Advanced Problem Analysis with Reporter System
+
+### Generate Analysis Reports
+**Generate detailed reports during type generation:**
+```bash
+# Generate types with comprehensive problem tracking
+yarn ts-for-gir generate --reporter --reporterOutput=./generation-report.json
+
+# Analyze specific problematic modules
+yarn ts-for-gir generate gtk-4.0 --reporter --reporterOutput=./gtk4-issues.json
+```
+
+### Analyze Generated Reports
+**Use the analyze command for in-depth problem investigation:**
+```bash
+# Basic analysis of generation problems
+yarn ts-for-gir analyze -f ./ts-for-gir-report.json
+
+# Filter by error severity
+yarn ts-for-gir analyze -f ./generation-report.json --severity error
+
+# Focus on specific problem categories
+yarn ts-for-gir analyze -f ./generation-report.json --category "Type Resolution"
+
+# Search for specific type-related issues
+yarn ts-for-gir analyze -f ./generation-report.json --search "GtkWidget"
+
+# Export filtered results for further analysis
+yarn ts-for-gir analyze -f ./generation-report.json --category "Type Conflicts" --export ./conflicts.csv
+```
+
+### Common Analysis Patterns
+**Identify frequent type generation issues:**
+```bash
+# Find most common unresolved types
+yarn ts-for-gir analyze -f ./report.json --category "Type Resolution" --export table
+
+# Detect type conflicts across namespaces
+yarn ts-for-gir analyze -f ./report.json --search "conflict" --severity warning
+
+# Analyze parsing failures
+yarn ts-for-gir analyze -f ./report.json --category "Parsing" --format json
+```
+
 ## Diagnostic Workflow
 
-### 1. Change Analysis
+### 1. Report-Driven Analysis
+- **Generate comprehensive reports**: `yarn ts-for-gir generate --reporter`
+- **Analyze problem patterns**: `yarn ts-for-gir analyze -f ./ts-for-gir-report.json`
+- **Identify high-frequency issues**: Focus on statistics section for common problems
+- **Export targeted data**: Use CSV/JSON exports for external analysis tools
+
+### 2. Change Analysis
 - Examine git diff in `types/`: `cd types && git diff | cat`
 - Compare generated .d.ts files with corresponding GIR XML files in `girs/`
 - Identify changed signatures/interfaces and trace back to GIR source
 - Use [gir-xml-format](mdc:.cursor/rules/gir-xml-format.mdc) reference to understand GIR structure
 
-### 2. Recent Changes Investigation
+### 3. Recent Changes Investigation
 - Review last 10 commits: `git log --oneline -10 | cat`
 - Focus on commits affecting:
   - `packages/generator-typescript/` (TypeScript generator)
@@ -42,25 +92,53 @@ Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.m
   - `packages/lib/` (core transformation logic)
   - `packages/templates/` (generation templates)
 
-### 3. Root Cause Analysis
+### 4. Root Cause Analysis
 - Correlate error patterns with generator changes
 - Check GIR parsing logic against actual XML structure
 - Examine type mapping and signature transformation
 - Verify inheritance, generics, and namespace handling
+- **Use reporter data**: Cross-reference with analyze command results for systematic investigation
 
 ## Fix Implementation
 
-### Error Resolution
-- Make targeted fixes in generator/parser logic
-- Test specific GIR constructs causing issues
-- Cross-reference with GIR XML files for accuracy
-- Consider similar patterns that might be affected
+### Error Resolution with Reporter Integration
+- **Pre-fix analysis**: Generate baseline report before making changes
+- **Make targeted fixes** in generator/parser logic based on reporter insights
+- **Post-fix validation**: Generate new report and compare with baseline
+- **Regression testing**: Use analyze command to verify no new issues introduced
 
 ### Validation Process
-1. **Regenerate**: `yarn test:types | cat`
-2. **Targeted test**: `yarn workspace @girs/[package] run test | cat`
-3. **Full validation**: `yarn check:types | cat`
-4. **Integration check**: Verify original error is resolved
+1. **Generate baseline**: `yarn ts-for-gir generate --reporter --reporterOutput=./before.json`
+2. **Make fixes**: Implement targeted changes based on analysis
+3. **Regenerate**: `yarn test:types | cat`
+4. **Compare reports**: `yarn ts-for-gir analyze -f ./after.json` vs baseline
+5. **Targeted test**: `yarn workspace @girs/[package] run test | cat`
+6. **Full validation**: `yarn check:types | cat`
+7. **Integration check**: Verify original error is resolved
+
+## Reporter-Enhanced Troubleshooting
+
+### Problem Categories in Reports
+- **Type Resolution**: Unresolved types, fallback inferences, missing imports
+- **Type Conflicts**: Namespace collisions, inheritance issues
+- **Parsing Failures**: GIR XML parsing errors, malformed structures
+- **Generation Failures**: Template processing errors, output generation issues
+
+### Advanced Filtering Examples
+```bash
+# Find all Gtk-related type resolution problems
+yarn ts-for-gir analyze -f ./report.json --search "Gtk" --category "Type Resolution"
+
+# Analyze memory leaks or performance issues
+yarn ts-for-gir analyze -f ./report.json --search "memory\|performance" --format table
+
+# Export problematic namespaces for review
+yarn ts-for-gir analyze -f ./report.json --severity error --export ./critical-issues.json
+
+# Compare reports across generation runs
+yarn ts-for-gir analyze -f ./report-v1.json --export ./v1-summary.csv
+yarn ts-for-gir analyze -f ./report-v2.json --export ./v2-summary.csv
+```
 
 ## Common Issues
 
@@ -69,11 +147,12 @@ Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.m
 - **Generics**: Parameter type handling issues
 - **Imports/Exports**: Namespace resolution problems
 - **Template Logic**: Generator conditional/string processing errors
+- **Cross-Module Dependencies**: Use reporter to identify dependency resolution failures
 
 ## Quality Assurance
 
-**Before**: Document error, verify failing tests, understand impact scope
-**During**: Minimal targeted changes, test incrementally, maintain compatibility  
-**After**: All checks pass, original error resolved, no regressions
+**Before**: Generate report, document error patterns, verify failing tests, understand impact scope
+**During**: Minimal targeted changes, incremental testing with reporter validation, maintain compatibility  
+**After**: All checks pass, reporter shows issue resolution, original error resolved, no regressions
 
-Use GIR XML files in `girs/` to validate that generated TypeScript definitions accurately represent the original GObject introspection data structure and bindings.
+Use GIR XML files in `girs/` to validate that generated TypeScript definitions accurately represent the original GObject introspection data structure and bindings. Leverage the reporter system for systematic problem identification and resolution tracking.

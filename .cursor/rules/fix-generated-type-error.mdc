@@ -26,55 +26,20 @@ Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.m
 - **Full type check**: `yarn check:types`
 - **Regeneration**: `yarn test:types` to regenerate and verify types
 
-## Advanced Problem Analysis with Reporter System
+## CLI Commands for Error Analysis
 
-### Generate Analysis Reports
-**Generate detailed reports during type generation:**
-```bash
-# Generate types with comprehensive problem tracking
-yarn ts-for-gir generate --reporter --reporterOutput=./generation-report.json
+**For comprehensive CLI usage, filtering options, and command examples, see [cli-usage](mdc:.cursor/rules/cli-usage.mdc).**
 
-# Analyze specific problematic modules
-yarn ts-for-gir generate gtk-4.0 --reporter --reporterOutput=./gtk4-issues.json
-```
-
-### Analyze Generated Reports
-**Use the analyze command for in-depth problem investigation:**
-```bash
-# Basic analysis of generation problems
-yarn ts-for-gir analyze -f ./ts-for-gir-report.json
-
-# Filter by error severity
-yarn ts-for-gir analyze -f ./generation-report.json --severity error
-
-# Focus on specific problem categories
-yarn ts-for-gir analyze -f ./generation-report.json --category "Type Resolution"
-
-# Search for specific type-related issues
-yarn ts-for-gir analyze -f ./generation-report.json --search "GtkWidget"
-
-# Export filtered results for further analysis
-yarn ts-for-gir analyze -f ./generation-report.json --category "Type Conflicts" --export ./conflicts.csv
-```
-
-### Common Analysis Patterns
-**Identify frequent type generation issues:**
-```bash
-# Find most common unresolved types
-yarn ts-for-gir analyze -f ./report.json --category "Type Resolution" --export table
-
-# Detect type conflicts across namespaces
-yarn ts-for-gir analyze -f ./report.json --search "conflict" --severity warning
-
-# Analyze parsing failures
-yarn ts-for-gir analyze -f ./report.json --category "Parsing" --format json
-```
+Key error analysis workflow:
+1. **Generate with reporter**: `yarn ts-for-gir generate --reporter`
+2. **Analyze reports**: `yarn ts-for-gir analyze -f ./ts-for-gir-report.json`
+3. **Apply targeted filters**: Use severity, category, and search filters as documented in cli-usage
 
 ## Diagnostic Workflow
 
 ### 1. Report-Driven Analysis
-- **Generate comprehensive reports**: `yarn ts-for-gir generate --reporter`
-- **Analyze problem patterns**: `yarn ts-for-gir analyze -f ./ts-for-gir-report.json`
+- **Generate comprehensive reports**: Enable reporter during generation
+- **Analyze problem patterns**: Use analyze command with appropriate filters (see [cli-usage](mdc:.cursor/rules/cli-usage.mdc))
 - **Identify high-frequency issues**: Focus on statistics section for common problems
 - **Export targeted data**: Use CSV/JSON exports for external analysis tools
 
@@ -108,15 +73,15 @@ yarn ts-for-gir analyze -f ./report.json --category "Parsing" --format json
 - **Regression testing**: Use analyze command to verify no new issues introduced
 
 ### Validation Process
-1. **Generate baseline**: `yarn ts-for-gir generate --reporter --reporterOutput=./before.json`
+1. **Generate baseline**: Create report before changes
 2. **Make fixes**: Implement targeted changes based on analysis
 3. **Regenerate**: `yarn test:types | cat`
-4. **Compare reports**: `yarn ts-for-gir analyze -f ./after.json` vs baseline
+4. **Compare reports**: Analyze before/after differences
 5. **Targeted test**: `yarn workspace @girs/[package] run test | cat`
 6. **Full validation**: `yarn check:types | cat`
 7. **Integration check**: Verify original error is resolved
 
-## Reporter-Enhanced Troubleshooting
+## Error-Specific Analysis Patterns
 
 ### Problem Categories in Reports
 - **Type Resolution**: Unresolved types, fallback inferences, missing imports
@@ -124,21 +89,12 @@ yarn ts-for-gir analyze -f ./report.json --category "Parsing" --format json
 - **Parsing Failures**: GIR XML parsing errors, malformed structures
 - **Generation Failures**: Template processing errors, output generation issues
 
-### Advanced Filtering Examples
-```bash
-# Find all Gtk-related type resolution problems
-yarn ts-for-gir analyze -f ./report.json --search "Gtk" --category "Type Resolution"
-
-# Analyze memory leaks or performance issues
-yarn ts-for-gir analyze -f ./report.json --search "memory\|performance" --format table
-
-# Export problematic namespaces for review
-yarn ts-for-gir analyze -f ./report.json --severity error --export ./critical-issues.json
-
-# Compare reports across generation runs
-yarn ts-for-gir analyze -f ./report-v1.json --export ./v1-summary.csv
-yarn ts-for-gir analyze -f ./report-v2.json --export ./v2-summary.csv
-```
+### Error-Fix Specific Workflows
+Focus on these patterns when analyzing generation errors:
+- **Cross-module dependencies**: Identify dependency resolution failures
+- **GIR parsing issues**: Compare with XML structure for accuracy
+- **Template processing errors**: Check conditional logic and string processing
+- **Type mapping failures**: Verify TypeScript mapping from GIR XML
 
 ## Common Issues
 

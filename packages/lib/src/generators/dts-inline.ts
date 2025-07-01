@@ -6,6 +6,9 @@ import { override as overrideGLib } from "./dts/glib.ts";
 import { override as overrideGObject } from "./dts/gobject.ts";
 import { DtsGenerator } from "./dts.ts";
 
+/**
+ * @deprecated Use @ts-for-gir/generator-typescript/ModuleGenerator with ModuleGeneratorFormat.Inline instead
+ */
 export class DtsInlineGenerator extends DtsGenerator {
 	readonly log: ConsoleReporter;
 

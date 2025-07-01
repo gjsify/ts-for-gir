@@ -1,6 +1,5 @@
-<%_ if(!noAdvancedVariants){ -%>
 // @ts-nocheck
-
+<%_ if(!noAdvancedVariants){ -%>
 // Advanced variant parsing types for GLib
 // Variant parsing inspired by https://jamie.build/ slightly infamous JSON-in-TypeScript parsing.
 

@@ -11,21 +11,24 @@ type VariantTypeError<T extends string> = { error: true } & T;
 
 /**
  * Handles the {kv} of a{kv} where k is a basic type and v is any possible variant type string.
+ * Simplified to handle common cases like a{sv} (string-variant dictionary)
  */
-type $ParseDeepVariantDict<State extends string, Memo extends Record<string, any> = {}> =
+type $ParseDeepVariantDict<State extends string> =
     string extends State
     ? VariantTypeError<"$ParseDeepVariantDict: 'string' is not a supported type.">
-    // Hitting the first '}' indicates the dictionary type is complete
-    : State extends `}${infer State}`
-    ? [Memo, State]
-    // This separates the key (basic type) from the rest of the remaining expression.
-    : State extends `${infer Key}${'}'}${infer State}`
-    ? $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`]
-    ? State extends `}${infer State}`
-    ? [CreateIndexType<Key, Value>, State]
-    : VariantTypeError<`$ParseDeepVariantDict encountered an invalid variant string: ${State} (1)`>
-    : VariantTypeError<`$ParseDeepVariantValue returned unexpected value for: ${State}`>
-    : VariantTypeError<`$ParseDeepVariantDict encountered an invalid variant string: ${State} (2)`>;
+    // Handle common dictionary patterns - for a{sv} we need Record<string, Variant>
+    : State extends `sv}${infer Remaining}`
+    ? [{ [key: string]: Variant }, Remaining]
+    : State extends `ss}${infer Remaining}`
+    ? [{ [key: string]: Variant<'s'> }, Remaining]
+    : State extends `si}${infer Remaining}`
+    ? [{ [key: string]: Variant<'i'> }, Remaining]
+    : State extends `sb}${infer Remaining}`
+    ? [{ [key: string]: Variant<'b'> }, Remaining]
+    // Fallback for other dictionary types
+    : State extends `${string}}${infer Remaining}`
+    ? [{ [key: string]: Variant }, Remaining]
+    : VariantTypeError<`$ParseDeepVariantDict encountered an invalid variant string: ${State}`>;
 
 /**
  * Handles parsing values within a tuple (e.g. (vvv)) where v is any possible variant type string.
@@ -45,20 +48,24 @@ type $ParseDeepVariantArray<State extends string, Memo extends any[] = []> =
 
 /**
  * Handles parsing {kv} without an 'a' prefix (key-value pair) where k is a basic type
- * and v is any possible variant type string.
+ * and v is any possible variant type string. Simplified version.
  */
-type $ParseDeepVariantKeyValue<State extends string, Memo extends any[] = []> =
+type $ParseDeepVariantKeyValue<State extends string> =
     string extends State
     ? VariantTypeError<"$ParseDeepVariantKeyValue: 'string' is not a supported type.">
-    : State extends `}${infer State}`
-    ? [Memo, State]
-    : State extends `${infer Key}${'}'}${infer State}`
-    ? $ParseDeepVariantValue<State> extends [infer Value, `${infer State}`]
-    ? State extends `}${infer State}`
-    ? [[...Memo, $ParseVariant<Key>, Value], State]
-    : VariantTypeError<`$ParseDeepVariantKeyValue encountered an invalid variant string: ${State} (1)`>
-    : VariantTypeError<`$ParseDeepVariantKeyValue returned unexpected value for: ${State}`>
-    : VariantTypeError<`$ParseDeepVariantKeyValue encountered an invalid variant string: ${State} (2)`>;
+    // Handle common key-value patterns
+    : State extends `sv}${infer Remaining}`
+    ? [[string, Variant], Remaining]
+    : State extends `ss}${infer Remaining}`
+    ? [[string, Variant<'s'>], Remaining]
+    : State extends `si}${infer Remaining}` 
+    ? [[string, Variant<'i'>], Remaining]
+    : State extends `sb}${infer Remaining}`
+    ? [[string, Variant<'b'>], Remaining]
+    // Fallback for other key-value types
+    : State extends `${string}}${infer Remaining}`
+    ? [[any, Variant], Remaining]
+    : VariantTypeError<`$ParseDeepVariantKeyValue encountered an invalid variant string: ${State}`>;
 
 /**
  * Handles parsing any variant 'value' or base unit.

@@ -244,7 +244,7 @@ export class TypeIdentifier extends TypeExpression {
 
 export class ModuleTypeIdentifier extends TypeIdentifier {
 	readonly moduleName: string;
-	readonly namespace: string;
+	declare readonly namespace: string;
 
 	constructor(name: string, moduleName: string, namespace: string) {
 		super(name, namespace);

@@ -1,53 +1,21 @@
-import { GirDirection } from "@gi.ts/parser";
 import {
-	AnyFunctionType,
-	type AnyIntrospectedType,
-	AnyType,
 	ArrayType,
 	ClosureType,
-	FormatGenerator,
-	type GirEnumMember,
 	type GirModule,
-	IntrospectedAlias,
-	IntrospectedBaseClass,
 	type IntrospectedCallback,
-	IntrospectedClass,
 	type IntrospectedClassCallback,
-	IntrospectedClassFunction,
-	IntrospectedConstant,
-	IntrospectedConstructor,
-	type IntrospectedDirectAllocationConstructor,
-	IntrospectedEnum,
-	IntrospectedError,
-	type IntrospectedField,
-	IntrospectedFunction,
 	type IntrospectedFunctionParameter,
-	IntrospectedInterface,
 	type IntrospectedMetadata,
-	type IntrospectedNamespaceMember,
-	type IntrospectedProperty,
-	IntrospectedRecord,
-	type IntrospectedSignal,
-	IntrospectedSignalType,
-	IntrospectedStaticClassFunction,
-	IntrospectedVirtualClassFunction,
-	isInvalid,
 	NativeType,
-	type NSRegistry,
 	NullableType,
-	NumberType,
 	type OptionsGeneration,
 	OrType,
 	Reporter,
 	ReporterService,
-	resolveDirectedType,
-	StringType,
-	sanitizeIdentifierName,
 	TupleType,
 	TypeConflict,
 	type TypeExpression,
 	TypeIdentifier,
-	VoidType,
 } from "@ts-for-gir/lib";
 
 export enum NodeKind {
@@ -143,7 +111,7 @@ function generateType(type: TypeExpression): TypeJson {
 	}
 }
 
-function capitalize(str: string) {
+function _capitalize(str: string) {
 	if (str.length === 0) {
 		return "";
 	}

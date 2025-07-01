@@ -36,12 +36,24 @@ function onNameAppeared(_connection: Gio.DBusConnection, name: string, _owner: u
 
 	// To watch property changes, you can connect to the `g-properties-changed`
 	// GObject signal with `connect()`
-	proxyPropId = proxy.connect("g-properties-changed", (_proxy_: Gio.DBusProxy, changed: GLib.Variant, invalidated) => {
-		for (const [prop, value] of Object.entries(changed.deepUnpack<{ [key: string]: GLib.Variant }>()))
-			print(`Property '${prop}' changed to '${value.deepUnpack()}'`);
+	proxyPropId = proxy.connect(
+		"g-properties-changed",
+		(_proxy_: Gio.DBusProxy, changed: GLib.Variant<"a{sv}">, invalidated) => {
+			// Test both approaches:
+			// 1. New automatic type inference (with advanced variants)
+			const changedAuto = changed.deepUnpack();
+			print(`Type inferred automatically: ${typeof changedAuto}`);
 
-		for (const prop of invalidated) print(`Property '${prop}' invalidated`);
-	});
+			// 2. Old explicit type parameter approach (for backward compatibility)
+			const changedExplicit = changed.deepUnpack<{ [key: string]: GLib.Variant }>();
+
+			// Both should work the same way
+			for (const [prop, value] of Object.entries(changedExplicit))
+				print(`Property '${prop}' changed to '${value.deepUnpack()}'`);
+
+			for (const prop of invalidated) print(`Property '${prop}' invalidated`);
+		},
+	);
 
 	// Reading and writing properties is straight-forward
 	print(`ReadOnlyProperty: ${proxy.ReadOnlyProperty}`);

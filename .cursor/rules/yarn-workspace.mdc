@@ -75,5 +75,5 @@ TypeScript type definition generator for GObject Introspection (GIR) files. Gene
 - `yarn build:examples` - Build all examples for GJS execution
 - `yarn copy:girs` - Copy system GIR files
 - `yarn test` - Run full test suite
-- `yarn test:locally` - Quick local testing
+- `yarn test:tests` - Quick local testing
 - `yarn check` - Type checking across all packages

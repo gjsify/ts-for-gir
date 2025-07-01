@@ -35,7 +35,7 @@ alwaysApply: false
 yarn start generate GLib-2.0 --verbose
 
 # Test the the type generation generally
-yarn test:locally
+yarn test:tests
 
 # Test examples
 yarn build:examples

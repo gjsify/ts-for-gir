@@ -13676,6 +13676,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-test/types-no-advanced-variants@workspace:tests/types-no-advanced-variants":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-test/types-no-advanced-variants@workspace:tests/types-no-advanced-variants"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: "npm:^0.25.5"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir/cli@workspace:^, @ts-for-gir/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/cli@workspace:packages/cli"

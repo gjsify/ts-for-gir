@@ -88,7 +88,7 @@ Ts-for-gir runs directly as TypeScript files for faster development, so you don'
 To generate example type definitions for testing, just run:
 
 ```bash
-yarn test:locally
+yarn test:tests
 ```
 
 To generate type definitions for all packages, run:

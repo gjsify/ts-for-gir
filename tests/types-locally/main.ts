@@ -1,4 +1,4 @@
-import './@types/index.d.ts'
+import './@types/index.d.ts';
 
 import Gettext from 'gettext'
 console.log(Gettext.textdomain)

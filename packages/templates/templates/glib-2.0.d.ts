@@ -1,3 +1,4 @@
+<%_ if(!noAdvancedVariants){ -%>
 // @ts-nocheck
 
 // Advanced variant parsing types for GLib
@@ -781,3 +782,5 @@ export class VariantType<S extends string = any> {
     static string_is_valid(type_string: string): boolean;
     static string_scan(string: string, limit?: string | null): [boolean, string | null];
 }
+
+<%_ } -%>

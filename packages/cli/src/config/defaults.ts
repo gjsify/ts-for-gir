@@ -29,10 +29,7 @@ export const defaults = {
 	workspace: false,
 	onlyVersionPrefix: false,
 	noPrettyPrint: false,
-	// Disabled by default because advanced variants are complicated,
-	// it does impact performance (especially on older typescript versions)
-	// and we'd need to test it works with the updated bindings
-	noAdvancedVariants: true,
+	noAdvancedVariants: false,
 	package: false,
 	reporter: false,
 	reporterOutput: "ts-for-gir-report.json",

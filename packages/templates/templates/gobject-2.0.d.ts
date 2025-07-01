@@ -34,6 +34,116 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     Requires?: Object[]
 }
 
+<% if (!noAdvancedVariants) { %>
+// Advanced Variants types - enhanced type system for better type inference
+export type AdvGjsParameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
+
+export type AdvGType<T = unknown> = {
+    __type__(arg: never): T
+    name: string
+}
+
+export interface AdvSignalDefinition {
+    flags?: SignalFlags
+    accumulator: number
+    return_type?: AdvGType
+    param_types?: AdvGType[]
+}
+
+export interface AdvMetaInfo<Props, Interfaces, Sigs> {
+    GTypeName?: string
+    GTypeFlags?: TypeFlags
+    Properties?: Props
+    Signals?: Sigs
+    Implements?: Interfaces
+    CssName?: string
+    Template?: Uint8Array | GLib.Bytes | string
+    Children?: string[]
+    InternalChildren?: string[]
+    Requires?: Object[]
+}
+
+export type AdvProperty<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
+
+export type AdvProperties<
+    Prototype extends {},
+    Properties extends { [key: string]: ParamSpec }
+> = Omit<{
+    [key in keyof Properties | keyof Prototype]: key extends keyof Prototype
+        ? never
+        : key extends keyof Properties
+          ? AdvProperty<Properties[key]>
+          : never
+}, keyof Prototype>
+
+export type AdvSignalSignatures = {
+    [signal: string]: (...args: any[]) => any
+}
+
+export type AdvSignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer R
+    ? (source: Emitter, ...args: P) => R
+    : never
+
+// String conversion utilities for property names
+type SnakeToUnderscoreCase<S extends string> = S extends `${infer T}-${infer U}`
+    ? `${T}_${SnakeToUnderscoreCase<U>}`
+    : S extends `${infer T}`
+      ? `${T}`
+      : never
+
+type SnakeToCamelCase<S extends string> = S extends `${infer T}-${infer U}`
+    ? `${Lowercase<T>}${SnakeToPascalCase<U>}`
+    : S extends `${infer T}`
+      ? `${Lowercase<T>}`
+      : SnakeToPascalCase<S>
+
+type SnakeToPascalCase<S extends string> = string extends S
+    ? string
+    : S extends `${infer T}-${infer U}`
+      ? `${Capitalize<Lowercase<T>>}${SnakeToPascalCase<U>}`
+      : S extends `${infer T}`
+        ? `${Capitalize<Lowercase<T>>}`
+        : never
+
+type SnakeToCamel<T> = { [P in keyof T as P extends string ? SnakeToCamelCase<P> : P]: T[P] }
+type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUnderscoreCase<P> : P]: T[P] }
+
+// Advanced utility types for class registration
+type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any ? R : never
+
+type IFaces<Interfaces extends { $gtype: AdvGType<any> }[]> = {
+    [key in keyof Interfaces]: Interfaces[key] extends { $gtype: AdvGType<infer I> } ? I : never
+}
+
+export type RegisteredPrototype<
+    P extends {},
+    Props extends { [key: string]: ParamSpec },
+    Interfaces extends any[],
+> = AdvProperties<P, SnakeToCamel<Props> & SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P
+
+type Ctor = new (...a: any[]) => object
+type Init = { _init(...args: any[]): void }
+
+export type RegisteredClass<
+    T extends Ctor,
+    Props extends { [key: string]: ParamSpec },
+    Interfaces extends { $gtype: AdvGType<any> }[],
+> = T extends { prototype: infer P extends {} }
+    ? {
+          $gtype: AdvGType<RegisteredClass<T, Props, IFaces<Interfaces>>>
+          new (
+              ...args: P extends Init ? Parameters<P['_init']> : [void]
+          ): RegisteredPrototype<P, Props, IFaces<Interfaces>>
+          prototype: RegisteredPrototype<P, Props, IFaces<Interfaces>>
+      }
+    : never
+
+export type AdvSignalDefinitionType = {
+    param_types?: readonly AdvGType[]
+    [key: string]: any
+}
+<% } %>
+
 // Correctly types interface checks.
 export function type_is_a<T extends Object>(obj: Object, is_a_type: { $gtype: GType<T> }): obj is T
 
@@ -252,3 +362,36 @@ export function registerClass<
 >(options: MetaInfo<Props, Interfaces, Sigs>, cls: T): T
 
 export function registerClass<T extends ObjectConstructor>(cls: T): T
+
+<% if (!noAdvancedVariants) { %>
+// Advanced Variants registerClass overloads with enhanced type inference
+
+export function registerClass<P extends {}, T extends new (...args: any[]) => P>(
+    klass: T,
+): RegisteredClass<T, {}, []>
+
+export function registerClass<
+    T extends Ctor,
+    Props extends { [key: string]: ParamSpec },
+    Interfaces extends { $gtype: AdvGType }[],
+    Sigs extends {
+        [key: string]: {
+            param_types?: readonly AdvGType[]
+            [key: string]: any
+        }
+    },
+>(
+    options: {
+        GTypeName?: string
+        GTypeFlags?: TypeFlags
+        Properties?: Props
+        Signals?: Sigs
+        Implements?: Interfaces
+        CssName?: string
+        Template?: string
+        Children?: string[]
+        InternalChildren?: string[]
+    },
+    klass: T,
+): RegisteredClass<T, Props, Interfaces>
+<% } %>

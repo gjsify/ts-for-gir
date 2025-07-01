@@ -42,6 +42,33 @@ TypeScript type definition generator for GObject Introspection (GIR) files. Gene
 - Namespace: `@ts-for-gir-test/*`
 - Automated tests for the generator
 
+## Type Generation System
+
+### Template System (`/packages/templates/templates/`)
+- **Primary approach** for manual type definitions and overrides
+- Templates are injected **before** auto-generated content
+- Use for complex types like GLib.Variant with advanced features
+- Templates support TSDoc comments and backward compatibility
+- Example: `glib-2.0.d.ts` template provides `deepUnpack<T extends $ParseDeepVariant<S> = $ParseDeepVariant<S>>(): T;`
+
+### Override System (`/packages/generator-typescript/src/overrides/`)
+- Secondary approach for preventing auto-generation of specific classes
+- Use `node.assertClass("ClassName").noEmit()` to disable auto-generation
+- Allows templates to provide complete manual implementations
+- Prefer templates over large override strings for maintainability
+
+### Output Directory Behavior
+- **`/types/*` (Git submodule)**: Official published types, may have cached/different results
+- **Custom output dirs**: Fresh generation, immediately reflects template/override changes
+- **Testing approach**: Use `--outdir=./test-types-*` for development and testing
+- **Template changes**: Require regeneration to take effect (`yarn ts-for-gir generate`)
+
+### Advanced Variants Feature
+- Controlled by `noAdvancedVariants: false` flag
+- Provides automatic type inference for GLib.Variant operations
+- Template system ensures backward compatibility with explicit type parameters
+- Examples should work with both automatic inference and explicit types
+
 ## Key Commands
 - `yarn start` - Run CLI directly (no build needed)
 - `yarn build:types` - Generate all type packages

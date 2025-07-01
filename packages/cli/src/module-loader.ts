@@ -226,6 +226,7 @@ export class ModuleLoader {
 		const GLib = await this.dependencyManager.get("GLib", "2.0");
 		const Gio = await this.dependencyManager.get("Gio", "2.0");
 		const GObject = await this.dependencyManager.get("GObject", "2.0");
+		const Cairo = await this.dependencyManager.get("cairo", "1.0");
 
 		const dependencies = await this.fileFinder.girFilePathToDependencies(girFiles);
 
@@ -234,8 +235,13 @@ export class ModuleLoader {
 				GLib,
 				Gio,
 				GObject,
+				Cairo,
 				...dependencies.filter(
-					(dep) => dep.namespace !== "GLib" && dep.namespace !== "Gio" && dep.namespace !== "GObject",
+					(dep) =>
+						dep.namespace !== "GLib" &&
+						dep.namespace !== "Gio" &&
+						dep.namespace !== "GObject" &&
+						dep.namespace !== "cairo",
 				),
 			],
 			ignore,

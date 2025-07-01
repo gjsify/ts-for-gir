@@ -174,13 +174,6 @@ export class GirModule implements IGirModule {
 			}
 		}
 
-		// cairo-1.0 is also a fixed dependency because it's needed by the GJS internally wrapped cairo module
-		if (this.packageName !== "cairo-1.0") {
-			if (!find(transitiveDependencies, (x) => x.packageName === "cairo-1.0")) {
-				transitiveDependencies.push(await this.dependencyManager.get("cairo", "1.0"));
-			}
-		}
-
 		// Add missing dependencies
 		if (this.packageName === "UnityExtras-7.0") {
 			if (!find(transitiveDependencies, (x) => x.packageName === "Unity-7.0")) {

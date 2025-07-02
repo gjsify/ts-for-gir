@@ -454,7 +454,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					false,
 					null,
 					true,
-					StringType,
+					new NullableType(StringType),
 					false,
 					"Creates a new GParamSpecString instance specifying a G_TYPE_STRING property.",
 				),

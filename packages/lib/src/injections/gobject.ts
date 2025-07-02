@@ -39,29 +39,8 @@ function typeParam(name: string, type: TypeExpression, options: Record<string, u
 	});
 }
 
-function anyParam(name: string, options: Record<string, unknown> = {}) {
-	return typeParam(name, AnyType, options);
-}
-
 function stringParam(name: string, options: Record<string, unknown> = {}) {
 	return typeParam(name, StringType, options);
-}
-
-/**
- * Creates a parameter with a nullable string type.
- * Used for optional documentation fields like 'nick' and 'blurb' in GObject properties.
- * These fields are commonly used to provide human-readable descriptions of properties.
- *
- * @param name The parameter name
- * @param options Additional options including documentation
- * @returns An IntrospectedFunctionParameter with nullable string type
- * @see https://gjs.guide/guides/gobject/basics.html#properties
- */
-function nullableStringParam(name: string, options: Record<string, unknown> = {}) {
-	return typeParam(name, new NullableType(StringType), {
-		doc: "A nullable string parameter, commonly used for optional documentation fields in GObject properties",
-		...options,
-	});
 }
 
 /**

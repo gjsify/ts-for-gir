@@ -39,27 +39,23 @@ function typeParam(name: string, type: TypeExpression, options: Record<string, u
 	});
 }
 
-function anyParam(name: string, options: Record<string, unknown> = {}) {
-	return typeParam(name, AnyType, options);
-}
-
 function stringParam(name: string, options: Record<string, unknown> = {}) {
 	return typeParam(name, StringType, options);
 }
 
 /**
- * Creates a parameter with a nullable string type.
- * Used for optional documentation fields like 'nick' and 'blurb' in GObject properties.
- * These fields are commonly used to provide human-readable descriptions of properties.
+ * Creates an optional parameter with a nullable type.
+ * Used for optional parameters like default values in ParamSpec methods.
  *
  * @param name The parameter name
+ * @param type The parameter type
  * @param options Additional options including documentation
- * @returns An IntrospectedFunctionParameter with nullable string type
- * @see https://gjs.guide/guides/gobject/basics.html#properties
+ * @returns An IntrospectedFunctionParameter with optional nullable type
  */
-function nullableStringParam(name: string, options: Record<string, unknown> = {}) {
-	return typeParam(name, new NullableType(StringType), {
-		doc: "A nullable string parameter, commonly used for optional documentation fields in GObject properties",
+function optionalParam(name: string, type: TypeExpression, options: Record<string, unknown> = {}) {
+	return typeParam(name, type, {
+		isOptional: true,
+		doc: "An optional parameter",
 		...options,
 	});
 }
@@ -118,8 +114,9 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 			const ParamFlags = namespace.getEnum("ParamFlags");
 
 			/**
-			 * Generates ParamSpec function definitions with proper typing for nullable documentation fields.
-			 * Follows GJS style guidelines for property definitions with optional documentation.
+			 * Generates ParamSpec function definitions with proper typing matching the GJS JavaScript API.
+			 * In GJS, nick and blurb are required parameters (but can be null), and flags is always required.
+			 * This matches the actual implementation in gjs/modules/core/overrides/GObject.js
 			 *
 			 * @param name The name of the ParamSpec type (e.g., "string", "int", "boolean")
 			 * @param returnType The return type of the ParamSpec
@@ -145,11 +142,11 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					stringParam("name", {
 						doc: "The name of the property",
 					}),
-					nullableStringParam("nick", {
-						doc: "A human readable name for the property",
+					typeParam("nick", new NullableType(StringType), {
+						doc: "A human readable name for the property (can be null)",
 					}),
-					nullableStringParam("blurb", {
-						doc: "A longer description of the property",
+					typeParam("blurb", new NullableType(StringType), {
+						doc: "A longer description of the property (can be null)",
 					}),
 					typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
 						doc: "The flags for this property (e.g. READABLE, WRITABLE)",
@@ -169,13 +166,15 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 
 				if (type) {
 					if (!addGeneric) {
-						params.push(anyParam(`${type}Type`));
+						params.push(
+							typeParam(`${type}Type`, AnyType, {
+								doc: "The GType for this property",
+							}),
+						);
 					} else {
 						params.push(
-							new IntrospectedFunctionParameter({
-								name: `${type}Type`,
-								direction: GirDirection.In,
-								type: new NativeType("GType<T> | { $gtype: GType<T> }"),
+							typeParam(`${type}Type`, new NativeType("GType<T> | { $gtype: GType<T> }"), {
+								doc: "The GType for this property",
 							}),
 						);
 					}
@@ -183,8 +182,8 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 
 				if (defaultValue) {
 					params.push(
-						typeParam("defaultValue", defaultValueType, {
-							doc: "The default value for this property",
+						optionalParam("defaultValue", defaultValueType, {
+							doc: "The default value for this property (optional)",
 						}),
 					);
 				}
@@ -241,20 +240,17 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					stringParam("name", {
 						doc: "The name of the property",
 					}),
-					nullableStringParam("nick", {
+					typeParam("nick", new NullableType(StringType), {
 						doc: "A human readable name for the property (can be null)",
 					}),
-					nullableStringParam("blurb", {
+					typeParam("blurb", new NullableType(StringType), {
 						doc: "A longer description of the property (can be null)",
 					}),
 					typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
 						doc: "The flags for this property (e.g. READABLE, WRITABLE)",
 					}),
-					new IntrospectedFunctionParameter({
-						name: "objectType",
-						direction: GirDirection.In,
-						type: new NativeType("GType<T> | { $gtype: GType<T> }"),
-						doc: "The GType of the object",
+					optionalParam("objectType", new NativeType("GType<T> | { $gtype: GType<T> }"), {
+						doc: "The GType of the object (optional)",
 					}),
 				],
 				parent: ParamSpec,
@@ -271,10 +267,10 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					stringParam("name", {
 						doc: "The name of the property",
 					}),
-					nullableStringParam("nick", {
+					typeParam("nick", new NullableType(StringType), {
 						doc: "A human readable name for the property (can be null)",
 					}),
-					nullableStringParam("blurb", {
+					typeParam("blurb", new NullableType(StringType), {
 						doc: "A longer description of the property (can be null)",
 					}),
 					typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
@@ -316,6 +312,32 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 			function ParamSpecWithGenerics(type: TypeExpression) {
 				return new GenerifiedTypeIdentifier("ParamSpec", "GObject", [type]);
 			}
+
+			// Custom string ParamSpec function with optional defaultValue parameter
+			const stringParamSpec = new IntrospectedStaticClassFunction({
+				name: "string",
+				parameters: [
+					stringParam("name", {
+						doc: "The name of the property",
+					}),
+					typeParam("nick", new NullableType(StringType), {
+						doc: "A human readable name for the property (can be null)",
+					}),
+					typeParam("blurb", new NullableType(StringType), {
+						doc: "A longer description of the property (can be null)",
+					}),
+					typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
+						doc: "The flags for this property (e.g. READABLE, WRITABLE)",
+					}),
+					optionalParam("defaultValue", new NullableType(StringType), {
+						doc: "The default value for this property (optional, defaults to null if not provided)",
+					}),
+				],
+				parent: ParamSpec,
+				return_type: ParamSpecWithGenerics(StringType),
+			});
+
+			stringParamSpec.doc = "Creates a new GParamSpecString instance specifying a G_TYPE_STRING property.";
 
 			ParamSpec.members.push(
 				generateParamSpec(
@@ -448,16 +470,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					false,
 					"Creates a new GParamSpecDouble instance specifying a G_TYPE_DOUBLE property.",
 				),
-				generateParamSpec(
-					"string",
-					ParamSpecWithGenerics(StringType),
-					false,
-					null,
-					true,
-					StringType,
-					false,
-					"Creates a new GParamSpecString instance specifying a G_TYPE_STRING property.",
-				),
+				stringParamSpec,
 				generateParamSpec(
 					"boxed",
 					ParamSpecWithGenerics(new NativeType("T")),

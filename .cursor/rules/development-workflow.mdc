@@ -44,3 +44,29 @@ yarn check:examples
 # Full test suite
 yarn test
 ```
+
+## GJS Implementation Analysis
+
+### Understanding Runtime Behavior
+When GIR XML definitions don't match actual JavaScript runtime behavior, analyze the **GJS source code** in `./gjs/` submodule:
+
+**Key locations for implementation details:**
+- `gjs/modules/core/overrides/` - Core overrides for GObject, GLib, and other GObject-based classes
+- `gjs/gi/` - C++ GObject introspection bindings and parameter handling
+- `gjs/modules/` - Core JavaScript API implementations and overrides
+
+**Common analysis workflows:**
+```bash
+# Find JavaScript API implementations
+grep -r "ParamSpec\." gjs/modules/core/overrides/
+grep -r "param_spec_" gjs/modules/core/overrides/
+
+# Check C++ parameter handling
+grep -r "param_spec" gjs/gi/param.cpp
+```
+
+**Use cases for GJS analysis:**
+- Parameter order discrepancies (e.g., ParamSpec methods)
+- Optional vs required parameter determination  
+- JavaScript function signature vs GIR XML definitions
+- Runtime behavior validation for edge cases

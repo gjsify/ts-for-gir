@@ -6,3 +6,6 @@
 	path = types
 	url = https://github.com/gjsify/types
 	branch = main
+[submodule "gjs"]
+	path = gjs
+	url = https://gitlab.gnome.org/GNOME/gjs.git

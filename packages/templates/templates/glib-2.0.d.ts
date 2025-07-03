@@ -1,13 +1,21 @@
 // @ts-nocheck
-<%_ if(!noAdvancedVariants){ -%>
-// Advanced variant parsing types for GLib
-// Variant parsing inspired by https://jamie.build/ slightly infamous JSON-in-TypeScript parsing.
 
+<%_ if(!noAdvancedVariants){ -%>
+// Advanced variant type inference for GLib.Variant
+// Provides sophisticated type-level parsing of GVariant type signatures
+// enabling automatic TypeScript type inference for variant operations.
+// 
+// When disabled, basic Variant types from introspection are used instead.
+// This reduces compilation time but loses advanced type safety features.
+
+// Utility types for variant parsing
 type CreateIndexType<Key extends string, Value extends any> =
     Key extends 's' | 'o' | 'g' ? { [key: string]: Value } :
     Key extends 'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y' ? { [key: number]: Value } : never;
 
 type VariantTypeError<T extends string> = { error: true } & T;
+
+// === Deep unpacking types (deepUnpack method) ===
 
 /**
  * Handles the {kv} of a{kv} where k is a basic type and v is any possible variant type string.
@@ -121,9 +129,183 @@ type $ParseDeepVariant<T extends string> =
     : VariantTypeError<"$ParseDeepVariantValue returned unexpected Result">
     : VariantTypeError<"$ParseDeepVariantValue returned uninferrable Result">;
 
-type $ParseVariant<T extends string> = $ParseDeepVariant<T>;
+// === Shallow unpacking types (unpack method) ===
 
-type $ParseRecursiveVariant<T extends string> = $ParseDeepVariant<T>;
+/**
+ * Handles shallow unpacking (unpack() method) - only the top level is unpacked.
+ * Container types return arrays/objects containing Variant objects.
+ */
+type $ParseShallowVariantValue<State extends string> =
+    string extends State
+    ? unknown
+    : State extends `${'s' | 'o' | 'g'}${infer State}`
+    ? [string, State]
+    : State extends `${'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y'}${infer State}`
+    ? [number, State]
+    : State extends `b${infer State}`
+    ? [boolean, State]
+    : State extends `v${infer State}`
+    ? [Variant, State]
+    : State extends `${'h' | '?'}${infer State}`
+    ? [unknown, State]
+    : State extends `(${infer State}`
+    ? $ParseShallowVariantArray<State>
+    : State extends `a{${infer State}`
+    ? $ParseShallowVariantDict<State>
+    : State extends `{${infer State}`
+    ? $ParseShallowVariantKeyValue<State>
+    : State extends `ay${infer State}` ?
+    [Uint8Array, State]
+    : State extends `m${infer State}`
+    ? $ParseShallowVariantValue<State> extends [infer Value, `${infer State}`]
+      ? [Value | null, State]
+      : VariantTypeError<`$ParseShallowVariantValue encountered an invalid variant string: ${State}`>
+    : State extends `a${infer State}` ?
+    [Variant[], State]  // Arrays contain Variant objects for shallow unpacking
+    : VariantTypeError<`$ParseShallowVariantValue encountered an invalid variant string: ${State}`>;
+
+/**
+ * Handles shallow unpacking of arrays - returns array of Variant objects
+ */
+type $ParseShallowVariantArray<State extends string, Memo extends any[] = []> =
+    string extends State
+    ? VariantTypeError<"$ParseShallowVariantArray: 'string' is not a supported type.">
+    : State extends `)${infer State}`
+    ? [Variant[], State]  // Tuples become arrays of Variants for shallow unpacking
+    : VariantTypeError<`$ParseShallowVariantArray encountered an invalid variant string: ${State}`>;
+
+/**
+ * Handles shallow unpacking of dictionaries - returns object with Variant values
+ */
+type $ParseShallowVariantDict<State extends string> =
+    string extends State
+    ? VariantTypeError<"$ParseShallowVariantDict: 'string' is not a supported type.">
+    : State extends `${string}}${infer Remaining}`
+    ? [{ [key: string]: Variant }, Remaining]  // Dictionary values remain as Variants
+    : VariantTypeError<`$ParseShallowVariantDict encountered an invalid variant string: ${State}`>;
+
+/**
+ * Handles shallow unpacking of key-value pairs - returns tuple with Variant value
+ */
+type $ParseShallowVariantKeyValue<State extends string> =
+    string extends State
+    ? VariantTypeError<"$ParseShallowVariantKeyValue: 'string' is not a supported type.">
+    : State extends `${string}}${infer Remaining}`
+    ? [[any, Variant], Remaining]  // Value remains as Variant
+    : VariantTypeError<`$ParseShallowVariantKeyValue encountered an invalid variant string: ${State}`>;
+
+type $ParseShallowVariant<T extends string> =
+    $ParseShallowVariantValue<T> extends infer Result
+    ? Result extends [infer Value, string]
+    ? Value
+    : Result extends VariantTypeError<any>
+    ? Result
+    : VariantTypeError<"$ParseShallowVariantValue returned unexpected Result">
+    : VariantTypeError<"$ParseShallowVariantValue returned uninferrable Result">;
+
+// === Recursive unpacking types (recursiveUnpack method) ===
+
+/**
+ * Handles recursive unpacking (recursiveUnpack() method) - all Variants are unpacked to native values.
+ * This converts all nested Variants to their native JavaScript equivalents.
+ */
+type $ParseRecursiveVariantValue<State extends string> =
+    string extends State
+    ? unknown
+    : State extends `${'s' | 'o' | 'g'}${infer State}`
+    ? [string, State]
+    : State extends `${'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y'}${infer State}`
+    ? [number, State]
+    : State extends `b${infer State}`
+    ? [boolean, State]
+    : State extends `v${infer State}`
+    ? [any, State]  // Variants are fully unpacked to their contained value
+    : State extends `${'h' | '?'}${infer State}`
+    ? [unknown, State]
+    : State extends `(${infer State}`
+    ? $ParseRecursiveVariantArray<State>
+    : State extends `a{${infer State}`
+    ? $ParseRecursiveVariantDict<State>
+    : State extends `{${infer State}`
+    ? $ParseRecursiveVariantKeyValue<State>
+    : State extends `ay${infer State}` ?
+    [Uint8Array, State]
+    : State extends `m${infer State}`
+    ? $ParseRecursiveVariantValue<State> extends [infer Value, `${infer State}`]
+      ? [Value | null, State]
+      : VariantTypeError<`$ParseRecursiveVariantValue encountered an invalid variant string: ${State}`>
+    : State extends `a${infer State}` ?
+    $ParseRecursiveVariantValue<State> extends [infer Value, `${infer State}`] ?
+    [Value[], State]  // Arrays are recursively unpacked
+    : VariantTypeError<`$ParseRecursiveVariantValue encountered an invalid variant string: ${State} (1)`>
+    : VariantTypeError<`$ParseRecursiveVariantValue encountered an invalid variant string: ${State} (2)`>;
+
+/**
+ * Handles recursive unpacking of arrays - fully unpacks all elements
+ */
+type $ParseRecursiveVariantArray<State extends string, Memo extends any[] = []> =
+    string extends State
+    ? VariantTypeError<"$ParseRecursiveVariantArray: 'string' is not a supported type.">
+    : State extends `)${infer State}`
+    ? [Memo, State]
+    : $ParseRecursiveVariantValue<State> extends [infer Value, `${infer State}`]
+    ? State extends `${infer NextValue})${infer NextState}`
+    ? $ParseRecursiveVariantArray<State, [...Memo, Value]>
+    : State extends `)${infer State}`
+    ? [[...Memo, Value], State]
+    : VariantTypeError<`$ParseRecursiveVariantArray encountered an invalid variant string: ${State}`>
+    : VariantTypeError<`$ParseRecursiveVariantValue returned unexpected value for: ${State}`>;
+
+/**
+ * Handles recursive unpacking of dictionaries - fully unpacks all values
+ */
+type $ParseRecursiveVariantDict<State extends string> =
+    string extends State
+    ? VariantTypeError<"$ParseRecursiveVariantDict: 'string' is not a supported type.">
+    : State extends `sv}${infer Remaining}`
+    ? [{ [key: string]: any }, Remaining]  // sv means values can be any type when recursively unpacked
+    : State extends `ss}${infer Remaining}`
+    ? [{ [key: string]: string }, Remaining]
+    : State extends `si}${infer Remaining}`
+    ? [{ [key: string]: number }, Remaining]
+    : State extends `sb}${infer Remaining}`
+    ? [{ [key: string]: boolean }, Remaining]
+    : State extends `${string}}${infer Remaining}`
+    ? [{ [key: string]: any }, Remaining]  // Other dictionary types become any when recursively unpacked
+    : VariantTypeError<`$ParseRecursiveVariantDict encountered an invalid variant string: ${State}`>;
+
+/**
+ * Handles recursive unpacking of key-value pairs - fully unpacks values
+ */
+type $ParseRecursiveVariantKeyValue<State extends string> =
+    string extends State
+    ? VariantTypeError<"$ParseRecursiveVariantKeyValue: 'string' is not a supported type.">
+    : State extends `sv}${infer Remaining}`
+    ? [[string, any], Remaining]  // Value is fully unpacked
+    : State extends `ss}${infer Remaining}`
+    ? [[string, string], Remaining]
+    : State extends `si}${infer Remaining}` 
+    ? [[string, number], Remaining]
+    : State extends `sb}${infer Remaining}`
+    ? [[string, boolean], Remaining]
+    : State extends `${string}}${infer Remaining}`
+    ? [[any, any], Remaining]  // Fallback for other key-value types
+    : VariantTypeError<`$ParseRecursiveVariantKeyValue encountered an invalid variant string: ${State}`>;
+
+type $ParseRecursiveVariant<T extends string> =
+    $ParseRecursiveVariantValue<T> extends infer Result
+    ? Result extends [infer Value, string]
+    ? Value
+    : Result extends VariantTypeError<any>
+    ? Result
+    : VariantTypeError<"$ParseRecursiveVariantValue returned unexpected Result">
+    : VariantTypeError<"$ParseRecursiveVariantValue returned uninferrable Result">;
+
+// === Type aliases for unpacking methods ===
+
+type $ParseVariant<T extends string> = $ParseShallowVariant<T>;
+
+// === Utility types for Variant and VariantBuilder ===
 
 type $VariantTypeToString<T extends VariantType> = T extends VariantType<infer S> ? S : never;
 
@@ -561,7 +743,7 @@ export class Variant<S extends string = any> {
      * @see {@link deepUnpack} for unpacking one level deeper
      * @see {@link recursiveUnpack} for full recursive unpacking
      */
-    unpack(): $ParseVariant<S>;
+    unpack(): $ParseShallowVariant<S>;
     
     /**
      * Recursively unpacks the variant's data into JavaScript values.

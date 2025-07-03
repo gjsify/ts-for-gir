@@ -252,8 +252,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const isGObject = node.someParent((p) => p.namespace.namespace === "GObject" && p.name === "Object");
 		const functions = filterFunctionConflict(node.namespace, node, node.members, []);
 		const hasStaticFunctions = functions.some((f) => f instanceof IntrospectedStaticClassFunction);
+		const hasVirtualMethods = node.members.some((m) => m instanceof IntrospectedVirtualClassFunction);
 
-		const hasNamespace = isGObject || hasStaticFunctions || node.callbacks.length > 0;
+		const hasNamespace = isGObject || hasStaticFunctions || node.callbacks.length > 0 || hasVirtualMethods;
 
 		return [
 			...this.generateClassNamespaces(node),
@@ -1476,6 +1477,28 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				? resolution.implements().map((i) => i.node.getType().print(this.namespace, this.config))
 				: []),
 		];
+
+		// For interfaces: inherit from the Interface namespace to get vfunc_* methods automatically
+		if (girClass instanceof IntrospectedInterface) {
+			// Check if this interface has virtual methods
+			const hasVirtualMethods = girClass.members.some(
+				(m) => m instanceof IntrospectedVirtualClassFunction,
+			);
+			
+			if (hasVirtualMethods) {
+				// Extract only the generic type names (e.g., "A", "B") from the generic definitions
+				const typeNames = girClass.generics
+					.map(g => g.type.identifier)  // Use g.type.identifier to get the generic name
+					.filter(name => name && name.length > 0);
+				
+				const genericTypeNames = typeNames.length > 0 
+					? `<${typeNames.join(", ")}>` 
+					: "";
+					
+				implementationNames.push(`${girClass.name}.Interface${genericTypeNames}`);
+			}
+		}
+
 		const ext = implementationNames.length ? ` extends ${implementationNames.join(", ")}` : "";
 		const interfaceHead = `${girClass.name}${genericParameters}${ext}`;
 		def.push(this.generateExport("interface", interfaceHead, "{"));
@@ -1492,8 +1515,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// Methods
 		def.push(...this.generateClassMethods(girClass));
 
-		// Virtual methods
-		def.push(...this.generateClassVirtualMethods(girClass));
+		// Virtual methods - only for classes/records, interfaces inherit them from Interface namespace
+		if (!(girClass instanceof IntrospectedInterface)) {
+			def.push(...this.generateClassVirtualMethods(girClass));
+		}
 		// END BODY
 
 		// END INTERFACE

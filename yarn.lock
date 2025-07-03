@@ -13666,6 +13666,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/virtual-interface-test@workspace:examples/virtual-interface-test":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/virtual-interface-test@workspace:examples/virtual-interface-test"
+  dependencies:
+    "@girs/gdk-4.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-test/types-locally@workspace:tests/types-locally":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-test/types-locally@workspace:tests/types-locally"

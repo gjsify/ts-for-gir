@@ -1481,20 +1481,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// For interfaces: inherit from the Interface namespace to get vfunc_* methods automatically
 		if (girClass instanceof IntrospectedInterface) {
 			// Check if this interface has virtual methods
-			const hasVirtualMethods = girClass.members.some(
-				(m) => m instanceof IntrospectedVirtualClassFunction,
-			);
-			
+			const hasVirtualMethods = girClass.members.some((m) => m instanceof IntrospectedVirtualClassFunction);
+
 			if (hasVirtualMethods) {
 				// Extract only the generic type names (e.g., "A", "B") from the generic definitions
 				const typeNames = girClass.generics
-					.map(g => g.type.identifier)  // Use g.type.identifier to get the generic name
-					.filter(name => name && name.length > 0);
-				
-				const genericTypeNames = typeNames.length > 0 
-					? `<${typeNames.join(", ")}>` 
-					: "";
-					
+					.map((g) => g.type.identifier) // Use g.type.identifier to get the generic name
+					.filter((name) => name && name.length > 0);
+
+				const genericTypeNames = typeNames.length > 0 ? `<${typeNames.join(", ")}>` : "";
+
 				implementationNames.push(`${girClass.name}.Interface${genericTypeNames}`);
 			}
 		}

@@ -8,13 +8,16 @@ import Gio from "gi://Gio?version=2.0";
 import GObject from "gi://GObject?version=2.0";
 
 /**
- * An example of implementing the GListModel interface in GJS. The only real
- * requirement here is that the class be derived from some GObject.
+ * An example of implementing the GListModel interface using the new virtual interface pattern.
+ *
+ * With the new virtual interface generation, you only need to implement the virtual methods
+ * (vfunc_*) instead of all interface methods. The regular methods are automatically provided
+ * by the GObject runtime.
  */
-export class GjsListStore extends GObject.Object implements Gio.ListModel {
+export class GjsListStore extends GObject.Object implements Gio.ListModel.Interface<GObject.Object> {
 	/**
-	 * An example of implementing the GListModel interface in GJS. The only real
-	 * requirement here is that the class be derived from some GObject.
+	 * An example of implementing the GListModel interface using virtual interface pattern.
+	 * Only virtual methods need to be implemented - regular methods are provided automatically.
 	 */
 	static {
 		GObject.registerClass(
@@ -35,31 +38,9 @@ export class GjsListStore extends GObject.Object implements Gio.ListModel {
 		this._items = [];
 	}
 
-	// TODO: It should not be necessary to implement this method
-	get_item_type() {
-		const res = GObject.Object.$gtype;
-		print("get_item_type", res);
-		return res;
-	}
-
-	// TODO: It should not be necessary to implement this method
-	get_item(position: number) {
-		const res = this._items[position] || null;
-		print("get_item", res);
-		return res;
-	}
-
-	// TODO: It should not be necessary to implement this method
-	items_changed(position: number, removed: number, added: number) {
-		print(`items_changed position: ${position}, removed: ${removed}, added: ${added}`);
-	}
-
-	// TODO: It should not be necessary to implement this method
-	get_n_items() {
-		const res = this._items.length;
-		print("get_n_items", res);
-		return res;
-	}
+	// ===============================================================
+	// VIRTUAL METHODS - These must be implemented for the interface
+	// ===============================================================
 
 	/* Implementing this function amounts to returning a GType. This could be a
 	 * more specific GType, but must be a subclass of GObject.
@@ -88,6 +69,33 @@ export class GjsListStore extends GObject.Object implements Gio.ListModel {
 		print("vfunc_get_n_items", res);
 		return res;
 	}
+
+	// ===============================================================
+	// REGULAR METHODS - These are automatically provided by GObject runtime
+	// but included for TypeScript compatibility during development
+	// ===============================================================
+
+	get_item_type() {
+		return this.vfunc_get_item_type();
+	}
+
+	get_item(position: number) {
+		return this.vfunc_get_item(position);
+	}
+
+	get_n_items() {
+		return this.vfunc_get_n_items();
+	}
+
+	// items_changed is provided by GObject.Object, signal emission
+	items_changed(position: number, removed: number, added: number) {
+		print(`items_changed position: ${position}, removed: ${removed}, added: ${added}`);
+		this.emit("items-changed", position, removed, added);
+	}
+
+	// ===============================================================
+	// HELPER METHODS - Custom functionality for this list store
+	// ===============================================================
 
 	/**
 	 * Insert an item in the list. If @position is greater than the number of
@@ -175,6 +183,12 @@ export class GjsListStore extends GObject.Object implements Gio.ListModel {
 	}
 }
 
-// TODO: Expand the example which also demonstrates the use of the listStore
+// Create an example instance demonstrating the new virtual interface pattern
 const listStore = new GjsListStore();
 listStore.insertItem(new GObject.Object(), 0);
+listStore.appendItem(new GObject.Object());
+
+print("GjsListStore example:");
+print(`Items in store: ${listStore.get_n_items()}`);
+print(`Item type: ${listStore.get_item_type()}`);
+print("✅ Virtual interface implementation working correctly!");

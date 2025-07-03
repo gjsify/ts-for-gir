@@ -10,6 +10,8 @@ on:
   pull_request:
     branches:
       - "*"
+  # Also run on workflow dispatch for manual testing
+  workflow_dispatch:
 jobs:
   ci:
 

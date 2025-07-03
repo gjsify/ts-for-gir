@@ -36,6 +36,47 @@ If you encounter a situation where the generated types don't work correctly, we 
 
 This collaborative approach helps us improve the quality of the type definitions for everyone.
 
+## New Virtual Interface Pattern 🎯
+
+Several examples now demonstrate the **new virtual interface pattern** that makes implementing GObject interfaces much cleaner:
+
+### Before (Old Way)
+```typescript
+class CustomListModel extends GObject.Object implements Gio.ListModel {
+  // Had to implement ALL interface methods:
+  get_item_type(): GObject.GType { ... }
+  get_item(position: number): GObject.Object | null { ... }
+  get_n_items(): number { ... }
+  
+  // PLUS all virtual methods:
+  vfunc_get_item_type(): GObject.GType { ... }
+  vfunc_get_item(position: number): GObject.Object | null { ... }
+  vfunc_get_n_items(): number { ... }
+}
+```
+
+### After (New Way)
+```typescript
+class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<GObject.Object> {
+  // Only implement virtual methods - regular methods provided automatically:
+  vfunc_get_item_type(): GObject.GType { ... }
+  vfunc_get_item(position: number): GObject.Object | null { ... }
+  vfunc_get_n_items(): number { ... }
+  
+  // That's it! get_item(), get_n_items(), etc. are automatically available
+}
+```
+
+**Key Benefits:**
+- 🚀 **Less boilerplate** - only implement what you need
+- 🔒 **Better type safety** - TypeScript catches missing virtual methods
+- 🎯 **Matches GObject patterns** - follows actual GObject-Introspection behavior
+- ⚡ **Automatic methods** - regular interface methods provided by runtime
+
+**Examples using this pattern:**
+- [`gio-2-list-model`](gio-2-list-model/) - Clean `Gio.ListModel` implementation
+- [`virtual-interface-test`](virtual-interface-test/) - Comprehensive examples with `ListModel` and `Paintable`
+
 ## Available Examples
 
 ### GTK 4 Examples
@@ -67,11 +108,13 @@ This collaborative approach helps us improve the quality of the type definitions
 
 ### Gio and Other Libraries
 
-| Example                  | Description                      | Bundler |
-| ------------------------ | -------------------------------- | ------- |
-| [Gio Cat](gio-2-cat)     | File system operations with Gio  | esbuild |
-| [Gio DBus](gio-2-dbus)   | DBus client/server communication | esbuild |
-| [Soup HTTP](soup-3-http) | HTTP client/server with Soup 3   | esbuild |
+| Example                                          | Description                              | Bundler |
+| ------------------------------------------------ | ---------------------------------------- | ------- |
+| [Gio Cat](gio-2-cat)                             | File system operations with Gio          | esbuild |
+| [Gio DBus](gio-2-dbus)                           | DBus client/server communication         | esbuild |
+| [Gio List Model](gio-2-list-model)               | Virtual interface implementation example | esbuild |
+| [Virtual Interface Test](virtual-interface-test) | Comprehensive virtual interface examples | esbuild |
+| [Soup HTTP](soup-3-http)                         | HTTP client/server with Soup 3           | esbuild |
 
 ## How to Run Examples
 

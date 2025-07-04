@@ -1,11 +1,7 @@
 import { DefaultFormatter } from "../formatters/default.ts";
 import type { Formatter } from "../formatters/formatter.ts";
 import { JSONFormatter } from "../formatters/json.ts";
-import type { DtsGenerator } from "../generators/dts.ts";
-import { DtsInlineGenerator } from "../generators/dts-inline.ts";
-import { DtsModuleGenerator } from "../generators/dts-modules.ts";
 import type { FormatGenerator } from "../generators/generator.ts";
-import { JsonGenerator } from "../generators/json.ts";
 import { generify } from "../generics/generify.ts";
 import type { GirModule } from "../index.ts";
 import { inject } from "../injections/inject.ts";
@@ -54,26 +50,7 @@ export class NSRegistry {
 		this.generators.set(output, generator);
 	}
 
-	async getGenerator(
-		output: "json",
-	): Promise<{ new (namespace: IntrospectedNamespace, options: OptionsGeneration): JsonGenerator }>;
-	async getGenerator(
-		output: "dts",
-	): Promise<{ new (namespace: IntrospectedNamespace, options: OptionsGeneration): DtsGenerator }>;
-	async getGenerator<T>(output: string): Promise<GeneratorConstructor<T> | undefined>;
-	async getGenerator(output: string): Promise<GeneratorConstructor<unknown> | undefined> {
-		if (output === "dts") {
-			return DtsModuleGenerator;
-		}
-
-		if (output === "dts-inline") {
-			return DtsInlineGenerator;
-		}
-
-		if (output === "json") {
-			return JsonGenerator;
-		}
-
+	async getGenerator<T>(output: string): Promise<GeneratorConstructor<T> | undefined> {
 		// Handle loading external generators...
 		if (!this.generators.has(output)) {
 			let Generator: { default: GeneratorConstructor<unknown> };
@@ -83,7 +60,7 @@ export class NSRegistry {
 				if (Generator) {
 					console.log(`Loading generator "@gi.ts/generator-${output}"...`);
 					this.generators.set(output, Generator.default);
-					return;
+					return Generator.default as GeneratorConstructor<T>;
 				}
 			} catch {
 				try {
@@ -93,20 +70,20 @@ export class NSRegistry {
 
 					console.log(`Loading generator "gi-ts-generator-${output}"...`);
 					this.generators.set(output, Generator.default);
-					return;
+					return Generator.default as GeneratorConstructor<T>;
 				} catch {
 					try {
 						Generator = (await import(`${output}`)) as { default: GeneratorConstructor<unknown> };
 
 						console.log(`Loading generator "${output}"...`);
 						this.generators.set(output, Generator.default);
-						return;
+						return Generator.default as GeneratorConstructor<T>;
 					} catch {}
 				}
 			}
 		}
 
-		return this.generators.get(output);
+		return this.generators.get(output) as GeneratorConstructor<T> | undefined;
 	}
 
 	private _transformNamespace(namespace: IntrospectedNamespace) {

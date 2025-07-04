@@ -13676,6 +13676,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-test/types-no-advanced-variants@workspace:tests/types-no-advanced-variants":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-test/types-no-advanced-variants@workspace:tests/types-no-advanced-variants"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: "npm:^0.25.5"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir/cli@workspace:^, @ts-for-gir/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/cli@workspace:packages/cli"
@@ -13684,6 +13694,7 @@ __metadata:
     "@inquirer/prompts": "npm:^7.5.3"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/generator-html-doc": "workspace:^"
+    "@ts-for-gir/generator-json": "workspace:^"
     "@ts-for-gir/generator-typescript": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/reporter": "workspace:^"
@@ -13724,6 +13735,19 @@ __metadata:
     "@ts-for-gir/lib": "workspace:^"
     "@types/node": "npm:^24.0.4"
     rimraf: "npm:^6.0.1"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/generator-json@workspace:^, @ts-for-gir/generator-json@workspace:packages/generator-json":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/generator-json@workspace:packages/generator-json"
+  dependencies:
+    "@gi.ts/parser": "workspace:^"
+    "@ts-for-gir/generator-base": "workspace:^"
+    "@ts-for-gir/lib": "workspace:^"
+    "@ts-for-gir/reporter": "workspace:^"
+    "@types/node": "npm:^24.0.4"
     typescript: "npm:^5.8.3"
   languageName: unknown
   linkType: soft

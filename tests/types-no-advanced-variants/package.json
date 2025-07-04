@@ -1,0 +1,17 @@
+{
+    "name": "@ts-for-gir-test/types-no-advanced-variants",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "test": "yarn clear && yarn generate && yarn check:types && yarn build",
+        "generate": "ts-for-gir generate --configName .ts-for-gir.rc.js",
+        "check:types": "tsc --noEmit",
+        "build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+        "clear": "rm -rf @types"
+    },
+    "devDependencies": {
+        "@ts-for-gir/cli": "workspace:^",
+        "esbuild": "^0.25.5",
+        "typescript": "^5.8.3"
+    }
+}

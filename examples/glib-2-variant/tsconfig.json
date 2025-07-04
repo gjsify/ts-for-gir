@@ -9,7 +9,8 @@
 		"noImplicitAny": true,
 		"strictNullChecks": true,
 		"noImplicitThis": true,
-		"alwaysStrict": true
+		"alwaysStrict": true,
+		"diagnostics": true
 	},
 	"files": ["main.ts"]
 }

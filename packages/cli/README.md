@@ -112,7 +112,7 @@ Options:
       --noPrettyPrint           Do not prettify the generated types
                                                       [boolean] [default: false]
       --noAdvancedVariants      Disable GLib.Variant class with string parsing
-                                                       [boolean] [default: true]
+                                                       [boolean] [default: false]
       --package                 Generate the typescript types with package.json
                                 support               [boolean] [default: false]
       --reporter                Enable generation problem reporter and create a
@@ -376,7 +376,7 @@ ts-for-gir generate * --noPrettyPrint
 ```
 
 ### noAdvancedVariants
-The `noAdvancedVariants` option disables the advanced GLib.Variant class with string parsing capabilities. This option is enabled by default (`true`) as these advanced features can impact performance, especially with older TypeScript versions.
+The `noAdvancedVariants` option disables the advanced GLib.Variant class with string parsing capabilities. This option is enabled by default (`false`) as these advanced features can impact performance, especially with older TypeScript versions.
 
 ```bash
 ts-for-gir generate * --noAdvancedVariants=false

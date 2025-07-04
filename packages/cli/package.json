@@ -60,6 +60,7 @@
 		"@inquirer/prompts": "^7.5.3",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
+		"@ts-for-gir/generator-json": "workspace:^",
 		"@ts-for-gir/generator-typescript": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
 		"@ts-for-gir/reporter": "workspace:^",

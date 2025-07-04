@@ -1,5 +1,2 @@
-export { DtsGenerator as DtsAbstractGenerator } from "./dts.ts";
-export { DtsInlineGenerator } from "./dts-inline.ts";
-export { DtsModuleGenerator as DtsGenerator } from "./dts-modules.ts";
+// Common generator interfaces and utilities
 export * from "./generator.ts";
-export { JsonGenerator } from "./json.ts";

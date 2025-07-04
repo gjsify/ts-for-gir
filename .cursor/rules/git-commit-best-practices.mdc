@@ -16,7 +16,7 @@ Before every commit, validate your code using the commands from [yarn-workspace.
 **For regular commits (recommended):**
 - `yarn check:app` - Fast check for core packages and linting
 - `yarn check:lint` - Quick linting only
-- `yarn test:locally` - Quick local testing to catch breaking changes
+- `yarn test:tests` - Quick local testing to catch breaking changes
 - `yarn format` - Code formatting consistency
 
 **For major changes only:**

@@ -40,7 +40,7 @@ jobs:
     - run: gjs --version
     - run: yarn install
     - run: yarn check
-    - run: yarn test:locally
+    - run: yarn test:tests
     - run: yarn build:types
     - name: Show diff
       run: (cd ./types && git diff | cat)

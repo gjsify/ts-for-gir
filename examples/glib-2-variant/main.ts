@@ -157,8 +157,37 @@ function testVariantUnpacking() {
 	);
 	print(`recursiveUnpack() - deepStruct: [${complexRecursive.deepStruct.join(", ")}]`);
 
-	// Test 4: Type validation - this should show TypeScript correctly inferring types
-	print("\n--- Type Validation ---");
+	// Test 4: Tuple parsing validation - this tests the fix for tuple parsing
+	print("\n--- Tuple Parsing Validation ---");
+
+	// Test simple tuple (ii) - this was failing before
+	const intTuple = new GLib.Variant("(ii)", [42, 100]);
+	print(`Simple tuple (ii):`, intTuple.print(true));
+
+	// Test the different unpacking methods on tuples
+	const tupleUnpack = intTuple.unpack();
+	const tupleDeep = intTuple.deepUnpack();
+	const tupleRecursive = intTuple.recursiveUnpack();
+
+	print(`Tuple unpack() returns ${tupleUnpack.length} items, first is Variant: ${tupleUnpack[0] instanceof GLib.Variant}`);
+	print(`Tuple deepUnpack() returns ${tupleDeep.length} items, first value: ${tupleDeep[0]} (${typeof tupleDeep[0]})`);
+	print(`Tuple recursiveUnpack() returns ${tupleRecursive.length} items, first value: ${tupleRecursive[0]} (${typeof tupleRecursive[0]})`);
+
+	// Test more complex tuple (sib) - string, int, bool
+	const complexTuple = new GLib.Variant("(sib)", ["hello", 123, true]);
+	print(`Complex tuple (sib):`, complexTuple.print(true));
+
+	const complexTupleUnpack = complexTuple.unpack();
+	const complexTupleDeep = complexTuple.deepUnpack();
+	const complexTupleRecursive = complexTuple.recursiveUnpack();
+
+	print(`Complex tuple unpack() - all Variants: ${complexTupleUnpack.every((item) => item instanceof GLib.Variant)}`);
+	print(`Complex tuple deepUnpack() - types: [${complexTupleDeep.map((item) => typeof item).join(", ")}]`);
+	print(`Complex tuple recursiveUnpack() - types: [${complexTupleRecursive.map((item) => typeof item).join(", ")}]`);
+	print(`Complex tuple recursiveUnpack() - values: [${complexTupleRecursive.map((item) => JSON.stringify(item)).join(", ")}]`);
+
+	// Test 5: Type inference validation - this should show TypeScript correctly inferring types
+	print("\n--- Type Inference Validation ---");
 
 	// TypeScript should infer these types correctly:
 	// - unpack() on "as" → GLib.Variant[]
@@ -170,10 +199,24 @@ function testVariantUnpacking() {
 	const deepResult = stringArrayVariant.deepUnpack();
 	const recursiveResult = stringArrayVariant.recursiveUnpack();
 
-	print(`Type inference validation:`);
+	print(`Array type inference validation:`);
 	print(`- unpack() contains Variants: ${unpackResult.every((item) => item instanceof GLib.Variant)}`);
 	print(`- deepUnpack() contains strings: ${deepResult.every((item) => typeof item === "string")}`);
 	print(`- recursiveUnpack() contains strings: ${recursiveResult.every((item) => typeof item === "string")}`);
+
+	// Test 6: The original issue - ReturnType inference
+	print("\n--- ReturnType Inference Test ---");
+
+	// This should work now - the type should be inferred as [Variant, Variant]
+	// Note: TypeScript type inference works at compile time:
+	// type TupleUnpackType = ReturnType<GLib.Variant<"(ii)">["unpack"]>;
+	
+	// Let's demonstrate this works at runtime
+	const tupleForTypeTest = new GLib.Variant("(ii)", [1, 2]);
+	const tupleTypeResult = tupleForTypeTest.unpack();
+	
+	print(`ReturnType test passed - tuple unpack() returns ${tupleTypeResult.length} items`);
+	print(`Each item is a Variant: ${tupleTypeResult.every((item) => item instanceof GLib.Variant)}`);
 }
 
 // Main execution

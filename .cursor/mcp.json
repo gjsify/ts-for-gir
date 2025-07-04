@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+      "language-server": {
+        "url": "https://github.com/isaacphi/mcp-language-server",
+        "command": "mcp-language-server",
+        "args": [
+          "--workspace",
+          ".",
+          "--lsp",
+          "typescript-language-server",
+          "--",
+          "--stdio"
+        ]
+      }
+    }
+  }
+  

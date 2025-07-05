@@ -5,8 +5,8 @@
 import { copyFile, mkdir } from "node:fs/promises";
 import { basename, join } from "node:path";
 import type { ConfigFlags, GirModuleResolvedBy, UserConfig } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from "@ts-for-gir/lib";
-import { appName, copyOptions, getOptionsGeneration, load } from "../config.ts";
+import { APP_NAME, ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from "@ts-for-gir/lib";
+import { copyOptions, getOptionsGeneration, load } from "../config.ts";
 import { ModuleLoader } from "../module-loader.ts";
 import type { CopyCommandArgs } from "../types/index.ts";
 import { createBuilder } from "./command-builder.ts";
@@ -18,9 +18,9 @@ const description = "Scan for *.gir files and copy them to a new directory";
 const logger = new Logger(false, "CopyCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
-	[`${appName} copy -o ./gir`, "Copy found *.gir files to ./gir"],
+	[`${APP_NAME} copy -o ./gir`, "Copy found *.gir files to ./gir"],
 	[
-		`${appName} copy -g /usr/share/gir-1.0 --ignore=Gtk-3.0 xrandr-1.3 -o ./gir`,
+		`${APP_NAME} copy -g /usr/share/gir-1.0 --ignore=Gtk-3.0 xrandr-1.3 -o ./gir`,
 		"Copy all found *.gir files in /usr/share/gir-1.0 excluding Gtk-3.0 and xrandr-1.3 to ./gir",
 	],
 ];

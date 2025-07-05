@@ -57,7 +57,7 @@
 	},
 	"dependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@inquirer/prompts": "^7.5.3",
+		"@inquirer/prompts": "^7.6.0",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",
@@ -69,8 +69,8 @@
 		"cosmiconfig": "^9.0.0",
 		"ejs": "^3.1.10",
 		"glob": "^11.0.3",
-		"inquirer": "^12.6.3",
-		"prettier": "^3.6.1",
+		"inquirer": "^12.7.0",
+		"prettier": "^3.6.2",
 		"yargs": "^18.0.0"
 	}
 }

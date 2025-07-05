@@ -5,7 +5,7 @@
         "command": "mcp-language-server",
         "args": [
           "--workspace",
-          ".",
+          "./tests/types-locally",
           "--lsp",
           "typescript-language-server",
           "--",

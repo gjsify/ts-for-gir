@@ -4,10 +4,9 @@
 
 import { dirname, resolve } from "node:path";
 import type { ConfigFlags, OptionsGeneration, UserConfig, UserConfigLoadResult } from "@ts-for-gir/lib";
-import { isEqual } from "@ts-for-gir/lib";
+import { APP_NAME, isEqual } from "@ts-for-gir/lib";
 import { type Options as ConfigSearchOptions, cosmiconfig } from "cosmiconfig";
 import { setConfigFilePath } from "./config-writer.ts";
-import { appName } from "./defaults.ts";
 import { options } from "./options.ts";
 
 /**
@@ -40,7 +39,7 @@ export async function loadConfigFile(configName?: string): Promise<UserConfigLoa
 		configSearchOptions.searchPlaces = [configName];
 	}
 
-	const configFile: UserConfigLoadResult | null = await cosmiconfig(appName, configSearchOptions).search();
+	const configFile: UserConfigLoadResult | null = await cosmiconfig(APP_NAME, configSearchOptions).search();
 
 	if (configFile?.filepath) {
 		setConfigFilePath(configFile.filepath);

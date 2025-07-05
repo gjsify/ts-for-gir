@@ -1,8 +1,9 @@
 import { validateTypeScript } from '@ts-for-gir/language-server';
 
-import { 
-  testGtkImport, 
-  testBasicTypeScript
+import {
+  testBasicTypeScript,
+  testGIRTypeValidation,
+  testGtkImport
 } from './test-cases.ts';
 
 console.log('🚀 ts-for-gir Language Server Validation Tests');
@@ -46,20 +47,39 @@ function main() {
   }
   totalTests++;
 
-  // Test 3: GTK import test (will fail but that's expected for now)
-  console.log('\n3️⃣ Testing GTK import (expect errors for now)...');
+  // Test 3: GTK import test WITHOUT types (should fail - demonstrates the problem)
+  console.log('\n3️⃣ Testing GTK import WITHOUT type definitions (should fail)...');
   try {
     const result = testGtkImport();
-    logTest('GTK import test', true, 
+    logTest('GTK import without types', true, 
            `Success: ${result.success}, Errors: ${result.errors.length}, Warnings: ${result.warnings.length}`);
     
     if (result.errors.length > 0) {
-      console.log('   📝 GTK errors (expected for now):');
+      console.log('   📝 GTK errors (expected without types):');
       result.errors.slice(0, 2).forEach(error => console.log(`      - ${error}`));
     }
-    passedTests++; // We count this as pass since we expect it to have errors for now
+    passedTests++; // We count this as pass since we expect it to have errors without types
   } catch (error: any) {
-    logTest('GTK import test', false, `Exception: ${error}`);
+    logTest('GTK import without types', false, `Exception: ${error}`);
+  }
+  totalTests++;
+
+  // Test 4: GIR type validation WITH actual type definitions (should succeed)
+  console.log('\n4️⃣ Testing GTK import WITH type definitions (should succeed)...');
+  try {
+    const result = testGIRTypeValidation();
+    const success = result.success;
+    logTest('GTK import with types', success, 
+           success ? 'All good!' : `Errors: ${result.errors.length}`);
+    
+    if (!success && result.errors.length > 0) {
+      console.log('   📝 GTK validation errors:');
+      result.errors.slice(0, 3).forEach(error => console.log(`      - ${error}`));
+    }
+    
+    if (success) passedTests++;
+  } catch (error: any) {
+    logTest('GTK import with types', false, `Exception: ${error}`);
   }
   totalTests++;
 
@@ -78,7 +98,8 @@ function main() {
   console.log('\n💡 Foundation ready:');
   console.log('   - TypeScript validation working');
   console.log('   - Error detection working');
-  console.log('   - Ready to build GIR type resolution');
+  console.log('   - GIR imports fail WITHOUT type definitions (expected)');
+  console.log('   - GIR imports work WITH type definitions (validates our approach)');
 }
 
 main(); 

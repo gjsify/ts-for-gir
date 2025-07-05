@@ -1,0 +1,33 @@
+{
+  "name": "@ts-for-gir-test/language-server-validation",
+  "version": "0.1.0",
+  "description": "Tests for TypeScript Language Server validation of generated GIR types",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "test:start": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/index.ts",
+    "test": "yarn generate && yarn test:start",
+    "generate": "ts-for-gir generate Adw-1 --girDirectories ../../girs"
+  },
+  "keywords": [
+    "typescript",
+    "language-server",
+    "gir",
+    "testing",
+    "validation"
+  ],
+  "author": "ts-for-gir contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@ts-for-gir/cli": "workspace:^",
+    "@ts-for-gir/language-server": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.0",
+    "typescript": "^5.8.3"
+  }
+}

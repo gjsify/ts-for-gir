@@ -1,9 +1,13 @@
-import { validateTypeScript } from '@ts-for-gir/language-server';
-
+import type { ValidationResult, HoverResult, TypeExpectationResult } from '@ts-for-gir/language-server';
 import {
   testBasicTypeScript,
   testGIRTypeValidation,
-  testGtkImport
+  testErrorDetection,
+  testHoverFunctionality,
+  testBasicHover,
+  testGIRTypeExpectation,
+  testBasicTypeExpectation,
+  testTypeExpectationFailure
 } from './test-cases.ts';
 
 console.log('🚀 ts-for-gir Language Server Validation Tests');
@@ -17,89 +21,163 @@ function logTest(name: string, success: boolean, details?: string) {
   }
 }
 
+function runValidationTest(name: string, testFn: () => ValidationResult): boolean {
+  try {
+    const result = testFn();
+    const success = result.success;
+    logTest(name, success, 
+           success ? 'All good!' : `Errors: ${result.errors.length}, Warnings: ${result.warnings.length}`);
+    
+    // Show first few errors if any
+    if (!success && result.errors.length > 0) {
+      console.log('   📝 Errors:');
+      result.errors.slice(0, 2).forEach(error => console.log(`      - ${error}`));
+    }
+    
+    return success;
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    logTest(name, false, `Exception: ${errorMessage}`);
+    return false;
+  }
+}
+
+function runHoverTest(name: string, testFn: () => HoverResult): boolean {
+  try {
+    const result = testFn();
+    const success = result.success;
+    logTest(name, success, 
+           success ? `Type: ${result.type}` : `Error: ${result.error}`);
+    
+    // Show type information if successful
+    if (success && result.type) {
+      console.log(`   🔍 Type: ${result.type}`);
+      if (result.documentation) {
+        console.log(`   📖 Documentation: ${result.documentation}`);
+      }
+    }
+    
+    return success;
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    logTest(name, false, `Exception: ${errorMessage}`);
+    return false;
+  }
+}
+
+function runTypeExpectationTest(name: string, testFn: () => TypeExpectationResult, expectFailure = false): boolean {
+  try {
+    const result = testFn();
+    const success = result.success;
+    
+    // For expectFailure tests, success means the test ran but the types didn't match
+    const testPassed = expectFailure ? (success && !result.matches) : (success && result.matches);
+    
+    let details = '';
+    if (success) {
+      if (result.matches) {
+        details = `✓ Expected '${result.expectedType}', got '${result.actualType}'`;
+      } else {
+        details = `✗ Expected '${result.expectedType}', got '${result.actualType}'`;
+      }
+    } else {
+      details = `Error: ${result.error}`;
+    }
+    
+    logTest(name, testPassed, details);
+    
+    return testPassed;
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    logTest(name, false, `Exception: ${errorMessage}`);
+    return false;
+  }
+}
+
 function main() {
   let passedTests = 0;
   let totalTests = 0;
 
-  // Test 1: Basic TypeScript validation (no imports)
-  console.log('1️⃣ Testing basic TypeScript validation...');
-  try {
-    const result = testBasicTypeScript();
-    const success = result.success;
-    logTest('Basic TypeScript validation', success, 
-           success ? 'All good!' : `Errors: ${result.errors.length}`);
-    if (success) passedTests++;
-  } catch (error: any) {
-    logTest('Basic TypeScript validation', false, `Exception: ${error}`);
-  }
-  totalTests++;
+  const validationTests: [string, () => ValidationResult][] = [
+    ['Basic TypeScript validation', testBasicTypeScript],
+    ['Error detection', () => {
+      const result = testErrorDetection();
+      // For error detection, we expect it to fail (have errors)
+      return { success: !result.success && result.errors.length > 0, errors: result.errors, warnings: result.warnings };
+    }],
+    ['GIR type validation with auto-discovery', testGIRTypeValidation],
+  ];
 
-  // Test 2: Error detection
-  console.log('\n2️⃣ Testing error detection...');
-  try {
-    const result = validateTypeScript('const x: number = "invalid";');
-    const success = !result.success && result.errors.length > 0;
-    logTest('Error detection', success, 
-           `Detected ${result.errors.length} errors as expected`);
-    if (success) passedTests++;
-  } catch (error: any) {
-    logTest('Error detection', false, `Exception: ${error}`);
-  }
-  totalTests++;
+  const hoverTests: [string, () => HoverResult][] = [
+    ['Basic TypeScript hover', testBasicHover],
+    ['GIR type hover functionality', testHoverFunctionality],
+  ];
 
-  // Test 3: GTK import test WITHOUT types (should fail - demonstrates the problem)
-  console.log('\n3️⃣ Testing GTK import WITHOUT type definitions (should fail)...');
-  try {
-    const result = testGtkImport();
-    logTest('GTK import without types', true, 
-           `Success: ${result.success}, Errors: ${result.errors.length}, Warnings: ${result.warnings.length}`);
-    
-    if (result.errors.length > 0) {
-      console.log('   📝 GTK errors (expected without types):');
-      result.errors.slice(0, 2).forEach(error => console.log(`      - ${error}`));
+  const typeExpectationTests: [string, () => TypeExpectationResult, boolean?][] = [
+    ['Basic type expectation', testBasicTypeExpectation],
+    ['GIR type expectation', testGIRTypeExpectation],
+    ['Type expectation failure (expected)', testTypeExpectationFailure, true], // Expect this to fail
+  ];
+
+  let testNumber = 1;
+
+  // Run validation tests
+  console.log('🔍 Validation Tests');
+  console.log('===================');
+  validationTests.forEach(([name, testFn]) => {
+    console.log(`${testNumber}️⃣ Testing ${name}...`);
+    if (runValidationTest(name, testFn)) {
+      passedTests++;
     }
-    passedTests++; // We count this as pass since we expect it to have errors without types
-  } catch (error: any) {
-    logTest('GTK import without types', false, `Exception: ${error}`);
-  }
-  totalTests++;
+    totalTests++;
+    testNumber++;
+    console.log('');
+  });
 
-  // Test 4: GIR type validation WITH actual type definitions (should succeed)
-  console.log('\n4️⃣ Testing GTK import WITH type definitions (should succeed)...');
-  try {
-    const result = testGIRTypeValidation();
-    const success = result.success;
-    logTest('GTK import with types', success, 
-           success ? 'All good!' : `Errors: ${result.errors.length}`);
-    
-    if (!success && result.errors.length > 0) {
-      console.log('   📝 GTK validation errors:');
-      result.errors.slice(0, 3).forEach(error => console.log(`      - ${error}`));
+  // Run hover tests  
+  console.log('🎯 Hover Tests');
+  console.log('===============');
+  hoverTests.forEach(([name, testFn]) => {
+    console.log(`${testNumber}️⃣ Testing ${name}...`);
+    if (runHoverTest(name, testFn)) {
+      passedTests++;
     }
-    
-    if (success) passedTests++;
-  } catch (error: any) {
-    logTest('GTK import with types', false, `Exception: ${error}`);
-  }
-  totalTests++;
+    totalTests++;
+    testNumber++;
+    console.log('');
+  });
 
-  console.log(`\n${'='.repeat(50)}`);
+  // Run type expectation tests
+  console.log('✅ Type Expectation Tests');
+  console.log('==========================');
+  typeExpectationTests.forEach(([name, testFn, expectFailure]) => {
+    console.log(`${testNumber}️⃣ Testing ${name}...`);
+    if (runTypeExpectationTest(name, testFn, expectFailure)) {
+      passedTests++;
+    }
+    totalTests++;
+    testNumber++;
+    console.log('');
+  });
+
+  console.log(`${'='.repeat(50)}`);
   console.log('📊 Test Results Summary:');
   console.log(`   ✅ Passed: ${passedTests}`);
   console.log(`   ❌ Failed: ${totalTests - passedTests}`);
   console.log(`   📈 Success Rate: ${((passedTests / totalTests) * 100).toFixed(1)}%`);
   
   if (passedTests < totalTests) {
-    console.log('\n⚠️  Some tests failed. This is expected if the GIR types are not available.');
+    console.log('\n⚠️  Some tests failed. Check if GIR types are available in @types directory.');
   } else {
     console.log('\n🎉 All tests passed!');
   }
 
-  console.log('\n💡 Foundation ready:');
+  console.log('\n💡 Language Server capabilities:');
   console.log('   - TypeScript validation working');
   console.log('   - Error detection working');
-  console.log('   - GIR imports fail WITHOUT type definitions (expected)');
-  console.log('   - GIR imports work WITH type definitions (validates our approach)');
+  console.log('   - GIR type auto-discovery working');
+  console.log('   - Hover functionality for type inspection');
+  console.log('   - Type expectation validation for precise testing');
 }
 
 main(); 

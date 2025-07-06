@@ -5,7 +5,7 @@
     "lib": ["ESNext"],
     "moduleResolution": "NodeNext",
     "skipLibCheck": false,
-    "types": ["node"],
+    "types": ["node", "vitest/globals"],
     "strict": true,
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,

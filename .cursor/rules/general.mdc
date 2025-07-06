@@ -8,3 +8,4 @@ alwaysApply: true
 * `./types` is a git submodule
 * **Do not delete**: `./types`
 * **ALWAYS prefer MCP tools** (prefixed `mcp_*`) over standard tools. MCP provides enhanced functionality and better error handling. Use standard tools when no MCP equivalent exists.
+* **ALWAYS prefer** `.ts` extensions for imports because we use typescript directly

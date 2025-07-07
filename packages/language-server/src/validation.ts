@@ -237,7 +237,7 @@ export function getIdentifierTypeAuto(
 export function expectIdentifierType(
 	code: string,
 	identifier: string,
-	expectedType: string,
+	expectedType: string | RegExp,
 	options: HoverOptions = {},
 ): TypeExpectationResult {
 	try {
@@ -266,13 +266,15 @@ export function expectIdentifierType(
 		// Check if types match
 		const matches = typesMatch(actualType, expectedType);
 
+		const expectedTypeDisplay = expectedType instanceof RegExp ? expectedType.toString() : expectedType;
+
 		return {
 			success: true,
 			matches,
 			actualType,
 			expectedType,
 			documentation: hoverResult.documentation,
-			error: matches ? undefined : `Expected type '${expectedType}' but got '${actualType}'`,
+			error: matches ? undefined : `Expected type '${expectedTypeDisplay}' but got '${actualType}'`,
 		};
 	} catch (error) {
 		return {
@@ -290,7 +292,7 @@ export function expectIdentifierType(
 export function expectIdentifierTypeAuto(
 	code: string,
 	identifier: string,
-	expectedType: string,
+	expectedType: string | RegExp,
 	options: Omit<HoverOptions, "typesPath"> = {},
 ): TypeExpectationResult {
 	const typesPath = findTypesPath();

@@ -19,7 +19,12 @@ export function normalizeTypeString(typeString: string): string {
 /**
  * Check if two type strings match, considering type aliases and normalization
  */
-export function typesMatch(actual: string, expected: string): boolean {
+export function typesMatch(actual: string, expected: string | RegExp): boolean {
+	// If expected is a RegExp, test against the actual type
+	if (expected instanceof RegExp) {
+		return expected.test(actual);
+	}
+
 	const normalizedActual = normalizeTypeString(actual);
 	const normalizedExpected = normalizeTypeString(expected);
 

@@ -7,8 +7,8 @@ export interface TypeExpectationResult {
 	matches: boolean;
 	/** The actual inferred type */
 	actualType?: string;
-	/** The expected type */
-	expectedType: string;
+	/** The expected type or pattern */
+	expectedType: string | RegExp;
 	/** Documentation or additional information */
 	documentation?: string;
 	/** Error message if validation failed */

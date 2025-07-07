@@ -100,7 +100,7 @@ const code = `
   const window = new Gtk.Window();
 `;
 
-// Validate that 'button' is of type 'Gtk.Button'
+// Validate that 'button' is of type 'Gtk.Button' (exact match)
 const result = expectIdentifierTypeAuto(code, 'button', 'Gtk.Button');
 
 console.log(result.success);      // true or false
@@ -108,6 +108,10 @@ console.log(result.matches);      // true if types match
 console.log(result.actualType);   // e.g., "Gtk.Button"
 console.log(result.expectedType); // "Gtk.Button"
 console.log(result.error);        // Error message if types don't match
+
+// Validate using RegExp pattern (flexible matching)
+const patternResult = expectIdentifierTypeAuto(code, 'button', /Button|Gtk\.Button/);
+console.log(patternResult.matches); // true if type matches pattern
 ```
 
 ## API
@@ -153,7 +157,7 @@ Gets type information with automatic GIR type discovery.
 
 ### Type Expectation Functions
 
-#### `expectIdentifierType(code: string, identifier: string, expectedType: string, options?: HoverOptions)`
+#### `expectIdentifierType(code: string, identifier: string, expectedType: string | RegExp, options?: HoverOptions)`
 
 Validates that a specific identifier has the expected type.
 
@@ -161,11 +165,15 @@ Validates that a specific identifier has the expected type.
 - `success: boolean` - Whether type checking succeeded
 - `matches: boolean` - Whether the actual type matches the expected type
 - `actualType?: string` - The actual inferred type
-- `expectedType: string` - The expected type that was tested for
+- `expectedType: string | RegExp` - The expected type or pattern that was tested for
 - `documentation?: string` - JSDoc documentation if available
 - `error?: string` - Error message if validation failed
 
-#### `expectIdentifierTypeAuto(code: string, identifier: string, expectedType: string, options?: HoverOptions)`
+**Expected Type Patterns:**
+- `string` - Exact type name match (e.g., "Gtk.Button")
+- `RegExp` - Pattern matching (e.g., `/Variant.*\[\]|Array.*Variant/`)
+
+#### `expectIdentifierTypeAuto(code: string, identifier: string, expectedType: string | RegExp, options?: HoverOptions)`
 
 Validates that a specific identifier has the expected type with automatic GIR type discovery.
 
@@ -215,6 +223,28 @@ describe('GIR Type Tests', () => {
       import Gtk from 'gi://Gtk?version=4.0';
       const button = new Gtk.Button();
     `, 'button', 'Gtk.Button');
+    
+    expect(result.success).toBe(true);
+    expect(result.matches).toBe(true);
+  });
+
+  test('GVariant unpack methods should return correct types', () => {
+    const result = expectIdentifierTypeAuto(`
+      import GLib from 'gi://GLib?version=2.0';
+      const variant = new GLib.Variant("as", ["one", "two"]);
+      const unpacked = variant.unpack();
+    `, 'unpacked', /Variant.*\[\]|Array.*Variant/);
+    
+    expect(result.success).toBe(true);
+    expect(result.matches).toBe(true);
+  });
+
+  test('Complex type patterns should work', () => {
+    const result = expectIdentifierTypeAuto(`
+      import GLib from 'gi://GLib?version=2.0';
+      const variant = new GLib.Variant("(si)", ["hello", 42]);
+      const deepUnpack = variant.deepUnpack();
+    `, 'deepUnpack', /\[string,\s*number\]/);
     
     expect(result.success).toBe(true);
     expect(result.matches).toBe(true);

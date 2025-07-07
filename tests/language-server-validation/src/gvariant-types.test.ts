@@ -259,14 +259,17 @@ describe('GVariant Type Validation', () => {
       `;
 
       // Test type expectations for string variants - all should return string for simple types
-      const stringUnpackResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringUnpack', 'string');
-      const stringDeepResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringDeep', 'string');
-      const stringRecursiveResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringRecursive', 'string');
+      const stringUnpackResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringUnpack', /^string$/);
+      const stringDeepResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringDeep', /^string$/);
+      const stringRecursiveResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringRecursive', /^string$/);
       
       // All should return string for simple string variant
       expect(stringUnpackResult.success).toBe(true);
+      expect(stringUnpackResult.matches).toBe(true);
       expect(stringDeepResult.success).toBe(true);
+      expect(stringDeepResult.matches).toBe(true);
       expect(stringRecursiveResult.success).toBe(true);
+      expect(stringRecursiveResult.matches).toBe(true);
       
       // Test hover for array variants to document expected behavior
       const arrayUnpackHover: HoverResult = getIdentifierTypeAuto(testCode, 'arrayUnpack');
@@ -378,10 +381,10 @@ describe('GVariant Type Validation', () => {
       });
       
       // Validate method signatures are functions
-      expect(unpackHover.type).toMatch(/function|\(\)/);
-      expect(deepUnpackHover.type).toMatch(/function|\(\)/);
-      expect(recursiveUnpackHover.type).toMatch(/function|\(\)/);
-      expect(printHover.type).toMatch(/function|\(\)/);
+      expect(unpackHover.type).toMatch(/function|\(\)|=>/);
+      expect(deepUnpackHover.type).toMatch(/function|\(\)|=>/);
+      expect(recursiveUnpackHover.type).toMatch(/function|\(\)|=>/);
+      expect(printHover.type).toMatch(/function|\(\)|=>/);
     });
 
     it('should validate print method with parameters', async () => {

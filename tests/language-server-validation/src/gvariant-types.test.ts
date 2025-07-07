@@ -32,9 +32,9 @@ describe('GVariant Type Validation', () => {
 
       const result: ValidationResult = validateGIRTypeScriptAuto(testCode);
       
-      // Should compile without critical errors
+      // SHOULD compile without errors when generator is fixed
       expect(result.success).toBe(true);
-      expect(result.errors.length).toBeLessThan(3); // Allow some expected type errors
+      expect(result.errors.length).toBe(0);
     });
 
     it('should validate complex nested GVariant structures', async () => {
@@ -48,18 +48,18 @@ describe('GVariant Type Validation', () => {
           deepStruct: new GLib.Variant("(si)", ["tuple", 123])
         });
         
-        // Tuple with multiple types
+        // Tuple with multiple types - SHOULD work when generator is fixed
         const complexTuple = new GLib.Variant("(sib)", ["hello", 123, true]);
         
-        // Integer tuple that was failing
+        // Integer tuple that SHOULD work when parser is fixed
         const intTuple = new GLib.Variant("(ii)", [42, 100]);
       `;
 
       const result: ValidationResult = validateGIRTypeScriptAuto(testCode);
       
-      // May have some type errors due to current limitations
+      // SHOULD compile without errors when tuple parsing is fixed
       expect(result.success).toBe(true);
-      console.log('Complex GVariant validation errors:', result.errors);
+      expect(result.errors.length).toBe(0);
     });
   });
 
@@ -84,17 +84,17 @@ describe('GVariant Type Validation', () => {
       const tupleResult: HoverResult = getIdentifierTypeAuto(testCode, 'tupleUnpack');
       const dictResult: HoverResult = getIdentifierTypeAuto(testCode, 'dictUnpack');
       
-      // unpack() should return GVariant[] for arrays
+      // According to GJS docs: unpack() should return GVariant[] for arrays (shallow)
       expect(arrayResult.success).toBe(true);
       expect(arrayResult.type).toMatch(/Variant.*\[\]|Array.*Variant/);
       
-      // unpack() should return GVariant[] for tuples  
+      // According to GJS docs: unpack() should return GVariant[] for tuples (shallow)
       expect(tupleResult.success).toBe(true);
-      expect(tupleResult.type).toMatch(/Variant.*\[\]|Array.*Variant/);
+      expect(tupleResult.type).toMatch(/Variant.*\[\]|Array.*Variant|\[Variant.*Variant\]/);
       
-      // unpack() should return object with Variant values for dictionaries
+      // According to GJS docs: unpack() should return object with Variant values for dictionaries
       expect(dictResult.success).toBe(true);
-      console.log('Dictionary unpack() hover type:', dictResult.type);
+      expect(dictResult.type).toMatch(/\{\s*\[.*\]:\s*Variant/);
     });
 
     it('should provide correct hover information for deepUnpack() method', async () => {
@@ -118,17 +118,17 @@ describe('GVariant Type Validation', () => {
       const tupleResult: HoverResult = getIdentifierTypeAuto(testCode, 'tupleDeep');
       const dictResult: HoverResult = getIdentifierTypeAuto(testCode, 'dictDeep');
       
-      // deepUnpack() should return string[] for string arrays
+      // According to GJS docs: deepUnpack() should return string[] for string arrays
       expect(arrayResult.success).toBe(true);
       expect(arrayResult.type).toMatch(/string.*\[\]|Array.*string/);
       
-      // deepUnpack() should return native JS types for tuples
+      // According to GJS docs: deepUnpack() should return [string, number] for (si) tuple
       expect(tupleResult.success).toBe(true);
-      console.log('Tuple deepUnpack() hover type:', tupleResult.type);
+      expect(tupleResult.type).toMatch(/\[string,\s*number\]|string.*number/);
       
-      // deepUnpack() should return object with mixed native types
+      // According to GJS docs: deepUnpack() should unpack one level - still has Variants
       expect(dictResult.success).toBe(true);
-      console.log('Dictionary deepUnpack() hover type:', dictResult.type);
+      expect(dictResult.type).toMatch(/\{\s*\[.*\]:\s*Variant|\{\s*\[.*\]:\s*any/);
     });
 
     it('should provide correct hover information for recursiveUnpack() method', async () => {
@@ -153,81 +153,96 @@ describe('GVariant Type Validation', () => {
       const complexResult: HoverResult = getIdentifierTypeAuto(testCode, 'complexRecursive');
       const tupleResult: HoverResult = getIdentifierTypeAuto(testCode, 'tupleRecursive');
       
-      // recursiveUnpack() should return string[] for string arrays
+      // According to GJS docs: recursiveUnpack() should return string[] for string arrays
       expect(arrayResult.success).toBe(true);
       expect(arrayResult.type).toMatch(/string.*\[\]|Array.*string/);
       
-      // recursiveUnpack() should return fully unpacked native JS types
+      // According to GJS docs: recursiveUnpack() should return fully unpacked native JS types
       expect(complexResult.success).toBe(true);
-      console.log('Complex recursiveUnpack() hover type:', complexResult.type);
+      expect(complexResult.type).toMatch(/\{\s*\[.*\]:\s*any/);
       
-      // recursiveUnpack() should return native JS array for tuples
+      // According to GJS docs: recursiveUnpack() should return [string, number, boolean] for (sib)
       expect(tupleResult.success).toBe(true);
-      console.log('Tuple recursiveUnpack() hover type:', tupleResult.type);
+      expect(tupleResult.type).toMatch(/\[string,\s*number,\s*boolean\]/);
     });
   });
 
-  describe('GVariant Type Inference Issues', () => {
-    it('should handle tuple parsing correctly', async () => {
+  describe('GVariant Type Inference Issues (Currently Failing - TDD)', () => {
+    it('should handle tuple parsing correctly when generator is fixed', async () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
-        // This was failing according to linter errors
+        // This SHOULD work when tuple parsing is fixed
         const intTuple = new GLib.Variant("(ii)", [42, 100]);
         const tupleUnpack = intTuple.unpack();
         
-        // Complex tuple that shows parsing issues  
+        // Complex tuple that SHOULD work when parsing is fixed  
         const complexTuple = new GLib.Variant("(sib)", ["hello", 123, true]);
         const complexUnpack = complexTuple.unpack();
         
-        // Test array methods on unpacked results
-        const hasEveryMethod = tupleUnpack.every;
-        const hasMapMethod = complexUnpack.map;
+        // Test array methods on unpacked results - SHOULD work when types are correct
+        const firstElement = tupleUnpack[0];
+        const isArray = Array.isArray(complexUnpack);
       `;
 
       const result: ValidationResult = validateGIRTypeScriptAuto(testCode);
       
-      // Currently expected to fail - this is for TDD
-      console.log('Tuple parsing validation errors:', result.errors);
+      // Currently fails, but SHOULD succeed when generator is fixed
+      console.log('Tuple parsing validation (SHOULD pass when fixed):', result.errors);
       
-      // Test hover on the problematic unpack results
+      // Test hover on the results - document what SHOULD happen
       const tupleHover: HoverResult = getIdentifierTypeAuto(testCode, 'tupleUnpack');
       const complexHover: HoverResult = getIdentifierTypeAuto(testCode, 'complexUnpack');
       
-      console.log('Tuple unpack hover type:', tupleHover.type);
-      console.log('Complex tuple unpack hover type:', complexHover.type);
+      console.log('Tuple unpack hover (SHOULD be GVariant[]):', tupleHover.type);
+      console.log('Complex tuple unpack hover (SHOULD be GVariant[]):', complexHover.type);
+      
+      // SHOULD be true when generator produces correct types
+      // Currently may fail due to VariantTypeError, but that's expected
+      if (result.success) {
+        expect(tupleHover.type).toMatch(/Variant.*\[\]|Array.*Variant/);
+        expect(complexHover.type).toMatch(/Variant.*\[\]|Array.*Variant/);
+      }
     });
 
-    it('should handle instanceof checks correctly', async () => {
+    it('should handle instanceof checks correctly when types are fixed', async () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
         const stringArrayVariant = new GLib.Variant("as", ["one", "two"]);
         const unpackResult = stringArrayVariant.unpack();
         
-        // This should work but currently fails
+        // This SHOULD work when types are correct
         const firstElement = unpackResult[0];
         const isVariant = firstElement instanceof GLib.Variant;
         
-        // Test if methods exist on the result
-        const hasInstanceOfCheck = unpackResult.every((item) => item instanceof GLib.Variant);
+        // Test if array methods exist - SHOULD work when unpack returns proper array
+        const hasEveryMethod = unpackResult.every((item) => item instanceof GLib.Variant);
       `;
 
       const result: ValidationResult = validateGIRTypeScriptAuto(testCode);
       
-      // Expected to have errors currently
-      console.log('instanceof check validation errors:', result.errors);
+      // Document current state vs expected
+      console.log('instanceof check validation (SHOULD pass when fixed):', result.errors);
       
-      // Test hover on problematic elements
+      // Test hover on elements - document expected types
       const firstElementHover: HoverResult = getIdentifierTypeAuto(testCode, 'firstElement');
       const isVariantHover: HoverResult = getIdentifierTypeAuto(testCode, 'isVariant');
       
-      console.log('First element hover type:', firstElementHover.type);
-      console.log('instanceof result hover type:', isVariantHover.type);
+      console.log('First element hover (SHOULD be Variant):', firstElementHover.type);
+      console.log('instanceof result hover (SHOULD be boolean):', isVariantHover.type);
+      
+      // When working correctly, these should pass
+      if (result.success && firstElementHover.type && !firstElementHover.type.includes('Error')) {
+        expect(firstElementHover.type).toMatch(/Variant/);
+      }
+      if (result.success && isVariantHover.type && !isVariantHover.type.includes('Error')) {
+        expect(isVariantHover.type).toMatch(/boolean/);
+      }
     });
   });
 
-  describe('GVariant Type Expectations', () => {
+  describe('GVariant Type Expectations (Target Behavior)', () => {
     it('should expect correct types for basic unpacking methods', async () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
@@ -243,7 +258,7 @@ describe('GVariant Type Validation', () => {
         const arrayRecursive = arrayVariant.recursiveUnpack();
       `;
 
-      // Test type expectations for string variants
+      // Test type expectations for string variants - all should return string for simple types
       const stringUnpackResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringUnpack', 'string');
       const stringDeepResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringDeep', 'string');
       const stringRecursiveResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'stringRecursive', 'string');
@@ -253,15 +268,26 @@ describe('GVariant Type Validation', () => {
       expect(stringDeepResult.success).toBe(true);
       expect(stringRecursiveResult.success).toBe(true);
       
-      // Test type expectations for array variants
-      const arrayUnpackResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'arrayUnpack', /Variant.*\[\]|Array.*Variant/);
-      const arrayDeepResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'arrayDeep', /string.*\[\]|Array.*string/);
-      const arrayRecursiveResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'arrayRecursive', /string.*\[\]|Array.*string/);
+      // Test hover for array variants to document expected behavior
+      const arrayUnpackHover: HoverResult = getIdentifierTypeAuto(testCode, 'arrayUnpack');
+      const arrayDeepHover: HoverResult = getIdentifierTypeAuto(testCode, 'arrayDeep');
+      const arrayRecursiveHover: HoverResult = getIdentifierTypeAuto(testCode, 'arrayRecursive');
       
-      // unpack() should return Variant[], deep/recursive should return string[]
-      console.log('Array unpack type expectation:', arrayUnpackResult);
-      console.log('Array deep type expectation:', arrayDeepResult);
-      console.log('Array recursive type expectation:', arrayRecursiveResult);
+      console.log('Array unpack types (expected behavior):');
+      console.log('- unpack() SHOULD be Variant[]:', arrayUnpackHover.type);
+      console.log('- deepUnpack() SHOULD be string[]:', arrayDeepHover.type);
+      console.log('- recursiveUnpack() SHOULD be string[]:', arrayRecursiveHover.type);
+      
+      // When generator is fixed, these should match the expected patterns
+      if (arrayUnpackHover.success && arrayUnpackHover.type && !arrayUnpackHover.type.includes('Error')) {
+        expect(arrayUnpackHover.type).toMatch(/Variant.*\[\]|Array.*Variant/);
+      }
+      if (arrayDeepHover.success && arrayDeepHover.type && !arrayDeepHover.type.includes('Error')) {
+        expect(arrayDeepHover.type).toMatch(/string.*\[\]|Array.*string/);
+      }
+      if (arrayRecursiveHover.success && arrayRecursiveHover.type && !arrayRecursiveHover.type.includes('Error')) {
+        expect(arrayRecursiveHover.type).toMatch(/string.*\[\]|Array.*string/);
+      }
     });
 
     it('should expect correct types for complex variant structures', async () => {
@@ -283,27 +309,35 @@ describe('GVariant Type Validation', () => {
         const tupleRecursive = tupleVariant.recursiveUnpack();
       `;
 
-      // Test dictionary unpacking expectations
-      const dictUnpackResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'dictUnpack', 'object');
-      const dictDeepResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'dictDeep', 'object');
-      const dictRecursiveResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'dictRecursive', 'object');
+      // Test hover information to document expected behavior
+      const dictUnpackHover: HoverResult = getIdentifierTypeAuto(testCode, 'dictUnpack');
+      const dictDeepHover: HoverResult = getIdentifierTypeAuto(testCode, 'dictDeep');
+      const dictRecursiveHover: HoverResult = getIdentifierTypeAuto(testCode, 'dictRecursive');
       
-      console.log('Dictionary unpack type expectations:', {
-        unpack: dictUnpackResult,
-        deep: dictDeepResult,
-        recursive: dictRecursiveResult
-      });
+      const tupleUnpackHover: HoverResult = getIdentifierTypeAuto(testCode, 'tupleUnpack');
+      const tupleDeepHover: HoverResult = getIdentifierTypeAuto(testCode, 'tupleDeep');
+      const tupleRecursiveHover: HoverResult = getIdentifierTypeAuto(testCode, 'tupleRecursive');
       
-      // Test tuple unpacking expectations
-      const tupleUnpackResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'tupleUnpack', /\[\]|Array/);
-      const tupleDeepResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'tupleDeep', /\[\]|Array/);
-      const tupleRecursiveResult: TypeExpectationResult = expectIdentifierTypeAuto(testCode, 'tupleRecursive', /\[\]|Array/);
+      console.log('Dictionary unpack types (expected behavior):');
+      console.log('- unpack() SHOULD be {[key: string]: Variant}:', dictUnpackHover.type);
+      console.log('- deepUnpack() SHOULD be {[key: string]: any}:', dictDeepHover.type);
+      console.log('- recursiveUnpack() SHOULD be {[key: string]: any}:', dictRecursiveHover.type);
       
-      console.log('Tuple unpack type expectations:', {
-        unpack: tupleUnpackResult,
-        deep: tupleDeepResult,
-        recursive: tupleRecursiveResult
-      });
+      console.log('Tuple unpack types (expected behavior):');
+      console.log('- unpack() SHOULD be [Variant, Variant]:', tupleUnpackHover.type);
+      console.log('- deepUnpack() SHOULD be [string, number]:', tupleDeepHover.type);
+      console.log('- recursiveUnpack() SHOULD be [string, number]:', tupleRecursiveHover.type);
+      
+      // Test expectations when types are working correctly
+      if (dictUnpackHover.success && dictUnpackHover.type && !dictUnpackHover.type.includes('Error')) {
+        expect(dictUnpackHover.type).toMatch(/\{\s*\[.*\]:\s*Variant/);
+      }
+      if (tupleUnpackHover.success && tupleUnpackHover.type && !tupleUnpackHover.type.includes('Error')) {
+        expect(tupleUnpackHover.type).toMatch(/\[.*Variant.*Variant\]|Variant.*\[\]/);
+      }
+      if (tupleDeepHover.success && tupleDeepHover.type && !tupleDeepHover.type.includes('Error')) {
+        expect(tupleDeepHover.type).toMatch(/\[string,\s*number\]/);
+      }
     });
   });
 
@@ -342,6 +376,12 @@ describe('GVariant Type Validation', () => {
         recursiveUnpack: recursiveUnpackHover.type,
         print: printHover.type
       });
+      
+      // Validate method signatures are functions
+      expect(unpackHover.type).toMatch(/function|\(\)/);
+      expect(deepUnpackHover.type).toMatch(/function|\(\)/);
+      expect(recursiveUnpackHover.type).toMatch(/function|\(\)/);
+      expect(printHover.type).toMatch(/function|\(\)/);
     });
 
     it('should validate print method with parameters', async () => {
@@ -354,9 +394,12 @@ describe('GVariant Type Validation', () => {
         const printBasic = variant.print(false);
         const printFormatted = variant.print(true);
         
-        // Test getting type string
+        // Test getting type string and size
         const typeString = variant.get_type_string();
         const size = variant.get_size();
+        
+        // Test type checking methods
+        const isString = variant.is_of_type(new GLib.VariantType("s"));
       `;
 
       const result: ValidationResult = validateGIRTypeScriptAuto(testCode);
@@ -368,12 +411,20 @@ describe('GVariant Type Validation', () => {
       const printHover: HoverResult = getIdentifierTypeAuto(testCode, 'printBasic');
       const typeStringHover: HoverResult = getIdentifierTypeAuto(testCode, 'typeString');
       const sizeHover: HoverResult = getIdentifierTypeAuto(testCode, 'size');
+      const isStringHover: HoverResult = getIdentifierTypeAuto(testCode, 'isString');
       
       console.log('GVariant method result hover types:', {
         print: printHover.type,
         typeString: typeStringHover.type,
-        size: sizeHover.type
+        size: sizeHover.type,
+        isString: isStringHover.type
       });
+      
+      // Validate return types
+      expect(printHover.type).toMatch(/string/);
+      expect(typeStringHover.type).toMatch(/string/);
+      expect(sizeHover.type).toMatch(/number/);
+      expect(isStringHover.type).toMatch(/boolean/);
     });
   });
 }); 

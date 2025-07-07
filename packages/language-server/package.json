@@ -1,0 +1,30 @@
+{
+	"name": "@ts-for-gir/language-server",
+	"version": "0.1.0",
+	"description": "TypeScript Language Server utilities for validating generated GIR type definitions",
+	"type": "module",
+	"main": "src/index.ts",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"keywords": [
+		"typescript",
+		"language-server",
+		"gir",
+		"gobject",
+		"introspection",
+		"validation"
+	],
+	"author": "ts-for-gir contributors",
+	"license": "MIT",
+	"engines": {
+		"node": ">=22"
+	},
+	"dependencies": {
+		"@ts-for-gir/lib": "workspace:^",
+		"typescript": "^5.8.3"
+	},
+	"devDependencies": {
+		"@types/node": "^22.16.0"
+	}
+}

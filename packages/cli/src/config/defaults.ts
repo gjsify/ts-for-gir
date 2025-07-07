@@ -4,10 +4,6 @@
 
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { APP_NAME, APP_USAGE } from "@ts-for-gir/lib";
-
-export const appName = APP_NAME;
-export const usage = APP_USAGE;
 
 /**
  * Default CLI flag and argument values

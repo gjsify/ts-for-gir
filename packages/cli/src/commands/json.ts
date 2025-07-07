@@ -5,6 +5,7 @@
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
 import {
+	APP_NAME,
 	configureConflictsReporter,
 	ERROR_NO_MODULES_FOUND,
 	type GirModule,
@@ -13,7 +14,7 @@ import {
 	ReporterService,
 	TypeIdentifier,
 } from "@ts-for-gir/lib";
-import { appName, generateOptions, getOptionsGeneration, load } from "../config.ts";
+import { generateOptions, getOptionsGeneration, load } from "../config.ts";
 import { GenerationHandler } from "../generation-handler.ts";
 import { ModuleLoader } from "../module-loader.ts";
 import type { GenerateCommandArgs } from "../types/index.ts";
@@ -26,11 +27,11 @@ const description = "Generates JSON representation from GIR files for analysis a
 const logger = new Logger(false, "JsonCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
-	[`${appName} json`, `Run '${appName} json' in your gjs project to generate JSON files for your project`],
-	[`${appName} json Gtk*`, "You can also use wild cards"],
-	[`${appName} json '*'`, "If you want to parse all of your locally installed gir modules run"],
-	[`${appName} json --configName='.ts-for-gir.gtk4.rc.js`, "Use a special config file"],
-	[`${appName} json --ignore=Gtk-4.0 xrandr-1.3`, "Generate JSON files but not for Gtk-4.0 and xrandr-1.3"],
+	[`${APP_NAME} json`, `Run '${APP_NAME} json' in your gjs project to generate JSON files for your project`],
+	[`${APP_NAME} json Gtk*`, "You can also use wild cards"],
+	[`${APP_NAME} json '*'`, "If you want to parse all of your locally installed gir modules run"],
+	[`${APP_NAME} json --configName='.ts-for-gir.gtk4.rc.js`, "Use a special config file"],
+	[`${APP_NAME} json --ignore=Gtk-4.0 xrandr-1.3`, "Generate JSON files but not for Gtk-4.0 and xrandr-1.3"],
 ];
 
 const builder = createBuilder<GenerateCommandArgs>(generateOptions, examples);

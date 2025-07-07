@@ -5,6 +5,7 @@
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import type { ConfigFlags } from "@ts-for-gir/lib";
 import {
+	APP_NAME,
 	configureConflictsReporter,
 	ERROR_NO_MODULES_FOUND,
 	type GirModule,
@@ -13,7 +14,7 @@ import {
 	ReporterService,
 	TypeIdentifier,
 } from "@ts-for-gir/lib";
-import { appName, generateOptions, getOptionsGeneration, load } from "../config.ts";
+import { generateOptions, getOptionsGeneration, load } from "../config.ts";
 import { TypeScriptFormatter } from "../formatters/typescript-formatter.ts";
 import { GenerationHandler } from "../generation-handler.ts";
 import { ModuleLoader } from "../module-loader.ts";
@@ -28,13 +29,13 @@ const logger = new Logger(false, "GenerateCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
 	[
-		`${appName} generate`,
-		`Run '${appName} generate' in your gjs project to generate typings for your project, pass the gir modules you need for your project`,
+		`${APP_NAME} generate`,
+		`Run '${APP_NAME} generate' in your gjs project to generate typings for your project, pass the gir modules you need for your project`,
 	],
-	[`${appName} generate Gtk*`, "You can also use wild cards"],
-	[`${appName} generate '*'`, "If you want to parse all of your locally installed gir modules run"],
-	[`${appName} generate --configName='.ts-for-gir.gtk4.rc.js`, "Use a special config file"],
-	[`${appName} generate --ignore=Gtk-4.0 xrandr-1.3`, "Generate .d.ts. files but not for Gtk-4.0 and xrandr-1.3"],
+	[`${APP_NAME} generate Gtk*`, "You can also use wild cards"],
+	[`${APP_NAME} generate '*'`, "If you want to parse all of your locally installed gir modules run"],
+	[`${APP_NAME} generate --configName='.ts-for-gir.gtk4.rc.js`, "Use a special config file"],
+	[`${APP_NAME} generate --ignore=Gtk-4.0 xrandr-1.3`, "Generate .d.ts. files but not for Gtk-4.0 and xrandr-1.3"],
 ];
 
 const builder = createBuilder<GenerateCommandArgs>(generateOptions, examples);

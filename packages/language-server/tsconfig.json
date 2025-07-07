@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"outDir": "lib",
+		"strict": true,
+		"noImplicitAny": false,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"esModuleInterop": true,
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"noEmit": true,
+		"rootDir": "src",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"diagnostics": true
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["lib", "node_modules", "**/*.spec.ts"]
+}

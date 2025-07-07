@@ -3,8 +3,8 @@
  */
 
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { ERROR_NO_MODULES_FOUND, Logger, NSRegistry, ResolveType } from "@ts-for-gir/lib";
-import { appName, getOptionsGeneration, listOptions, load } from "../config.ts";
+import { APP_NAME, ERROR_NO_MODULES_FOUND, Logger, NSRegistry, ResolveType } from "@ts-for-gir/lib";
+import { getOptionsGeneration, listOptions, load } from "../config.ts";
 import { ModuleLoader } from "../module-loader.ts";
 import type { ListCommandArgs } from "../types/index.ts";
 import { createBuilder } from "./command-builder.ts";
@@ -16,9 +16,9 @@ const description = "Lists all available GIR modules";
 const logger = new Logger(false, "ListCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
-	[`${appName} list -g ./vala-girs/gir-1.0`, "Lists all available GIR modules in ./vala-girs/gir-1.0"],
+	[`${APP_NAME} list -g ./vala-girs/gir-1.0`, "Lists all available GIR modules in ./vala-girs/gir-1.0"],
 	[
-		`${appName} list --ignore=Gtk-3.0 xrandr-1.3`,
+		`${APP_NAME} list --ignore=Gtk-3.0 xrandr-1.3`,
 		"Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3",
 	],
 ];

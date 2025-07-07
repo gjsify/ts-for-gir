@@ -1,128 +1,149 @@
 # Language Server Validation Tests
 
-Tests for TypeScript Language Server validation of generated GIR types using **Vitest**.
+This package provides comprehensive validation tests for the TypeScript language server functionality with GIR types, organized in a modern, maintainable structure using Vitest.
 
 ## Overview
 
-This package validates that the TypeScript language server can properly handle:
-- Generated GIR TypeScript bindings
-- Type inference and validation
-- Hover information for GIR objects
-- Error detection and reporting
-
-## Installation
-
-Install dependencies:
-```bash
-yarn install
-```
-
-## Running Tests
-
-### Run all tests once
-```bash
-yarn test
-```
-
-### Run tests in watch mode
-```bash
-yarn test:watch
-```
-
-### Run tests without generating types (for development)
-```bash
-yarn test:dev
-```
-
-### Generate types only
-```bash
-yarn generate
-```
+The test suite validates that TypeScript language server features work correctly with generated GIR type definitions. Tests are organized thematically to cover different aspects of language server functionality.
 
 ## Test Structure
 
-The tests are organized into **thematic test files**, each focusing on a specific aspect of language server functionality:
+### 🧪 **Test Files (5 thematic suites)**
 
-### 📝 `typescript-validation.test.ts` - TypeScript Validation
-Tests basic TypeScript validation capabilities:
-- **Basic TypeScript Code**: Valid TypeScript with interfaces, classes, and functions
-- **Error Detection**: Type mismatches, undefined variables, missing properties
-- **GIR Type Validation**: GTK/Adwaita imports and widget creation
+1. **`typescript-validation.test.ts`** (9 tests)
+   - Basic TypeScript Code validation (interfaces, classes, functions)
+   - Error Detection (type mismatches, undefined variables, missing properties)
+   - GIR Type Validation (GTK/Adwaita imports and widgets)
 
-### 🎯 `hover-functionality.test.ts` - Hover Information
-Tests type information retrieval through hover:
-- **Basic TypeScript Hover**: Interface types, function signatures, generic types
-- **GIR Type Hover**: Widget types, application types, container types, callback types
-- **Complex Type Hover**: Union types, intersection types, mapped types
+2. **`hover-functionality.test.ts`** (10 tests)
+   - Basic TypeScript Hover (interface types, function signatures, generics, classes)
+   - GIR Type Hover (widget types, application types, containers, callbacks)
+   - Complex Type Hover (union types, intersection types, mapped types)
 
-### ✅ `type-expectation.test.ts` - Type Expectations
-Tests precise type matching and validation:
-- **Basic Type Expectations**: Primitives, arrays, functions, generics
-- **GIR Type Expectations**: Widget types, application types, container types, model types
-- **Type Expectation Failures**: Wrong type expectations, non-existent identifiers
-- **Union and Intersection Types**: Complex type combinations
+3. **`type-expectation.test.ts`** (14 tests)
+   - Basic Type Expectations (primitives, arrays, functions, generics)
+   - GIR Type Expectations (widgets, applications, containers, models)
+   - Type Expectation Failures (wrong expectations, non-existent identifiers)
+   - Union and Intersection Types
 
-### 🔄 `integration.test.ts` - Integration Tests
-Tests complex scenarios combining multiple features:
-- **Complex GIR Type Scenarios**: Full application setups with validation, hover, and expectations
-- **Mixed TypeScript and GIR**: TypeScript classes managing GIR objects
-- **Error Handling and Edge Cases**: Graceful error handling, missing imports
-- **Performance and Scalability**: Large codebases with many imports
+4. **`integration.test.ts`** (6 tests)
+   - Complex GIR Type Scenarios (full application setups)
+   - Mixed TypeScript and GIR Integration (TypeScript classes managing GIR objects)
+   - Error Handling and Edge Cases
+   - Performance and Scalability (large codebases)
 
-## Key Features
+5. **`gvariant-types.test.ts`** (12 tests) ✨ **NEW**
+   - Basic GVariant Creation and Type Validation
+   - GVariant Unpacking Method Hover (unpack, deepUnpack, recursiveUnpack)
+   - Type Inference Issues (tuple parsing, instanceof checks)
+   - Type Expectations for GVariant Methods
+   - Method Signature Validation
 
-### 🔍 **Inline Test Code**
-All TypeScript test code is **directly visible** in the tests - no external imports or hidden test cases. Each test clearly shows:
-- The TypeScript code being tested
-- The expected behavior
-- The actual language server interaction
+**Total: 51 test cases** covering comprehensive language server functionality.
 
-### 📊 **Comprehensive Coverage**
-- **39 individual test cases** covering all aspects of language server functionality
-- **Real-world GIR scenarios** with GTK4 and Libadwaita
-- **Performance testing** for large codebases
-- **Error handling** and edge cases
+## GVariant Type Testing 🔬
 
-### 🚀 **Modern Test Experience**
-- **Vitest** for fast test execution and great developer experience
-- **Watch mode** for continuous testing during development
-- **Detailed output** with hover information and type details
-- **Retry logic** for flaky tests due to timing
+The new `gvariant-types.test.ts` file specifically targets TypeScript type generation issues for `GLib.Variant` methods, based on real-world usage patterns from the GJS ecosystem:
 
-## Development
+### Test Coverage
+- **Basic Variant Types**: String, number, boolean, arrays, tuples, dictionaries
+- **Unpacking Methods**: Different behavior of `unpack()`, `deepUnpack()`, `recursiveUnpack()`
+- **Type Inference**: Validation of TypeScript type inference for variant operations
+- **Known Issues**: Test-driven development approach for fixing type generation problems
 
-### Running Specific Test Files
+### Expected Behavior (from GJS Guide)
+- `unpack()`: Returns `GVariant[]` (shallow unpacking)
+- `deepUnpack()`: Returns native JS types (one level deep)
+- `recursiveUnpack()`: Returns fully unpacked native JS types
+
+### Test-Driven Development
+Some tests are **expected to fail** initially, serving as regression tests for:
+- Tuple parsing errors (`VariantTypeError` for complex tuples)
+- `instanceof` checks failing on unpacked variants
+- Missing array methods on unpacked results
+
+## Usage
+
+### Running Tests
+
 ```bash
-# Run only TypeScript validation tests
-yarn test:dev src/typescript-validation.test.ts
+# Run all tests
+yarn test
 
-# Run only hover functionality tests
-yarn test:dev src/hover-functionality.test.ts
+# Run specific test file
+yarn test gvariant-types
 
-# Run only type expectation tests
-yarn test:dev src/type-expectation.test.ts
+# Watch mode for development
+yarn test:watch
 
-# Run only integration tests
-yarn test:dev src/integration.test.ts
+# Development mode with detailed output
+yarn test:dev
 ```
 
-### Test Philosophy
-- **Realistic Examples**: All test code represents real-world usage patterns
-- **Self-Documenting**: Test code is the documentation - no hidden abstractions
-- **Comprehensive**: Tests cover basic functionality, edge cases, and performance
-- **Maintainable**: Each test file focuses on a single concern
+### Test Categories
+
+```bash
+# Run only GVariant tests
+yarn test --grep "GVariant"
+
+# Run hover functionality tests
+yarn test --grep "Hover"
+
+# Run validation tests
+yarn test --grep "Validation"
+```
+
+## Development Workflow
+
+### Adding New Tests
+
+1. **Choose the appropriate test file** based on functionality
+2. **Follow the inline TypeScript code approach** - all test code should be visible directly in the test
+3. **Use realistic GJS/GTK examples** that developers would actually write
+4. **Include both positive and negative test cases**
+
+### Test Structure Template
+
+```typescript
+it('should test specific functionality', async () => {
+  const testCode = `
+    import Gtk from 'gi://Gtk?version=4.0';
+    import GLib from 'gi://GLib?version=2.0';
+    
+    // Your test TypeScript code here
+    const example = new Gtk.Button();
+    example.set_label("Test");
+  `;
+
+  const result = validateGIRTypeScriptAuto(testCode);
+  expect(result.success).toBe(true);
+  
+  // Test hover information
+  const hoverResult = getIdentifierTypeAuto(testCode, 'example');
+  expect(hoverResult.type).toMatch(/Button/);
+});
+```
 
 ## Configuration
 
-- `vitest.config.ts` - Vitest configuration optimized for language server tests
-- `tsconfig.json` - TypeScript configuration with Vitest support
-- `package.json` - Dependencies and test scripts
+- **Framework**: Vitest with Node.js environment
+- **Timeout**: 30 seconds per test (language server operations can be slow)
+- **Reporters**: Basic + verbose for detailed output
+- **TypeScript**: Strict mode with modern ES2022 target
 
-## Architecture
+## Dependencies
 
-The test package is **completely independent** of test frameworks in the core `@ts-for-gir/language-server` package:
+- `@ts-for-gir/language-server`: Core language server utilities
+- `vitest`: Modern test framework with TypeScript support
+- Generated GIR types (`@girs/*`) for runtime validation
 
-- `@ts-for-gir/language-server` - **Test-framework agnostic** language server utilities
-- `@ts-for-gir-test/language-server-validation` - **Vitest-based** validation tests
+## Real-World Integration
 
-This separation allows the language server package to be used in other contexts (CLI tools, different test frameworks) while providing comprehensive test coverage through dedicated test packages. 
+Tests use actual GTK4, Libadwaita, and GLib examples that mirror real GJS applications:
+- Application lifecycle management
+- Widget hierarchies and styling
+- Event handling and signals
+- Resource management
+- GVariant usage patterns from DBus and settings
+
+This ensures the generated TypeScript types work correctly in practical development scenarios. 

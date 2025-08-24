@@ -347,7 +347,7 @@ type $ToTuple<T extends readonly VariantType[]> =
 type $ElementSig<E> =
     E extends [infer Element] ? Element :
     E extends [infer Element, ...infer Elements] ? Element | $ElementSig<Elements> :
-    E extends Array<infer Element> ? Element : never;
+    E extends globalThis.Array<infer Element> ? Element : never;
 
 /**
  * GLib.Variant is a value container whose types are determined at construction.
@@ -771,9 +771,9 @@ export class Variant<S extends string = any> {
      * @see {@link deepUnpack} for unpacking one level deeper
      * @see {@link recursiveUnpack} for full recursive unpacking
      */
-    unpack(): $ParseShallowVariant<S>;
+    unpack(): $ParseVariant<S>;
     unpack<T>(): T;
-    unpack(): $ParseShallowVariant<S>; // Duplicate overload ensures optimal type inference for ReturnType<...>
+    unpack(): $ParseVariant<S>; // Duplicate overload ensures optimal type inference for ReturnType<...>
     
     /**
      * Recursively unpacks the variant's data into JavaScript values.

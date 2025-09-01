@@ -5,7 +5,7 @@
 _%>
 
 declare module 'gi://<%= name %>?version=<%= version %>' {
-    import <%= girModule.importNamespace %> from '<%= girModule.importPath -%>';
+    import <%= girModule.importNamespace %> from '<%= girModule.importPath %>/<%= girModule.importNamespace.toLowerCase() %>';
     export default <%- girModule.importNamespace -%>;
 }
 

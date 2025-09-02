@@ -15,8 +15,8 @@ _%>
     <%_ } _%>
     "description": "<%- PACKAGE_DESC %>",
     "type": "module",
-    "module": "<%- entryPointName %>.js",
-    "main": "<%- entryPointName %>.js",
+    "module": "index.js",
+    "main": "index.js",
     "exports": {
       "./ambient": {
         "types": "./<%- entryPointName %>-ambient.d.ts",

@@ -111,7 +111,7 @@ export class DependencyManager {
 	}
 
 	createImportProperties(namespace: string, packageName: string, version: string, libraryVersion?: LibraryVersion) {
-		const importPath = this.createImportPath(packageName, namespace, version);
+		const { importPath, importName, npmPackageName } = this.createImportPath(packageName, namespace, version);
 		const importDef = this.createImportDef(namespace, importPath);
 
 		// For GObject and Gio, use GLib's library version if available
@@ -122,22 +122,35 @@ export class DependencyManager {
 				effectiveLibraryVersion = glibDep.libraryVersion;
 			}
 		}
-
-		const packageJsonImport = this.createPackageJsonImport(importPath, effectiveLibraryVersion);
+		const packageJsonImport = this.createPackageJsonImport(npmPackageName, effectiveLibraryVersion);
 		return {
 			importPath,
+			importName,
+			npmPackageName,
 			importDef,
 			packageJsonImport,
 		};
 	}
 
-	createImportPath(packageName: string, namespace: string, version: string): string {
-		if (!this.config.package) {
-			return `gi://${namespace}?version=${version}`;
-		}
+	createImportPath(
+		packageName: string,
+		namespace: string,
+		version: string,
+	): { npmPackageName: string; importPath: string; importName: string } {
 		const importName = transformImportName(packageName);
-		const importPath = `${this.config.npmScope}/${importName}`;
-		return importPath;
+		const importPath = this.config.package
+			? `${this.config.npmScope}/${importName}/${importName}`
+			: `gi://${namespace}?version=${version}`;
+		const npmPackageName = `${this.config.npmScope}/${importName}`;
+
+		return {
+			/** E.g. '@girs/Gtk-4.0' */
+			npmPackageName,
+			/** E.g. '@girs/Gtk-4.0/Gtk-4.0' or 'gi://Gtk?version=4.0' */
+			importPath,
+			/** E.g. 'Gtk-4.0' */
+			importName,
+		};
 	}
 
 	createImportDef(namespace: string, importPath: string): string {
@@ -271,7 +284,6 @@ export class DependencyManager {
 			...fileInfo,
 			namespace,
 			packageName,
-			importName: transformImportName(packageName),
 			importNamespace: transformModuleNamespaceName(packageName),
 			version,
 			libraryVersion,
@@ -426,7 +438,6 @@ export class DependencyManager {
 			filename: "",
 			path: "",
 			packageName: packageName,
-			importName: transformImportName(packageName),
 			importNamespace: transformModuleNamespaceName(packageName),
 			version,
 			libraryVersion: new LibraryVersion(),

@@ -13431,7 +13431,7 @@ __metadata:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
     typescript: "npm:^5.9.2"
-    vite: "npm:^7.1.4"
+    vite: "npm:^7.1.5"
   languageName: unknown
   linkType: soft
 
@@ -13832,7 +13832,7 @@ __metadata:
     "@girs/gtk-4.0": "workspace:^"
     "@gjsify/vite-plugin-blueprint": "npm:^0.2.2"
     typescript: "npm:^5.9.2"
-    vite: "npm:^7.1.4"
+    vite: "npm:^7.1.5"
   languageName: unknown
   linkType: soft
 
@@ -13870,7 +13870,7 @@ __metadata:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
     typescript: "npm:^5.9.2"
-    vite: "npm:^7.1.4"
+    vite: "npm:^7.1.5"
   languageName: unknown
   linkType: soft
 
@@ -18387,6 +18387,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tinyglobby@npm:^0.2.15":
+  version: 0.2.15
+  resolution: "tinyglobby@npm:0.2.15"
+  dependencies:
+    fdir: "npm:^6.5.0"
+    picomatch: "npm:^4.0.3"
+  checksum: 10/d72bd826a8b0fa5fa3929e7fe5ba48fceb2ae495df3a231b6c5408cd7d8c00b58ab5a9c2a76ba56a62ee9b5e083626f1f33599734bed1ffc4b792406408f0ca2
+  languageName: node
+  linkType: hard
+
 "tinypool@npm:^1.1.1":
   version: 1.1.1
   resolution: "tinypool@npm:1.1.1"
@@ -18746,9 +18756,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.1.4":
-  version: 7.1.4
-  resolution: "vite@npm:7.1.4"
+"vite@npm:^7.1.5":
+  version: 7.1.5
+  resolution: "vite@npm:7.1.5"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -18756,7 +18766,7 @@ __metadata:
     picomatch: "npm:^4.0.3"
     postcss: "npm:^8.5.6"
     rollup: "npm:^4.43.0"
-    tinyglobby: "npm:^0.2.14"
+    tinyglobby: "npm:^0.2.15"
   peerDependencies:
     "@types/node": ^20.19.0 || >=22.12.0
     jiti: ">=1.21.0"
@@ -18797,7 +18807,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/40c6292227e8177470b9f1014fabe2fa324222d6bdc06eb994f7aa6872a56790cd1e45a2f7017a381413eb2fde48fde0f2f58933a045936ca6af2061862bf338
+  checksum: 10/59edeef7e98757a668b2ad8a1731a5657fa83e22a165a36b7359225ea98a9be39b2f486710c0cf5085edb85daee7c8b6b6b0bd85d0ef32a1aa84aef71aabd0f0
   languageName: node
   linkType: hard
 

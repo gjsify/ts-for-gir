@@ -53,7 +53,7 @@
 		"@ts-for-gir/templates": "workspace:^",
 		"colorette": "^2.0.20",
 		"ejs": "^3.1.10",
-		"glob": "^11.0.3",
+		"glob": "^11.1.0",
 		"lodash": "^4.17.21"
 	}
 }

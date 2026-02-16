@@ -68,4 +68,4 @@ const mainLoop = new GLib.MainLoop(null, false);
 main();
 
 // Run main loop
-mainLoop.run();
+await mainLoop.runAsync();

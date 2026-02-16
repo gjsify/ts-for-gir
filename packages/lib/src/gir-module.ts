@@ -599,7 +599,8 @@ export class GirModule implements IGirModule {
 		if (ns.enumeration) {
 			// Get the requested enums
 			const enumerations = ns.enumeration
-				?.map((enumeration) => {
+				?.filter(isIntrospectable)
+				.map((enumeration) => {
 					if (enumeration.$["glib:error-domain"]) {
 						return IntrospectedError.fromXML(enumeration as GirEnumElement, this, options);
 					} else {

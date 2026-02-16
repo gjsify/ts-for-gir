@@ -271,6 +271,11 @@ function testEnumGType() {
 	if (GLib.NormalizeMode.$gtype === undefined) throw new Error("Registered enum should have a $gtype property");
 }
 
+function testEnumNotIntrospectable() {
+	// @ts-expect-error
+	if (GLib.ThreadPriority) throw new Error("Non-introspectable enum shouldn't be in type definitions");
+}
+
 /**
  * Displays summary of type handling capabilities
  */
@@ -311,6 +316,7 @@ function main(): void {
 	testUnderscoreInit();
 	testGErrorGType();
 	testEnumGType();
+	testEnumNotIntrospectable();
 	displaySummary();
 	runMainLoop();
 }

@@ -823,8 +823,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const desc: string[] = [];
 		const { name, namespace } = girEnum;
 
-		desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount));
-
 		// Enums can't have numerical keys
 		const isInvalidEnum = Array.from(girEnum.members.keys()).some(
 			(name) => name.match(/^[0-9]+$/) || name === "NaN" || name === "Infinity",
@@ -836,14 +834,15 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			return desc;
 		}
 
-		desc.push("");
-		desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount));
-		desc.push(`export namespace ${name} {`);
-		const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
-		desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`);
-		desc.push("}");
-		desc.push("");
+		if (girEnum.isRegistered) {
+			desc.push(`export namespace ${name} {`);
+			const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
+			desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`);
+			desc.push("}");
+			desc.push("");
+		}
 
+		desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount));
 		desc.push(this.generateExport("enum", name, "{", indentCount));
 		if (girEnum.members) {
 			for (const girEnumMember of girEnum.members.values()) {
@@ -852,6 +851,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			}
 		}
 		desc.push("}");
+		desc.push("");
 		return desc;
 	}
 

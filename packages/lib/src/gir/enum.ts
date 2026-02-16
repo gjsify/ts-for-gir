@@ -14,6 +14,7 @@ import type { IntrospectedRecord } from "./record.ts";
 
 export class IntrospectedEnum extends IntrospectedNamespaceMember {
 	members = new Map<string, GirEnumMember>();
+	isRegistered: boolean = false;
 	flags: boolean = false;
 	ns: IntrospectedNamespace;
 
@@ -24,7 +25,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
 	}
 
 	copy({ members }: { parent?: undefined; members?: Map<string, GirEnumMember> } = {}): IntrospectedEnum {
-		const { namespace, name, flags } = this;
+		const { namespace, name, isRegistered, flags } = this;
 
 		const en = new IntrospectedEnum(name, namespace);
 
@@ -32,6 +33,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
 			en.members.set(key, member.copy());
 		}
 
+		en.isRegistered = isRegistered;
 		en.flags = flags;
 
 		en._copyBaseProperties(this);
@@ -93,6 +95,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
 		const em = new IntrospectedEnum(sanitizeMemberName(element.$.name), ns);
 
 		if (element.$["glib:type-name"]) {
+			em.isRegistered = true;
 			em.resolve_names.push(element.$["glib:type-name"]);
 
 			ns.registerResolveName(element.$["glib:type-name"], ns.namespace, em.name);

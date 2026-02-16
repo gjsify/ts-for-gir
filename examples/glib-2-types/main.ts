@@ -265,6 +265,12 @@ function testGErrorGType() {
 		throw new Error("GError GType should not be equal to GObject GType");
 }
 
+function testEnumGType() {
+	// @ts-expect-error
+	if (GLib.ChecksumType.$gtype) throw new Error("Unregistered enum should not have a $gtype property");
+	if (GLib.NormalizeMode.$gtype === undefined) throw new Error("Registered enum should have a $gtype property");
+}
+
 /**
  * Displays summary of type handling capabilities
  */
@@ -304,6 +310,7 @@ function main(): void {
 	testPrecisionTimeAndTimeouts();
 	testUnderscoreInit();
 	testGErrorGType();
+	testEnumGType();
 	displaySummary();
 	runMainLoop();
 }

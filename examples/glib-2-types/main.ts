@@ -258,6 +258,13 @@ function testUnderscoreInit() {
 	gobject._init();
 }
 
+function testGErrorGType() {
+	if (GLib.BookmarkFileError.$gtype !== GLib.Error.$gtype) throw new Error("GError GTypes should be equal");
+	// @ts-expect-error
+	if (GLib.BookmarkFileError.$gtype === GObject.Object.$gtype)
+		throw new Error("GError GType should not be equal to GObject GType");
+}
+
 /**
  * Displays summary of type handling capabilities
  */
@@ -296,6 +303,7 @@ function main(): void {
 	testLargeNumberHandling();
 	testPrecisionTimeAndTimeouts();
 	testUnderscoreInit();
+	testGErrorGType();
 	displaySummary();
 	runMainLoop();
 }

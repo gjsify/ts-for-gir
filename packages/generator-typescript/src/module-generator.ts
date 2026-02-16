@@ -1765,7 +1765,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 			// $gtype compatibility
 			const gtypeNamespace = this.namespace.namespace === "GObject" ? "" : "GObject.";
-			def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.name}>;`);
+			def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.gtype}>;`);
 
 			if (girClass.__ts__indexSignature) {
 				def.push(`\n${girClass.__ts__indexSignature}\n`);

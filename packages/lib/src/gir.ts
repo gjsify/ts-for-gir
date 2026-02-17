@@ -861,6 +861,7 @@ export const Uint8ArrayType = new NativeType("Uint8Array");
 export const BooleanType = new NativeType("boolean");
 export const StringType = new NativeType("string");
 export const NumberType = new NativeType("number");
+export const BigintOrNumberType = new BinaryType(new NativeType("bigint"), NumberType);
 export const NullType = new NativeType("null");
 export const VoidType = new NativeType("void");
 export const UnknownType = new NativeType("unknown");

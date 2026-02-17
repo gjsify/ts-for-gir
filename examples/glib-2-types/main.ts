@@ -278,6 +278,15 @@ function testEnumNotIntrospectable() {
 	if (GLib.ThreadPriority) throw new Error("Non-introspectable enum shouldn't be in type definitions");
 }
 
+function testBigintOrNumber() {
+	const result = GLib.ascii_string_to_unsigned("1000", 10, 0n, 4500n);
+	if (!result[0] || result[1] !== 1000) throw new Error("Failure");
+	const bmf = new GLib.BookmarkFile();
+	bmf.set_added("about:blank", 1_000_000_000n);
+	// the `* 1` will fail in tsc if the return type is bigint | number
+	if (bmf.get_added("about:blank") * 1 !== 1_000_000_000) throw new Error("Failure");
+}
+
 /**
  * Displays summary of type handling capabilities
  */
@@ -319,6 +328,7 @@ function main(): void {
 	testGErrorGType();
 	testEnumGType();
 	testEnumNotIntrospectable();
+	testBigintOrNumber();
 	displaySummary();
 	runMainLoop();
 }

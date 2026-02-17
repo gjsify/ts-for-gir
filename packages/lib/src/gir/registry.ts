@@ -8,7 +8,6 @@ import { inject } from "../injections/inject.ts";
 import type { GeneratorConstructor, OptionsGeneration, OptionsTransform } from "../types/index.ts";
 import { TwoKeyMap } from "../util.ts";
 import { ClassVisitor } from "../validators/class.ts";
-import { FunctionParametersVisitor } from "../validators/function-parameters.ts";
 import { InterfaceVisitor } from "../validators/interface.ts";
 import type { GirVisitor } from "../visitor.ts";
 import type { IntrospectedNamespace } from "./namespace.ts";
@@ -113,13 +112,12 @@ export class NSRegistry {
 		GObject.package_version = [...GLib.package_version];
 
 		const interfaceVisitor = new InterfaceVisitor();
+
 		this.registerTransformation(interfaceVisitor);
 
 		const classVisitor = new ClassVisitor();
-		this.registerTransformation(classVisitor);
 
-		const enumParamsVisitor = new FunctionParametersVisitor();
-		this.registerTransformation(enumParamsVisitor);
+		this.registerTransformation(classVisitor);
 
 		console.log("Adding generics...");
 		generify(this, options.inferGenerics);

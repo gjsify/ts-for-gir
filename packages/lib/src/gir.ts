@@ -23,7 +23,7 @@ export enum ConflictType {
 
 import { type ConsoleReporter, LazyReporter } from "@ts-for-gir/reporter";
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
-import type { OptionsBase } from "./types/index.ts";
+import type { OptionsGeneration } from "./types/index.ts";
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
 
 export abstract class TypeExpression {
@@ -37,10 +37,10 @@ export abstract class TypeExpression {
 	}
 
 	abstract rewrap(type: TypeExpression): TypeExpression;
-	abstract resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression;
+	abstract resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression;
 
-	abstract print(namespace: IntrospectedNamespace, options: OptionsBase): string;
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	abstract print(namespace: IntrospectedNamespace, options: OptionsGeneration): string;
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return this.print(namespace, options);
 	}
 }
@@ -89,7 +89,7 @@ export class TypeIdentifier extends TypeExpression {
 		return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), sanitizeNamespace(this.namespace));
 	}
 
-	protected _resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeIdentifier | null {
+	protected _resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
 		const name: string = sanitizeIdentifierName(null, this.name);
 		const unresolvedNamespaceName = this.namespace;
 
@@ -183,11 +183,11 @@ export class TypeIdentifier extends TypeExpression {
 		return null;
 	}
 
-	resolveIdentifier(namespace: IntrospectedNamespace, options: OptionsBase): TypeIdentifier | null {
+	resolveIdentifier(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
 		return this._resolve(namespace, options);
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		const resolved = this._resolve(namespace, options);
 
 		// Generally if we can't resolve a type it is not introspectable,
@@ -199,7 +199,7 @@ export class TypeIdentifier extends TypeExpression {
 		return new TypeIdentifier(name, namespace);
 	}
 
-	print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, _options: OptionsGeneration): string {
 		if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
 			// TODO: Move to TypeScript generator...
 			// Libraries like zbar have classes named things like "Gtk"
@@ -248,11 +248,11 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
 		);
 	}
 
-	protected _resolve(_namespace: IntrospectedNamespace, _options: OptionsBase): ModuleTypeIdentifier | null {
+	protected _resolve(_namespace: IntrospectedNamespace, _options: OptionsGeneration): ModuleTypeIdentifier | null {
 		return this;
 	}
 
-	print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, _options: OptionsGeneration): string {
 		if (namespace.namespace === this.namespace) {
 			return `${this.moduleName}.${this.name}`;
 		} else {
@@ -269,7 +269,7 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
 		return type instanceof ClassStructTypeIdentifier && super.equals(type);
 	}
 
-	print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, _options: OptionsGeneration): string {
 		if (namespace.namespace === this.namespace) {
 			// TODO: Mapping to invalid names should happen at the generator level...
 			return `typeof ${isInvalid(this.name) ? `__${this.name}` : this.name}`;
@@ -287,7 +287,7 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 		this.generics = generics;
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		const Generics = this.generics.map((generic) => generic.print(namespace, options)).join(", ");
 
 		if (namespace.namespace === this.namespace) {
@@ -297,7 +297,7 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 		}
 	}
 
-	_resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeIdentifier | null {
+	_resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
 		const iden = super._resolve(namespace, options);
 
 		if (iden) {
@@ -309,9 +309,9 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 }
 
 export class NativeType extends TypeExpression {
-	readonly expression: (options?: OptionsBase) => string;
+	readonly expression: (options?: OptionsGeneration) => string;
 
-	constructor(expression: ((options?: OptionsBase) => string) | string) {
+	constructor(expression: ((options?: OptionsGeneration) => string) | string) {
 		super();
 		this.expression = typeof expression === "string" ? () => expression : expression;
 	}
@@ -324,11 +324,11 @@ export class NativeType extends TypeExpression {
 		return this;
 	}
 
-	print(_namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(_namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return this.expression(options);
 	}
 
-	equals(type: TypeExpression, options?: OptionsBase): boolean {
+	equals(type: TypeExpression, options?: OptionsGeneration): boolean {
 		return type instanceof NativeType && this.expression(options) === type.expression(options);
 	}
 
@@ -336,7 +336,7 @@ export class NativeType extends TypeExpression {
 		return this;
 	}
 
-	static withGenerator(generator: (options?: OptionsBase) => string): TypeExpression {
+	static withGenerator(generator: (options?: OptionsGeneration) => string): TypeExpression {
 		return new NativeType(generator);
 	}
 
@@ -361,17 +361,17 @@ export class OrType extends TypeExpression {
 		return this;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		const [type, ...types] = this.types;
 
 		return new OrType(type.resolve(namespace, options), ...types.map((t) => t.resolve(namespace, options)));
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return `(${this.types.map((t) => t.print(namespace, options)).join(" | ")})`;
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return `${this.types.map((t) => t.print(namespace, options)).join(" | ")}`;
 	}
 
@@ -385,15 +385,15 @@ export class OrType extends TypeExpression {
 }
 
 export class TupleType extends OrType {
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return `[${this.types.map((t) => t.print(namespace, options)).join(", ")}]`;
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return this.print(namespace, options);
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		const [type, ...types] = this.types;
 
 		return new TupleType(type.resolve(namespace, options), ...types.map((t) => t.resolve(namespace, options)));
@@ -413,7 +413,7 @@ export class BinaryType extends OrType {
 		return this;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase) {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		return new BinaryType(this.a.resolve(namespace, options), this.b.resolve(namespace, options));
 	}
 
@@ -465,7 +465,7 @@ export class FunctionType extends TypeExpression {
 		return this;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		return new FunctionType(
 			Object.fromEntries(
 				Object.entries(this.parameterTypes).map(([k, p]) => {
@@ -476,7 +476,7 @@ export class FunctionType extends TypeExpression {
 		);
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		const Parameters = Object.entries(this.parameterTypes)
 			.map(([k, v]) => {
 				return `${k}: ${v.rootPrint(namespace, options)}`;
@@ -486,7 +486,7 @@ export class FunctionType extends TypeExpression {
 		return `(${Parameters}) => ${this.returnType.print(namespace, options)}`;
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return `(${this.rootPrint(namespace, options)})`;
 	}
 }
@@ -548,7 +548,7 @@ export class GenerifiedType extends TypeExpression {
 		this.generic = generic;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase) {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		return new GenerifiedType(this.type.resolve(namespace, options), this.generic);
 	}
 
@@ -556,11 +556,11 @@ export class GenerifiedType extends TypeExpression {
 		return this.type;
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase) {
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		return this.type.rootPrint(namespace, options);
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase) {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		return `${this.type.print(namespace, options)}<${this.generic.print()}>`;
 	}
 
@@ -652,11 +652,11 @@ export class PromiseType extends TypeExpression {
 		return new PromiseType(this.type.rewrap(type));
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		return new PromiseType(this.type.resolve(namespace, options));
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		if (this.type.equals(VoidType)) {
 			return "globalThis.Promise<void>";
 		}
@@ -664,7 +664,7 @@ export class PromiseType extends TypeExpression {
 		return `globalThis.Promise<${this.type.print(namespace, options)}>`;
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return this.print(namespace, options);
 	}
 }
@@ -703,13 +703,13 @@ export class TypeConflict extends TypeExpression {
 		return true;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		const resolvedType = this.type.resolve(namespace, options);
 		const typeString = resolvedType.print(namespace, options);
 		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		const resolvedType = this.type.resolve(namespace, options);
 		const typeString = resolvedType.print(namespace, options);
 		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
@@ -750,7 +750,7 @@ export class ClosureType extends TypeExpression {
 		return this;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase) {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration) {
 		const { user_data, type } = this;
 
 		return ClosureType.new({
@@ -759,7 +759,7 @@ export class ClosureType extends TypeExpression {
 		});
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return this.type.print(namespace, options);
 	}
 
@@ -807,7 +807,7 @@ export class ArrayType extends TypeExpression {
 		return false;
 	}
 
-	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
+	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
 		const { type, arrayDepth, length } = this;
 		return ArrayType.new({
 			type: type.resolve(namespace, options),
@@ -816,7 +816,7 @@ export class ArrayType extends TypeExpression {
 		});
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		const depth = this.arrayDepth;
 		let typeSuffix: string = "";
 

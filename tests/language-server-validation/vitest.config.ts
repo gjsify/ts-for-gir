@@ -15,14 +15,9 @@ export default defineConfig({
     // Global setup
     globals: true,
     
-    // Use threads pool with single thread to avoid worker communication issues
-    pool: 'threads',
-    poolOptions: {
-      threads: {
-        singleThread: true,
-        isolate: false, // Reduce isolation overhead
-      }
-    },
+    // Use single worker without isolation to avoid worker communication issues (Vitest 4+ pool API)
+    maxWorkers: 1,
+    isolate: false,
     
     // Reduce concurrency to avoid resource conflicts
     maxConcurrency: 1,

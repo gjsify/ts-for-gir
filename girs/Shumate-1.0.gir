@@ -2617,7 +2617,7 @@ but is good enough for most purposes.</doc>
       <source-position filename="shumate/shumate-location.h" line="57"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="SHUMATE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="SHUMATE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
            line="48">The micro version of libshumate (3, if %SHUMATE_VERSION is 1.2.3)</doc>

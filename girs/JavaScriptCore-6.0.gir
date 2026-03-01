@@ -2345,7 +2345,7 @@ source URI, line, column and backtrace, and formatted to be printed.</doc>
     <callback name="Executor" c:type="JSCExecutor" version="2.48">
       <doc xml:space="preserve"
            filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-           line="2150">A function passed to @jsc_value_new_promise called during initialization
+           line="2151">A function passed to @jsc_value_new_promise called during initialization
 
 It is called like a JavaScript function, so exceptions raised will not be propagated
 to the context, but handled by the promise causing a rejection.
@@ -2359,13 +2359,13 @@ to the context, but handled by the promise causing a rejection.
         <parameter name="resolve" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2152">#JSCValue function to call to resolve the promise</doc>
+               line="2153">#JSCValue function to call to resolve the promise</doc>
           <type name="Value" c:type="JSCValue*"/>
         </parameter>
         <parameter name="reject" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2153">#JSCValue function to call to reject the promise</doc>
+               line="2154">#JSCValue function to call to reject the promise</doc>
           <type name="Value" c:type="JSCValue*"/>
         </parameter>
         <parameter name="user_data"
@@ -2375,7 +2375,7 @@ to the context, but handled by the promise causing a rejection.
                    closure="2">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2154">user data</doc>
+               line="2155">user data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -2406,7 +2406,7 @@ against at application run time.</doc>
                        line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="JSC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="5" c:type="JSC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="49">Like jsc_get_micro_version(), but from the headers used at
@@ -2575,70 +2575,70 @@ Not that @description string is not localized.</doc>
                  c:type="JSCTypedArrayType">
       <doc xml:space="preserve"
            filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-           line="1648">Possible types of the elements contained in a typed array.</doc>
+           line="1649">Possible types of the elements contained in a typed array.</doc>
       <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                        line="58"/>
       <member name="none" value="0" c:identifier="JSC_TYPED_ARRAY_NONE">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1650">Not a typed array, or type unsupported.</doc>
+             line="1651">Not a typed array, or type unsupported.</doc>
       </member>
       <member name="int8" value="1" c:identifier="JSC_TYPED_ARRAY_INT8">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1651">Array elements are 8-bit signed integers (int8_t).</doc>
+             line="1652">Array elements are 8-bit signed integers (int8_t).</doc>
       </member>
       <member name="int16" value="2" c:identifier="JSC_TYPED_ARRAY_INT16">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1652">Array elements are 16-bit signed integers (int16_t).</doc>
+             line="1653">Array elements are 16-bit signed integers (int16_t).</doc>
       </member>
       <member name="int32" value="3" c:identifier="JSC_TYPED_ARRAY_INT32">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1653">Array elements are 32-bit signed integers (int32_t).</doc>
+             line="1654">Array elements are 32-bit signed integers (int32_t).</doc>
       </member>
       <member name="int64" value="4" c:identifier="JSC_TYPED_ARRAY_INT64">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1654">Array elements are 64-bit signed integers (int64_t).</doc>
+             line="1655">Array elements are 64-bit signed integers (int64_t).</doc>
       </member>
       <member name="uint8" value="5" c:identifier="JSC_TYPED_ARRAY_UINT8">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1655">Array elements are 8-bit unsigned integers (uint8_t).</doc>
+             line="1656">Array elements are 8-bit unsigned integers (uint8_t).</doc>
       </member>
       <member name="uint8_clamped"
               value="6"
               c:identifier="JSC_TYPED_ARRAY_UINT8_CLAMPED">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1656">Array elements are 8-bit unsigned integers (uint8_t).</doc>
+             line="1657">Array elements are 8-bit unsigned integers (uint8_t).</doc>
       </member>
       <member name="uint16" value="7" c:identifier="JSC_TYPED_ARRAY_UINT16">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1657">Array elements are 16-bit unsigned integers (uint16_t).</doc>
+             line="1658">Array elements are 16-bit unsigned integers (uint16_t).</doc>
       </member>
       <member name="uint32" value="8" c:identifier="JSC_TYPED_ARRAY_UINT32">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1658">Array elements are 32-bit unsigned integers (uint32_t).</doc>
+             line="1659">Array elements are 32-bit unsigned integers (uint32_t).</doc>
       </member>
       <member name="uint64" value="9" c:identifier="JSC_TYPED_ARRAY_UINT64">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1659">Array elements are 64-bit unsigned integers (uint64_t).</doc>
+             line="1660">Array elements are 64-bit unsigned integers (uint64_t).</doc>
       </member>
       <member name="float32" value="10" c:identifier="JSC_TYPED_ARRAY_FLOAT32">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1660">Array elements are 32-bit floating point numbers (float).</doc>
+             line="1661">Array elements are 32-bit floating point numbers (float).</doc>
       </member>
       <member name="float64" value="11" c:identifier="JSC_TYPED_ARRAY_FLOAT64">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1661">Array elements are 64-bit floating point numbers (double).</doc>
+             line="1662">Array elements are 64-bit floating point numbers (double).</doc>
       </member>
     </enumeration>
     <class name="Value"
@@ -2870,26 +2870,26 @@ is %NULL or empty a new empty array will be created.</doc>
                    version="2.28">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="2070">Create a new #JSCValue referencing a new value created by parsing @json.</doc>
+             line="2071">Create a new #JSCValue referencing a new value created by parsing @json.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="302"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2077">a #JSCValue.</doc>
+               line="2078">a #JSCValue.</doc>
           <type name="Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2072">a #JSCContext</doc>
+                 line="2073">a #JSCContext</doc>
             <type name="Context" c:type="JSCContext*"/>
           </parameter>
           <parameter name="json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2073">the JSON string to be parsed</doc>
+                 line="2074">the JSON string to be parsed</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3242,7 +3242,7 @@ When @instance is provided, @jsc_class must be provided too. @jsc_class takes ow
                    version="2.48">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="2165">Creates a new Promise. @executor will be invoked during promise initialization
+             line="2166">Creates a new Promise. @executor will be invoked during promise initialization
 and it receives the @resolve and @reject objects than can be called to resolve
 or reject the promise. It is called like a JavaScript function, so exceptions raised
 during the executor invocation will not be propagated to the context, but
@@ -3252,14 +3252,14 @@ handled by the promise causing a rejection.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2177">a deferred promise object</doc>
+               line="2178">a deferred promise object</doc>
           <type name="Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2167">a #JSCContext</doc>
+                 line="2168">a #JSCContext</doc>
             <type name="Context" c:type="JSCContext*"/>
           </parameter>
           <parameter name="executor"
@@ -3268,7 +3268,7 @@ handled by the promise causing a rejection.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2168">an initialization callback</doc>
+                 line="2169">an initialization callback</doc>
             <type name="Executor" c:type="JSCExecutor"/>
           </parameter>
           <parameter name="user_data"
@@ -3277,7 +3277,7 @@ handled by the promise causing a rejection.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2169">user data passed in @executor</doc>
+                 line="2170">user data passed in @executor</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3349,7 +3349,7 @@ string containing null characters, use jsc_value_new_string_from_bytes() instead
                    version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1730">Create a new typed array containing a given amount of elements.
+             line="1731">Create a new typed array containing a given amount of elements.
 
 Create a #JSCValue referencing a new typed array with space for @length
 elements of a given @type. As all typed arrays must have an associated
@@ -3362,26 +3362,26 @@ The @type must *not* be %JSC_TYPED_ARRAY_NONE.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1745">a #JSCValue</doc>
+               line="1746">a #JSCValue</doc>
           <type name="Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1732">a #JSCContext</doc>
+                 line="1733">a #JSCContext</doc>
             <type name="Context" c:type="JSCContext*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1733">the type of array elements</doc>
+                 line="1734">the type of array elements</doc>
             <type name="TypedArrayType" c:type="JSCTypedArrayType"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1734">number of elements in the array</doc>
+                 line="1735">number of elements in the array</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -3429,11 +3429,14 @@ the meantime. Consider taking a copy of the data and using the copy instead
 in asynchronous code.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="249"/>
-        <return-value transfer-ownership="none" nullable="1">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1589">pointer to memory.</doc>
-          <type name="gpointer" c:type="gpointer"/>
+               line="1589">
+  pointer to memory.</doc>
+          <array length="0" zero-terminated="0" c:type="gpointer">
+            <type name="guint8"/>
+          </array>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
@@ -3443,8 +3446,10 @@ in asynchronous code.</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
           <parameter name="size"
-                     transfer-ownership="none"
-                     nullable="1"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
@@ -3458,7 +3463,7 @@ in asynchronous code.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1617">Gets the size in bytes of the array buffer.
+             line="1618">Gets the size in bytes of the array buffer.
 
 Obtains the size in bytes of the memory region that holds the contents of
 an %ArrayBuffer.</doc>
@@ -3467,14 +3472,14 @@ an %ArrayBuffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1626">size, in bytes.</doc>
+               line="1627">size, in bytes.</doc>
           <type name="gsize" c:type="gsize"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1619">A #JSCValue</doc>
+                 line="1620">A #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>
@@ -3860,20 +3865,20 @@ This function always returns a #JSCValue, in case of void functions a #JSCValue 
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1824">Determines whether a value is a typed array.</doc>
+             line="1825">Determines whether a value is a typed array.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="267"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1830">Whether @value is a typed array.</doc>
+               line="1831">Whether @value is a typed array.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1826">a #JSCValue</doc>
+                 line="1827">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>
@@ -3904,7 +3909,7 @@ This function always returns a #JSCValue, in case of void functions a #JSCValue 
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1764">Create a new typed array value with elements from an array buffer.
+             line="1765">Create a new typed array value with elements from an array buffer.
 
 Create a #JSCValue referencing a new typed array value containing
 elements of the given @type, where the elements are stored at the memory
@@ -3923,32 +3928,32 @@ starting at the indicated offset.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1786">a #JSCValue</doc>
+               line="1787">a #JSCValue</doc>
           <type name="Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
           <instance-parameter name="array_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1766">a #JSCValue.</doc>
+                 line="1767">a #JSCValue.</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1767">type of array elements.</doc>
+                 line="1768">type of array elements.</doc>
             <type name="TypedArrayType" c:type="JSCTypedArrayType"/>
           </parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1768">offset, in bytes.</doc>
+                 line="1769">offset, in bytes.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1769">number of array elements, or `-1`.</doc>
+                 line="1770">number of array elements, or `-1`.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -4482,27 +4487,27 @@ This function always returns a #JSCValue, in case of void methods a #JSCValue re
       <method name="to_json" c:identifier="jsc_value_to_json" version="2.28">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="2115">Create a JSON string of @value serialization. If @indent is 0, the resulting JSON will
+             line="2116">Create a JSON string of @value serialization. If @indent is 0, the resulting JSON will
 not contain newlines. The size of the indent is clamped to 10 spaces.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="306"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2123">a null-terminated JSON string with serialization of @value</doc>
+               line="2124">a null-terminated JSON string with serialization of @value</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2117">a #JSCValue</doc>
+                 line="2118">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
           <parameter name="indent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2118">The number of spaces to indent when nesting.</doc>
+                 line="2119">The number of spaces to indent when nesting.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4557,20 +4562,20 @@ to handle strings with null characters.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="2042">Obtain the %ArrayBuffer for the memory region of the typed array elements.</doc>
+             line="2043">Obtain the %ArrayBuffer for the memory region of the typed array elements.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="286"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2048">A #JSCValue</doc>
+               line="2049">A #JSCValue</doc>
           <type name="Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2044">a #JSCValue</doc>
+                 line="2045">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>
@@ -4580,7 +4585,7 @@ to handle strings with null characters.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1893">Obtains a pointer to the memory region that holds the elements of the typed
+             line="1894">Obtains a pointer to the memory region that holds the elements of the typed
 array; modifications done to them will be visible to JavaScript code. If
 @length is not %NULL, the number of elements contained in the typed array
 are also stored in the pointed location.
@@ -4608,14 +4613,14 @@ jsc_value_array_buffer_get_data() for details.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1922">pointer to memory.</doc>
+               line="1923">pointer to memory.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1895">a #JSCValue</doc>
+                 line="1896">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
           <parameter name="length"
@@ -4625,7 +4630,7 @@ jsc_value_array_buffer_get_data() for details.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1896">location to return the number of elements contained</doc>
+                 line="1897">location to return the number of elements contained</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -4635,20 +4640,20 @@ jsc_value_array_buffer_get_data() for details.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1958">Gets the number of elements in a typed array.</doc>
+             line="1959">Gets the number of elements in a typed array.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="277"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1964">number of elements.</doc>
+               line="1965">number of elements.</doc>
           <type name="gsize" c:type="gsize"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1960">a #JSCValue</doc>
+                 line="1961">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>
@@ -4658,20 +4663,20 @@ jsc_value_array_buffer_get_data() for details.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="2014">Gets the offset over the underlying array buffer data.</doc>
+             line="2015">Gets the offset over the underlying array buffer data.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="283"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="2020">offset, in bytes.</doc>
+               line="2021">offset, in bytes.</doc>
           <type name="gsize" c:type="gsize"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="2016">A #JSCValue</doc>
+                 line="2017">A #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>
@@ -4681,20 +4686,20 @@ jsc_value_array_buffer_get_data() for details.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1986">Gets the size of a typed array.</doc>
+             line="1987">Gets the size of a typed array.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="280"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1992">size, in bytes.</doc>
+               line="1993">size, in bytes.</doc>
           <type name="gsize" c:type="gsize"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1988">a #JSCValue</doc>
+                 line="1989">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>
@@ -4704,20 +4709,20 @@ jsc_value_array_buffer_get_data() for details.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-             line="1841">Gets the type of elements contained in a typed array.</doc>
+             line="1842">Gets the type of elements contained in a typed array.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCValue.h"
                          line="270"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-               line="1847">type of the elements, or %JSC_TYPED_ARRAY_NONE if @value is not a typed array.</doc>
+               line="1848">type of the elements, or %JSC_TYPED_ARRAY_NONE if @value is not a typed array.</doc>
           <type name="TypedArrayType" c:type="JSCTypedArrayType"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
-                 line="1843">a #JSCValue</doc>
+                 line="1844">a #JSCValue</doc>
             <type name="Value" c:type="JSCValue*"/>
           </instance-parameter>
         </parameters>

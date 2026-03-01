@@ -834,7 +834,7 @@ don't influence your timing computations.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="12"
+              value="13"
               c:type="MANETTE_MICRO_VERSION"
               version="0.2.10">
       <doc xml:space="preserve"
@@ -1000,7 +1000,7 @@ See also: [class@Device].</doc>
       </method>
     </record>
     <constant name="VERSION_S"
-              value="0.2.12"
+              value="0.2.13"
               c:type="MANETTE_VERSION_S"
               version="0.2.10">
       <doc xml:space="preserve"

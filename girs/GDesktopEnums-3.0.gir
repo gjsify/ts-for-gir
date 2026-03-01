@@ -14,7 +14,7 @@ and/or use gtk-doc annotations.  -->
              c:identifier-prefixes="GDesktop"
              c:symbol-prefixes="g_desktop">
     <enumeration name="AccentColor" c:type="GDesktopAccentColor">
-      <source-position filename="headers/gdesktop-enums.h" line="289"/>
+      <source-position filename="headers/gdesktop-enums.h" line="287"/>
       <member name="blue" value="0" c:identifier="G_DESKTOP_ACCENT_COLOR_BLUE">
       </member>
       <member name="teal" value="1" c:identifier="G_DESKTOP_ACCENT_COLOR_TEAL">
@@ -42,10 +42,6 @@ and/or use gtk-doc annotations.  -->
       <member name="slate"
               value="8"
               c:identifier="G_DESKTOP_ACCENT_COLOR_SLATE">
-      </member>
-      <member name="brown"
-              value="108"
-              c:identifier="G_DESKTOP_ACCENT_COLOR_BROWN">
       </member>
     </enumeration>
     <enumeration name="BackgroundShading" c:type="GDesktopBackgroundShading">

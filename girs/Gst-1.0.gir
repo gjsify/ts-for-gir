@@ -8678,21 +8678,21 @@ evaluates to @def_return.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1009">Output an debugging message in the given category.
+           line="1010">Output an debugging message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1338"/>
+      <source-position filename="gst/gstinfo.h" line="1339"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1011">category to use</doc>
+               line="1012">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1012">printf-style message to output</doc>
+               line="1013">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8701,26 +8701,26 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="902">Output an debugging message belonging to the given object in the given category.
+           line="903">Output an debugging message belonging to the given object in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1330"/>
+      <source-position filename="gst/gstinfo.h" line="1331"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="904">category to use</doc>
+               line="905">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="905">the #GObject the message belongs to</doc>
+               line="906">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="906">printf-style message to output</doc>
+               line="907">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8729,21 +8729,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="979">Output an error message in the given category.
+           line="980">Output an error message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1335"/>
+      <source-position filename="gst/gstinfo.h" line="1336"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="981">category to use</doc>
+               line="982">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="982">printf-style message to output</doc>
+               line="983">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8752,26 +8752,26 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="868">Output an error message belonging to the given object in the given category.
+           line="869">Output an error message belonging to the given object in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1327"/>
+      <source-position filename="gst/gstinfo.h" line="1328"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="870">category to use</doc>
+               line="871">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="871">the #GObject the message belongs to</doc>
+               line="872">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="872">printf-style message to output</doc>
+               line="873">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8780,21 +8780,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1029">Output an fixme message in the given category.
+           line="1030">Output an fixme message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1340"/>
+      <source-position filename="gst/gstinfo.h" line="1341"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1031">category to use</doc>
+               line="1032">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1032">printf-style message to output</doc>
+               line="1033">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8803,26 +8803,26 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="924">Output a fixme message belonging to the given object in the given category.
+           line="925">Output a fixme message belonging to the given object in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1332"/>
+      <source-position filename="gst/gstinfo.h" line="1333"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="926">category to use</doc>
+               line="927">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="927">the #GObject the message belongs to</doc>
+               line="928">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="928">printf-style message to output</doc>
+               line="929">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8831,21 +8831,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="999">Output an informational message in the given category.
+           line="1000">Output an informational message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1337"/>
+      <source-position filename="gst/gstinfo.h" line="1338"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1001">category to use</doc>
+               line="1002">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1002">printf-style message to output</doc>
+               line="1003">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8854,27 +8854,27 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="890">Output an informational message belonging to the given object in the given
+           line="891">Output an informational message belonging to the given object in the given
 category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1329"/>
+      <source-position filename="gst/gstinfo.h" line="1330"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="892">category to use</doc>
+               line="893">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="893">the #GObject the message belongs to</doc>
+               line="894">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="894">printf-style message to output</doc>
+               line="895">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8883,33 +8883,33 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="716">Outputs a debugging message. This is the most general macro for outputting
+           line="717">Outputs a debugging message. This is the most general macro for outputting
 debugging messages. You will probably want to use one of the ones described
 below.
 
 There is no need to finish the end of the debug message with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="731"/>
+      <source-position filename="gst/gstinfo.h" line="732"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="718">category to use</doc>
+               line="719">category to use</doc>
         </parameter>
         <parameter name="level">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="719">the severity of the message</doc>
+               line="720">the severity of the message</doc>
         </parameter>
         <parameter name="object">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="720">the #GObject the message belongs to or %NULL if none</doc>
+               line="721">the #GObject the message belongs to or %NULL if none</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="721">A printf-style message to output</doc>
+               line="722">A printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8919,34 +8919,34 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="769">Outputs a debugging message. This is the most general macro for outputting
+           line="770">Outputs a debugging message. This is the most general macro for outputting
 debugging messages. You will probably want to use one of the ones described
 below.
 
 There is no need to finish the end of the debug message with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="787"/>
+      <source-position filename="gst/gstinfo.h" line="788"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="771">category to use</doc>
+               line="772">category to use</doc>
         </parameter>
         <parameter name="level">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="772">the severity of the message</doc>
+               line="773">the severity of the message</doc>
         </parameter>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="773">the identifier of the object this message
+               line="774">the identifier of the object this message
     relates to, or %NULL if none</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="775">A printf-style message to output</doc>
+               line="776">A printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8955,21 +8955,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1019">Output an logging message in the given category.
+           line="1020">Output an logging message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1339"/>
+      <source-position filename="gst/gstinfo.h" line="1340"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1021">category to use</doc>
+               line="1022">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1022">printf-style message to output</doc>
+               line="1023">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -8978,26 +8978,26 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="913">Output an logging message belonging to the given object in the given category.
+           line="914">Output an logging message belonging to the given object in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1331"/>
+      <source-position filename="gst/gstinfo.h" line="1332"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="915">category to use</doc>
+               line="916">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="916">the #GObject the message belongs to</doc>
+               line="917">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="917">printf-style message to output</doc>
+               line="918">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9006,31 +9006,31 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1049">Output a hexdump of @data in the given category.
+           line="1050">Output a hexdump of @data in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="859"/>
+      <source-position filename="gst/gstinfo.h" line="860"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1051">category to use</doc>
+               line="1052">category to use</doc>
         </parameter>
         <parameter name="msg">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1052">message string to log with the data</doc>
+               line="1053">message string to log with the data</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1053">pointer to the data to output</doc>
+               line="1054">pointer to the data to output</doc>
         </parameter>
         <parameter name="length">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1054">length of the data to output</doc>
+               line="1055">length of the data to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9040,36 +9040,36 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="962">Output a hexdump of @data relating to the given @id in the given category.
+           line="963">Output a hexdump of @data relating to the given @id in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="857"/>
+      <source-position filename="gst/gstinfo.h" line="858"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="964">category to use</doc>
+               line="965">category to use</doc>
         </parameter>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="965">An identifier of the message provider</doc>
+               line="966">An identifier of the message provider</doc>
         </parameter>
         <parameter name="msg">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="966">message string to log with the data</doc>
+               line="967">message string to log with the data</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="967">pointer to the data to output</doc>
+               line="968">pointer to the data to output</doc>
         </parameter>
         <parameter name="length">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="968">length of the data to output</doc>
+               line="969">length of the data to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9078,37 +9078,37 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="947">Output a hexdump of @data relating to the given object in the given
+           line="948">Output a hexdump of @data relating to the given object in the given
 category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="855"/>
+      <source-position filename="gst/gstinfo.h" line="856"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="949">category to use</doc>
+               line="950">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="950">the #GObject the message belongs to</doc>
+               line="951">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="msg">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="951">message string to log with the data</doc>
+               line="952">message string to log with the data</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="952">pointer to the data to output</doc>
+               line="953">pointer to the data to output</doc>
         </parameter>
         <parameter name="length">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="953">length of the data to output</doc>
+               line="954">length of the data to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9117,21 +9117,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1039">Output a tracing message in the given category.
+           line="1040">Output a tracing message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1341"/>
+      <source-position filename="gst/gstinfo.h" line="1342"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1041">category to use</doc>
+               line="1042">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1042">printf-style message to output</doc>
+               line="1043">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9140,27 +9140,27 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="935">Output a tracing message belonging to the given object in the given
+           line="936">Output a tracing message belonging to the given object in the given
 category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1333"/>
+      <source-position filename="gst/gstinfo.h" line="1334"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="937">category to use</doc>
+               line="938">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="938">the #GObject the message belongs to</doc>
+               line="939">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="939">printf-style message to output</doc>
+               line="940">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9169,21 +9169,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="989">Output an warning message in the given category.
+           line="990">Output an warning message in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1336"/>
+      <source-position filename="gst/gstinfo.h" line="1337"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="991">category to use</doc>
+               line="992">category to use</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="992">printf-style message to output</doc>
+               line="993">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -9192,26 +9192,26 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="879">Output a warning message belonging to the given object in the given category.
+           line="880">Output a warning message belonging to the given object in the given category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1328"/>
+      <source-position filename="gst/gstinfo.h" line="1329"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="881">category to use</doc>
+               line="882">category to use</doc>
         </parameter>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="882">the #GObject the message belongs to</doc>
+               line="883">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="883">printf-style message to output</doc>
+               line="884">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -16745,16 +16745,16 @@ the metadata on @transbuf.</doc>
     <function-macro name="DEBUG" c:identifier="GST_DEBUG" introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1277">Output a debugging message in the default category.
+           line="1278">Output a debugging message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1362"/>
+      <source-position filename="gst/gstinfo.h" line="1363"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1279">printf-style message to output</doc>
+               line="1280">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -16867,7 +16867,7 @@ This macro expands to nothing if debugging is disabled.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="669">Looks up an existing #GstDebugCategory by its @name and sets @cat. If the
+           line="670">Looks up an existing #GstDebugCategory by its @name and sets @cat. If the
 category is not found, but GST_CAT_DEFAULT is defined, that is assigned to
 @cat. Otherwise @cat will be %NULL.
 
@@ -16879,17 +16879,17 @@ GST_DEBUG_CATEGORY_STATIC (GST_CAT_PERFORMANCE);
 GST_DEBUG_CATEGORY_INIT (gst_myplugin_debug, "myplugin", 0, "nice element");
 GST_DEBUG_CATEGORY_GET (GST_CAT_PERFORMANCE, "GST_PERFORMANCE");
 ]|</doc>
-      <source-position filename="gst/gstinfo.h" line="688"/>
+      <source-position filename="gst/gstinfo.h" line="689"/>
       <parameters>
         <parameter name="cat">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="671">the category to initialize.</doc>
+               line="672">the category to initialize.</doc>
         </parameter>
         <parameter name="name">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="672">log category name</doc>
+               line="673">log category name</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -16973,14 +16973,14 @@ This macro expands to nothing if debugging is disabled.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1806">Register a pointer to a function with its name, so it can later be used by
+           line="1807">Register a pointer to a function with its name, so it can later be used by
 GST_DEBUG_FUNCPTR_NAME().</doc>
-      <source-position filename="gst/gstinfo.h" line="1815"/>
+      <source-position filename="gst/gstinfo.h" line="1816"/>
       <parameters>
         <parameter name="ptr">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1808">pointer to the function to register</doc>
+               line="1809">pointer to the function to register</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -16989,17 +16989,17 @@ GST_DEBUG_FUNCPTR_NAME().</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1818">Retrieves the name of the function, if it was previously registered with
+           line="1819">Retrieves the name of the function, if it was previously registered with
 GST_DEBUG_FUNCPTR(). If not, it returns a description of the pointer.
 
 This macro returns a constant string which must not be modified or
 freed by the caller.</doc>
-      <source-position filename="gst/gstinfo.h" line="1828"/>
+      <source-position filename="gst/gstinfo.h" line="1829"/>
       <parameters>
         <parameter name="ptr">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1820">address of the function of which to look up the name</doc>
+               line="1821">address of the function of which to look up the name</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -17009,21 +17009,21 @@ freed by the caller.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1185">Output a debugging message for the given identifier in the default category.
+           line="1186">Output a debugging message for the given identifier in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1354"/>
+      <source-position filename="gst/gstinfo.h" line="1355"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1187">An identifier of the message provider</doc>
+               line="1188">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1188">printf-style message to output</doc>
+               line="1189">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -17032,22 +17032,22 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1094">Output a debugging message belonging to the given object in the default
+           line="1095">Output a debugging message belonging to the given object in the default
 category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1346"/>
+      <source-position filename="gst/gstinfo.h" line="1347"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1096">the #GObject the message belongs to</doc>
+               line="1097">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1097">printf-style message to output</doc>
+               line="1098">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -17072,16 +17072,16 @@ statements.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1795">Register a pointer to a function with its name, so it can later be used by
+           line="1796">Register a pointer to a function with its name, so it can later be used by
 GST_DEBUG_FUNCPTR_NAME().
 
 Use this variant of #GST_DEBUG_FUNCPTR if you do not need to use @ptr.</doc>
-      <source-position filename="gst/gstinfo.h" line="1804"/>
+      <source-position filename="gst/gstinfo.h" line="1805"/>
       <parameters>
         <parameter name="ptr">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1797">pointer to the function to register</doc>
+               line="1798">pointer to the function to register</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -21899,16 +21899,16 @@ application will be informed.</doc>
     <function-macro name="ERROR" c:identifier="GST_ERROR" introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1250">Output an error message in the default category.
+           line="1251">Output an error message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1359"/>
+      <source-position filename="gst/gstinfo.h" line="1360"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1252">printf-style message to output</doc>
+               line="1253">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -21918,21 +21918,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1148">Output an error message for the given identifier in the default category.
+           line="1149">Output an error message for the given identifier in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1351"/>
+      <source-position filename="gst/gstinfo.h" line="1352"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1150">An identifier of the message provider</doc>
+               line="1151">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1151">printf-style message to output</doc>
+               line="1152">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -21941,21 +21941,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1063">Output an error message belonging to the given object in the default category.
+           line="1064">Output an error message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1343"/>
+      <source-position filename="gst/gstinfo.h" line="1344"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1065">the #GObject the message belongs to</doc>
+               line="1066">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1066">printf-style message to output</doc>
+               line="1067">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -30623,16 +30623,16 @@ gst_event_type_get_flags() function.</doc>
     <function-macro name="FIXME" c:identifier="GST_FIXME" introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1295">Output a fixme message in the default category.
+           line="1296">Output a fixme message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1364"/>
+      <source-position filename="gst/gstinfo.h" line="1365"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1297">printf-style message to output</doc>
+               line="1298">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -30642,21 +30642,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1209">Output a fixme message for the given identifier in the default category.
+           line="1210">Output a fixme message for the given identifier in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1356"/>
+      <source-position filename="gst/gstinfo.h" line="1357"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1211">An identifier of the message provider</doc>
+               line="1212">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1212">printf-style message to output</doc>
+               line="1213">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -30665,21 +30665,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1115">Output a fixme message belonging to the given object in the default category.
+           line="1116">Output a fixme message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1348"/>
+      <source-position filename="gst/gstinfo.h" line="1349"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1117">the #GObject the message belongs to</doc>
+               line="1118">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1118">printf-style message to output</doc>
+               line="1119">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -31579,16 +31579,16 @@ is unlinked and links to the new target are established. if @newtarget is
     <function-macro name="INFO" c:identifier="GST_INFO" introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1268">Output an informational message in the default category.
+           line="1269">Output an informational message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1361"/>
+      <source-position filename="gst/gstinfo.h" line="1362"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1270">printf-style message to output</doc>
+               line="1271">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -31598,22 +31598,22 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1172">Output an informational message for the given identifier the default
+           line="1173">Output an informational message for the given identifier the default
 category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1353"/>
+      <source-position filename="gst/gstinfo.h" line="1354"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1174">An identifier of the message provider</doc>
+               line="1175">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1175">printf-style message to output</doc>
+               line="1176">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -31622,22 +31622,22 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1083">Output an informational message belonging to the given object in the default
+           line="1084">Output an informational message belonging to the given object in the default
 category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1345"/>
+      <source-position filename="gst/gstinfo.h" line="1346"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1085">the #GObject the message belongs to</doc>
+               line="1086">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1086">printf-style message to output</doc>
+               line="1087">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -33850,16 +33850,16 @@ The function will be called with the iterator lock held.</doc>
     <function-macro name="LOG" c:identifier="GST_LOG" introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1286">Output a logging message in the default category.
+           line="1287">Output a logging message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1363"/>
+      <source-position filename="gst/gstinfo.h" line="1364"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1288">printf-style message to output</doc>
+               line="1289">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -33869,21 +33869,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1197">Output a logging message for the given identifier in the default category.
+           line="1198">Output a logging message for the given identifier in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1355"/>
+      <source-position filename="gst/gstinfo.h" line="1356"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1199">An identifier of the message provider</doc>
+               line="1200">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1200">printf-style message to output</doc>
+               line="1201">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -33892,21 +33892,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1105">Output a logging message belonging to the given object in the default category.
+           line="1106">Output a logging message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1347"/>
+      <source-position filename="gst/gstinfo.h" line="1348"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1107">the #GObject the message belongs to</doc>
+               line="1108">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1108">printf-style message to output</doc>
+               line="1109">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -34147,26 +34147,26 @@ guint32 fourcc = GST_MAKE_FOURCC ('M', 'J', 'P', 'G');
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1313">Output a hexdump of @data.
+           line="1314">Output a hexdump of @data.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="865"/>
+      <source-position filename="gst/gstinfo.h" line="866"/>
       <parameters>
         <parameter name="msg">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1315">message string to log with the data</doc>
+               line="1316">message string to log with the data</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1316">pointer to the data to output</doc>
+               line="1317">pointer to the data to output</doc>
         </parameter>
         <parameter name="length">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1317">length of the data to output</doc>
+               line="1318">length of the data to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -34176,31 +34176,31 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1233">Output a logging message belonging to the given object in the default category.
+           line="1234">Output a logging message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="863"/>
+      <source-position filename="gst/gstinfo.h" line="864"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1235">An identifier of the message provider</doc>
+               line="1236">An identifier of the message provider</doc>
         </parameter>
         <parameter name="msg">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1236">message string to log with the data</doc>
+               line="1237">message string to log with the data</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1237">pointer to the data to output</doc>
+               line="1238">pointer to the data to output</doc>
         </parameter>
         <parameter name="length">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1238">length of the data to output</doc>
+               line="1239">length of the data to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -34209,31 +34209,31 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1135">Output a logging message belonging to the given object in the default category.
+           line="1136">Output a logging message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="861"/>
+      <source-position filename="gst/gstinfo.h" line="862"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1137">the #GObject the message belongs to</doc>
+               line="1138">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="msg">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1138">message string to log with the data</doc>
+               line="1139">message string to log with the data</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1139">pointer to the data to output</doc>
+               line="1140">pointer to the data to output</doc>
         </parameter>
         <parameter name="length">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1140">length of the data to output</doc>
+               line="1141">length of the data to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -45882,7 +45882,7 @@ linked.</doc>
       <method name="chain" c:identifier="gst_pad_chain">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4671">Chain a buffer to @pad.
+             line="4676">Chain a buffer to @pad.
 
 The function returns #GST_FLOW_FLUSHING if the pad was flushing.
 
@@ -45901,7 +45901,7 @@ after calling this function.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="4693">a #GstFlowReturn from the pad.
+               line="4698">a #GstFlowReturn from the pad.
 
 MT safe.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
@@ -45910,13 +45910,13 @@ MT safe.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4673">a sink #GstPad, returns GST_FLOW_ERROR if not.</doc>
+                 line="4678">a sink #GstPad, returns GST_FLOW_ERROR if not.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4674">the #GstBuffer to send, return GST_FLOW_ERROR
+                 line="4679">the #GstBuffer to send, return GST_FLOW_ERROR
     if not.</doc>
             <type name="Buffer" c:type="GstBuffer*"/>
           </parameter>
@@ -45925,7 +45925,7 @@ MT safe.</doc>
       <method name="chain_list" c:identifier="gst_pad_chain_list">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4752">Chain a bufferlist to @pad.
+             line="4757">Chain a bufferlist to @pad.
 
 The function returns #GST_FLOW_FLUSHING if the pad was flushing.
 
@@ -45945,20 +45945,20 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="4775">a #GstFlowReturn from the pad.</doc>
+               line="4780">a #GstFlowReturn from the pad.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4754">a sink #GstPad, returns GST_FLOW_ERROR if not.</doc>
+                 line="4759">a sink #GstPad, returns GST_FLOW_ERROR if not.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="list" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4755">the #GstBufferList to send, return GST_FLOW_ERROR
+                 line="4760">the #GstBufferList to send, return GST_FLOW_ERROR
     if not.</doc>
             <type name="BufferList" c:type="GstBufferList*"/>
           </parameter>
@@ -46150,7 +46150,7 @@ stream-id manually instead.</doc>
       <method name="event_default" c:identifier="gst_pad_event_default">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="3173">Invokes the default event handler for the given pad.
+             line="3178">Invokes the default event handler for the given pad.
 
 The EOS event will pause the task associated with @pad before it is forwarded
 to all internally linked pads,
@@ -46161,14 +46161,14 @@ takes ownership of @event.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="3187">%TRUE if the event was sent successfully.</doc>
+               line="3192">%TRUE if the event was sent successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3175">a #GstPad to call the default event handler on.</doc>
+                 line="3180">a #GstPad to call the default event handler on.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -46177,13 +46177,13 @@ takes ownership of @event.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3176">the parent of @pad or %NULL</doc>
+                 line="3181">the parent of @pad or %NULL</doc>
             <type name="Object" c:type="GstObject*"/>
           </parameter>
           <parameter name="event" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3177">the #GstEvent to handle.</doc>
+                 line="3182">the #GstEvent to handle.</doc>
             <type name="Event" c:type="GstEvent*"/>
           </parameter>
         </parameters>
@@ -46311,20 +46311,20 @@ MT safe.</doc>
               c:identifier="gst_pad_get_element_private">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6323">Gets the private data of a pad.
+             line="6328">Gets the private data of a pad.
 No locking is performed in this function.</doc>
         <source-position filename="gst/gstpad.h" line="1388"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6330">a #gpointer to the private data.</doc>
+               line="6335">a #gpointer to the private data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6325">the #GstPad to get the private data of.</doc>
+                 line="6330">the #GstPad to get the private data of.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
         </parameters>
@@ -46334,7 +46334,7 @@ No locking is performed in this function.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6758">Gets the #GstFlowReturn return from the last data passed by this pad.</doc>
+             line="6763">Gets the #GstFlowReturn return from the last data passed by this pad.</doc>
         <source-position filename="gst/gstpad.h" line="1527"/>
         <return-value transfer-ownership="none">
           <type name="FlowReturn" c:type="GstFlowReturn"/>
@@ -46343,7 +46343,7 @@ No locking is performed in this function.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6760">the #GstPad</doc>
+                 line="6765">the #GstPad</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
         </parameters>
@@ -46353,20 +46353,20 @@ No locking is performed in this function.</doc>
               glib:get-property="offset">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="3991">Get the offset applied to the running time of @pad. @pad has to be a source
+             line="3996">Get the offset applied to the running time of @pad. @pad has to be a source
 pad.</doc>
         <source-position filename="gst/gstpad.h" line="1504"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="3998">the offset.</doc>
+               line="4003">the offset.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3993">a #GstPad</doc>
+                 line="3998">a #GstPad</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
         </parameters>
@@ -46467,7 +46467,7 @@ MT safe.</doc>
       <method name="get_range" c:identifier="gst_pad_get_range">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="5173">When @pad is flushing this function returns #GST_FLOW_FLUSHING
+             line="5178">When @pad is flushing this function returns #GST_FLOW_FLUSHING
 immediately and @buffer is %NULL.
 
 Calls the getrange function of @pad, see #GstPadGetRangeFunction for a
@@ -46497,7 +46497,7 @@ This is a lowlevel function. Usually gst_pad_pull_range() is used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="5208">a #GstFlowReturn from the pad.
+               line="5213">a #GstFlowReturn from the pad.
 
 MT safe.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
@@ -46506,19 +46506,19 @@ MT safe.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5175">a src #GstPad, returns #GST_FLOW_ERROR if not.</doc>
+                 line="5180">a src #GstPad, returns #GST_FLOW_ERROR if not.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5176">The start offset of the buffer</doc>
+                 line="5181">The start offset of the buffer</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5177">The length of the buffer</doc>
+                 line="5182">The length of the buffer</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="buffer"
@@ -46527,7 +46527,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5178">a pointer to hold the #GstBuffer,
+                 line="5183">a pointer to hold the #GstBuffer,
     returns #GST_FLOW_ERROR if %NULL.</doc>
             <type name="Buffer" c:type="GstBuffer**"/>
           </parameter>
@@ -46561,13 +46561,13 @@ gst_object_unref().</doc>
       <method name="get_sticky_event" c:identifier="gst_pad_get_sticky_event">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6338">Returns a new reference of the sticky event of type @event_type
+             line="6343">Returns a new reference of the sticky event of type @event_type
 from the event.</doc>
         <source-position filename="gst/gstpad.h" line="1397"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6347">a #GstEvent of type
+               line="6352">a #GstEvent of type
 @event_type or %NULL when no event of @event_type was on
 @pad. Unref after usage.</doc>
           <type name="Event" c:type="GstEvent*"/>
@@ -46576,19 +46576,19 @@ from the event.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6340">the #GstPad to get the event from.</doc>
+                 line="6345">the #GstPad to get the event from.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6341">the #GstEventType that should be retrieved.</doc>
+                 line="6346">the #GstEventType that should be retrieved.</doc>
             <type name="EventType" c:type="GstEventType"/>
           </parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6342">the index of the event</doc>
+                 line="6347">the index of the event</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -46656,20 +46656,20 @@ contents should not be interpreted.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6585">Get @pad task state. If no task is currently
+             line="6590">Get @pad task state. If no task is currently
 set, #GST_TASK_STOPPED is returned.</doc>
         <source-position filename="gst/gstpad.h" line="1555"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6592">The current state of @pad's task.</doc>
+               line="6597">The current state of @pad's task.</doc>
           <type name="TaskState" c:type="GstTaskState"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6587">the #GstPad to get task state from</doc>
+                 line="6592">the #GstPad to get task state from</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
         </parameters>
@@ -47041,14 +47041,14 @@ if the flag was set.</doc>
       <method name="pause_task" c:identifier="gst_pad_pause_task">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6539">Pause the task of @pad. This function will also wait until the
+             line="6544">Pause the task of @pad. This function will also wait until the
 function executed by the task is finished if this function is not
 called from the task function.</doc>
         <source-position filename="gst/gstpad.h" line="1549"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6547">a %TRUE if the task could be paused or %FALSE when the pad
+               line="6552">a %TRUE if the task could be paused or %FALSE when the pad
 has no task.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -47056,7 +47056,7 @@ has no task.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6541">the #GstPad to pause the task of</doc>
+                 line="6546">the #GstPad to pause the task of</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
         </parameters>
@@ -47064,7 +47064,7 @@ has no task.</doc>
       <method name="peer_query" c:identifier="gst_pad_peer_query">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4366">Performs gst_pad_query() on the peer of @pad.
+             line="4371">Performs gst_pad_query() on the peer of @pad.
 
 The caller is responsible for both the allocation and deallocation of
 the query structure.</doc>
@@ -47072,7 +47072,7 @@ the query structure.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="4376">%TRUE if the query could be performed. This function returns %FALSE
+               line="4381">%TRUE if the query could be performed. This function returns %FALSE
 if @pad has no peer.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -47080,13 +47080,13 @@ if @pad has no peer.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4368">a #GstPad to invoke the peer query on.</doc>
+                 line="4373">a #GstPad to invoke the peer query on.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4369">the #GstQuery to perform.</doc>
+                 line="4374">the #GstQuery to perform.</doc>
             <type name="Query" c:type="GstQuery*"/>
           </parameter>
         </parameters>
@@ -47353,7 +47353,7 @@ the same caps.  Two such elements are tee and adder.</doc>
       <method name="pull_range" c:identifier="gst_pad_pull_range">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="5225">Pulls a @buffer from the peer pad or fills up a provided buffer.
+             line="5230">Pulls a @buffer from the peer pad or fills up a provided buffer.
 
 This function will first trigger the pad block signal if it was
 installed.
@@ -47382,7 +47382,7 @@ bytes. The caller should check the result buffer size to get the result size.</d
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="5259">a #GstFlowReturn from the peer pad.
+               line="5264">a #GstFlowReturn from the peer pad.
 
 MT safe.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
@@ -47391,19 +47391,19 @@ MT safe.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5227">a sink #GstPad, returns GST_FLOW_ERROR if not.</doc>
+                 line="5232">a sink #GstPad, returns GST_FLOW_ERROR if not.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5228">The start offset of the buffer</doc>
+                 line="5233">The start offset of the buffer</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5229">The length of the buffer</doc>
+                 line="5234">The length of the buffer</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="buffer"
@@ -47412,7 +47412,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5230">a pointer to hold the #GstBuffer, returns
+                 line="5235">a pointer to hold the #GstBuffer, returns
     GST_FLOW_ERROR if %NULL.</doc>
             <type name="Buffer" c:type="GstBuffer**"/>
           </parameter>
@@ -47421,7 +47421,7 @@ MT safe.</doc>
       <method name="push" c:identifier="gst_pad_push">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4934">Pushes a buffer to the peer of @pad.
+             line="4939">Pushes a buffer to the peer of @pad.
 
 This function will call installed block probes before triggering any
 installed data probes.
@@ -47436,7 +47436,7 @@ after calling this function.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="4952">a #GstFlowReturn from the peer pad.
+               line="4957">a #GstFlowReturn from the peer pad.
 
 MT safe.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
@@ -47445,13 +47445,13 @@ MT safe.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4936">a source #GstPad, returns #GST_FLOW_ERROR if not.</doc>
+                 line="4941">a source #GstPad, returns #GST_FLOW_ERROR if not.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4937">the #GstBuffer to push returns GST_FLOW_ERROR
+                 line="4942">the #GstBuffer to push returns GST_FLOW_ERROR
     if not.</doc>
             <type name="Buffer" c:type="GstBuffer*"/>
           </parameter>
@@ -47460,7 +47460,7 @@ MT safe.</doc>
       <method name="push_event" c:identifier="gst_pad_push_event">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="5773">Sends the event to the peer of the given pad. This function is
+             line="5778">Sends the event to the peer of the given pad. This function is
 mainly used by elements to send events to their peer
 elements.
 
@@ -47470,7 +47470,7 @@ gst_event_ref() it if you want to reuse the event after this call.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="5785">%TRUE if the event was handled.
+               line="5790">%TRUE if the event was handled.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -47479,13 +47479,13 @@ MT safe.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5775">the #GstPad that will push the event.</doc>
+                 line="5780">the #GstPad that will push the event.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5776">the #GstEvent to push out of the pad.</doc>
+                 line="5781">the #GstEvent to push out of the pad.</doc>
             <type name="Event" c:type="GstEvent*"/>
           </parameter>
         </parameters>
@@ -47493,7 +47493,7 @@ MT safe.</doc>
       <method name="push_list" c:identifier="gst_pad_push_list">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4972">Pushes a buffer list to the peer of @pad.
+             line="4977">Pushes a buffer list to the peer of @pad.
 
 This function will call installed block probes before triggering any
 installed data probes.
@@ -47510,7 +47510,7 @@ after calling this function.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="4992">a #GstFlowReturn from the peer pad.
+               line="4997">a #GstFlowReturn from the peer pad.
 
 MT safe.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
@@ -47519,13 +47519,13 @@ MT safe.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4974">a source #GstPad, returns #GST_FLOW_ERROR if not.</doc>
+                 line="4979">a source #GstPad, returns #GST_FLOW_ERROR if not.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="list" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4975">the #GstBufferList to push returns GST_FLOW_ERROR
+                 line="4980">the #GstBufferList to push returns GST_FLOW_ERROR
     if not.</doc>
             <type name="BufferList" c:type="GstBufferList*"/>
           </parameter>
@@ -47534,7 +47534,7 @@ MT safe.</doc>
       <method name="query" c:identifier="gst_pad_query">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4228">Dispatches a query to a pad. The query should have been allocated by the
+             line="4233">Dispatches a query to a pad. The query should have been allocated by the
 caller via one of the type-specific allocation functions. The element that
 the pad belongs to is responsible for filling the query with an appropriate
 response, which should then be parsed with a type-specific query parsing
@@ -47548,20 +47548,20 @@ Please also note that some queries might need a running pipeline to work.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="4244">%TRUE if the query could be performed.</doc>
+               line="4249">%TRUE if the query could be performed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4230">a #GstPad to invoke the default query on.</doc>
+                 line="4235">a #GstPad to invoke the default query on.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4231">the #GstQuery to perform.</doc>
+                 line="4236">the #GstQuery to perform.</doc>
             <type name="Query" c:type="GstQuery*"/>
           </parameter>
         </parameters>
@@ -47686,7 +47686,7 @@ gst_caps_make_writable() before modifying the caps.</doc>
       <method name="query_default" c:identifier="gst_pad_query_default">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="3501">Invokes the default query handler for the given pad.
+             line="3506">Invokes the default query handler for the given pad.
 The query is sent to all pads internally linked to @pad. Note that
 if there are many possible sink pads that are internally linked to
 @pad, only one will be sent the query.
@@ -47695,14 +47695,14 @@ Multi-sinkpad elements should implement custom query handlers.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="3513">%TRUE if the query was performed successfully.</doc>
+               line="3518">%TRUE if the query was performed successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3503">a #GstPad to call the default query handler on.</doc>
+                 line="3508">a #GstPad to call the default query handler on.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -47711,13 +47711,13 @@ Multi-sinkpad elements should implement custom query handlers.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3504">the parent of @pad or %NULL</doc>
+                 line="3509">the parent of @pad or %NULL</doc>
             <type name="Object" c:type="GstObject*"/>
           </parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="3505">the #GstQuery to handle.</doc>
+                 line="3510">the #GstQuery to handle.</doc>
             <type name="Query" c:type="GstQuery*"/>
           </parameter>
         </parameters>
@@ -47825,7 +47825,7 @@ MT safe.</doc>
       <method name="send_event" c:identifier="gst_pad_send_event">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6237">Sends the event to the pad. This function can be used
+             line="6242">Sends the event to the pad. This function can be used
 by applications to send events in the pipeline.
 
 If @pad is a source pad, @event should be an upstream event. If @pad is a
@@ -47849,20 +47849,20 @@ gst_event_ref() it if you want to reuse the event after this call.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6263">%TRUE if the event was handled.</doc>
+               line="6268">%TRUE if the event was handled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6239">a #GstPad to send the event to.</doc>
+                 line="6244">a #GstPad to send the event to.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6240">the #GstEvent to send to the pad.</doc>
+                 line="6245">the #GstEvent to send to the pad.</doc>
             <type name="Event" c:type="GstEvent*"/>
           </parameter>
         </parameters>
@@ -48089,7 +48089,7 @@ called to process a #GstBufferList input buffer list. See
               c:identifier="gst_pad_set_element_private">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6308">Set the given private data gpointer on the pad.
+             line="6313">Set the given private data gpointer on the pad.
 This function can only be used by the element that owns the pad.
 No locking is performed in this function.</doc>
         <source-position filename="gst/gstpad.h" line="1385"/>
@@ -48100,7 +48100,7 @@ No locking is performed in this function.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6310">the #GstPad to set the private data of.</doc>
+                 line="6315">the #GstPad to set the private data of.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="priv"
@@ -48109,7 +48109,7 @@ No locking is performed in this function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6311">The private data to attach to the pad.</doc>
+                 line="6316">The private data to attach to the pad.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -48349,7 +48349,7 @@ of the peer sink pad, if present.</doc>
               glib:set-property="offset">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="4021">Set the offset that will be applied to the running time of @pad. Upon next
+             line="4026">Set the offset that will be applied to the running time of @pad. Upon next
 buffer, every sticky events (notably segment) will be pushed again with
 their running time adjusted. For that reason this is only reliable on
 source pads.</doc>
@@ -48361,13 +48361,13 @@ source pads.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4023">a #GstPad</doc>
+                 line="4028">a #GstPad</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="4024">the offset</doc>
+                 line="4029">the offset</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -48466,7 +48466,7 @@ from within the callback.</doc>
       <method name="start_task" c:identifier="gst_pad_start_task">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6473">Starts a task that repeatedly calls @func with @user_data. This function
+             line="6478">Starts a task that repeatedly calls @func with @user_data. This function
 is mostly used in pad activation functions to start the dataflow.
 The #GST_PAD_STREAM_LOCK of @pad will automatically be acquired
 before @func is called.</doc>
@@ -48474,14 +48474,14 @@ before @func is called.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6485">a %TRUE if the task could be started.</doc>
+               line="6490">a %TRUE if the task could be started.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6475">the #GstPad to start the task of</doc>
+                 line="6480">the #GstPad to start the task of</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="func"
@@ -48491,7 +48491,7 @@ before @func is called.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6476">the task function to call</doc>
+                 line="6481">the task function to call</doc>
             <type name="TaskFunction" c:type="GstTaskFunction"/>
           </parameter>
           <parameter name="user_data"
@@ -48500,13 +48500,13 @@ before @func is called.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6477">user data passed to the task function</doc>
+                 line="6482">user data passed to the task function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6478">called when @user_data is no longer referenced</doc>
+                 line="6483">called when @user_data is no longer referenced</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -48515,7 +48515,7 @@ before @func is called.</doc>
               c:identifier="gst_pad_sticky_events_foreach">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6392">Iterates all sticky events on @pad and calls @foreach_func for every
+             line="6397">Iterates all sticky events on @pad and calls @foreach_func for every
 event. If @foreach_func returns %FALSE the iteration is immediately stopped.</doc>
         <source-position filename="gst/gstpad.h" line="1401"/>
         <return-value transfer-ownership="none">
@@ -48525,7 +48525,7 @@ event. If @foreach_func returns %FALSE the iteration is immediately stopped.</do
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6394">the #GstPad that should be used for iteration.</doc>
+                 line="6399">the #GstPad that should be used for iteration.</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="foreach_func"
@@ -48534,7 +48534,7 @@ event. If @foreach_func returns %FALSE the iteration is immediately stopped.</do
                      closure="1">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6395">the
+                 line="6400">the
    #GstPadStickyEventsForeachFunction that should be called for every event.</doc>
             <type name="PadStickyEventsForeachFunction"
                   c:type="GstPadStickyEventsForeachFunction"/>
@@ -48545,7 +48545,7 @@ event. If @foreach_func returns %FALSE the iteration is immediately stopped.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6397">the optional user data.</doc>
+                 line="6402">the optional user data.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -48553,7 +48553,7 @@ event. If @foreach_func returns %FALSE the iteration is immediately stopped.</do
       <method name="stop_task" c:identifier="gst_pad_stop_task">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="6621">Stop the task of @pad. This function will also make sure that the
+             line="6626">Stop the task of @pad. This function will also make sure that the
 function executed by the task will effectively stop if not called
 from the GstTaskFunction.
 
@@ -48566,14 +48566,14 @@ released so as to ensure that streaming through this pad has finished.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6635">a %TRUE if the task could be stopped or %FALSE on error.</doc>
+               line="6640">a %TRUE if the task could be stopped or %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6623">the #GstPad to stop the task of</doc>
+                 line="6628">the #GstPad to stop the task of</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
         </parameters>
@@ -48583,12 +48583,12 @@ released so as to ensure that streaming through this pad has finished.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="gst/gstpad.c"
-             line="5545">Store the sticky @event on @pad</doc>
+             line="5550">Store the sticky @event on @pad</doc>
         <source-position filename="gst/gstpad.h" line="1394"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="5552">#GST_FLOW_OK on success, #GST_FLOW_FLUSHING when the pad
+               line="5557">#GST_FLOW_OK on success, #GST_FLOW_FLUSHING when the pad
 was flushing or #GST_FLOW_EOS when the pad was EOS.</doc>
           <type name="FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
@@ -48596,13 +48596,13 @@ was flushing or #GST_FLOW_EOS when the pad was EOS.</doc>
           <instance-parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5547">a #GstPad</doc>
+                 line="5552">a #GstPad</doc>
             <type name="Pad" c:type="GstPad*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="5548">a #GstEvent</doc>
+                 line="5553">a #GstEvent</doc>
             <type name="Event" c:type="GstEvent*"/>
           </parameter>
         </parameters>
@@ -49874,14 +49874,14 @@ The callback is allowed to modify the data pointer in @info.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6732">The #GstBuffer from the probe</doc>
+               line="6737">The #GstBuffer from the probe</doc>
           <type name="Buffer" c:type="GstBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6730">a #GstPadProbeInfo</doc>
+                 line="6735">a #GstPadProbeInfo</doc>
             <type name="PadProbeInfo" c:type="GstPadProbeInfo*"/>
           </instance-parameter>
         </parameters>
@@ -49892,14 +49892,14 @@ The callback is allowed to modify the data pointer in @info.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6747">The #GstBufferList from the probe</doc>
+               line="6752">The #GstBufferList from the probe</doc>
           <type name="BufferList" c:type="GstBufferList*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6745">a #GstPadProbeInfo</doc>
+                 line="6750">a #GstPadProbeInfo</doc>
             <type name="PadProbeInfo" c:type="GstPadProbeInfo*"/>
           </instance-parameter>
         </parameters>
@@ -49909,14 +49909,14 @@ The callback is allowed to modify the data pointer in @info.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6699">The #GstEvent from the probe</doc>
+               line="6704">The #GstEvent from the probe</doc>
           <type name="Event" c:type="GstEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6697">a #GstPadProbeInfo</doc>
+                 line="6702">a #GstPadProbeInfo</doc>
             <type name="PadProbeInfo" c:type="GstPadProbeInfo*"/>
           </instance-parameter>
         </parameters>
@@ -49926,14 +49926,14 @@ The callback is allowed to modify the data pointer in @info.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gstpad.c"
-               line="6716">The #GstQuery from the probe</doc>
+               line="6721">The #GstQuery from the probe</doc>
           <type name="Query" c:type="GstQuery*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpad.c"
-                 line="6714">a #GstPadProbeInfo</doc>
+                 line="6719">a #GstPadProbeInfo</doc>
             <type name="PadProbeInfo" c:type="GstPadProbeInfo*"/>
           </instance-parameter>
         </parameters>
@@ -51244,7 +51244,7 @@ MT safe.</doc>
       <method name="auto_clock" c:identifier="gst_pipeline_auto_clock">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="919">Let @pipeline select a clock automatically. This is the default
+             line="910">Let @pipeline select a clock automatically. This is the default
 behaviour.
 
 Use this function if you previous forced a fixed clock with
@@ -51260,7 +51260,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="921">a #GstPipeline</doc>
+                 line="912">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51270,13 +51270,13 @@ MT safe.</doc>
               glib:get-property="auto-flush-bus">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="1032">Check if @pipeline will automatically flush messages when going to
+             line="1023">Check if @pipeline will automatically flush messages when going to
 the NULL state.</doc>
         <source-position filename="gst/gstpipeline.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="1039">whether the pipeline will automatically flush its bus when
+               line="1030">whether the pipeline will automatically flush its bus when
 going from READY to NULL state or not.
 
 MT safe.</doc>
@@ -51286,7 +51286,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1034">a #GstPipeline</doc>
+                 line="1025">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51294,13 +51294,13 @@ MT safe.</doc>
       <method name="get_bus" c:identifier="gst_pipeline_get_bus">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="769">Gets the #GstBus of @pipeline. The bus allows applications to receive
+             line="760">Gets the #GstBus of @pipeline. The bus allows applications to receive
 #GstMessage packets.</doc>
         <source-position filename="gst/gstpipeline.h" line="98"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="776">a #GstBus, unref after usage.
+               line="767">a #GstBus, unref after usage.
 
 MT safe.</doc>
           <type name="Bus" c:type="GstBus*"/>
@@ -51309,7 +51309,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="771">a #GstPipeline</doc>
+                 line="762">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51319,7 +51319,7 @@ MT safe.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="822">Gets the current clock used by @pipeline. Users of object
+             line="813">Gets the current clock used by @pipeline. Users of object
 oriented languages should use gst_pipeline_get_pipeline_clock()
 to avoid confusion with gst_element_get_clock() which has a different behavior.
 
@@ -51329,14 +51329,14 @@ clock, even if the pipeline is not in the PLAYING state.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="833">a #GstClock, unref after usage.</doc>
+               line="824">a #GstClock, unref after usage.</doc>
           <type name="Clock" c:type="GstClock*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="824">a #GstPipeline</doc>
+                 line="815">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51346,12 +51346,12 @@ clock, even if the pipeline is not in the PLAYING state.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="1224">Return the configured latency on @pipeline.</doc>
+             line="1215">Return the configured latency on @pipeline.</doc>
         <source-position filename="gst/gstpipeline.h" line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="1230">@pipeline configured latency, or %GST_CLOCK_TIME_NONE if none has been configured
+               line="1221">@pipeline configured latency, or %GST_CLOCK_TIME_NONE if none has been configured
 because @pipeline did not reach the PLAYING state yet.
 
 MT safe.</doc>
@@ -51361,7 +51361,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1226">a #GstPipeline</doc>
+                 line="1217">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51371,12 +51371,12 @@ MT safe.</doc>
               glib:get-property="delay">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="977">Get the configured delay (see gst_pipeline_set_delay()).</doc>
+             line="968">Get the configured delay (see gst_pipeline_set_delay()).</doc>
         <source-position filename="gst/gstpipeline.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="983">The configured delay.
+               line="974">The configured delay.
 
 MT safe.</doc>
           <type name="ClockTime" c:type="GstClockTime"/>
@@ -51385,7 +51385,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="979">a #GstPipeline</doc>
+                 line="970">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51396,20 +51396,20 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="1089">Gets the latency that should be configured on the pipeline. See
+             line="1080">Gets the latency that should be configured on the pipeline. See
 gst_pipeline_set_latency().</doc>
         <source-position filename="gst/gstpipeline.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="1096">Latency to configure on the pipeline or GST_CLOCK_TIME_NONE</doc>
+               line="1087">Latency to configure on the pipeline or GST_CLOCK_TIME_NONE</doc>
           <type name="ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1091">a #GstPipeline</doc>
+                 line="1082">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51419,7 +51419,7 @@ gst_pipeline_set_latency().</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="841">Gets the current clock used by @pipeline.
+             line="832">Gets the current clock used by @pipeline.
 
 Unlike gst_element_get_clock(), this function will always return a
 clock, even if the pipeline is not in the PLAYING state.</doc>
@@ -51427,14 +51427,14 @@ clock, even if the pipeline is not in the PLAYING state.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="850">a #GstClock, unref after usage.</doc>
+               line="841">a #GstClock, unref after usage.</doc>
           <type name="Clock" c:type="GstClock*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="843">a #GstPipeline</doc>
+                 line="834">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51444,12 +51444,12 @@ clock, even if the pipeline is not in the PLAYING state.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="1200">Check if @pipeline is live.</doc>
+             line="1191">Check if @pipeline is live.</doc>
         <source-position filename="gst/gstpipeline.h" line="134"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="1206">%TRUE if @pipeline is live, %FALSE if not or if it did not reach the PAUSED state yet.
+               line="1197">%TRUE if @pipeline is live, %FALSE if not or if it did not reach the PAUSED state yet.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -51458,7 +51458,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1202">a #GstPipeline</doc>
+                 line="1193">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -51468,7 +51468,7 @@ MT safe.</doc>
               glib:set-property="auto-flush-bus">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="1001">Usually, when a pipeline goes from READY to NULL state, it automatically
+             line="992">Usually, when a pipeline goes from READY to NULL state, it automatically
 flushes all pending messages on the bus, which is done for refcounting
 purposes, to break circular references.
 
@@ -51490,13 +51490,13 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1003">a #GstPipeline</doc>
+                 line="994">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
           <parameter name="auto_flush" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1004">whether or not to automatically flush the bus when
+                 line="995">whether or not to automatically flush the bus when
 the pipeline goes from READY to NULL state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -51507,13 +51507,13 @@ the pipeline goes from READY to NULL state</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="895">Set the clock for @pipeline. The clock will be distributed
+             line="886">Set the clock for @pipeline. The clock will be distributed
 to all the elements managed by the pipeline.</doc>
         <source-position filename="gst/gstpipeline.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gstpipeline.c"
-               line="903">%TRUE if the clock could be set on the pipeline. %FALSE if
+               line="894">%TRUE if the clock could be set on the pipeline. %FALSE if
   some element did not accept the clock.
 
 MT safe.</doc>
@@ -51523,7 +51523,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="897">a #GstPipeline</doc>
+                 line="888">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
           <parameter name="clock"
@@ -51532,7 +51532,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="898">the clock to set</doc>
+                 line="889">the clock to set</doc>
             <type name="Clock" c:type="GstClock*"/>
           </parameter>
         </parameters>
@@ -51542,7 +51542,7 @@ MT safe.</doc>
               glib:set-property="delay">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="950">Set the expected delay needed for all elements to perform the
+             line="941">Set the expected delay needed for all elements to perform the
 PAUSED to PLAYING state change. @delay will be added to the
 base time of the elements so that they wait an additional @delay
 amount of time before starting to process buffers and cannot be
@@ -51560,13 +51560,13 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="952">a #GstPipeline</doc>
+                 line="943">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
           <parameter name="delay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="953">the delay</doc>
+                 line="944">the delay</doc>
             <type name="ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -51577,7 +51577,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="1058">Sets the latency that should be configured on the pipeline. Setting
+             line="1049">Sets the latency that should be configured on the pipeline. Setting
 GST_CLOCK_TIME_NONE will restore the default behaviour of using the minimum
 latency from the LATENCY query. Setting this is usually not required and
 the pipeline will figure out an appropriate latency automatically.
@@ -51592,13 +51592,13 @@ the LATENCY query, will most likely cause the pipeline to fail.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1060">a #GstPipeline</doc>
+                 line="1051">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
           <parameter name="latency" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="1061">latency to configure</doc>
+                 line="1052">latency to configure</doc>
             <type name="ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -51606,7 +51606,7 @@ the LATENCY query, will most likely cause the pipeline to fail.</doc>
       <method name="use_clock" c:identifier="gst_pipeline_use_clock">
         <doc xml:space="preserve"
              filename="gst/gstpipeline.c"
-             line="863">Force @pipeline to use the given @clock. The pipeline will
+             line="854">Force @pipeline to use the given @clock. The pipeline will
 always use the given clock even if new clock providers are added
 to this pipeline.
 
@@ -51622,7 +51622,7 @@ MT safe.</doc>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="865">a #GstPipeline</doc>
+                 line="856">a #GstPipeline</doc>
             <type name="Pipeline" c:type="GstPipeline*"/>
           </instance-parameter>
           <parameter name="clock"
@@ -51631,7 +51631,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gstpipeline.c"
-                 line="866">the clock to use</doc>
+                 line="857">the clock to use</doc>
             <type name="Clock" c:type="GstClock*"/>
           </parameter>
         </parameters>
@@ -63725,12 +63725,12 @@ Applications can activate streams from a collection by using the
                    version="1.10">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="161">Create a new #GstStreamCollection.</doc>
+             line="173">Create a new #GstStreamCollection.</doc>
         <source-position filename="gst/gststreamcollection.h" line="100"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/gststreamcollection.c"
-               line="167">The new #GstStreamCollection.</doc>
+               line="179">The new #GstStreamCollection.</doc>
           <type name="StreamCollection" c:type="GstStreamCollection*"/>
         </return-value>
         <parameters>
@@ -63740,7 +63740,7 @@ Applications can activate streams from a collection by using the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="163">The stream id of the parent stream</doc>
+                 line="175">The stream id of the parent stream</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -63770,25 +63770,25 @@ Applications can activate streams from a collection by using the
               version="1.10">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="279">Add the given @stream to the @collection.</doc>
+             line="297">Add the given @stream to the @collection.</doc>
         <source-position filename="gst/gststreamcollection.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststreamcollection.c"
-               line="286">%TRUE if the @stream was properly added, else %FALSE</doc>
+               line="304">%TRUE if the @stream was properly added, else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="collection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="281">a #GstStreamCollection</doc>
+                 line="299">a #GstStreamCollection</doc>
             <type name="StreamCollection" c:type="GstStreamCollection*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="282">the #GstStream to add</doc>
+                 line="300">the #GstStream to add</doc>
             <type name="Stream" c:type="GstStream*"/>
           </parameter>
         </parameters>
@@ -63798,19 +63798,19 @@ Applications can activate streams from a collection by using the
               version="1.10">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="306">Get the number of streams this collection contains</doc>
+             line="331">Get the number of streams this collection contains</doc>
         <source-position filename="gst/gststreamcollection.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststreamcollection.c"
-               line="312">The number of streams that @collection contains</doc>
+               line="337">The number of streams that @collection contains</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="collection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="308">a #GstStreamCollection</doc>
+                 line="333">a #GstStreamCollection</doc>
             <type name="StreamCollection" c:type="GstStreamCollection*"/>
           </instance-parameter>
         </parameters>
@@ -63820,27 +63820,27 @@ Applications can activate streams from a collection by using the
               version="1.10">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="324">Retrieve the #GstStream with index @index from the collection.
+             line="349">Retrieve the #GstStream with index @index from the collection.
 
 The caller should not modify the returned #GstStream</doc>
         <source-position filename="gst/gststreamcollection.h" line="109"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gststreamcollection.c"
-               line="333">A #GstStream</doc>
+               line="358">A #GstStream</doc>
           <type name="Stream" c:type="GstStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="collection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="326">a #GstStreamCollection</doc>
+                 line="351">a #GstStreamCollection</doc>
             <type name="StreamCollection" c:type="GstStreamCollection*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="327">Index of the stream to retrieve</doc>
+                 line="352">Index of the stream to retrieve</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -63851,19 +63851,19 @@ The caller should not modify the returned #GstStream</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="211">Returns the upstream id of the @collection.</doc>
+             line="223">Returns the upstream id of the @collection.</doc>
         <source-position filename="gst/gststreamcollection.h" line="103"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gststreamcollection.c"
-               line="217">The upstream id</doc>
+               line="229">The upstream id</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="collection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="213">a #GstStreamCollection</doc>
+                 line="225">a #GstStreamCollection</doc>
             <type name="StreamCollection" c:type="GstStreamCollection*"/>
           </instance-parameter>
         </parameters>
@@ -63876,7 +63876,7 @@ The caller should not modify the returned #GstStream</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="99">stream-id</doc>
+             line="104">stream-id</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="object" readable="0" private="1">
@@ -63901,7 +63901,7 @@ The caller should not modify the returned #GstStream</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="gst/gststreamcollection.c"
-             line="110">The stream notify signal is used to be notified of property changes to
+             line="115">The stream notify signal is used to be notified of property changes to
 streams within the collection.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -63910,13 +63910,13 @@ streams within the collection.</doc>
           <parameter name="prop_stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="113">the #GstStream that originated the signal</doc>
+                 line="118">the #GstStream that originated the signal</doc>
             <type name="Stream"/>
           </parameter>
           <parameter name="prop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststreamcollection.c"
-                 line="114">the property that changed</doc>
+                 line="119">the property that changed</doc>
             <type name="GObject.ParamSpec"/>
           </parameter>
         </parameters>
@@ -64457,7 +64457,7 @@ a-struct, nested=[nested-struct, nested=true]
       <constructor name="from_string" c:identifier="gst_structure_from_string">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3434">Creates a #GstStructure from a string representation.
+             line="3440">Creates a #GstStructure from a string representation.
 If end is not %NULL, a pointer to the place inside the given string
 where parsing ended will be returned.
 
@@ -64466,7 +64466,7 @@ Free-function: gst_structure_free</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3445">a new #GstStructure or %NULL
+               line="3451">a new #GstStructure or %NULL
     when the string could not be parsed. Free with
     gst_structure_free() after use.</doc>
           <type name="Structure" c:type="GstStructure*"/>
@@ -64475,7 +64475,7 @@ Free-function: gst_structure_free</doc>
           <parameter name="string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3436">a string representation of a #GstStructure.</doc>
+                 line="3442">a string representation of a #GstStructure.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="end"
@@ -64487,7 +64487,7 @@ Free-function: gst_structure_free</doc>
                      skip="1">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3437">pointer to store the end of the string in.</doc>
+                 line="3443">pointer to store the end of the string in.</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -64560,7 +64560,7 @@ Free-function: gst_structure_free</doc>
                    version="1.2">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3407">Creates a #GstStructure from a string representation.
+             line="3413">Creates a #GstStructure from a string representation.
 If end is not %NULL, a pointer to the place inside the given string
 where parsing ended will be returned.
 
@@ -64574,7 +64574,7 @@ Free-function: gst_structure_free</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3422">a new #GstStructure or %NULL
+               line="3428">a new #GstStructure or %NULL
     when the string could not be parsed. Free with
     gst_structure_free() after use.</doc>
           <type name="Structure" c:type="GstStructure*"/>
@@ -64583,7 +64583,7 @@ Free-function: gst_structure_free</doc>
           <parameter name="string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3409">a string representation of a #GstStructure</doc>
+                 line="3415">a string representation of a #GstStructure</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -64922,26 +64922,26 @@ Free-function: gst_structure_free</doc>
       <method name="can_intersect" c:identifier="gst_structure_can_intersect">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4403">Tries intersecting @struct1 and @struct2 and reports whether the result
+             line="4409">Tries intersecting @struct1 and @struct2 and reports whether the result
 would not be empty.</doc>
         <source-position filename="gst/gststructure.h" line="579"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4411">%TRUE if intersection would not be empty</doc>
+               line="4417">%TRUE if intersection would not be empty</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="struct1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4405">a #GstStructure</doc>
+                 line="4411">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="struct2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4406">a #GstStructure</doc>
+                 line="4412">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -65058,7 +65058,7 @@ The structure must be mutable.</doc>
       <method name="fixate" c:identifier="gst_structure_fixate">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4494">Fixate all values in @structure using gst_value_fixate().
+             line="4500">Fixate all values in @structure using gst_value_fixate().
 @structure will be modified in-place and should be writable.</doc>
         <source-position filename="gst/gststructure.h" line="570"/>
         <return-value transfer-ownership="none">
@@ -65068,7 +65068,7 @@ The structure must be mutable.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4496">a #GstStructure</doc>
+                 line="4502">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
         </parameters>
@@ -65076,25 +65076,25 @@ The structure must be mutable.</doc>
       <method name="fixate_field" c:identifier="gst_structure_fixate_field">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3866">Fixates a #GstStructure by changing the given field with its fixated value.</doc>
+             line="3872">Fixates a #GstStructure by changing the given field with its fixated value.</doc>
         <source-position filename="gst/gststructure.h" line="567"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3873">%TRUE if the structure field could be fixated</doc>
+               line="3879">%TRUE if the structure field could be fixated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3868">a #GstStructure</doc>
+                 line="3874">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="field_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3869">a field in @structure</doc>
+                 line="3875">a field in @structure</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -65103,32 +65103,32 @@ The structure must be mutable.</doc>
               c:identifier="gst_structure_fixate_field_boolean">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3650">Fixates a #GstStructure by changing the given @field_name field to the given
+             line="3656">Fixates a #GstStructure by changing the given @field_name field to the given
 @target boolean if that field is not fixed yet.</doc>
         <source-position filename="gst/gststructure.h" line="554"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3659">%TRUE if the structure could be fixated</doc>
+               line="3665">%TRUE if the structure could be fixated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3652">a #GstStructure</doc>
+                 line="3658">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="field_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3653">a field in @structure</doc>
+                 line="3659">a field in @structure</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3654">the target value of the fixation</doc>
+                 line="3660">the target value of the fixation</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -65137,32 +65137,32 @@ The structure must be mutable.</doc>
               c:identifier="gst_structure_fixate_field_nearest_double">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3585">Fixates a #GstStructure by changing the given field to the nearest
+             line="3591">Fixates a #GstStructure by changing the given field to the nearest
 double to @target that is a subset of the existing field.</doc>
         <source-position filename="gst/gststructure.h" line="550"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3594">%TRUE if the structure could be fixated</doc>
+               line="3600">%TRUE if the structure could be fixated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3587">a #GstStructure</doc>
+                 line="3593">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="field_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3588">a field in @structure</doc>
+                 line="3594">a field in @structure</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3589">the target value of the fixation</doc>
+                 line="3595">the target value of the fixation</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -65171,39 +65171,39 @@ double to @target that is a subset of the existing field.</doc>
               c:identifier="gst_structure_fixate_field_nearest_fraction">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3756">Fixates a #GstStructure by changing the given field to the nearest
+             line="3762">Fixates a #GstStructure by changing the given field to the nearest
 fraction to @target_numerator/@target_denominator that is a subset
 of the existing field.</doc>
         <source-position filename="gst/gststructure.h" line="562"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3767">%TRUE if the structure could be fixated</doc>
+               line="3773">%TRUE if the structure could be fixated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3758">a #GstStructure</doc>
+                 line="3764">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="field_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3759">a field in @structure</doc>
+                 line="3765">a field in @structure</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="target_numerator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3760">The numerator of the target value of the fixation</doc>
+                 line="3766">The numerator of the target value of the fixation</doc>
             <type name="gint" c:type="const gint"/>
           </parameter>
           <parameter name="target_denominator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3761">The denominator of the target value of the fixation</doc>
+                 line="3767">The denominator of the target value of the fixation</doc>
             <type name="gint" c:type="const gint"/>
           </parameter>
         </parameters>
@@ -65212,32 +65212,32 @@ of the existing field.</doc>
               c:identifier="gst_structure_fixate_field_nearest_int">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3515">Fixates a #GstStructure by changing the given field to the nearest
+             line="3521">Fixates a #GstStructure by changing the given field to the nearest
 integer to @target that is a subset of the existing field.</doc>
         <source-position filename="gst/gststructure.h" line="546"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3524">%TRUE if the structure could be fixated</doc>
+               line="3530">%TRUE if the structure could be fixated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3517">a #GstStructure</doc>
+                 line="3523">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="field_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3518">a field in @structure</doc>
+                 line="3524">a field in @structure</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3519">the target value of the fixation</doc>
+                 line="3525">the target value of the fixation</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -65246,32 +65246,32 @@ integer to @target that is a subset of the existing field.</doc>
               c:identifier="gst_structure_fixate_field_string">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3703">Fixates a #GstStructure by changing the given @field_name field to the given
+             line="3709">Fixates a #GstStructure by changing the given @field_name field to the given
 @target string if that field is not fixed yet.</doc>
         <source-position filename="gst/gststructure.h" line="558"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3712">%TRUE if the structure could be fixated</doc>
+               line="3718">%TRUE if the structure could be fixated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3705">a #GstStructure</doc>
+                 line="3711">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="field_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3706">a field in @structure</doc>
+                 line="3712">a field in @structure</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3707">the target value of the fixation</doc>
+                 line="3713">the target value of the fixation</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -65387,7 +65387,7 @@ have a parent when this function is called.</doc>
       <method name="get" c:identifier="gst_structure_get" introspectable="0">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4126">Parses the variable arguments and reads fields from @structure accordingly.
+             line="4132">Parses the variable arguments and reads fields from @structure accordingly.
 Variable arguments should be in the form field name, field type
 (as a GType), pointer(s) to a variable(s) to hold the return value(s).
 The last variable argument should be %NULL.
@@ -65400,7 +65400,7 @@ release with either g_free() or the suitable function for the boxed type.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4142">%FALSE if there was a problem reading any of the fields (e.g.
+               line="4148">%FALSE if there was a problem reading any of the fields (e.g.
     because the field requested did not exist, or was of a type other
     than the type specified), otherwise %TRUE.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -65409,19 +65409,19 @@ release with either g_free() or the suitable function for the boxed type.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4128">a #GstStructure</doc>
+                 line="4134">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="first_fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4129">the name of the first field to read</doc>
+                 line="4135">the name of the first field to read</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4130">variable arguments</doc>
+                 line="4136">variable arguments</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -65431,7 +65431,7 @@ release with either g_free() or the suitable function for the boxed type.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4536">This is useful in language bindings where unknown #GValue types are not
+             line="4542">This is useful in language bindings where unknown #GValue types are not
 supported. This function will convert the %GST_TYPE_ARRAY into a newly
 allocated #GValueArray and return it through @array. Be aware that this is
 slower then getting the #GValue directly.</doc>
@@ -65439,7 +65439,7 @@ slower then getting the #GValue directly.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4547">%TRUE if the value could be set correctly. If there was no field
+               line="4553">%TRUE if the value could be set correctly. If there was no field
 with @fieldname or the existing field did not contain a %GST_TYPE_ARRAY,
 this function returns %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -65448,13 +65448,13 @@ this function returns %FALSE.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4538">a #GstStructure</doc>
+                 line="4544">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4539">the name of a field</doc>
+                 line="4545">the name of a field</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="array"
@@ -65463,7 +65463,7 @@ this function returns %FALSE.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4540">a pointer to a #GValueArray</doc>
+                 line="4546">a pointer to a #GValueArray</doc>
             <type name="GObject.ValueArray" c:type="GValueArray**"/>
           </parameter>
         </parameters>
@@ -65753,14 +65753,14 @@ returned.</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4654">Sets the unsigned int pointed to by @value corresponding to the value of the
+             line="4660">Sets the unsigned int pointed to by @value corresponding to the value of the
 given field. Caller is responsible for making sure the field exists,
 has the correct type and that the flagstype is correct.</doc>
         <source-position filename="gst/gststructure.h" line="528"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4665">%TRUE if the value could be set correctly. If there was no field
+               line="4671">%TRUE if the value could be set correctly. If there was no field
 with @fieldname or the existing field did not contain flags or
 did not contain flags of the given type, this function returns %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -65769,19 +65769,19 @@ did not contain flags of the given type, this function returns %FALSE.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4656">a #GstStructure</doc>
+                 line="4662">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4657">the name of a field</doc>
+                 line="4663">the name of a field</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4658">the flags type of a field</doc>
+                 line="4664">the flags type of a field</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="value"
@@ -65790,7 +65790,7 @@ did not contain flags of the given type, this function returns %FALSE.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4659">a pointer to an unsigned int to set</doc>
+                 line="4665">a pointer to an unsigned int to set</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -65981,7 +65981,7 @@ returns %FALSE.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4561">This is useful in language bindings where unknown #GValue types are not
+             line="4567">This is useful in language bindings where unknown #GValue types are not
 supported. This function will convert the %GST_TYPE_LIST into a newly
 allocated GValueArray and return it through @array. Be aware that this is
 slower then getting the #GValue directly.</doc>
@@ -65989,7 +65989,7 @@ slower then getting the #GValue directly.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4572">%TRUE if the value could be set correctly. If there was no field
+               line="4578">%TRUE if the value could be set correctly. If there was no field
 with @fieldname or the existing field did not contain a %GST_TYPE_LIST, this
 function returns %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -65998,13 +65998,13 @@ function returns %FALSE.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4563">a #GstStructure</doc>
+                 line="4569">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4564">the name of a field</doc>
+                 line="4570">the name of a field</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="array"
@@ -66013,7 +66013,7 @@ function returns %FALSE.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4565">a pointer to a #GValueArray</doc>
+                 line="4571">a pointer to a #GValueArray</doc>
             <type name="GObject.ValueArray" c:type="GValueArray**"/>
           </parameter>
         </parameters>
@@ -66201,33 +66201,33 @@ returns %FALSE.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3915">Parses the variable arguments and reads fields from @structure accordingly.
+             line="3921">Parses the variable arguments and reads fields from @structure accordingly.
 valist-variant of gst_structure_get(). Look at the documentation of
 gst_structure_get() for more details.</doc>
         <source-position filename="gst/gststructure.h" line="344"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3925">%TRUE, or %FALSE if there was a problem reading any of the fields</doc>
+               line="3931">%TRUE, or %FALSE if there was a problem reading any of the fields</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3917">a #GstStructure</doc>
+                 line="3923">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="first_fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3918">the name of the first field to read</doc>
+                 line="3924">the name of the first field to read</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3919">variable arguments</doc>
+                 line="3925">variable arguments</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
         </parameters>
@@ -66351,7 +66351,7 @@ name.</doc>
               deprecated-version="1.26">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4202">Parses the variable arguments and reads fields from @structure accordingly.
+             line="4208">Parses the variable arguments and reads fields from @structure accordingly.
 Variable arguments should be in the form field id quark, field type
 (as a GType), pointer(s) to a variable(s) to hold the return value(s).
 The last variable argument should be %NULL (technically it should be a
@@ -66371,7 +66371,7 @@ release with either g_free() or the suitable function for the boxed type.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4224">%FALSE if there was a problem reading any of the fields (e.g.
+               line="4230">%FALSE if there was a problem reading any of the fields (e.g.
     because the field requested did not exist, or was of a type other
     than the type specified), otherwise %TRUE.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -66380,19 +66380,19 @@ release with either g_free() or the suitable function for the boxed type.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4204">a #GstStructure</doc>
+                 line="4210">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="first_field_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4205">the quark of the first field to read</doc>
+                 line="4211">the quark of the first field to read</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4206">variable arguments</doc>
+                 line="4212">variable arguments</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -66404,7 +66404,7 @@ release with either g_free() or the suitable function for the boxed type.</doc>
               deprecated-version="1.26">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4052">Parses the variable arguments and reads fields from @structure accordingly.
+             line="4058">Parses the variable arguments and reads fields from @structure accordingly.
 valist-variant of gst_structure_id_get(). Look at the documentation of
 gst_structure_id_get() for more details.</doc>
         <doc-deprecated xml:space="preserve">Use gst_structure_id_str_get_valist().</doc-deprecated>
@@ -66412,26 +66412,26 @@ gst_structure_id_get() for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4062">%TRUE, or %FALSE if there was a problem reading any of the fields</doc>
+               line="4068">%TRUE, or %FALSE if there was a problem reading any of the fields</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4054">a #GstStructure</doc>
+                 line="4060">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="first_field_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4055">the quark of the first field to read</doc>
+                 line="4061">the quark of the first field to read</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4056">variable arguments</doc>
+                 line="4062">variable arguments</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
         </parameters>
@@ -66642,7 +66642,7 @@ value is replaced and freed.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4163">Parses the variable arguments and reads fields from @structure accordingly.
+             line="4169">Parses the variable arguments and reads fields from @structure accordingly.
 Variable arguments should be in the form field name (as GstIdStr), field type
 (as a GType), pointer(s) to a variable(s) to hold the return value(s). The
 last variable argument should be %NULL.
@@ -66655,7 +66655,7 @@ release with either g_free() or the suitable function for the boxed type.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4179">%FALSE if there was a problem reading any of the fields (e.g.
+               line="4185">%FALSE if there was a problem reading any of the fields (e.g.
     because the field requested did not exist, or was of a type other
     than the type specified), otherwise %TRUE.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -66664,19 +66664,19 @@ release with either g_free() or the suitable function for the boxed type.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4165">a #GstStructure</doc>
+                 line="4171">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="first_fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4166">the name of the first field to read</doc>
+                 line="4172">the name of the first field to read</doc>
             <type name="IdStr" c:type="const GstIdStr*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4167">variable arguments</doc>
+                 line="4173">variable arguments</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -66717,33 +66717,33 @@ returned.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3982">Parses the variable arguments and reads fields from @structure accordingly.
+             line="3988">Parses the variable arguments and reads fields from @structure accordingly.
 valist-variant of gst_structure_id_str_get(). Look at the documentation of
 gst_structure_id_str_get() for more details.</doc>
         <source-position filename="gst/gststructure.h" line="352"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3992">%TRUE, or %FALSE if there was a problem reading any of the fields</doc>
+               line="3998">%TRUE, or %FALSE if there was a problem reading any of the fields</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3984">a #GstStructure</doc>
+                 line="3990">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="first_fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3985">the name of the first field to read</doc>
+                 line="3991">the name of the first field to read</doc>
             <type name="IdStr" c:type="const GstIdStr*"/>
           </parameter>
           <parameter name="args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3986">variable arguments</doc>
+                 line="3992">variable arguments</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
         </parameters>
@@ -67131,25 +67131,25 @@ value is replaced and freed.</doc>
       <method name="intersect" c:identifier="gst_structure_intersect">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4296">Intersects @struct1 and @struct2 and returns the intersection.</doc>
+             line="4302">Intersects @struct1 and @struct2 and returns the intersection.</doc>
         <source-position filename="gst/gststructure.h" line="582"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4303">Intersection of @struct1 and @struct2</doc>
+               line="4309">Intersection of @struct1 and @struct2</doc>
           <type name="Structure" c:type="GstStructure*"/>
         </return-value>
         <parameters>
           <instance-parameter name="struct1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4298">a #GstStructure</doc>
+                 line="4304">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="struct2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4299">a #GstStructure</doc>
+                 line="4305">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -67157,25 +67157,25 @@ value is replaced and freed.</doc>
       <method name="is_equal" c:identifier="gst_structure_is_equal">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4265">Tests if the two #GstStructure are equal.</doc>
+             line="4271">Tests if the two #GstStructure are equal.</doc>
         <source-position filename="gst/gststructure.h" line="573"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4272">%TRUE if the two structures have the same name and field.</doc>
+               line="4278">%TRUE if the two structures have the same name and field.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4267">a #GstStructure.</doc>
+                 line="4273">a #GstStructure.</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="structure2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4268">a #GstStructure.</doc>
+                 line="4274">a #GstStructure.</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -67183,27 +67183,27 @@ value is replaced and freed.</doc>
       <method name="is_subset" c:identifier="gst_structure_is_subset">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4430">Checks if @subset is a subset of @superset, i.e. has the same
+             line="4436">Checks if @subset is a subset of @superset, i.e. has the same
 structure name and for all fields that are existing in @superset,
 @subset has a value that is a subset of the value in @superset.</doc>
         <source-position filename="gst/gststructure.h" line="576"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4439">%TRUE if @subset is a subset of @superset</doc>
+               line="4445">%TRUE if @subset is a subset of @superset</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="subset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4432">a #GstStructure</doc>
+                 line="4438">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="superset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4433">a potentially greater #GstStructure</doc>
+                 line="4439">a potentially greater #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -67213,20 +67213,20 @@ structure name and for all fields that are existing in @superset,
               version="1.26.2">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4695">Checks if the structure is writable. %TRUE if parent
+             line="4701">Checks if the structure is writable. %TRUE if parent
 is not set or its refcount is 1, %FALSE otherwise.</doc>
         <source-position filename="gst/gststructure.h" line="586"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="4702">%TRUE if the structure is writable.</doc>
+               line="4708">%TRUE if the structure is writable.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4697">a #GstStructure</doc>
+                 line="4703">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
         </parameters>
@@ -67478,7 +67478,7 @@ argument is ignored.</doc>
               deprecated="1">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3220">Converts @structure to a human-readable string representation.
+             line="3226">Converts @structure to a human-readable string representation.
 
 This version of the caps serialization function introduces support for nested
 structures and caps but the resulting strings won't be parsable with
@@ -67495,7 +67495,7 @@ Free-function: g_free</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3238">a pointer to string allocated by g_malloc().
+               line="3244">a pointer to string allocated by g_malloc().
     g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -67503,13 +67503,13 @@ Free-function: g_free</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3222">a #GstStructure</doc>
+                 line="3228">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3223">The flags to use to serialize structure</doc>
+                 line="3229">The flags to use to serialize structure</doc>
             <type name="SerializeFlags" c:type="GstSerializeFlags"/>
           </parameter>
         </parameters>
@@ -67519,13 +67519,13 @@ Free-function: g_free</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3252">Alias for gst_structure_serialize() but with nullable annotation because it
+             line="3258">Alias for gst_structure_serialize() but with nullable annotation because it
 can return %NULL when %GST_SERIALIZE_FLAG_STRICT flag is set.</doc>
         <source-position filename="gst/gststructure.h" line="539"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3260">a pointer to string allocated by g_malloc().
+               line="3266">a pointer to string allocated by g_malloc().
     g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -67533,13 +67533,13 @@ can return %NULL when %GST_SERIALIZE_FLAG_STRICT flag is set.</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3254">a #GstStructure</doc>
+                 line="3260">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3255">The flags to use to serialize structure</doc>
+                 line="3261">The flags to use to serialize structure</doc>
             <type name="SerializeFlags" c:type="GstSerializeFlags"/>
           </parameter>
         </parameters>
@@ -67581,7 +67581,7 @@ Variable arguments should be in the form field name, field type
               version="1.12">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4614">This is useful in language bindings where unknown GValue types are not
+             line="4620">This is useful in language bindings where unknown GValue types are not
 supported. This function will convert a @array to %GST_TYPE_ARRAY and set
 the field specified by @fieldname.  Be aware that this is slower then using
 %GST_TYPE_ARRAY in a #GValue directly.</doc>
@@ -67593,19 +67593,19 @@ the field specified by @fieldname.  Be aware that this is slower then using
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4616">a #GstStructure</doc>
+                 line="4622">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4617">the name of a field</doc>
+                 line="4623">the name of a field</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4618">a pointer to a #GValueArray</doc>
+                 line="4624">a pointer to a #GValueArray</doc>
             <type name="GObject.ValueArray" c:type="const GValueArray*"/>
           </parameter>
         </parameters>
@@ -67615,7 +67615,7 @@ the field specified by @fieldname.  Be aware that this is slower then using
               version="1.12">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="4634">This is useful in language bindings where unknown GValue types are not
+             line="4640">This is useful in language bindings where unknown GValue types are not
 supported. This function will convert a @array to %GST_TYPE_LIST and set
 the field specified by @fieldname. Be aware that this is slower then using
 %GST_TYPE_LIST in a #GValue directly.</doc>
@@ -67627,19 +67627,19 @@ the field specified by @fieldname. Be aware that this is slower then using
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4636">a #GstStructure</doc>
+                 line="4642">a #GstStructure</doc>
             <type name="Structure" c:type="GstStructure*"/>
           </instance-parameter>
           <parameter name="fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4637">the name of a field</doc>
+                 line="4643">the name of a field</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="4638">a pointer to a #GValueArray</doc>
+                 line="4644">a pointer to a #GValueArray</doc>
             <type name="GObject.ValueArray" c:type="const GValueArray*"/>
           </parameter>
         </parameters>
@@ -67997,7 +67997,7 @@ has to be a static string.</doc>
       <method name="to_string" c:identifier="gst_structure_to_string">
         <doc xml:space="preserve"
              filename="gst/gststructure.c"
-             line="3194">Converts @structure to a human-readable string representation.
+             line="3200">Converts @structure to a human-readable string representation.
 
 For debugging purposes its easier to do something like this: |[&lt;!--
 language="C" --&gt; GST_LOG ("structure is %" GST_PTR_FORMAT, structure);
@@ -68013,7 +68013,7 @@ Free-function: g_free</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/gststructure.c"
-               line="3211">a pointer to string allocated by g_malloc().
+               line="3217">a pointer to string allocated by g_malloc().
     g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -68021,7 +68021,7 @@ Free-function: g_free</doc>
           <instance-parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/gststructure.c"
-                 line="3196">a #GstStructure</doc>
+                 line="3202">a #GstStructure</doc>
             <type name="Structure" c:type="const GstStructure*"/>
           </instance-parameter>
         </parameters>
@@ -69717,16 +69717,16 @@ returned by gst_toc_entry_set_loop() to indicate infinite looping.</doc>
     <function-macro name="TRACE" c:identifier="GST_TRACE" introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1304">Output a tracing message in the default category.
+           line="1305">Output a tracing message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1365"/>
+      <source-position filename="gst/gstinfo.h" line="1366"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1306">printf-style message to output</doc>
+               line="1307">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -69842,21 +69842,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1221">Output a tracing message for the given identifier  in the default category.
+           line="1222">Output a tracing message for the given identifier  in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1357"/>
+      <source-position filename="gst/gstinfo.h" line="1358"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1223">An identifier of the message provider</doc>
+               line="1224">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1224">printf-style message to output</doc>
+               line="1225">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -69865,21 +69865,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1125">Output a tracing message belonging to the given object in the default category.
+           line="1126">Output a tracing message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1349"/>
+      <source-position filename="gst/gstinfo.h" line="1350"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1127">the #GObject the message belongs to</doc>
+               line="1128">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1128">printf-style message to output</doc>
+               line="1129">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -78080,7 +78080,7 @@ determine a order for the two provided values.</doc>
       <source-position filename="gst/gstversion.h" line="51"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="6" c:type="GST_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="10" c:type="GST_VERSION_MICRO">
       <doc xml:space="preserve"
            filename="gst/gstversion.h"
            line="58">The micro version of GStreamer at compile time:</doc>
@@ -79378,16 +79378,16 @@ of size @struct_size, with an initial queue size of @initial_size.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1259">Output a warning message in the default category.
+           line="1260">Output a warning message in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1360"/>
+      <source-position filename="gst/gstinfo.h" line="1361"/>
       <parameters>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1261">printf-style message to output</doc>
+               line="1262">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -79397,21 +79397,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1160">Output a warning message for the given identifier in the default category.
+           line="1161">Output a warning message for the given identifier in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1352"/>
+      <source-position filename="gst/gstinfo.h" line="1353"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1162">An identifier of the message provider</doc>
+               line="1163">An identifier of the message provider</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1163">printf-style message to output</doc>
+               line="1164">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -79420,21 +79420,21 @@ character, a newline character will be added automatically.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst/gstinfo.h"
-           line="1073">Output a warning message belonging to the given object in the default category.
+           line="1074">Output a warning message belonging to the given object in the default category.
 
 There is no need to finish the end of the message string with a newline
 character, a newline character will be added automatically.</doc>
-      <source-position filename="gst/gstinfo.h" line="1344"/>
+      <source-position filename="gst/gstinfo.h" line="1345"/>
       <parameters>
         <parameter name="obj">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1075">the #GObject the message belongs to</doc>
+               line="1076">the #GObject the message belongs to</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gst/gstinfo.h"
-               line="1076">printf-style message to output</doc>
+               line="1077">printf-style message to output</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -80661,7 +80661,7 @@ Be sure to use #G_GNUC_NO_INSTRUMENT on that function, it is needed.</doc>
 Logs can be fetched with gst_debug_ring_buffer_logger_get_logs() and the
 logger can be removed again with gst_debug_remove_ring_buffer_logger().
 Only one logger at a time is possible.</doc>
-      <source-position filename="gst/gstinfo.h" line="2158"/>
+      <source-position filename="gst/gstinfo.h" line="2159"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -80874,7 +80874,7 @@ The caller has to free the list after use.</doc>
     <function name="debug_get_stack_trace"
               c:identifier="gst_debug_get_stack_trace"
               version="1.12">
-      <source-position filename="gst/gstinfo.h" line="2155"/>
+      <source-position filename="gst/gstinfo.h" line="2156"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst/gstinfo.c"
@@ -81522,7 +81522,7 @@ might change between GStreamer versions.</doc>
            filename="gst/gstinfo.c"
            line="3510">If libunwind, glibc backtrace or DbgHelp are present
 a stack trace is printed.</doc>
-      <source-position filename="gst/gstinfo.h" line="2152"/>
+      <source-position filename="gst/gstinfo.h" line="2153"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -81584,7 +81584,7 @@ a stack trace is printed.</doc>
            filename="gst/gstinfo.c"
            line="3780">Removes any previously added ring buffer logger with
 gst_debug_add_ring_buffer_logger().</doc>
-      <source-position filename="gst/gstinfo.h" line="2160"/>
+      <source-position filename="gst/gstinfo.h" line="2161"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -81596,7 +81596,7 @@ gst_debug_add_ring_buffer_logger().</doc>
            filename="gst/gstinfo.c"
            line="3672">Fetches the current logs per thread from the ring buffer logger. See
 gst_debug_add_ring_buffer_logger() for details.</doc>
-      <source-position filename="gst/gstinfo.h" line="2162"/>
+      <source-position filename="gst/gstinfo.h" line="2163"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst/gstinfo.c"

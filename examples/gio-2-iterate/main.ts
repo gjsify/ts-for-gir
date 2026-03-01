@@ -80,4 +80,4 @@ start().then(() => {
 	loop.quit();
 });
 
-loop.run();
+await loop.runAsync();

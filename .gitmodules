@@ -16,3 +16,4 @@
 [submodule "devdocsgjs"]
 	path = devdocsgjs
 	url = https://gitlab.gnome.org/GNOME/devdocsgjs.git
+	branch = main

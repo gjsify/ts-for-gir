@@ -29,9 +29,9 @@
 		"check": "tsc --noEmit"
 	},
 	"dependencies": {
-		"fast-xml-parser": "^5.2.5"
+		"fast-xml-parser": "^5.4.1"
 	},
 	"devDependencies": {
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.3"
 	}
 }

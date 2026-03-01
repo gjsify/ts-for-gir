@@ -13,9 +13,9 @@
 	"author": "",
 	"license": "Apache-2.0",
 	"devDependencies": {
-		"@rollup/plugin-node-resolve": "^16.0.1",
-		"rollup": "^4.50.2",
-		"typescript": "^5.9.2"
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"rollup": "^4.59.0",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^",

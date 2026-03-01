@@ -12,13 +12,13 @@
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"esbuild": "^0.25.10",
-		"typescript": "^5.9.2"
+		"esbuild": "^0.27.3",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@girs/gio-2.0": "workspace:^",
 		"@girs/gjs": "workspace:^",
 		"@girs/gobject-2.0": "workspace:^",
-		"@needle-di/core": "^1.0.0"
+		"@needle-di/core": "^1.1.1"
 	}
 }

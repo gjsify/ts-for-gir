@@ -31,8 +31,8 @@
 		".": "./src/index.ts"
 	},
 	"devDependencies": {
-		"@types/node": "^24.5.2",
-		"typescript": "^5.9.2"
+		"@types/node": "^24.11.0",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@ts-for-gir/lib": "workspace:^"

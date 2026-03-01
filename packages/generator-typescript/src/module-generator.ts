@@ -1134,7 +1134,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// as the types may not be compatible.
 		//
 		// TODO: Don't hardcode string index signatures
-		if (!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any")) {
+		if (
+			girClass instanceof IntrospectedClass &&
+			(!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any"))
+		) {
 			// _init method
 			def.push("_init(...args: any[]): void;\n");
 		}

@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/generator-typescript",
-	"version": "4.0.0-beta.38",
+	"version": "4.0.0-beta.39",
 	"description": "TypeScript type definition generator for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -32,16 +32,16 @@
 	],
 	"devDependencies": {
 		"@types/ejs": "^3.1.5",
-		"@types/node": "^24.5.2",
+		"@types/node": "^24.11.0",
 		"@types/xml2js": "^0.4.14",
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@gi.ts/parser": "workspace:^",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
 		"@ts-for-gir/templates": "workspace:^",
-		"ejs": "^3.1.10",
+		"ejs": "^4.0.1",
 		"xml2js": "^0.6.2"
 	}
 }

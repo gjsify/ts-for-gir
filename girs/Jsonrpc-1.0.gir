@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="jsonrpc-glib-1.0"/>
   <c:include name="jsonrpc-glib.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Jsonrpc"
              version="1.0"
              shared-library="libjsonrpc-glib-1.0.so.1"
@@ -159,10 +161,11 @@ If you want to communicate with a process using stdin/stdout, consider using
       <method name="call"
               c:identifier="jsonrpc_client_call"
               version="3.26"
-              throws="1">
+              throws="1"
+              glib:async-func="call_async">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="893">Synchronously calls @method with @params on the remote peer.
+             line="901">Synchronously calls @method with @params on the remote peer.
 
 once a reply has been received, or failure, this function will return.
 If successful, @return_value will be set with the reslut field of
@@ -173,20 +176,20 @@ If @params is floating then this function consumes the reference.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="909">%TRUE on success; otherwise %FALSE and @error is set.</doc>
+               line="917">%TRUE on success; otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="895">A #JsonrpcClient</doc>
+                 line="903">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="896">The name of the method to call</doc>
+                 line="904">The name of the method to call</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="params"
@@ -195,7 +198,7 @@ If @params is floating then this function consumes the reference.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="897">A [struct@GLib.Variant] of parameters or %NULL</doc>
+                 line="905">A [struct@GLib.Variant] of parameters or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -204,7 +207,7 @@ If @params is floating then this function consumes the reference.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="898">A #GCancellable or %NULL</doc>
+                 line="906">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="return_value"
@@ -214,17 +217,19 @@ If @params is floating then this function consumes the reference.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="899">A location for a [struct@GLib.Variant]</doc>
+                 line="907">A location for a [struct@GLib.Variant]</doc>
             <type name="GLib.Variant" c:type="GVariant**"/>
           </parameter>
         </parameters>
       </method>
       <method name="call_async"
               c:identifier="jsonrpc_client_call_async"
-              version="3.26">
+              version="3.26"
+              glib:finish-func="call_finish"
+              glib:sync-func="call">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1053">Asynchronously calls @method with @params on the remote peer.
+             line="1061">Asynchronously calls @method with @params on the remote peer.
 
 Upon completion or failure, @callback is executed and it should
 call [method@Client.call_finish] to complete the request and release
@@ -239,13 +244,13 @@ If @params is floating, the floating reference is consumed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1055">A #JsonrpcClient</doc>
+                 line="1063">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1056">The name of the method to call</doc>
+                 line="1064">The name of the method to call</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="params"
@@ -254,7 +259,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1057">A [struct@GLib.Variant] of parameters or %NULL</doc>
+                 line="1065">A [struct@GLib.Variant] of parameters or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -263,7 +268,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1058">A #GCancellable or %NULL</doc>
+                 line="1066">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -274,7 +279,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1059">a callback to executed upon completion</doc>
+                 line="1067">a callback to executed upon completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -283,7 +288,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1060">user data for @callback</doc>
+                 line="1068">user data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -294,25 +299,25 @@ If @params is floating, the floating reference is consumed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1083">Completes an asynchronous call to [method@Client.call_async].</doc>
+             line="1091">Completes an asynchronous call to [method@Client.call_async].</doc>
         <source-position filename="src/jsonrpc-client.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1092">%TRUE if successful and @return_value is set, otherwise %FALSE and @error is set.</doc>
+               line="1100">%TRUE if successful and @return_value is set, otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1085">A #JsonrpcClient.</doc>
+                 line="1093">A #JsonrpcClient.</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1086">A #GAsyncResult provided to the callback in [method@Client.call_async]</doc>
+                 line="1094">A #GAsyncResult provided to the callback in [method@Client.call_async]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="return_value"
@@ -322,7 +327,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1087">A location for a [struct@GLib.Variant] or %NULL</doc>
+                 line="1095">A location for a [struct@GLib.Variant] or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant**"/>
           </parameter>
         </parameters>
@@ -332,7 +337,7 @@ If @params is floating, the floating reference is consumed.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="954">Asynchronously calls @method with @params on the remote peer.
+             line="962">Asynchronously calls @method with @params on the remote peer.
 
 Upon completion or failure, @callback is executed and it should
 call [method@Client.call_finish] to complete the request and release
@@ -352,13 +357,13 @@ If @params is floating, the floating reference is consumed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="956">A #JsonrpcClient</doc>
+                 line="964">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="957">The name of the method to call</doc>
+                 line="965">The name of the method to call</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="params"
@@ -367,7 +372,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="958">A [struct@GLib.Variant] of parameters or %NULL</doc>
+                 line="966">A [struct@GLib.Variant] of parameters or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="id"
@@ -378,7 +383,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="959">A location for a [struct@GLib.Variant]
+                 line="967">A location for a [struct@GLib.Variant]
   describing the identifier used for the method call, or %NULL.</doc>
             <type name="GLib.Variant" c:type="GVariant**"/>
           </parameter>
@@ -388,7 +393,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="961">A #GCancellable or %NULL</doc>
+                 line="969">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -399,7 +404,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="962">Callback to executed upon completion</doc>
+                 line="970">Callback to executed upon completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -408,7 +413,7 @@ If @params is floating, the floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="963">User data for @callback</doc>
+                 line="971">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -416,10 +421,11 @@ If @params is floating, the floating reference is consumed.</doc>
       <method name="close"
               c:identifier="jsonrpc_client_close"
               version="3.26"
-              throws="1">
+              throws="1"
+              glib:async-func="close_async">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1284">Closes the underlying streams and cancels any inflight operations of the
+             line="1292">Closes the underlying streams and cancels any inflight operations of the
 #JsonrpcClient.
 
 This is important to call when you are done with the
@@ -431,14 +437,14 @@ Failure to call this method results in a leak of #JsonrpcClient.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1297">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
+               line="1305">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1286">A #JsonrpcClient</doc>
+                 line="1294">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -451,10 +457,12 @@ Failure to call this method results in a leak of #JsonrpcClient.</doc>
       </method>
       <method name="close_async"
               c:identifier="jsonrpc_client_close_async"
-              version="3.26">
+              version="3.26"
+              glib:finish-func="close_finish"
+              glib:sync-func="close">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1341">Asynchronous version of [method@Client.close].
+             line="1349">Asynchronous version of [method@Client.close].
 
 Currently this operation is implemented synchronously, but in the future may
 be converted to using asynchronous operations.</doc>
@@ -466,7 +474,7 @@ be converted to using asynchronous operations.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1343">A #JsonrpcClient.</doc>
+                 line="1351">A #JsonrpcClient.</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -497,19 +505,19 @@ be converted to using asynchronous operations.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1376">Completes an asynchronous request of [method@Client.close_async].</doc>
+             line="1384">Completes an asynchronous request of [method@Client.close_async].</doc>
         <source-position filename="src/jsonrpc-client.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1382">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
+               line="1390">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1378">A #JsonrpcClient.</doc>
+                 line="1386">A #JsonrpcClient.</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
@@ -523,21 +531,21 @@ be converted to using asynchronous operations.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1699">Gets the [property@Client:use-gvariant] property.
+             line="1707">Gets the [property@Client:use-gvariant] property.
 
 Indicates if [struct@GLib.Variant] is being used to communicate with the peer.</doc>
         <source-position filename="src/jsonrpc-client.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1707">%TRUE if [struct@GLib.Variant] is being used; otherwise %FALSE.</doc>
+               line="1715">%TRUE if [struct@GLib.Variant] is being used; otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1701">A #JsonrpcClient</doc>
+                 line="1709">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
         </parameters>
@@ -545,10 +553,11 @@ Indicates if [struct@GLib.Variant] is being used to communicate with the peer.</
       <method name="reply"
               c:identifier="jsonrpc_client_reply"
               version="3.26"
-              throws="1">
+              throws="1"
+              glib:async-func="reply_async">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1497">Synchronous variant of [method@Client.reply_async].
+             line="1505">Synchronous variant of [method@Client.reply_async].
 
 If @id or @result are floating, there floating references are consumed.</doc>
         <source-position filename="src/jsonrpc-client.h" line="132"/>
@@ -559,13 +568,13 @@ If @id or @result are floating, there floating references are consumed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1499">A #JsonrpcClient</doc>
+                 line="1507">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1500">The id of the message to reply</doc>
+                 line="1508">The id of the message to reply</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="result"
@@ -574,7 +583,7 @@ If @id or @result are floating, there floating references are consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1501">The return value or %NULL</doc>
+                 line="1509">The return value or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -583,12 +592,15 @@ If @id or @result are floating, there floating references are consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1502">A #GCancellable, or %NULL</doc>
+                 line="1510">A #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="reply_async" c:identifier="jsonrpc_client_reply_async">
+      <method name="reply_async"
+              c:identifier="jsonrpc_client_reply_async"
+              glib:finish-func="reply_finish"
+              glib:sync-func="reply">
         <source-position filename="src/jsonrpc-client.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -627,10 +639,11 @@ If @id or @result are floating, there floating references are consumed.</doc>
       </method>
       <method name="reply_error_async"
               c:identifier="jsonrpc_client_reply_error_async"
-              version="3.28">
+              version="3.28"
+              glib:finish-func="reply_error_finish">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1416">Asynchronously replies to the peer, sending a JSON-RPC error message.
+             line="1424">Asynchronously replies to the peer, sending a JSON-RPC error message.
 
 Call [method@Client.reply_error_finish] to get the result of this operation.
 
@@ -643,19 +656,19 @@ If @id is floating, it's floating reference is consumed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1418">A #JsonrpcClient</doc>
+                 line="1426">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1419">A [struct@GLib.Variant] containing the call id</doc>
+                 line="1427">A [struct@GLib.Variant] containing the call id</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1420">The error code</doc>
+                 line="1428">The error code</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="message"
@@ -664,7 +677,7 @@ If @id is floating, it's floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1421">An optional error message</doc>
+                 line="1429">An optional error message</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -673,7 +686,7 @@ If @id is floating, it's floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1422">A #GCancellable, or %NULL</doc>
+                 line="1430">A #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -684,7 +697,7 @@ If @id is floating, it's floating reference is consumed.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1423">A #GAsyncReadyCallback or %NULL</doc>
+                 line="1431">A #GAsyncReadyCallback or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -693,7 +706,7 @@ If @id is floating, it's floating reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1424">Closure data for @callback</doc>
+                 line="1432">Closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -720,25 +733,25 @@ If @id is floating, it's floating reference is consumed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1637">Completes an asynchronous request to [method@Client.reply_async].</doc>
+             line="1645">Completes an asynchronous request to [method@Client.reply_async].</doc>
         <source-position filename="src/jsonrpc-client.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1645">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
+               line="1653">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1639">A #JsonrpcClient</doc>
+                 line="1647">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1640">A #GAsyncResult</doc>
+                 line="1648">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -746,10 +759,11 @@ If @id is floating, it's floating reference is consumed.</doc>
       <method name="send_notification"
               c:identifier="jsonrpc_client_send_notification"
               version="3.26"
-              throws="1">
+              throws="1"
+              glib:async-func="send_notification_async">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1142">Synchronously calls @method with @params on the remote peer.
+             line="1150">Synchronously calls @method with @params on the remote peer.
 
 This function will not wait or expect a reply from the peer.
 
@@ -758,20 +772,20 @@ If @params is floating then the reference is consumed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1155">%TRUE on success; otherwise %FALSE and @error is set.</doc>
+               line="1163">%TRUE on success; otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1144">A #JsonrpcClient</doc>
+                 line="1152">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1145">The name of the method to call</doc>
+                 line="1153">The name of the method to call</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="params"
@@ -780,7 +794,7 @@ If @params is floating then the reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1146">A [struct@GLib.Variant] of parameters or %NULL</doc>
+                 line="1154">A [struct@GLib.Variant] of parameters or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -789,17 +803,19 @@ If @params is floating then the reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1147">A #GCancellable or %NULL</doc>
+                 line="1155">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
       <method name="send_notification_async"
               c:identifier="jsonrpc_client_send_notification_async"
-              version="3.26">
+              version="3.26"
+              glib:finish-func="send_notification_finish"
+              glib:sync-func="send_notification">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1195">Asynchronously calls @method with @params on the remote peer.
+             line="1203">Asynchronously calls @method with @params on the remote peer.
 
 This function will not wait or expect a reply from the peer.
 
@@ -816,13 +832,13 @@ If @params is floating then the reference is consumed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1197">A #JsonrpcClient</doc>
+                 line="1205">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1198">The name of the method to call</doc>
+                 line="1206">The name of the method to call</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="params"
@@ -831,7 +847,7 @@ If @params is floating then the reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1199">A [struct@GLib.Variant] of parameters or %NULL</doc>
+                 line="1207">A [struct@GLib.Variant] of parameters or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -840,7 +856,7 @@ If @params is floating then the reference is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1200">A #GCancellable or %NULL</doc>
+                 line="1208">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -865,7 +881,7 @@ If @params is floating then the reference is consumed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1258">Completes an asynchronous call to [method@Client.send_notification_async].
+             line="1266">Completes an asynchronous call to [method@Client.send_notification_async].
 
 Successful completion of this function only indicates that the request
 has been written to the underlying buffer, not that the peer has received
@@ -874,7 +890,7 @@ the notification.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/jsonrpc-client.c"
-               line="1268">%TRUE if the bytes have been flushed to the [class@Gio.IOStream]; otherwise
+               line="1276">%TRUE if the bytes have been flushed to the [class@Gio.IOStream]; otherwise
   %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -882,7 +898,7 @@ the notification.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1260">A #JsonrpcClient</doc>
+                 line="1268">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
@@ -896,7 +912,7 @@ the notification.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1721">Sets the [property@Client:use-gvariant] property.
+             line="1729">Sets the [property@Client:use-gvariant] property.
 
 This function sets if [struct@GLib.Variant] should be used to communicate with the
 peer. Doing so can allow for more efficient communication by avoiding
@@ -910,13 +926,13 @@ that the peer also supports [struct@GLib.Variant] encoding.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1723">A #JsonrpcClient</doc>
+                 line="1731">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
           <parameter name="use_gvariant" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1724">If [struct@GLib.Variant] should be used</doc>
+                 line="1732">If [struct@GLib.Variant] should be used</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -926,7 +942,7 @@ that the peer also supports [struct@GLib.Variant] encoding.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/jsonrpc-client.c"
-             line="1660">This function requests that client start processing incoming
+             line="1668">This function requests that client start processing incoming
 messages from the peer.</doc>
         <source-position filename="src/jsonrpc-client.h" line="161"/>
         <return-value transfer-ownership="none">
@@ -936,7 +952,7 @@ messages from the peer.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/jsonrpc-client.c"
-                 line="1662">A #JsonrpcClient</doc>
+                 line="1670">A #JsonrpcClient</doc>
             <type name="Client" c:type="JsonrpcClient*"/>
           </instance-parameter>
         </parameters>
@@ -1249,7 +1265,8 @@ trip.</doc>
       </constructor>
       <method name="read_message"
               c:identifier="jsonrpc_input_stream_read_message"
-              throws="1">
+              throws="1"
+              glib:async-func="read_message_async">
         <source-position filename="src/jsonrpc-input-stream.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1270,7 +1287,9 @@ trip.</doc>
         </parameters>
       </method>
       <method name="read_message_async"
-              c:identifier="jsonrpc_input_stream_read_message_async">
+              c:identifier="jsonrpc_input_stream_read_message_async"
+              glib:finish-func="read_message_finish"
+              glib:sync-func="read_message">
         <source-position filename="src/jsonrpc-input-stream.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1551,7 +1570,7 @@ trip.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="1" c:type="JSONRPC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="JSONRPC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/jsonrpc-version.h"
            line="49">jsonrpc-glib micro version component (e.g. 3 if %JSONRPC_VERSION is 1.2.3)</doc>
@@ -1775,7 +1794,8 @@ trip.</doc>
       <method name="write_message"
               c:identifier="jsonrpc_output_stream_write_message"
               version="3.26"
-              throws="1">
+              throws="1"
+              glib:async-func="write_message_async">
         <doc xml:space="preserve"
              filename="src/jsonrpc-output-stream.c"
              line="409">Synchronously sends a message to the peer.
@@ -1812,7 +1832,9 @@ is no guarantee the peer received it.</doc>
       </method>
       <method name="write_message_async"
               c:identifier="jsonrpc_output_stream_write_message_async"
-              version="3.26">
+              version="3.26"
+              glib:finish-func="write_message_finish"
+              glib:sync-func="write_message">
         <doc xml:space="preserve"
              filename="src/jsonrpc-output-stream.c"
              line="333">Asynchronously sends a message to the peer.
@@ -2434,7 +2456,7 @@ failure), using [method@Client.reply] or [method@Client.reply_async].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="3.44.1" c:type="JSONRPC_VERSION_S">
+    <constant name="VERSION_S" value="3.44.2" c:type="JSONRPC_VERSION_S">
       <doc xml:space="preserve"
            filename="src/jsonrpc-version.h"
            line="63">jsonrpc-glib version, encoded as a string, useful for printing and

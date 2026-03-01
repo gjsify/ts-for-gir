@@ -1255,11 +1255,11 @@ priority, 0 if @a and @b have the same priority.</doc>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gvc-mixer-control.c"
-                 line="673">This method is called from the UI when the user selects a previously unselected device.
+                 line="645">This method is called from the UI when the user selects a previously unselected device.
 - Firstly it queries the stream from the device.
   - It assumes that if the stream is null that it cannot be a bluetooth or network stream (they never show unless they have valid sinks and sources)
   In the scenario of a NULL stream on the device
-       - It fetches the device's preferred profile or if NUll the profile with the highest priority on that device.
+       - It fetches the device's preferred profile or if NULL the profile with the highest priority on that device.
        - It then caches this device in control-&gt;priv-&gt;cached_desired_input_id so that when the update_source triggered
          from when we attempt to change profile we will know exactly what device to highlight on that stream.
        - It attempts to swap the profile on the card from that device and returns.
@@ -1284,11 +1284,11 @@ priority, 0 if @a and @b have the same priority.</doc>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gvc-mixer-control.c"
-                 line="582">This method is called from the UI when the user selects a previously unselected device.
+                 line="573">This method is called from the UI when the user selects a previously unselected device.
 - Firstly it queries the stream from the device.
   - It assumes that if the stream is null that it cannot be a bluetooth or network stream (they never show unless they have valid sinks and sources)
   In the scenario of a NULL stream on the device
-       - It fetches the device's preferred profile or if NUll the profile with the highest priority on that device.
+       - It fetches the device's preferred profile or if NULL the profile with the highest priority on that device.
        - It then caches this device in control-&gt;priv-&gt;cached_desired_output_id so that when the update_sink triggered
          from when we attempt to change profile we will know exactly what device to highlight on that stream.
        - It attempts to swap the profile on the card from that device and returns.
@@ -1306,8 +1306,8 @@ priority, 0 if @a and @b have the same priority.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gvc-mixer-control.c"
-               line="534">This method will attempt to swap the profile on the card of
-the device with given profile name.  If successfull it will set the
+               line="525">This method will attempt to swap the profile on the card of
+the device with given profile name.  If successful it will set the
 preferred profile on that device so as we know the next time the user
 moves to that device it should have this profile active.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -1325,7 +1325,7 @@ moves to that device it should have this profile active.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gvc-mixer-control.c"
-                 line="532">Can be %NULL if any profile present on this port is okay</doc>
+                 line="523">Can be %NULL if any profile present on this port is okay</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>

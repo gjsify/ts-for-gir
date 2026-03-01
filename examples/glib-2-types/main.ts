@@ -241,6 +241,23 @@ function testPrecisionTimeAndTimeouts(): void {
 	}
 }
 
+function testUnderscoreInit() {
+	const errorEnum = new GLib.BookmarkFileError({ message: "foo", code: GLib.BookmarkFileError.WRITE });
+	try {
+		// @ts-expect-error
+		errorEnum._init();
+	} catch {}
+
+	const boxedStruct = new GLib.BookmarkFile();
+	try {
+		// @ts-expect-error
+		boxedStruct._init();
+	} catch {}
+
+	const gobject = new GObject.Object();
+	gobject._init();
+}
+
 /**
  * Displays summary of type handling capabilities
  */
@@ -278,6 +295,7 @@ function main(): void {
 	testTimestampHandling();
 	testLargeNumberHandling();
 	testPrecisionTimeAndTimeouts();
+	testUnderscoreInit();
 	displaySummary();
 	runMainLoop();
 }

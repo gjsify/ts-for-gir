@@ -641,7 +641,7 @@ a font.</doc>
       <source-position filename="src/hb-version.h" line="44"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="0" c:type="HB_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="1" c:type="HB_VERSION_MICRO">
       <source-position filename="src/hb-version.h" line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -649,7 +649,7 @@ a font.</doc>
       <source-position filename="src/hb-version.h" line="50"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_STRING" value="11.5.0" c:type="HB_VERSION_STRING">
+    <constant name="VERSION_STRING" value="11.5.1" c:type="HB_VERSION_STRING">
       <source-position filename="src/hb-version.h" line="63"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>

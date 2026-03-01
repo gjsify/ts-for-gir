@@ -14,7 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="cairo" version="1.0"/>
   <package name="gtk4"/>
   <c:include name="gdk/gdk.h"/>
-  <doc:format name="unknown"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="Gdk"
              version="4.0"
              shared-library="libgtk-4.so.1"
@@ -787,7 +787,7 @@ parameters, or just to obtain information about the color state.</doc>
                    version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="242">Creates a new `GdkCicpParams` object.
+             line="245">Creates a new `GdkCicpParams` object.
 
 The initial values of the properties are the values for "undefined"
 and need to be set before a color state object can be built.</doc>
@@ -795,7 +795,7 @@ and need to be set before a color state object can be built.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcicpparams.c"
-               line="250">a new `GdkCicpParams`</doc>
+               line="253">a new `GdkCicpParams`</doc>
           <type name="CicpParams" c:type="GdkCicpParams*"/>
         </return-value>
       </constructor>
@@ -805,7 +805,7 @@ and need to be set before a color state object can be built.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="421">Creates a new `GdkColorState` object for the cicp parameters in @self.
+             line="424">Creates a new `GdkColorState` object for the cicp parameters in @self.
 
 Note that this may fail if the cicp parameters in @self are not
 supported by GTK. In that case, `NULL` is returned, and @error is set
@@ -814,14 +814,14 @@ with an error message that can be presented to the user.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcicpparams.c"
-               line="432">A newly allocated `GdkColorState`</doc>
+               line="435">A newly allocated `GdkColorState`</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="423">a `GdkCicpParams`</doc>
+                 line="426">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
         </parameters>
@@ -832,20 +832,20 @@ with an error message that can be presented to the user.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="260">Returns the value of the color-primaries property
+             line="263">Returns the value of the color-primaries property
 of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkcicpparams.c"
-               line="267">the color-primaries value</doc>
+               line="270">the color-primaries value</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="262">a `GdkCicpParams`</doc>
+                 line="265">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
         </parameters>
@@ -856,19 +856,19 @@ of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="341">Gets the matrix-coefficients property of @self.</doc>
+             line="344">Gets the matrix-coefficients property of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkcicpparams.c"
-               line="347">the matrix-coefficients value</doc>
+               line="350">the matrix-coefficients value</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="343">a `GdkCicpParams`</doc>
+                 line="346">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
         </parameters>
@@ -879,19 +879,19 @@ of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="381">Gets the range property of @self.</doc>
+             line="384">Gets the range property of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkcicpparams.c"
-               line="387">the range value</doc>
+               line="390">the range value</doc>
           <type name="CicpRange" c:type="GdkCicpRange"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="383">a `GdkCicpParams`</doc>
+                 line="386">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
         </parameters>
@@ -902,19 +902,19 @@ of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="301">Gets the transfer-function property of @self.</doc>
+             line="304">Gets the transfer-function property of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkcicpparams.c"
-               line="307">the transfer-function value</doc>
+               line="310">the transfer-function value</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="303">a `GdkCicpParams`</doc>
+                 line="306">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
         </parameters>
@@ -925,7 +925,7 @@ of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="279">Sets the color-primaries property of @self.</doc>
+             line="282">Sets the color-primaries property of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -934,13 +934,13 @@ of @self.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="281">a `GdkCicpParams`</doc>
+                 line="284">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
           <parameter name="color_primaries" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="282">the new color primaries value</doc>
+                 line="285">the new color primaries value</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -951,7 +951,7 @@ of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="359">@self a `GdkCicpParams`
+             line="362">@self a `GdkCicpParams`
 Sets the matrix-coefficients property of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="55"/>
         <return-value transfer-ownership="none">
@@ -964,7 +964,7 @@ Sets the matrix-coefficients property of @self.</doc>
           <parameter name="matrix_coefficients" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="362">the new matrix-coefficients value</doc>
+                 line="365">the new matrix-coefficients value</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -975,7 +975,7 @@ Sets the matrix-coefficients property of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="399">Sets the range property of @self</doc>
+             line="402">Sets the range property of @self</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -984,13 +984,13 @@ Sets the matrix-coefficients property of @self.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="401">a `GdkCipParams`</doc>
+                 line="404">a `GdkCipParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
           <parameter name="range" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="402">the range value</doc>
+                 line="405">the range value</doc>
             <type name="CicpRange" c:type="GdkCicpRange"/>
           </parameter>
         </parameters>
@@ -1001,7 +1001,7 @@ Sets the matrix-coefficients property of @self.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="319">Sets the transfer-function property of @self.</doc>
+             line="322">Sets the transfer-function property of @self.</doc>
         <source-position filename="gdk/gdkcicpparams.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1010,13 +1010,13 @@ Sets the matrix-coefficients property of @self.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="321">a `GdkCicpParams`</doc>
+                 line="324">a `GdkCicpParams`</doc>
             <type name="CicpParams" c:type="GdkCicpParams*"/>
           </instance-parameter>
           <parameter name="transfer_function" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcicpparams.c"
-                 line="322">the new transfer-function value</doc>
+                 line="325">the new transfer-function value</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1056,7 +1056,10 @@ Supported values:
 Supported values:
 
 - 0: RGB
-- 2: unspecified</doc>
+- 1: BT.709
+- 2: unspecified
+- 5,6: BT.601
+- 9: BT.2020</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="range"
@@ -1068,7 +1071,7 @@ Supported values:
                 default-value="GDK_CICP_RANGE_NARROW">
         <doc xml:space="preserve"
              filename="gdk/gdkcicpparams.c"
-             line="221">Whether the data is using the full range of values.
+             line="224">Whether the data is using the full range of values.
 
 The range of the data.</doc>
         <type name="CicpRange"/>
@@ -1959,7 +1962,7 @@ provided otherwise.</doc>
             c:symbol-prefix="color_state">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="29">Provides information to interpret colors and pixels in a variety of ways.
+           line="30">Provides information to interpret colors and pixels in a variety of ways.
 
 They are also known as
 [*color spaces*](https://en.wikipedia.org/wiki/Color_space).
@@ -1974,7 +1977,7 @@ state to another.
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="231">Create a [class@Gdk.CicpParams] representing the colorstate.
+             line="232">Create a [class@Gdk.CicpParams] representing the colorstate.
 
 It is not guaranteed that every `GdkColorState` can be
 represented with Cicp parameters. If that is the case,
@@ -1983,14 +1986,14 @@ this function returns `NULL`.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="241">A new [class@Gdk.CicpParams]</doc>
+               line="242">A new [class@Gdk.CicpParams]</doc>
           <type name="CicpParams" c:type="GdkCicpParams*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcolorstate.c"
-                 line="233">a `GdkColorState`</doc>
+                 line="234">a `GdkColorState`</doc>
             <type name="ColorState" c:type="GdkColorState*"/>
           </instance-parameter>
         </parameters>
@@ -1998,7 +2001,7 @@ this function returns `NULL`.</doc>
       <method name="equal" c:identifier="gdk_color_state_equal" version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="209">Compares two `GdkColorStates` for equality.
+             line="210">Compares two `GdkColorStates` for equality.
 
 Note that this function is not guaranteed to be perfect and two objects
 describing the same color state may compare not equal. However, different
@@ -2007,20 +2010,20 @@ color states will never compare equal.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="220">%TRUE if the two color states compare equal</doc>
+               line="221">%TRUE if the two color states compare equal</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcolorstate.c"
-                 line="211">a `GdkColorState`</doc>
+                 line="212">a `GdkColorState`</doc>
             <type name="ColorState" c:type="GdkColorState*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcolorstate.c"
-                 line="212">another `GdkColorStatee`</doc>
+                 line="213">another `GdkColorStatee`</doc>
             <type name="ColorState" c:type="GdkColorState*"/>
           </parameter>
         </parameters>
@@ -2028,19 +2031,19 @@ color states will never compare equal.</doc>
       <method name="ref" c:identifier="gdk_color_state_ref" version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="50">Increase the reference count of @self.</doc>
+             line="51">Increase the reference count of @self.</doc>
         <source-position filename="gdk/gdkcolorstate.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="56">the object that was passed in</doc>
+               line="57">the object that was passed in</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcolorstate.c"
-                 line="52">a `GdkColorState`</doc>
+                 line="53">a `GdkColorState`</doc>
             <type name="ColorState" c:type="GdkColorState*"/>
           </instance-parameter>
         </parameters>
@@ -2048,7 +2051,7 @@ color states will never compare equal.</doc>
       <method name="unref" c:identifier="gdk_color_state_unref" version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="66">Decrease the reference count of @self.
+             line="67">Decrease the reference count of @self.
 
 Unless @self is static, it will be freed
 when the reference count reaches zero.</doc>
@@ -2060,7 +2063,7 @@ when the reference count reaches zero.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkcolorstate.c"
-                 line="68">a `GdkColorState`</doc>
+                 line="69">a `GdkColorState`</doc>
             <type name="ColorState" c:type="GdkColorState*"/>
           </instance-parameter>
         </parameters>
@@ -2070,14 +2073,14 @@ when the reference count reaches zero.</doc>
                 version="4.18">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="174">Returns the color state object representing the oklab color space.
+             line="175">Returns the color state object representing the oklab color space.
 
 This is a perceptually uniform color state.</doc>
         <source-position filename="gdk/gdkcolorstate.h" line="53"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="181">the color state object for oklab</doc>
+               line="182">the color state object for oklab</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
       </function>
@@ -2086,7 +2089,7 @@ This is a perceptually uniform color state.</doc>
                 version="4.18">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="191">Returns the color state object representing the oklch color space.
+             line="192">Returns the color state object representing the oklch color space.
 
 This is the polar variant of oklab, in which the hue is encoded as
 a polar coordinate.</doc>
@@ -2094,7 +2097,7 @@ a polar coordinate.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="199">the color state object for oklch</doc>
+               line="200">the color state object for oklch</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
       </function>
@@ -2103,7 +2106,7 @@ a polar coordinate.</doc>
                 version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="151">Returns the color state object representing the linear rec2100 color space.
+             line="152">Returns the color state object representing the linear rec2100 color space.
 
 This color state uses the primaries defined by BT.2020-2 and BT.2100-0 and a linear
 transfer function.
@@ -2116,7 +2119,7 @@ for details about this colorstate.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="164">the color state object for linearized rec2100</doc>
+               line="165">the color state object for linearized rec2100</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
       </function>
@@ -2125,7 +2128,7 @@ for details about this colorstate.</doc>
                 version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="128">Returns the color state object representing the rec2100-pq color space.
+             line="129">Returns the color state object representing the rec2100-pq color space.
 
 This color state uses the primaries defined by BT.2020-2 and BT.2100-0 and the transfer
 function defined by SMPTE ST 2084 and BT.2100-2.
@@ -2138,7 +2141,7 @@ for details about this colorstate.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="141">the color state object for rec2100-pq</doc>
+               line="142">the color state object for rec2100-pq</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
       </function>
@@ -2147,7 +2150,7 @@ for details about this colorstate.</doc>
                 version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="83">Returns the color state object representing the sRGB color space.
+             line="84">Returns the color state object representing the sRGB color space.
 
 This color state uses the primaries defined by BT.709-6 and the transfer function
 defined by IEC 61966-2-1.
@@ -2160,7 +2163,7 @@ for details about this colorstate.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="96">the color state object for sRGB</doc>
+               line="97">the color state object for sRGB</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
       </function>
@@ -2169,7 +2172,7 @@ for details about this colorstate.</doc>
                 version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="106">Returns the color state object representing the linearized sRGB color space.
+             line="107">Returns the color state object representing the linearized sRGB color space.
 
 This color state uses the primaries defined by BT.709-6 and a linear transfer function.
 
@@ -2181,7 +2184,7 @@ for details about this colorstate.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkcolorstate.c"
-               line="118">the color state object for linearized sRGB</doc>
+               line="119">the color state object for linearized sRGB</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
       </function>
@@ -9028,7 +9031,7 @@ the source if [method@Gdk.Drag.get_selected_action] returns
       <method name="drop_done" c:identifier="gdk_drag_drop_done">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="704">Informs GDK that the drop ended.
+             line="702">Informs GDK that the drop ended.
 
 Passing %FALSE for @success may trigger a drag cancellation
 animation.
@@ -9047,13 +9050,13 @@ all subsequent calls will be ignored.</doc>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="706">a `GdkDrag`</doc>
+                 line="704">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
           <parameter name="success" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="707">whether the drag was ultimatively successful</doc>
+                 line="705">whether the drag was ultimatively successful</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -9149,7 +9152,7 @@ all subsequent calls will be ignored.</doc>
       <method name="get_drag_surface" c:identifier="gdk_drag_get_drag_surface">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="657">Returns the surface on which the drag icon should be rendered
+             line="655">Returns the surface on which the drag icon should be rendered
 during the drag operation.
 
 Note that the surface may not be available until the drag operation
@@ -9160,14 +9163,14 @@ when the drag operation is over.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="669">the drag surface</doc>
+               line="667">the drag surface</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="659">a `GdkDrag`</doc>
+                 line="657">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -9241,7 +9244,7 @@ when the drag operation is over.</doc>
       <method name="set_hotspot" c:identifier="gdk_drag_set_hotspot">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="682">Sets the position of the drag surface that will be kept
+             line="680">Sets the position of the drag surface that will be kept
 under the cursor hotspot.
 
 Initially, the hotspot is at the top left corner of the drag surface.</doc>
@@ -9253,19 +9256,19 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="684">a `GdkDrag`</doc>
+                 line="682">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
           <parameter name="hot_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="685">x coordinate of the drag surface hotspot</doc>
+                 line="683">x coordinate of the drag surface hotspot</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="hot_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="686">y coordinate of the drag surface hotspot</doc>
+                 line="684">y coordinate of the drag surface hotspot</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -9421,7 +9424,7 @@ destination can and should do with the dropped data.</doc>
       <function name="is_unique" c:identifier="gdk_drag_action_is_unique">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="807">Checks if @action represents a single action or includes
+             line="804">Checks if @action represents a single action or includes
 multiple actions.
 
 When @action is 0 - ie no action was given, %TRUE
@@ -9430,14 +9433,14 @@ is returned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="817">%TRUE if exactly one action was given</doc>
+               line="814">%TRUE if exactly one action was given</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="809">a `GdkDragAction`</doc>
+                 line="806">a `GdkDragAction`</doc>
             <type name="DragAction" c:type="GdkDragAction"/>
           </parameter>
         </parameters>
@@ -9842,8 +9845,8 @@ may be effecting the contents of the @context's surface.</doc>
            line="20">Represents the target of an ongoing DND operation.
 
 Possible drop sites get informed about the status of the ongoing drag
-operation with events of type %GDK_DRAG_ENTER, %GDK_DRAG_LEAVE,
-%GDK_DRAG_MOTION and %GDK_DROP_START. The `GdkDrop` object can be obtained
+operation with events of type `GDK_DRAG_ENTER`, `GDK_DRAG_LEAVE`,
+`GDK_DRAG_MOTION` and `GDK_DROP_START`. The `GdkDrop` object can be obtained
 from these [class@Gdk.Event] types using [method@Gdk.DNDEvent.get_drop].
 
 The actual data transfer is initiated from the target side via an async
@@ -9887,11 +9890,11 @@ available via [method@Gdk.Drop.get_actions].</doc>
              line="481">Returns the possible actions for this `GdkDrop`.
 
 If this value contains multiple actions - i.e.
-[func@Gdk.DragAction.is_unique] returns %FALSE for the result -
+[func@Gdk.DragAction.is_unique] returns false for the result -
 [method@Gdk.Drop.finish] must choose the action to use when
 accepting the drop. This will only happen if you passed
-%GDK_ACTION_ASK as one of the possible actions in
-[method@Gdk.Drop.status]. %GDK_ACTION_ASK itself will not
+`GDK_ACTION_ASK` as one of the possible actions in
+[method@Gdk.Drop.status]. `GDK_ACTION_ASK` itself will not
 be included in the actions returned by this function.
 
 This value may change over the lifetime of the [class@Gdk.Drop]
@@ -9966,7 +9969,7 @@ side will not change this value anymore once a drop has started.</doc>
              line="530">If this is an in-app drag-and-drop operation, returns the `GdkDrag`
 that corresponds to this drop.
 
-If it is not, %NULL is returned.</doc>
+If it is not, `NULL` is returned.</doc>
         <source-position filename="gdk/gdkdrop.h" line="49"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
@@ -10245,7 +10248,7 @@ The @preferred action is a hint to the drag-and-drop mechanism about which
 action to use when multiple actions are possible.
 
 This function should be called by drag destinations in response to
-%GDK_DRAG_ENTER or %GDK_DRAG_MOTION events. If the destination does
+`GDK_DRAG_ENTER` or `GDK_DRAG_MOTION` events. If the destination does
 not yet know the exact actions it supports, it should set any possible
 actions first and then later call this function again.</doc>
         <source-position filename="gdk/gdkdrop.h" line="52"/>
@@ -12957,7 +12960,7 @@ anymore, this function has been deprecated and now always returns %NULL.</doc>
                    deprecated-version="4.12">
         <doc xml:space="preserve"
              filename="gdk/gdkgltexture.c"
-             line="427">Creates a new texture for an existing GL texture.
+             line="421">Creates a new texture for an existing GL texture.
 
 Note that the GL texture must not be modified until @destroy is called,
 which will happen when the GdkTexture object is finalized, or due to
@@ -12968,7 +12971,7 @@ an explicit call of [method@Gdk.GLTexture.release].</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkgltexture.c"
-               line="443">A newly-created
+               line="437">A newly-created
   `GdkTexture`</doc>
           <type name="GLTexture" c:type="GdkTexture*"/>
         </return-value>
@@ -12976,31 +12979,31 @@ an explicit call of [method@Gdk.GLTexture.release].</doc>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="429">a `GdkGLContext`</doc>
+                 line="423">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="430">the ID of a texture that was created with @context</doc>
+                 line="424">the ID of a texture that was created with @context</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="431">the nominal width of the texture</doc>
+                 line="425">the nominal width of the texture</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="432">the nominal height of the texture</doc>
+                 line="426">the nominal height of the texture</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="destroy" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="433">a destroy notify that will be called when the GL resources
+                 line="427">a destroy notify that will be called when the GL resources
   are released</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
@@ -13010,7 +13013,7 @@ an explicit call of [method@Gdk.GLTexture.release].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="435">data that gets passed to @destroy</doc>
+                 line="429">data that gets passed to @destroy</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -13018,7 +13021,7 @@ an explicit call of [method@Gdk.GLTexture.release].</doc>
       <method name="release" c:identifier="gdk_gl_texture_release">
         <doc xml:space="preserve"
              filename="gdk/gdkgltexture.c"
-             line="238">Releases the GL resources held by a `GdkGLTexture`.
+             line="232">Releases the GL resources held by a `GdkGLTexture`.
 
 The texture contents are still available via the
 [method@Gdk.Texture.download] function, after this
@@ -13031,7 +13034,7 @@ function has been called.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkgltexture.c"
-                 line="240">a `GdkTexture` wrapping a GL texture</doc>
+                 line="234">a `GdkTexture` wrapping a GL texture</doc>
             <type name="GLTexture" c:type="GdkGLTexture*"/>
           </instance-parameter>
         </parameters>
@@ -27183,8 +27186,481 @@ the alpha value.</doc>
              filename="gdk/gdkenums.h"
              line="363">4 bytes; for unused, blue, green, red.</doc>
       </member>
-      <member name="n_formats"
+      <member name="g8_b8r8_420"
               value="33"
+              c:identifier="GDK_MEMORY_G8_B8R8_420"
+              version="4.20"
+              glib:nick="g8-b8r8-420"
+              glib:name="GDK_MEMORY_G8_B8R8_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="508">Multiplane format with 2 planes.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cb followed by Cr.
+Subsampled in both the X and Y direction.
+
+Commonly known by the fourcc "NV12".</doc>
+      </member>
+      <member name="g8_r8b8_420"
+              value="34"
+              c:identifier="GDK_MEMORY_G8_R8B8_420"
+              version="4.20"
+              glib:nick="g8-r8b8-420"
+              glib:name="GDK_MEMORY_G8_R8B8_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="522">Multiplane format with 2 planes.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cr followed by Cb.
+Subsampled in both the X and Y direction.
+
+Commonly known by the fourcc "NV21".</doc>
+      </member>
+      <member name="g8_b8r8_422"
+              value="35"
+              c:identifier="GDK_MEMORY_G8_B8R8_422"
+              version="4.20"
+              glib:nick="g8-b8r8-422"
+              glib:name="GDK_MEMORY_G8_B8R8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="536">Multiplane format with 2 planes.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cb followed by Cr.
+Subsampled in the X direction.
+
+Commonly known by the fourcc "NV16".</doc>
+      </member>
+      <member name="g8_r8b8_422"
+              value="36"
+              c:identifier="GDK_MEMORY_G8_R8B8_422"
+              version="4.20"
+              glib:nick="g8-r8b8-422"
+              glib:name="GDK_MEMORY_G8_R8B8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="550">Multiplane format with 2 planes.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cr followed by Cb.
+Subsampled in the X direction.
+
+Commonly known by the fourcc "NV61".</doc>
+      </member>
+      <member name="g8_b8r8_444"
+              value="37"
+              c:identifier="GDK_MEMORY_G8_B8R8_444"
+              version="4.20"
+              glib:nick="g8-b8r8-444"
+              glib:name="GDK_MEMORY_G8_B8R8_444">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="564">Multiplane format with 2 planes.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cb followed by Cr.
+This format is not subsampled.
+
+Commonly known by the fourcc "NV24".</doc>
+      </member>
+      <member name="g8_r8b8_444"
+              value="38"
+              c:identifier="GDK_MEMORY_G8_R8B8_444"
+              version="4.20"
+              glib:nick="g8-r8b8-444"
+              glib:name="GDK_MEMORY_G8_R8B8_444">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="578">Multiplane format with 2 planes.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cr followed by Cb.
+This format is not subsampled.
+
+Commonly known by the fourcc "NV42".</doc>
+      </member>
+      <member name="g10x6_b10x6r10x6_420"
+              value="39"
+              c:identifier="GDK_MEMORY_G10X6_B10X6R10X6_420"
+              version="4.20"
+              glib:nick="g10x6-b10x6r10x6-420"
+              glib:name="GDK_MEMORY_G10X6_B10X6R10X6_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="592">Multiplane format with 2 planes.
+
+Each channel is a 16 bit integer, but only the highest 10 bits are used.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cr followed by Cb.
+This format is not subsampled.
+
+Commonly known by the fourcc "P010".</doc>
+      </member>
+      <member name="g12x4_b12x4r12x4_420"
+              value="40"
+              c:identifier="GDK_MEMORY_G12X4_B12X4R12X4_420"
+              version="4.20"
+              glib:nick="g12x4-b12x4r12x4-420"
+              glib:name="GDK_MEMORY_G12X4_B12X4R12X4_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="608">Multiplane format with 2 planes.
+
+Each channel is a 16 bit integer, but only the highest 10 bits are used.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cr followed by Cb.
+This format is not subsampled.
+
+Commonly known by the fourcc "P012".</doc>
+      </member>
+      <member name="g16_b16r16_420"
+              value="41"
+              c:identifier="GDK_MEMORY_G16_B16R16_420"
+              version="4.20"
+              glib:nick="g16-b16r16-420"
+              glib:name="GDK_MEMORY_G16_B16R16_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="624">Multiplane format with 2 planes.
+
+Each channel is a 16 bit integer.
+
+The first plane contains the first channel, usually containing
+luma values.
+The second plane with interleaved chroma values, Cr followed by Cb.
+This format is not subsampled.
+
+Commonly known by the fourcc "P016".</doc>
+      </member>
+      <member name="g8_b8_r8_410"
+              value="42"
+              c:identifier="GDK_MEMORY_G8_B8_R8_410"
+              version="4.20"
+              glib:nick="g8-b8-r8-410"
+              glib:name="GDK_MEMORY_G8_B8_R8_410">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="640">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the first chroma chanel.
+Subsampled in both the X and Y direction with 4:1 ratio. It is
+mapped into the 3rd channel.
+
+The third plane usually contains the second chroma channel.
+Subsampled in both the X and Y direction with 4:1 ratio. It is
+mapped into the 1st channel.
+
+Commonly known by the fourcc "YUV410".</doc>
+      </member>
+      <member name="g8_r8_b8_410"
+              value="43"
+              c:identifier="GDK_MEMORY_G8_R8_B8_410"
+              version="4.20"
+              glib:nick="g8-r8-b8-410"
+              glib:name="GDK_MEMORY_G8_R8_B8_410">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="662">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the second chroma chanel.
+Subsampled in both the X and Y direction with 4:1 ratio. It is
+mapped into the 1st channel.
+
+The third plane usually contains the first chroma channel.
+Subsampled in both the X and Y direction with 4:1 ratio. It is
+mapped into the 3rd channel.
+
+Commonly known by the fourcc "YVU410".</doc>
+      </member>
+      <member name="g8_b8_r8_411"
+              value="44"
+              c:identifier="GDK_MEMORY_G8_B8_R8_411"
+              version="4.20"
+              glib:nick="g8-b8-r8-411"
+              glib:name="GDK_MEMORY_G8_B8_R8_411">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="684">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the first chroma chanel.
+Subsampled in the X direction with 4:1 ratio. It is
+mapped into the 3rd channel.
+
+The third plane usually contains the second chroma channel.
+Subsampled in the X direction with 4:1 ratio. It is
+mapped into the 1st channel.
+
+Commonly known by the fourcc "YUV411".</doc>
+      </member>
+      <member name="g8_r8_b8_411"
+              value="45"
+              c:identifier="GDK_MEMORY_G8_R8_B8_411"
+              version="4.20"
+              glib:nick="g8-r8-b8-411"
+              glib:name="GDK_MEMORY_G8_R8_B8_411">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="706">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the second chroma chanel.
+Subsampled in the X direction with 4:1 ratio. It is
+mapped into the 1st channel.
+
+The third plane usually contains the first chroma channel.
+Subsampled in the X direction with 4:1 ratio. It is
+mapped into the 3rd channel.
+
+Commonly known by the fourcc "YVU411".</doc>
+      </member>
+      <member name="g8_b8_r8_420"
+              value="46"
+              c:identifier="GDK_MEMORY_G8_B8_R8_420"
+              version="4.20"
+              glib:nick="g8-b8-r8-420"
+              glib:name="GDK_MEMORY_G8_B8_R8_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="728">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the first chroma chanel.
+Subsampled in both the X and Y direction. It is mapped into the
+3rd channel.
+
+The third plane usually contains the second chroma channel.
+Subsampled in both the X and Y direction. It is mapped into the
+1st channel.
+
+Commonly known by the fourcc "YUV420".</doc>
+      </member>
+      <member name="g8_r8_b8_420"
+              value="47"
+              c:identifier="GDK_MEMORY_G8_R8_B8_420"
+              version="4.20"
+              glib:nick="g8-r8-b8-420"
+              glib:name="GDK_MEMORY_G8_R8_B8_420">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="750">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the second chroma chanel.
+Subsampled in both the X and Y direction. It is mapped into the
+1st channel.
+
+The third plane usually contains the first chroma channel.
+Subsampled in both the X and Y direction. It is mapped into the
+3rd channel.
+
+Commonly known by the fourcc "YVU420".</doc>
+      </member>
+      <member name="g8_b8_r8_422"
+              value="48"
+              c:identifier="GDK_MEMORY_G8_B8_R8_422"
+              version="4.20"
+              glib:nick="g8-b8-r8-422"
+              glib:name="GDK_MEMORY_G8_B8_R8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="772">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the first chroma chanel.
+Subsampled in the X direction. It is mapped into the 3rd channel.
+
+The third plane usually contains the second chroma channel.
+Subsampled in the X direction. It is mapped into the 1st channel.
+
+Commonly known by the fourcc "YUV422".</doc>
+      </member>
+      <member name="g8_r8_b8_422"
+              value="49"
+              c:identifier="GDK_MEMORY_G8_R8_B8_422"
+              version="4.20"
+              glib:nick="g8-r8-b8-422"
+              glib:name="GDK_MEMORY_G8_R8_B8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="792">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the second chroma chanel.
+Subsampled in the X direction. It is mapped into the 1st channel.
+
+The third plane usually contains the first chroma channel.
+Subsampled in the X direction. It is mapped into the 3rd channel.
+
+Commonly known by the fourcc "YVU422".</doc>
+      </member>
+      <member name="g8_b8_r8_444"
+              value="50"
+              c:identifier="GDK_MEMORY_G8_B8_R8_444"
+              version="4.20"
+              glib:nick="g8-b8-r8-444"
+              glib:name="GDK_MEMORY_G8_B8_R8_444">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="812">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the first chroma chanel. It is
+mapped into the 3rd channel.
+
+The third plane usually contains the second chroma channel. It is
+mapped into the 1st channel.
+
+Commonly known by the fourcc "YUV444".</doc>
+      </member>
+      <member name="g8_r8_b8_444"
+              value="51"
+              c:identifier="GDK_MEMORY_G8_R8_B8_444"
+              version="4.20"
+              glib:nick="g8-r8-b8-444"
+              glib:name="GDK_MEMORY_G8_R8_B8_444">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="832">Multiplane format with 3 planes.
+
+Each channel is a 8 bit integer.
+
+The first plane usually contains the luma channel. It is mapped
+into the 2nd channel.
+
+The second plane usually contains the second chroma chanel.
+Subsampled in the X direction. It is mapped into the 1st channel.
+
+The third plane usually contains the first chroma channel.
+Subsampled in the X direction. It is mapped into the 3rd channel.
+
+Commonly known by the fourcc "YVU444".</doc>
+      </member>
+      <member name="g8b8g8r8_422"
+              value="52"
+              c:identifier="GDK_MEMORY_G8B8G8R8_422"
+              version="4.20"
+              glib:nick="g8b8g8r8-422"
+              glib:name="GDK_MEMORY_G8B8G8R8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="852">Packed format with subsampled channels.
+
+Each channel is a 8 bit integer. The red and blue/chroma channels
+are subsampled and interleaved with the green/luma channel.
+
+Each block contains 2 pixels, so the width must be a multiple of
+2.
+
+Commonly known by the fourcc "YUYV".</doc>
+      </member>
+      <member name="g8r8g8b8_422"
+              value="53"
+              c:identifier="GDK_MEMORY_G8R8G8B8_422"
+              version="4.20"
+              glib:nick="g8r8g8b8-422"
+              glib:name="GDK_MEMORY_G8R8G8B8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="867">Packed format with subsampled channels.
+
+Each channel is a 8 bit integer. The red and blue/chroma channels
+are subsampled and interleaved with the green/luma channel.
+
+Each block contains 2 pixels, so the width must be a multiple of
+2.
+
+Commonly known by the fourcc "YVYU".</doc>
+      </member>
+      <member name="r8g8b8g8_422"
+              value="54"
+              c:identifier="GDK_MEMORY_R8G8B8G8_422"
+              version="4.20"
+              glib:nick="r8g8b8g8-422"
+              glib:name="GDK_MEMORY_R8G8B8G8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="882">Packed format with subsampled channels.
+
+Each channel is a 8 bit integer. The red and blue/chroma channels
+are subsampled and interleaved with the green/luma channel.
+
+Each block contains 2 pixels, so the width must be a multiple of
+2.
+
+Commonly known by the fourcc "VYUY".</doc>
+      </member>
+      <member name="b8g8r8g8_422"
+              value="55"
+              c:identifier="GDK_MEMORY_B8G8R8G8_422"
+              version="4.20"
+              glib:nick="b8g8r8g8-422"
+              glib:name="GDK_MEMORY_B8G8R8G8_422">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="897">Packed format with subsampled channels.
+
+Each channel is a 8 bit integer. The red and blue/chroma channels
+are subsampled and interleaved with the green/luma channel.
+
+Each block contains 2 pixels, so the width must be a multiple of
+2.
+
+Commonly known by the fourcc "UYVY".</doc>
+      </member>
+      <member name="n_formats"
+              value="56"
               c:identifier="GDK_MEMORY_N_FORMATS"
               glib:nick="n-formats"
               glib:name="GDK_MEMORY_N_FORMATS">
@@ -27211,7 +27687,7 @@ the alpha value.</doc>
       <constructor name="new" c:identifier="gdk_memory_texture_new">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexture.c"
-             line="171">Creates a new texture for a blob of image data.
+             line="162">Creates a new texture for a blob of image data.
 
 The `GBytes` must contain @stride × @height pixels
 in the given format.</doc>
@@ -27219,38 +27695,38 @@ in the given format.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexture.c"
-               line="184">A newly-created `GdkTexture`</doc>
+               line="175">A newly-created `GdkTexture`</doc>
           <type name="MemoryTexture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexture.c"
-                 line="173">the width of the texture</doc>
+                 line="164">the width of the texture</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexture.c"
-                 line="174">the height of the texture</doc>
+                 line="165">the height of the texture</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexture.c"
-                 line="175">the format of the data</doc>
+                 line="166">the format of the data</doc>
             <type name="MemoryFormat" c:type="GdkMemoryFormat"/>
           </parameter>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexture.c"
-                 line="176">the `GBytes` containing the pixel data</doc>
+                 line="167">the `GBytes` containing the pixel data</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexture.c"
-                 line="177">rowstride for the data</doc>
+                 line="168">rowstride for the data</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -27266,7 +27742,7 @@ in the given format.</doc>
            glib:type-struct="MemoryTextureBuilderClass">
       <doc xml:space="preserve"
            filename="gdk/gdkmemorytexturebuilder.c"
-           line="50">Constructs [class@Gdk.Texture] objects from system memory provided
+           line="47">Constructs [class@Gdk.Texture] objects from system memory provided
 via [struct@GLib.Bytes].
 
 The operation is quite simple: Create a texture builder, set all the necessary
@@ -27283,12 +27759,12 @@ textures as well as kept around and reused to construct multiple textures.</doc>
                    version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="316">Creates a new texture builder.</doc>
+             line="313">Creates a new texture builder.</doc>
         <source-position filename="gdk/gdkmemorytexturebuilder.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="321">the new `GdkTextureBuilder`</doc>
+               line="318">the new `GdkTextureBuilder`</doc>
           <type name="MemoryTextureBuilder" c:type="GdkMemoryTextureBuilder*"/>
         </return-value>
       </constructor>
@@ -27297,25 +27773,25 @@ textures as well as kept around and reused to construct multiple textures.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="699">Builds a new `GdkTexture` with the values set up in the builder.
+             line="791">Builds a new `GdkTexture` with the values set up in the builder.
 
 Note that it is a programming error to call this function if any mandatory
 property has not been set.
 
 It is possible to call this function multiple times to create multiple textures,
 possibly with changing properties in between.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="86"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="102"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="711">a newly built `GdkTexture`</doc>
+               line="803">a newly built `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="701">a `GdkMemoryTextureBuilder`</doc>
+                 line="793">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27327,20 +27803,20 @@ possibly with changing properties in between.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="331">Gets the bytes previously set via gdk_memory_texture_builder_set_bytes()
+             line="328">Gets the bytes previously set via gdk_memory_texture_builder_set_bytes()
 or %NULL if none was set.</doc>
         <source-position filename="gdk/gdkmemorytexturebuilder.h" line="38"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="338">The bytes</doc>
+               line="335">The bytes</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="333">a `GdkMemoryTextureBuilder`</doc>
+                 line="330">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27352,19 +27828,19 @@ or %NULL if none was set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="379">Gets the colorstate previously set via gdk_memory_texture_builder_set_color_state().</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="68"/>
+             line="376">Gets the colorstate previously set via gdk_memory_texture_builder_set_color_state().</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="385">The colorstate</doc>
+               line="382">The colorstate</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="381">a `GdkMemoryTextureBuilder`</doc>
+                 line="378">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27376,19 +27852,19 @@ or %NULL if none was set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="558">Gets the format previously set via gdk_memory_texture_builder_set_format().</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="62"/>
+             line="650">Gets the format previously set via gdk_memory_texture_builder_set_format().</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="564">The format</doc>
+               line="656">The format</doc>
           <type name="MemoryFormat" c:type="GdkMemoryFormat"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="560">a `GdkMemoryTextureBuilder`</doc>
+                 line="652">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27400,23 +27876,52 @@ or %NULL if none was set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="427">Gets the height previously set via gdk_memory_texture_builder_set_height()
+             line="424">Gets the height previously set via gdk_memory_texture_builder_set_height()
 or 0 if the height wasn't set.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="56"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="434">The height</doc>
+               line="431">The height</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="429">a `GdkMemoryTextureBuilder`</doc>
+                 line="426">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_offset"
+              c:identifier="gdk_memory_texture_builder_get_offset"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdkmemorytexturebuilder.c"
+             line="605">Gets the offset previously set via gdk_memory_texture_builder_set_offset().</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gdk/gdkmemorytexturebuilder.c"
+               line="612">The offset associated to a @plane</doc>
+          <type name="gsize" c:type="gsize"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="607">a `GdkMemoryTextureBuilder`</doc>
+            <type name="MemoryTextureBuilder"
+                  c:type="GdkMemoryTextureBuilder*"/>
+          </instance-parameter>
+          <parameter name="plane" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="608">a plane</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
         </parameters>
       </method>
       <method name="get_stride"
@@ -27425,22 +27930,51 @@ or 0 if the height wasn't set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="515">Gets the stride previously set via gdk_memory_texture_builder_set_stride().</doc>
+             line="514">Gets the stride previously set via gdk_memory_texture_builder_set_stride().</doc>
         <source-position filename="gdk/gdkmemorytexturebuilder.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="521">the stride</doc>
+               line="520">the stride</doc>
           <type name="gsize" c:type="gsize"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="517">a `GdkMemoryTextureBuilder`</doc>
+                 line="516">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stride_for_plane"
+              c:identifier="gdk_memory_texture_builder_get_stride_for_plane"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdkmemorytexturebuilder.c"
+             line="557">Gets the stride previously set via gdk_memory_texture_builder_set_stride_for_plane().</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gdk/gdkmemorytexturebuilder.c"
+               line="564">The stride associated to a @plane</doc>
+          <type name="gsize" c:type="gsize"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="559">a `GdkMemoryTextureBuilder`</doc>
+            <type name="MemoryTextureBuilder"
+                  c:type="GdkMemoryTextureBuilder*"/>
+          </instance-parameter>
+          <parameter name="plane" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="560">a plane</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
         </parameters>
       </method>
       <method name="get_update_region"
@@ -27449,20 +27983,20 @@ or 0 if the height wasn't set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="644">Gets the region previously set via gdk_memory_texture_builder_set_update_region()
+             line="736">Gets the region previously set via gdk_memory_texture_builder_set_update_region()
 or %NULL if none was set.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="80"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="96"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="651">The update region</doc>
+               line="743">The update region</doc>
           <type name="cairo.Region" c:type="cairo_region_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="646">a `GdkMemoryTextureBuilder`</doc>
+                 line="738">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27474,20 +28008,20 @@ or %NULL if none was set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="601">Gets the texture previously set via gdk_memory_texture_builder_set_update_texture()
+             line="693">Gets the texture previously set via gdk_memory_texture_builder_set_update_texture()
 or %NULL if none was set.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="74"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="90"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="608">The update texture</doc>
+               line="700">The update texture</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="603">a `GdkMemoryTextureBuilder`</doc>
+                 line="695">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27499,20 +28033,20 @@ or %NULL if none was set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="471">Gets the width previously set via gdk_memory_texture_builder_set_width()
+             line="469">Gets the width previously set via gdk_memory_texture_builder_set_width()
 or 0 if the width wasn't set.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="50"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkmemorytexturebuilder.c"
-               line="478">The width</doc>
+               line="476">The width</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="473">a `GdkMemoryTextureBuilder`</doc>
+                 line="471">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27524,7 +28058,7 @@ or 0 if the width wasn't set.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="350">Sets the data to be shown but the texture.
+             line="347">Sets the data to be shown but the texture.
 
 The bytes must be set before calling [method@Gdk.MemoryTextureBuilder.build].</doc>
         <source-position filename="gdk/gdkmemorytexturebuilder.h" line="40"/>
@@ -27535,7 +28069,7 @@ The bytes must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="352">a `GdkMemoryTextureBuilder`</doc>
+                 line="349">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27545,7 +28079,7 @@ The bytes must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="353">The bytes the texture shows or %NULL to unset</doc>
+                 line="350">The bytes the texture shows or %NULL to unset</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -27556,11 +28090,11 @@ The bytes must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="397">Sets the colorstate describing the data.
+             line="394">Sets the colorstate describing the data.
 
 By default, the sRGB colorstate is used. If you don't know
 what colorstates are, this is probably the right thing.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="70"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -27568,7 +28102,7 @@ what colorstates are, this is probably the right thing.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="399">a `GdkMemoryTextureBuilder`</doc>
+                 line="396">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27578,7 +28112,7 @@ what colorstates are, this is probably the right thing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="400">The colorstate describing the data</doc>
+                 line="397">The colorstate describing the data</doc>
             <type name="ColorState" c:type="GdkColorState*"/>
           </parameter>
         </parameters>
@@ -27589,10 +28123,10 @@ what colorstates are, this is probably the right thing.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="576">Sets the format of the bytes.
+             line="668">Sets the format of the bytes.
 
 The default is `GDK_MEMORY_R8G8B8A8_PREMULTIPLIED`.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="64"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -27600,14 +28134,14 @@ The default is `GDK_MEMORY_R8G8B8A8_PREMULTIPLIED`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="578">a `GdkMemoryTextureBuilder`</doc>
+                 line="670">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="579">The texture's format</doc>
+                 line="671">The texture's format</doc>
             <type name="MemoryFormat" c:type="GdkMemoryFormat"/>
           </parameter>
         </parameters>
@@ -27618,10 +28152,11 @@ The default is `GDK_MEMORY_R8G8B8A8_PREMULTIPLIED`.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="446">Sets the height of the texture.
+             line="443">Sets the height of the texture.
 
-The height must be set before calling [method@Gdk.MemoryTextureBuilder.build].</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="58"/>
+The height must be set before calling [method@Gdk.MemoryTextureBuilder.build]
+and conform to size requirements of the provided format.</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -27629,15 +28164,47 @@ The height must be set before calling [method@Gdk.MemoryTextureBuilder.build].</
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="448">a `GdkMemoryTextureBuilder`</doc>
+                 line="445">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="449">The texture's height or 0 to unset</doc>
+                 line="446">The texture's height or 0 to unset</doc>
             <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_offset"
+              c:identifier="gdk_memory_texture_builder_set_offset"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdkmemorytexturebuilder.c"
+             line="626">Sets the offset of the texture for @plane.</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="628">a `GdkMemoryTextureBuilder`</doc>
+            <type name="MemoryTextureBuilder"
+                  c:type="GdkMemoryTextureBuilder*"/>
+          </instance-parameter>
+          <parameter name="plane" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="629">a plane</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="630">the texture's offset for @plane</doc>
+            <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
       </method>
@@ -27647,7 +28214,7 @@ The height must be set before calling [method@Gdk.MemoryTextureBuilder.build].</
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="533">Sets the rowstride of the bytes used.
+             line="532">Sets the rowstride of the bytes used.
 
 The rowstride must be set before calling [method@Gdk.MemoryTextureBuilder.build].</doc>
         <source-position filename="gdk/gdkmemorytexturebuilder.h" line="46"/>
@@ -27658,14 +28225,46 @@ The rowstride must be set before calling [method@Gdk.MemoryTextureBuilder.build]
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="535">a `GdkMemoryTextureBuilder`</doc>
+                 line="534">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
           <parameter name="stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="536">the stride or 0 to unset</doc>
+                 line="535">the stride or 0 to unset</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stride_for_plane"
+              c:identifier="gdk_memory_texture_builder_set_stride_for_plane"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdkmemorytexturebuilder.c"
+             line="578">Sets the stride of the texture for @plane.</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="580">a `GdkMemoryTextureBuilder`</doc>
+            <type name="MemoryTextureBuilder"
+                  c:type="GdkMemoryTextureBuilder*"/>
+          </instance-parameter>
+          <parameter name="plane" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="581">a plane</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="stride" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdkmemorytexturebuilder.c"
+                 line="582">the texture's stride for @plane</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -27676,7 +28275,7 @@ The rowstride must be set before calling [method@Gdk.MemoryTextureBuilder.build]
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="663">Sets the region to be updated by this texture.
+             line="755">Sets the region to be updated by this texture.
 
 Together with [property@Gdk.MemoryTextureBuilder:update-texture],
 this describes an update of a previous texture.
@@ -27687,7 +28286,7 @@ It is then possible to describe this update via these two properties,
 so that GTK can avoid rerendering parts that did not change.
 
 An example would be a screen recording where only the mouse pointer moves.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="82"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -27695,7 +28294,7 @@ An example would be a screen recording where only the mouse pointer moves.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="665">a `GdkMemoryTextureBuilder`</doc>
+                 line="757">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27705,7 +28304,7 @@ An example would be a screen recording where only the mouse pointer moves.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="666">the region to update</doc>
+                 line="758">the region to update</doc>
             <type name="cairo.Region" c:type="cairo_region_t*"/>
           </parameter>
         </parameters>
@@ -27716,10 +28315,10 @@ An example would be a screen recording where only the mouse pointer moves.</doc>
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="620">Sets the texture to be updated by this texture.
+             line="712">Sets the texture to be updated by this texture.
 
 See [method@Gdk.MemoryTextureBuilder.set_update_region] for an explanation.</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="76"/>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -27727,7 +28326,7 @@ See [method@Gdk.MemoryTextureBuilder.set_update_region] for an explanation.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="622">a `GdkMemoryTextureBuilder`</doc>
+                 line="714">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
@@ -27737,7 +28336,7 @@ See [method@Gdk.MemoryTextureBuilder.set_update_region] for an explanation.</doc
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="623">the texture to update</doc>
+                 line="715">the texture to update</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </parameter>
         </parameters>
@@ -27748,10 +28347,11 @@ See [method@Gdk.MemoryTextureBuilder.set_update_region] for an explanation.</doc
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="490">Sets the width of the texture.
+             line="488">Sets the width of the texture.
 
-The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</doc>
-        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="52"/>
+The width must be set before calling [method@Gdk.MemoryTextureBuilder.build]
+and conform to size requirements of the provided format.</doc>
+        <source-position filename="gdk/gdkmemorytexturebuilder.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -27759,14 +28359,14 @@ The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="492">a `GdkMemoryTextureBuilder`</doc>
+                 line="490">a `GdkMemoryTextureBuilder`</doc>
             <type name="MemoryTextureBuilder"
                   c:type="GdkMemoryTextureBuilder*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkmemorytexturebuilder.c"
-                 line="493">The texture's width or 0 to unset</doc>
+                 line="491">The texture's width or 0 to unset</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -27779,7 +28379,7 @@ The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
                 getter="get_bytes">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="206">The bytes holding the data.</doc>
+             line="203">The bytes holding the data.</doc>
         <type name="GLib.Bytes"/>
       </property>
       <property name="color-state"
@@ -27790,7 +28390,7 @@ The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
                 getter="get_color_state">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="218">The colorstate describing the data.</doc>
+             line="215">The colorstate describing the data.</doc>
         <type name="ColorState"/>
       </property>
       <property name="format"
@@ -27802,7 +28402,7 @@ The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
                 default-value="GDK_MEMORY_R8G8B8A8_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="230">The format of the data.</doc>
+             line="227">The format of the data.</doc>
         <type name="MemoryFormat"/>
       </property>
       <property name="height"
@@ -27814,7 +28414,7 @@ The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
                 default-value="0">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="243">The height of the texture.</doc>
+             line="240">The height of the texture.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="stride"
@@ -27826,7 +28426,7 @@ The width must be set before calling [method@Gdk.MemoryTextureBuilder.build].</d
                 default-value="0">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="255">The rowstride of the texture.
+             line="252">The rowstride of the texture.
 
 The rowstride is the number of bytes between the first pixel
 in a row of image data, and the first pixel in the next row.</doc>
@@ -27840,7 +28440,7 @@ in a row of image data, and the first pixel in the next row.</doc>
                 getter="get_update_region">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="270">The update region for [property@Gdk.MemoryTextureBuilder:update-texture].</doc>
+             line="267">The update region for [property@Gdk.MemoryTextureBuilder:update-texture].</doc>
         <type name="cairo.Region"/>
       </property>
       <property name="update-texture"
@@ -27851,7 +28451,7 @@ in a row of image data, and the first pixel in the next row.</doc>
                 getter="get_update_texture">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="282">The texture [property@Gdk.MemoryTextureBuilder:update-region] is an update for.</doc>
+             line="279">The texture [property@Gdk.MemoryTextureBuilder:update-region] is an update for.</doc>
         <type name="Texture"/>
       </property>
       <property name="width"
@@ -27863,7 +28463,7 @@ in a row of image data, and the first pixel in the next row.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="gdk/gdkmemorytexturebuilder.c"
-             line="294">The width of the texture.</doc>
+             line="291">The width of the texture.</doc>
         <type name="gint" c:type="gint"/>
       </property>
     </class>
@@ -29820,7 +30420,7 @@ position of surface.</doc>
           <parameter name="anchor_rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="87">the anchor `GdkRectangle` to align @surface with</doc>
+                 line="87">the anchor rectangle to align @surface with</doc>
             <type name="Rectangle" c:type="const GdkRectangle*"/>
           </parameter>
           <parameter name="rect_anchor" transfer-ownership="none">
@@ -29852,7 +30452,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="152">a `GdkPopupLayout`</doc>
+                 line="152">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -29865,21 +30465,21 @@ position of surface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkpopuplayout.c"
-               line="187">%TRUE if @layout and @other have identical layout properties,
-  otherwise %FALSE.</doc>
+               line="187">true if @layout and @other have identical layout properties,
+  otherwise false.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="182">a `GdkPopupLayout`</doc>
+                 line="182">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="183">another `GdkPopupLayout`</doc>
+                 line="183">another popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </parameter>
         </parameters>
@@ -29888,19 +30488,19 @@ position of surface.</doc>
               c:identifier="gdk_popup_layout_get_anchor_hints">
         <doc xml:space="preserve"
              filename="gdk/gdkpopuplayout.c"
-             line="313">Get the `GdkAnchorHints`.</doc>
+             line="313">Get the anchor hints.</doc>
         <source-position filename="gdk/gdkpopuplayout.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkpopuplayout.c"
-               line="319">the `GdkAnchorHints`</doc>
+               line="319">the anchor hints</doc>
           <type name="AnchorHints" c:type="GdkAnchorHints"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="315">a `GdkPopupLayout`</doc>
+                 line="315">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -29921,7 +30521,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="225">a `GdkPopupLayout`</doc>
+                 line="225">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -29938,7 +30538,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="346">a `GdkPopupLayout`</doc>
+                 line="346">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="dx"
@@ -29977,7 +30577,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="253">a `GdkPopupLayout`</doc>
+                 line="253">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -29996,7 +30596,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="394">a `GdkPopupLayout`</doc>
+                 line="394">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="left"
@@ -30053,7 +30653,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="281">a `GdkPopupLayout`</doc>
+                 line="281">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -30073,7 +30673,7 @@ position of surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="124">a `GdkPopupLayout`</doc>
+                 line="124">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -30086,8 +30686,8 @@ position of surface.</doc>
 
 The set @anchor_hints determines how @surface will be moved
 if the anchor points cause it to move off-screen. For example,
-%GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
-%GDK_GRAVITY_NORTH_EAST and vice versa if @surface extends
+`GDK_ANCHOR_FLIP_X` will replace `GDK_GRAVITY_NORTH_WEST` with
+`GDK_GRAVITY_NORTH_EAST` and vice versa if @surface extends
 beyond the left or right edges of the monitor.</doc>
         <source-position filename="gdk/gdkpopuplayout.h" line="117"/>
         <return-value transfer-ownership="none">
@@ -30097,13 +30697,13 @@ beyond the left or right edges of the monitor.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="295">a `GdkPopupLayout`</doc>
+                 line="295">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="anchor_hints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="296">the new `GdkAnchorHints`</doc>
+                 line="296">the new anchor hints</doc>
             <type name="AnchorHints" c:type="GdkAnchorHints"/>
           </parameter>
         </parameters>
@@ -30121,7 +30721,7 @@ beyond the left or right edges of the monitor.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="211">a `GdkPopupLayout`</doc>
+                 line="211">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="anchor_rect" transfer-ownership="none">
@@ -30144,7 +30744,7 @@ beyond the left or right edges of the monitor.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="329">a `GdkPopupLayout`</doc>
+                 line="329">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="dx" transfer-ownership="none">
@@ -30174,7 +30774,7 @@ beyond the left or right edges of the monitor.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="239">a `GdkPopupLayout`</doc>
+                 line="239">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="anchor" transfer-ownership="none">
@@ -30203,7 +30803,7 @@ surrounding the window, would there be any.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="365">a `GdkPopupLayout`</doc>
+                 line="365">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="left" transfer-ownership="none">
@@ -30245,7 +30845,7 @@ surrounding the window, would there be any.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="267">a `GdkPopupLayout`</doc>
+                 line="267">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
           <parameter name="anchor" transfer-ownership="none">
@@ -30268,7 +30868,7 @@ surrounding the window, would there be any.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkpopuplayout.c"
-                 line="139">a `GdkPopupLayout`</doc>
+                 line="139">a popup layout</doc>
             <type name="PopupLayout" c:type="GdkPopupLayout*"/>
           </instance-parameter>
         </parameters>
@@ -32549,7 +33149,7 @@ data.</doc>
                    c:identifier="gdk_texture_new_for_pixbuf">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="523">Creates a new texture object representing the `GdkPixbuf`.
+             line="522">Creates a new texture object representing the `GdkPixbuf`.
 
 This function is threadsafe, so that you can e.g. use GTask
 and [method@Gio.Task.run_in_thread] to avoid blocking the main thread
@@ -32558,14 +33158,14 @@ while loading a big image.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="533">a new `GdkTexture`</doc>
+               line="532">a new `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <parameter name="pixbuf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="525">a `GdkPixbuf`</doc>
+                 line="524">a `GdkPixbuf`</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
         </parameters>
@@ -32576,7 +33176,7 @@ while loading a big image.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="698">Creates a new texture by loading an image from memory,
+             line="697">Creates a new texture by loading an image from memory,
 
 The file format is detected automatically. The supported formats
 are PNG, JPEG and TIFF, though more formats might be available.
@@ -32590,14 +33190,14 @@ while loading a big image.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="714">A newly-created `GdkTexture`</doc>
+               line="713">A newly-created `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="700">a `GBytes` containing the data to load</doc>
+                 line="699">a `GBytes` containing the data to load</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -32607,7 +33207,7 @@ while loading a big image.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="605">Creates a new texture by loading an image from a file.
+             line="604">Creates a new texture by loading an image from a file.
 
 The file format is detected automatically. The supported formats
 are PNG, JPEG and TIFF, though more formats might be available.
@@ -32621,14 +33221,14 @@ while loading a big image.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="621">A newly-created `GdkTexture`</doc>
+               line="620">A newly-created `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="607">`GFile` to load</doc>
+                 line="606">`GFile` to load</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -32639,7 +33239,7 @@ while loading a big image.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="744">Creates a new texture by loading an image from a file.
+             line="743">Creates a new texture by loading an image from a file.
 
 The file format is detected automatically. The supported formats
 are PNG, JPEG and TIFF, though more formats might be available.
@@ -32653,14 +33253,14 @@ while loading a big image.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="760">A newly-created `GdkTexture`</doc>
+               line="759">A newly-created `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="746">the filename to load</doc>
+                 line="745">the filename to load</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -32669,7 +33269,7 @@ while loading a big image.</doc>
                    c:identifier="gdk_texture_new_from_resource">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="561">Creates a new texture by loading an image from a resource.
+             line="560">Creates a new texture by loading an image from a resource.
 
 The file format is detected automatically. The supported formats
 are PNG and JPEG, though more formats might be available.
@@ -32686,14 +33286,14 @@ while loading a big image.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="579">A newly-created `GdkTexture`</doc>
+               line="578">A newly-created `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
           <parameter name="resource_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="563">the path of the resource file</doc>
+                 line="562">the path of the resource file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -32701,7 +33301,7 @@ while loading a big image.</doc>
       <method name="download" c:identifier="gdk_texture_download">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="981">Downloads the @texture into local memory.
+             line="1006">Downloads the @texture into local memory.
 
 This may be an expensive operation, as the actual texture data
 may reside on a GPU or on a remote display server.
@@ -32731,13 +33331,13 @@ For more flexible download capabilities, see
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="983">a `GdkTexture`</doc>
+                 line="1008">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="984">pointer to enough memory to be filled with the
+                 line="1009">pointer to enough memory to be filled with the
   downloaded data of @texture</doc>
             <array zero-terminated="0" c:type="guchar*">
               <type name="guint8" c:type="guchar"/>
@@ -32746,7 +33346,7 @@ For more flexible download capabilities, see
           <parameter name="stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="986">rowstride in bytes</doc>
+                 line="1011">rowstride in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -32757,19 +33357,19 @@ For more flexible download capabilities, see
               version="4.16">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="815">Returns the color state associated with the texture.</doc>
+             line="814">Returns the color state associated with the texture.</doc>
         <source-position filename="gdk/gdktexture.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="821">the color state of the `GdkTexture`</doc>
+               line="820">the color state of the `GdkTexture`</doc>
           <type name="ColorState" c:type="GdkColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="817">a `GdkTexture`</doc>
+                 line="816">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
         </parameters>
@@ -32779,7 +33379,7 @@ For more flexible download capabilities, see
               version="4.10">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="1027">Gets the memory format most closely associated with the data of
+             line="1056">Gets the memory format most closely associated with the data of
 the texture.
 
 Note that it may not be an exact match for texture data
@@ -32792,14 +33392,14 @@ downloading the texture.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="1041">the preferred format for the texture's data</doc>
+               line="1070">the preferred format for the texture's data</doc>
           <type name="MemoryFormat" c:type="GdkMemoryFormat"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1029">a GdkTexture</doc>
+                 line="1058">a GdkTexture</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
         </parameters>
@@ -32809,19 +33409,19 @@ downloading the texture.</doc>
               glib:get-property="height">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="799">Returns the height of the @texture, in pixels.</doc>
+             line="798">Returns the height of the @texture, in pixels.</doc>
         <source-position filename="gdk/gdktexture.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="805">the height of the `GdkTexture`</doc>
+               line="804">the height of the `GdkTexture`</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="801">a `GdkTexture`</doc>
+                 line="800">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
         </parameters>
@@ -32831,19 +33431,19 @@ downloading the texture.</doc>
               glib:get-property="width">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="783">Returns the width of @texture, in pixels.</doc>
+             line="782">Returns the width of @texture, in pixels.</doc>
         <source-position filename="gdk/gdktexture.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="789">the width of the `GdkTexture`</doc>
+               line="788">the width of the `GdkTexture`</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="785">a `GdkTexture`</doc>
+                 line="784">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
         </parameters>
@@ -32851,7 +33451,7 @@ downloading the texture.</doc>
       <method name="save_to_png" c:identifier="gdk_texture_save_to_png">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="1107">Store the given @texture to the @filename as a PNG file.
+             line="1136">Store the given @texture to the @filename as a PNG file.
 
 This is a utility function intended for debugging and testing.
 If you want more control over formats, proper error handling or
@@ -32862,20 +33462,20 @@ gdk-pixbuf library.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="1120">%TRUE if saving succeeded, %FALSE on failure.</doc>
+               line="1149">%TRUE if saving succeeded, %FALSE on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1109">a `GdkTexture`</doc>
+                 line="1138">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1110">the filename to store to</doc>
+                 line="1139">the filename to store to</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -32885,7 +33485,7 @@ gdk-pixbuf library.</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="1142">Store the given @texture in memory as a PNG file.
+             line="1171">Store the given @texture in memory as a PNG file.
 
 Use [ctor@Gdk.Texture.new_from_bytes] to read it back.
 
@@ -32903,14 +33503,14 @@ instead.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="1161">a newly allocated `GBytes` containing PNG data</doc>
+               line="1190">a newly allocated `GBytes` containing PNG data</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1144">a `GdkTexture`</doc>
+                 line="1173">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
         </parameters>
@@ -32920,27 +33520,27 @@ instead.</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="1173">Store the given @texture to the @filename as a TIFF file.
+             line="1202">Store the given @texture to the @filename as a TIFF file.
 
 GTK will attempt to store data without loss.</doc>
         <source-position filename="gdk/gdktexture.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="1181">%TRUE if saving succeeded, %FALSE on failure.</doc>
+               line="1210">%TRUE if saving succeeded, %FALSE on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1175">a `GdkTexture`</doc>
+                 line="1204">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1176">the filename to store to</doc>
+                 line="1205">the filename to store to</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -32950,7 +33550,7 @@ GTK will attempt to store data without loss.</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="1205">Store the given @texture in memory as a TIFF file.
+             line="1234">Store the given @texture in memory as a TIFF file.
 
 Use [ctor@Gdk.Texture.new_from_bytes] to read it back.
 
@@ -32966,14 +33566,14 @@ use [method@Gdk.Texture.save_to_png_bytes].</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexture.c"
-               line="1222">a newly allocated `GBytes` containing TIFF data</doc>
+               line="1251">a newly allocated `GBytes` containing TIFF data</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexture.c"
-                 line="1207">a `GdkTexture`</doc>
+                 line="1236">a `GdkTexture`</doc>
             <type name="Texture" c:type="GdkTexture*"/>
           </instance-parameter>
         </parameters>
@@ -32986,7 +33586,7 @@ use [method@Gdk.Texture.save_to_png_bytes].</doc>
                 getter="get_color_state">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="427">The color state of the texture.</doc>
+             line="426">The color state of the texture.</doc>
         <type name="ColorState"/>
       </property>
       <property name="height"
@@ -32997,7 +33597,7 @@ use [method@Gdk.Texture.save_to_png_bytes].</doc>
                 default-value="1">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="412">The height of the texture, in pixels.</doc>
+             line="411">The height of the texture, in pixels.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="width"
@@ -33008,7 +33608,7 @@ use [method@Gdk.Texture.save_to_png_bytes].</doc>
                 default-value="1">
         <doc xml:space="preserve"
              filename="gdk/gdktexture.c"
-             line="397">The width of the texture, in pixels.</doc>
+             line="396">The width of the texture, in pixels.</doc>
         <type name="gint" c:type="gint"/>
       </property>
     </class>
@@ -33093,25 +33693,28 @@ This function is meant for language bindings.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gdk/gdktexturedownloader.c"
-             line="269">Downloads the given texture pixels into a `GBytes`. The rowstride will
+             line="313">Downloads the given texture pixels into a `GBytes`. The rowstride will
 be stored in the stride value.
 
 This function will abort if it tries to download a large texture and
 fails to allocate memory. If you think that may happen, you should handle
 memory allocation yourself and use [method@Gdk.TextureDownloader.download_into]
-once allocation succeeded.</doc>
+once allocation succeeded.
+
+This function cannot be used with a multiplanar format. Use
+[method@Gdk.TextureDownloader.download_bytes_with_planes] for that purpose.</doc>
         <source-position filename="gdk/gdktexturedownloader.h" line="63"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdktexturedownloader.c"
-               line="282">The downloaded pixels</doc>
+               line="329">The downloaded pixels</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexturedownloader.c"
-                 line="271">the downloader</doc>
+                 line="315">the downloader</doc>
             <type name="TextureDownloader"
                   c:type="const GdkTextureDownloader*"/>
           </instance-parameter>
@@ -33121,8 +33724,57 @@ once allocation succeeded.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdktexturedownloader.c"
-                 line="272">The stride of the resulting data in bytes</doc>
+                 line="316">The stride of the resulting data in bytes</doc>
             <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="download_bytes_with_planes"
+              c:identifier="gdk_texture_downloader_download_bytes_with_planes"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdktexturedownloader.c"
+             line="359">Downloads the given texture pixels into a `GBytes`. The offsets and
+strides of the resulting buffer will be stored in the respective values.
+
+If the format does have less than 4 planes, the remaining offsets and strides will be
+set to `0`.</doc>
+        <source-position filename="gdk/gdktexturedownloader.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gdk/gdktexturedownloader.c"
+               line="371">The downloaded pixels</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktexturedownloader.c"
+                 line="361">the downloader</doc>
+            <type name="TextureDownloader"
+                  c:type="const GdkTextureDownloader*"/>
+          </instance-parameter>
+          <parameter name="out_offsets"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktexturedownloader.c"
+                 line="362">The offsets of the resulting data planes in bytes</doc>
+            <array zero-terminated="0" c:type="gsize*" fixed-size="4">
+              <type name="gsize" c:type="gsize"/>
+            </array>
+          </parameter>
+          <parameter name="out_strides"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktexturedownloader.c"
+                 line="363">The stride of the resulting data planes in bytes</doc>
+            <array zero-terminated="0" c:type="gsize*" fixed-size="4">
+              <type name="gsize" c:type="gsize"/>
+            </array>
           </parameter>
         </parameters>
       </method>
@@ -33131,7 +33783,9 @@ once allocation succeeded.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gdk/gdktexturedownloader.c"
-             line="246">Downloads the @texture into local memory.</doc>
+             line="257">Downloads the @texture into local memory.
+
+This function cannot be used with a multiplanar format.</doc>
         <source-position filename="gdk/gdktexturedownloader.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -33140,14 +33794,14 @@ once allocation succeeded.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexturedownloader.c"
-                 line="248">a texture downloader</doc>
+                 line="259">a texture downloader</doc>
             <type name="TextureDownloader"
                   c:type="const GdkTextureDownloader*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexturedownloader.c"
-                 line="249">pointer to enough memory to be filled with the
+                 line="260">pointer to enough memory to be filled with the
   downloaded data of the texture</doc>
             <array zero-terminated="0" c:type="guchar*">
               <type name="guint8" c:type="guchar"/>
@@ -33156,7 +33810,7 @@ once allocation succeeded.</doc>
           <parameter name="stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktexturedownloader.c"
-                 line="251">rowstride in bytes</doc>
+                 line="262">rowstride in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -33474,7 +34128,7 @@ surface, setting icons and transient parents for dialogs.</doc>
       <method name="begin_move" c:identifier="gdk_toplevel_begin_move">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="703">Begins an interactive move operation.
+             line="740">Begins an interactive move operation.
 
 You might use this function to implement draggable titlebars.</doc>
         <source-position filename="gdk/gdktoplevel.h" line="218"/>
@@ -33485,37 +34139,37 @@ You might use this function to implement draggable titlebars.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="705">a `GdkToplevel`</doc>
+                 line="742">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="706">the device used for the operation</doc>
+                 line="743">the device used for the operation</doc>
             <type name="Device" c:type="GdkDevice*"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="707">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
+                 line="744">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="708">surface X coordinate of mouse click that began the drag</doc>
+                 line="745">surface X coordinate of mouse click that began the drag</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="709">surface Y coordinate of mouse click that began the drag</doc>
+                 line="746">surface Y coordinate of mouse click that began the drag</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="710">timestamp of mouse click that began the drag (use
+                 line="747">timestamp of mouse click that began the drag (use
   [method@Gdk.Event.get_time])</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
@@ -33524,7 +34178,7 @@ You might use this function to implement draggable titlebars.</doc>
       <method name="begin_resize" c:identifier="gdk_toplevel_begin_resize">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="660">Begins an interactive resize operation.
+             line="697">Begins an interactive resize operation.
 
 You might use this function to implement a “window resize grip.”</doc>
         <source-position filename="gdk/gdktoplevel.h" line="209"/>
@@ -33535,13 +34189,13 @@ You might use this function to implement a “window resize grip.”</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="662">a `GdkToplevel`</doc>
+                 line="699">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="edge" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="663">the edge or corner from which the drag is started</doc>
+                 line="700">the edge or corner from which the drag is started</doc>
             <type name="SurfaceEdge" c:type="GdkSurfaceEdge"/>
           </parameter>
           <parameter name="device"
@@ -33550,31 +34204,31 @@ You might use this function to implement a “window resize grip.”</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="664">the device used for the operation</doc>
+                 line="701">the device used for the operation</doc>
             <type name="Device" c:type="GdkDevice*"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="665">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
+                 line="702">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="666">surface X coordinate of mouse click that began the drag</doc>
+                 line="703">surface X coordinate of mouse click that began the drag</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="667">surface Y coordinate of mouse click that began the drag</doc>
+                 line="704">surface Y coordinate of mouse click that began the drag</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="668">timestamp of mouse click that began the drag (use
+                 line="705">timestamp of mouse click that began the drag (use
   [method@Gdk.Event.get_time])</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
@@ -33583,7 +34237,7 @@ You might use this function to implement a “window resize grip.”</doc>
       <method name="focus" c:identifier="gdk_toplevel_focus">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="373">Sets keyboard focus to @surface.
+             line="410">Sets keyboard focus to @surface.
 
 In most cases, [gtk_window_present_with_time()](../gtk4/method.Window.present_with_time.html)
 should be used on a [GtkWindow](../gtk4/class.Window.html), rather than
@@ -33596,15 +34250,59 @@ calling this function.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="375">a `GdkToplevel`</doc>
+                 line="412">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="376">timestamp of the event triggering the surface focus</doc>
+                 line="413">timestamp of the event triggering the surface focus</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="get_capabilities"
+              c:identifier="gdk_toplevel_get_capabilities"
+              glib:get-property="capabilities"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.c"
+             line="869">The capabilities that are available for this toplevel.</doc>
+        <source-position filename="gdk/gdktoplevel.h" line="318"/>
+        <return-value transfer-ownership="none">
+          <type name="ToplevelCapabilities" c:type="GdkToplevelCapabilities"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="toplevel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktoplevel.c"
+                 line="871">a `GdkToplevel`</doc>
+            <type name="Toplevel" c:type="GdkToplevel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_gravity"
+              c:identifier="gdk_toplevel_get_gravity"
+              glib:get-property="gravity"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.c"
+             line="889">Returns the gravity that is used when changing the toplevel
+size programmatically.</doc>
+        <source-position filename="gdk/gdktoplevel.h" line="321"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gdk/gdktoplevel.c"
+               line="896">the gravity</doc>
+          <type name="Gravity" c:type="GdkGravity"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="toplevel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktoplevel.c"
+                 line="891">a toplevel</doc>
+            <type name="Toplevel" c:type="GdkToplevel*"/>
+          </instance-parameter>
         </parameters>
       </method>
       <method name="get_state"
@@ -33612,20 +34310,20 @@ calling this function.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="393">Gets the bitwise or of the currently active surface state flags,
+             line="430">Gets the bitwise or of the currently active surface state flags,
 from the `GdkToplevelState` enumeration.</doc>
         <source-position filename="gdk/gdktoplevel.h" line="165"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevel.c"
-               line="400">surface state bitfield</doc>
+               line="437">surface state bitfield</doc>
           <type name="ToplevelState" c:type="GdkToplevelState"/>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="395">a `GdkToplevel`</doc>
+                 line="432">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
         </parameters>
@@ -33634,7 +34332,7 @@ from the `GdkToplevelState` enumeration.</doc>
               c:identifier="gdk_toplevel_inhibit_system_shortcuts">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="605">Requests that the @toplevel inhibit the system shortcuts.
+             line="642">Requests that the @toplevel inhibit the system shortcuts.
 
 This is asking the desktop environment/windowing system to let all
 keyboard events reach the surface, as long as it is focused, instead
@@ -33663,7 +34361,7 @@ by listening to the [property@Gdk.Toplevel:shortcuts-inhibited] property.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="607">a `GdkToplevel`</doc>
+                 line="644">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="event"
@@ -33672,7 +34370,7 @@ by listening to the [property@Gdk.Toplevel:shortcuts-inhibited] property.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="608">the `GdkEvent` that is triggering the inhibit
+                 line="645">the `GdkEvent` that is triggering the inhibit
   request, or %NULL if none is available</doc>
             <type name="Event" c:type="GdkEvent*"/>
           </parameter>
@@ -33681,21 +34379,21 @@ by listening to the [property@Gdk.Toplevel:shortcuts-inhibited] property.</doc>
       <method name="lower" c:identifier="gdk_toplevel_lower">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="355">Asks to lower the @toplevel below other windows.
+             line="392">Asks to lower the @toplevel below other windows.
 
 The windowing system may choose to ignore the request.</doc>
         <source-position filename="gdk/gdktoplevel.h" line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevel.c"
-               line="363">%TRUE if the surface was lowered</doc>
+               line="400">%TRUE if the surface was lowered</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="357">a `GdkToplevel`</doc>
+                 line="394">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
         </parameters>
@@ -33703,21 +34401,21 @@ The windowing system may choose to ignore the request.</doc>
       <method name="minimize" c:identifier="gdk_toplevel_minimize">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="337">Asks to minimize the @toplevel.
+             line="374">Asks to minimize the @toplevel.
 
 The windowing system may choose to ignore the request.</doc>
         <source-position filename="gdk/gdktoplevel.h" line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevel.c"
-               line="345">%TRUE if the surface was minimized</doc>
+               line="382">%TRUE if the surface was minimized</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="339">a `GdkToplevel`</doc>
+                 line="376">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
         </parameters>
@@ -33725,7 +34423,7 @@ The windowing system may choose to ignore the request.</doc>
       <method name="present" c:identifier="gdk_toplevel_present">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="310">Present @toplevel after having processed the `GdkToplevelLayout` rules.
+             line="347">Present @toplevel after having processed the `GdkToplevelLayout` rules.
 
 If the toplevel was previously not showing, it will be showed,
 otherwise it will change layout according to @layout.
@@ -33744,13 +34442,13 @@ guaranteed to be respected.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="312">the `GdkToplevel` to show</doc>
+                 line="349">the `GdkToplevel` to show</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="313">the `GdkToplevelLayout` object used to layout</doc>
+                 line="350">the `GdkToplevelLayout` object used to layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </parameter>
         </parameters>
@@ -33759,7 +34457,7 @@ guaranteed to be respected.</doc>
               c:identifier="gdk_toplevel_restore_system_shortcuts">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="643">Restore default system keyboard shortcuts which were previously
+             line="680">Restore default system keyboard shortcuts which were previously
 inhibited.
 
 This undoes the effect of [method@Gdk.Toplevel.inhibit_system_shortcuts].</doc>
@@ -33771,7 +34469,7 @@ This undoes the effect of [method@Gdk.Toplevel.inhibit_system_shortcuts].</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="645">a `GdkToplevel`</doc>
+                 line="682">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
         </parameters>
@@ -33781,7 +34479,7 @@ This undoes the effect of [method@Gdk.Toplevel.inhibit_system_shortcuts].</doc>
               glib:set-property="decorated">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="549">Sets the toplevel to be decorated.
+             line="586">Sets the toplevel to be decorated.
 
 Setting @decorated to %FALSE hints the desktop environment
 that the surface has its own, client-side decorations and
@@ -33794,13 +34492,13 @@ does not need to have window decorations added.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="551">a `GdkToplevel`</doc>
+                 line="588">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="decorated" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="552">%TRUE to request decorations</doc>
+                 line="589">%TRUE to request decorations</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -33810,7 +34508,7 @@ does not need to have window decorations added.</doc>
               glib:set-property="deletable">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="569">Sets the toplevel to be deletable.
+             line="606">Sets the toplevel to be deletable.
 
 Setting @deletable to %TRUE hints the desktop environment
 that it should offer the user a way to close the surface.</doc>
@@ -33822,14 +34520,41 @@ that it should offer the user a way to close the surface.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="571">a `GdkToplevel`</doc>
+                 line="608">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="deletable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="572">%TRUE to request a delete button</doc>
+                 line="609">%TRUE to request a delete button</doc>
             <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_gravity"
+              c:identifier="gdk_toplevel_set_gravity"
+              glib:set-property="gravity"
+              version="4.20">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.c"
+             line="912">Sets the gravity that is used when changing the toplevel
+size programmatically.</doc>
+        <source-position filename="gdk/gdktoplevel.h" line="324"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="toplevel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktoplevel.c"
+                 line="914">a toplevel</doc>
+            <type name="Toplevel" c:type="GdkToplevel*"/>
+          </instance-parameter>
+          <parameter name="gravity" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gdk/gdktoplevel.c"
+                 line="915">the new gravity</doc>
+            <type name="Gravity" c:type="GdkGravity"/>
           </parameter>
         </parameters>
       </method>
@@ -33838,7 +34563,7 @@ that it should offer the user a way to close the surface.</doc>
               glib:set-property="icon-list">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="501">Sets a list of icons for the surface.
+             line="538">Sets a list of icons for the surface.
 
 One of these will be used to represent the surface in iconic form.
 The icon may be shown in window lists or task bars. Which icon
@@ -33855,13 +34580,13 @@ Note that some platforms don't support surface icons.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="503">a `GdkToplevel`</doc>
+                 line="540">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="surfaces" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="504">
+                 line="541">
   A list of textures to use as icon, of different sizes</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Texture"/>
@@ -33874,7 +34599,7 @@ Note that some platforms don't support surface icons.</doc>
               glib:set-property="modal">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="477">Sets the toplevel to be modal.
+             line="514">Sets the toplevel to be modal.
 
 The application can use this hint to tell the
 window manager that a certain surface has modal
@@ -33891,13 +34616,13 @@ previously called [method@Gdk.Toplevel.set_transient_for].</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="479">a `GdkToplevel`</doc>
+                 line="516">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="modal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="480">%TRUE if the surface is modal, %FALSE otherwise.</doc>
+                 line="517">%TRUE if the surface is modal, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -33907,7 +34632,7 @@ previously called [method@Gdk.Toplevel.set_transient_for].</doc>
               glib:set-property="startup-id">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="433">Sets the startup notification ID.
+             line="470">Sets the startup notification ID.
 
 When using GTK, typically you should use
 [gtk_window_set_startup_id()](../gtk4/method.Window.set_startup_id.html)
@@ -33920,13 +34645,13 @@ instead of this low-level function.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="435">a `GdkToplevel`</doc>
+                 line="472">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="startup_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="436">a string with startup-notification identifier</doc>
+                 line="473">a string with startup-notification identifier</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -33936,7 +34661,7 @@ instead of this low-level function.</doc>
               glib:set-property="title">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="414">Sets the title of a toplevel surface.
+             line="451">Sets the title of a toplevel surface.
 
 The title maybe be displayed in the titlebar,
 in lists of windows, etc.</doc>
@@ -33948,13 +34673,13 @@ in lists of windows, etc.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="416">a `GdkToplevel`</doc>
+                 line="453">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="417">title of @surface</doc>
+                 line="454">title of @surface</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -33964,7 +34689,7 @@ in lists of windows, etc.</doc>
               glib:set-property="transient-for">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="453">Sets a transient-for parent.
+             line="490">Sets a transient-for parent.
 
 Indicates to the window manager that @surface is a transient
 dialog associated with the application surface @parent. This
@@ -33981,13 +34706,13 @@ if you’re using [GtkWindow](../gtk4/class.Window.html).</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="455">a `GdkToplevel`</doc>
+                 line="492">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="456">another toplevel `GdkSurface`</doc>
+                 line="493">another toplevel `GdkSurface`</doc>
             <type name="Surface" c:type="GdkSurface*"/>
           </parameter>
         </parameters>
@@ -33996,7 +34721,7 @@ if you’re using [GtkWindow](../gtk4/class.Window.html).</doc>
               c:identifier="gdk_toplevel_show_window_menu">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="526">Asks the windowing system to show the window menu.
+             line="563">Asks the windowing system to show the window menu.
 
 The window menu is the menu shown when right-clicking the titlebar
 on traditional windows managed by the window manager. This is useful
@@ -34006,20 +34731,20 @@ right-click on the window decorations.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevel.c"
-               line="538">%TRUE if the window menu was shown and %FALSE otherwise.</doc>
+               line="575">%TRUE if the window menu was shown and %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="528">a `GdkToplevel`</doc>
+                 line="565">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="529">a `GdkEvent` to show the menu for</doc>
+                 line="566">a `GdkEvent` to show the menu for</doc>
             <type name="Event" c:type="GdkEvent*"/>
           </parameter>
         </parameters>
@@ -34028,20 +34753,20 @@ right-click on the window decorations.</doc>
               c:identifier="gdk_toplevel_supports_edge_constraints">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="588">Returns whether the desktop environment supports
+             line="625">Returns whether the desktop environment supports
 tiled window states.</doc>
         <source-position filename="gdk/gdktoplevel.h" line="199"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevel.c"
-               line="595">%TRUE if the desktop environment supports tiled window states</doc>
+               line="632">%TRUE if the desktop environment supports tiled window states</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="590">a `GdkToplevel`</doc>
+                 line="627">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
         </parameters>
@@ -34051,29 +34776,39 @@ tiled window states.</doc>
               version="4.4">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="743">Performs a title bar gesture.</doc>
+             line="780">Performs a title bar gesture.</doc>
         <source-position filename="gdk/gdktoplevel.h" line="226"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevel.c"
-               line="750">whether the gesture was performed</doc>
+               line="787">whether the gesture was performed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="745">a `GdkToplevel`</doc>
+                 line="782">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="gesture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="746">a `GdkTitlebarGesture`</doc>
+                 line="783">a `GdkTitlebarGesture`</doc>
             <type name="TitlebarGesture" c:type="GdkTitlebarGesture"/>
           </parameter>
         </parameters>
       </method>
+      <property name="capabilities"
+                version="4.20"
+                transfer-ownership="none"
+                getter="get_capabilities"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.c"
+             line="262">The capabilities that are available for this toplevel.</doc>
+        <type name="ToplevelCapabilities"/>
+      </property>
       <property name="decorated"
                 writable="1"
                 transfer-ownership="none"
@@ -34102,6 +34837,27 @@ tiled window states.</doc>
              filename="gdk/gdktoplevel.c"
              line="241">The fullscreen mode of the surface.</doc>
         <type name="FullscreenMode"/>
+      </property>
+      <property name="gravity"
+                version="4.20"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_gravity"
+                getter="get_gravity"
+                default-value="GDK_GRAVITY_NORTH_EAST">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.c"
+             line="275">The gravity to use when resizing a surface programmatically.
+
+Gravity describes which point of the surface we want to keep
+fixed (meaning that the surface will grow in the opposite direction).
+For example, a gravity of `GDK_GRAVITY_NORTH_EAST` means that we
+want to fix top right corner of the surface.
+
+This property is just a hint that may affect the result when negotiating
+toplevel sizes with the windowing system. It does not affect interactive
+resizes started with [method@Gdk.Toplevel.begin_resize].</doc>
+        <type name="Gravity"/>
       </property>
       <property name="icon-list"
                 writable="1"
@@ -34174,7 +34930,7 @@ startup feedback.</doc>
       <glib:signal name="compute-size" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdktoplevel.c"
-             line="262">Emitted when the size for the surface needs to be computed, when
+             line="297">Emitted when the size for the surface needs to be computed, when
 it is present.
 
 This signal will normally be emitted during or after a call to
@@ -34194,12 +34950,106 @@ will result in an arbitrary size being used as a result.</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevel.c"
-                 line="265">a `GdkToplevelSize`</doc>
+                 line="300">a `GdkToplevelSize`</doc>
             <type name="ToplevelSize"/>
           </parameter>
         </parameters>
       </glib:signal>
     </interface>
+    <bitfield name="ToplevelCapabilities"
+              version="4.20"
+              glib:type-name="GdkToplevelCapabilities"
+              glib:get-type="gdk_toplevel_capabilities_get_type"
+              c:type="GdkToplevelCapabilities">
+      <doc xml:space="preserve"
+           filename="gdk/gdktoplevel.h"
+           line="229">Reflects what features a `GdkToplevel` supports.</doc>
+      <member name="edge_constraints"
+              value="1"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_EDGE_CONSTRAINTS"
+              version="4.20"
+              glib:nick="edge-constraints"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_EDGE_CONSTRAINTS">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="237">Whether tiled window states are supported.</doc>
+      </member>
+      <member name="inhibit_shortcuts"
+              value="2"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_INHIBIT_SHORTCUTS"
+              version="4.20"
+              glib:nick="inhibit-shortcuts"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_INHIBIT_SHORTCUTS">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="245">Whether inhibiting system shortcuts is supported.
+See [method@Gdk.Toplevel.inhibit_system_shortcuts].</doc>
+      </member>
+      <member name="titlebar_gestures"
+              value="4"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_TITLEBAR_GESTURES"
+              version="4.20"
+              glib:nick="titlebar-gestures"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_TITLEBAR_GESTURES">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="254">Whether titlebar gestures are supported.
+See [method@Gdk.Toplevel.titlebar_gesture].</doc>
+      </member>
+      <member name="window_menu"
+              value="8"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_WINDOW_MENU"
+              version="4.20"
+              glib:nick="window-menu"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_WINDOW_MENU">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="263">Whether showing the window menu is supported.
+See [method@Gdk.Toplevel.show_window_menu].</doc>
+      </member>
+      <member name="maximize"
+              value="16"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_MAXIMIZE"
+              version="4.20"
+              glib:nick="maximize"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_MAXIMIZE">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="272">Whether the toplevel can be maximized.</doc>
+      </member>
+      <member name="fullscreen"
+              value="32"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_FULLSCREEN"
+              version="4.20"
+              glib:nick="fullscreen"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_FULLSCREEN">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="280">Whether the toplevel can be made fullscreen.</doc>
+      </member>
+      <member name="minimize"
+              value="64"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_MINIMIZE"
+              version="4.20"
+              glib:nick="minimize"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_MINIMIZE">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="288">Whether the toplevel can be minimized.
+See [method@Gdk.Toplevel.minimize].</doc>
+      </member>
+      <member name="lower"
+              value="128"
+              c:identifier="GDK_TOPLEVEL_CAPABILITIES_LOWER"
+              version="4.20"
+              glib:nick="lower"
+              glib:name="GDK_TOPLEVEL_CAPABILITIES_LOWER">
+        <doc xml:space="preserve"
+             filename="gdk/gdktoplevel.h"
+             line="297">Whether the toplevel can be lowered.
+See [method@Gdk.Toplevel.lower].</doc>
+      </member>
+    </bitfield>
     <record name="ToplevelInterface"
             c:type="GdkToplevelInterface"
             disguised="1"
@@ -34230,11 +35080,11 @@ etc).</doc>
              filename="gdk/gdktoplevellayout.c"
              line="56">Create a toplevel layout description.
 
-Used together with gdk_toplevel_present() to describe
+Used together with [method@Gdk.Toplevel.present] to describe
 how a toplevel surface should be placed and behave on-screen.
 
 The size is in ”application pixels”, not
-”device pixels” (see gdk_surface_get_scale_factor()).</doc>
+”device pixels” (see [method@Gdk.Surface.get_scale]).</doc>
         <source-position filename="gdk/gdktoplevellayout.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -34258,7 +35108,7 @@ The size is in ”application pixels”, not
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="119">a `GdkToplevelLayout`</doc>
+                 line="119">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -34271,21 +35121,21 @@ The size is in ”application pixels”, not
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevellayout.c"
-               line="151">%TRUE if @layout and @other have identical layout properties,
-  otherwise %FALSE.</doc>
+               line="151">true if @layout and @other have identical layout properties,
+  otherwise false.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="146">a `GdkToplevelLayout`</doc>
+                 line="146">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="147">another `GdkToplevelLayout`</doc>
+                 line="147">another toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </parameter>
         </parameters>
@@ -34295,8 +35145,8 @@ The size is in ”application pixels”, not
         <doc xml:space="preserve"
              filename="gdk/gdktoplevellayout.c"
              line="259">If the layout specifies whether to the toplevel should go fullscreen,
-the value pointed to by @fullscreen is set to %TRUE if it should go
-fullscreen, or %FALSE, if it should go unfullscreen.</doc>
+the value pointed to by @fullscreen is set to true if it should go
+fullscreen, or false, if it should go unfullscreen.</doc>
         <source-position filename="gdk/gdktoplevellayout.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -34308,7 +35158,7 @@ fullscreen, or %FALSE, if it should go unfullscreen.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="261">a ``GdkToplevelLayout`</doc>
+                 line="261">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="fullscreen"
@@ -34339,7 +35189,7 @@ the surface on.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="285">a `GdkToplevelLayout`</doc>
+                 line="285">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -34349,8 +35199,8 @@ the surface on.</doc>
         <doc xml:space="preserve"
              filename="gdk/gdktoplevellayout.c"
              line="215">If the layout specifies whether to the toplevel should go maximized,
-the value pointed to by @maximized is set to %TRUE if it should go
-fullscreen, or %FALSE, if it should go unmaximized.</doc>
+the value pointed to by @maximized is set to true if it should go
+maximized, or false, if it should go unmaximized.</doc>
         <source-position filename="gdk/gdktoplevellayout.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -34362,7 +35212,7 @@ fullscreen, or %FALSE, if it should go unmaximized.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="217">a `GdkToplevelLayout`</doc>
+                 line="217">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="maximized"
@@ -34371,7 +35221,7 @@ fullscreen, or %FALSE, if it should go unmaximized.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="218">set to %TRUE if the toplevel should be maximized</doc>
+                 line="218">set to true if the toplevel should be maximized</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
         </parameters>
@@ -34386,14 +35236,14 @@ to resize the surface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdktoplevellayout.c"
-               line="191">%TRUE if the layout is resizable</doc>
+               line="191">true if the layout is resizable</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="186">a `GdkToplevelLayout`</doc>
+                 line="186">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -34413,7 +35263,7 @@ to resize the surface.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="88">a `GdkToplevelLayout`</doc>
+                 line="88">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -34432,13 +35282,13 @@ to be fullscreen when presented.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="241">a `GdkToplevelLayout`</doc>
+                 line="241">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="fullscreen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="242">%TRUE to fullscreen the surface</doc>
+                 line="242">true to fullscreen the surface</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="monitor"
@@ -34466,13 +35316,13 @@ to be maximized when presented.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="201">a `GdkToplevelLayout`</doc>
+                 line="201">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="maximized" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="202">%TRUE to maximize</doc>
+                 line="202">true to maximize</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -34491,13 +35341,13 @@ to resize the surface after it has been presented.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="171">a `GdkToplevelLayout`</doc>
+                 line="171">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="resizable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="172">%TRUE to allow resizing</doc>
+                 line="172">true to allow resizing</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -34514,7 +35364,7 @@ to resize the surface after it has been presented.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdktoplevellayout.c"
-                 line="103">a `GdkToplevelLayout`</doc>
+                 line="103">a toplevel layout</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -35404,14 +36254,14 @@ so that the origin of @pixbuf is @pixbuf_x, @pixbuf_y.</doc>
               version="4.18">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="174">Returns the color state object representing the oklab color space.
+           line="175">Returns the color state object representing the oklab color space.
 
 This is a perceptually uniform color state.</doc>
       <source-position filename="gdk/gdkcolorstate.h" line="53"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="181">the color state object for oklab</doc>
+             line="182">the color state object for oklab</doc>
         <type name="ColorState" c:type="GdkColorState*"/>
       </return-value>
     </function>
@@ -35421,7 +36271,7 @@ This is a perceptually uniform color state.</doc>
               version="4.18">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="191">Returns the color state object representing the oklch color space.
+           line="192">Returns the color state object representing the oklch color space.
 
 This is the polar variant of oklab, in which the hue is encoded as
 a polar coordinate.</doc>
@@ -35429,7 +36279,7 @@ a polar coordinate.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="199">the color state object for oklch</doc>
+             line="200">the color state object for oklch</doc>
         <type name="ColorState" c:type="GdkColorState*"/>
       </return-value>
     </function>
@@ -35439,7 +36289,7 @@ a polar coordinate.</doc>
               version="4.16">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="151">Returns the color state object representing the linear rec2100 color space.
+           line="152">Returns the color state object representing the linear rec2100 color space.
 
 This color state uses the primaries defined by BT.2020-2 and BT.2100-0 and a linear
 transfer function.
@@ -35452,7 +36302,7 @@ for details about this colorstate.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="164">the color state object for linearized rec2100</doc>
+             line="165">the color state object for linearized rec2100</doc>
         <type name="ColorState" c:type="GdkColorState*"/>
       </return-value>
     </function>
@@ -35462,7 +36312,7 @@ for details about this colorstate.</doc>
               version="4.16">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="128">Returns the color state object representing the rec2100-pq color space.
+           line="129">Returns the color state object representing the rec2100-pq color space.
 
 This color state uses the primaries defined by BT.2020-2 and BT.2100-0 and the transfer
 function defined by SMPTE ST 2084 and BT.2100-2.
@@ -35475,7 +36325,7 @@ for details about this colorstate.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="141">the color state object for rec2100-pq</doc>
+             line="142">the color state object for rec2100-pq</doc>
         <type name="ColorState" c:type="GdkColorState*"/>
       </return-value>
     </function>
@@ -35485,7 +36335,7 @@ for details about this colorstate.</doc>
               version="4.16">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="83">Returns the color state object representing the sRGB color space.
+           line="84">Returns the color state object representing the sRGB color space.
 
 This color state uses the primaries defined by BT.709-6 and the transfer function
 defined by IEC 61966-2-1.
@@ -35498,7 +36348,7 @@ for details about this colorstate.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="96">the color state object for sRGB</doc>
+             line="97">the color state object for sRGB</doc>
         <type name="ColorState" c:type="GdkColorState*"/>
       </return-value>
     </function>
@@ -35508,7 +36358,7 @@ for details about this colorstate.</doc>
               version="4.16">
       <doc xml:space="preserve"
            filename="gdk/gdkcolorstate.c"
-           line="106">Returns the color state object representing the linearized sRGB color space.
+           line="107">Returns the color state object representing the linearized sRGB color space.
 
 This color state uses the primaries defined by BT.709-6 and a linear transfer function.
 
@@ -35520,7 +36370,7 @@ for details about this colorstate.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkcolorstate.c"
-             line="118">the color state object for linearized sRGB</doc>
+             line="119">the color state object for linearized sRGB</doc>
         <type name="ColorState" c:type="GdkColorState*"/>
       </return-value>
     </function>
@@ -35863,7 +36713,7 @@ indicate a higher priority.</doc>
               moved-to="DragAction.is_unique">
       <doc xml:space="preserve"
            filename="gdk/gdkdrag.c"
-           line="807">Checks if @action represents a single action or includes
+           line="804">Checks if @action represents a single action or includes
 multiple actions.
 
 When @action is 0 - ie no action was given, %TRUE
@@ -35872,14 +36722,14 @@ is returned.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="817">%TRUE if exactly one action was given</doc>
+             line="814">%TRUE if exactly one action was given</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="action" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="809">a `GdkDragAction`</doc>
+               line="806">a `GdkDragAction`</doc>
           <type name="DragAction" c:type="GdkDragAction"/>
         </parameter>
       </parameters>

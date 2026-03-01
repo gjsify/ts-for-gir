@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/language-server",
-	"version": "4.0.0-beta.38",
+	"version": "4.0.0-beta.39",
 	"description": "TypeScript Language Server utilities for validating generated GIR type definitions",
 	"type": "module",
 	"main": "src/index.ts",
@@ -29,14 +29,14 @@
 	},
 	"dependencies": {
 		"@ts-for-gir/lib": "workspace:^",
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.3"
 	},
 	"scripts": {
 		"test": "vitest run",
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@types/node": "^24.5.2",
-		"vitest": "^3.2.4"
+		"@types/node": "^24.11.0",
+		"vitest": "^4.0.18"
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"name": "@gi.ts/parser",
-	"version": "4.0.0-beta.38",
+	"version": "4.0.0-beta.39",
 	"description": "Parser for GObject Introspection XML files",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -29,9 +29,9 @@
 		"check": "tsc --noEmit"
 	},
 	"dependencies": {
-		"fast-xml-parser": "^5.2.5"
+		"fast-xml-parser": "^5.4.1"
 	},
 	"devDependencies": {
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.3"
 	}
 }

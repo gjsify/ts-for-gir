@@ -12,8 +12,8 @@
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"esbuild": "^0.25.10",
-		"typescript": "^5.9.2"
+		"esbuild": "^0.27.3",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^"

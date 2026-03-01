@@ -774,15 +774,15 @@ A string name/value pair representing a generic attribute.</doc>
       </function>
     </record>
     <constant name="BINARY_AGE"
-              value="25810"
+              value="25813"
               c:type="ATK_BINARY_AGE"
               version="2.7.4">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="66">Like atk_get_binary_age(), but from the headers used at
+           line="68">Like atk_get_binary_age(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
-      <source-position filename="atk/atkversion.h" line="75"/>
+      <source-position filename="atk/atkversion.h" line="77"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="CHECK_VERSION"
@@ -791,24 +791,24 @@ against at application run time.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="88">Returns %TRUE if the version of the ATK header files is the same as
+           line="90">Returns %TRUE if the version of the ATK header files is the same as
 or newer than the passed-in version.</doc>
-      <source-position filename="atk/atkversion.h" line="99"/>
+      <source-position filename="atk/atkversion.h" line="101"/>
       <parameters>
         <parameter name="major">
           <doc xml:space="preserve"
                filename="atk/atkversion.h"
-               line="90">major version (e.g. 1 for version 1.2.5)</doc>
+               line="92">major version (e.g. 1 for version 1.2.5)</doc>
         </parameter>
         <parameter name="minor">
           <doc xml:space="preserve"
                filename="atk/atkversion.h"
-               line="91">minor version (e.g. 2 for version 1.2.5)</doc>
+               line="93">minor version (e.g. 2 for version 1.2.5)</doc>
         </parameter>
         <parameter name="micro">
           <doc xml:space="preserve"
                filename="atk/atkversion.h"
-               line="92">micro version (e.g. 5 for version 1.2.5)</doc>
+               line="94">micro version (e.g. 5 for version 1.2.5)</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2879,7 +2879,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_FOR"
                     c:identifier="ATK_DEPRECATED_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="309"/>
+      <source-position filename="atk/atkversion.h" line="311"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2888,7 +2888,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_10_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_10_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="379"/>
+      <source-position filename="atk/atkversion.h" line="381"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2897,7 +2897,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_12_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_12_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="393"/>
+      <source-position filename="atk/atkversion.h" line="395"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2906,7 +2906,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_14_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_14_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="407"/>
+      <source-position filename="atk/atkversion.h" line="409"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2915,7 +2915,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_2_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_2_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="323"/>
+      <source-position filename="atk/atkversion.h" line="325"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2924,7 +2924,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_30_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_30_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="421"/>
+      <source-position filename="atk/atkversion.h" line="423"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2933,7 +2933,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_36_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_36_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="441"/>
+      <source-position filename="atk/atkversion.h" line="443"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2942,7 +2942,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_4_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_4_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="337"/>
+      <source-position filename="atk/atkversion.h" line="339"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2951,7 +2951,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_6_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_6_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="351"/>
+      <source-position filename="atk/atkversion.h" line="353"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2960,7 +2960,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_8_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_8_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="365"/>
+      <source-position filename="atk/atkversion.h" line="367"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -5942,10 +5942,10 @@ or -1 if there is no hyperlink associated with this character.</doc>
               version="2.7.4">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="77">Like atk_get_interface_age(), but from the headers used at
+           line="79">Like atk_get_interface_age(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
-      <source-position filename="atk/atkversion.h" line="86"/>
+      <source-position filename="atk/atkversion.h" line="88"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="IS_ACTION"
@@ -7152,22 +7152,22 @@ in the future.</doc>
               version="2.7.4">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="33">Like atk_get_major_version(), but from the headers used at
+           line="35">Like atk_get_major_version(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
-      <source-position filename="atk/atkversion.h" line="42"/>
+      <source-position filename="atk/atkversion.h" line="44"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="3"
               c:type="ATK_MICRO_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="55">Like atk_get_micro_version(), but from the headers used at
+           line="57">Like atk_get_micro_version(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
-      <source-position filename="atk/atkversion.h" line="64"/>
+      <source-position filename="atk/atkversion.h" line="66"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
@@ -7176,10 +7176,10 @@ against at application run time.</doc>
               version="2.7.4">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="44">Like atk_get_minor_version(), but from the headers used at
+           line="46">Like atk_get_minor_version(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
-      <source-position filename="atk/atkversion.h" line="53"/>
+      <source-position filename="atk/atkversion.h" line="55"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="MISC" c:identifier="ATK_MISC" introspectable="0">
@@ -15487,7 +15487,7 @@ or zero if value does not implement this interface.</doc>
              filename="atk/atktable.c"
              line="587">Gets the summary description of the table.</doc>
         <source-position filename="atk/atktable.h" line="72"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktable.c"
                line="593">a AtkObject* representing a summary description
@@ -16369,7 +16369,7 @@ or zero if value does not implement this interface.</doc>
              filename="atk/atktable.c"
              line="587">Gets the summary description of the table.</doc>
         <source-position filename="atk/atktable.h" line="174"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktable.c"
                line="593">a AtkObject* representing a summary description
@@ -17077,7 +17077,7 @@ or 0 if the cell does not implement this method.</doc>
              filename="atk/atktablecell.c"
              line="238">Returns a reference to the accessible of the containing table.</doc>
         <source-position filename="atk/atktablecell.h" line="80"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktablecell.c"
                line="244">the atk object for the containing table.</doc>
@@ -17297,7 +17297,7 @@ or 0 if the cell does not implement this method.</doc>
              filename="atk/atktablecell.c"
              line="238">Returns a reference to the accessible of the containing table.</doc>
         <source-position filename="atk/atktablecell.h" line="105"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktablecell.c"
                line="244">the atk object for the containing table.</doc>
@@ -17531,7 +17531,7 @@ representing the row header cells.</doc>
   accessible of the containing table</doc>
         <callback name="get_table">
           <source-position filename="atk/atktablecell.h" line="80"/>
-          <return-value transfer-ownership="full">
+          <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atktablecell.c"
                  line="244">the atk object for the containing table.</doc>
@@ -17905,7 +17905,7 @@ interface.</doc>
       <field name="get_summary">
         <callback name="get_summary">
           <source-position filename="atk/atktable.h" line="72"/>
-          <return-value transfer-ownership="full">
+          <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atktable.c"
                  line="593">a AtkObject* representing a summary description
@@ -22299,7 +22299,7 @@ manipulate the selection.</doc>
     <function-macro name="UNAVAILABLE"
                     c:identifier="ATK_UNAVAILABLE"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="310"/>
+      <source-position filename="atk/atkversion.h" line="312"/>
       <parameters>
         <parameter name="maj">
         </parameter>
@@ -22498,7 +22498,7 @@ and toolkit version.</doc>
               version="2.14">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="235">A macro that should be defined by the user prior to including
+           line="237">A macro that should be defined by the user prior to including
 the atk/atk.h header.
 The definition should be one of the predefined ATK version
 macros: %ATK_VERSION_2_12, %ATK_VERSION_2_14,...
@@ -22510,7 +22510,7 @@ If the compiler is configured to warn about the use of deprecated
 functions, then using functions that were deprecated in version
 %ATK_VERSION_MIN_REQUIRED or earlier will cause warnings (but
 using functions deprecated in later releases will not).</doc>
-      <source-position filename="atk/atkversion.h" line="261"/>
+      <source-position filename="atk/atkversion.h" line="263"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <interface name="Value"
@@ -24077,7 +24077,7 @@ atk_object_notify_state_change() instead.</doc-deprecated>
            filename="atk/atkversion.c"
            line="101">Returns the binary age as passed to libtool when building the ATK
 library the process is running against.</doc>
-      <source-position filename="atk/atkversion.h" line="466"/>
+      <source-position filename="atk/atkversion.h" line="468"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -24127,7 +24127,7 @@ application</doc>
            filename="atk/atkversion.c"
            line="117">Returns the interface age as passed to libtool when building the
 ATK library the process is running against.</doc>
-      <source-position filename="atk/atkversion.h" line="468"/>
+      <source-position filename="atk/atkversion.h" line="470"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -24147,7 +24147,7 @@ This function is in the library, so it represents the ATK library
 your code is running against. In contrast, the #ATK_MAJOR_VERSION
 macro represents the major version of the ATK headers you have
 included when compiling your code.</doc>
-      <source-position filename="atk/atkversion.h" line="460"/>
+      <source-position filename="atk/atkversion.h" line="462"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -24167,7 +24167,7 @@ This function is in the library, so it represents the ATK library
 your code is are running against. In contrast, the
 #ATK_MICRO_VERSION macro represents the micro version of the ATK
 headers you have included when compiling your code.</doc>
-      <source-position filename="atk/atkversion.h" line="464"/>
+      <source-position filename="atk/atkversion.h" line="466"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -24187,7 +24187,7 @@ This function is in the library, so it represents the ATK library
 your code is are running against. In contrast, the
 #ATK_MINOR_VERSION macro represents the minor version of the ATK
 headers you have included when compiling your code.</doc>
-      <source-position filename="atk/atkversion.h" line="462"/>
+      <source-position filename="atk/atkversion.h" line="464"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"

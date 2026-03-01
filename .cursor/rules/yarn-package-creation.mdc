@@ -36,7 +36,7 @@ packages/[package-name]/
 ```json
 {
   "name": "@ts-for-gir/[package-name]",
-  "version": "4.0.0-beta.38",
+  "version": "4.0.0-beta.39",
   "description": "[Package description]",
   "main": "src/index.ts",
   "module": "src/index.ts",

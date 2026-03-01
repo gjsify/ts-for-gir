@@ -4812,7 +4812,6 @@ __metadata:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
-    "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
@@ -7944,6 +7943,21 @@ __metadata:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/libsitra-0.1@workspace:types-dev/libsitra-0.1":
+  version: 0.0.0-use.local
+  resolution: "@girs/libsitra-0.1@workspace:types-dev/libsitra-0.1"
+  dependencies:
+    "@girs/gee-0.8": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft

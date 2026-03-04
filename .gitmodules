@@ -2,9 +2,9 @@
 	path = vala-girs
 	url = https://github.com/nemequ/vala-girs.git
 	branch = master
-[submodule "types"]
+[submodule "types-release"]
 	path = types-release
-	url = https://github.com/gjsify/types
+	url = git@github.com:gjsify/types.git
 	branch = main
 [submodule "gjs"]
 	path = gjs

@@ -1,6 +1,6 @@
 #!/usr/bin/env gjs -m
 
-// GObject + Needle DI Constructor Injection Example
+// GObject + TSyringe DI Constructor Injection Example
 // Combines GObject properties/signals with automatic dependency resolution
 
 import "@abraham/reflection";

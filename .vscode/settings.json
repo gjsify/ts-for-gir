@@ -4,7 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit"
   },
-  "biome.configurationPath": "biome.json",
   "editor.tabSize": 4,
   "biome.enabled": true,
   "eslint.enable": false,

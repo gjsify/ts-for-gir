@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/cli",
-	"version": "4.0.0-beta.39",
+	"version": "4.0.0-beta.40",
 	"description": "TypeScript type definition generator for GObject introspection GIR files",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -70,7 +70,7 @@
 		"@inquirer/prompts": "^8.3.0",
 		"@ts-for-gir/templates": "workspace:^",
 		"colorette": "^2.0.20",
-		"cosmiconfig": "^9.0.0",
+		"cosmiconfig": "^9.0.1",
 		"ejs": "^4.0.1",
 		"glob": "^13.0.6",
 		"inquirer": "^13.3.0",

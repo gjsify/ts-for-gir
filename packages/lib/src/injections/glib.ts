@@ -1,3 +1,8 @@
+/**
+ * GLib type injection overrides.
+ * Uses of `any`/`AnyType` in this file are intentional — they produce
+ * generated .d.ts output matching GLib's dynamic runtime behavior.
+ */
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import { IntrospectedDirectAllocationConstructor } from "../gir/direct-allocation-constructor.ts";

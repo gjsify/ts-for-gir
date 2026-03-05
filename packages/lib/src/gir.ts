@@ -876,7 +876,12 @@ export class ArrayType extends TypeExpression {
 	}
 }
 
-// Common native types as constants
+/**
+ * Common native types as constants.
+ * These represent TypeScript types in generated .d.ts output for GJS runtime,
+ * not internal tool types. Uses of `any` here are intentional — they produce
+ * correct type definitions for GLib/GIO/GObject APIs that accept dynamic values.
+ */
 export const ThisType = new NativeType("this");
 export const ObjectType = new NativeType("object");
 export const AnyType = new NativeType("any");

@@ -1,3 +1,8 @@
+/**
+ * GObject type injection overrides.
+ * Uses of `any`/`AnyType` in this file are intentional — they produce
+ * generated .d.ts output matching GObject's dynamic runtime behavior.
+ */
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.ts";
 import { IntrospectedFunction } from "../gir/function.ts";

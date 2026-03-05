@@ -149,4 +149,4 @@ export const RESERVED_CLASS_NAMES = [
 
 export const RESERVED_FUNCTION_NAMES = ["false", "true", "break"];
 
-export const RESERVED_NAMESPACE_NAMES = {};
+export const RESERVED_NAMESPACE_NAMES: Record<string, boolean> = {};

@@ -13,7 +13,6 @@ import { InterfaceVisitor } from "../validators/interface.ts";
 import type { GirVisitor } from "../visitor.ts";
 import type { IntrospectedNamespace } from "./namespace.ts";
 
-// TODO: Singleton
 export class NSRegistry {
 	mapping: TwoKeyMap<string, string, IntrospectedNamespace> = new TwoKeyMap();
 	private formatters: Map<string, Formatter> = new Map();

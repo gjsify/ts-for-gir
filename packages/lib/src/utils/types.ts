@@ -236,6 +236,7 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 			}
 		} else if (type.is("GLib", "HashTable")) {
 			if (direction === GirDirection.In) {
+				// Intentional `any` — GLib.HashTable maps to a JS dict with dynamic values in generated output
 				return new BinaryType(new NativeType("{ [key: string]: any }"), type);
 			} else {
 				return type;

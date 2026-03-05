@@ -41,6 +41,7 @@
 		"type definitions"
 	],
 	"devDependencies": {
+		"@ts-for-gir/tsconfig": "workspace:^",
 		"@types/ejs": "^3.1.5",
 		"@types/lodash": "^4.17.24",
 		"@types/node": "^24.11.0",

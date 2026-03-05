@@ -1,5 +1,5 @@
 import { GirDirection } from "@gi.ts/parser";
-import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
+import { LazyReporter } from "@ts-for-gir/reporter";
 import { IntrospectedConstructor } from "../gir/constructor.ts";
 import { FilterBehavior } from "../gir/data.ts";
 import type { IntrospectedFunction } from "../gir/function.ts";
@@ -20,49 +20,8 @@ import { AnyType, ArrayType, ConflictType, NeverType, TypeConflict } from "../gi
 import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
-// Global reporter configuration for conflicts
-let conflictsReporterInstance: ConsoleReporter | null = null;
-let conflictsReporterConfig: { enabled: boolean; output: string } = {
-	enabled: false,
-	output: "ts-for-gir-report.json",
-};
-
-function configureConflictsReporterInternal(enabled: boolean, output: string = "ts-for-gir-report.json") {
-	conflictsReporterConfig = { enabled, output };
-
-	// Reset instance to force recreation with new config
-	if (conflictsReporterInstance) {
-		conflictsReporterInstance = null;
-	}
-
-	// Create and register the global reporter if enabled
-	if (enabled) {
-		conflictsReporterInstance = new ConsoleReporter(true, "conflicts", enabled, output);
-		const reporterService = ReporterService.getInstance();
-		reporterService.registerReporter("conflicts", conflictsReporterInstance);
-	}
-}
-
-function getConflictsReporterInstance(): ConsoleReporter {
-	if (!conflictsReporterInstance) {
-		const config = conflictsReporterConfig;
-		conflictsReporterInstance = new ConsoleReporter(true, "conflicts", config.enabled, config.output);
-
-		// Register with reporter service if reporting is enabled
-		if (config.enabled) {
-			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter("conflicts", conflictsReporterInstance);
-		}
-	}
-	return conflictsReporterInstance;
-}
-
-const log = getConflictsReporterInstance();
-
-// Export function to configure conflicts reporter
-export function configureConflictsReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
-	configureConflictsReporterInternal(enabled, output);
-}
+export const conflictsReporter = new LazyReporter("conflicts");
+const log = conflictsReporter.get();
 
 // Constants for GObject methods that always conflict
 const GOBJECT_RESERVED_METHODS = ["connect", "connect_after", "emit"] as const;

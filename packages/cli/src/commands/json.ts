@@ -3,28 +3,15 @@
  */
 
 import { GeneratorType } from "@ts-for-gir/generator-base";
-import type { ConfigFlags } from "@ts-for-gir/lib";
-import {
-	APP_NAME,
-	configureConflictsReporter,
-	ERROR_NO_MODULES_FOUND,
-	type GirModule,
-	Logger,
-	NSRegistry,
-	ReporterService,
-	TypeIdentifier,
-} from "@ts-for-gir/lib";
-import { generateOptions, getOptionsGeneration, load } from "../config.ts";
-import { GenerationHandler } from "../generation-handler.ts";
-import { ModuleLoader } from "../module-loader.ts";
+import { APP_NAME, type ConfigFlags } from "@ts-for-gir/lib";
+import { generateOptions } from "../config.ts";
 import type { GenerateCommandArgs } from "../types/index.ts";
 import { createBuilder } from "./command-builder.ts";
+import { runGenerationCommand } from "./run-generation-command.ts";
 
 const command = "json [modules..]";
 
 const description = "Generates JSON representation from GIR files for analysis and tooling";
-
-const logger = new Logger(true, "JsonCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
 	[`${APP_NAME} json`, `Run '${APP_NAME} json' in your gjs project to generate JSON files for your project`],
@@ -37,62 +24,10 @@ const examples: ReadonlyArray<[string, string?]> = [
 const builder = createBuilder<GenerateCommandArgs>(generateOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
-	const config = await load(args);
-
-	const generateConfig = getOptionsGeneration(config);
-	const registry = new NSRegistry(); // TODO: Use singleton
-
-	const moduleLoader = new ModuleLoader(generateConfig, registry);
-
-	// Configure reporters BEFORE parsing to capture all problems
-	if (generateConfig.reporter) {
-		TypeIdentifier.configureReporter(generateConfig.reporter, generateConfig.reporterOutput);
-		configureConflictsReporter(generateConfig.reporter, generateConfig.reporterOutput);
-	}
-
-	let tsForGir: GenerationHandler | null = null;
-
-	try {
-		const { keep } = await moduleLoader.getModulesResolved(
-			config.modules,
-			config.ignore || [],
-			config.ignoreVersionConflicts,
-		);
-
-		if (keep.length === 0) {
-			logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories));
-			return;
-		}
-
-		moduleLoader.parse(keep);
-
-		tsForGir = new GenerationHandler(generateConfig, GeneratorType.JSON, registry);
-
-		const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule);
-
-		await tsForGir.start(girModules);
-	} catch (error) {
-		// If reporter is enabled and tsForGir was created, make sure the report is generated
-		if (generateConfig.reporter && tsForGir) {
-			const service = ReporterService.getInstance();
-
-			// Log the error to the reporter
-			if (tsForGir.log) {
-				tsForGir.log.reportGenerationFailure(
-					"Main",
-					error instanceof Error ? error : new Error(String(error)),
-					"JSON generation failed",
-				);
-			}
-
-			// Generate and save the report
-			await service.printComprehensiveSummary();
-			await service.saveComprehensiveReport();
-		}
-
-		// Re-throw the error to maintain existing behavior
-		throw error;
-	}
+	await runGenerationCommand(args, {
+		generatorType: GeneratorType.JSON,
+		loggerName: "JsonCommand",
+	});
 };
 
 export const json = {

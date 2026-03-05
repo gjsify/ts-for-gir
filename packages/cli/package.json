@@ -59,6 +59,7 @@
 		"@ts-for-gir/generator-typescript": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
 		"@ts-for-gir/reporter": "workspace:^",
+		"@ts-for-gir/tsconfig": "workspace:^",
 		"@types/ejs": "^3.1.5",
 		"@types/inquirer": "^9.0.9",
 		"@types/node": "^24.11.0",

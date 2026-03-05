@@ -1,0 +1,11 @@
+{
+	"name": "@ts-for-gir/tsconfig",
+	"version": "4.0.0-beta.40",
+	"private": true,
+	"files": [
+		"tsconfig.base.json"
+	],
+	"peerDependencies": {
+		"typescript": "*"
+	}
+}

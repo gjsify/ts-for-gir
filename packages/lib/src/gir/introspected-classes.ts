@@ -794,105 +794,66 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		);
 	}
 
-	implementedProperties(potentialConflicts: IntrospectedBase<never>[] = []) {
+	private collectImplementedItems<T extends { name: string }>(
+		getItems: (node: IntrospectedBaseClass) => T[],
+		validate: (item: T) => boolean,
+	): Map<string, T> {
 		const resolution = this.resolveParents();
 		const implementedOnParent = [...(resolution.extends() ?? [])].flatMap((r) => r.implements());
-		const properties = new Map<string, IntrospectedProperty>();
-
-		const validateProp = (prop: IntrospectedProperty) =>
-			!this.hasInstanceSymbol(prop) &&
-			!properties.has(prop.name) &&
-			potentialConflicts.every((p) => prop.name !== p.name);
+		const items = new Map<string, T>();
 
 		for (const implemented of resolution.implements()) {
 			if (implemented.node instanceof IntrospectedClass) continue;
-
 			if (implementedOnParent.find((p) => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0)
 				continue;
-			for (const prop of implemented.node.props) {
-				if (!validateProp(prop)) continue;
-				properties.set(prop.name, prop);
+			for (const item of getItems(implemented.node)) {
+				if (items.has(item.name) || !validate(item)) continue;
+				items.set(item.name, item);
 			}
 		}
 
 		for (const implemented of resolution.implements()) {
 			[...implemented].forEach((e) => {
 				if (e.node instanceof IntrospectedClass) return;
-
 				if (implementedOnParent.find((p) => p.identifier.equals(e.identifier))?.node.generics.length === 0) return;
-				for (const prop of e.node.props) {
-					if (!validateProp(prop)) continue;
-
-					properties.set(prop.name, prop);
+				for (const item of getItems(e.node)) {
+					if (items.has(item.name) || !validate(item)) continue;
+					items.set(item.name, item);
 				}
 			});
 		}
 
 		// If an interface inherits from a class (such as Gtk.Widget)
-		// we need to pull in every property from that class...
+		// we need to pull in every item from that class...
 		for (const implemented of resolution.implements()) {
 			const extended = implemented.extends();
-
 			if (extended?.node instanceof IntrospectedClass) {
-				for (const prop of extended.node.props) {
-					if (!validateProp(prop)) continue;
-
-					properties.set(prop.name, prop);
+				for (const item of getItems(extended.node)) {
+					if (items.has(item.name) || !validate(item)) continue;
+					items.set(item.name, item);
 				}
 			}
 		}
 
+		return items;
+	}
+
+	implementedProperties(potentialConflicts: IntrospectedBase<never>[] = []) {
+		const properties = this.collectImplementedItems(
+			(node) => node.props,
+			(prop) => !this.hasInstanceSymbol(prop) && potentialConflicts.every((p) => prop.name !== p.name),
+		);
 		return [...properties.values()];
 	}
 
 	implementedMethods(potentialConflicts: ClassMember[] = []) {
-		const resolution = this.resolveParents();
-		const implementedOnParent = [...(resolution.extends() ?? [])].flatMap((r) => r.implements());
-		const methods = new Map<string, IntrospectedClassFunction>();
-
-		const validateMethod = (method: IntrospectedClassFunction) =>
-			!(method instanceof IntrospectedStaticClassFunction) &&
-			!this.hasInstanceSymbol(method) &&
-			!methods.has(method.name) &&
-			potentialConflicts.every((m) => method.name !== m.name);
-
-		for (const implemented of resolution.implements()) {
-			if (implemented.node instanceof IntrospectedClass) continue;
-
-			if (implementedOnParent.find((p) => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0)
-				continue;
-			for (const member of implemented.node.members) {
-				if (!validateMethod(member)) continue;
-				methods.set(member.name, member);
-			}
-		}
-
-		for (const implemented of resolution.implements()) {
-			[...implemented].forEach((e) => {
-				if (e.node instanceof IntrospectedClass) return;
-
-				if (implementedOnParent.find((p) => p.identifier.equals(e.identifier))?.node.generics.length === 0) return;
-				for (const member of e.node.members) {
-					if (!validateMethod(member)) continue;
-
-					methods.set(member.name, member);
-				}
-			});
-		}
-
-		// If an interface inherits from a class (such as Gtk.Widget)
-		// we need to pull in every method from that class...
-		for (const implemented of resolution.implements()) {
-			const extended = implemented.extends();
-
-			if (extended?.node instanceof IntrospectedClass) {
-				for (const member of extended.node.members) {
-					if (!validateMethod(member)) continue;
-
-					methods.set(member.name, member);
-				}
-			}
-		}
+		const methods = this.collectImplementedItems(
+			(node) => node.members,
+			(method) =>
+				!(method instanceof IntrospectedStaticClassFunction) &&
+				!this.hasInstanceSymbol(method) &&
+				potentialConflicts.every((m) => method.name !== m.name),
+		);
 
 		return [...methods.values()].map((f) => {
 			const mapping = new Map<string, TypeExpression>();

@@ -248,7 +248,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 		namespace: IntrospectedNamespace,
 		name: string,
 	): void {
-		const gtypeStructFor = element.$["glib:is-gtype-struct-for"];
+		const gtypeStructFor = "glib:is-gtype-struct-for" in element.$ ? element.$["glib:is-gtype-struct-for"] : undefined;
 
 		if (typeof gtypeStructFor === "string" && gtypeStructFor) {
 			const structFor = parseTypeIdentifier(namespace.namespace, gtypeStructFor);

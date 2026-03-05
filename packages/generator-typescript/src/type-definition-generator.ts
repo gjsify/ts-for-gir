@@ -88,6 +88,9 @@ export class TypeDefinitionGenerator implements Generator {
 			await templateProcessor.create("gjs/gjs-ambient.d.ts", config.outdir, "gjs-ambient.d.ts");
 			await templateProcessor.create("gjs/gjs-ambient.js", config.outdir, "gjs-ambient.js");
 
+			// JSR entry point
+			await templateProcessor.create("mod.ts", config.outdir, "mod.ts");
+
 			const pkg = new NpmPackage(config, dependencyManager, this.registry, gjs, await dependencyManager.core());
 			await pkg.exportNPMPackage();
 		} else {

@@ -19,9 +19,9 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
-		"@girs/gio-2.0": "workspace:^",
+		"@girs/gio-2-0": "workspace:^",
 		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^",
-		"@girs/gtk-4.0": "workspace:^"
+		"@girs/glib-2-0": "workspace:^",
+		"@girs/gtk-4-0": "workspace:^"
 	}
 }

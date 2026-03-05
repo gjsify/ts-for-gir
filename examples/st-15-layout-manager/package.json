@@ -15,8 +15,8 @@
 	"dependencies": {
 		"@girs/clutter-15": "workspace:^",
 		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^",
-		"@girs/gobject-2.0": "workspace:^",
+		"@girs/glib-2-0": "workspace:^",
+		"@girs/gobject-2-0": "workspace:^",
 		"@girs/st-15": "workspace:^"
 	}
 }

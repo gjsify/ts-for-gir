@@ -5,9 +5,9 @@
 
 import "@girs/gjs";
 import "@girs/gjs/ambient";
-import "@girs/gio-2.0";
-import "@girs/glib-2.0";
-import "@girs/gtk-4.0";
+import "@girs/gio-2-0";
+import "@girs/glib-2-0";
+import "@girs/gtk-4-0";
 
 import Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";

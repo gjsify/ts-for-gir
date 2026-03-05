@@ -4,10 +4,10 @@
 		"types": [
 			"@girs/gjs",
 			"@girs/gjs/dom",
-			"@girs/gio-2.0",
-			"@girs/gobject-2.0",
-			"@girs/gtk-4.0",
-			"@girs/graphene-1.0"
+			"@girs/gio-2-0",
+			"@girs/gobject-2-0",
+			"@girs/gtk-4-0",
+			"@girs/graphene-1-0"
 		],
 		"target": "ESNext",
 		"module": "ESNext",

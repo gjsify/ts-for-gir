@@ -99,15 +99,15 @@ import cairo from 'cairo';
 
 ### GIR modules
 
-If you want to have types for [GObject Introspection](https://gi.readthedocs.io/en/latest/) modules, you have to add them to your dependencies and import them as well, see the description of these modules, e.g. [gtk-4.0](https://www.npmjs.com/package/@girs/gtk-4.0), [gio-2.0](https://www.npmjs.com/package/@girs/gio-2.0), [adw-1](https://www.npmjs.com/package/@girs/adw-1) and [much more](https://github.com/gjsify/types).
+If you want to have types for [GObject Introspection](https://gi.readthedocs.io/en/latest/) modules, you have to add them to your dependencies and import them as well, see the description of these modules, e.g. [gtk-4-0](https://www.npmjs.com/package/@girs/gtk-4-0), [gio-2-0](https://www.npmjs.com/package/@girs/gio-2-0), [adw-1](https://www.npmjs.com/package/@girs/adw-1) and [much more](https://github.com/gjsify/types).
 
 These types will then be available to you:
 
 ```ts
 import '@girs/gjs'
 import '@girs/gjs/dom'
-import '@girs/gio-2.0'
-import '@girs/gtk-4.0'
+import '@girs/gio-2-0'
+import '@girs/gtk-4-0'
 import '@girs/adw-1'
 
 import Gio from 'gi://Gio?version=2.0';

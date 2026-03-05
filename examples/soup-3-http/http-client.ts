@@ -8,7 +8,7 @@
 
 import "@girs/gjs";
 import "@girs/gjs/dom";
-import "@girs/soup-3.0";
+import "@girs/soup-3-0";
 
 import type Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";

@@ -70,12 +70,12 @@ const reservedWords = [
 export const SanitizedIdentifiers = new Map<string, string>();
 
 /**
- * Transform a package name to import name format (lowercase)
+ * Transform a package name to import name format (lowercase, dots replaced with hyphens)
  * @param packageName The package name to transform
  * @returns The transformed import name
  */
 export function transformImportName(packageName: string): string {
-	return packageName.toLowerCase();
+	return packageName.toLowerCase().replaceAll('.', '-');
 }
 
 /**

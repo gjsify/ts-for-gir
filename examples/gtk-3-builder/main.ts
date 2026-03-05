@@ -1,6 +1,6 @@
 import "@girs/gjs";
 import "@girs/gjs/dom";
-import Gtk from "@girs/gtk-3.0";
+import Gtk from "@girs/gtk-3-0";
 import gladeFile from "./builderExample.glade";
 
 Gtk.init(null);

@@ -67,6 +67,12 @@ _%>
         "default": "./index.js"
       }
     },
+    "files": [
+      "*.js",
+      "*.d.ts",
+      "!mod.ts",
+      "README.md"
+    ],
     "scripts": {
       "test": "tsc --project tsconfig.json"
     },

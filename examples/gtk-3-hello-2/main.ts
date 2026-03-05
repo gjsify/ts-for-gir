@@ -5,7 +5,7 @@
 
 // Include this in case both GTK3 and GTK4 installed, otherwise an exception
 // will be thrown
-import Gtk from "@girs/gtk-3.0";
+import Gtk from "@girs/gtk-3-0";
 
 // Initialize Gtk before you start calling anything from the import
 Gtk.init(null);

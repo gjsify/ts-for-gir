@@ -1,6 +1,6 @@
 import imports from "@girs/gjs";
-import Gtk from "@girs/gtk-3.0";
-import GtkSource from "@girs/gtksource-3.0";
+import Gtk from "@girs/gtk-3-0";
+import GtkSource from "@girs/gtksource-3-0";
 
 const { gettext } = imports;
 

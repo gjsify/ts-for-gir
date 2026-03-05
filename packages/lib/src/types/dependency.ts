@@ -9,7 +9,7 @@ export interface Dependency extends FileInfo {
 	namespace: string;
 	/**
 	 * E.g. 'Gtk40'
-	 * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.ts";`
+	 * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4-0.ts";`
 	 */
 	importNamespace: string;
 	/**
@@ -26,22 +26,22 @@ export interface Dependency extends FileInfo {
 	packageName: string;
 	/**
 	 * The NPM package name
-	 * E.g. 'gtk-4.0'
+	 * E.g. 'gtk-4-0'
 	 */
 	importName: string;
 	/**
 	 * Import path for the package
-	 * E.g. './Gtk-4.0.ts' or '@girs/Gtk-4.0'
+	 * E.g. './Gtk-4-0.ts' or '@girs/gtk-4-0'
 	 */
 	importPath: string;
 	/**
 	 * Import definition for the package
-	 * E.g. `import type Gtk from '@girs/Gtk-3.0'`
+	 * E.g. `import type Gtk from '@girs/gtk-3-0'`
 	 */
 	importDef: string;
 	/**
 	 * Complete dependency string for package.json
-	 * E.g. `"@girs/gtk-4.0": "workspace:^"`
+	 * E.g. `"@girs/gtk-4-0": "workspace:^"`
 	 */
 	packageJsonImport: string;
 

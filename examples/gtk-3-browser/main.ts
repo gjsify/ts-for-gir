@@ -1,7 +1,7 @@
 import "@girs/gjs";
-import "@girs/pango-1.0/ambient";
-import "@girs/gtk-3.0/ambient";
-import "@girs/webkit2-4.0/ambient";
+import "@girs/pango-1-0/ambient";
+import "@girs/gtk-3-0/ambient";
+import "@girs/webkit2-4-0/ambient";
 
 import Gtk from "gi://Gtk?version=3.0";
 import Pango from "gi://Pango?version=1.0";

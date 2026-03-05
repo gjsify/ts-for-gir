@@ -166,7 +166,7 @@ For example:
 {
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2.0", "@girs/glib-2.0", "@girs/gtk-4.0", "@girs/adw-1"],
+    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gio-2-0", "@girs/glib-2-0", "@girs/gtk-4-0", "@girs/adw-1"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -182,7 +182,7 @@ For example:
 
 The examples can be used with different methods of type generation:
 
-1. **Pre-generated NPM packages**: Most examples use `@girs/*` packages from npm (e.g., `@girs/gtk-4.0`)
+1. **Pre-generated NPM packages**: Most examples use `@girs/*` packages from npm (e.g., `@girs/gtk-4-0`)
 2. **Local generation with CLI**: You can generate types directly using the CLI:
    ```bash
    npx @ts-for-gir/cli generate Gtk-4.0 --outdir ./@types

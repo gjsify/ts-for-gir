@@ -48,9 +48,24 @@ export class NpmPackage<Wrapped extends Dependency | GirModule> {
 
 	async exportNPMPackage() {
 		await this.exportNPMPackageJson();
+		await this.exportJsrJson();
 		await this.exportNPMReadme();
 		await this.exportTSConfig();
 		await this.exportTypeDoc();
+	}
+
+	async exportJsrJson() {
+		const template = "jsr.json";
+		if (this.config.outdir) {
+			await this.moduleTemplateProcessor.create(
+				template,
+				this.config.outdir,
+				template, // output filename
+			);
+		} else {
+			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
+			this.log.log(append + prepend);
+		}
 	}
 
 	async exportNPMPackageJson() {

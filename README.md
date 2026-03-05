@@ -69,13 +69,13 @@ See the [Examples directory](/examples/README.md) for a complete list of example
 If you are only interested in the types and do not want to generate them yourself, you can use our pre-generated NPM packages. For example, if you want to develop a Gtk4 application with GJS, it is enough to install the corresponding NPM packages:
 
 ```bash
-npm install @girs/gjs @girs/gtk-4.0 --save
+npm install @girs/gjs @girs/gtk-4-0 --save
 ```
 
 ```ts
 import '@girs/gjs'
 import '@girs/gjs/dom'
-import '@girs/gtk-4.0'
+import '@girs/gtk-4-0'
 
 import Gtk from 'gi://Gtk?version=4.0';
 

@@ -13,8 +13,8 @@
 
 import "@girs/gjs";
 import "@girs/gjs/dom";
-import Gio from "@girs/gio-2.0";
-import GLib from "@girs/glib-2.0";
+import Gio from "@girs/gio-2-0";
+import GLib from "@girs/glib-2-0";
 
 const loop = GLib.MainLoop.new(null, false);
 const textDecoder = new TextDecoder();

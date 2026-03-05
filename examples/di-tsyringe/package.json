@@ -17,9 +17,9 @@
 	},
 	"dependencies": {
 		"@abraham/reflection": "^0.13.0",
-		"@girs/gio-2.0": "workspace:^",
+		"@girs/gio-2-0": "workspace:^",
 		"@girs/gjs": "workspace:^",
-		"@girs/gobject-2.0": "workspace:^",
+		"@girs/gobject-2-0": "workspace:^",
 		"tsyringe": "^4.10.0"
 	}
 }

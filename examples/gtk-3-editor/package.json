@@ -7,8 +7,8 @@
 			"outputFormat": "esmodule",
 			"includeNodeModules": [
 				"@girs/gjs",
-				"@girs/gtk-3.0",
-				"@girs/gtksource-3.0"
+				"@girs/gtk-3-0",
+				"@girs/gtksource-3-0"
 			],
 			"sourceMap": false
 		}
@@ -33,8 +33,8 @@
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^",
-		"@girs/gtk-3.0": "workspace:^",
-		"@girs/gtksource-3.0": "workspace:^"
+		"@girs/gtk-3-0": "workspace:^",
+		"@girs/gtksource-3-0": "workspace:^"
 	},
 	"externals": [
 		"gi://Gtk?version=3.0",

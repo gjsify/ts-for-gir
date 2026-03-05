@@ -4,7 +4,7 @@
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk3-template.js
 
 import "@girs/gjs";
-import "@girs/gtk-3.0";
+import "@girs/gtk-3-0";
 
 import Gio from "gi://Gio?version=2.0";
 import GObject from "gi://GObject?version=2.0";

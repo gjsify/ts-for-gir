@@ -1,0 +1,32 @@
+<%_
+// This template is used to generate a jsr.json for each GIR module package
+let entryPointName = importName
+if (packageName === 'Gjs') {
+  entryPointName = 'gjs'
+}
+_%>
+{
+    "name": "<%- npmScope %>/<%- importName %>",
+    <%_ if(typeof girModule !== "undefined"){ _%>
+    "version": "<%- girModule.libraryVersion %>-<%- APP_VERSION %>",
+    <%_ } else { _%>
+    "version": "<%- APP_VERSION %>",
+    <%_ } _%>
+    "license": "MIT",
+    "exports": {
+        ".": "./mod.ts"
+    },
+    "publish": {
+        "exclude": [
+            "*.js",
+            "*-ambient.d.ts",
+            "*-import.d.ts",
+            "index.d.ts",
+            "tsconfig.json",
+            <%_ if (packageName === 'Gjs') { _%>
+            "dom.d.ts",
+            <%_ } _%>
+            "typedoc.json"
+        ]
+    }
+}

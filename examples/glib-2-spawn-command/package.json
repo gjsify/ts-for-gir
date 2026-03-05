@@ -19,6 +19,6 @@
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^"
+		"@girs/glib-2-0": "workspace:^"
 	}
 }

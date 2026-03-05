@@ -2116,7 +2116,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	/**
 	 * Generates a namespace for the given GirModule.
-	 * @deprecated Use `generateModule` instead @ewlsh
+	 * @deprecated Use `generateModule` instead
 	 * @param girModule The GirModule to generate a namespace for.
 	 * @returns A promise that resolves to the generated namespace.
 	 */
@@ -2154,6 +2154,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return result.join("\n");
 	}
 
+	protected async exportModuleModTS(_girModule: GirModule): Promise<void> {
+		const template = "mod.ts";
+		const target = "mod.ts";
+
+		if (this.config.outdir) {
+			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
+		} else {
+			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
+			this.log.log(append + prepend);
+		}
+	}
+
 	async exportModule(_registry: NSRegistry, girModule: GirModule) {
 		// Used for package.json and local ambient mode
 		await this.exportModuleTS();
@@ -2169,6 +2181,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 			await this.exportModuleImportTS(girModule);
 			await this.exportModuleImportJS(girModule);
+
+			await this.exportModuleModTS(girModule);
 
 			const pkg = new NpmPackage(
 				this.config,

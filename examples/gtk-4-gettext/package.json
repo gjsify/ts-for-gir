@@ -18,6 +18,6 @@
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^",
-		"@girs/gtk-4.0": "workspace:^"
+		"@girs/gtk-4-0": "workspace:^"
 	}
 }

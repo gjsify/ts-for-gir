@@ -25,6 +25,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 	private _structFor: ClassStructTypeIdentifier | null = null;
 	private _isSimple: boolean | null = null;
 	private _isSimpleWithoutPointers: string | null = null;
+	private _overriddenGType: string | null = null;
 
 	/**
 	 * Returns all signals for this record (records typically don't have signals)
@@ -47,6 +48,14 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 
 	get structFor() {
 		return this._structFor;
+	}
+
+	get gtype() {
+		return this._overriddenGType ?? this.name;
+	}
+
+	overrideGType(gtype: string) {
+		this._overriddenGType = gtype;
 	}
 
 	getType(): TypeIdentifier {
@@ -149,6 +158,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 			constructors,
 			_isForeign,
 			_structFor,
+			_overriddenGType,
 			props,
 			fields,
 			callbacks,
@@ -166,6 +176,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 
 		clazz._structFor = _structFor;
 		clazz._isForeign = _isForeign;
+		clazz._overriddenGType = _overriddenGType;
 		clazz.props = (options.props ?? props).map((p) => p.copy({ parent: clazz }));
 		clazz.fields = (options.fields ?? fields).map((f) => f.copy({ parent: clazz }));
 		clazz.callbacks = (options.callbacks ?? callbacks).map((c) => c.copy({ parent: clazz }));

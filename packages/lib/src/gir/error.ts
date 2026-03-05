@@ -8,6 +8,7 @@ import { IntrospectedEnum } from "./enum.ts";
 import { GirEnumMember } from "./enum-member.ts";
 import { IntrospectedStaticClassFunction } from "./introspected-classes.ts";
 import type { IntrospectedNamespace } from "./namespace.ts";
+import type { IntrospectedRecord } from "./record.ts";
 
 // TODO: Move to utils
 function isEnumElement(e: unknown): e is GirEnumElement {
@@ -37,6 +38,12 @@ export class IntrospectedError extends IntrospectedEnum {
 		en.flags = flags;
 
 		return en._copyBaseProperties(this);
+	}
+
+	asClass(): IntrospectedRecord {
+		const clazz = super.asClass();
+		clazz.overrideGType(this.namespace.namespace === "GLib" ? "Error" : "GLib.Error");
+		return clazz;
 	}
 
 	static fromXML(

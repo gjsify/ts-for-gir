@@ -603,6 +603,10 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		super({ name, namespace });
 	}
 
+	get gtype() {
+		return this.name;
+	}
+
 	getAllSignals(): SignalDescriptor[] {
 		const allSignals = this.getBaseSignals();
 

@@ -30,7 +30,7 @@
 			"!**/templates",
 			"!**/@types",
 			"!**/gjs",
-			"!devdocsgjs",
+			"!refs/",
 			"!types-dev",
 			"!types-release",
 			"!**/vala-girs",

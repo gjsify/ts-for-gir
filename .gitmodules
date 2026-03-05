@@ -1,5 +1,5 @@
 [submodule "test/girs/vala-girs"]
-	path = vala-girs
+	path = refs/vala-girs
 	url = https://github.com/nemequ/vala-girs.git
 	branch = master
 [submodule "types-release"]
@@ -7,13 +7,16 @@
 	url = git@github.com:gjsify/types.git
 	branch = main
 [submodule "gjs"]
-	path = gjs
+	path = refs/gjs
 	url = https://gitlab.gnome.org/GNOME/gjs.git
 [submodule "types-dev"]
 	path = types-dev
 	url = git@github.com:gjsify/types.git
 	branch = dev
 [submodule "devdocsgjs"]
-	path = devdocsgjs
+	path = refs/devdocsgjs
 	url = https://gitlab.gnome.org/GNOME/devdocsgjs.git
 	branch = main
+[submodule "refs/gjs-guide"]
+	path = refs/gjs-guide
+	url = https://gitlab.gnome.org/World/javascript/gjs-guide.git

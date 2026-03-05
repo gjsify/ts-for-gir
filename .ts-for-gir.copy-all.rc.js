@@ -20,9 +20,8 @@ export default {
         `~/.local/share/flatpak/runtime/*/*/*/active/files/share/gir-1.0/`,
 
         // Submodules
-        './vala-girs/gir-1.0/',
+        './refs/vala-girs/gir-1.0/',
+        `./refs/devdocsgjs/lib/docs/scrapers/gnome/girs/`,
         './girs/',
-        `./devdocsgjs/lib/docs/scrapers/gnome/girs/`,
-
     ],
 }

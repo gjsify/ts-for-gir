@@ -36,6 +36,7 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
+		"@ts-for-gir/tsconfig": "workspace:^",
 		"@types/node": "^24.11.0",
 		"vitest": "^4.0.18"
 	}

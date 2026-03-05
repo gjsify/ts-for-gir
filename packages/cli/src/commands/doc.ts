@@ -25,9 +25,8 @@ const description = "The HTML documentation generator is not yet implemented, bu
 const logger = new Logger(true, "DocCommand");
 
 const builder: BuilderCallback<DocCommandArgs, ConfigFlags> = (yargs: Argv<DocCommandArgs>) => {
-	const optionNames = Object.keys(docOptions);
-	for (const optionName of optionNames) {
-		yargs = yargs.option(optionName, docOptions[optionName]);
+	for (const [optionName, optionConfig] of Object.entries(docOptions)) {
+		yargs = yargs.option(optionName, optionConfig);
 	}
 	return yargs.example(examples) as Argv<ConfigFlags>;
 };

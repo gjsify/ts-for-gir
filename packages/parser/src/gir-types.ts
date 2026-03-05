@@ -842,6 +842,8 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
 		"c:type"?: string;
 		/** Binary attribute, true if the callback can throw an error */
 		throws?: GirBoolean;
+		/** GObject compatible type name of the callback */
+		"glib:type-name"?: string;
 	};
 
 	/* Other elements a property can contain */

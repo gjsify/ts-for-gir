@@ -4,7 +4,7 @@ import { HtmlDocGenerator } from "@ts-for-gir/generator-html-doc";
 import { JsonDefinitionGenerator } from "@ts-for-gir/generator-json";
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import {
-	configureConflictsReporter,
+	conflictsReporter,
 	ERROR_NO_MODULE_SPECIFIED,
 	FILE_PARSING_DONE,
 	GENERATING_TYPES_DONE,
@@ -36,7 +36,7 @@ export class GenerationHandler {
 
 		// Configure TypeIdentifier and ConflictsReporter globally
 		TypeIdentifier.configureReporter(config.reporter, config.reporterOutput);
-		configureConflictsReporter(config.reporter, config.reporterOutput);
+		conflictsReporter.configure(config.reporter, config.reporterOutput);
 
 		// Register the main handler reporter
 		if (config.reporter) {

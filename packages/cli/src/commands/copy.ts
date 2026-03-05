@@ -49,7 +49,7 @@ const copyGirFile = async (config: UserConfig, depModule: GirModuleResolvedBy) =
 const handler = async (args: ConfigFlags) => {
 	const config = await load(args);
 	const generateConfig = getOptionsGeneration(config);
-	const registry = new NSRegistry(); // TODO: Use singleton
+	const registry = new NSRegistry();
 	const moduleLoader = new ModuleLoader(generateConfig, registry);
 	const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore);
 	const moduleGroups = Object.values(grouped);

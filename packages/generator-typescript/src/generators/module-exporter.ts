@@ -3,10 +3,7 @@ import type { ModuleGenerator } from "../module-generator.ts";
 import { NpmPackage } from "../npm-package.ts";
 import type { TemplateProcessor } from "../template-processor.ts";
 
-/**
- * Handles exporting generated modules to files.
- * Extracted from ModuleGenerator for better separation of concerns.
- */
+/** Handles exporting generated modules to files. */
 export class ModuleExporter {
 	constructor(private readonly core: ModuleGenerator) {}
 

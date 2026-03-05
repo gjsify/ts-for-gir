@@ -16,10 +16,7 @@ import {
 } from "@ts-for-gir/lib";
 import type { ModuleGenerator } from "../module-generator.ts";
 
-/**
- * Handles generation of GObject signal-related TypeScript definitions.
- * Extracted from ModuleGenerator for better separation of concerns.
- */
+/** Handles generation of GObject signal-related TypeScript definitions. */
 export class SignalGenerator {
 	constructor(private readonly core: ModuleGenerator) {}
 

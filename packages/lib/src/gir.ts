@@ -21,7 +21,7 @@ export enum ConflictType {
 	VFUNC_SIGNATURE_CONFLICT,
 }
 
-import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
+import { type ConsoleReporter, LazyReporter } from "@ts-for-gir/reporter";
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
 import type { OptionsBase } from "./types/index.ts";
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
@@ -49,44 +49,14 @@ export class TypeIdentifier extends TypeExpression {
 	readonly name: string;
 	readonly namespace: string;
 
-	// Global reporter configuration and instance
-	private static reporterConfig: { enabled: boolean; output: string } = {
-		enabled: false,
-		output: "ts-for-gir-report.json",
-	};
-	private static globalReporter: ConsoleReporter | null = null;
+	private static readonly reporter = new LazyReporter("TypeIdentifier");
 
-	static configureReporter(enabled: boolean, output: string = "ts-for-gir-report.json") {
-		TypeIdentifier.reporterConfig = { enabled, output };
-
-		// Reset global reporter to force recreation with new config
-		if (TypeIdentifier.globalReporter) {
-			TypeIdentifier.globalReporter = null;
-		}
-
-		// Create and register the global reporter if enabled
-		if (enabled) {
-			TypeIdentifier.globalReporter = new ConsoleReporter(true, "TypeIdentifier", enabled, output);
-			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
-		}
-	}
-
-	private static getReporter(): ConsoleReporter {
-		if (!TypeIdentifier.globalReporter) {
-			const config = TypeIdentifier.reporterConfig;
-			TypeIdentifier.globalReporter = new ConsoleReporter(true, "TypeIdentifier", config.enabled, config.output);
-
-			if (config.enabled) {
-				const reporterService = ReporterService.getInstance();
-				reporterService.registerReporter("TypeIdentifier", TypeIdentifier.globalReporter);
-			}
-		}
-		return TypeIdentifier.globalReporter;
+	static configureReporter(enabled: boolean, output?: string) {
+		TypeIdentifier.reporter.configure(enabled, output);
 	}
 
 	get log(): ConsoleReporter {
-		return TypeIdentifier.getReporter();
+		return TypeIdentifier.reporter.get();
 	}
 
 	constructor(name: string, namespace: string) {

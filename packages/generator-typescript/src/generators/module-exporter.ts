@@ -23,82 +23,8 @@ export class ModuleExporter {
 		return this.core.dependencyManager;
 	}
 
-	async exportModuleIndexJS(): Promise<void> {
-		const template = "index.js";
-		const target = "index.js";
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
-	}
-
-	async exportModuleIndexTS(): Promise<void> {
-		const template = "index.d.ts";
-		const target = "index.d.ts";
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
-	}
-
-	async exportModuleJS(girModule: GirModule): Promise<void> {
-		const template = "module.js";
-		const target = `${girModule.importName}.js`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
-	}
-
-	async exportModuleAmbientTS(girModule: GirModule): Promise<void> {
-		const template = "module-ambient.d.ts";
-		const target = `${girModule.importName}-ambient.d.ts`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
-	}
-
-	async exportModuleAmbientJS(girModule: GirModule): Promise<void> {
-		const template = "module-ambient.js";
-		const target = `${girModule.importName}-ambient.js`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
-	}
-
-	async exportModuleImportTS(girModule: GirModule): Promise<void> {
-		const template = "module-import.d.ts";
-		const target = `${girModule.importName}-import.d.ts`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
-	}
-
-	async exportModuleImportJS(girModule: GirModule): Promise<void> {
-		const template = "module-import.js";
-		const target = `${girModule.importName}-import.js`;
-
+	/** Export a template file to outdir or log its content. */
+	private async exportTemplate(template: string, target: string): Promise<void> {
 		if (this.config.outdir) {
 			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
 		} else {
@@ -111,7 +37,6 @@ export class ModuleExporter {
 		const girModule = this.core.girNamespace;
 		const template = "module.d.ts";
 		const explicitTemplate = `${girModule.importName}.d.ts`;
-		const target = explicitTemplate;
 		const output = await this.core.generateModule(girModule);
 
 		if (!output) {
@@ -119,45 +44,41 @@ export class ModuleExporter {
 			return;
 		}
 
-		const outputArray = output;
-
 		if (await this.moduleTemplateProcessor.exists(explicitTemplate)) {
 			const { append: appendExplicit, prepend: prependExplicit } =
 				await this.moduleTemplateProcessor.load(explicitTemplate);
-			outputArray.unshift(prependExplicit);
-			outputArray.push(appendExplicit);
+			output.unshift(prependExplicit);
+			output.push(appendExplicit);
 		}
 
 		const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-		outputArray.unshift(prepend);
-		outputArray.push(append);
+		output.unshift(prepend);
+		output.push(append);
 
 		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.write(outputArray.join("\n"), this.config.outdir, target);
+			await this.moduleTemplateProcessor.write(output.join("\n"), this.config.outdir, explicitTemplate);
 		} else {
-			this.log.log(outputArray.join("\n"));
+			this.log.log(output.join("\n"));
 		}
 	}
 
-	async exportModule(_registry: NSRegistry, girModule: GirModule): Promise<void> {
+	async exportModule(registry: NSRegistry, girModule: GirModule): Promise<void> {
 		await this.exportModuleTS();
 
 		if (this.config.package) {
-			await this.exportModuleJS(girModule);
-
-			await this.exportModuleIndexTS();
-			await this.exportModuleIndexJS();
-
-			await this.exportModuleAmbientTS(girModule);
-			await this.exportModuleAmbientJS(girModule);
-
-			await this.exportModuleImportTS(girModule);
-			await this.exportModuleImportJS(girModule);
+			const name = girModule.importName;
+			await this.exportTemplate("module.js", `${name}.js`);
+			await this.exportTemplate("index.d.ts", "index.d.ts");
+			await this.exportTemplate("index.js", "index.js");
+			await this.exportTemplate("module-ambient.d.ts", `${name}-ambient.d.ts`);
+			await this.exportTemplate("module-ambient.js", `${name}-ambient.js`);
+			await this.exportTemplate("module-import.d.ts", `${name}-import.d.ts`);
+			await this.exportTemplate("module-import.js", `${name}-import.js`);
 
 			const pkg = new NpmPackage(
 				this.config,
 				this.dependencyManager,
-				_registry,
+				registry,
 				girModule,
 				girModule.transitiveDependencies,
 			);

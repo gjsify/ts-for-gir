@@ -9,6 +9,7 @@ import {
 	IntrospectedClass,
 	IntrospectedClassFunction,
 	IntrospectedInterface,
+	type IntrospectedRecord,
 	mergeDescs,
 	NumberType,
 	type OptionsGeneration,
@@ -29,25 +30,13 @@ export class SignalGenerator {
 	}
 
 	/**
-	 * Generate SignalSignatures interface and related signal interfaces for a class
-	 */
-	generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0): string[] {
-		const def: string[] = [];
-
-		// Always generate SignalSignatures interface for proper inheritance
-		def.push(...this.generateSignalSignatures(girClass, indentCount));
-
-		return def;
-	}
-
-	/**
 	 * Generate SignalSignatures interface for type-safe signal handling.
 	 *
 	 * Creates a comprehensive mapping of signal names to their callback types,
 	 * enabling TypeScript to provide proper type checking and IntelliSense for
 	 * GObject signals using the centralized getAllSignals() method from the model.
 	 */
-	generateSignalSignatures(girClass: IntrospectedClass, indentCount = 0): string[] {
+	generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0): string[] {
 		const def: string[] = [];
 		const indent = generateIndent(indentCount);
 
@@ -151,9 +140,42 @@ export class SignalGenerator {
 	}
 
 	/**
+	 * Generate signal methods section with header comment
+	 */
+	generateClassSignals(girClass: IntrospectedClass): string[] {
+		return mergeDescs(this.generateSignalMethods(girClass), "Signals", 1);
+	}
+
+	/**
+	 * Generate the $signals property for type-safe signal access
+	 */
+	generateClassSignalsProperty(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1): string[] {
+		const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
+		const hasGObjectParent =
+			isGObjectObject ||
+			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object");
+
+		if (!hasGObjectParent) return [];
+
+		const indent = generateIndent(indentCount);
+		return [
+			"",
+			`${indent}/**`,
+			`${indent} * Compile-time signal type information.`,
+			`${indent} *`,
+			`${indent} * This instance property is generated only for TypeScript type checking.`,
+			`${indent} * It is not defined at runtime and should not be accessed in JS code.`,
+			`${indent} * @internal`,
+			`${indent} */`,
+			`${indent}$signals: ${girClass.name}.SignalSignatures;`,
+			"",
+		];
+	}
+
+	/**
 	 * Generate type-safe connect/connect_after/emit signal methods
 	 */
-	generateSignals(girClass: IntrospectedClass): string[] {
+	private generateSignalMethods(girClass: IntrospectedClass): string[] {
 		const signalFunctions = [
 			new IntrospectedClassFunction({
 				name: "connect",
@@ -205,46 +227,4 @@ export class SignalGenerator {
 
 		return methods;
 	}
-
-	/**
-	 * Generate signal methods section with header comment
-	 */
-	generateClassSignals(girClass: IntrospectedClass): string[] {
-		const def: string[] = [];
-		const signalDescs = this.generateSignals(girClass);
-		def.push(...mergeDescs(signalDescs, "Signals", 1));
-		return def;
-	}
-
-	/**
-	 * Generate the $signals property for type-safe signal access
-	 */
-	generateClassSignalsProperty(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1): string[] {
-		const def: string[] = [];
-
-		const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
-		const hasGObjectParent =
-			isGObjectObject ||
-			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object");
-
-		if (hasGObjectParent) {
-			def.push(
-				"",
-				`${generateIndent(indentCount)}/**`,
-				`${generateIndent(indentCount)} * Compile-time signal type information.`,
-				`${generateIndent(indentCount)} *`,
-				`${generateIndent(indentCount)} * This instance property is generated only for TypeScript type checking.`,
-				`${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
-				`${generateIndent(indentCount)} * @internal`,
-				`${generateIndent(indentCount)} */`,
-				`${generateIndent(indentCount)}$signals: ${girClass.name}.SignalSignatures;`,
-				"",
-			);
-		}
-
-		return def;
-	}
 }
-
-// Re-export for use in type imports
-import type { IntrospectedRecord } from "@ts-for-gir/lib";

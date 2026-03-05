@@ -84,8 +84,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	config: OptionsGeneration;
 	moduleTemplateProcessor: TemplateProcessor;
 
-	private readonly signalGenerator: SignalGenerator;
-	private readonly moduleExporter: ModuleExporter;
+	readonly signalGenerator: SignalGenerator;
+	readonly moduleExporter: ModuleExporter;
 
 	/** Public accessor for the protected namespace from FormatGenerator */
 	get girNamespace() {
@@ -1007,10 +1007,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return def;
 	}
 
-	generateClassSignalsProperty(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1) {
-		return this.signalGenerator.generateClassSignalsProperty(girClass, indentCount);
-	}
-
 	generateClassMemberFields(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
 		const def: string[] = [];
 
@@ -1256,22 +1252,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return `${method.name}(${params}):${returnType}`;
 	}
 
-	generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0) {
-		return this.signalGenerator.generateClassSignalInterfaces(girClass, indentCount);
-	}
-
-	generateSignalSignatures(girClass: IntrospectedClass, indentCount = 0): string[] {
-		return this.signalGenerator.generateSignalSignatures(girClass, indentCount);
-	}
-
-	generateSignals(girClass: IntrospectedClass) {
-		return this.signalGenerator.generateSignals(girClass);
-	}
-
-	generateClassSignals(girClass: IntrospectedClass) {
-		return this.signalGenerator.generateClassSignals(girClass);
-	}
-
 	generateClassNamespaces(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 0) {
 		const def: string[] = [];
 		const bodyDef: string[] = [];
@@ -1282,7 +1262,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		if (girClass instanceof IntrospectedClass) {
 			// Signal interfaces
-			bodyDef.push(...this.generateClassSignalInterfaces(girClass, indentCount + 1));
+			bodyDef.push(...this.signalGenerator.generateClassSignalInterfaces(girClass, indentCount + 1));
 		}
 
 		if (girClass instanceof IntrospectedInterface) {
@@ -1561,7 +1541,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			def.push(...this.generateClassProperties(girClass));
 
 			// $signals property (instance property for type-safe signal access)
-			def.push(...this.generateClassSignalsProperty(girClass));
+			def.push(...this.signalGenerator.generateClassSignalsProperty(girClass));
 
 			// Static and member Fields
 			def.push(...this.generateClassFields(girClass));
@@ -1571,7 +1551,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 			if (girClass instanceof IntrospectedClass) {
 				// Signals
-				def.push(...this.generateClassSignals(girClass));
+				def.push(...this.signalGenerator.generateClassSignals(girClass));
 			}
 
 			// Static Methods
@@ -1686,38 +1666,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			this.log.reportGenerationFailure(node.namespace, err as Error, "DTS Inline");
 			return null;
 		}
-	}
-
-	async exportModuleIndexJS(): Promise<void> {
-		return this.moduleExporter.exportModuleIndexJS();
-	}
-
-	async exportModuleIndexTS(): Promise<void> {
-		return this.moduleExporter.exportModuleIndexTS();
-	}
-
-	async exportModuleJS(girModule: GirModule): Promise<void> {
-		return this.moduleExporter.exportModuleJS(girModule);
-	}
-
-	async exportModuleAmbientTS(girModule: GirModule): Promise<void> {
-		return this.moduleExporter.exportModuleAmbientTS(girModule);
-	}
-
-	protected async exportModuleAmbientJS(girModule: GirModule): Promise<void> {
-		return this.moduleExporter.exportModuleAmbientJS(girModule);
-	}
-
-	protected async exportModuleImportTS(girModule: GirModule): Promise<void> {
-		return this.moduleExporter.exportModuleImportTS(girModule);
-	}
-
-	protected async exportModuleImportJS(girModule: GirModule): Promise<void> {
-		return this.moduleExporter.exportModuleImportJS(girModule);
-	}
-
-	async exportModuleTS(): Promise<void> {
-		return this.moduleExporter.exportModuleTS();
 	}
 
 	async generateModule(girModule: GirModule): Promise<string[]> {
@@ -1851,10 +1799,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	async generateNamespaceAsString(girModule: GirModule): Promise<string> {
 		const result = await this.generateNamespace(girModule);
 		return result.join("\n");
-	}
-
-	async exportModule(_registry: NSRegistry, girModule: GirModule) {
-		return this.moduleExporter.exportModule(_registry, girModule);
 	}
 }
 

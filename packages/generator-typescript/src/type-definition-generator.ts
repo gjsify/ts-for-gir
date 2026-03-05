@@ -144,7 +144,7 @@ export class TypeDefinitionGenerator implements Generator {
 
 	public async generate(module: GirModule) {
 		const moduleGenerator = new ModuleGenerator(module, this.config, this.registry);
-		await moduleGenerator.exportModule(this.registry, module);
+		await moduleGenerator.moduleExporter.exportModule(this.registry, module);
 	}
 
 	public async start() {

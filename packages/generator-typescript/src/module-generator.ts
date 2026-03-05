@@ -4,7 +4,6 @@ import {
 	addInfoComment,
 	addTSDocCommentLines,
 	BinaryType,
-	BooleanType,
 	ClassStructTypeIdentifier,
 	ConflictType,
 	DependencyManager,
@@ -41,10 +40,8 @@ import {
 	IntrospectedStaticClassFunction,
 	IntrospectedVirtualClassFunction,
 	isInvalid,
-	mergeDescs,
 	NativeType,
 	type NSRegistry,
-	NumberType,
 	type OptionsGeneration,
 	printGirDocComment,
 	promisifyFunctions,
@@ -58,10 +55,9 @@ import {
 	TypeConflict,
 	type TypeExpression,
 	transformGirDocText,
-	VoidType,
 } from "@ts-for-gir/lib";
+import { ModuleExporter, SignalGenerator } from "./generators/index.ts";
 // import { PackageDataParser } from './package-data-parser.ts'
-import { NpmPackage } from "./npm-package.ts";
 import { override as overrideGLib } from "./overrides/glib.ts";
 import { override as overrideGObject } from "./overrides/gobject.ts";
 import { TemplateProcessor } from "./template-processor.ts";
@@ -87,6 +83,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	config: OptionsGeneration;
 	moduleTemplateProcessor: TemplateProcessor;
+
+	private readonly signalGenerator: SignalGenerator;
+	private readonly moduleExporter: ModuleExporter;
+
+	/** Public accessor for the protected namespace from FormatGenerator */
+	get girNamespace() {
+		return this.namespace;
+	}
 
 	/**
 	 * @param _config The config to use without the override config
@@ -124,6 +128,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			girModule.transitiveDependencies,
 			this.config,
 		);
+
+		this.signalGenerator = new SignalGenerator(this);
+		this.moduleExporter = new ModuleExporter(this);
 	}
 
 	/**
@@ -1001,30 +1008,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	generateClassSignalsProperty(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1) {
-		const def: string[] = [];
-
-		// Add instance $signals property for type-safe signal access (compile-time only)
-		const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
-		const hasGObjectParent =
-			isGObjectObject ||
-			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object");
-
-		if (hasGObjectParent) {
-			def.push(
-				"",
-				`${generateIndent(indentCount)}/**`,
-				`${generateIndent(indentCount)} * Compile-time signal type information.`,
-				`${generateIndent(indentCount)} *`,
-				`${generateIndent(indentCount)} * This instance property is generated only for TypeScript type checking.`,
-				`${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
-				`${generateIndent(indentCount)} * @internal`,
-				`${generateIndent(indentCount)} */`,
-				`${generateIndent(indentCount)}$signals: ${girClass.name}.SignalSignatures;`,
-				"",
-			);
-		}
-
-		return def;
+		return this.signalGenerator.generateClassSignalsProperty(girClass, indentCount);
 	}
 
 	generateClassMemberFields(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
@@ -1273,216 +1257,19 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0) {
-		const def: string[] = [];
-		const _tsSignals = girClass.signals;
-
-		// No separate callback interfaces generated. All callback types are inlined directly in SignalSignatures.
-
-		// Always generate SignalSignatures interface for proper inheritance
-		def.push(...this.generateSignalSignatures(girClass, indentCount));
-
-		return def;
+		return this.signalGenerator.generateClassSignalInterfaces(girClass, indentCount);
 	}
 
-	/**
-	 * Generate SignalSignatures interface for type-safe signal handling
-	 *
-	 * This creates a comprehensive mapping of signal names to their callback types,
-	 * enabling TypeScript to provide proper type checking and IntelliSense for
-	 * GObject signals using the centralized getAllSignals() method from the model.
-	 */
 	generateSignalSignatures(girClass: IntrospectedClass, indentCount = 0): string[] {
-		const def: string[] = [];
-		const indent = generateIndent(indentCount);
-
-		// Generate SignalSignatures interface to maintain type inheritance chain
-		def.push(`${indent}// Signal signatures`);
-		def.push(`${indent}interface SignalSignatures`);
-
-		// Build inheritance chain for signal signatures
-		const parentSignatures: string[] = [];
-
-		// Inherit signal signatures from parent class
-		const parentResolution = girClass.resolveParents().extends();
-		if (parentResolution && parentResolution.node instanceof IntrospectedClass) {
-			const parentClass = parentResolution.node as IntrospectedClass;
-			const parentTypeIdentifier = parentResolution.identifier
-				.resolveIdentifier(this.namespace, this.config)
-				?.print(this.namespace, this.config);
-
-			// Include parent signals unless it's a template workaround class
-			const hasSignalMethods = parentClass.signals?.length > 0;
-			const isNotTemplateWorkaround = !(
-				this.namespace.namespace === "Gimp" && ["ParamObject", "ParamItem", "ParamArray"].includes(parentClass.name)
-			);
-
-			if (parentTypeIdentifier && (hasSignalMethods || isNotTemplateWorkaround)) {
-				parentSignatures.push(`${parentTypeIdentifier}.SignalSignatures`);
-			}
-		}
-
-		// Inherit signal signatures from implemented interfaces
-		const interfaceSignatures = girClass
-			.resolveParents()
-			.implements()
-			.filter((iface) => iface.node instanceof IntrospectedInterface)
-			.filter((iface) => {
-				// Only include interfaces that actually define signals
-				const node = iface.node as unknown as { signals?: unknown[] };
-				return node.signals && node.signals.length > 0;
-			})
-			.map((iface) => {
-				const interfaceTypeIdentifier = iface.identifier
-					.resolveIdentifier(this.namespace, this.config)
-					?.print(this.namespace, this.config);
-				return interfaceTypeIdentifier ? `${interfaceTypeIdentifier}.SignalSignatures` : null;
-			})
-			.filter((sig): sig is string => !!sig);
-
-		parentSignatures.push(...interfaceSignatures);
-
-		// Apply inheritance or fallback to base GObject signals
-		if (parentSignatures.length > 0) {
-			def.push(` extends ${parentSignatures.join(", ")} {`);
-		} else {
-			// Handle root GObject.Object class to avoid circular references
-			const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
-
-			if (isGObjectObject) {
-				def.push(" {");
-			} else {
-				// All other classes inherit from GObject.Object's signal signatures as fallback
-				const gobjectNamespace = this.namespace.assertInstalledImport("GObject");
-				const gobjectObjectClass = gobjectNamespace.assertClass("Object");
-				const gobjectRef = gobjectObjectClass
-					.getType()
-					.resolveIdentifier(this.namespace, this.config)
-					?.print(this.namespace, this.config);
-
-				const fallbackRef = gobjectRef ? `${gobjectRef}.SignalSignatures` : "GObject.Object.SignalSignatures";
-				def.push(` extends ${fallbackRef} {`);
-			}
-		}
-
-		// Use the centralized getAllSignals method from the model
-		const allSignals = girClass.getAllSignals();
-
-		allSignals.forEach((signalInfo) => {
-			// Ensure valid TypeScript property names by quoting invalid identifiers
-			const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signalInfo.name) ? signalInfo.name : `"${signalInfo.name}"`;
-
-			let cbType: string;
-
-			if (signalInfo.isNotifySignal) {
-				// Property notification signals have a standard signature
-				const gobjectRef = this.namespace.namespace === "GObject" ? "" : "GObject.";
-				cbType = `(pspec: ${gobjectRef}ParamSpec) => void`;
-			} else if (signalInfo.signal) {
-				// Regular signals - use the signal's parameters and return type
-				const paramTypes = signalInfo.signal.parameters
-					.map((p, idx) => `arg${idx}: ${this.generateType(p.type)}`)
-					.join(", ");
-
-				// For boolean return types, allow boolean | void for flexibility
-				let returnType = signalInfo.signal.return_type;
-				if (signalInfo.signal.return_type.equals(BooleanType)) {
-					returnType = new BinaryType(BooleanType, VoidType);
-				}
-				const returnTypeStr = this.generateType(returnType);
-
-				cbType = `(${paramTypes}) => ${returnTypeStr}`;
-			} else {
-				// Fallback for custom signal types
-				const paramTypes = signalInfo.parameterTypes?.map((type, idx) => `arg${idx}: ${type}`) || [];
-				const returnTypeStr = signalInfo.returnType || "void";
-				cbType = `(${paramTypes.join(", ")}) => ${returnTypeStr}`;
-			}
-
-			def.push(`${indent}    ${signalKey}: ${cbType};`);
-		});
-
-		def.push(`${indent}}`);
-		def.push("");
-
-		return def;
+		return this.signalGenerator.generateSignalSignatures(girClass, indentCount);
 	}
 
 	generateSignals(girClass: IntrospectedClass) {
-		// Create IntrospectedClassFunction instances for the signal methods
-		// These represent the GObject signal methods that we want to generate
-		const signalFunctions = [
-			new IntrospectedClassFunction({
-				name: "connect",
-				parent: girClass,
-				parameters: [],
-				return_type: NumberType,
-			}),
-			new IntrospectedClassFunction({
-				name: "connect_after",
-				parent: girClass,
-				parameters: [],
-				return_type: NumberType,
-			}),
-			new IntrospectedClassFunction({
-				name: "emit",
-				parent: girClass,
-				parameters: [],
-				return_type: VoidType,
-			}),
-		];
-
-		// Filter out signal methods that conflict with existing methods in the class or parent classes
-		// For example, if a class already has a connect() method (like Camel.Service), we don't generate
-		// the signal connect() method to avoid conflicts
-		const filteredFunctions = filterConflicts(girClass.namespace, girClass, signalFunctions, FilterBehavior.DELETE);
-
-		// Get the names of methods that should be kept (non-conflicting)
-		const allowedNames = new Set(filteredFunctions.map((f) => f.name));
-
-		const gobjectRef = this.namespace.namespace === "GObject" ? "" : "GObject.";
-
-		// Generate only the non-conflicting type-safe signal methods
-		const methods: string[] = [];
-
-		if (allowedNames.has("connect")) {
-			methods.push(
-				// Type-safe overload for known signals
-				`connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
-				// Fallback overload for dynamic signals
-				"connect(signal: string, callback: (...args: any[]) => any): number;",
-			);
-		}
-
-		if (allowedNames.has("connect_after")) {
-			methods.push(
-				// Type-safe overload for known signals
-				`connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
-				// Fallback overload for dynamic signals
-				"connect_after(signal: string, callback: (...args: any[]) => any): number;",
-			);
-		}
-
-		if (allowedNames.has("emit")) {
-			// Fix: Use a conditional type to extract parameters from the signal signature
-			methods.push(
-				// Type-safe overload for known signals
-				`emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
-				// Fallback overload for dynamic signals
-				"emit(signal: string, ...args: any[]): void;",
-			);
-		}
-
-		return methods;
+		return this.signalGenerator.generateSignals(girClass);
 	}
 
 	generateClassSignals(girClass: IntrospectedClass) {
-		const def: string[] = [];
-
-		const signalDescs = this.generateSignals(girClass);
-
-		def.push(...mergeDescs(signalDescs, "Signals", 1));
-
-		return def;
+		return this.signalGenerator.generateClassSignals(girClass);
 	}
 
 	generateClassNamespaces(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 0) {
@@ -1902,123 +1689,35 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	async exportModuleIndexJS(): Promise<void> {
-		const template = "index.js";
-		const target = "index.js";
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleIndexJS();
 	}
 
 	async exportModuleIndexTS(): Promise<void> {
-		const template = "index.d.ts";
-		const target = "index.d.ts";
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleIndexTS();
 	}
 
 	async exportModuleJS(girModule: GirModule): Promise<void> {
-		const template = "module.js";
-		const target = `${girModule.importName}.js`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleJS(girModule);
 	}
 
 	async exportModuleAmbientTS(girModule: GirModule): Promise<void> {
-		const template = "module-ambient.d.ts";
-		const target = `${girModule.importName}-ambient.d.ts`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleAmbientTS(girModule);
 	}
 
 	protected async exportModuleAmbientJS(girModule: GirModule): Promise<void> {
-		const template = "module-ambient.js";
-		const target = `${girModule.importName}-ambient.js`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleAmbientJS(girModule);
 	}
 
 	protected async exportModuleImportTS(girModule: GirModule): Promise<void> {
-		const template = "module-import.d.ts";
-		const target = `${girModule.importName}-import.d.ts`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleImportTS(girModule);
 	}
 
 	protected async exportModuleImportJS(girModule: GirModule): Promise<void> {
-		const template = "module-import.js";
-		const target = `${girModule.importName}-import.js`;
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.create(template, this.config.outdir, target);
-		} else {
-			const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-			this.log.log(append + prepend);
-		}
+		return this.moduleExporter.exportModuleImportJS(girModule);
 	}
 
 	async exportModuleTS(): Promise<void> {
-		const { namespace: girModule } = this;
-		const template = "module.d.ts";
-		const explicitTemplate = `${girModule.importName}.d.ts`;
-		const target = explicitTemplate;
-		const output = await this.generateModule(girModule);
-
-		if (!output) {
-			this.log.error("Failed to generate gir module");
-			return;
-		}
-
-		// Output is always an array now
-		const outputArray = output;
-
-		// Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
-		// E.g. used for GObject-2.0 to help define GObject classes in js;
-		// these aren't part of gi.
-		if (await this.moduleTemplateProcessor.exists(explicitTemplate)) {
-			const { append: appendExplicit, prepend: prependExplicit } =
-				await this.moduleTemplateProcessor.load(explicitTemplate);
-			outputArray.unshift(prependExplicit);
-			outputArray.push(appendExplicit);
-		}
-
-		const { append, prepend } = await this.moduleTemplateProcessor.load(template);
-		outputArray.unshift(prepend);
-		outputArray.push(append);
-
-		if (this.config.outdir) {
-			await this.moduleTemplateProcessor.write(outputArray.join("\n"), this.config.outdir, target);
-		} else {
-			this.log.log(outputArray.join("\n"));
-		}
+		return this.moduleExporter.exportModuleTS();
 	}
 
 	async generateModule(girModule: GirModule): Promise<string[]> {
@@ -2155,30 +1854,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	async exportModule(_registry: NSRegistry, girModule: GirModule) {
-		// Used for package.json and local ambient mode
-		await this.exportModuleTS();
-
-		if (this.config.package) {
-			await this.exportModuleJS(girModule);
-
-			await this.exportModuleIndexTS();
-			await this.exportModuleIndexJS();
-
-			await this.exportModuleAmbientTS(girModule);
-			await this.exportModuleAmbientJS(girModule);
-
-			await this.exportModuleImportTS(girModule);
-			await this.exportModuleImportJS(girModule);
-
-			const pkg = new NpmPackage(
-				this.config,
-				this.dependencyManager,
-				_registry,
-				girModule,
-				girModule.transitiveDependencies,
-			);
-			await pkg.exportNPMPackage();
-		}
+		return this.moduleExporter.exportModule(_registry, girModule);
 	}
 }
 

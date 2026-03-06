@@ -718,33 +718,49 @@ declare global {
         /**
          * Formats a string with the given arguments.
          * This method is made available by calling `pkg.initFormat()`.
-         * 
+         *
          * Supported format specifiers:
          * - %s: Formats as a string
          * - %d: Formats as an integer
          * - %x: Formats as a hexadecimal number
          * - %f: Formats as a floating point number, optionally with precision (e.g. %.2f)
-         * 
+         *
          * All specifiers can be prefixed with a minimum field width, e.g. "%5s" will pad with spaces.
          * If the width is prefixed with '0', it will pad with zeroes instead of spaces.
-         * 
+         *
          * @example
          * ```ts
          * // After calling pkg.initFormat()
          * "Hello %s, you have %d items".format("User", 5);
          * // Returns: "Hello User, you have 5 items"
-         * 
+         *
          * "Price: $%.2f".format(10.5);
          * // Returns: "Price: $10.50"
-         * 
+         *
          * "ID: %05d".format(42);
          * // Returns: "ID: 00042"
          * ```
-         * 
+         *
          * @param args The arguments to format the string with
          * @returns The formatted string
          */
         format(...args: (string | number | boolean | null | undefined)[]): string;
+    }
+
+    interface Error {
+        /**
+         * Checks if this error matches a GLib error domain and code.
+         *
+         * Added to the global `Error` prototype by the GLib override so that
+         * `e.matches(Ns.FooError, Ns.FooError.SOME_CODE)` works without an
+         * `instanceof` check. Always returns `false` for standard JavaScript
+         * errors; only `GLib.Error` instances provide a meaningful implementation.
+         *
+         * @param domain A GLib error domain (error class constructor or quark)
+         * @param code The error code to match against
+         * @returns `false` for native JS errors, `true` if a GLib.Error matches
+         */
+        matches(domain: unknown, code: number): boolean;
     }
 }
 

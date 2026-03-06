@@ -52,6 +52,7 @@ npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
 * [Sound Recorder](https://flathub.org/apps/org.gnome.SoundRecorder) - A simple, modern sound recorder
 * [Sticky Notes](https://flathub.org/apps/com.vixalien.sticky) - Pin notes to your desktop
 * [Weather](https://flathub.org/apps/org.gnome.Weather) - Show weather conditions and forecast
+* [K’uychi](https://flathub.org/en/apps/one.naiara.Kuychi) - Generate color palettes
 
 ## Example Projects
 
@@ -61,6 +62,7 @@ The repository includes numerous example projects that demonstrate how to use th
 - [GTK 4 Template with Vite](/examples/gtk-4-template-vite) - Modern UI with Vite bundling
 - [GTK 3 Browser](/examples/gtk-3-browser) - Web browser using WebKit
 - [Gio File Operations](/examples/gio-2-cat) - File system operations with Gio
+- [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) - A template for creating GNOME applications using GTK, libadwaita, TypeScript, Flatpak, and Meson
 
 See the [Examples directory](/examples/README.md) for a complete list of examples with screenshots and detailed descriptions. For information on using the examples with different CLI options, refer to the [CLI documentation](/packages/cli/README.md#using-the-generated-types).
 

@@ -188,16 +188,19 @@ export const copyOptions = {
 };
 
 export const docOptions = {
-	modules: options.modules,
-	girDirectories: options.girDirectories,
-	root: options.root,
-	outdir: options.outdir,
-	ignore: options.ignore,
-	verbose: options.verbose,
-	ignoreVersionConflicts: options.ignoreVersionConflicts,
-	configName: options.configName,
-	reporter: options.reporter,
-	reporterOutput: options.reporterOutput,
+	...generateOptions,
+	outdir: { ...options.outdir, default: defaults.docOutdir },
+	combined: {
+		type: "boolean" as const,
+		description:
+			"Generate a single unified documentation for all modules (use --no-combined for separate per-module docs)",
+		default: defaults.combined,
+	},
+	sourceLinkTemplate: {
+		type: "string" as const,
+		description:
+			"URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders. Example: https://github.com/user/repo/blob/main/{path}#L{line}",
+	},
 };
 
 export const analyzeOptions = {

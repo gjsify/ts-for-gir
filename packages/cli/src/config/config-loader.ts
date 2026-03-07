@@ -168,6 +168,10 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		mergeConfigValue(userConfig, configFileData, "npmScope", options.npmScope.default);
 		mergeConfigValue(userConfig, configFileData, "reporterOutput", options.reporterOutput.default);
 
+		// Doc-specific options
+		mergeConfigValue(userConfig, configFileData, "combined", undefined, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
+
 		// Array options
 		mergeConfigValue(userConfig, configFileData, "girDirectories", options.girDirectories.default);
 		mergeConfigValue(userConfig, configFileData, "ignore", options.ignore.default);

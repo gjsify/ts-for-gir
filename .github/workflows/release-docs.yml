@@ -1,0 +1,93 @@
+# Workflow to automatically update docs submodule on new releases
+name: Release Docs
+
+on:
+  release:
+    types: [published]
+  # Allow manual triggering for testing
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag to use for commit message'
+        required: false
+        default: 'manual'
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read    # Allow reading workflow info
+
+    steps:
+    - name: Checkout repository with submodules
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        # Use a personal access token to allow pushing to submodule
+        token: ${{ secrets.PAT_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install yarn dependencies
+      run: yarn install
+
+    - name: Prepare docs submodule
+      run: |
+        cd docs
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        # Configure remote URL with token for authentication
+        git remote set-url origin "https://x-access-token:${PAT_TOKEN}@github.com/gjsify/docs.git"
+        # Checkout main branch to ensure we're up to date
+        git fetch origin
+        git checkout main
+        git pull origin main
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+    - name: Generate HTML documentation
+      run: yarn build:doc
+
+    - name: Check for changes in docs submodule
+      id: check-changes
+      run: |
+        cd docs
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Changes detected in docs submodule"
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "No changes detected in docs submodule"
+        fi
+
+    - name: Commit and push docs changes
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        cd docs
+        git add .
+
+        git commit -m "chore: update docs for release ${RELEASE_TAG}
+
+        Automated commit from ts-for-gir release workflow.
+        Generated HTML documentation for release: ${RELEASE_TAG}
+
+        Source: ${GITHUB_REPOSITORY}@${RELEASE_TAG}"
+
+        # Push to the docs repository
+        git push origin main
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+
+    - name: Summary
+      run: |
+        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+          echo "Docs successfully updated and committed for release ${RELEASE_TAG}"
+        else
+          echo "No changes detected in generated docs"
+        fi
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}

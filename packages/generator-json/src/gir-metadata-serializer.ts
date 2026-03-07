@@ -73,7 +73,7 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 			return this.buildClassMetadata(girObj);
 		}
 		if (girObj instanceof IntrospectedBaseClass) {
-			return this.buildBaseClassMetadata(girObj, "interface");
+			return this.buildBaseMetadata(girObj, "interface");
 		}
 		if (girObj instanceof IntrospectedError) {
 			return this.buildEnumMetadata(girObj, true);
@@ -82,28 +82,28 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 			return this.buildEnumMetadata(girObj, false);
 		}
 		if (girObj instanceof IntrospectedConstructor) {
-			return this.buildConstructorMetadata(girObj);
+			return this.buildFunctionLikeMetadata(girObj, "constructor");
 		}
 		if (girObj instanceof IntrospectedVirtualClassFunction) {
-			return this.buildClassFunctionMetadata(girObj, "virtual-method");
+			return this.buildFunctionLikeMetadata(girObj, "virtual-method", { isVirtual: true });
 		}
 		if (girObj instanceof IntrospectedStaticClassFunction) {
-			return this.buildClassFunctionMetadata(girObj, "static-method");
+			return this.buildFunctionLikeMetadata(girObj, "static-method", { isStatic: true });
 		}
 		if (girObj instanceof IntrospectedClassFunction) {
-			return this.buildClassFunctionMetadata(girObj, "method");
+			return this.buildFunctionLikeMetadata(girObj, "method");
 		}
 		if (girObj instanceof IntrospectedCallback) {
-			return this.buildFunctionMetadata(girObj, "callback");
+			return this.buildFunctionLikeMetadata(girObj, "callback");
 		}
 		if (girObj instanceof IntrospectedFunction) {
-			return this.buildFunctionMetadata(girObj, "function");
+			return this.buildFunctionLikeMetadata(girObj, "function");
 		}
 		if (girObj instanceof IntrospectedProperty) {
 			return this.buildPropertyMetadata(girObj);
 		}
 		if (girObj instanceof IntrospectedField) {
-			return this.buildFieldMetadata(girObj);
+			return this.buildBaseMetadata(girObj, "field");
 		}
 		if (girObj instanceof IntrospectedSignal) {
 			return this.buildSignalMetadata(girObj);
@@ -166,10 +166,6 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 		return metadata;
 	}
 
-	private buildBaseClassMetadata(cls: IntrospectedBaseClass, girKind: GirElementKind): GirReflectionMetadata {
-		return this.buildBaseMetadata(cls, girKind);
-	}
-
 	private buildRecordMetadata(record: IntrospectedRecord): GirReflectionMetadata {
 		const metadata = this.buildBaseMetadata(record, "record");
 
@@ -214,42 +210,16 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 		return result;
 	}
 
-	private buildFunctionMetadata(fn: IntrospectedFunction, girKind: GirElementKind): GirReflectionMetadata {
+	private buildFunctionLikeMetadata(
+		fn: IntrospectedFunction | IntrospectedClassFunction | IntrospectedConstructor,
+		girKind: GirElementKind,
+		extra?: Partial<GirFunctionMetadata>,
+	): GirReflectionMetadata {
 		const metadata = this.buildBaseMetadata(fn, girKind);
 
 		const fnMeta: GirFunctionMetadata = {
 			...this.extractFunctionParams(fn.parameters),
-		};
-
-		if (Object.keys(fnMeta).length > 0) {
-			metadata.functionMetadata = fnMeta;
-		}
-
-		return metadata;
-	}
-
-	private buildClassFunctionMetadata(fn: IntrospectedClassFunction, girKind: GirElementKind): GirReflectionMetadata {
-		const metadata = this.buildBaseMetadata(fn, girKind);
-
-		const fnMeta: GirFunctionMetadata = {
-			...this.extractFunctionParams(fn.parameters),
-		};
-
-		if (girKind === "virtual-method") fnMeta.isVirtual = true;
-		if (girKind === "static-method") fnMeta.isStatic = true;
-
-		if (Object.keys(fnMeta).length > 0) {
-			metadata.functionMetadata = fnMeta;
-		}
-
-		return metadata;
-	}
-
-	private buildConstructorMetadata(ctor: IntrospectedConstructor): GirReflectionMetadata {
-		const metadata = this.buildBaseMetadata(ctor, "constructor");
-
-		const fnMeta: GirFunctionMetadata = {
-			...this.extractFunctionParams(ctor.parameters),
+			...extra,
 		};
 
 		if (Object.keys(fnMeta).length > 0) {
@@ -266,11 +236,6 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 			writable: prop.writable,
 			constructOnly: prop.constructOnly,
 		};
-		return metadata;
-	}
-
-	private buildFieldMetadata(field: IntrospectedField): GirReflectionMetadata {
-		const metadata = this.buildBaseMetadata(field, "field");
 		return metadata;
 	}
 

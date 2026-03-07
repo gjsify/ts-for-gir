@@ -87,7 +87,7 @@ export class JsonDefinitionGenerator {
 			}
 
 			if (this.config.outdir) {
-				console.log(`JSON generation completed for ${this.modules.length} modules in ${this.config.outdir}`);
+				this.log.success(`JSON generation completed for ${this.modules.length} modules in ${this.config.outdir}`);
 			}
 		} finally {
 			// Clean up temporary directory
@@ -149,7 +149,7 @@ export class JsonDefinitionGenerator {
 		if (this.config.outdir) {
 			const filepath = join(this.config.outdir, `${module.packageName}.json`);
 			await writeFile(filepath, jsonStr, "utf8");
-			console.log(`   ${filepath}`);
+			this.log.info(`Generated ${filepath}`);
 		} else {
 			this.log.log(jsonStr);
 		}

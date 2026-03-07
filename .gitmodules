@@ -20,3 +20,6 @@
 [submodule "refs/gjs-guide"]
 	path = refs/gjs-guide
 	url = https://gitlab.gnome.org/World/javascript/gjs-guide.git
+[submodule "refs/typedoc"]
+	path = refs/typedoc
+	url = git@github.com:TypeStrong/typedoc.git

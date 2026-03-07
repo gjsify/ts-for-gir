@@ -19,6 +19,7 @@ await build({
 		"inquirer",
 		"prettier",
 		"colorette",
+		"typedoc",
 		"yargs",
 	],
 });

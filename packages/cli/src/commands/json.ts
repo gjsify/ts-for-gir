@@ -5,6 +5,7 @@
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import { APP_NAME, type ConfigFlags } from "@ts-for-gir/lib";
 import { generateOptions } from "../config.ts";
+import { TypeScriptFormatter } from "../formatters/typescript-formatter.ts";
 import type { GenerateCommandArgs } from "../types/index.ts";
 import { createBuilder } from "./command-builder.ts";
 import { runGenerationCommand } from "./run-generation-command.ts";
@@ -27,6 +28,9 @@ const handler = async (args: ConfigFlags) => {
 	await runGenerationCommand(args, {
 		generatorType: GeneratorType.JSON,
 		loggerName: "JsonCommand",
+		configureRegistry: (registry) => {
+			registry.registerFormatter("dts", new TypeScriptFormatter());
+		},
 	});
 };
 

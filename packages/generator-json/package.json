@@ -43,7 +43,9 @@
 	"dependencies": {
 		"@gi.ts/parser": "workspace:^",
 		"@ts-for-gir/generator-base": "workspace:^",
+		"@ts-for-gir/generator-typescript": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
-		"@ts-for-gir/reporter": "workspace:^"
+		"@ts-for-gir/reporter": "workspace:^",
+		"typedoc": "^0.28.17"
 	}
 }

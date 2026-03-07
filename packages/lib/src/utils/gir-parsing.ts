@@ -7,6 +7,7 @@ import type {
 	GirFunctionElement,
 	GirInfoAttrs,
 	GirMethodElement,
+	GirType,
 } from "@gi.ts/parser";
 import { GirDirection } from "@gi.ts/parser";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
@@ -65,7 +66,7 @@ export function parseMetadata(element: { $: GirInfoAttrs } & GirDocElement): Int
  * This function determines whether a given type is a "pointer type"...
  * Any type where the c:type ends with *
  */
-function isPointerType(types: import("@gi.ts/parser").GirType[] | undefined) {
+function isPointerType(types: GirType[] | undefined) {
 	const type = types?.[0];
 	if (!type) return false;
 

@@ -4,7 +4,11 @@ import { join } from "node:path";
 
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import { type GirModule, type NSRegistry, type OptionsGeneration, Reporter, ReporterService } from "@ts-for-gir/lib";
-import { Application, normalizePath, TSConfigReader } from "typedoc";
+import { Application, normalizePath, Serializer, TSConfigReader } from "typedoc";
+
+import { buildGirLookupIndex } from "./gir-metadata-index.ts";
+import { GirMetadataSerializer } from "./gir-metadata-serializer.ts";
+import type { GirNamespaceMetadata } from "./gir-metadata-types.ts";
 
 /**
  * Generator that produces TypeDoc JSON output from GIR modules.
@@ -114,6 +118,29 @@ export class JsonDefinitionGenerator {
 			this.log.error(`TypeDoc conversion failed for ${module.packageName}`);
 			return;
 		}
+
+		// Register GIR metadata serializer to enrich JSON output
+		const index = buildGirLookupIndex(module);
+		app.serializer.addSerializer(new GirMetadataSerializer(index));
+
+		// Add namespace-level metadata via EVENT_END
+		app.serializer.on(Serializer.EVENT_END, (event) => {
+			if (event.output) {
+				const nsMeta: GirNamespaceMetadata = {
+					namespace: module.namespace,
+					version: module.version,
+					packageName: module.packageName,
+					cPrefixes: module.c_prefixes,
+					libraryVersion: module.libraryVersion.toString(),
+					dependencies: module.dependencies.map((d) => ({
+						namespace: d.namespace,
+						version: d.version,
+					})),
+				};
+				// biome-ignore lint/suspicious/noExplicitAny: extending TypeDoc's JSON schema with custom field
+				(event.output as any).girNamespaceMetadata = nsMeta;
+			}
+		});
 
 		const jsonOutput = app.serializer.projectToObject(project, normalizePath(moduleDir));
 		const pretty = this.config.verbose;

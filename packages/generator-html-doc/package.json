@@ -41,6 +41,8 @@
 	},
 	"dependencies": {
 		"@ts-for-gir/generator-base": "workspace:^",
-		"@ts-for-gir/lib": "workspace:^"
+		"@ts-for-gir/generator-json": "workspace:^",
+		"@ts-for-gir/lib": "workspace:^",
+		"typedoc": "^0.28.17"
 	}
 }

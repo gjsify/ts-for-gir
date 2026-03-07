@@ -188,16 +188,14 @@ export const copyOptions = {
 };
 
 export const docOptions = {
-	modules: options.modules,
-	girDirectories: options.girDirectories,
-	root: options.root,
-	outdir: options.outdir,
-	ignore: options.ignore,
-	verbose: options.verbose,
-	ignoreVersionConflicts: options.ignoreVersionConflicts,
-	configName: options.configName,
-	reporter: options.reporter,
-	reporterOutput: options.reporterOutput,
+	...generateOptions,
+	outdir: { ...options.outdir, default: defaults.docOutdir },
+	combined: {
+		type: "boolean" as const,
+		description:
+			"Generate a single unified documentation for all modules (use --no-combined for separate per-module docs)",
+		default: defaults.combined,
+	},
 };
 
 export const analyzeOptions = {

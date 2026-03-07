@@ -55,4 +55,6 @@ export interface UserConfig {
 	 * Output file path for the reporter
 	 */
 	reporterOutput: string;
+	/** Generate a single unified documentation for all modules instead of separate per-module docs */
+	combined?: boolean;
 }

@@ -22,6 +22,7 @@ examples/**/tsconfig.alias.json
 
 # Locally generated types
 @types/
+docs/
 
 tests/**/dist/
 

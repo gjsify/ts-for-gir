@@ -68,11 +68,9 @@ export interface CopyCommandArgs extends BaseCommandArgs {
 /**
  * Arguments for the doc command
  */
-export interface DocCommandArgs extends BaseCommandArgs {
-	/** Directory to output to */
-	outdir: string | null;
-	/** Skip prompts for library version selection when multiple versions are detected */
-	ignoreVersionConflicts: boolean;
+export interface DocCommandArgs extends GenerateCommandArgs {
+	/** Generate a single unified documentation for all modules (use --no-combined for separate per-module docs) */
+	combined: boolean;
 }
 
 /**

@@ -23,3 +23,6 @@
 [submodule "refs/typedoc"]
 	path = refs/typedoc
 	url = git@github.com:TypeStrong/typedoc.git
+[submodule "refs/gi-docgen"]
+	path = refs/gi-docgen
+	url = https://gitlab.gnome.org/GNOME/gi-docgen.git

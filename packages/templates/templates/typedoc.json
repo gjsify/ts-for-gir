@@ -22,5 +22,7 @@ _%>
     "entryPoints": <%- JSON.stringify(entryPoints) %>,
     "readme": "./README.md",
     "name": "<%- packageName %>",
-    "tsconfig": "./tsconfig.json"
+    "tsconfig": "./tsconfig.json",
+    "skipErrorChecking": true,
+    "highlightLanguages": ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"]
 }

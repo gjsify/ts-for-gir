@@ -196,6 +196,11 @@ export const docOptions = {
 			"Generate a single unified documentation for all modules (use --no-combined for separate per-module docs)",
 		default: defaults.combined,
 	},
+	sourceLinkTemplate: {
+		type: "string" as const,
+		description:
+			"URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders. Example: https://github.com/user/repo/blob/main/{path}#L{line}",
+	},
 };
 
 export const analyzeOptions = {

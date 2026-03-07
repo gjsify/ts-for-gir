@@ -81,6 +81,14 @@ export class TypeDocPipeline {
 		const entryPoint = join(moduleDir, `${module.importName}.d.ts`);
 		const tsconfigPath = join(moduleDir, "tsconfig.json");
 
+		const sourceLinkOptions = this.config.sourceLinkTemplate
+			? {
+					sourceLinkTemplate: this.config.sourceLinkTemplate,
+					basePath: normalizePath(this.tempDir),
+					disableGit: true,
+				}
+			: {};
+
 		const app = await Application.bootstrap(
 			{
 				entryPoints: [entryPoint],
@@ -89,6 +97,7 @@ export class TypeDocPipeline {
 				name: module.packageName,
 				// Enable C/C++ highlighting for code blocks in JSDoc (GIR docs often show C API examples)
 				highlightLanguages: ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"],
+				...sourceLinkOptions,
 			},
 			[new TSConfigReader()],
 		);
@@ -140,6 +149,14 @@ export class TypeDocPipeline {
 	 * converts each package separately, then merges them into one ProjectReflection.
 	 */
 	async createCombinedTypeDocApp(): Promise<{ app: Application; project: ProjectReflection }> {
+		const sourceLinkOptions = this.config.sourceLinkTemplate
+			? {
+					sourceLinkTemplate: this.config.sourceLinkTemplate,
+					basePath: normalizePath(this.tempDir),
+					disableGit: true,
+				}
+			: {};
+
 		const app = await Application.bootstrap(
 			{
 				entryPoints: [join(this.tempDir, "*")],
@@ -147,8 +164,16 @@ export class TypeDocPipeline {
 				name: "GIR API Documentation",
 				skipErrorChecking: true,
 				highlightLanguages: ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"],
+				...sourceLinkOptions,
 				packageOptions: {
 					skipErrorChecking: true,
+					...(this.config.sourceLinkTemplate
+						? {
+								sourceLinkTemplate: this.config.sourceLinkTemplate,
+								basePath: normalizePath(this.tempDir),
+								disableGit: true,
+							}
+						: {}),
 				},
 			},
 			[new TSConfigReader()],

@@ -71,6 +71,8 @@ export interface CopyCommandArgs extends BaseCommandArgs {
 export interface DocCommandArgs extends GenerateCommandArgs {
 	/** Generate a single unified documentation for all modules (use --no-combined for separate per-module docs) */
 	combined: boolean;
+	/** URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders */
+	sourceLinkTemplate?: string;
 }
 
 /**

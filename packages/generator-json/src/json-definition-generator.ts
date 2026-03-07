@@ -58,7 +58,9 @@ export class JsonDefinitionGenerator {
 			}
 
 			if (this.config.outdir) {
-				this.log.success(`JSON generation completed for ${this.pipeline.modules.length} modules in ${this.config.outdir}`);
+				this.log.success(
+					`JSON generation completed for ${this.pipeline.modules.length} modules in ${this.config.outdir}`,
+				);
 			}
 		} finally {
 			await this.pipeline.cleanup();

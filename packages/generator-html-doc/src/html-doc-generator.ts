@@ -61,7 +61,9 @@ export class HtmlDocGenerator {
 			}
 
 			if (this.config.outdir) {
-				this.log.success(`HTML documentation generated for ${this.pipeline.modules.length} modules in ${this.config.outdir}`);
+				this.log.success(
+					`HTML documentation generated for ${this.pipeline.modules.length} modules in ${this.config.outdir}`,
+				);
 			}
 		} finally {
 			await this.pipeline.cleanup();

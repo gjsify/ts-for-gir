@@ -4,7 +4,14 @@ import { join } from "node:path";
 
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import type { GirModule, NSRegistry, OptionsGeneration } from "@ts-for-gir/lib";
-import { Application, type NormalizedPath, type ProjectReflection, normalizePath, Serializer, TSConfigReader } from "typedoc";
+import {
+	Application,
+	type NormalizedPath,
+	normalizePath,
+	type ProjectReflection,
+	Serializer,
+	TSConfigReader,
+} from "typedoc";
 
 import { buildGirLookupIndex } from "./gir-metadata-index.ts";
 import { GirMetadataSerializer } from "./gir-metadata-serializer.ts";

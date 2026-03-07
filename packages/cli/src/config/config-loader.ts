@@ -181,9 +181,7 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		}
 
 		// Special handling for outdir (override with config file value if still at a default)
-		const isDefaultOutdir =
-			userConfig.outdir === options.outdir.default ||
-			userConfig.outdir === defaults.docOutdir;
+		const isDefaultOutdir = userConfig.outdir === options.outdir.default || userConfig.outdir === defaults.docOutdir;
 		if (isDefaultOutdir && configFileData.outdir) {
 			userConfig.outdir = userConfig.print ? null : configFileData.outdir;
 		}

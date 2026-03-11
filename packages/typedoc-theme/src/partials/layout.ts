@@ -45,7 +45,6 @@ export const giDocgenLayout = (
 				src: context.relativeURL("assets/search.js", true),
 				id: "tsd-search-script",
 			}),
-			/* Use our custom navigation JS instead of TypeDoc's default */
 			JSX.createElement("script", {
 				async: true,
 				src: context.relativeURL("assets/navigation.js", true),

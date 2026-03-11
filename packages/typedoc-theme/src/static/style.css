@@ -468,6 +468,7 @@ body.menu-visible .overlay {
 	align-items: center;
 	gap: 0.4em;
 	padding: 0.2em 0.5em;
+	min-height: 28px;
 	border-radius: var(--box-radius);
 	font-size: 0.9rem;
 	line-height: 1.4;
@@ -482,6 +483,11 @@ body.menu-visible .overlay {
 	color: #fff;
 }
 
+/* Indent children inside accordion details */
+#gi-docgen-sidebar .tsd-accordion > div > .tsd-small-nested-navigation {
+	padding-left: 1.5em;
+}
+
 #gi-docgen-sidebar .tsd-nested-navigation {
 	list-style: none;
 	padding-left: 1em;
@@ -492,6 +498,11 @@ body.menu-visible .overlay {
 	margin-left: 0;
 }
 
+/* Leaf items without accordion chevron: indent to align with accordion text */
+#gi-docgen-sidebar .tsd-nested-navigation > li:not(:has(> details)) {
+	padding-left: calc(16px + 0.3em);
+}
+
 /* Accordion styles within sidebar */
 #gi-docgen-sidebar .tsd-accordion summary {
 	display: flex;
@@ -499,6 +510,7 @@ body.menu-visible .overlay {
 	gap: 0.3em;
 	cursor: pointer;
 	padding: 0.3em 0.5em;
+	min-height: 28px;
 	border-radius: var(--box-radius);
 	font-size: 0.9rem;
 	list-style: none;
@@ -528,12 +540,16 @@ body.menu-visible .overlay {
 
 #gi-docgen-sidebar .tsd-accordion summary svg {
 	flex-shrink: 0;
+}
+
+/* Only the chevron (first SVG) gets the 16px size and rotation */
+#gi-docgen-sidebar .tsd-accordion summary > svg:first-child {
 	width: 16px;
 	height: 16px;
 	transition: transform 0.2s;
 }
 
-#gi-docgen-sidebar .tsd-accordion[open] > summary svg {
+#gi-docgen-sidebar .tsd-accordion[open] > summary > svg:first-child {
 	transform: rotate(180deg);
 }
 

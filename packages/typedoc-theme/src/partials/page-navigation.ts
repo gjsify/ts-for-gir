@@ -1,5 +1,5 @@
 import type { PageEvent, PageHeading, Reflection } from "typedoc";
-import { i18n, JSX } from "typedoc";
+import { JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
 import { classNames, wbr } from "../utils.ts";
 
@@ -79,14 +79,9 @@ export const giDocgenPageNavigation = (context: GiDocgenThemeRenderContext, prop
 	}
 
 	return JSX.createElement(
-		"details",
-		{ open: true, class: "tsd-accordion tsd-page-navigation" },
-		JSX.createElement(
-			"summary",
-			{ class: "tsd-accordion-summary" },
-			context.icons.chevronDown(),
-			JSX.createElement("h3", null, i18n.theme_on_this_page()),
-		),
+		"div",
+		{ class: "tsd-page-navigation" },
+		JSX.createElement("h3", null, "Content"),
 		JSX.createElement("div", { class: "tsd-accordion-details" }, sections),
 	);
 };

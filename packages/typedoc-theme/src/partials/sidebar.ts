@@ -46,4 +46,16 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 		),
 		context.navigation(props),
 		context.settings(),
+		JSX.createElement(
+			"div",
+			{ class: "gi-docgen-generator" },
+			JSX.createElement(
+				"p",
+				null,
+				"Generated with ",
+				JSX.createElement("a", { href: "https://typedoc.org/", target: "_blank" }, "TypeDoc"),
+				" via ",
+				JSX.createElement("a", { href: "https://github.com/gjsify/ts-for-gir", target: "_blank" }, "ts-for-gir"),
+			),
+		),
 	);

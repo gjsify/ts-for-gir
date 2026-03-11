@@ -28,7 +28,7 @@
 	--light-color-link: rgb(28, 118, 228);
 
 	/* Override TypeDoc's dark mode variables too */
-	--dark-color-background: #1e1e1e;
+	--dark-color-background: #121212;
 	--dark-color-background-secondary: #2a2a2a;
 	--dark-color-background-active: #444;
 	--dark-color-text: #f6f6f6;
@@ -44,7 +44,8 @@
 	--sidebar-search-bg: rgba(127, 127, 127, 0.25);
 	--sidebar-search-focus-bg: rgba(127, 127, 127, 0.3);
 	--sidebar-padding: 1.5em;
-	--sidebar-width: 35ch;
+	--sidebar-min-width: 30ch;
+	--sidebar-max-width: 43ch;
 
 	/* Boxes / Code Blocks */
 	--box-bg: rgba(135, 135, 135, 0.085);
@@ -81,7 +82,9 @@
 		--text-color: #f6f6f6;
 		--text-color-muted: rgba(246, 246, 246, 0.65);
 		--primary: rgb(144, 194, 255);
-		--body-bg: #1e1e1e;
+		--body-bg: #121212;
+		--sidebar-bg: #1e1e1e;
+		--sidebar-selected-bg: rgb(17, 112, 228);
 		--box-bg: rgba(135, 135, 135, 0.15);
 		--box-text-color: #eee;
 		--link-color: var(--primary);
@@ -92,7 +95,9 @@
 	--text-color: #f6f6f6;
 	--text-color-muted: rgba(246, 246, 246, 0.65);
 	--primary: rgb(144, 194, 255);
-	--body-bg: #1e1e1e;
+	--body-bg: #121212;
+	--sidebar-bg: #1e1e1e;
+	--sidebar-selected-bg: rgb(17, 112, 228);
 	--box-bg: rgba(135, 135, 135, 0.15);
 	--box-text-color: #eee;
 	--link-color: var(--primary);
@@ -137,10 +142,17 @@ pre {
 
 pre {
 	background: var(--box-bg);
+	border: none;
 	border-radius: var(--box-radius);
 	padding: var(--box-padding);
 	overflow-x: auto;
 	color: var(--box-text-color);
+}
+
+pre code {
+	background: transparent;
+	padding: 0;
+	border: none;
 }
 
 h1,
@@ -254,6 +266,7 @@ h3 {
 /* Signatures */
 .tsd-signature {
 	background: var(--box-bg);
+	border: none;
 	padding: var(--box-padding);
 	border-radius: var(--box-radius);
 	font-family: var(--monospace-font-family);
@@ -371,20 +384,20 @@ body.menu-visible .overlay {
 	opacity: 0.6;
 }
 
-/* Footer */
-.gi-docgen-footer {
-	margin-top: 3em;
+/* Generator credits in left sidebar */
+#gi-docgen-sidebar .gi-docgen-generator {
 	padding-top: 1em;
-	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	font-size: 0.75rem;
+	opacity: 0.6;
 }
 
-:root[data-theme="dark"] .gi-docgen-footer {
-	border-top-color: rgba(255, 255, 255, 0.08);
+#gi-docgen-sidebar .gi-docgen-generator p {
+	margin: 0;
 }
 
-.gi-docgen-footer .tsd-generator {
-	font-size: 0.8rem;
-	color: var(--text-color-muted);
+#gi-docgen-sidebar .gi-docgen-generator a {
+	color: var(--sidebar-primary);
 }
 
 /* Menu trigger (mobile) */
@@ -415,15 +428,21 @@ body.menu-visible .overlay {
 	top: 0;
 	height: 100vh;
 	overflow-y: auto;
-	min-width: var(--sidebar-width);
-	max-width: var(--sidebar-width);
+	min-width: var(--sidebar-min-width);
+	max-width: var(--sidebar-max-width);
 	background: var(--sidebar-bg);
 	color: var(--sidebar-text-color);
+	color-scheme: dark;
 	padding: var(--sidebar-padding);
 	flex-shrink: 0;
 	z-index: 10;
 	display: flex;
 	flex-direction: column;
+	/* Override TypeDoc's theme-dependent variables so sidebar always looks dark */
+	--color-background: var(--sidebar-bg);
+	--color-text: var(--sidebar-text-color);
+	--color-text-aside: rgba(250, 250, 250, 0.65);
+	--color-link: var(--sidebar-primary);
 }
 
 #gi-docgen-sidebar a {
@@ -666,11 +685,16 @@ body.menu-visible .overlay {
 	min-width: var(--toc-width);
 	padding: 2em 1em;
 	flex-shrink: 0;
-	border-left: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 :root[data-theme="dark"] #gi-docgen-toc {
 	border-left-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root[data-theme="os"] #gi-docgen-toc {
+		border-left-color: rgba(255, 255, 255, 0.08);
+	}
 }
 
 #gi-docgen-toc .tsd-page-navigation h3 {

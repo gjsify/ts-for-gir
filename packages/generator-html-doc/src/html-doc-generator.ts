@@ -4,6 +4,8 @@ import { join } from "node:path";
 import { TypeDocPipeline } from "@ts-for-gir/generator-json";
 import type { GirModule, NSRegistry, OptionsGeneration } from "@ts-for-gir/lib";
 import { Reporter, ReporterService } from "@ts-for-gir/lib";
+import { load as loadGiDocgenTheme } from "@ts-for-gir/typedoc-theme";
+import type { Application } from "typedoc";
 
 /**
  * Generator that produces HTML documentation from GIR modules using TypeDoc.
@@ -70,6 +72,14 @@ export class HtmlDocGenerator {
 		}
 	}
 
+	private applyTheme(app: Application): void {
+		const themeName = this.config.theme || "gi-docgen";
+		if (themeName === "gi-docgen") {
+			loadGiDocgenTheme(app);
+		}
+		app.options.setValue("theme", themeName);
+	}
+
 	private async generateCombinedHtmlDoc(): Promise<void> {
 		if (!this.config.outdir) {
 			this.log.error("HTML documentation requires --outdir to be specified");
@@ -77,6 +87,7 @@ export class HtmlDocGenerator {
 		}
 
 		const { app, project } = await this.pipeline.createCombinedTypeDocApp();
+		this.applyTheme(app);
 		await app.generateDocs(project, this.config.outdir);
 		this.log.info(`Generated combined HTML docs for ${this.pipeline.modules.length} modules in ${this.config.outdir}`);
 	}
@@ -89,6 +100,7 @@ export class HtmlDocGenerator {
 			return;
 		}
 
+		this.applyTheme(app);
 		const outDir = join(this.config.outdir, module.packageName);
 		await app.generateDocs(project, outDir);
 		this.log.info(`Generated HTML docs for ${module.packageName} in ${outDir}`);

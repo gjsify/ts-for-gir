@@ -1,7 +1,7 @@
 {
-	"name": "@ts-for-gir/generator-html-doc",
+	"name": "@ts-for-gir/typedoc-theme",
 	"version": "4.0.0-beta.40",
-	"description": "HTML Documentation generator for ts-for-gir",
+	"description": "Custom TypeDoc theme inspired by gi-docgen for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
 	"type": "module",
@@ -25,10 +25,11 @@
 	},
 	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
 	"keywords": [
-		"generator",
-		"html",
-		"documentation",
-		"gir"
+		"typedoc",
+		"theme",
+		"gi-docgen",
+		"gir",
+		"documentation"
 	],
 	"exports": {
 		".": "./src/index.ts"
@@ -36,14 +37,9 @@
 	"devDependencies": {
 		"@ts-for-gir/tsconfig": "workspace:^",
 		"@types/node": "^24.11.0",
-		"rimraf": "^6.1.3",
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"@ts-for-gir/generator-base": "workspace:^",
-		"@ts-for-gir/generator-json": "workspace:^",
-		"@ts-for-gir/lib": "workspace:^",
-		"@ts-for-gir/typedoc-theme": "workspace:^",
 		"typedoc": "^0.28.17"
 	}
 }

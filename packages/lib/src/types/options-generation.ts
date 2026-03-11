@@ -54,4 +54,6 @@ export interface OptionsGeneration extends OptionsBase {
 	combined?: boolean;
 	/** URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders */
 	sourceLinkTemplate?: string;
+	/** Theme for HTML documentation generation (default: "gi-docgen") */
+	theme?: string;
 }

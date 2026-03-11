@@ -1,0 +1,759 @@
+/*
+ * gi-docgen inspired theme for TypeDoc
+ * Provides a 3-column layout: dark sidebar | content | table of contents
+ *
+ * CSS is ordered by ascending specificity to satisfy linters:
+ * 1. Custom properties (:root)
+ * 2. Element/class selectors (low specificity)
+ * 3. Content area (.gi-docgen-content — specificity 0,1,x)
+ * 4. ID-scoped selectors (#gi-docgen-sidebar, #gi-docgen-toc — specificity 1,x,x)
+ */
+
+/* ============================
+ * CSS Custom Properties
+ * ============================ */
+:root {
+	/* gi-docgen theme colors */
+	--text-color: rgb(51, 51, 51);
+	--text-color-muted: rgba(51, 51, 51, 0.65);
+	--primary: rgb(28, 118, 228);
+	--body-bg: #fff;
+
+	/* Override TypeDoc's built-in variables for light mode */
+	--light-color-background: #fff;
+	--light-color-background-secondary: #f7f7f7;
+	--light-color-background-active: #e0e0e0;
+	--light-color-text: rgb(51, 51, 51);
+	--light-color-text-aside: rgba(51, 51, 51, 0.65);
+	--light-color-link: rgb(28, 118, 228);
+
+	/* Override TypeDoc's dark mode variables too */
+	--dark-color-background: #1e1e1e;
+	--dark-color-background-secondary: #2a2a2a;
+	--dark-color-background-active: #444;
+	--dark-color-text: #f6f6f6;
+	--dark-color-text-aside: rgba(246, 246, 246, 0.65);
+	--dark-color-link: rgb(144, 194, 255);
+
+	/* Sidebar */
+	--sidebar-bg: #151515;
+	--sidebar-text-color: #fafafa;
+	--sidebar-primary: rgb(144, 194, 255);
+	--sidebar-selected-bg: var(--primary);
+	--sidebar-hover-bg: rgba(127, 127, 127, 0.2);
+	--sidebar-search-bg: rgba(127, 127, 127, 0.25);
+	--sidebar-search-focus-bg: rgba(127, 127, 127, 0.3);
+	--sidebar-padding: 1.5em;
+	--sidebar-width: 35ch;
+
+	/* Boxes / Code Blocks */
+	--box-bg: rgba(135, 135, 135, 0.085);
+	--box-radius: 0.35rem;
+	--box-padding: 0.75rem;
+	--box-text-color: #111;
+
+	/* Typography */
+	--body-font-family:
+		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji";
+	--body-font-size: clamp(16px, 1vw, 18px);
+	--monospace-font-family: "Source Code Pro", monospace;
+	--monospace-font-size: 86%;
+	--heading-weight: 700;
+
+	/* Layout */
+	--preferred-content-width: 90ch;
+	--toc-width: 25ch;
+
+	/* Links */
+	--link-color: var(--primary);
+
+	/* Warning/Error */
+	--warning-bg: rgba(229, 165, 10, 0.15);
+	--error-bg: rgba(224, 27, 36, 0.15);
+}
+
+/* ============================
+ * Dark Mode
+ * ============================ */
+@media (prefers-color-scheme: dark) {
+	:root[data-theme="os"] {
+		--text-color: #f6f6f6;
+		--text-color-muted: rgba(246, 246, 246, 0.65);
+		--primary: rgb(144, 194, 255);
+		--body-bg: #1e1e1e;
+		--box-bg: rgba(135, 135, 135, 0.15);
+		--box-text-color: #eee;
+		--link-color: var(--primary);
+	}
+}
+
+:root[data-theme="dark"] {
+	--text-color: #f6f6f6;
+	--text-color-muted: rgba(246, 246, 246, 0.65);
+	--primary: rgb(144, 194, 255);
+	--body-bg: #1e1e1e;
+	--box-bg: rgba(135, 135, 135, 0.15);
+	--box-text-color: #eee;
+	--link-color: var(--primary);
+}
+
+/* ============================
+ * Base Styles (element/low specificity)
+ * ============================ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: var(--body-font-size);
+	font-family: var(--body-font-family);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: var(--body-bg);
+	color: var(--text-color);
+	line-height: 1.6;
+}
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+code,
+pre {
+	font-family: var(--monospace-font-family);
+	font-size: var(--monospace-font-size);
+}
+
+pre {
+	background: var(--box-bg);
+	border-radius: var(--box-radius);
+	padding: var(--box-padding);
+	overflow-x: auto;
+	color: var(--box-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--heading-weight);
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: 1.8rem;
+}
+h2 {
+	font-size: 1.4rem;
+}
+h3 {
+	font-size: 1.2rem;
+}
+
+/* ============================
+ * Content Styles (class selectors — low specificity first)
+ * ============================ */
+
+/* Kind icons in content */
+.tsd-kind-icon {
+	margin-right: 0.3em;
+	vertical-align: middle;
+}
+
+/* Type parameters */
+.tsd-type-parameters {
+	list-style: none;
+	padding: 0;
+}
+
+.tsd-type-parameters > li {
+	margin-bottom: 0.5em;
+}
+
+/* Flags (abstract, protected, etc.) */
+.tsd-tag {
+	display: inline-block;
+	padding: 0.1em 0.5em;
+	border-radius: 3px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	background: var(--box-bg);
+	color: var(--text-color-muted);
+	margin-right: 0.3em;
+}
+
+/* Source links */
+.tsd-sources {
+	font-size: 0.85rem;
+	color: var(--text-color-muted);
+}
+
+.tsd-sources a {
+	color: var(--text-color-muted);
+}
+
+.tsd-sources a:hover {
+	color: var(--primary);
+}
+
+/* Hierarchy */
+.tsd-hierarchy {
+	list-style: none;
+	padding-left: 1.5em;
+}
+
+/* Index / member list */
+.tsd-index-list {
+	list-style: none;
+	padding: 0;
+	column-count: 2;
+	column-gap: 2em;
+}
+
+.tsd-index-list li {
+	break-inside: avoid;
+	margin-bottom: 0.3em;
+}
+
+/* Comments */
+.tsd-comment {
+	margin: 1em 0;
+}
+
+/* Deprecation notice */
+.tsd-is-deprecated {
+	opacity: 0.7;
+}
+
+/* Checkbox icon styling for filter panel */
+.tsd-filter-input svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* Member items */
+.tsd-panel {
+	margin-bottom: 1.5em;
+}
+
+/* Signatures */
+.tsd-signature {
+	background: var(--box-bg);
+	padding: var(--box-padding);
+	border-radius: var(--box-radius);
+	font-family: var(--monospace-font-family);
+	font-size: var(--monospace-font-size);
+	overflow-x: auto;
+}
+
+/* Breadcrumbs separator */
+.tsd-breadcrumb {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.2em;
+}
+
+.tsd-breadcrumb li::after {
+	content: " › ";
+}
+
+.tsd-breadcrumb li:last-child::after {
+	content: "";
+}
+
+/* Overlay (mobile menu) */
+.overlay {
+	display: none;
+}
+
+body.menu-visible .overlay {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 5;
+}
+
+/* ============================
+ * Content area accordion chevrons (specificity 0,2,x)
+ * ============================ */
+.gi-docgen-content .tsd-accordion summary {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	list-style: none;
+	cursor: pointer;
+}
+
+.gi-docgen-content .tsd-accordion summary::-webkit-details-marker {
+	display: none;
+}
+
+.gi-docgen-content .tsd-accordion summary::marker {
+	display: none;
+	content: "";
+}
+
+.gi-docgen-content .tsd-accordion summary h1,
+.gi-docgen-content .tsd-accordion summary h2,
+.gi-docgen-content .tsd-accordion summary h3,
+.gi-docgen-content .tsd-accordion summary h4,
+.gi-docgen-content .tsd-accordion summary h5,
+.gi-docgen-content .tsd-accordion summary h6 {
+	margin: 0;
+}
+
+.gi-docgen-content .tsd-accordion summary svg {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+}
+
+.gi-docgen-content .tsd-accordion[open] > summary svg {
+	transform: rotate(180deg);
+}
+
+/* Sidebar search (gi-docgen style) */
+.gi-docgen-search {
+	margin-bottom: 1em;
+}
+
+.gi-docgen-search-button {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	width: 100%;
+	border: none;
+	border-radius: 50px;
+	padding: 0.5em 1em;
+	font-size: 0.9rem;
+	font-family: var(--body-font-family);
+	background: var(--sidebar-search-bg);
+	color: var(--sidebar-text-color);
+	cursor: pointer;
+	transition: background-color 150ms ease;
+}
+
+.gi-docgen-search-button:hover,
+.gi-docgen-search-button:focus {
+	background: var(--sidebar-search-focus-bg);
+}
+
+.gi-docgen-search-button svg {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+	opacity: 0.7;
+}
+
+.gi-docgen-search-button span {
+	opacity: 0.6;
+}
+
+/* Footer */
+.gi-docgen-footer {
+	margin-top: 3em;
+	padding-top: 1em;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] .gi-docgen-footer {
+	border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.gi-docgen-footer .tsd-generator {
+	font-size: 0.8rem;
+	color: var(--text-color-muted);
+}
+
+/* Menu trigger (mobile) */
+.tsd-widget.menu {
+	display: none;
+}
+
+/* Hide TypeDoc default elements we don't use */
+.container.container-main,
+.col-sidebar,
+.col-content {
+	display: contents;
+}
+
+/* ============================
+ * 3-Column Layout (ID selectors — high specificity)
+ * ============================ */
+#gi-docgen-body-wrapper {
+	display: flex;
+	min-height: 100vh;
+}
+
+/* ============================
+ * Sidebar (Left)
+ * ============================ */
+#gi-docgen-sidebar {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow-y: auto;
+	min-width: var(--sidebar-width);
+	max-width: var(--sidebar-width);
+	background: var(--sidebar-bg);
+	color: var(--sidebar-text-color);
+	padding: var(--sidebar-padding);
+	flex-shrink: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+}
+
+#gi-docgen-sidebar a {
+	color: var(--sidebar-text-color);
+}
+
+#gi-docgen-sidebar a:hover {
+	color: var(--sidebar-primary);
+	text-decoration: none;
+}
+
+#gi-docgen-sidebar a.current {
+	color: var(--sidebar-primary);
+	font-weight: 600;
+}
+
+#gi-docgen-sidebar .tsd-navigation > a {
+	display: block;
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin-bottom: 1em;
+	color: var(--sidebar-text-color);
+}
+
+#gi-docgen-sidebar .tsd-navigation > a:hover {
+	color: var(--sidebar-primary);
+}
+
+/* Navigation within sidebar — override TypeDoc's margin-based indentation */
+#gi-docgen-sidebar .tsd-small-nested-navigation {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#gi-docgen-sidebar .tsd-small-nested-navigation li {
+	margin: 0;
+}
+
+#gi-docgen-sidebar .tsd-small-nested-navigation a {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	padding: 0.2em 0.5em;
+	border-radius: var(--box-radius);
+	font-size: 0.9rem;
+	line-height: 1.4;
+}
+
+#gi-docgen-sidebar .tsd-small-nested-navigation a:hover {
+	background: var(--sidebar-hover-bg);
+}
+
+#gi-docgen-sidebar .tsd-small-nested-navigation a.current {
+	background: var(--sidebar-selected-bg);
+	color: #fff;
+}
+
+#gi-docgen-sidebar .tsd-nested-navigation {
+	list-style: none;
+	padding-left: 1em;
+	margin-left: 0;
+}
+
+#gi-docgen-sidebar .tsd-nested-navigation > li > details {
+	margin-left: 0;
+}
+
+/* Accordion styles within sidebar */
+#gi-docgen-sidebar .tsd-accordion summary {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	cursor: pointer;
+	padding: 0.3em 0.5em;
+	border-radius: var(--box-radius);
+	font-size: 0.9rem;
+	list-style: none;
+}
+
+#gi-docgen-sidebar .tsd-accordion summary::-webkit-details-marker {
+	display: none;
+}
+
+#gi-docgen-sidebar .tsd-accordion summary::marker {
+	display: none;
+	content: "";
+}
+
+#gi-docgen-sidebar .tsd-accordion summary:hover {
+	background: var(--sidebar-hover-bg);
+}
+
+#gi-docgen-sidebar .tsd-accordion summary h1,
+#gi-docgen-sidebar .tsd-accordion summary h2,
+#gi-docgen-sidebar .tsd-accordion summary h3,
+#gi-docgen-sidebar .tsd-accordion summary h4,
+#gi-docgen-sidebar .tsd-accordion summary h5,
+#gi-docgen-sidebar .tsd-accordion summary h6 {
+	margin: 0;
+}
+
+#gi-docgen-sidebar .tsd-accordion summary svg {
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+	transition: transform 0.2s;
+}
+
+#gi-docgen-sidebar .tsd-accordion[open] > summary svg {
+	transform: rotate(180deg);
+}
+
+/* Settings at the bottom of the left sidebar */
+#gi-docgen-sidebar .tsd-navigation.settings {
+	margin-top: auto;
+	padding-top: 1em;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#gi-docgen-sidebar .tsd-navigation.settings h3 {
+	font-size: 0.85rem;
+	margin: 0;
+	color: var(--sidebar-text-color);
+}
+
+#gi-docgen-sidebar .tsd-filter-visibility {
+	margin-top: 0.5em;
+}
+
+#gi-docgen-sidebar .settings-label {
+	font-size: 0.8rem;
+	opacity: 0.8;
+}
+
+#gi-docgen-sidebar .tsd-filter-input {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	font-size: 0.85rem;
+	cursor: pointer;
+}
+
+#gi-docgen-sidebar .tsd-theme-toggle {
+	margin-top: 0.5em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+#gi-docgen-sidebar .tsd-theme-toggle select {
+	background: var(--sidebar-search-bg);
+	color: var(--sidebar-text-color);
+	border: none;
+	border-radius: var(--box-radius);
+	padding: 0.2em 0.5em;
+	font-size: 0.85rem;
+}
+
+/* Sidebar kind icons */
+#gi-docgen-sidebar .tsd-kind-icon {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+}
+
+/* ============================
+ * Main Content (Center)
+ * ============================ */
+#gi-docgen-main {
+	flex: 1;
+	min-width: 0;
+	padding: 2em 4em;
+}
+
+/* Search dialog */
+#tsd-search {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: var(--box-radius);
+	padding: 0;
+	max-width: 600px;
+	width: 90vw;
+}
+
+#tsd-search-input {
+	width: 100%;
+	padding: 0.5em 1em;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	font-size: 1rem;
+	font-family: var(--body-font-family);
+	background: var(--body-bg);
+	color: var(--text-color);
+}
+
+#tsd-search-results {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+/* Sidebar links */
+#tsd-sidebar-links {
+	margin-bottom: 1em;
+}
+
+#tsd-sidebar-links a {
+	display: block;
+	padding: 0.2em 0;
+	font-size: 0.9rem;
+}
+
+/* ============================
+ * Table of Contents (Right)
+ * ============================ */
+#gi-docgen-toc {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow-y: auto;
+	width: var(--toc-width);
+	min-width: var(--toc-width);
+	padding: 2em 1em;
+	flex-shrink: 0;
+	border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] #gi-docgen-toc {
+	border-left-color: rgba(255, 255, 255, 0.08);
+}
+
+#gi-docgen-toc .tsd-page-navigation h3 {
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--text-color-muted);
+	margin-top: 0;
+}
+
+#gi-docgen-toc a {
+	display: block;
+	padding: 0.15em 0;
+	font-size: 0.85rem;
+	color: var(--text-color-muted);
+}
+
+#gi-docgen-toc a:hover {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+#gi-docgen-toc ul {
+	list-style: none;
+	padding-left: 0.8em;
+	margin: 0;
+}
+
+#gi-docgen-toc .tsd-accordion summary {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	list-style: none;
+	cursor: pointer;
+}
+
+#gi-docgen-toc .tsd-accordion summary::-webkit-details-marker {
+	display: none;
+}
+
+#gi-docgen-toc .tsd-accordion summary::marker {
+	display: none;
+	content: "";
+}
+
+#gi-docgen-toc .tsd-accordion summary h1,
+#gi-docgen-toc .tsd-accordion summary h2,
+#gi-docgen-toc .tsd-accordion summary h3,
+#gi-docgen-toc .tsd-accordion summary h4,
+#gi-docgen-toc .tsd-accordion summary h5,
+#gi-docgen-toc .tsd-accordion summary h6 {
+	margin: 0;
+}
+
+#gi-docgen-toc .tsd-accordion summary svg {
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+}
+
+/* ============================
+ * Content width constraint
+ * ============================ */
+.gi-docgen-content {
+	max-width: var(--preferred-content-width);
+	margin: 0 auto;
+}
+
+/* ============================
+ * Responsive
+ * ============================ */
+@media (max-width: 1200px) {
+	#gi-docgen-toc {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	#gi-docgen-body-wrapper {
+		flex-direction: column;
+	}
+
+	#gi-docgen-sidebar {
+		position: relative;
+		height: auto;
+		min-width: 100%;
+		max-width: 100%;
+		padding: 1em;
+	}
+
+	#gi-docgen-main {
+		padding: 1em;
+	}
+
+	.tsd-widget.menu {
+		display: inline-flex;
+	}
+
+	.tsd-index-list {
+		column-count: 1;
+	}
+}

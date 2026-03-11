@@ -15604,6 +15604,7 @@ __metadata:
     "@ts-for-gir/generator-json": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
+    "@ts-for-gir/typedoc-theme": "workspace:^"
     "@types/node": "npm:^24.11.0"
     rimraf: "npm:^6.1.3"
     typedoc: "npm:^0.28.17"
@@ -15699,6 +15700,17 @@ __metadata:
   resolution: "@ts-for-gir/tsconfig@workspace:packages/tsconfig"
   peerDependencies:
     typescript: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/typedoc-theme@workspace:^, @ts-for-gir/typedoc-theme@workspace:packages/typedoc-theme":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/typedoc-theme@workspace:packages/typedoc-theme"
+  dependencies:
+    "@ts-for-gir/tsconfig": "workspace:^"
+    "@types/node": "npm:^24.11.0"
+    typedoc: "npm:^0.28.17"
+    typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
 

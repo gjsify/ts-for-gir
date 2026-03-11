@@ -171,6 +171,7 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		// Doc-specific options
 		mergeConfigValue(userConfig, configFileData, "combined", undefined, (v) => typeof v === "boolean");
 		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
+		mergeConfigValue(userConfig, configFileData, "theme", undefined);
 
 		// Array options
 		mergeConfigValue(userConfig, configFileData, "girDirectories", options.girDirectories.default);

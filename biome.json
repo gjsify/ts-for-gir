@@ -29,6 +29,7 @@
 			"!**/tests",
 			"!**/templates",
 			"!**/@types",
+			"!**/docs",
 			"!refs",
 			"!types-dev",
 			"!types-release",

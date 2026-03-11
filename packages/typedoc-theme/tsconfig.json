@@ -8,5 +8,5 @@
 		"jsxFragmentFactory": "JSX.Fragment"
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],
-	"exclude": ["lib", "node_modules", "**/*.spec.ts", "templates"]
+	"exclude": ["lib", "node_modules"]
 }

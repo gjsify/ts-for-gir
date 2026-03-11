@@ -32,6 +32,8 @@ export const defaults = {
 	reporter: false,
 	reporterOutput: "ts-for-gir-report.json",
 	combined: true,
+	/** Default theme for `ts-for-gir doc` (HTML documentation). */
+	theme: "gi-docgen",
 };
 
 /**

@@ -201,6 +201,12 @@ export const docOptions = {
 		description:
 			"URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders. Example: https://github.com/user/repo/blob/main/{path}#L{line}",
 	},
+	theme: {
+		type: "string" as const,
+		description:
+			'Theme for HTML documentation generation (default: "gi-docgen"). Use "default" for TypeDoc\'s built-in theme.',
+		default: defaults.theme,
+	},
 };
 
 export const analyzeOptions = {

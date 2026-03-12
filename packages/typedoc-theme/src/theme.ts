@@ -8,8 +8,8 @@ import { GiDocgenThemeRenderContext } from "./context.ts";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
- * Trims the navigation tree to 2 levels deep and filters out "default" entries.
- * Also skips a single scope-wrapper root (e.g. "@girs").
+ * Flattens navigation to top-level modules/packages only (no children).
+ * Skips a single scope-wrapper root (e.g. "@girs") and strips icon/kind data.
  */
 function buildShallowNavigation(elements: NavigationElement[]): NavigationElement[] {
 	// Skip a single scope-wrapper root like "@girs"
@@ -18,13 +18,7 @@ function buildShallowNavigation(elements: NavigationElement[]): NavigationElemen
 		roots = roots[0].children ?? [];
 	}
 
-	return roots.map((pkg) => {
-		const children = (pkg.children ?? [])
-			.filter((c) => c.text !== "default")
-			.map(({ text, path, kind, class: cls, icon }) => ({ text, path, kind, class: cls, icon }));
-
-		return { ...pkg, children: children.length ? children : undefined };
-	});
+	return roots.map(({ text, path }) => ({ text, path }));
 }
 
 export class GiDocgenTheme extends DefaultTheme {

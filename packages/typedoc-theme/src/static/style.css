@@ -305,6 +305,7 @@ h3 {
 	z-index: 1;
 	text-decoration: none;
 	padding: 0 0.4em;
+	margin: 0;
 	color: var(--text-color-muted);
 }
 
@@ -539,137 +540,45 @@ body.menu-visible .overlay {
 	font-weight: 600;
 }
 
-#gi-docgen-sidebar .tsd-navigation > a {
-	display: block;
-	font-size: 1.2rem;
-	font-weight: 700;
-	margin-bottom: 1em;
-	color: var(--sidebar-text-color);
-}
-
-#gi-docgen-sidebar .tsd-navigation > a:hover {
-	color: var(--sidebar-primary);
-}
-
-/* Navigation within sidebar — override TypeDoc's margin-based indentation */
-#gi-docgen-sidebar .tsd-small-nested-navigation {
+/* Module list in sidebar — flat links, gi-docgen style */
+#gi-docgen-sidebar .gi-docgen-module-list {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-#gi-docgen-sidebar .tsd-small-nested-navigation li {
+#gi-docgen-sidebar .gi-docgen-module-list li {
 	margin: 0;
 }
 
-#gi-docgen-sidebar .tsd-small-nested-navigation > li > details {
-	margin-left: 0;
-}
-
-#gi-docgen-sidebar .tsd-small-nested-navigation a {
-	display: flex;
-	align-items: center;
-	gap: 0.4em;
-	padding: 0.2em 0.5em;
-	min-height: 28px;
+#gi-docgen-sidebar .gi-docgen-module-list a {
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0.2rem 0.5rem;
+	margin-bottom: 0.15rem;
 	border-radius: var(--box-radius);
 	font-size: 0.9rem;
-	line-height: 1.4;
+	color: var(--sidebar-primary);
+	transition: background-color 150ms ease;
 }
 
-#gi-docgen-sidebar .tsd-small-nested-navigation a:hover {
+#gi-docgen-sidebar .gi-docgen-module-list a:hover {
 	background: var(--sidebar-hover-bg);
+	color: var(--sidebar-text-color);
+	text-decoration: none;
 }
 
-#gi-docgen-sidebar .tsd-small-nested-navigation a.current {
+#gi-docgen-sidebar .gi-docgen-module-list a.current {
 	background: var(--sidebar-selected-bg);
 	color: #fff;
+	font-weight: 600;
 }
 
-/* Indent children inside accordion details */
-#gi-docgen-sidebar .tsd-accordion > div > .tsd-small-nested-navigation {
-	padding-left: 1.5em;
-}
-
-#gi-docgen-sidebar .tsd-nested-navigation {
-	list-style: none;
-	padding-left: 1em;
-	margin-left: 0;
-}
-
-#gi-docgen-sidebar .tsd-nested-navigation > li > details {
-	margin-left: 0;
-}
-
-/* Leaf items without accordion chevron: indent to align with accordion text */
-#gi-docgen-sidebar .tsd-nested-navigation > li:not(:has(> details)) {
-	padding-left: calc(16px + 0.3em);
-}
-
-/* Accordion styles within sidebar */
-#gi-docgen-sidebar .tsd-accordion summary {
-	display: flex;
-	align-items: center;
-	gap: 0.3em;
-	cursor: pointer;
-	padding: 0.3em 0.5em;
-	min-height: 28px;
-	border-radius: var(--box-radius);
-	font-size: 0.9rem;
-	list-style: none;
-}
-
-#gi-docgen-sidebar .tsd-accordion summary::-webkit-details-marker {
+/* Hide type icons in the sidebar */
+#gi-docgen-sidebar .tsd-kind-icon {
 	display: none;
-}
-
-#gi-docgen-sidebar .tsd-accordion summary::marker {
-	display: none;
-	content: "";
-}
-
-#gi-docgen-sidebar .tsd-accordion summary:hover {
-	background: var(--sidebar-hover-bg);
-}
-
-#gi-docgen-sidebar .tsd-accordion summary h1,
-#gi-docgen-sidebar .tsd-accordion summary h2,
-#gi-docgen-sidebar .tsd-accordion summary h3,
-#gi-docgen-sidebar .tsd-accordion summary h4,
-#gi-docgen-sidebar .tsd-accordion summary h5,
-#gi-docgen-sidebar .tsd-accordion summary h6 {
-	margin: 0;
-}
-
-#gi-docgen-sidebar .tsd-accordion summary svg {
-	flex-shrink: 0;
-}
-
-/* Replace chevron with +/- */
-#gi-docgen-sidebar .tsd-accordion summary > svg:first-child {
-	display: none;
-}
-
-#gi-docgen-sidebar .tsd-accordion summary::before {
-	content: "+";
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	width: 1rem;
-	height: 1rem;
-	border-radius: calc(0.75 * var(--box-radius));
-	flex-shrink: 0;
-	font-family: monospace;
-	font-size: 0.7rem;
-	font-weight: bold;
-	/* Sidebar is always dark — use explicit dark-context colors */
-	color: var(--sidebar-text-color);
-	background: rgba(255, 255, 255, 0.12);
-	vertical-align: middle;
-}
-
-#gi-docgen-sidebar .tsd-accordion[open] > summary::before {
-	content: "-";
 }
 
 /* Settings at the bottom of the left sidebar */
@@ -716,13 +625,6 @@ body.menu-visible .overlay {
 	border-radius: var(--box-radius);
 	padding: 0.2em 0.5em;
 	font-size: 0.85rem;
-}
-
-/* Sidebar kind icons */
-#gi-docgen-sidebar .tsd-kind-icon {
-	width: 16px;
-	height: 16px;
-	flex-shrink: 0;
 }
 
 /* ============================

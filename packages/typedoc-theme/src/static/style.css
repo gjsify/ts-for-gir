@@ -729,7 +729,7 @@ body.menu-visible .overlay {
  * Main Content (Center)
  * ============================ */
 #gi-docgen-main {
-	flex: 1;
+	flex: 999 1 0%;
 	min-width: 0;
 	min-height: 0;
 	max-width: calc(var(--preferred-content-width) + 8em);
@@ -786,7 +786,7 @@ body.menu-visible .overlay {
 	overflow-y: auto;
 	min-width: var(--toc-width);
 	padding: 2em 1em;
-	flex-shrink: 0;
+	flex: 1;
 }
 
 :root[data-theme="dark"] #gi-docgen-toc {

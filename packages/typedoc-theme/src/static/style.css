@@ -63,7 +63,7 @@
 	--heading-weight: 700;
 
 	/* Layout */
-	--preferred-content-width: 90ch;
+	--preferred-content-width: 111ch;
 	--toc-width: 25ch;
 
 	/* Links */
@@ -258,6 +258,69 @@ h3 {
 	height: 16px;
 }
 
+/* Page title (gi-docgen style) */
+.gi-docgen-page-title {
+	margin-bottom: 1.5em;
+	margin-top: 1.75em;
+}
+
+.gi-docgen-object-type {
+	display: block;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: var(--text-color-muted);
+	margin-bottom: 0.35em;
+}
+
+.gi-docgen-page-title h1 {
+	font-size: 2rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.2;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.1em;
+}
+
+.gi-docgen-page-title h1 a {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+.gi-docgen-page-title h1 a:hover {
+	text-decoration: underline;
+}
+
+.gi-docgen-breadcrumb-sep {
+	font-size: 0.6em;
+	color: var(--text-color-muted);
+	font-weight: normal;
+}
+
+/* Anchor links (gi-docgen style: "#" instead of SVG) */
+.tsd-anchor-icon {
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	padding: 0 0.4em;
+	color: var(--text-color-muted);
+}
+
+.tsd-anchor-icon:hover {
+	color: var(--primary);
+}
+
+.tsd-anchor-icon svg {
+	display: none;
+}
+
+.tsd-anchor-icon::before {
+	content: "#";
+	font-size: 0.85em;
+}
+
 /* Member items */
 .tsd-panel {
 	margin-bottom: 1.5em;
@@ -337,14 +400,29 @@ body.menu-visible .overlay {
 	margin: 0;
 }
 
-.gi-docgen-content .tsd-accordion summary svg {
-	flex-shrink: 0;
-	width: 20px;
-	height: 20px;
+.gi-docgen-content .tsd-accordion summary > svg:first-child {
+	display: none;
 }
 
-.gi-docgen-content .tsd-accordion[open] > summary svg {
-	transform: rotate(180deg);
+.gi-docgen-content .tsd-accordion summary::before {
+	content: "+";
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 1rem;
+	height: 1rem;
+	border-radius: calc(0.75 * var(--box-radius));
+	flex-shrink: 0;
+	font-family: monospace;
+	font-size: 0.7rem;
+	font-weight: bold;
+	color: var(--box-text-color);
+	background: var(--box-bg);
+	vertical-align: middle;
+}
+
+.gi-docgen-content .tsd-accordion[open] > summary::before {
+	content: "-";
 }
 
 /* Sidebar search (gi-docgen style) */
@@ -417,7 +495,8 @@ body.menu-visible .overlay {
  * ============================ */
 #gi-docgen-body-wrapper {
 	display: flex;
-	min-height: 100vh;
+	height: 100vh;
+	overflow: hidden;
 }
 
 /* ============================
@@ -430,6 +509,7 @@ body.menu-visible .overlay {
 	overflow-y: auto;
 	min-width: var(--sidebar-min-width);
 	max-width: var(--sidebar-max-width);
+	width: var(--sidebar-max-width);
 	background: var(--sidebar-bg);
 	color: var(--sidebar-text-color);
 	color-scheme: dark;
@@ -480,6 +560,10 @@ body.menu-visible .overlay {
 
 #gi-docgen-sidebar .tsd-small-nested-navigation li {
 	margin: 0;
+}
+
+#gi-docgen-sidebar .tsd-small-nested-navigation > li > details {
+	margin-left: 0;
 }
 
 #gi-docgen-sidebar .tsd-small-nested-navigation a {
@@ -561,15 +645,31 @@ body.menu-visible .overlay {
 	flex-shrink: 0;
 }
 
-/* Only the chevron (first SVG) gets the 16px size and rotation */
+/* Replace chevron with +/- */
 #gi-docgen-sidebar .tsd-accordion summary > svg:first-child {
-	width: 16px;
-	height: 16px;
-	transition: transform 0.2s;
+	display: none;
 }
 
-#gi-docgen-sidebar .tsd-accordion[open] > summary > svg:first-child {
-	transform: rotate(180deg);
+#gi-docgen-sidebar .tsd-accordion summary::before {
+	content: "+";
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 1rem;
+	height: 1rem;
+	border-radius: calc(0.75 * var(--box-radius));
+	flex-shrink: 0;
+	font-family: monospace;
+	font-size: 0.7rem;
+	font-weight: bold;
+	/* Sidebar is always dark — use explicit dark-context colors */
+	color: var(--sidebar-text-color);
+	background: rgba(255, 255, 255, 0.12);
+	vertical-align: middle;
+}
+
+#gi-docgen-sidebar .tsd-accordion[open] > summary::before {
+	content: "-";
 }
 
 /* Settings at the bottom of the left sidebar */
@@ -631,7 +731,10 @@ body.menu-visible .overlay {
 #gi-docgen-main {
 	flex: 1;
 	min-width: 0;
+	min-height: 0;
+	max-width: calc(var(--preferred-content-width) + 8em);
 	padding: 2em 4em;
+	overflow-y: auto;
 }
 
 /* Search dialog */
@@ -681,7 +784,6 @@ body.menu-visible .overlay {
 	top: 0;
 	height: 100vh;
 	overflow-y: auto;
-	width: var(--toc-width);
 	min-width: var(--toc-width);
 	padding: 2em 1em;
 	flex-shrink: 0;
@@ -749,18 +851,29 @@ body.menu-visible .overlay {
 	margin: 0;
 }
 
-#gi-docgen-toc .tsd-accordion summary svg {
-	flex-shrink: 0;
-	width: 16px;
-	height: 16px;
+#gi-docgen-toc .tsd-accordion summary > svg:first-child {
+	display: none;
 }
 
-/* ============================
- * Content width constraint
- * ============================ */
-.gi-docgen-content {
-	max-width: var(--preferred-content-width);
-	margin: 0 auto;
+#gi-docgen-toc .tsd-accordion summary::before {
+	content: "+";
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 1rem;
+	height: 1rem;
+	border-radius: calc(0.75 * var(--box-radius));
+	flex-shrink: 0;
+	font-family: monospace;
+	font-size: 0.7rem;
+	font-weight: bold;
+	color: var(--box-text-color);
+	background: var(--box-bg);
+	vertical-align: middle;
+}
+
+#gi-docgen-toc .tsd-accordion[open] > summary::before {
+	content: "-";
 }
 
 /* ============================
@@ -775,6 +888,8 @@ body.menu-visible .overlay {
 @media (max-width: 768px) {
 	#gi-docgen-body-wrapper {
 		flex-direction: column;
+		height: auto;
+		overflow: visible;
 	}
 
 	#gi-docgen-sidebar {

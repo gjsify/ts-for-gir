@@ -1,6 +1,7 @@
 import type { Options, PageEvent, Reflection, Router } from "typedoc";
 import { DefaultThemeRenderContext } from "typedoc";
 import { giDocgenFooter } from "./partials/footer.ts";
+import { giDocgenHeader } from "./partials/header.ts";
 import { giDocgenLayout } from "./partials/layout.ts";
 import { giDocgenNavigation } from "./partials/navigation.ts";
 import { giDocgenPageNavigation } from "./partials/page-navigation.ts";
@@ -22,6 +23,7 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 		this.sidebar = bind(giDocgenSidebar, this);
 		this.toolbar = bind(giDocgenToolbar, this);
 		this.footer = bind(giDocgenFooter, this);
+		this.header = bind(giDocgenHeader, this);
 		this.pageNavigation = bind(giDocgenPageNavigation, this);
 		this.pageSidebar = bind(giDocgenPageSidebar, this);
 	}

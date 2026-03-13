@@ -20,13 +20,13 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 	let kindString = "";
 	let renderTitle = true;
 
+	const headings = context.options.getValue("headings") as { readme: boolean; document: boolean };
+
 	if (props.model.isProject()) {
-		const headings = context.options.getValue("headings") as { readme: boolean; document: boolean };
-		if (props.url === "index.html" && (props.model as { readme?: unknown }).readme) {
+		if (props.url === "index.html" && "readme" in props.model && props.model.readme) {
 			renderTitle = headings.readme;
 		}
-	} else if ((props.model as { isDocument?: () => boolean }).isDocument?.()) {
-		const headings = context.options.getValue("headings") as { readme: boolean; document: boolean };
+	} else if ("isDocument" in props.model && typeof props.model.isDocument === "function" && props.model.isDocument()) {
 		renderTitle = headings.document;
 	} else {
 		kindString = ReflectionKind.singularString(props.model.kind);

@@ -1,7 +1,7 @@
 import type { PageEvent, PageHeading, Reflection } from "typedoc";
 import { JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { classNames, wbr } from "../utils.ts";
+import { classNames } from "../utils.ts";
 
 function buildSectionNavigation(context: GiDocgenThemeRenderContext, headings: PageHeading[]) {
 	const levels: JSX.Element[][] = [[]];
@@ -39,7 +39,7 @@ function buildSectionNavigation(context: GiDocgenThemeRenderContext, headings: P
 				"a",
 				{ href: heading.link, class: classNames({}, heading.classes) },
 				heading.icon && (context.icons as Record<string, () => JSX.Element>)[heading.icon]?.(),
-				JSX.createElement("span", null, wbr(heading.text)),
+				JSX.createElement("span", null, heading.text),
 			),
 		);
 	}

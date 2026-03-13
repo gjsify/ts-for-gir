@@ -168,12 +168,12 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		mergeConfigValue(userConfig, configFileData, "npmScope", options.npmScope.default);
 		mergeConfigValue(userConfig, configFileData, "reporterOutput", options.reporterOutput.default);
 
-		// Doc-specific options
-		mergeConfigValue(userConfig, configFileData, "combined", undefined, (v) => typeof v === "boolean");
+		// Doc-specific options (use actual CLI defaults so config file values are applied correctly)
+		mergeConfigValue(userConfig, configFileData, "combined", defaults.combined, (v) => typeof v === "boolean");
 		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
-		mergeConfigValue(userConfig, configFileData, "theme", undefined);
-		mergeConfigValue(userConfig, configFileData, "readme", undefined);
-		mergeConfigValue(userConfig, configFileData, "merge", undefined, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "theme", defaults.theme);
+		mergeConfigValue(userConfig, configFileData, "readme", "none");
+		mergeConfigValue(userConfig, configFileData, "merge", false, (v) => typeof v === "boolean");
 		mergeConfigValue(userConfig, configFileData, "jsonDir", undefined);
 
 		// Array options

@@ -373,9 +373,10 @@ body.menu-visible .overlay {
 }
 
 /* ============================
- * Content area accordion chevrons (specificity 0,2,x)
+ * Accordion chevrons (shared between content area and TOC)
  * ============================ */
-.gi-docgen-content .tsd-accordion summary {
+.gi-docgen-content .tsd-accordion summary,
+#gi-docgen-toc .tsd-accordion summary {
 	display: flex;
 	align-items: center;
 	gap: 0.3em;
@@ -383,11 +384,13 @@ body.menu-visible .overlay {
 	cursor: pointer;
 }
 
-.gi-docgen-content .tsd-accordion summary::-webkit-details-marker {
+.gi-docgen-content .tsd-accordion summary::-webkit-details-marker,
+#gi-docgen-toc .tsd-accordion summary::-webkit-details-marker {
 	display: none;
 }
 
-.gi-docgen-content .tsd-accordion summary::marker {
+.gi-docgen-content .tsd-accordion summary::marker,
+#gi-docgen-toc .tsd-accordion summary::marker {
 	display: none;
 	content: "";
 }
@@ -397,15 +400,23 @@ body.menu-visible .overlay {
 .gi-docgen-content .tsd-accordion summary h3,
 .gi-docgen-content .tsd-accordion summary h4,
 .gi-docgen-content .tsd-accordion summary h5,
-.gi-docgen-content .tsd-accordion summary h6 {
+.gi-docgen-content .tsd-accordion summary h6,
+#gi-docgen-toc .tsd-accordion summary h1,
+#gi-docgen-toc .tsd-accordion summary h2,
+#gi-docgen-toc .tsd-accordion summary h3,
+#gi-docgen-toc .tsd-accordion summary h4,
+#gi-docgen-toc .tsd-accordion summary h5,
+#gi-docgen-toc .tsd-accordion summary h6 {
 	margin: 0;
 }
 
-.gi-docgen-content .tsd-accordion summary > svg:first-child {
+.gi-docgen-content .tsd-accordion summary > svg:first-child,
+#gi-docgen-toc .tsd-accordion summary > svg:first-child {
 	display: none;
 }
 
-.gi-docgen-content .tsd-accordion summary::before {
+.gi-docgen-content .tsd-accordion summary::before,
+#gi-docgen-toc .tsd-accordion summary::before {
 	content: "+";
 	display: inline-flex;
 	justify-content: center;
@@ -422,7 +433,8 @@ body.menu-visible .overlay {
 	vertical-align: middle;
 }
 
-.gi-docgen-content .tsd-accordion[open] > summary::before {
+.gi-docgen-content .tsd-accordion[open] > summary::before,
+#gi-docgen-toc .tsd-accordion[open] > summary::before {
 	content: "-";
 }
 
@@ -725,57 +737,6 @@ body.menu-visible .overlay {
 	list-style: none;
 	padding-left: 0.8em;
 	margin: 0;
-}
-
-#gi-docgen-toc .tsd-accordion summary {
-	display: flex;
-	align-items: center;
-	gap: 0.3em;
-	list-style: none;
-	cursor: pointer;
-}
-
-#gi-docgen-toc .tsd-accordion summary::-webkit-details-marker {
-	display: none;
-}
-
-#gi-docgen-toc .tsd-accordion summary::marker {
-	display: none;
-	content: "";
-}
-
-#gi-docgen-toc .tsd-accordion summary h1,
-#gi-docgen-toc .tsd-accordion summary h2,
-#gi-docgen-toc .tsd-accordion summary h3,
-#gi-docgen-toc .tsd-accordion summary h4,
-#gi-docgen-toc .tsd-accordion summary h5,
-#gi-docgen-toc .tsd-accordion summary h6 {
-	margin: 0;
-}
-
-#gi-docgen-toc .tsd-accordion summary > svg:first-child {
-	display: none;
-}
-
-#gi-docgen-toc .tsd-accordion summary::before {
-	content: "+";
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	width: 1rem;
-	height: 1rem;
-	border-radius: calc(0.75 * var(--box-radius));
-	flex-shrink: 0;
-	font-family: monospace;
-	font-size: 0.7rem;
-	font-weight: bold;
-	color: var(--box-text-color);
-	background: var(--box-bg);
-	vertical-align: middle;
-}
-
-#gi-docgen-toc .tsd-accordion[open] > summary::before {
-	content: "-";
 }
 
 /* ============================

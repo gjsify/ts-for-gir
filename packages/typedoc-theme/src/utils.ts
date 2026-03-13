@@ -32,13 +32,18 @@ export function classNames(names: Record<string, boolean | null | undefined>, ex
 }
 
 /**
- * Insert word break opportunities into a string.
- * Reimplemented from TypeDoc's internal lib.tsx.
+ * Walk up the parent chain to find the owning Module reflection.
+ * Returns undefined for project-level pages.
  */
-export function wbr(str: string): string {
-	// Simplified version — returns the string as-is for JSX text content.
-	// The client-side JS handles word breaks in navigation.
-	return str;
+export function findOwningModule(reflection: Reflection): Reflection | undefined {
+	let current: Reflection | undefined = reflection;
+	while (current) {
+		if (!current.isProject() && current.parent?.isProject()) {
+			return current;
+		}
+		current = current.parent;
+	}
+	return undefined;
 }
 
 /**
@@ -46,19 +51,24 @@ export function wbr(str: string): string {
  * Reimplemented from TypeDoc's internal lib.tsx.
  */
 export function getHierarchyRoots(project: ProjectReflection): DeclarationReflection[] {
-	const start: DeclarationReflection[] = [];
+	const roots: DeclarationReflection[] = [];
 	const queue: Reflection[] = [project];
 
 	while (queue.length) {
-		const refl = queue.shift() as Reflection;
-		if (refl.kindOf(ReflectionKind.Class) && (refl as DeclarationReflection).typeHierarchy) {
-			start.push(refl as DeclarationReflection);
+		const refl = queue.shift();
+		if (!refl) continue;
+		if (refl.kindOf(ReflectionKind.Class)) {
+			const decl = refl as DeclarationReflection;
+			if (decl.typeHierarchy) {
+				roots.push(decl);
+			}
 		}
 
-		if ("children" in refl && Array.isArray((refl as DeclarationReflection).children)) {
-			queue.push(...((refl as DeclarationReflection).children ?? []));
+		const children = (refl as DeclarationReflection).children;
+		if (children) {
+			queue.push(...children);
 		}
 	}
 
-	return start;
+	return roots;
 }

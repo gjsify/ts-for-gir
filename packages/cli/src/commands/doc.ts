@@ -28,10 +28,6 @@ const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
 	if (args.merge) {
-		if (!args.jsonDir) {
-			throw new Error("--jsonDir is required when using --merge mode");
-		}
-
 		const config = await load(args);
 		const generateConfig = getOptionsGeneration(config);
 		const jsonDir = generateConfig.jsonDir || args.jsonDir;

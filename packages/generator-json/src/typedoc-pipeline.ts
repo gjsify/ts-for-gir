@@ -129,11 +129,16 @@ export class TypeDocPipeline {
 			throw new Error(`TypeDoc conversion failed for ${module.packageName}`);
 		}
 
-		// Register GIR metadata serializer to enrich JSON output
+		this.registerGirMetadata(app, module);
+
+		return { app, project };
+	}
+
+	/** Register GIR metadata serializer and namespace-level metadata on a TypeDoc app. */
+	private registerGirMetadata(app: Application, module: GirModule): void {
 		const index = buildGirLookupIndex(module);
 		app.serializer.addSerializer(new GirMetadataSerializer(index));
 
-		// Add namespace-level metadata via EVENT_END
 		app.serializer.on(Serializer.EVENT_END, (event) => {
 			if (event.output) {
 				const nsMeta: GirNamespaceMetadata = {
@@ -151,8 +156,6 @@ export class TypeDocPipeline {
 				(event.output as any).girNamespaceMetadata = nsMeta;
 			}
 		});
-
-		return { app, project };
 	}
 
 	/**

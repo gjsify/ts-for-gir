@@ -1,21 +1,7 @@
 import type { PageEvent, Reflection } from "typedoc";
 import { JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-
-/**
- * Walk up the parent chain to find the owning Module reflection.
- * Returns undefined for project-level pages.
- */
-export function findOwningModule(reflection: Reflection) {
-	let current: Reflection | undefined = reflection;
-	while (current) {
-		if (!current.isProject() && current.parent?.isProject()) {
-			return current;
-		}
-		current = current.parent;
-	}
-	return undefined;
-}
+import { findOwningModule } from "../utils.ts";
 
 /**
  * Navigation placeholder. The actual nav DOM is built client-side by gi-docgen-nav.js,

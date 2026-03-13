@@ -54,7 +54,7 @@ export class HtmlDocGenerator {
 				await mkdir(this.config.outdir, { recursive: true });
 			}
 
-			if (this.config.combined !== false) {
+			if (this.config.combined) {
 				await this.generateCombinedHtmlDoc();
 			} else {
 				for (const module of this.pipeline.modules) {

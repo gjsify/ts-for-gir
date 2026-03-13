@@ -207,6 +207,23 @@ export const docOptions = {
 			'Theme for HTML documentation generation (default: "gi-docgen"). Use "default" for TypeDoc\'s built-in theme.',
 		default: defaults.theme,
 	},
+	readme: {
+		type: "string" as const,
+		description:
+			'Path to a README file to use as the documentation index page. Use "none" to disable (default: "none")',
+		default: "none",
+	},
+	merge: {
+		type: "boolean" as const,
+		description:
+			"Use TypeDoc merge mode to generate HTML from pre-generated JSON files (requires --jsonDir)",
+		default: false,
+	},
+	jsonDir: {
+		type: "string" as const,
+		description:
+			"Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json')",
+	},
 };
 
 export const analyzeOptions = {

@@ -92,6 +92,25 @@ export class HtmlDocGenerator {
 		this.log.info(`Generated combined HTML docs for ${this.pipeline.modules.length} modules in ${this.config.outdir}`);
 	}
 
+	/**
+	 * Generate combined HTML documentation from pre-generated TypeDoc JSON files.
+	 * This bypasses the normal .d.ts generation pipeline entirely, using TypeDoc's merge mode.
+	 */
+	public async generateFromJson(jsonDir: string): Promise<void> {
+		if (!this.config.outdir) {
+			this.log.error("HTML documentation requires --outdir to be specified");
+			return;
+		}
+
+		this.log.info(`Generating HTML documentation from JSON files in ${jsonDir}...`);
+		await mkdir(this.config.outdir, { recursive: true });
+
+		const { app, project } = await this.pipeline.createMergedTypeDocApp(jsonDir);
+		this.applyTheme(app);
+		await app.generateDocs(project, this.config.outdir);
+		this.log.success(`Generated merged HTML docs from JSON in ${this.config.outdir}`);
+	}
+
 	private async generateHtmlDoc(module: GirModule): Promise<void> {
 		const { app, project } = await this.pipeline.createTypeDocApp(module);
 

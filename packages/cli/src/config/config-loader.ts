@@ -172,6 +172,9 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		mergeConfigValue(userConfig, configFileData, "combined", undefined, (v) => typeof v === "boolean");
 		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
 		mergeConfigValue(userConfig, configFileData, "theme", undefined);
+		mergeConfigValue(userConfig, configFileData, "readme", undefined);
+		mergeConfigValue(userConfig, configFileData, "merge", undefined, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "jsonDir", undefined);
 
 		// Array options
 		mergeConfigValue(userConfig, configFileData, "girDirectories", options.girDirectories.default);
@@ -195,6 +198,10 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 	// Make paths absolute
 	if (userConfig.outdir && !userConfig.outdir.startsWith("/")) {
 		userConfig.outdir = resolve(userConfig.root, userConfig.outdir);
+	}
+
+	if (userConfig.jsonDir && !userConfig.jsonDir.startsWith("/")) {
+		userConfig.jsonDir = resolve(userConfig.root, userConfig.jsonDir);
 	}
 
 	if (userConfig.girDirectories) {

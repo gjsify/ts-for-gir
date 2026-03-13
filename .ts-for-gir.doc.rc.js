@@ -14,7 +14,7 @@ export default {
         'Gio-2.0',
         'GModule-2.0',
 
-        // === UI (GTK 4 stack) ===
+        // // === UI (GTK 4 stack) ===
         // 'Gtk-4.0',
         // 'Gdk-4.0',
         // 'Gsk-4.0',

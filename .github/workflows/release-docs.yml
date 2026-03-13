@@ -49,6 +49,9 @@ jobs:
       env:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
+    - name: Generate JSON files
+      run: yarn build:json
+
     - name: Generate HTML documentation
       run: yarn build:doc
 

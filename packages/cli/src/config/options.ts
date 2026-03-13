@@ -210,8 +210,7 @@ export const docOptions = {
 	readme: {
 		type: "string" as const,
 		description:
-			'Path to a README file to use as the documentation index page. Use "none" to disable (default: "none")',
-		default: "none",
+			'Path to a README file for the documentation index page. Use "none" to disable. If not set, TypeDoc auto-discovers README.md from packages.',
 	},
 	merge: {
 		type: "boolean" as const,

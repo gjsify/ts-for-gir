@@ -144,7 +144,7 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		mergeConfigValue(userConfig, configFileData, "combined", docOptions.combined.default, isBoolean);
 		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
 		mergeConfigValue(userConfig, configFileData, "theme", docOptions.theme.default);
-		mergeConfigValue(userConfig, configFileData, "readme", docOptions.readme.default);
+		mergeConfigValue(userConfig, configFileData, "readme", undefined);
 		mergeConfigValue(userConfig, configFileData, "merge", docOptions.merge.default, isBoolean);
 		mergeConfigValue(userConfig, configFileData, "jsonDir", undefined);
 

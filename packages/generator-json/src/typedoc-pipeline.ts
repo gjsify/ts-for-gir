@@ -99,16 +99,25 @@ export class TypeDocPipeline {
 		const moduleDir = join(this.tempDir, module.importName);
 		const entryPoint = join(moduleDir, `${module.importName}.d.ts`);
 		const tsconfigPath = join(moduleDir, "tsconfig.json");
+		const readmePath = join(moduleDir, "README.md");
 
 		const result = await this.bootstrapAndConvert(
 			{
 				entryPoints: [entryPoint],
 				tsconfig: normalizePath(tsconfigPath),
 				name: module.packageName,
+				// Include the generated README.md so it gets embedded in JSON output
+				// and is available when using merge mode later.
+				readme: readmePath,
 				...this.sourceLinkOptions,
 			},
 			[new TSConfigReader()],
 		);
+
+		// Set packageVersion so it's serialized into JSON and available in merge mode.
+		// In "packages" mode TypeDoc reads this from package.json automatically,
+		// but in per-module mode we need to set it explicitly.
+		result.project.packageVersion = module.libraryVersion.toString();
 
 		this.registerGirMetadata(result.app, module);
 		return result;
@@ -197,7 +206,9 @@ export class TypeDocPipeline {
 			{
 				skipErrorChecking: true,
 				validation: NO_VALIDATION,
-				readme: this.config.readme || "none",
+				// Only set readme if explicitly configured — otherwise let TypeDoc
+				// auto-discover README.md files from individual packages.
+				...(this.config.readme ? { readme: this.config.readme } : {}),
 				logLevel: this.config.verbose ? ("Verbose" as const) : ("Info" as const),
 				highlightLanguages: ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"],
 				...options,

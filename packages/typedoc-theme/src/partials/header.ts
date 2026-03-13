@@ -1,17 +1,27 @@
 import type { PageEvent, Reflection } from "typedoc";
 import { JSX, ReflectionKind } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { getDisplayName } from "../utils.ts";
 
 /** Strip NPM scope prefix from a package name, e.g. "@girs/glib-2.0" → "glib-2.0". */
 function stripScope(name: string): string {
 	return name.replace(/^@[^/]+\//, "");
 }
 
-function getBreadcrumbName(refl: Reflection): string {
-	const name = getDisplayName(refl);
-	// Strip scope only from module-level reflections whose name looks like an npm package
-	return name.startsWith("@") ? stripScope(name) : name;
+/** Render a reflection's name with an optional smaller version badge. */
+function renderReflName(refl: Reflection, stripScopePrefix = false): JSX.Element {
+	let name = refl.name === "default" ? "default" : refl.name;
+	if (stripScopePrefix && name.startsWith("@")) name = stripScope(name);
+	const version = (refl as { packageVersion?: string }).packageVersion;
+	if (!version) {
+		return JSX.createElement(JSX.Fragment, null, name);
+	}
+	return JSX.createElement(
+		JSX.Fragment,
+		null,
+		name,
+		" ",
+		JSX.createElement("small", { class: "gi-docgen-module-version" }, `v${version}`),
+	);
 }
 
 export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageEvent<Reflection>) => {
@@ -57,10 +67,10 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 								JSX.Fragment,
 								null,
 								i > 0 && JSX.createElement("span", { class: "gi-docgen-breadcrumb-sep" }, " ▶ "),
-								isLast || !url ? getBreadcrumbName(r) : JSX.createElement("a", { href: url }, getBreadcrumbName(r)),
+								isLast || !url ? renderReflName(r, true) : JSX.createElement("a", { href: url }, renderReflName(r, true)),
 							);
 						})
-					: getDisplayName(props.model),
+					: renderReflName(props.model),
 				context.reflectionFlags(props.model),
 			),
 	);

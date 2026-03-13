@@ -1,5 +1,61 @@
 import { type DeclarationReflection, type ProjectReflection, type Reflection, ReflectionKind } from "typedoc";
 
+/** Minimal shape of the girMetadata field injected by GirMetadataSerializer. */
+interface GirReflectionMeta {
+	girKind: string;
+	resolveNames?: string[];
+	recordMetadata?: { isForeign: boolean; structFor?: string };
+	enumMetadata?: { isFlags: boolean };
+}
+
+/** Safely access girMetadata from any reflection. */
+export function getGirMetadata(refl: Reflection): GirReflectionMeta | undefined {
+	return (refl as unknown as { girMetadata?: GirReflectionMeta }).girMetadata;
+}
+
+/** Top-level GIR kinds that get a full type-info row on their page. */
+const TOP_LEVEL_KINDS = new Set(["class", "interface", "record", "enum", "bitfield", "callback", "alias"]);
+
+/**
+ * Returns { label, modifier } for top-level GIR types (class, record, enum, …),
+ * or null for member-level kinds (method, signal, property, …).
+ */
+export function girKindInfo(meta: GirReflectionMeta): { label: string; modifier: string } | null {
+	if (!TOP_LEVEL_KINDS.has(meta.girKind)) return null;
+	switch (meta.girKind) {
+		case "class":
+			return { label: "GObject Class", modifier: "class" };
+		case "interface":
+			return { label: "GObject Interface", modifier: "interface" };
+		case "record": {
+			const rec = meta.recordMetadata;
+			if (rec?.structFor) return { label: "Class Struct", modifier: "record" };
+			if (rec?.isForeign) return { label: "Foreign C Struct", modifier: "record" };
+			return { label: "C Struct", modifier: "record" };
+		}
+		case "enum":
+			return { label: "GEnum", modifier: "enum" };
+		case "bitfield":
+			return { label: "GFlags", modifier: "flags" };
+		case "callback":
+			return { label: "GCallback", modifier: "callback" };
+		case "alias":
+			return { label: "Type Alias", modifier: "alias" };
+		default:
+			return null;
+	}
+}
+
+/**
+ * Returns a badge label for member-level GIR kinds that need visual distinction,
+ * or null if no badge is needed.
+ */
+export function girMemberBadge(girKind: string): string | null {
+	if (girKind === "signal") return "Signal";
+	if (girKind === "virtual-method") return "Virtual";
+	return null;
+}
+
 /**
  * Get a display name for a reflection.
  * Reimplemented from TypeDoc's internal lib.tsx.

@@ -1,6 +1,7 @@
 import type { PageEvent, Reflection } from "typedoc";
 import { JSX, ReflectionKind } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
+import { getGirMetadata, girKindInfo } from "../utils.ts";
 
 /** Strip NPM scope prefix from a package name, e.g. "@girs/glib-2.0" → "glib-2.0". */
 function stripScope(name: string): string {
@@ -51,6 +52,10 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 	}
 	path.reverse(); // now [topModule, ..., currentItem]
 
+	const girMeta = getGirMetadata(props.model);
+	const girInfo = girMeta ? girKindInfo(girMeta) : null;
+	const cType = girMeta?.resolveNames?.[0];
+
 	return JSX.createElement(
 		"div",
 		{ class: "gi-docgen-page-title" },
@@ -72,6 +77,23 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 						})
 					: renderReflName(props.model),
 				context.reflectionFlags(props.model),
+			),
+		girInfo &&
+			JSX.createElement(
+				"div",
+				{ class: "gi-docgen-gir-meta" },
+				JSX.createElement(
+					"span",
+					{ class: `gi-docgen-gir-kind gi-docgen-gir-kind--${girInfo.modifier}` },
+					girInfo.label,
+				),
+				cType &&
+					JSX.createElement(
+						"span",
+						{ class: "gi-docgen-gir-ctype" },
+						"C Type: ",
+						JSX.createElement("code", null, cType),
+					),
 			),
 	);
 };

@@ -1,5 +1,5 @@
 import type { Options, PageEvent, Reflection, Router } from "typedoc";
-import { DefaultThemeRenderContext } from "typedoc";
+import { DefaultThemeRenderContext, JSX } from "typedoc";
 import { giDocgenFooter } from "./partials/footer.ts";
 import { giDocgenHeader } from "./partials/header.ts";
 import { giDocgenLayout } from "./partials/layout.ts";
@@ -9,6 +9,7 @@ import { giDocgenPageSidebar } from "./partials/page-sidebar.ts";
 import { giDocgenSidebar } from "./partials/sidebar.ts";
 import { giDocgenToolbar } from "./partials/toolbar.ts";
 import type { GiDocgenTheme } from "./theme.ts";
+import { getGirMetadata, girMemberBadge } from "./utils.ts";
 
 function bind<F, L extends unknown[], R>(fn: (f: F, ...a: L) => R, first: F) {
 	return (...r: L) => fn(first, ...r);
@@ -26,5 +27,21 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 		this.header = bind(giDocgenHeader, this);
 		this.pageNavigation = bind(giDocgenPageNavigation, this);
 		this.pageSidebar = bind(giDocgenPageSidebar, this);
+
+		// Extend reflectionFlags to add GIR-kind badges for signals and virtual methods
+		const parentFlags = this.reflectionFlags.bind(this);
+		this.reflectionFlags = (props: Reflection) => {
+			const base = parentFlags(props);
+			const gir = getGirMetadata(props);
+			const badge = gir ? girMemberBadge(gir.girKind) : null;
+			if (!badge) return base;
+			const cssClass = `tsd-tag tsd-tag-gir tsd-tag-gir-${gir.girKind}`;
+			return JSX.createElement(
+				JSX.Fragment,
+				null,
+				base,
+				JSX.createElement("code", { class: cssClass }, badge),
+			);
+		};
 	}
 }

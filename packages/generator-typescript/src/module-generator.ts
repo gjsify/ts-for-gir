@@ -347,7 +347,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateProperty(tsProp: IntrospectedProperty, construct?: boolean, indentCount = 0) {
 		const desc: string[] = [];
 
-		desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount));
+		desc.push(...this.addGirDocComment(tsProp.doc, this.namespace.getTsDocMetadataTags(tsProp.metadata), indentCount));
 
 		const indent = generateIndent(indentCount);
 		const name = generateMemberName(tsProp);
@@ -428,7 +428,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const desc: string[] = [];
 		const isStatic = tsProp.isStatic;
 
-		desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount));
+		desc.push(...this.addGirDocComment(tsProp.doc, this.namespace.getTsDocMetadataTags(tsProp.metadata), indentCount));
 
 		const indent = generateIndent(indentCount);
 		const name = generateMemberName(tsProp);
@@ -541,7 +541,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const text = tsDoc ? transformGirDocText(tsDoc) : null;
 
-		if (text) {
+		if (text || tags.length) {
 			desc.push(`${indent}/**`);
 
 			if (text) {
@@ -556,13 +556,44 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			for (const tag of tags) {
 				if (tag.paramName) {
 					desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`);
-				} else {
+				} else if (tag.text) {
 					desc.push(`${indent} * @${tag.tagName} ${tag.text}`);
+				} else {
+					desc.push(`${indent} * @${tag.tagName}`);
 				}
 			}
 			desc.push(`${indent} */`);
 		}
 		return desc;
+	}
+
+	private getGirTypeTags(
+		obj: IntrospectedClass | IntrospectedRecord | IntrospectedInterface | IntrospectedCallback | IntrospectedAlias,
+	): TsDocTag[] {
+		const tags: TsDocTag[] = [];
+		let girType: string;
+
+		if (obj instanceof IntrospectedRecord) {
+			if (obj.structFor) girType = "GObject.ClassStruct";
+			else if (obj.isForeign()) girType = "C.ForeignStruct";
+			else girType = "C.Struct";
+		} else if (obj instanceof IntrospectedInterface) {
+			girType = "GObject.Interface";
+		} else if (obj instanceof IntrospectedClass) {
+			girType = "GObject.Class";
+		} else if (obj instanceof IntrospectedCallback) {
+			girType = "GObject.Callback";
+		} else {
+			// IntrospectedAlias
+			girType = "C.Alias";
+		}
+
+		tags.push({ tagName: "gir-type", paramName: "", text: girType });
+
+		const cType = obj.resolve_names?.[0];
+		if (cType) tags.push({ tagName: "c-type", paramName: "", text: cType });
+
+		return tags;
 	}
 
 	/**
@@ -700,17 +731,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const { parameters: inParams } = tsFunction;
 
-		if (tsFunction.doc)
-			def.push(
-				...this.addGirDocComment(
-					tsFunction.doc,
-					[
-						...this.namespace.getTsDocInParamTags(tsFunction.parameters),
-						...this.namespace.getTsDocReturnTags(tsFunction),
-					],
-					indentCount,
-				),
-			);
+		def.push(
+			...this.addGirDocComment(
+				tsFunction.doc,
+				[
+					...this.namespace.getTsDocInParamTags(tsFunction.parameters),
+					...this.namespace.getTsDocReturnTags(tsFunction),
+					...this.namespace.getTsDocMetadataTags(tsFunction.metadata),
+					...(tsFunction instanceof IntrospectedVirtualClassFunction
+						? [{ tagName: "virtual", paramName: "", text: "" } as const]
+						: []),
+				],
+				indentCount,
+			),
+		);
 
 		const warning = tsFunction.getWarning();
 		if (warning) def.push(warning);
@@ -782,7 +816,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	) {
 		const def: string[] = [];
 
-		def.push(...this.addGirDocComment(tsCallback.doc, [], indentCount));
+		const callbackTags =
+			tsCallback instanceof IntrospectedCallback && !(tsCallback instanceof IntrospectedClassCallback)
+				? [
+						...this.getGirTypeTags(tsCallback),
+						...this.namespace.getTsDocMetadataTags(tsCallback.metadata),
+					]
+				: this.namespace.getTsDocMetadataTags(tsCallback.metadata);
+		def.push(...this.addGirDocComment(tsCallback.doc, callbackTags, indentCount));
 
 		const indent = generateIndent(indentCount);
 		const indentBody = generateIndent(indentCount + 1);
@@ -849,7 +890,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			desc.push("");
 		}
 
-		desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount));
+		const enumTags = [
+			{ tagName: "gir-type", paramName: "", text: girEnum.flags ? "GObject.Flags" : "GObject.Enum" } as const,
+			...(girEnum.resolve_names?.[0]
+				? [{ tagName: "c-type", paramName: "", text: girEnum.resolve_names[0] } as const]
+				: []),
+			...this.namespace.getTsDocMetadataTags(girEnum.metadata),
+		];
+		desc.push(...this.addGirDocComment(girEnum.doc, enumTags, indentCount));
 		desc.push(this.generateExport("enum", name, "{", indentCount));
 		if (girEnum.members) {
 			for (const girEnumMember of girEnum.members.values()) {
@@ -882,7 +930,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateConst(tsConst: IntrospectedConstant, indentCount = 0) {
 		const desc: string[] = [];
 
-		desc.push(...this.addGirDocComment(tsConst.doc, [], indentCount));
+		desc.push(...this.addGirDocComment(tsConst.doc, this.namespace.getTsDocMetadataTags(tsConst.metadata), indentCount));
 
 		const indent = generateIndent(indentCount);
 		const exp = !this.config.noNamespace ? "" : "export ";
@@ -898,6 +946,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const { namespace, options } = this;
 
 		const desc: string[] = [];
+
+		desc.push(
+			...this.addGirDocComment(
+				girAlias.doc,
+				[...this.getGirTypeTags(girAlias), ...this.namespace.getTsDocMetadataTags(girAlias.metadata)],
+				indentCount,
+			),
+		);
 
 		const indent = generateIndent(indentCount);
 
@@ -1512,7 +1568,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		def.push(...this.generateClassNamespaces(girClass));
 
-		def.push(...this.addGirDocComment(girClass.doc, [], 0));
+		def.push(
+			...this.addGirDocComment(
+				girClass.doc,
+				[...this.getGirTypeTags(girClass), ...this.namespace.getTsDocMetadataTags(girClass.metadata)],
+				0,
+			),
+		);
 
 		const genericParameters = this.generateGenericParameters(girClass.generics);
 		const ext = this.extends(girClass);

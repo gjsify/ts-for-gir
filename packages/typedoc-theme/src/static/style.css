@@ -586,6 +586,58 @@ body.menu-visible .overlay {
 	vertical-align: middle;
 }
 
+/* GIR type info row below the page title */
+.gi-docgen-gir-meta {
+	display: flex;
+	gap: 0.6em;
+	align-items: center;
+	margin-top: 0.4em;
+	margin-bottom: 1em;
+	font-size: 0.85rem;
+}
+
+.gi-docgen-gir-kind {
+	display: inline-block;
+	padding: 0.15em 0.5em;
+	border-radius: 3px;
+	font-size: 0.75em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.gi-docgen-gir-kind--class     { background: rgba(75, 192, 75, 0.15);   color: #3a9c3a; }
+.gi-docgen-gir-kind--interface { background: rgba(255, 153, 0, 0.15);   color: #c87800; }
+.gi-docgen-gir-kind--record    { background: rgba(28, 118, 228, 0.15);  color: #1c76e4; }
+.gi-docgen-gir-kind--enum      { background: rgba(192, 75, 192, 0.15);  color: #a03ca0; }
+.gi-docgen-gir-kind--flags     { background: rgba(220, 80, 80, 0.15);   color: #c04040; }
+.gi-docgen-gir-kind--callback  { background: rgba(192, 140, 75, 0.15);  color: #a0783c; }
+.gi-docgen-gir-kind--alias     { background: rgba(128, 128, 128, 0.15); color: #707070; }
+
+:root[data-theme="dark"] .gi-docgen-gir-kind--class     { color: #6fd96f; }
+:root[data-theme="dark"] .gi-docgen-gir-kind--interface { color: #ffaa33; }
+:root[data-theme="dark"] .gi-docgen-gir-kind--record    { color: #5aaeff; }
+:root[data-theme="dark"] .gi-docgen-gir-kind--enum      { color: #d97fd9; }
+:root[data-theme="dark"] .gi-docgen-gir-kind--flags     { color: #f07070; }
+:root[data-theme="dark"] .gi-docgen-gir-kind--callback  { color: #d4a860; }
+:root[data-theme="dark"] .gi-docgen-gir-kind--alias     { color: #aaaaaa; }
+
+.gi-docgen-gir-ctype {
+	color: var(--text-color-muted);
+	font-size: 0.85em;
+}
+
+.gi-docgen-gir-ctype code {
+	font-family: var(--code-font);
+}
+
+/* GIR member-kind badges (Signal, Virtual) — extend .tsd-tag base style */
+.tsd-tag-gir-signal        { background: rgba(220, 80, 80, 0.12);  color: #c04040; }
+.tsd-tag-gir-virtual-method { background: rgba(28, 118, 228, 0.12); color: #1c76e4; }
+
+:root[data-theme="dark"] .tsd-tag-gir-signal         { color: #f07070; }
+:root[data-theme="dark"] .tsd-tag-gir-virtual-method { color: #5aaeff; }
+
 /* Hide type icons in the sidebar */
 #gi-docgen-sidebar .tsd-kind-icon {
 	display: none;

@@ -25,6 +25,7 @@ import type {
 	GirEnumElement,
 	GirInterfaceElement,
 	IGirModule,
+	IntrospectedMetadata,
 	OptionsGeneration,
 	OptionsLoad,
 	TsDocTag,
@@ -242,6 +243,23 @@ export class GirModule implements IGirModule {
 			}
 		}
 
+		return tags;
+	}
+
+	getTsDocMetadataTags(metadata?: IntrospectedMetadata): TsDocTag[] {
+		const tags: TsDocTag[] = [];
+		if (metadata?.introducedVersion) {
+			tags.push({ tagName: "since", paramName: "", text: metadata.introducedVersion });
+		}
+		if (metadata?.deprecated) {
+			const text = [
+				metadata.deprecatedVersion ? `since ${metadata.deprecatedVersion}` : "",
+				metadata.deprecatedDoc ?? "",
+			]
+				.filter(Boolean)
+				.join(": ");
+			tags.push({ tagName: "deprecated", paramName: "", text });
+		}
 		return tags;
 	}
 

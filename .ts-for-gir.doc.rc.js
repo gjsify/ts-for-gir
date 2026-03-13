@@ -15,9 +15,9 @@ export default {
         'GModule-2.0',
 
         // // === UI (GTK 4 stack) ===
-        // 'Gtk-4.0',
-        // 'Gdk-4.0',
-        // 'Gsk-4.0',
+        'Gtk-4.0',
+        'Gdk-4.0',
+        'Gsk-4.0',
         // 'GdkWayland-4.0',
         // 'GdkX11-4.0',
         // 'Adw-1',

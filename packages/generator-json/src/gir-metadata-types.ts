@@ -100,3 +100,9 @@ export interface GirNamespaceMetadata {
 	libraryVersion: string;
 	dependencies: Array<{ namespace: string; version: string }>;
 }
+
+/** A DeclarationReflection extended with optional GIR-specific metadata. */
+export interface GirEnrichedReflection {
+	girMetadata?: GirReflectionMetadata;
+	girNamespaceMetadata?: GirNamespaceMetadata;
+}

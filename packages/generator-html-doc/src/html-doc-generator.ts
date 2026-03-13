@@ -1,7 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
-import { TypeDocPipeline } from "@ts-for-gir/generator-json";
+import { type TypeDocAppResult, TypeDocPipeline } from "@ts-for-gir/generator-json";
 import type { GirModule, NSRegistry, OptionsGeneration } from "@ts-for-gir/lib";
 import { Reporter, ReporterService } from "@ts-for-gir/lib";
 import { load as loadGiDocgenTheme } from "@ts-for-gir/typedoc-theme";
@@ -32,8 +32,7 @@ export class HtmlDocGenerator {
 		);
 
 		if (this.config.reporter) {
-			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter(HtmlDocGenerator.name, this.log);
+			ReporterService.getInstance().registerReporter(HtmlDocGenerator.name, this.log);
 		}
 	}
 
@@ -50,26 +49,43 @@ export class HtmlDocGenerator {
 		await this.pipeline.finishTypescriptGeneration(girModules);
 
 		try {
-			if (this.config.outdir) {
-				await mkdir(this.config.outdir, { recursive: true });
-			}
+			const outdir = this.requireOutdir();
+			await mkdir(outdir, { recursive: true });
 
 			if (this.config.combined) {
-				await this.generateCombinedHtmlDoc();
+				const result = await this.pipeline.createCombinedTypeDocApp();
+				await this.generateDocsWithTheme(result, outdir);
 			} else {
 				for (const module of this.pipeline.modules) {
-					await this.generateHtmlDoc(module);
+					const result = await this.pipeline.createTypeDocApp(module);
+					await this.generateDocsWithTheme(result, join(outdir, module.packageName));
 				}
 			}
 
-			if (this.config.outdir) {
-				this.log.success(
-					`HTML documentation generated for ${this.pipeline.modules.length} modules in ${this.config.outdir}`,
-				);
-			}
+			this.log.success(`HTML documentation generated for ${this.pipeline.modules.length} modules in ${outdir}`);
 		} finally {
 			await this.pipeline.cleanup();
 		}
+	}
+
+	/**
+	 * Generate combined HTML documentation from pre-generated TypeDoc JSON files.
+	 * This bypasses the normal .d.ts generation pipeline entirely, using TypeDoc's merge mode.
+	 */
+	public async generateFromJson(jsonDir: string): Promise<void> {
+		const outdir = this.requireOutdir();
+		await mkdir(outdir, { recursive: true });
+
+		this.log.info(`Generating HTML documentation from JSON files in ${jsonDir}...`);
+		const result = await this.pipeline.createMergedTypeDocApp(jsonDir);
+		await this.generateDocsWithTheme(result, outdir);
+		this.log.success(`Generated merged HTML docs from JSON in ${outdir}`);
+	}
+
+	/** Apply the configured theme and generate HTML docs into the given directory. */
+	private async generateDocsWithTheme({ app, project }: TypeDocAppResult, outdir: string): Promise<void> {
+		this.applyTheme(app);
+		await app.generateDocs(project, outdir);
 	}
 
 	private applyTheme(app: Application): void {
@@ -80,48 +96,11 @@ export class HtmlDocGenerator {
 		app.options.setValue("theme", themeName);
 	}
 
-	private async generateCombinedHtmlDoc(): Promise<void> {
+	/** Returns outdir or throws if not configured. */
+	private requireOutdir(): string {
 		if (!this.config.outdir) {
-			this.log.error("HTML documentation requires --outdir to be specified");
-			return;
+			throw new Error("HTML documentation requires --outdir to be specified");
 		}
-
-		const { app, project } = await this.pipeline.createCombinedTypeDocApp();
-		this.applyTheme(app);
-		await app.generateDocs(project, this.config.outdir);
-		this.log.info(`Generated combined HTML docs for ${this.pipeline.modules.length} modules in ${this.config.outdir}`);
-	}
-
-	/**
-	 * Generate combined HTML documentation from pre-generated TypeDoc JSON files.
-	 * This bypasses the normal .d.ts generation pipeline entirely, using TypeDoc's merge mode.
-	 */
-	public async generateFromJson(jsonDir: string): Promise<void> {
-		if (!this.config.outdir) {
-			this.log.error("HTML documentation requires --outdir to be specified");
-			return;
-		}
-
-		this.log.info(`Generating HTML documentation from JSON files in ${jsonDir}...`);
-		await mkdir(this.config.outdir, { recursive: true });
-
-		const { app, project } = await this.pipeline.createMergedTypeDocApp(jsonDir);
-		this.applyTheme(app);
-		await app.generateDocs(project, this.config.outdir);
-		this.log.success(`Generated merged HTML docs from JSON in ${this.config.outdir}`);
-	}
-
-	private async generateHtmlDoc(module: GirModule): Promise<void> {
-		const { app, project } = await this.pipeline.createTypeDocApp(module);
-
-		if (!this.config.outdir) {
-			this.log.error("HTML documentation requires --outdir to be specified");
-			return;
-		}
-
-		this.applyTheme(app);
-		const outDir = join(this.config.outdir, module.packageName);
-		await app.generateDocs(project, outDir);
-		this.log.info(`Generated HTML docs for ${module.packageName} in ${outDir}`);
+		return this.config.outdir;
 	}
 }

@@ -8,7 +8,7 @@ import { APP_NAME, isEqual } from "@ts-for-gir/lib";
 import { type Options as ConfigSearchOptions, cosmiconfig } from "cosmiconfig";
 import { setConfigFilePath } from "./config-writer.ts";
 import { defaults } from "./defaults.ts";
-import { options } from "./options.ts";
+import { docOptions, options } from "./options.ts";
 
 /**
  * The user can create a `.ts-for-girrc` file for his default configs,
@@ -74,6 +74,8 @@ export function validate(config: UserConfig): UserConfig {
  * @param optionDefault The default value from options
  * @param validator Optional validation function
  */
+const isBoolean = (v: unknown) => typeof v === "boolean";
+
 function mergeConfigValue<K extends keyof UserConfig>(
 	userConfig: UserConfig,
 	configFileData: Partial<UserConfig>,
@@ -115,65 +117,35 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 
 	if (configFileData) {
 		// Boolean options
-		mergeConfigValue(userConfig, configFileData, "verbose", options.verbose.default, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "verbose", options.verbose.default, isBoolean);
 		mergeConfigValue(
 			userConfig,
 			configFileData,
 			"ignoreVersionConflicts",
 			options.ignoreVersionConflicts.default,
-			(v) => typeof v === "boolean",
+			isBoolean,
 		);
-		mergeConfigValue(userConfig, configFileData, "print", options.print.default, (v) => typeof v === "boolean");
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noNamespace",
-			options.noNamespace.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noComments",
-			options.noComments.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(userConfig, configFileData, "promisify", options.promisify.default, (v) => typeof v === "boolean");
-		mergeConfigValue(userConfig, configFileData, "workspace", options.workspace.default, (v) => typeof v === "boolean");
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"onlyVersionPrefix",
-			options.onlyVersionPrefix.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noPrettyPrint",
-			options.noPrettyPrint.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noAdvancedVariants",
-			options.noAdvancedVariants.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(userConfig, configFileData, "package", options.package.default, (v) => typeof v === "boolean");
-		mergeConfigValue(userConfig, configFileData, "reporter", options.reporter.default, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "print", options.print.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "noNamespace", options.noNamespace.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "noComments", options.noComments.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "promisify", options.promisify.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "workspace", options.workspace.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "onlyVersionPrefix", options.onlyVersionPrefix.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "noPrettyPrint", options.noPrettyPrint.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "noAdvancedVariants", options.noAdvancedVariants.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "package", options.package.default, isBoolean);
+		mergeConfigValue(userConfig, configFileData, "reporter", options.reporter.default, isBoolean);
 
 		// String options
 		mergeConfigValue(userConfig, configFileData, "npmScope", options.npmScope.default);
 		mergeConfigValue(userConfig, configFileData, "reporterOutput", options.reporterOutput.default);
 
-		// Doc-specific options (use actual CLI defaults so config file values are applied correctly)
-		mergeConfigValue(userConfig, configFileData, "combined", defaults.combined, (v) => typeof v === "boolean");
+		// Doc-specific options
+		mergeConfigValue(userConfig, configFileData, "combined", docOptions.combined.default, isBoolean);
 		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
-		mergeConfigValue(userConfig, configFileData, "theme", defaults.theme);
-		mergeConfigValue(userConfig, configFileData, "readme", "none");
-		mergeConfigValue(userConfig, configFileData, "merge", false, (v) => typeof v === "boolean");
+		mergeConfigValue(userConfig, configFileData, "theme", docOptions.theme.default);
+		mergeConfigValue(userConfig, configFileData, "readme", docOptions.readme.default);
+		mergeConfigValue(userConfig, configFileData, "merge", docOptions.merge.default, isBoolean);
 		mergeConfigValue(userConfig, configFileData, "jsonDir", undefined);
 
 		// Array options
@@ -195,22 +167,17 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		}
 	}
 
-	// Make paths absolute
-	if (userConfig.outdir && !userConfig.outdir.startsWith("/")) {
-		userConfig.outdir = resolve(userConfig.root, userConfig.outdir);
-	}
+	// Make paths absolute relative to root
+	const resolveToRoot = (path: string) => (path.startsWith("/") ? path : resolve(userConfig.root, path));
 
-	if (userConfig.jsonDir && !userConfig.jsonDir.startsWith("/")) {
-		userConfig.jsonDir = resolve(userConfig.root, userConfig.jsonDir);
+	if (userConfig.outdir) {
+		userConfig.outdir = resolveToRoot(userConfig.outdir);
 	}
-
+	if (userConfig.jsonDir) {
+		userConfig.jsonDir = resolveToRoot(userConfig.jsonDir);
+	}
 	if (userConfig.girDirectories) {
-		userConfig.girDirectories = userConfig.girDirectories.map((dir) => {
-			if (!dir.startsWith("/")) {
-				return resolve(userConfig.root, dir);
-			}
-			return dir;
-		});
+		userConfig.girDirectories = userConfig.girDirectories.map(resolveToRoot);
 	}
 
 	return validate(userConfig);

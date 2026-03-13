@@ -215,14 +215,12 @@ export const docOptions = {
 	},
 	merge: {
 		type: "boolean" as const,
-		description:
-			"Use TypeDoc merge mode to generate HTML from pre-generated JSON files (requires --jsonDir)",
+		description: "Use TypeDoc merge mode to generate HTML from pre-generated JSON files (requires --jsonDir)",
 		default: false,
 	},
 	jsonDir: {
 		type: "string" as const,
-		description:
-			"Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json')",
+		description: "Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json')",
 	},
 };
 

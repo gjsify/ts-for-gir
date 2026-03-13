@@ -5,16 +5,9 @@ import { type DeclarationReflection, type ProjectReflection, type Reflection, Re
  * Reimplemented from TypeDoc's internal lib.tsx.
  */
 export function getDisplayName(refl: Reflection): string {
-	let version = "";
-	if ((refl as ProjectReflection).packageVersion) {
-		version = ` - v${(refl as ProjectReflection).packageVersion}`;
-	}
-
-	if (refl.name === "default") {
-		return `default${version}`;
-	}
-
-	return refl.name + version;
+	const version = (refl as ProjectReflection).packageVersion;
+	const suffix = version ? ` - v${version}` : "";
+	return (refl.name === "default" ? "default" : refl.name) + suffix;
 }
 
 /**
@@ -22,13 +15,9 @@ export function getDisplayName(refl: Reflection): string {
  * Reimplemented from TypeDoc's internal lib.tsx.
  */
 export function classNames(names: Record<string, boolean | null | undefined>, extraCss?: string) {
-	const css = Object.keys(names)
-		.filter((key) => names[key])
-		.concat(extraCss || "")
-		.join(" ")
-		.trim()
-		.replace(/\s+/g, " ");
-	return css.length ? css : undefined;
+	const parts = Object.keys(names).filter((key) => names[key]);
+	if (extraCss) parts.push(extraCss);
+	return parts.length ? parts.join(" ") : undefined;
 }
 
 /**
@@ -54,9 +43,8 @@ export function getHierarchyRoots(project: ProjectReflection): DeclarationReflec
 	const roots: DeclarationReflection[] = [];
 	const queue: Reflection[] = [project];
 
-	while (queue.length) {
-		const refl = queue.shift();
-		if (!refl) continue;
+	for (let i = 0; i < queue.length; i++) {
+		const refl = queue[i];
 		if (refl.kindOf(ReflectionKind.Class)) {
 			const decl = refl as DeclarationReflection;
 			if (decl.typeHierarchy) {

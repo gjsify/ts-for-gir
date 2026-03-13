@@ -28,15 +28,12 @@ const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
 	if (args.merge) {
-		const config = await load(args);
-		const generateConfig = getOptionsGeneration(config);
-		const jsonDir = generateConfig.jsonDir || args.jsonDir;
-		if (!jsonDir) {
+		const config = getOptionsGeneration(await load(args));
+		if (!config.jsonDir) {
 			throw new Error("--jsonDir is required when using --merge mode");
 		}
-		const registry = new NSRegistry();
-		const generator = new HtmlDocGenerator(generateConfig, registry);
-		await generator.generateFromJson(jsonDir);
+		const generator = new HtmlDocGenerator(config, new NSRegistry());
+		await generator.generateFromJson(config.jsonDir);
 		return;
 	}
 

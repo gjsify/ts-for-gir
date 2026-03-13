@@ -57,9 +57,7 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 								JSX.Fragment,
 								null,
 								i > 0 && JSX.createElement("span", { class: "gi-docgen-breadcrumb-sep" }, " ▶ "),
-								isLast || !url
-									? getBreadcrumbName(r)
-									: JSX.createElement("a", { href: url }, getBreadcrumbName(r)),
+								isLast || !url ? getBreadcrumbName(r) : JSX.createElement("a", { href: url }, getBreadcrumbName(r)),
 							);
 						})
 					: getDisplayName(props.model),

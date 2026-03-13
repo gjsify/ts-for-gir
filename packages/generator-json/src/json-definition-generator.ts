@@ -31,8 +31,7 @@ export class JsonDefinitionGenerator {
 		);
 
 		if (this.config.reporter) {
-			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter(JsonDefinitionGenerator.name, this.log);
+			ReporterService.getInstance().registerReporter(JsonDefinitionGenerator.name, this.log);
 		}
 	}
 

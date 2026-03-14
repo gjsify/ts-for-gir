@@ -55,6 +55,8 @@ import {
 	TypeConflict,
 	type TypeExpression,
 	transformGirDocText,
+	transformGirDocTagTextWithContext,
+	type GirDocContext,
 } from "@ts-for-gir/lib";
 import { ModuleExporter, SignalGenerator } from "./generators/index.ts";
 // import { PackageDataParser } from './package-data-parser.ts'
@@ -131,6 +133,59 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		this.signalGenerator = new SignalGenerator(this);
 		this.moduleExporter = new ModuleExporter(this);
+		this._docContext = this.buildDocContext();
+	}
+
+	private readonly _docContext: GirDocContext;
+
+	/**
+	 * Build a GirDocContext that resolves C identifiers to TypeScript paths
+	 * by searching the current namespace and all its dependencies.
+	 */
+	private buildDocContext(): GirDocContext {
+		const ns = this.namespace;
+
+		// Collect all available namespaces (current + dependencies)
+		const allNamespaces: GirModule[] = [ns];
+		for (const dep of ns.allDependencies) {
+			const imported = ns.getInstalledImport(dep.namespace);
+			if (imported) allNamespaces.push(imported);
+		}
+		return {
+			resolveType(cTypeName: string): string | null {
+				// Strategy 1: Try _resolve_names lookup (handles c:type and glib:type-name)
+				for (const mod of allNamespaces) {
+					const member = mod.getMemberWithoutOverrides(cTypeName);
+					if (member && "name" in member) {
+						return `${mod.namespace}.${member.name}`;
+					}
+				}
+
+				// Strategy 2: Strip C identifier prefix and look up by GIR name
+				// e.g. "GtkWidget" → strip "Gtk" → look up "Widget" in Gtk namespace
+				for (const mod of allNamespaces) {
+					for (const prefix of mod.c_prefixes) {
+						if (cTypeName.startsWith(prefix) && cTypeName.length > prefix.length) {
+							const girName = cTypeName.slice(prefix.length);
+							if (mod.hasSymbol(girName)) {
+								return `${mod.namespace}.${girName}`;
+							}
+						}
+					}
+				}
+
+				return null;
+			},
+			resolveConstant(cIdentifier: string): string | null {
+				for (const mod of allNamespaces) {
+					const result = mod.enum_constants.get(cIdentifier);
+					if (result) {
+						return `${mod.namespace}.${result[0]}.${result[1]}`;
+					}
+				}
+				return null;
+			},
+		};
 	}
 
 	/**
@@ -547,7 +602,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			return desc;
 		}
 
-		const text = tsDoc ? transformGirDocText(tsDoc) : null;
+		const text = tsDoc ? transformGirDocText(tsDoc, this._docContext) : null;
 
 		if (text || tags.length) {
 			desc.push(`${indent}/**`);
@@ -562,10 +617,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			}
 
 			for (const tag of tags) {
+				const tagText = tag.text ? transformGirDocTagTextWithContext(tag.text, this._docContext) : "";
 				if (tag.paramName) {
-					desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`);
-				} else if (tag.text) {
-					desc.push(`${indent} * @${tag.tagName} ${tag.text}`);
+					desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tagText}`);
+				} else if (tagText) {
+					desc.push(`${indent} * @${tag.tagName} ${tagText}`);
 				} else {
 					desc.push(`${indent} * @${tag.tagName}`);
 				}

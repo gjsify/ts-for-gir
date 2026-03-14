@@ -12,6 +12,7 @@ import {
 	filterConflicts,
 	filterFunctionConflict,
 	type Generic,
+	type GirDocContext,
 	type GirEnumMember,
 	type GirModule,
 	generateIndent,
@@ -54,9 +55,8 @@ import {
 	type TsDocTag,
 	TypeConflict,
 	type TypeExpression,
-	transformGirDocText,
 	transformGirDocTagTextWithContext,
-	type GirDocContext,
+	transformGirDocText,
 } from "@ts-for-gir/lib";
 import { ModuleExporter, SignalGenerator } from "./generators/index.ts";
 // import { PackageDataParser } from './package-data-parser.ts'
@@ -911,10 +911,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const callbackTags =
 			tsCallback instanceof IntrospectedCallback && !(tsCallback instanceof IntrospectedClassCallback)
-				? [
-						...this.getGirTypeTags(tsCallback),
-						...this.namespace.getTsDocMetadataTags(tsCallback.metadata),
-					]
+				? [...this.getGirTypeTags(tsCallback), ...this.namespace.getTsDocMetadataTags(tsCallback.metadata)]
 				: this.namespace.getTsDocMetadataTags(tsCallback.metadata);
 		def.push(...this.addGirDocComment(tsCallback.doc, callbackTags, indentCount));
 
@@ -1020,7 +1017,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateConst(tsConst: IntrospectedConstant, indentCount = 0) {
 		const desc: string[] = [];
 
-		desc.push(...this.addGirDocComment(tsConst.doc, this.namespace.getTsDocMetadataTags(tsConst.metadata), indentCount));
+		desc.push(
+			...this.addGirDocComment(tsConst.doc, this.namespace.getTsDocMetadataTags(tsConst.metadata), indentCount),
+		);
 
 		const indent = generateIndent(indentCount);
 		const exp = !this.config.noNamespace ? "" : "export ";

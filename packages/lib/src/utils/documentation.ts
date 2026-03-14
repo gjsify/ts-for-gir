@@ -216,16 +216,13 @@ function transformRelativeDocLinks(text: string, ctx?: GirDocContext): string {
  * Must run BEFORE other transformations to prevent partial matches.
  */
 function transformClassVfuncRefs(text: string, ctx?: GirDocContext): string {
-	return text.replace(
-		/`([A-Z]\w+)`?Class\.(\w+)\(\)`?/g,
-		(_match, cType: string, method: string) => {
-			const resolved = ctx?.resolveType(cType);
-			if (resolved) {
-				return `{@link ${resolved}.${method}}`;
-			}
-			return `\`${cType}Class.${method}()\``;
-		},
-	);
+	return text.replace(/`([A-Z]\w+)`?Class\.(\w+)\(\)`?/g, (_match, cType: string, method: string) => {
+		const resolved = ctx?.resolveType(cType);
+		if (resolved) {
+			return `{@link ${resolved}.${method}}`;
+		}
+		return `\`${cType}Class.${method}()\``;
+	});
 }
 
 // ---------------------------------------------------------------------------
@@ -251,51 +248,48 @@ const CALLABLE_FRAGMENTS = new Set(["method", "ctor", "vfunc", "func"]);
  * prevent corruption of the @ symbol inside [fragment@...] patterns.
  */
 function transformGiDocgenLinks(text: string): string {
-	return text.replace(
-		/\[`?(\w+)@([\w.\-:]+)`?\]/g,
-		(_match, fragment: string, endpoint: string) => {
-			// Type references: [class@Gtk.Widget] → {@link Gtk.Widget}
-			if (TYPE_FRAGMENTS.has(fragment)) {
-				return `{@link ${endpoint}}`;
-			}
+	return text.replace(/\[`?(\w+)@([\w.\-:]+)`?\]/g, (_match, fragment: string, endpoint: string) => {
+		// Type references: [class@Gtk.Widget] → {@link Gtk.Widget}
+		if (TYPE_FRAGMENTS.has(fragment)) {
+			return `{@link ${endpoint}}`;
+		}
 
-			// Enum/flags/error: [enum@Gtk.AccessibleRole.window] → {@link Gtk.AccessibleRole.WINDOW}
-			if (ENUM_FRAGMENTS.has(fragment)) {
-				const parts = endpoint.split(".");
-				if (parts.length >= 3) {
-					// Last part is enum member — uppercase for TS convention
-					const member = parts[parts.length - 1].toUpperCase();
-					const typePath = parts.slice(0, -1).join(".");
-					return `{@link ${typePath}.${member}}`;
-				}
-				return `{@link ${endpoint}}`;
+		// Enum/flags/error: [enum@Gtk.AccessibleRole.window] → {@link Gtk.AccessibleRole.WINDOW}
+		if (ENUM_FRAGMENTS.has(fragment)) {
+			const parts = endpoint.split(".");
+			if (parts.length >= 3) {
+				// Last part is enum member — uppercase for TS convention
+				const member = parts[parts.length - 1].toUpperCase();
+				const typePath = parts.slice(0, -1).join(".");
+				return `{@link ${typePath}.${member}}`;
 			}
+			return `{@link ${endpoint}}`;
+		}
 
-			// Signal references: [signal@Gtk.Widget::query-tooltip] → `Gtk.Widget::query-tooltip`
-			if (fragment === "signal") {
-				return `\`${endpoint}\``;
-			}
-
-			// Property references: [property@Gtk.Widget:visible] → {@link Gtk.Widget.visible}
-			if (fragment === "property") {
-				const colonIdx = endpoint.indexOf(":");
-				if (colonIdx !== -1) {
-					const typePart = endpoint.substring(0, colonIdx);
-					const propPart = endpoint.substring(colonIdx + 1).replace(/-/g, "_");
-					return `{@link ${typePart}.${propPart}}`;
-				}
-				return `\`${endpoint}\``;
-			}
-
-			// Method/ctor/vfunc/func: [method@Gtk.Widget.show] → {@link Gtk.Widget.show}
-			if (CALLABLE_FRAGMENTS.has(fragment)) {
-				return `{@link ${endpoint}}`;
-			}
-
-			// id and unknown fragments: [id@gtk_widget_show] → `gtk_widget_show`
+		// Signal references: [signal@Gtk.Widget::query-tooltip] → `Gtk.Widget::query-tooltip`
+		if (fragment === "signal") {
 			return `\`${endpoint}\``;
-		},
-	);
+		}
+
+		// Property references: [property@Gtk.Widget:visible] → {@link Gtk.Widget.visible}
+		if (fragment === "property") {
+			const colonIdx = endpoint.indexOf(":");
+			if (colonIdx !== -1) {
+				const typePart = endpoint.substring(0, colonIdx);
+				const propPart = endpoint.substring(colonIdx + 1).replace(/-/g, "_");
+				return `{@link ${typePart}.${propPart}}`;
+			}
+			return `\`${endpoint}\``;
+		}
+
+		// Method/ctor/vfunc/func: [method@Gtk.Widget.show] → {@link Gtk.Widget.show}
+		if (CALLABLE_FRAGMENTS.has(fragment)) {
+			return `{@link ${endpoint}}`;
+		}
+
+		// id and unknown fragments: [id@gtk_widget_show] → `gtk_widget_show`
+		return `\`${endpoint}\``;
+	});
 }
 
 // ---------------------------------------------------------------------------

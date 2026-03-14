@@ -10,7 +10,12 @@ export function getGirTypeFromComment(refl: Reflection): string | undefined {
 	if (!comment) return undefined;
 	const tag = comment.getTag("@gir-type" as `@${string}`);
 	if (!tag) return undefined;
-	return tag.content.map((part) => part.text).join("").trim() || undefined;
+	return (
+		tag.content
+			.map((part) => part.text)
+			.join("")
+			.trim() || undefined
+	);
 }
 
 /** Check if a reflection has the @signal modifier tag (also checks signatures for declarations). */

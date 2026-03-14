@@ -80,7 +80,9 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 								JSX.Fragment,
 								null,
 								i > 0 && JSX.createElement("span", { class: "gi-docgen-breadcrumb-sep" }, " ▶ "),
-								isLast || !url ? renderReflName(r, true) : JSX.createElement("a", { href: url }, renderReflName(r, true)),
+								isLast || !url
+									? renderReflName(r, true)
+									: JSX.createElement("a", { href: url }, renderReflName(r, true)),
 							);
 						})
 					: renderReflName(props.model),

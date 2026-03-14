@@ -37,12 +37,7 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 			const badge = girMemberBadgeFromComment(props);
 			if (!badge) return base;
 			const cssClass = `tsd-tag tsd-tag-gir tsd-tag-gir-${badge.cssModifier}`;
-			return JSX.createElement(
-				JSX.Fragment,
-				null,
-				base,
-				JSX.createElement("code", { class: cssClass }, badge.label),
-			);
+			return JSX.createElement(JSX.Fragment, null, base, JSX.createElement("code", { class: cssClass }, badge.label));
 		};
 	}
 }

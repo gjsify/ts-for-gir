@@ -13,6 +13,8 @@ export interface GirDocContext {
 	resolveType(cTypeName: string): string | null;
 	/** Resolve a C enum constant (e.g. "G_BINDING_BIDIRECTIONAL") to a TS path (e.g. "GObject.BindingFlags.BIDIRECTIONAL"). */
 	resolveConstant(cIdentifier: string): string | null;
+	/** Base URL for gi-docgen content pages (e.g. "https://docs.gtk.org/gtk4/"). */
+	docBaseUrl?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -40,7 +42,11 @@ const JS_LITERAL_MAP: Record<string, string> = {
  * @returns The transformed markdown text
  */
 export function transformGirDocText(text: string, ctx?: GirDocContext): string {
+	text = transformRelativeDocLinks(text, ctx);
+	text = transformClassVfuncRefs(text, ctx);
+	text = transformGiDocgenLinks(text);
 	text = transformGtkDocMarkers(text, ctx);
+	text = transformBacktickTypeRefs(text, ctx);
 	text = transformGirDocHighlights(text);
 	text = transformGirDocCodeBlocks(text);
 	return text;
@@ -70,7 +76,11 @@ export function transformGirDocTagText(text: string): string {
  * @returns The cleaned and transformed text
  */
 export function transformGirDocTagTextWithContext(text: string, ctx?: GirDocContext): string {
+	text = transformRelativeDocLinks(text, ctx);
+	text = transformClassVfuncRefs(text, ctx);
+	text = transformGiDocgenLinks(text);
 	text = transformGtkDocMarkers(text, ctx);
+	text = transformBacktickTypeRefs(text, ctx);
 	text = transformGirDocHighlights(text);
 	return text.replace(NEW_LINE_REG_EXP, " ");
 }
@@ -172,18 +182,186 @@ function transformFunctionRefs(text: string): string {
 }
 
 // ---------------------------------------------------------------------------
+// Relative documentation link resolution
+// ---------------------------------------------------------------------------
+
+/**
+ * Convert relative gi-docgen HTML links to absolute URLs.
+ *
+ * GIR docs contain markdown links to gi-docgen content pages like
+ * `[coordinate system](coordinates.html)` or `[Widget](class.Widget.html)`.
+ * These are converted to absolute URLs when a base URL is available.
+ */
+function transformRelativeDocLinks(text: string, ctx?: GirDocContext): string {
+	const baseUrl = ctx?.docBaseUrl;
+	if (!baseUrl) return text;
+	return text.replace(
+		/\]\(([a-zA-Z][\w.-]*\.html(?:[#?][^\s)]*)?)\)/g,
+		(_match, relUrl: string) => `](${baseUrl}${relUrl})`,
+	);
+}
+
+// ---------------------------------------------------------------------------
+// C class vfunc reference transformations
+// ---------------------------------------------------------------------------
+
+/**
+ * Convert C class vfunc references to {@link} or cleaned backtick format.
+ *
+ * Handles patterns from GIR docs (both correct and broken backtick variants):
+ * - `` `GtkWidgetClass.snapshot()` `` → {@link Gtk.Widget.snapshot}
+ * - `` `GtkWidget`Class.snapshot() `` → {@link Gtk.Widget.snapshot}
+ * - `GtkLayoutManagerClass.create_layout_child()` → {@link Gtk.LayoutManager.create_layout_child}
+ *
+ * Must run BEFORE other transformations to prevent partial matches.
+ */
+function transformClassVfuncRefs(text: string, ctx?: GirDocContext): string {
+	return text.replace(
+		/`([A-Z]\w+)`?Class\.(\w+)\(\)`?/g,
+		(_match, cType: string, method: string) => {
+			const resolved = ctx?.resolveType(cType);
+			if (resolved) {
+				return `{@link ${resolved}.${method}}`;
+			}
+			return `\`${cType}Class.${method}()\``;
+		},
+	);
+}
+
+// ---------------------------------------------------------------------------
+// gi-docgen link transformations
+// ---------------------------------------------------------------------------
+
+/** Fragment types that represent types → {@link Ns.Type} */
+const TYPE_FRAGMENTS = new Set(["alias", "callback", "class", "const", "iface", "struct", "type"]);
+
+/** Fragment types that represent enumerations (may have member suffix) */
+const ENUM_FRAGMENTS = new Set(["enum", "error", "flags"]);
+
+/** Fragment types that represent callable members → {@link Ns.Type.method} */
+const CALLABLE_FRAGMENTS = new Set(["method", "ctor", "vfunc", "func"]);
+
+/**
+ * Convert gi-docgen link syntax [fragment@Namespace.Type] to TSDoc.
+ *
+ * Handles all fragment types: alias, callback, class, const, ctor, enum,
+ * error, flags, func, id, iface, method, property, signal, struct, type, vfunc.
+ *
+ * Must run BEFORE transformGtkDocMarkers and transformGirDocHighlights to
+ * prevent corruption of the @ symbol inside [fragment@...] patterns.
+ */
+function transformGiDocgenLinks(text: string): string {
+	return text.replace(
+		/\[`?(\w+)@([\w.\-:]+)`?\]/g,
+		(_match, fragment: string, endpoint: string) => {
+			// Type references: [class@Gtk.Widget] → {@link Gtk.Widget}
+			if (TYPE_FRAGMENTS.has(fragment)) {
+				return `{@link ${endpoint}}`;
+			}
+
+			// Enum/flags/error: [enum@Gtk.AccessibleRole.window] → {@link Gtk.AccessibleRole.WINDOW}
+			if (ENUM_FRAGMENTS.has(fragment)) {
+				const parts = endpoint.split(".");
+				if (parts.length >= 3) {
+					// Last part is enum member — uppercase for TS convention
+					const member = parts[parts.length - 1].toUpperCase();
+					const typePath = parts.slice(0, -1).join(".");
+					return `{@link ${typePath}.${member}}`;
+				}
+				return `{@link ${endpoint}}`;
+			}
+
+			// Signal references: [signal@Gtk.Widget::query-tooltip] → `Gtk.Widget::query-tooltip`
+			if (fragment === "signal") {
+				return `\`${endpoint}\``;
+			}
+
+			// Property references: [property@Gtk.Widget:visible] → {@link Gtk.Widget.visible}
+			if (fragment === "property") {
+				const colonIdx = endpoint.indexOf(":");
+				if (colonIdx !== -1) {
+					const typePart = endpoint.substring(0, colonIdx);
+					const propPart = endpoint.substring(colonIdx + 1).replace(/-/g, "_");
+					return `{@link ${typePart}.${propPart}}`;
+				}
+				return `\`${endpoint}\``;
+			}
+
+			// Method/ctor/vfunc/func: [method@Gtk.Widget.show] → {@link Gtk.Widget.show}
+			if (CALLABLE_FRAGMENTS.has(fragment)) {
+				return `{@link ${endpoint}}`;
+			}
+
+			// id and unknown fragments: [id@gtk_widget_show] → `gtk_widget_show`
+			return `\`${endpoint}\``;
+		},
+	);
+}
+
+// ---------------------------------------------------------------------------
+// Backtick-wrapped C type name resolution
+// ---------------------------------------------------------------------------
+
+/**
+ * Convert backtick-wrapped C type references to TSDoc links when resolvable.
+ *
+ * GIR docs often contain C type names in backticks instead of GTK-Doc `#` notation.
+ * Handles three patterns:
+ * - `` `GtkWidget` `` → {@link Gtk.Widget}
+ * - `` `GtkWidget:visible` `` → {@link Gtk.Widget.visible} (property)
+ * - `` `GtkWidget::notify` `` → `Gtk.Widget::notify` (signal, backtick-quoted)
+ *
+ * Only converts names the resolver recognizes — unknown names keep backtick formatting.
+ * Must run AFTER transformGtkDocMarkers (which handles `#CType`) to avoid double-processing.
+ */
+function transformBacktickTypeRefs(text: string, ctx?: GirDocContext): string {
+	if (!ctx) return text;
+
+	// Signal refs: `CType::signal-name` → `Ns.Type::signal-name`
+	text = text.replace(/`([A-Z][A-Za-z0-9]+)::([a-z0-9_-]+)`/g, (match, cType: string, signal: string) => {
+		const resolved = ctx.resolveType(cType);
+		if (resolved) {
+			return `\`${resolved}::${signal}\``;
+		}
+		return match;
+	});
+
+	// Property refs: `CType:prop-name` → {@link Ns.Type.prop_name}
+	text = text.replace(/`([A-Z][A-Za-z0-9]+):([a-z0-9_-]+)`/g, (match, cType: string, prop: string) => {
+		const resolved = ctx.resolveType(cType);
+		if (resolved) {
+			const propName = prop.replace(/-/g, "_");
+			return `{@link ${resolved}.${propName}}`;
+		}
+		return match;
+	});
+
+	// Plain type refs: `CType` → {@link Ns.Type}
+	text = text.replace(/`([A-Z][A-Za-z0-9]+)`/g, (match, cType: string) => {
+		const resolved = ctx.resolveType(cType);
+		if (resolved) {
+			return `{@link ${resolved}}`;
+		}
+		return match;
+	});
+
+	return text;
+}
+
+// ---------------------------------------------------------------------------
 // Existing transformations (parameter highlights + code blocks)
 // ---------------------------------------------------------------------------
 
 /**
  * Replaces "@any_property" with "`any_property`" for GIR parameter references.
- * Skips TSDoc inline tags like {@link ...} by requiring that @ is NOT preceded by {.
+ * Skips TSDoc inline tags like {@link ...} (@ preceded by {) and any remaining
+ * gi-docgen fragments like [enum@...] (@ preceded by word char).
  *
  * @param description E.g. "Creates a binding between @source_property on @source and @target_property on @target."
  * @returns E.g. "Creates a binding between `source_property` on `source` and `target_property` on `target`."
  */
 function transformGirDocHighlights(description: string): string {
-	return description.replace(/(?<!\{)@([A-Za-z_][A-Za-z0-9_]*)/g, "`$1`");
+	return description.replace(/(?<!\{)(?<!\w)@([A-Za-z_][A-Za-z0-9_]*)/g, "`$1`");
 }
 
 /**

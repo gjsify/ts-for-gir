@@ -78,6 +78,33 @@ export enum ModuleGeneratorFormat {
 	Inline = "inline",
 }
 
+/**
+ * Base URLs for gi-docgen content pages per namespace.
+ * Version-specific keys (e.g. "Gtk-4.0") take priority over plain namespace keys.
+ */
+const DOC_BASE_URLS = new Map<string, string>([
+	// GNOME core (docs.gtk.org)
+	["GLib", "https://docs.gtk.org/glib/"],
+	["GObject", "https://docs.gtk.org/gobject/"],
+	["Gio", "https://docs.gtk.org/gio/"],
+	["GdkPixbuf", "https://docs.gtk.org/gdk-pixbuf/"],
+	["Pango", "https://docs.gtk.org/Pango/"],
+	["PangoCairo", "https://docs.gtk.org/PangoCairo/"],
+	// GTK 4
+	["Gtk-4.0", "https://docs.gtk.org/gtk4/"],
+	["Gdk-4.0", "https://docs.gtk.org/gdk4/"],
+	["Gsk-4.0", "https://docs.gtk.org/gsk4/"],
+	["GdkWayland-4.0", "https://docs.gtk.org/gdk4-wayland/"],
+	["GdkX11-4.0", "https://docs.gtk.org/gdk4-x11/"],
+	// GTK 3
+	["Gtk-3.0", "https://docs.gtk.org/gtk3/"],
+	["Gdk-3.0", "https://docs.gtk.org/gdk3/"],
+	// Libadwaita
+	["Adw-1", "https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1-latest/"],
+	// GtkSourceView
+	["GtkSource-5", "https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/"],
+]);
+
 export class ModuleGenerator extends FormatGenerator<string[]> {
 	log: Reporter;
 	dependencyManager: DependencyManager;
@@ -151,7 +178,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			const imported = ns.getInstalledImport(dep.namespace);
 			if (imported) allNamespaces.push(imported);
 		}
+
+		// Resolve base URL for gi-docgen content pages
+		const docBaseUrl = DOC_BASE_URLS.get(`${ns.namespace}-${ns.version}`) ?? DOC_BASE_URLS.get(ns.namespace);
+
 		return {
+			docBaseUrl,
 			resolveType(cTypeName: string): string | null {
 				// Strategy 1: Try _resolve_names lookup (handles c:type and glib:type-name)
 				for (const mod of allNamespaces) {

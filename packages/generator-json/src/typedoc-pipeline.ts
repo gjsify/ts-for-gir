@@ -167,6 +167,9 @@ export class TypeDocPipeline {
 			{
 				skipErrorChecking: true,
 				validation: NO_VALIDATION,
+				// Disable TypeDoc's built-in output directory cleanup so that git
+				// submodule files (e.g. docs/.git) are preserved across builds.
+				cleanOutputDir: false,
 				...(this.config.readme ? { readme: this.config.readme } : {}),
 				logLevel: this.config.verbose ? ("Verbose" as const) : ("Info" as const),
 				highlightLanguages: ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"],
@@ -219,6 +222,9 @@ export class TypeDocPipeline {
 			{
 				skipErrorChecking: true,
 				validation: NO_VALIDATION,
+				// Disable TypeDoc's built-in output directory cleanup so that git
+				// submodule files (e.g. docs/.git) are preserved across builds.
+				cleanOutputDir: false,
 				// Only set readme if explicitly configured — otherwise let TypeDoc
 				// auto-discover README.md files from individual packages.
 				...(this.config.readme ? { readme: this.config.readme } : {}),

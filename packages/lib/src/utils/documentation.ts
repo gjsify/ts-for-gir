@@ -359,25 +359,36 @@ function transformGirDocHighlights(description: string): string {
 }
 
 /**
- * Replaces GIR code blocks with markdown code fences
+ * Replaces GIR code blocks with markdown code fences.
  *
- * Replaces:
- * |[<!-- language="C" -->
- *   g_object_notify_by_pspec (self, properties[PROP_FOO]);
- * ]|
+ * Handles two formats found in GIR documentation:
  *
- * with:
- * ```c
- *   g_object_notify_by_pspec (self, properties[PROP_FOO]);
- * ```
+ * 1. GTK-Doc style (older):
+ *    |[<!-- language="C" -->
+ *      g_object_notify_by_pspec (self, properties[PROP_FOO]);
+ *    ]|
+ *
+ * 2. Pandoc-style (newer, e.g. GLib 2.80+):
+ *    ``` { .c }
+ *      const char *pattern = ".*GLib.*";
+ *    ```
+ *
+ * Both are converted to standard markdown fences, e.g. ```c … ```.
+ * The language "plain" is mapped to no language (no syntax highlighting).
  *
  * @param description The description containing code blocks
  * @returns The description with markdown code fences
  */
 function transformGirDocCodeBlocks(description: string): string {
 	description = description
-		.replaceAll(/\|\[<!-- language="C" -->/gm, "\n```c") // C-Code
-		.replaceAll(/\|\[/gm, "\n```") // Other code
-		.replaceAll(/\]\|/gm, "```\n"); // End of code
+		// Pandoc-style: ``` { .c } → ```c  (or ``` { .xml } → ```xml etc.)
+		.replaceAll(/```\s*\{\s*\.(\w+)[^}]*\}/gm, "```$1")
+		// GTK-Doc style with language annotation (generic handler)
+		.replaceAll(/\|\[<!-- language="([^"]+)" -->/gm, (_match, lang: string) => {
+			if (lang === "plain" || lang === "text") return "\n```";
+			return `\n\`\`\`${lang.toLowerCase()}`;
+		})
+		.replaceAll(/\|\[/gm, "\n```") // GTK-Doc without language
+		.replaceAll(/\]\|/gm, "```\n"); // End of GTK-Doc code block
 	return description;
 }

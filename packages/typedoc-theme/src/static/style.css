@@ -573,17 +573,17 @@ body.menu-visible .overlay {
 	font-weight: 600;
 }
 
-#gi-docgen-sidebar .gi-docgen-module-list .gi-docgen-module-version {
-	font-size: 0.75em;
-	opacity: 0.65;
-	font-weight: normal;
-}
-
 .gi-docgen-page-title h1 .gi-docgen-module-version {
 	font-size: 0.55em;
 	opacity: 0.65;
 	font-weight: normal;
 	vertical-align: middle;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-list .gi-docgen-module-version {
+	font-size: 0.75em;
+	opacity: 0.65;
+	font-weight: normal;
 }
 
 /* GIR member-kind badges (Signal, Virtual) — extend .tsd-tag base style */

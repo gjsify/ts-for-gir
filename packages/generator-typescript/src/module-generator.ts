@@ -318,14 +318,22 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	generateSignal(node: IntrospectedSignal, type: IntrospectedSignalType = IntrospectedSignalType.CONNECT): string[] {
+		let fn: IntrospectedClassFunction;
 		switch (type) {
 			case IntrospectedSignalType.CONNECT:
-				return node.asConnect(false).asString(this);
+				fn = node.asConnect(false);
+				break;
 			case IntrospectedSignalType.CONNECT_AFTER:
-				return node.asConnect(true).asString(this);
+				fn = node.asConnect(true);
+				break;
 			case IntrospectedSignalType.EMIT:
-				return node.asEmit().asString(this);
+				fn = node.asEmit();
+				break;
 		}
+		fn.doc = node.doc;
+		fn.metadata = node.metadata;
+		fn.signalOrigin = node.name;
+		return fn.asString(this);
 	}
 
 	generateStaticClassFunction(node: IntrospectedStaticClassFunction): string[] {
@@ -570,30 +578,24 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	private getGirTypeTags(
 		obj: IntrospectedClass | IntrospectedRecord | IntrospectedInterface | IntrospectedCallback | IntrospectedAlias,
 	): TsDocTag[] {
-		const tags: TsDocTag[] = [];
 		let girType: string;
 
 		if (obj instanceof IntrospectedRecord) {
-			if (obj.structFor) girType = "GObject.ClassStruct";
-			else if (obj.isForeign()) girType = "C.ForeignStruct";
-			else girType = "C.Struct";
+			if (obj.structFor) girType = "Class Struct";
+			else if (obj.isForeign()) girType = "Foreign Struct";
+			else girType = "Struct";
 		} else if (obj instanceof IntrospectedInterface) {
-			girType = "GObject.Interface";
+			girType = "Interface";
 		} else if (obj instanceof IntrospectedClass) {
-			girType = "GObject.Class";
+			girType = "Class";
 		} else if (obj instanceof IntrospectedCallback) {
-			girType = "GObject.Callback";
+			girType = "Callback";
 		} else {
 			// IntrospectedAlias
-			girType = "C.Alias";
+			girType = "Alias";
 		}
 
-		tags.push({ tagName: "gir-type", paramName: "", text: girType });
-
-		const cType = obj.resolve_names?.[0];
-		if (cType) tags.push({ tagName: "c-type", paramName: "", text: cType });
-
-		return tags;
+		return [{ tagName: "gir-type", paramName: "", text: girType }];
 	}
 
 	/**
@@ -740,6 +742,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 					...this.namespace.getTsDocMetadataTags(tsFunction.metadata),
 					...(tsFunction instanceof IntrospectedVirtualClassFunction
 						? [{ tagName: "virtual", paramName: "", text: "" } as const]
+						: []),
+					...("signalOrigin" in tsFunction && tsFunction.signalOrigin
+						? [{ tagName: "signal", paramName: "", text: "" } as const]
 						: []),
 				],
 				indentCount,
@@ -891,10 +896,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		const enumTags = [
-			{ tagName: "gir-type", paramName: "", text: girEnum.flags ? "GObject.Flags" : "GObject.Enum" } as const,
-			...(girEnum.resolve_names?.[0]
-				? [{ tagName: "c-type", paramName: "", text: girEnum.resolve_names[0] } as const]
-				: []),
+			{ tagName: "gir-type", paramName: "", text: girEnum.flags ? "Flags" : "Enum" } as const,
 			...this.namespace.getTsDocMetadataTags(girEnum.metadata),
 		];
 		desc.push(...this.addGirDocComment(girEnum.doc, enumTags, indentCount));
@@ -1403,6 +1405,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const ext = implementationNames.length ? ` extends ${implementationNames.join(", ")}` : "";
 		const interfaceHead = `${girClass.name}${genericParameters}${ext}`;
+
+		// Add @gir-type doc comment for interfaces (classes/records handle this in generateClass)
+		if (girClass instanceof IntrospectedInterface) {
+			def.push(
+				...this.addGirDocComment(
+					girClass.doc,
+					[...this.getGirTypeTags(girClass), ...this.namespace.getTsDocMetadataTags(girClass.metadata)],
+					0,
+				),
+			);
+		}
+
 		def.push(this.generateExport("interface", interfaceHead, "{"));
 
 		if (girClass.__ts__indexSignature) {

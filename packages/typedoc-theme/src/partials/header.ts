@@ -1,7 +1,7 @@
 import type { PageEvent, Reflection } from "typedoc";
 import { JSX, ReflectionKind } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { getGirMetadata, girKindInfo } from "../utils.ts";
+import { getGirTypeFromComment, girKindInfoFromTag, shouldShowGirParenthetical } from "../utils.ts";
 
 /** Strip NPM scope prefix from a package name, e.g. "@girs/glib-2.0" → "glib-2.0". */
 function stripScope(name: string): string {
@@ -43,6 +43,18 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 		kindString = ReflectionKind.singularString(props.model.kind);
 	}
 
+	// Append GIR kind in parentheses when it differs from the TypeScript kind,
+	// e.g. "Class (Struct)" for a GIR record exposed as a TS class.
+	if (kindString) {
+		const girType = getGirTypeFromComment(props.model);
+		if (girType) {
+			const girInfo = girKindInfoFromTag(girType);
+			if (girInfo && shouldShowGirParenthetical(kindString, girInfo.label)) {
+				kindString = `${kindString} (${girInfo.label})`;
+			}
+		}
+	}
+
 	// Build full breadcrumb path (same as TypeDoc's breadcrumb: walk up until no parent, exclude root project)
 	const path: Reflection[] = [];
 	let refl: Reflection = props.model;
@@ -51,10 +63,6 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 		refl = refl.parent;
 	}
 	path.reverse(); // now [topModule, ..., currentItem]
-
-	const girMeta = getGirMetadata(props.model);
-	const girInfo = girMeta ? girKindInfo(girMeta) : null;
-	const cType = girMeta?.resolveNames?.[0];
 
 	return JSX.createElement(
 		"div",
@@ -77,23 +85,6 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 						})
 					: renderReflName(props.model),
 				context.reflectionFlags(props.model),
-			),
-		girInfo &&
-			JSX.createElement(
-				"div",
-				{ class: "gi-docgen-gir-meta" },
-				JSX.createElement(
-					"span",
-					{ class: `gi-docgen-gir-kind gi-docgen-gir-kind--${girInfo.modifier}` },
-					girInfo.label,
-				),
-				cType &&
-					JSX.createElement(
-						"span",
-						{ class: "gi-docgen-gir-ctype" },
-						"C Type: ",
-						JSX.createElement("code", null, cType),
-					),
 			),
 	);
 };

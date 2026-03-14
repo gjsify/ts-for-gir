@@ -130,6 +130,10 @@ export class SignalGenerator {
 				cbType = `(${paramTypes.join(", ")}) => ${returnTypeStr}`;
 			}
 
+			// Add @signal modifier tag for actual signals (not notify:: property notifications)
+			if (!signalInfo.isNotifySignal) {
+				def.push(`${indent}    /** @signal */`);
+			}
 			def.push(`${indent}    ${signalKey}: ${cbType};`);
 		});
 
@@ -206,6 +210,7 @@ export class SignalGenerator {
 
 		if (allowedNames.has("connect")) {
 			methods.push(
+				"/** @signal */",
 				`connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
 				"connect(signal: string, callback: (...args: any[]) => any): number;",
 			);
@@ -213,6 +218,7 @@ export class SignalGenerator {
 
 		if (allowedNames.has("connect_after")) {
 			methods.push(
+				"/** @signal */",
 				`connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
 				"connect_after(signal: string, callback: (...args: any[]) => any): number;",
 			);
@@ -220,6 +226,7 @@ export class SignalGenerator {
 
 		if (allowedNames.has("emit")) {
 			methods.push(
+				"/** @signal */",
 				`emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
 				"emit(signal: string, ...args: any[]): void;",
 			);

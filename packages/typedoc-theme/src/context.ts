@@ -9,7 +9,7 @@ import { giDocgenPageSidebar } from "./partials/page-sidebar.ts";
 import { giDocgenSidebar } from "./partials/sidebar.ts";
 import { giDocgenToolbar } from "./partials/toolbar.ts";
 import type { GiDocgenTheme } from "./theme.ts";
-import { getGirMetadata, girMemberBadge } from "./utils.ts";
+import { girMemberBadgeFromComment } from "./utils.ts";
 
 function bind<F, L extends unknown[], R>(fn: (f: F, ...a: L) => R, first: F) {
 	return (...r: L) => fn(first, ...r);
@@ -28,19 +28,20 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 		this.pageNavigation = bind(giDocgenPageNavigation, this);
 		this.pageSidebar = bind(giDocgenPageSidebar, this);
 
-		// Extend reflectionFlags to add GIR-kind badges for signals and virtual methods
+		// Extend reflectionFlags to add GIR-kind badges for signals and virtual methods.
+		// Only on the member heading, not on its signature (avoids duplicate badges).
 		const parentFlags = this.reflectionFlags.bind(this);
 		this.reflectionFlags = (props: Reflection) => {
 			const base = parentFlags(props);
-			const gir = getGirMetadata(props);
-			const badge = gir ? girMemberBadge(gir.girKind) : null;
+			if (props.isSignature()) return base;
+			const badge = girMemberBadgeFromComment(props);
 			if (!badge) return base;
-			const cssClass = `tsd-tag tsd-tag-gir tsd-tag-gir-${gir.girKind}`;
+			const cssClass = `tsd-tag tsd-tag-gir tsd-tag-gir-${badge.cssModifier}`;
 			return JSX.createElement(
 				JSX.Fragment,
 				null,
 				base,
-				JSX.createElement("code", { class: cssClass }, badge),
+				JSX.createElement("code", { class: cssClass }, badge.label),
 			);
 		};
 	}

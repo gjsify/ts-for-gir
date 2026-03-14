@@ -72,6 +72,8 @@ export class IntrospectedClassFunction<
 	protected _generify: boolean = false;
 	interfaceParent: IntrospectedBaseClass | IntrospectedEnum | null = null;
 	returnTypeDoc?: string | null;
+	/** If this function was generated from a signal, stores the signal name. */
+	signalOrigin?: string;
 
 	generics: Generic[] = [];
 

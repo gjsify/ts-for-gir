@@ -97,6 +97,7 @@ function transformGtkDocMarkers(text: string, ctx?: GirDocContext): string {
 	text = transformSignalRefs(text, ctx);
 	text = transformPropertyRefs(text, ctx);
 	text = transformTypeRefs(text, ctx);
+	text = transformLowercaseCTypeRefs(text, ctx);
 	text = transformLiterals(text, ctx);
 	text = transformFunctionRefs(text);
 	return text;
@@ -147,6 +148,70 @@ function transformTypeRefs(text: string, ctx?: GirDocContext): string {
 			return `${prefix}{@link ${resolved}}`;
 		}
 		return `${prefix}\`${cType}\``;
+	});
+}
+
+/**
+ * Known GLib/C primitive type names that should be formatted as code.
+ * These don't have underscores, so they need explicit recognition to
+ * distinguish them from HTML anchors like #io or #readme.
+ */
+const GLIB_PRIMITIVES = new Set([
+	"gchar",
+	"guchar",
+	"gboolean",
+	"gshort",
+	"gushort",
+	"gint",
+	"guint",
+	"glong",
+	"gulong",
+	"gfloat",
+	"gdouble",
+	"gint8",
+	"guint8",
+	"gint16",
+	"guint16",
+	"gint32",
+	"guint32",
+	"gint64",
+	"guint64",
+	"gsize",
+	"gssize",
+	"goffset",
+	"gpointer",
+	"gconstpointer",
+	"gintptr",
+	"guintptr",
+]);
+
+/**
+ * Convert lowercase C type references: #graphene_frustum_t → {@link Graphene.Frustum}
+ *
+ * Handles two categories:
+ * - Underscore-containing identifiers (e.g. #cairo_surface_t) → resolved or `code`
+ * - Known GLib primitives (e.g. #gchar, #gboolean) → `code`
+ *
+ * Leaves non-C references like #io, #readme unchanged.
+ * Must run AFTER transformTypeRefs (uppercase) to avoid conflicts.
+ */
+function transformLowercaseCTypeRefs(text: string, ctx?: GirDocContext): string {
+	return text.replace(/(^|\W)#([a-z][a-z0-9_]+)\b/gm, (match, prefix, cType) => {
+		// Try to resolve as a known C type via context
+		const resolved = ctx?.resolveType(cType);
+		if (resolved) {
+			return `${prefix}{@link ${resolved}}`;
+		}
+		// Format as code if it contains underscores (strong C identifier signal)
+		if (cType.includes("_")) {
+			return `${prefix}\`${cType}\``;
+		}
+		// Format known GLib primitives as code
+		if (GLIB_PRIMITIVES.has(cType)) {
+			return `${prefix}\`${cType}\``;
+		}
+		// Leave unknown single-word refs unchanged (might be anchors/headings)
+		return match;
 	});
 }
 

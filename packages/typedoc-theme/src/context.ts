@@ -28,6 +28,9 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 		this.pageNavigation = bind(giDocgenPageNavigation, this);
 		this.pageSidebar = bind(giDocgenPageSidebar, this);
 
+		// Remove kind icons (V, F, C, T, etc.) — not needed in the gi-docgen theme.
+		this.reflectionIcon = () => JSX.createElement(JSX.Fragment, null);
+
 		// Extend reflectionFlags to add GIR-kind badges for signals and virtual methods.
 		// Only on the member heading, not on its signature (avoids duplicate badges).
 		const parentFlags = this.reflectionFlags.bind(this);

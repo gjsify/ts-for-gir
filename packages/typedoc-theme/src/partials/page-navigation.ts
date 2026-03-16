@@ -3,7 +3,7 @@ import { JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
 import { classNames } from "../utils.ts";
 
-function buildSectionNavigation(context: GiDocgenThemeRenderContext, headings: PageHeading[]) {
+function buildSectionNavigation(_context: GiDocgenThemeRenderContext, headings: PageHeading[]) {
 	const levels: JSX.Element[][] = [[]];
 
 	function finalizeLevel(finishedHandlingHeadings: boolean) {
@@ -38,7 +38,8 @@ function buildSectionNavigation(context: GiDocgenThemeRenderContext, headings: P
 			JSX.createElement(
 				"a",
 				{ href: heading.link, class: classNames({}, heading.classes) },
-				heading.icon && (context.icons as Record<string, () => JSX.Element>)[heading.icon]?.(),
+				// Kind icons are hidden in gi-docgen theme — skip them in the TOC
+			undefined,
 				JSX.createElement("span", null, heading.text),
 			),
 		);

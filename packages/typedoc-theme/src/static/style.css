@@ -182,10 +182,9 @@ h3 {
  * Content Styles (class selectors — low specificity first)
  * ============================ */
 
-/* Kind icons in content */
+/* Kind icons — hidden in gi-docgen theme (fallback for JS-generated icons) */
 .tsd-kind-icon {
-	margin-right: 0.3em;
-	vertical-align: middle;
+	display: none;
 }
 
 /* Type parameters */

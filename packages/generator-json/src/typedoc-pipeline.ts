@@ -311,7 +311,9 @@ export class TypeDocPipeline {
 				// Get the children to process: from "None" category if categories exist,
 				// or from group.children directly if no categories were created
 				const hasCategories = !!group.categories?.length;
-				const noneIdx = hasCategories ? group.categories?.findIndex((c) => c.title.toLowerCase() === "none") : -1;
+				const noneIdx = hasCategories
+					? (group.categories?.findIndex((c) => c.title.toLowerCase() === "none") ?? -1)
+					: -1;
 
 				// Source of children to split: "None" category or all group children
 				const childrenToSplit =

@@ -42,13 +42,8 @@ const JS_LITERAL_MAP: Record<string, string> = {
  * @returns The transformed markdown text
  */
 export function transformGirDocText(text: string, ctx?: GirDocContext): string {
-	text = transformRelativeDocLinks(text, ctx);
 	text = transformRelativeImageUrls(text, ctx);
-	text = transformClassVfuncRefs(text, ctx);
-	text = transformGiDocgenLinks(text);
-	text = transformGtkDocMarkers(text, ctx);
-	text = transformBacktickTypeRefs(text, ctx);
-	text = transformGirDocHighlights(text);
+	text = applyCommonDocTransforms(text, ctx);
 	text = transformGirDocCodeBlocks(text);
 	return text;
 }
@@ -60,9 +55,6 @@ export function transformGirDocText(text: string, ctx?: GirDocContext): string {
  * Note: GTK-Doc marker transformation is NOT done here because the
  * GirDocContext is not available at tag creation time. Marker transformation
  * is applied later in addGirDocComment() where context is available.
- *
- * @param text The tag text to transform
- * @returns The cleaned text
  */
 export function transformGirDocTagText(text: string): string {
 	return text.replace(NEW_LINE_REG_EXP, " ");
@@ -71,19 +63,20 @@ export function transformGirDocTagText(text: string): string {
 /**
  * Transforms TSDoc tag text with full GTK-Doc marker resolution.
  * Used in addGirDocComment() where both text and context are available.
- *
- * @param text The tag text to transform
- * @param ctx Optional resolver for converting C identifiers to TS {@link} paths
- * @returns The cleaned and transformed text
  */
 export function transformGirDocTagTextWithContext(text: string, ctx?: GirDocContext): string {
+	return applyCommonDocTransforms(text, ctx).replace(NEW_LINE_REG_EXP, " ");
+}
+
+/** Shared transformation chain used by both full-text and tag-text pipelines. */
+function applyCommonDocTransforms(text: string, ctx?: GirDocContext): string {
 	text = transformRelativeDocLinks(text, ctx);
 	text = transformClassVfuncRefs(text, ctx);
 	text = transformGiDocgenLinks(text);
 	text = transformGtkDocMarkers(text, ctx);
 	text = transformBacktickTypeRefs(text, ctx);
 	text = transformGirDocHighlights(text);
-	return text.replace(NEW_LINE_REG_EXP, " ");
+	return text;
 }
 
 // ---------------------------------------------------------------------------

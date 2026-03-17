@@ -371,15 +371,17 @@ export class TypeDocPipeline {
 				}
 
 				// Add inherited members to existing or new "Inherited from X" categories
+				const catByTitle = new Map(group.categories.map((c) => [c.title, c]));
 				for (const [source, members] of inheritedBySource) {
 					const catTitle = `Inherited from ${source}`;
-					const existing = group.categories.find((c) => c.title === catTitle);
+					const existing = catByTitle.get(catTitle);
 					if (existing) {
 						existing.children.push(...members);
 					} else {
 						const cat = new ReflectionCategory(catTitle);
 						cat.children = members;
 						group.categories.push(cat);
+						catByTitle.set(catTitle, cat);
 					}
 				}
 			}

@@ -182,40 +182,55 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// Resolve base URL for gi-docgen content pages
 		const docBaseUrl = DOC_BASE_URLS.get(`${ns.namespace}-${ns.version}`) ?? DOC_BASE_URLS.get(ns.namespace);
 
+		// Pre-merge enum constants for O(1) lookup
+		const constantMap = new Map<string, string>();
+		for (const mod of allNamespaces) {
+			for (const [cId, result] of mod.enum_constants) {
+				if (!constantMap.has(cId)) {
+					constantMap.set(cId, `${mod.namespace}.${result[0]}.${result[1]}`);
+				}
+			}
+		}
+
+		// Type resolution cache — populated lazily on first miss
+		const typeCache = new Map<string, string | null>();
+
 		return {
 			docBaseUrl,
 			resolveType(cTypeName: string): string | null {
-				// Strategy 1: Try _resolve_names lookup (handles c:type and glib:type-name)
+				const cached = typeCache.get(cTypeName);
+				if (cached !== undefined) return cached;
+
+				let result: string | null = null;
+				// Strategy 1: _resolve_names lookup
 				for (const mod of allNamespaces) {
 					const member = mod.getMemberWithoutOverrides(cTypeName);
 					if (member && "name" in member) {
-						return `${mod.namespace}.${member.name}`;
+						result = `${mod.namespace}.${member.name}`;
+						break;
 					}
 				}
-
-				// Strategy 2: Strip C identifier prefix and look up by GIR name
-				// e.g. "GtkWidget" → strip "Gtk" → look up "Widget" in Gtk namespace
-				for (const mod of allNamespaces) {
-					for (const prefix of mod.c_prefixes) {
-						if (cTypeName.startsWith(prefix) && cTypeName.length > prefix.length) {
-							const girName = cTypeName.slice(prefix.length);
-							if (mod.hasSymbol(girName)) {
-								return `${mod.namespace}.${girName}`;
+				// Strategy 2: C prefix stripping
+				if (!result) {
+					for (const mod of allNamespaces) {
+						for (const prefix of mod.c_prefixes) {
+							if (cTypeName.startsWith(prefix) && cTypeName.length > prefix.length) {
+								const girName = cTypeName.slice(prefix.length);
+								if (mod.hasSymbol(girName)) {
+									result = `${mod.namespace}.${girName}`;
+									break;
+								}
 							}
 						}
+						if (result) break;
 					}
 				}
 
-				return null;
+				typeCache.set(cTypeName, result);
+				return result;
 			},
 			resolveConstant(cIdentifier: string): string | null {
-				for (const mod of allNamespaces) {
-					const result = mod.enum_constants.get(cIdentifier);
-					if (result) {
-						return `${mod.namespace}.${result[0]}.${result[1]}`;
-					}
-				}
-				return null;
+				return constantMap.get(cIdentifier) ?? null;
 			},
 		};
 	}
@@ -1740,7 +1755,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 						if (memberLines.length > 0) {
 							// Only tag as inherited if source is a different class
 							if (source !== selfName) {
-								injectInheritedTags(memberLines, source, "Properties");
+								injectInheritedTags(memberLines, source);
 							}
 							def.push(...memberLines);
 						}
@@ -1760,7 +1775,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 						if (memberLines.length > 0) {
 							// Only tag as inherited if source is a different class
 							if (source !== selfName) {
-								injectInheritedTags(memberLines, source, "Methods");
+								injectInheritedTags(memberLines, source);
 							}
 							def.push(...memberLines);
 						}
@@ -2001,18 +2016,20 @@ function groupBySource<T extends { parent: { namespace: { namespace: string }; n
 }
 
 /**
- * Injects a `@group` TSDoc tag into generated member strings.
- * Finds the first JSDoc closing and inserts the tag before it.
- * If no JSDoc exists, prepends a new JSDoc block.
- */
-/**
  * Injects a `@category` TSDoc tag into generated member strings.
- * Places the member in a subcategory "Inherited from X" within its kind group
- * (Properties, Methods), so inherited members appear grouped after own members.
+ * Places the member in a subcategory "Inherited from X" within its kind group,
+ * so inherited members appear grouped after own members.
  */
-function injectInheritedTags(lines: string[], source: string, _kind: string): void {
+function injectInheritedTags(lines: string[], source: string): void {
 	const category = `Inherited from ${source}`;
-	const closingIdx = lines.findIndex((l) => l.trimEnd().endsWith("*/"));
+	// Search backwards — `*/` is typically on the last or second-to-last line
+	let closingIdx = -1;
+	for (let i = lines.length - 1; i >= 0; i--) {
+		if (lines[i].trimEnd().endsWith("*/")) {
+			closingIdx = i;
+			break;
+		}
+	}
 	if (closingIdx >= 0) {
 		const indent = lines[closingIdx].match(/^(\s*)/)?.[1] ?? "";
 		lines.splice(closingIdx, 0, `${indent} * @category ${category}`);

@@ -58,14 +58,15 @@ export function girKindInfoFromTag(girType: string): { label: string; modifier: 
  * Returns true when the GIR kind label adds information beyond the TypeScript kind.
  * When they are equivalent concepts, parenthetical display is unnecessary.
  */
+const KIND_EQUIVALENCES: Record<string, string[]> = {
+	Class: ["Class"],
+	Interface: ["Interface"],
+	Enumeration: ["Enum"],
+	"Type alias": ["Alias"],
+};
+
 export function shouldShowGirParenthetical(tsKind: string, girLabel: string): boolean {
-	const equivalences: Record<string, string[]> = {
-		Class: ["Class"],
-		Interface: ["Interface"],
-		Enumeration: ["Enum"],
-		"Type alias": ["Alias"],
-	};
-	const equivSet = equivalences[tsKind];
+	const equivSet = KIND_EQUIVALENCES[tsKind];
 	return !equivSet || !equivSet.includes(girLabel);
 }
 
@@ -133,11 +134,16 @@ export function findOwningModule(reflection: Reflection): Reflection | undefined
 	return undefined;
 }
 
+const hierarchyRootsCache = new WeakMap<ProjectReflection, DeclarationReflection[]>();
+
 /**
- * Get hierarchy roots from a project.
+ * Get hierarchy roots from a project (cached).
  * Reimplemented from TypeDoc's internal lib.tsx.
  */
 export function getHierarchyRoots(project: ProjectReflection): DeclarationReflection[] {
+	const cached = hierarchyRootsCache.get(project);
+	if (cached) return cached;
+
 	const roots: DeclarationReflection[] = [];
 	const queue: Reflection[] = [project];
 
@@ -152,9 +158,11 @@ export function getHierarchyRoots(project: ProjectReflection): DeclarationReflec
 
 		const children = (refl as DeclarationReflection).children;
 		if (children) {
-			queue.push(...children);
+			for (const child of children) queue.push(child);
 		}
 	}
+
+	hierarchyRootsCache.set(project, roots);
 
 	return roots;
 }

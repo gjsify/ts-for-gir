@@ -1727,27 +1727,38 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			def.push(...this.generateClassMethods(girClass));
 
 			if (girClass instanceof IntrospectedClass) {
-				const implementedProperties = girClass.implementedProperties().map((prop) => prop.copy({ parent: girClass }));
-				const implementedMethods = girClass
-					.implementedMethods(implementedProperties)
-					.map((method) => method.copy({ parent: girClass }));
+				const rawProperties = girClass.implementedProperties();
+				const rawMethods = girClass.implementedMethods(rawProperties);
 
-				const generatedImplementedProperties = filterConflicts(
-					girClass.namespace,
-					girClass,
-					implementedProperties,
-				).flatMap((m) => m.asString(this));
+				// Group inherited properties by source interface
+				const propsBySource = groupBySource(rawProperties);
+				for (const [source, props] of propsBySource) {
+					const copied = props.map((p) => p.copy({ parent: girClass }));
+					for (const m of filterConflicts(girClass.namespace, girClass, copied)) {
+						const memberLines = m.asString(this);
+						if (memberLines.length > 0) {
+							injectInheritedTags(memberLines, source, "Properties");
+							def.push(...memberLines);
+						}
+					}
+				}
 
-				if (generatedImplementedProperties.length > 0)
-					def.push("\n// Inherited properties", ...generatedImplementedProperties);
-
-				const filteredImplMethods = promisifyIfEnabled(
-					this.options,
-					filterFunctionConflict(girClass.namespace, girClass, implementedMethods, []),
-				);
-				const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this));
-
-				if (generatedImplementedMethods.length > 0) def.push("\n// Inherited methods", ...generatedImplementedMethods);
+				// Group inherited methods by source interface
+				const methodsBySource = groupBySource(rawMethods);
+				for (const [source, methods] of methodsBySource) {
+					const copied = methods.map((m) => m.copy({ parent: girClass }));
+					const filtered = promisifyIfEnabled(
+						this.options,
+						filterFunctionConflict(girClass.namespace, girClass, copied, []),
+					);
+					for (const m of filtered) {
+						const memberLines = m.asString(this);
+						if (memberLines.length > 0) {
+							injectInheritedTags(memberLines, source, "Methods");
+							def.push(...memberLines);
+						}
+					}
+				}
 			}
 			// END BODY
 
@@ -1962,6 +1973,44 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	async generateNamespaceAsString(girModule: GirModule): Promise<string> {
 		const result = await this.generateNamespace(girModule);
 		return result.join("\n");
+	}
+}
+
+/**
+ * Groups items by their source interface/class name (e.g. "Gtk.Accessible").
+ * Must be called BEFORE copy({ parent: ... }) so the original parent is preserved.
+ */
+function groupBySource<T extends { parent: { namespace: { namespace: string }; name: string } }>(
+	items: T[],
+): Map<string, T[]> {
+	const groups = new Map<string, T[]>();
+	for (const item of items) {
+		const source = `${item.parent.namespace.namespace}.${item.parent.name}`;
+		const list = groups.get(source);
+		if (list) list.push(item);
+		else groups.set(source, [item]);
+	}
+	return groups;
+}
+
+/**
+ * Injects a `@group` TSDoc tag into generated member strings.
+ * Finds the first JSDoc closing and inserts the tag before it.
+ * If no JSDoc exists, prepends a new JSDoc block.
+ */
+/**
+ * Injects a `@category` TSDoc tag into generated member strings.
+ * Places the member in a subcategory "Inherited from X" within its kind group
+ * (Properties, Methods), so inherited members appear grouped after own members.
+ */
+function injectInheritedTags(lines: string[], source: string, _kind: string): void {
+	const category = `Inherited from ${source}`;
+	const closingIdx = lines.findIndex((l) => l.trimEnd().endsWith("*/"));
+	if (closingIdx >= 0) {
+		const indent = lines[closingIdx].match(/^(\s*)/)?.[1] ?? "";
+		lines.splice(closingIdx, 0, `${indent} * @category ${category}`);
+	} else {
+		lines.unshift(`/** @category ${category} */`);
 	}
 }
 

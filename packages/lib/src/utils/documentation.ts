@@ -43,6 +43,7 @@ const JS_LITERAL_MAP: Record<string, string> = {
  */
 export function transformGirDocText(text: string, ctx?: GirDocContext): string {
 	text = transformRelativeDocLinks(text, ctx);
+	text = transformRelativeImageUrls(text, ctx);
 	text = transformClassVfuncRefs(text, ctx);
 	text = transformGiDocgenLinks(text);
 	text = transformGtkDocMarkers(text, ctx);
@@ -263,6 +264,23 @@ function transformRelativeDocLinks(text: string, ctx?: GirDocContext): string {
 	return text.replace(
 		/\]\(([a-zA-Z][\w.-]*\.html(?:[#?][^\s)]*)?)\)/g,
 		(_match, relUrl: string) => `](${baseUrl}${relUrl})`,
+	);
+}
+
+/**
+ * Convert relative image URLs in HTML <img> and <source> tags to absolute URLs.
+ *
+ * GIR docs contain inline HTML with relative image paths like
+ * `<img src="about-dialog.png">` or `<source srcset="about-dialog-dark.png">`.
+ * These are converted to absolute URLs when a base URL is available.
+ */
+function transformRelativeImageUrls(text: string, ctx?: GirDocContext): string {
+	const baseUrl = ctx?.docBaseUrl;
+	if (!baseUrl) return text;
+	// Match src="relative.png" and srcset="relative.png" in HTML tags
+	return text.replace(
+		/((?:src|srcset)\s*=\s*")([a-zA-Z][\w.-]+\.(?:png|jpg|jpeg|gif|svg|webp))(")/gi,
+		(_match, before: string, relUrl: string, after: string) => `${before}${baseUrl}${relUrl}${after}`,
 	);
 }
 

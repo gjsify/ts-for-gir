@@ -267,6 +267,11 @@ export class TypeDocPipeline {
 		if (missing.length > 0) {
 			app.options.setValue("notRenderedTags", [...notRendered, ...missing]);
 		}
+
+		// Enable per-group categories so @category "Inherited from X" creates
+		// subcategories within their kind group (Properties, Methods, etc.)
+		app.options.setValue("categorizeByGroup", true);
+		app.options.setValue("defaultCategory", "None");
 	}
 
 	/** Register GIR metadata serializer and namespace-level metadata on a TypeDoc app. */

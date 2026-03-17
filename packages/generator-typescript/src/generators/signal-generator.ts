@@ -130,8 +130,19 @@ export class SignalGenerator {
 				cbType = `(${paramTypes.join(", ")}) => ${returnTypeStr}`;
 			}
 
-			// Add @signal modifier tag for actual signals (not notify:: property notifications)
-			if (!signalInfo.isNotifySignal) {
+			// Add signal doc comment with @signal tag
+			if (!signalInfo.isNotifySignal && signalInfo.signal) {
+				const signalTags = [
+					{ tagName: "signal", paramName: "", text: "" },
+					...this.namespace.getTsDocMetadataTags(signalInfo.signal.metadata),
+				];
+				const comment = this.core.addGirDocComment(signalInfo.signal.doc, signalTags, indentCount + 1);
+				if (comment.length) {
+					def.push(...comment);
+				} else {
+					def.push(`${indent}    /** @signal */`);
+				}
+			} else if (!signalInfo.isNotifySignal) {
 				def.push(`${indent}    /** @signal */`);
 			}
 			def.push(`${indent}    ${signalKey}: ${cbType};`);

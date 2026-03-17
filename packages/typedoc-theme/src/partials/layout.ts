@@ -33,6 +33,7 @@ export const giDocgenLayout = (
 			context.options.getValue("customCss") &&
 				JSX.createElement("link", { rel: "stylesheet", href: context.relativeURL("assets/custom.css", true) }),
 			JSX.createElement("script", { defer: true, src: context.relativeURL("assets/main.js", true) }),
+			JSX.createElement("script", { defer: true, src: context.relativeURL("assets/gi-docgen-inherited.js", true) }),
 			context.options.getValue("customJs") &&
 				JSX.createElement("script", { defer: true, src: context.relativeURL("assets/custom.js", true) }),
 			JSX.createElement("script", {

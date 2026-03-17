@@ -6,10 +6,13 @@ import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
 import type { GirModule, NSRegistry, OptionsGeneration } from "@ts-for-gir/lib";
 import {
 	Application,
+	Converter,
+	type DeclarationReflection,
 	type NormalizedPath,
 	normalizePath,
 	type OptionsReader,
 	type ProjectReflection,
+	ReflectionCategory,
 	Serializer,
 	TSConfigReader,
 	type TypeDocOptions,
@@ -272,6 +275,136 @@ export class TypeDocPipeline {
 		// subcategories within their kind group (Properties, Methods, etc.)
 		app.options.setValue("categorizeByGroup", true);
 		app.options.setValue("defaultCategory", "None");
+
+		// After TypeDoc's CategoryPlugin has processed categories, move
+		// natively inherited members (from TS extends) into "Inherited from X"
+		// categories so they display the same as our @category-injected members.
+		// Priority -300 ensures this runs AFTER GroupPlugin (-100) creates groups
+		// and CategoryPlugin (-200) creates categories.
+		app.converter.on(
+			Converter.EVENT_RESOLVE_END,
+			(context) => {
+				this.categorizeInheritedMembers(context.project);
+			},
+			-300,
+		);
+	}
+
+	/**
+	 * Move natively inherited members from the default "None" category
+	 * into "Inherited from X" categories based on their `inheritedFrom` source.
+	 *
+	 * TypeDoc marks members inherited via TS `extends` with `flags.isInherited`
+	 * and `inheritedFrom`, but puts them in the default category alongside own
+	 * members. This method splits them into proper source-based categories to
+	 * match our @category-injected interface members.
+	 */
+	private categorizeInheritedMembers(project: ProjectReflection): void {
+		for (const r of Object.values(project.reflections)) {
+			if (!r.isDeclaration()) continue;
+			const refl = r as DeclarationReflection;
+			if (!refl.groups) continue;
+
+			for (const group of refl.groups) {
+				if (!group.children?.length) continue;
+
+				// Get the children to process: from "None" category if categories exist,
+				// or from group.children directly if no categories were created
+				const hasCategories = !!group.categories?.length;
+				const noneIdx = hasCategories ? group.categories?.findIndex((c) => c.title.toLowerCase() === "none") : -1;
+
+				// Source of children to split: "None" category or all group children
+				const childrenToSplit =
+					hasCategories && noneIdx >= 0 ? group.categories?.[noneIdx].children : !hasCategories ? group.children : null;
+
+				if (!childrenToSplit?.length) continue;
+
+				// Split: own members stay, inherited move to source categories
+				const inheritedBySource = new Map<string, Array<(typeof childrenToSplit)[0]>>();
+				const ownMembers: typeof childrenToSplit = [];
+
+				// Get the owning class name to skip self-references
+				const ownerName = refl.getFullName();
+
+				for (const child of childrenToSplit) {
+					if (
+						child.isDeclaration() &&
+						(child as DeclarationReflection).flags.isInherited &&
+						(child as DeclarationReflection).inheritedFrom
+					) {
+						const source = this.extractInheritedSourceName(child as DeclarationReflection);
+						// Skip if source is the same class (self-inheritance artifact)
+						if (source && source !== ownerName && source !== refl.name) {
+							let list = inheritedBySource.get(source);
+							if (!list) {
+								list = [];
+								inheritedBySource.set(source, list);
+							}
+							list.push(child);
+							continue;
+						}
+					}
+					ownMembers.push(child);
+				}
+
+				if (inheritedBySource.size === 0) continue;
+
+				// Ensure categories array exists
+				if (!group.categories) {
+					group.categories = [];
+				}
+
+				// Update or remove the None category
+				if (hasCategories && noneIdx >= 0) {
+					if (ownMembers.length > 0) {
+						group.categories[noneIdx].children = ownMembers;
+					} else {
+						group.categories.splice(noneIdx, 1);
+					}
+				} else if (!hasCategories && ownMembers.length > 0) {
+					// No categories existed before — create None for own members
+					const noneCat = new ReflectionCategory("None");
+					noneCat.children = ownMembers;
+					group.categories.unshift(noneCat);
+				}
+
+				// Add inherited members to existing or new "Inherited from X" categories
+				for (const [source, members] of inheritedBySource) {
+					const catTitle = `Inherited from ${source}`;
+					const existing = group.categories.find((c) => c.title === catTitle);
+					if (existing) {
+						existing.children.push(...members);
+					} else {
+						const cat = new ReflectionCategory(catTitle);
+						cat.children = members;
+						group.categories.push(cat);
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Extract a human-readable source name from an inherited member's `inheritedFrom`.
+	 * e.g. `"Window.accessible_role"` → looks up parent to get `"Gtk.Window"`.
+	 */
+	private extractInheritedSourceName(child: DeclarationReflection): string | null {
+		if (!child.inheritedFrom) return null;
+
+		// Try to resolve via the referenced reflection's parent
+		const target = child.inheritedFrom.reflection;
+		if (target?.parent) {
+			const parent = target.parent;
+			// Get the full qualified name: "Gtk.Window" from the parent's path
+			const fullName = parent.getFullName();
+			// The full name format is "Module.Class" — keep as-is
+			if (fullName) return fullName;
+		}
+
+		// Fallback: extract from the name string (e.g. "Window.method" → "Window")
+		const name = child.inheritedFrom.name;
+		const dotIdx = name.indexOf(".");
+		return dotIdx > 0 ? name.slice(0, dotIdx) : name;
 	}
 
 	/** Register GIR metadata serializer and namespace-level metadata on a TypeDoc app. */

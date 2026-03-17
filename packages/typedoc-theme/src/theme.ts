@@ -35,6 +35,9 @@ export class GiDocgenTheme extends DefaultTheme {
 
 			// Copy custom navigation JS
 			copyFileSync(join(__dirname, "static", "gi-docgen-nav.js"), join(assetsDir, "gi-docgen-nav.js"));
+
+			// Copy inherited member toggle script
+			copyFileSync(join(__dirname, "static", "gi-docgen-inherited.js"), join(assetsDir, "gi-docgen-inherited.js"));
 		});
 	}
 

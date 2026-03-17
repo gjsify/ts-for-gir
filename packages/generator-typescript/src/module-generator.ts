@@ -1729,6 +1729,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			if (girClass instanceof IntrospectedClass) {
 				const rawProperties = girClass.implementedProperties();
 				const rawMethods = girClass.implementedMethods(rawProperties);
+				const selfName = `${girClass.namespace.namespace}.${girClass.name}`;
 
 				// Group inherited properties by source interface
 				const propsBySource = groupBySource(rawProperties);
@@ -1737,7 +1738,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 					for (const m of filterConflicts(girClass.namespace, girClass, copied)) {
 						const memberLines = m.asString(this);
 						if (memberLines.length > 0) {
-							injectInheritedTags(memberLines, source, "Properties");
+							// Only tag as inherited if source is a different class
+							if (source !== selfName) {
+								injectInheritedTags(memberLines, source, "Properties");
+							}
 							def.push(...memberLines);
 						}
 					}
@@ -1754,7 +1758,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 					for (const m of filtered) {
 						const memberLines = m.asString(this);
 						if (memberLines.length > 0) {
-							injectInheritedTags(memberLines, source, "Methods");
+							// Only tag as inherited if source is a different class
+							if (source !== selfName) {
+								injectInheritedTags(memberLines, source, "Methods");
+							}
 							def.push(...memberLines);
 						}
 					}

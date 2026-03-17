@@ -116,7 +116,8 @@ function transformSignalRefs(text: string, ctx?: GirDocContext): string {
 	return text.replace(/#([A-Z][A-Za-z0-9]+)::([a-z0-9_-]+)/g, (_match, cType, signal) => {
 		const resolved = ctx?.resolveType(cType);
 		if (resolved) {
-			return `\`${resolved}::${signal}\``;
+			const signalKey = signal.replace(/-/g, "_");
+			return `{@link ${resolved}.SignalSignatures.${signalKey} | ${resolved}::${signal}}`;
 		}
 		return `\`${cType}::${signal}\``;
 	});

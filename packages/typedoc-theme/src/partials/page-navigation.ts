@@ -39,7 +39,7 @@ function buildSectionNavigation(_context: GiDocgenThemeRenderContext, headings: 
 				"a",
 				{ href: heading.link, class: classNames({}, heading.classes) },
 				// Kind icons are hidden in gi-docgen theme — skip them in the TOC
-			undefined,
+				undefined,
 				JSX.createElement("span", null, heading.text),
 			),
 		);

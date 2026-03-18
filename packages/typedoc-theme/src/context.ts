@@ -9,6 +9,7 @@ import { giDocgenPageNavigation } from "./partials/page-navigation.ts";
 import { giDocgenPageSidebar } from "./partials/page-sidebar.ts";
 import { giDocgenSidebar } from "./partials/sidebar.ts";
 import { giDocgenToolbar } from "./partials/toolbar.ts";
+import { giDocgenReflectionTemplate } from "./templates/reflection.ts";
 import type { GiDocgenTheme } from "./theme.ts";
 import { girMemberBadgeFromComment } from "./utils.ts";
 
@@ -30,6 +31,7 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 		this.pageSidebar = bind(giDocgenPageSidebar, this);
 		this.moduleReflection = bind(giDocgenModuleReflection, this);
 		this.moduleMemberSummary = bind(giDocgenModuleMemberSummary, this);
+		this.reflectionTemplate = bind(giDocgenReflectionTemplate, this);
 
 		// Remove kind icons (V, F, C, T, etc.) — not needed in the gi-docgen theme.
 		this.reflectionIcon = () => JSX.createElement(JSX.Fragment, null);

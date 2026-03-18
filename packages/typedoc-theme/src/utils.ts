@@ -155,6 +155,41 @@ export function getGirNamespaceMetadata(reflection: Reflection): GirNamespaceMet
 	return (mod as unknown as { girNamespaceMetadata?: GirNamespaceMetadata }).girNamespaceMetadata;
 }
 
+// ---------------------------------------------------------------------------
+// Companion namespace detection
+// ---------------------------------------------------------------------------
+
+const COMPANION_OWNER_KINDS = ReflectionKind.Class | ReflectionKind.Interface;
+
+/**
+ * Find the companion namespace for a class or interface reflection.
+ * A companion namespace shares the same name within the same parent scope.
+ */
+export function findCompanionNamespace(refl: DeclarationReflection): DeclarationReflection | undefined {
+	if (!refl.kindOf(COMPANION_OWNER_KINDS)) return undefined;
+	const parent = refl.parent;
+	if (!parent || !("children" in parent)) return undefined;
+	const siblings = (parent as DeclarationReflection).children;
+	if (!siblings) return undefined;
+	return siblings.find(
+		(child) => child !== refl && child.kindOf(ReflectionKind.Namespace) && child.name === refl.name,
+	);
+}
+
+/**
+ * Check if a namespace reflection is a companion to a class or interface with the same name.
+ */
+export function isCompanionNamespace(nsRefl: DeclarationReflection): boolean {
+	if (!nsRefl.kindOf(ReflectionKind.Namespace)) return false;
+	const parent = nsRefl.parent;
+	if (!parent || !("children" in parent)) return false;
+	const siblings = (parent as DeclarationReflection).children;
+	if (!siblings) return false;
+	return siblings.some(
+		(child) => child !== nsRefl && child.kindOf(COMPANION_OWNER_KINDS) && child.name === nsRefl.name,
+	);
+}
+
 const hierarchyRootsCache = new WeakMap<ProjectReflection, DeclarationReflection[]>();
 
 /**

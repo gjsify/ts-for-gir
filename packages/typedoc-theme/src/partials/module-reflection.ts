@@ -9,20 +9,20 @@ import {
 	ReflectionKind,
 } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { classNames, getDisplayName } from "../utils.ts";
+import { classNames, getDisplayName, isCompanionNamespace } from "../utils.ts";
 
 // ---------------------------------------------------------------------------
 // Reimplemented helpers from TypeDoc's internal lib.tsx
 // ---------------------------------------------------------------------------
 
-interface MemberSection {
+export interface MemberSection {
 	title: string;
 	// biome-ignore lint/suspicious/noExplicitAny: CommentDisplayPart[] from TypeDoc internals
 	description?: any;
 	children: Array<DocumentReflection | DeclarationReflection>;
 }
 
-function isNoneSection(section: MemberSection): boolean {
+export function isNoneSection(section: MemberSection): boolean {
 	return section.title.toLocaleLowerCase() === "none";
 }
 
@@ -32,7 +32,7 @@ function sortNoneSectionFirst(a: MemberSection, b: MemberSection): number {
 	return 0;
 }
 
-function getMemberSections(parent: ContainerReflection): MemberSection[] {
+export function getMemberSections(parent: ContainerReflection): MemberSection[] {
 	if (parent.categories?.length) {
 		return parent.categories
 			.filter((cat) => cat.children.length > 0)
@@ -85,7 +85,43 @@ export function giDocgenModuleReflection(
 	context: GiDocgenThemeRenderContext,
 	mod: DeclarationReflection | ProjectReflection,
 ): JSX.Element {
-	const sections = getMemberSections(mod);
+	// Redirect companion namespace pages to the class page
+	if (mod.isDeclaration() && isCompanionNamespace(mod as DeclarationReflection)) {
+		const parent = mod.parent;
+		const siblings = parent && "children" in parent ? (parent as DeclarationReflection).children : undefined;
+		const companionClass = siblings?.find(
+			(child) => child !== mod && child.kindOf(ReflectionKind.Class) && child.name === mod.name,
+		);
+		if (companionClass) {
+			const classUrl = context.urlTo(companionClass);
+			return JSX.createElement(
+				JSX.Fragment,
+				null,
+				JSX.createElement(
+					"p",
+					null,
+					"This namespace is a companion to the ",
+					JSX.createElement("a", { href: classUrl }, companionClass.name),
+					" class. See the class page for full documentation.",
+				),
+				JSX.createElement(
+					"script",
+					null,
+					JSX.createElement(JSX.Raw, { html: `window.location.replace("${classUrl}");` }),
+				),
+			);
+		}
+	}
+
+	// Filter companion namespaces from member sections
+	const sections = getMemberSections(mod)
+		.map((section) => ({
+			...section,
+			children: section.children.filter(
+				(child) => !child.isDeclaration() || !isCompanionNamespace(child as DeclarationReflection),
+			),
+		}))
+		.filter((section) => section.children.length > 0);
 
 	return JSX.createElement(
 		JSX.Fragment,

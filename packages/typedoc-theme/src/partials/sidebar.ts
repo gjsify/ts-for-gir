@@ -4,7 +4,12 @@ import { fileURLToPath } from "node:url";
 import type { DeclarationReflection, PageEvent, Reflection } from "typedoc";
 import { i18n, JSX, ReflectionKind } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { findOwningModule, type GirNamespaceMetadata, getGirNamespaceMetadata } from "../utils.ts";
+import {
+	findOwningModule,
+	type GirNamespaceMetadata,
+	getGirNamespaceMetadata,
+	isCompanionNamespace,
+} from "../utils.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TSFOR_GIR_VERSION = JSON.parse(readFileSync(join(__dirname, "..", "..", "package.json"), "utf8"))
@@ -36,7 +41,7 @@ function giDocgenModuleInfo(
 
 	// Namespaces or sub-modules exported by this module (exclude "default")
 	const childNamespaces = mod.children?.filter(
-		(child) => child.kindOf(ReflectionKind.Namespace) && child.name !== "default",
+		(child) => child.kindOf(ReflectionKind.Namespace) && child.name !== "default" && !isCompanionNamespace(child),
 	);
 	const childModules = mod.children?.filter((child) => child.kindOf(ReflectionKind.Module) && child.name !== "default");
 	// Package version: prefer TypeDoc reflection, fallback to metadata

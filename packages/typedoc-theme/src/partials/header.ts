@@ -1,7 +1,62 @@
 import type { PageEvent, Reflection } from "typedoc";
 import { JSX, ReflectionKind } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { getGirTypeFromComment, girKindInfoFromTag, shouldShowGirParenthetical } from "../utils.ts";
+import {
+	type GirNamespaceMetadata,
+	getGirNamespaceMetadata,
+	getGirTypeFromComment,
+	girKindInfoFromTag,
+	shouldShowGirParenthetical,
+} from "../utils.ts";
+
+/** Helper: create a table row with label and value. */
+function metaRow(label: string, value: JSX.Element | string): JSX.Element {
+	return JSX.createElement(
+		"tr",
+		null,
+		JSX.createElement("td", null, JSX.createElement("em", null, label)),
+		JSX.createElement("td", null, value),
+	);
+}
+
+/** Helper: create a linked table row. */
+function metaLinkRow(label: string, url: string): JSX.Element {
+	return metaRow(label, JSX.createElement("a", { href: url, target: "_blank" }, url));
+}
+
+/** Render metadata info block for module pages, consistent with sidebar and gi-docgen style. */
+function renderModuleMetadata(context: GiDocgenThemeRenderContext, nsMeta: GirNamespaceMetadata): JSX.Element {
+	const tableRows: JSX.Element[] = [
+		metaRow("API Version", nsMeta.version),
+		metaRow("Library Version", nsMeta.libraryVersion),
+	];
+
+	if (nsMeta.license) tableRows.push(metaRow("License", nsMeta.license));
+	if (nsMeta.websiteUrl) tableRows.push(metaLinkRow("Website", nsMeta.websiteUrl));
+	if (nsMeta.cDocsUrl) tableRows.push(metaLinkRow("Original Docs", nsMeta.cDocsUrl));
+
+	// Dependencies — as comma-separated links in a single table row
+	if (nsMeta.dependencies.length > 0) {
+		const depElements = nsMeta.dependencies.map((dep, i) => {
+			const depName = `${dep.namespace}-${dep.version}`;
+			const depMod = context.page.project.children?.find(
+				(c) => c.name === depName || c.name === `@girs/${depName.toLowerCase()}`,
+			);
+			const link = depMod
+				? JSX.createElement("a", { href: context.urlTo(depMod) }, `${dep.namespace} ${dep.version}`)
+				: JSX.createElement(JSX.Fragment, null, `${dep.namespace} ${dep.version}`);
+			return JSX.createElement(JSX.Fragment, null, i > 0 && ", ", link);
+		});
+		tableRows.push(metaRow("Dependencies", JSX.createElement(JSX.Fragment, null, ...depElements)));
+	}
+
+	return JSX.createElement(
+		"div",
+		{ class: "gi-docgen-module-metadata" },
+		nsMeta.description && JSX.createElement("p", { class: "gi-docgen-meta-description" }, nsMeta.description),
+		JSX.createElement("table", null, JSX.createElement("tbody", null, ...tableRows)),
+	);
+}
 
 /** Strip NPM scope prefix from a package name, e.g. "@girs/glib-2.0" → "glib-2.0". */
 function stripScope(name: string): string {
@@ -54,6 +109,11 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 	}
 	path.reverse(); // now [topModule, ..., currentItem]
 
+	// Show metadata info block on module pages (between header and README)
+	const isModulePage =
+		!props.model.isProject() && props.model.kindOf(ReflectionKind.Module) && !props.model.parent?.parent;
+	const nsMeta = isModulePage ? getGirNamespaceMetadata(props.model) : undefined;
+
 	return JSX.createElement(
 		"div",
 		{ class: "gi-docgen-page-title" },
@@ -78,5 +138,6 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 					: renderReflName(props.model),
 				context.reflectionFlags(props.model),
 			),
+		nsMeta && renderModuleMetadata(context, nsMeta),
 	);
 };

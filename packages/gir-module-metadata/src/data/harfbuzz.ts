@@ -10,6 +10,7 @@ export const harfBuzz: GirModuleMetadata = {
 	repositoryUrl: "https://github.com/harfbuzz/harfbuzz.git",
 	license: "MIT",
 	cDocsUrl: "https://harfbuzz.github.io/",
+	logoUrl: "https://harfbuzz.github.io/HarfBuzz.png",
 };
 
 export const freetype2: GirModuleMetadata = {

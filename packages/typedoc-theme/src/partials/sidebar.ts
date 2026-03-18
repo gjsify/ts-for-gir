@@ -30,17 +30,6 @@ function giDocgenModuleInfo(
 	return JSX.createElement(
 		"div",
 		{ class: "gi-docgen-module-info" },
-		/* Logo — rendered above the namespace name, like gi-docgen */
-		nsMeta.logoUrl &&
-			JSX.createElement(
-				"div",
-				{ class: "gi-docgen-module-logo" },
-				JSX.createElement(
-					"a",
-					{ href: context.urlTo(mod) },
-					JSX.createElement("img", { src: nsMeta.logoUrl, alt: displayName, class: "logo" }),
-				),
-			),
 		JSX.createElement("h3", null, JSX.createElement("a", { href: context.urlTo(mod) }, displayName)),
 		JSX.createElement("p", null, `API Version: ${nsMeta.version}`),
 		JSX.createElement("p", null, `Library Version: ${nsMeta.libraryVersion}`),
@@ -62,6 +51,17 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 		JSX.Fragment,
 		null,
 		context.sidebarLinks(),
+		/* Logo — above search, like gi-docgen */
+		nsMeta?.logoUrl &&
+			JSX.createElement(
+				"div",
+				{ class: "gi-docgen-module-logo" },
+				JSX.createElement(
+					"a",
+					{ href: owningModule ? context.urlTo(owningModule) : undefined },
+					JSX.createElement("img", { src: nsMeta.logoUrl, alt: nsMeta.displayName || nsMeta.namespace, class: "logo" }),
+				),
+			),
 		/* Search input in the sidebar, gi-docgen style */
 		JSX.createElement(
 			"div",

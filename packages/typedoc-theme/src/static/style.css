@@ -300,6 +300,36 @@ h3 {
 	font-weight: normal;
 }
 
+/* Module metadata info block (gi-docgen style) */
+.gi-docgen-module-metadata {
+	margin-top: 1em;
+}
+
+.gi-docgen-meta-description {
+	font-size: 1rem;
+	margin: 0 0 0.75em 0;
+	color: var(--color-text);
+}
+
+.gi-docgen-module-metadata table {
+	border-collapse: collapse;
+	font-size: 0.9rem;
+}
+
+.gi-docgen-module-metadata td {
+	padding: 0.2em 0;
+}
+
+.gi-docgen-module-metadata td:first-child {
+	padding-right: 1.5em;
+	white-space: nowrap;
+	color: var(--text-color-muted);
+}
+
+.gi-docgen-module-metadata a {
+	color: var(--color-link);
+}
+
 /* Anchor links (gi-docgen style: "#" instead of SVG) */
 .tsd-anchor-icon {
 	position: relative;
@@ -510,8 +540,8 @@ body.menu-visible .overlay {
 	font-size: 1.5em;
 	text-transform: uppercase;
 	font-weight: 900;
-	margin: 0;
-	padding: 0;
+	margin: 1em 0 .5em 0;
+	padding-left: .5rem;
 	line-height: 1.2;
 }
 

@@ -13,7 +13,7 @@
  * @param asyncFunc - The name of the asynchronous function.
  * @param finishFunc - The name of the "finish" function that is used to retrieve the result of the asynchronous function.
  *
- * @version Gjs 1.54
+ * @since 1.54
  * @see https://gjs.guide/guides/gjs/asynchronous-programming.html#promisify-helper
  *
  * @example

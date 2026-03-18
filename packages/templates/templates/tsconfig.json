@@ -3,7 +3,12 @@ let includes = []
 let entryPointName = importName
 if (packageName === 'Gjs') {
   entryPointName = 'gjs'
-  includes.push(`./dom.d.ts`)
+  includes.push('./dom.d.ts')
+  includes.push('./cairo.d.ts')
+  includes.push('./gettext.d.ts')
+  includes.push('./system.d.ts')
+  includes.push('./console.d.ts')
+  includes.push('./gjs-ambient.d.ts')
 }
 includes.push(`./${entryPointName}.d.ts`)
 

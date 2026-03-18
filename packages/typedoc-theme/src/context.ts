@@ -3,6 +3,7 @@ import { DefaultThemeRenderContext, JSX } from "typedoc";
 import { giDocgenFooter } from "./partials/footer.ts";
 import { giDocgenHeader } from "./partials/header.ts";
 import { giDocgenLayout } from "./partials/layout.ts";
+import { giDocgenModuleMemberSummary, giDocgenModuleReflection } from "./partials/module-reflection.ts";
 import { giDocgenNavigation } from "./partials/navigation.ts";
 import { giDocgenPageNavigation } from "./partials/page-navigation.ts";
 import { giDocgenPageSidebar } from "./partials/page-sidebar.ts";
@@ -27,6 +28,8 @@ export class GiDocgenThemeRenderContext extends DefaultThemeRenderContext {
 		this.header = bind(giDocgenHeader, this);
 		this.pageNavigation = bind(giDocgenPageNavigation, this);
 		this.pageSidebar = bind(giDocgenPageSidebar, this);
+		this.moduleReflection = bind(giDocgenModuleReflection, this);
+		this.moduleMemberSummary = bind(giDocgenModuleMemberSummary, this);
 
 		// Remove kind icons (V, F, C, T, etc.) — not needed in the gi-docgen theme.
 		this.reflectionIcon = () => JSX.createElement(JSX.Fragment, null);

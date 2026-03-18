@@ -540,8 +540,8 @@ body.menu-visible .overlay {
 	font-size: 1.5em;
 	text-transform: uppercase;
 	font-weight: 900;
-	margin: 1em 0 .5em 0;
-	padding-left: .5rem;
+	margin: 1em 0 0.5em 0;
+	padding-left: 0.5rem;
 	line-height: 1.2;
 }
 

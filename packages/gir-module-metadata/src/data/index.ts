@@ -2,6 +2,7 @@ import type { GirModuleMetadata } from "../types.ts";
 import { adw } from "./adw.ts";
 import { cairo } from "./cairo.ts";
 import { gdkPixbuf } from "./gdk-pixbuf.ts";
+import { gjs } from "./gjs.ts";
 import { gio, glib, gmodule, gobject } from "./glib.ts";
 import { graphene } from "./graphene.ts";
 import { gst, gstApp, gstAudio, gstBase, gstController, gstPbutils, gstTag, gstVideo } from "./gstreamer.ts";
@@ -14,6 +15,8 @@ import { soup3 } from "./soup.ts";
 import { javaScriptCore6, webkit6, webkitWebExtension6 } from "./webkit.ts";
 
 const ALL_ENTRIES: GirModuleMetadata[] = [
+	// GJS core
+	gjs,
 	// GLib family
 	glib,
 	gobject,

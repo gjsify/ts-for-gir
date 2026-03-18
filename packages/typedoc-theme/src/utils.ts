@@ -140,6 +140,7 @@ export interface GirNamespaceMetadata {
 	cPrefixes: string[];
 	libraryVersion: string;
 	dependencies: Array<{ namespace: string; version: string }>;
+	packageVersion?: string;
 	displayName?: string;
 	description?: string;
 	logoUrl?: string;

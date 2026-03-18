@@ -1,7 +1,14 @@
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { DeclarationReflection, PageEvent, Reflection } from "typedoc";
-import { i18n, JSX } from "typedoc";
+import { i18n, JSX, ReflectionKind } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
 import { findOwningModule, type GirNamespaceMetadata, getGirNamespaceMetadata } from "../utils.ts";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const TSFOR_GIR_VERSION = JSON.parse(readFileSync(join(__dirname, "..", "..", "package.json"), "utf8"))
+	.version as string;
 
 /** Render the module info section (namespace name, versions, dependencies). */
 function giDocgenModuleInfo(
@@ -27,12 +34,41 @@ function giDocgenModuleInfo(
 
 	const displayName = nsMeta.displayName || nsMeta.namespace;
 
+	// Namespaces or sub-modules exported by this module (exclude "default")
+	const childNamespaces = mod.children?.filter(
+		(child) => child.kindOf(ReflectionKind.Namespace) && child.name !== "default",
+	);
+	const childModules = mod.children?.filter((child) => child.kindOf(ReflectionKind.Module) && child.name !== "default");
+	// Package version: prefer TypeDoc reflection, fallback to metadata
+	const packageVersion = (mod as unknown as { packageVersion?: string }).packageVersion || nsMeta.packageVersion;
+
+	const renderChildSection = (children: typeof childNamespaces, title: string) =>
+		children &&
+		children.length > 0 &&
+		JSX.createElement(
+			"div",
+			{ class: "gi-docgen-dependencies" },
+			JSX.createElement("h5", { class: "gi-docgen-section-heading" }, title),
+			JSX.createElement(
+				"ul",
+				{ class: "gi-docgen-module-list" },
+				...children.map((child) =>
+					JSX.createElement("li", null, JSX.createElement("a", { href: context.urlTo(child) }, child.name)),
+				),
+			),
+		);
+
 	return JSX.createElement(
 		"div",
 		{ class: "gi-docgen-module-info" },
 		JSX.createElement("h3", null, JSX.createElement("a", { href: context.urlTo(mod) }, displayName)),
-		JSX.createElement("p", null, `API Version: ${nsMeta.version}`),
-		JSX.createElement("p", null, `Library Version: ${nsMeta.libraryVersion}`),
+		nsMeta.version && JSX.createElement("p", null, `API Version: ${nsMeta.version}`),
+		nsMeta.libraryVersion && JSX.createElement("p", null, `Library Version: ${nsMeta.libraryVersion}`),
+		packageVersion &&
+			packageVersion !== nsMeta.libraryVersion &&
+			JSX.createElement("p", null, `Package Version: ${packageVersion}`),
+		renderChildSection(childNamespaces, "Namespaces"),
+		renderChildSection(childModules, "Modules"),
 		depElements.length > 0 &&
 			JSX.createElement(
 				"div",
@@ -113,6 +149,7 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				JSX.createElement("a", { href: "https://typedoc.org/", target: "_blank" }, "TypeDoc"),
 				" via ",
 				JSX.createElement("a", { href: "https://github.com/gjsify/ts-for-gir", target: "_blank" }, "ts-for-gir"),
+				` v${TSFOR_GIR_VERSION}`,
 			),
 		),
 	);

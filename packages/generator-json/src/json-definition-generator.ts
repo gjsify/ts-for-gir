@@ -56,6 +56,9 @@ export class JsonDefinitionGenerator {
 				await this.generateTypeDocJson(module);
 			}
 
+			// Always generate JSON for the GJS core types package
+			await this.generateGjsJson();
+
 			if (this.config.outdir) {
 				this.log.success(
 					`JSON generation completed for ${this.pipeline.modules.length} modules in ${this.config.outdir}`,
@@ -63,6 +66,28 @@ export class JsonDefinitionGenerator {
 			}
 		} finally {
 			await this.pipeline.cleanup();
+		}
+	}
+
+	private async generateGjsJson(): Promise<void> {
+		const result = await this.pipeline.createGjsTypeDocApp();
+		if (!result) {
+			this.log.info("GJS package not available, skipping JSON generation for GJS");
+			return;
+		}
+
+		const { app, project } = result;
+		const gjsDir = this.pipeline.getGjsDir();
+		const jsonOutput = app.serializer.projectToObject(project, gjsDir);
+		const pretty = this.config.verbose;
+		const jsonStr = `${JSON.stringify(jsonOutput, null, pretty ? "\t" : "")}\n`;
+
+		if (this.config.outdir) {
+			const filepath = join(this.config.outdir, "Gjs.json");
+			await writeFile(filepath, jsonStr, "utf8");
+			this.log.info(`Generated ${filepath}`);
+		} else {
+			this.log.log(jsonStr);
 		}
 	}
 

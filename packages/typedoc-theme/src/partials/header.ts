@@ -25,11 +25,17 @@ function metaLinkRow(label: string, url: string): JSX.Element {
 }
 
 /** Render metadata info block for module pages, consistent with sidebar and gi-docgen style. */
-function renderModuleMetadata(context: GiDocgenThemeRenderContext, nsMeta: GirNamespaceMetadata): JSX.Element {
-	const tableRows: JSX.Element[] = [
-		metaRow("API Version", nsMeta.version),
-		metaRow("Library Version", nsMeta.libraryVersion),
-	];
+function renderModuleMetadata(
+	context: GiDocgenThemeRenderContext,
+	nsMeta: GirNamespaceMetadata,
+	packageVersion?: string,
+): JSX.Element {
+	const tableRows: JSX.Element[] = [];
+	if (nsMeta.version) tableRows.push(metaRow("API Version", nsMeta.version));
+	if (nsMeta.libraryVersion) tableRows.push(metaRow("Library Version", nsMeta.libraryVersion));
+	if (packageVersion && packageVersion !== nsMeta.libraryVersion) {
+		tableRows.push(metaRow("Package Version", packageVersion));
+	}
 
 	if (nsMeta.license) tableRows.push(metaRow("License", nsMeta.license));
 	if (nsMeta.websiteUrl) tableRows.push(metaLinkRow("Website", nsMeta.websiteUrl));
@@ -138,6 +144,11 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 					: renderReflName(props.model),
 				context.reflectionFlags(props.model),
 			),
-		nsMeta && renderModuleMetadata(context, nsMeta),
+		nsMeta &&
+			renderModuleMetadata(
+				context,
+				nsMeta,
+				(props.model as unknown as { packageVersion?: string }).packageVersion || nsMeta.packageVersion,
+			),
 	);
 };

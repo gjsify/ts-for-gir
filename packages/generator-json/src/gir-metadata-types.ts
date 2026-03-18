@@ -99,6 +99,8 @@ export interface GirNamespaceMetadata {
 	cPrefixes: string[];
 	libraryVersion: string;
 	dependencies: Array<{ namespace: string; version: string }>;
+	/** NPM package version (e.g. "4.20.3-4.0.0-beta.40") */
+	packageVersion?: string;
 	/** Human-readable display name, e.g. "GTK" */
 	displayName?: string;
 	/** Short description of the library */

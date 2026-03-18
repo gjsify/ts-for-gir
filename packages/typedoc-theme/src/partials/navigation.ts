@@ -12,6 +12,7 @@ export const giDocgenNavigation = (_context: GiDocgenThemeRenderContext, props: 
 	return JSX.createElement(
 		"nav",
 		{ class: "tsd-navigation" },
+		JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "Modules"),
 		JSX.createElement(
 			"ul",
 			{

@@ -15619,6 +15619,7 @@ __metadata:
     "@gi.ts/parser": "workspace:^"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/generator-typescript": "workspace:^"
+    "@ts-for-gir/gir-module-metadata": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/reporter": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
@@ -15643,6 +15644,15 @@ __metadata:
     ejs: "npm:^5.0.1"
     typescript: "npm:^5.9.3"
     xml2js: "npm:^0.6.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/gir-module-metadata@workspace:^, @ts-for-gir/gir-module-metadata@workspace:packages/gir-module-metadata":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/gir-module-metadata@workspace:packages/gir-module-metadata"
+  dependencies:
+    "@ts-for-gir/tsconfig": "workspace:^"
+    typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
 

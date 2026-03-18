@@ -99,6 +99,18 @@ export interface GirNamespaceMetadata {
 	cPrefixes: string[];
 	libraryVersion: string;
 	dependencies: Array<{ namespace: string; version: string }>;
+	/** Human-readable display name, e.g. "GTK" */
+	displayName?: string;
+	/** Short description of the library */
+	description?: string;
+	/** Logo/icon URL */
+	logoUrl?: string;
+	/** Project website URL */
+	websiteUrl?: string;
+	/** URL to upstream C API documentation */
+	cDocsUrl?: string;
+	/** SPDX license identifier */
+	license?: string;
 }
 
 /** A DeclarationReflection extended with optional GIR-specific metadata. */

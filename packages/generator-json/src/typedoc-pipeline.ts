@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import { TypeDefinitionGenerator } from "@ts-for-gir/generator-typescript";
+import { getModuleMetadata } from "@ts-for-gir/gir-module-metadata";
 import type { GirModule, NSRegistry, OptionsGeneration } from "@ts-for-gir/lib";
 import {
 	Application,
@@ -17,7 +18,6 @@ import {
 	TSConfigReader,
 	type TypeDocOptions,
 } from "typedoc";
-
 import { GirMetadataDeserializer } from "./gir-metadata-deserializer.ts";
 import { buildGirLookupIndex } from "./gir-metadata-index.ts";
 import { GirMetadataSerializer } from "./gir-metadata-serializer.ts";
@@ -426,6 +426,7 @@ export class TypeDocPipeline {
 	}
 
 	private buildNamespaceMetadata(module: GirModule): GirNamespaceMetadata {
+		const meta = getModuleMetadata(`${module.namespace}-${module.version}`);
 		return {
 			namespace: module.namespace,
 			version: module.version,
@@ -436,6 +437,12 @@ export class TypeDocPipeline {
 				namespace: d.namespace,
 				version: d.version,
 			})),
+			displayName: meta?.displayName,
+			description: meta?.description,
+			logoUrl: meta?.logoUrl,
+			websiteUrl: meta?.websiteUrl,
+			cDocsUrl: meta?.cDocsUrl,
+			license: meta?.license,
 		};
 	}
 }

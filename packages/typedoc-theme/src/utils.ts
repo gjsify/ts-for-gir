@@ -104,9 +104,7 @@ export function girMemberBadgeFromComment(refl: Reflection): { label: string; cs
  * Reimplemented from TypeDoc's internal lib.tsx.
  */
 export function getDisplayName(refl: Reflection): string {
-	const version = (refl as ProjectReflection).packageVersion;
-	const suffix = version ? ` - v${version}` : "";
-	return (refl.name === "default" ? "default" : refl.name) + suffix;
+	return refl.name === "default" ? "default" : refl.name;
 }
 
 /**
@@ -132,6 +130,28 @@ export function findOwningModule(reflection: Reflection): Reflection | undefined
 		current = current.parent;
 	}
 	return undefined;
+}
+
+/** Shape of girNamespaceMetadata attached by GirMetadataDeserializer in merge mode. */
+export interface GirNamespaceMetadata {
+	namespace: string;
+	version: string;
+	packageName: string;
+	cPrefixes: string[];
+	libraryVersion: string;
+	dependencies: Array<{ namespace: string; version: string }>;
+	displayName?: string;
+	description?: string;
+	logoUrl?: string;
+	websiteUrl?: string;
+	cDocsUrl?: string;
+	license?: string;
+}
+
+/** Safely access girNamespaceMetadata from a module-level reflection. */
+export function getGirNamespaceMetadata(reflection: Reflection): GirNamespaceMetadata | undefined {
+	const mod = findOwningModule(reflection) ?? reflection;
+	return (mod as unknown as { girNamespaceMetadata?: GirNamespaceMetadata }).girNamespaceMetadata;
 }
 
 const hierarchyRootsCache = new WeakMap<ProjectReflection, DeclarationReflection[]>();

@@ -8,21 +8,11 @@ function stripScope(name: string): string {
 	return name.replace(/^@[^/]+\//, "");
 }
 
-/** Render a reflection's name with an optional smaller version badge. */
+/** Render a reflection's display name (scope prefix stripped if requested). */
 function renderReflName(refl: Reflection, stripScopePrefix = false): JSX.Element {
 	let name = refl.name === "default" ? "default" : refl.name;
 	if (stripScopePrefix && name.startsWith("@")) name = stripScope(name);
-	const version = (refl as { packageVersion?: string }).packageVersion;
-	if (!version) {
-		return JSX.createElement(JSX.Fragment, null, name);
-	}
-	return JSX.createElement(
-		JSX.Fragment,
-		null,
-		name,
-		" ",
-		JSX.createElement("small", { class: "gi-docgen-module-version" }, `v${version}`),
-	);
+	return JSX.createElement(JSX.Fragment, null, name);
 }
 
 export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageEvent<Reflection>) => {

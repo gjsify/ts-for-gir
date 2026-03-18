@@ -30,3 +30,9 @@
 	path = docs
 	url = git@github.com:gjsify/docs.git
 	branch = main
+[submodule "refs/valadoc-org"]
+	path = refs/valadoc-org
+	url = git@github.com:vala-lang/valadoc-org.git
+[submodule "refs/gtk-doc"]
+	path = refs/gtk-doc
+	url = git@ssh.gitlab.gnome.org:GNOME/gtk-doc.git

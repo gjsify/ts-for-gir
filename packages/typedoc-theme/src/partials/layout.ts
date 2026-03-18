@@ -51,11 +51,6 @@ export const giDocgenLayout = (
 				src: context.relativeURL("assets/navigation.js", true),
 				id: "tsd-nav-script",
 			}),
-			JSX.createElement("script", {
-				async: true,
-				src: context.relativeURL("assets/gi-docgen-nav.js", true),
-				id: "gi-docgen-nav-script",
-			}),
 			!!getHierarchyRoots(props.project).length &&
 				JSX.createElement("script", {
 					async: true,

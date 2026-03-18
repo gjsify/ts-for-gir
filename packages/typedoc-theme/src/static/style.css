@@ -475,6 +475,73 @@ body.menu-visible .overlay {
 	color: var(--sidebar-primary);
 }
 
+/* Shared sidebar section heading style (Dependencies, Modules, etc.) */
+#gi-docgen-sidebar .gi-docgen-section-heading {
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--sidebar-text-color);
+	opacity: 0.7;
+	margin: 0 0 0.3em 0;
+	padding-left: 0.5rem;
+}
+
+/* Module logo in sidebar (gi-docgen style) */
+#gi-docgen-sidebar .gi-docgen-module-logo {
+	text-align: center;
+	margin-bottom: 0.75em;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-logo .logo {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	max-width: 160px;
+}
+
+/* Module info section in sidebar (gi-docgen namespace style) */
+#gi-docgen-sidebar .gi-docgen-module-info {
+	padding-bottom: 1em;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	margin-bottom: 1em;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info h3 {
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: 900;
+	margin: 0;
+	padding: 0;
+	line-height: 1.2;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info h3 a {
+	color: var(--sidebar-text-color);
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info h3 a:hover {
+	color: var(--sidebar-primary);
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info p {
+	font-size: 0.9rem;
+	opacity: 0.8;
+	margin: 0;
+	padding-left: 0.5rem;
+}
+
+/* Dependencies section — link styles inherited from .gi-docgen-module-list */
+#gi-docgen-sidebar .gi-docgen-dependencies {
+	margin-top: 0.75em;
+}
+
+#gi-docgen-sidebar .gi-docgen-dependencies .gi-docgen-dep-external {
+	display: block;
+	font-size: 0.9rem;
+	opacity: 0.6;
+	padding: 0.2rem 0.5rem;
+}
+
 /* Menu trigger (mobile) */
 .tsd-widget.menu {
 	display: none;
@@ -570,19 +637,6 @@ body.menu-visible .overlay {
 	background: var(--sidebar-selected-bg);
 	color: #fff;
 	font-weight: 600;
-}
-
-.gi-docgen-page-title h1 .gi-docgen-module-version {
-	font-size: 0.55em;
-	opacity: 0.65;
-	font-weight: normal;
-	vertical-align: middle;
-}
-
-#gi-docgen-sidebar .gi-docgen-module-list .gi-docgen-module-version {
-	font-size: 0.75em;
-	opacity: 0.65;
-	font-weight: normal;
 }
 
 /* GIR member-kind badges (Signal, Virtual) — extend .tsd-tag base style */

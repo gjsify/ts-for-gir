@@ -1,9 +1,64 @@
-import type { PageEvent, Reflection } from "typedoc";
+import type { DeclarationReflection, PageEvent, Reflection } from "typedoc";
 import { i18n, JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
+import { findOwningModule, type GirNamespaceMetadata, getGirNamespaceMetadata } from "../utils.ts";
 
-export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: PageEvent<Reflection>) =>
-	JSX.createElement(
+/** Render the module info section (namespace name, versions, dependencies). */
+function giDocgenModuleInfo(
+	context: GiDocgenThemeRenderContext,
+	mod: DeclarationReflection,
+	nsMeta: GirNamespaceMetadata,
+): JSX.Element {
+	const depElements = nsMeta.dependencies.map((dep) => {
+		const depPackageName = `${dep.namespace}-${dep.version}`;
+		const depModule = context.page.project.children?.find(
+			(child) => child.name === depPackageName || child.name === `@girs/${depPackageName.toLowerCase()}`,
+		);
+		const url = depModule ? context.urlTo(depModule) : undefined;
+		const label = `${dep.namespace} ${dep.version}`;
+		return JSX.createElement(
+			"li",
+			null,
+			url
+				? JSX.createElement("a", { href: url }, label)
+				: JSX.createElement("span", { class: "gi-docgen-dep-external" }, label),
+		);
+	});
+
+	const displayName = nsMeta.displayName || nsMeta.namespace;
+
+	return JSX.createElement(
+		"div",
+		{ class: "gi-docgen-module-info" },
+		/* Logo — rendered above the namespace name, like gi-docgen */
+		nsMeta.logoUrl &&
+			JSX.createElement(
+				"div",
+				{ class: "gi-docgen-module-logo" },
+				JSX.createElement(
+					"a",
+					{ href: context.urlTo(mod) },
+					JSX.createElement("img", { src: nsMeta.logoUrl, alt: displayName, class: "logo" }),
+				),
+			),
+		JSX.createElement("h3", null, JSX.createElement("a", { href: context.urlTo(mod) }, displayName)),
+		JSX.createElement("p", null, `API Version: ${nsMeta.version}`),
+		JSX.createElement("p", null, `Library Version: ${nsMeta.libraryVersion}`),
+		depElements.length > 0 &&
+			JSX.createElement(
+				"div",
+				{ class: "gi-docgen-dependencies" },
+				JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "Dependencies"),
+				JSX.createElement("ul", { class: "gi-docgen-module-list" }, ...depElements),
+			),
+	);
+}
+
+export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: PageEvent<Reflection>) => {
+	const owningModule = findOwningModule(props.model);
+	const nsMeta = owningModule ? getGirNamespaceMetadata(props.model) : undefined;
+
+	return JSX.createElement(
 		JSX.Fragment,
 		null,
 		context.sidebarLinks(),
@@ -44,6 +99,8 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				),
 			),
 		),
+		/* Module info section — only when viewing a module's pages */
+		nsMeta && giDocgenModuleInfo(context, owningModule as DeclarationReflection, nsMeta),
 		context.navigation(props),
 		context.settings(),
 		JSX.createElement(
@@ -59,3 +116,4 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 			),
 		),
 	);
+};

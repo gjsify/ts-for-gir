@@ -99,25 +99,34 @@ All pre-generated NPM packages can be found on [gjsify/types](https://github.com
 
 ts-for-gir consists of several packages:
 
-- [`@ts-for-gir/cli`](/packages/cli) - Command-line interface for generating TypeScript definitions and analyzing reports
+- [`@ts-for-gir/cli`](/packages/cli) - Command-line interface for generating TypeScript definitions, documentation, and analyzing reports
 - [`@gi.ts/parser`](/packages/parser) - Parser for GObject Introspection XML files
 - [`@ts-for-gir/lib`](/packages/lib) - Core library for processing GIR data
 - [`@ts-for-gir/reporter`](/packages/reporter) - Reporting system for problems and statistics with dependency injection
 - [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) - TypeScript definition generator
-- [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator (experimental)
+- [`@ts-for-gir/generator-json`](/packages/generator-json) - TypeDoc JSON generator with GIR metadata enrichment
+- [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator using TypeDoc
+- [`@ts-for-gir/generator-base`](/packages/generator-base) - Shared base class for generators
+- [`@ts-for-gir/typedoc-theme`](/packages/typedoc-theme) - Custom TypeDoc theme inspired by gi-docgen
+- [`@ts-for-gir/gir-module-metadata`](/packages/gir-module-metadata) - Curated metadata (descriptions, logos, licenses) for GIR namespaces
+- [`@ts-for-gir/templates`](/packages/templates) - Template files for generated packages (tsconfig, typedoc config, ambient declarations)
+- [`@ts-for-gir/tsconfig`](/packages/tsconfig) - Shared TypeScript configuration
+- [`@ts-for-gir/language-server`](/packages/language-server) - Language server for GIR files (experimental)
 
-### Types submodules
+### Submodules
 
-This repo contains two Git submodules for pre-generated types:
+This repo contains Git submodules for pre-generated types and documentation:
 
 - `types-dev` (branch `dev`): used during local development. Scripts write generated packages here.
 - `types-release` (branch `main`): updated by the release workflow on tags.
+- `docs` (branch `main`): generated HTML documentation, deployed to [gjsify.github.io/docs](https://gjsify.github.io/docs).
 
 Useful scripts:
 
 ```bash
 yarn build:types          # generates into ./types-dev
 yarn build:types:release  # generates into ./types-release
+yarn build:doc            # generates HTML docs into ./docs
 ```
 
 ## Further Information

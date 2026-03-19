@@ -27,8 +27,8 @@ const examples: ReadonlyArray<[string, string?]> = [
 const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
-	if (args.merge) {
-		const config = getOptionsGeneration(await load(args));
+	const config = getOptionsGeneration(await load(args));
+	if (config.merge) {
 		if (!config.jsonDir) {
 			throw new Error("--jsonDir is required when using --merge mode");
 		}

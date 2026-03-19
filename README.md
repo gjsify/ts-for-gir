@@ -18,6 +18,8 @@
 
 `ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 
+Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)** for GLib, GTK, GStreamer, and many other GNOME libraries.
+
 ## Getting Started
 
 Install the latest LTS version of Node.js. We recommend using [NVM](https://github.com/nvm-sh/nvm) for this purpose. After Node.js has been installed, `ts-for-gir` can be executed with the following command:
@@ -120,6 +122,7 @@ yarn build:types:release  # generates into ./types-release
 
 ## Further Information
 
+- [TypeScript API Documentation](https://gjsify.github.io/docs) - Browsable API reference for all GJS type definitions
 - [Examples](/examples/README.md) - Detailed examples showing TypeScript with different bundlers
 - [CLI Documentation](/packages/cli/README.md) - Comprehensive guide to CLI options and features
 - [gjsify/types](https://github.com/gjsify/types) - Pre-generated NPM packages you can use directly

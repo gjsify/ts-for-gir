@@ -10,4 +10,5 @@ export const soup3: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/libsoup.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://libsoup.org/libsoup-3.0/",
+	category: "GNOME Libraries",
 };

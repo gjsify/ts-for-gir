@@ -682,7 +682,9 @@ body.menu-visible .overlay {
 	font-weight: 600;
 }
 
-/* GIR member-kind badges (Signal, Virtual) — extend .tsd-tag base style */
+/* GIR member badges — extend .tsd-tag base style */
+
+/* Kind badges */
 .tsd-tag-gir-signal {
 	background: rgba(220, 80, 80, 0.12);
 	color: #c04040;
@@ -692,11 +694,76 @@ body.menu-visible .overlay {
 	color: #1c76e4;
 }
 
+/* Signal metadata badges */
+.tsd-tag-gir-signal-detailed {
+	background: rgba(220, 80, 80, 0.08);
+	color: #c04040;
+}
+.tsd-tag-gir-signal-action {
+	background: rgba(230, 126, 34, 0.12);
+	color: #b35c1e;
+}
+.tsd-tag-gir-signal-when {
+	background: rgba(220, 80, 80, 0.08);
+	color: #c04040;
+}
+
+/* Property flag badges */
+.tsd-tag-gir-read-only {
+	background: rgba(28, 118, 228, 0.12);
+	color: #1c76e4;
+}
+.tsd-tag-gir-write-only {
+	background: rgba(230, 126, 34, 0.12);
+	color: #b35c1e;
+}
+.tsd-tag-gir-construct-only {
+	background: rgba(142, 68, 173, 0.12);
+	color: #8e44ad;
+}
+
+/* Deprecation badge */
+.tsd-tag-gir-deprecated {
+	background: rgba(224, 27, 36, 0.12);
+	color: #c01c24;
+}
+
+/* Since version badge */
+.tsd-tag-gir-since {
+	background: rgba(38, 162, 105, 0.12);
+	color: #1a7f37;
+}
+
+/* Dark mode variants */
 :root[data-theme="dark"] .tsd-tag-gir-signal {
 	color: #f07070;
 }
 :root[data-theme="dark"] .tsd-tag-gir-virtual-method {
 	color: #5aaeff;
+}
+:root[data-theme="dark"] .tsd-tag-gir-signal-detailed {
+	color: #e06060;
+}
+:root[data-theme="dark"] .tsd-tag-gir-signal-action {
+	color: #e0944d;
+}
+:root[data-theme="dark"] .tsd-tag-gir-signal-when {
+	color: #e06060;
+}
+:root[data-theme="dark"] .tsd-tag-gir-read-only {
+	color: #6cb6ff;
+}
+:root[data-theme="dark"] .tsd-tag-gir-write-only {
+	color: #e0944d;
+}
+:root[data-theme="dark"] .tsd-tag-gir-construct-only {
+	color: #b87fd8;
+}
+:root[data-theme="dark"] .tsd-tag-gir-deprecated {
+	color: #f06070;
+}
+:root[data-theme="dark"] .tsd-tag-gir-since {
+	color: #56d364;
 }
 
 /* Hide type icons in the sidebar */

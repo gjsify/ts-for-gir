@@ -10,4 +10,5 @@ export const adw: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/libadwaita.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/libadwaita/doc/",
+	category: "GNOME Libraries",
 };

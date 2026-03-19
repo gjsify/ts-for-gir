@@ -11,4 +11,5 @@ export const gdkPixbuf: GirModuleMetadata = {
 	license: "LGPL-2.1-or-later",
 	docLicense: "GPL-2.1-or-later",
 	cDocsUrl: "https://docs.gtk.org/gdk-pixbuf/",
+	category: "Graphics",
 };

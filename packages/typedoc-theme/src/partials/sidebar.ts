@@ -176,7 +176,11 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				JSX.createElement(
 					"li",
 					null,
-					JSX.createElement("a", { href: "https://gjs-docs.gnome.org/", target: "_blank" }, "JavaScript API References"),
+					JSX.createElement(
+						"a",
+						{ href: "https://gjs-docs.gnome.org/", target: "_blank" },
+						"JavaScript API References",
+					),
 				),
 				JSX.createElement(
 					"li",

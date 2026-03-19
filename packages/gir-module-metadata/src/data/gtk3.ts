@@ -7,6 +7,7 @@ const GTK3_COMMON = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/gtk.git",
 	license: "LGPL-2.1-or-later",
 	docLicense: "GPL-2.1-or-later",
+	category: "GTK 3",
 };
 
 export const gtk3: GirModuleMetadata = {

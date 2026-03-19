@@ -244,6 +244,10 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 		metadata.signalMetadata = {
 			signalName: signal.name,
 			detailed: signal.detailed,
+			...(signal.action ? { action: true } : {}),
+			...(signal.noRecurse ? { noRecurse: true } : {}),
+			...(signal.noHooks ? { noHooks: true } : {}),
+			...(signal.when ? { when: signal.when } : {}),
 		};
 		return metadata;
 	}

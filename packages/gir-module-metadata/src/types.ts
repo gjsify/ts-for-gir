@@ -22,4 +22,6 @@ export interface GirModuleMetadata {
 	cDocsUrl?: string;
 	/** Logo/icon URL (absolute URL) */
 	logoUrl?: string;
+	/** Category for grouping on documentation homepage */
+	category?: string;
 }

@@ -10,6 +10,7 @@ const GTK_COMMON = {
 	license: "LGPL-2.1-or-later",
 	docLicense: "GPL-2.1-or-later",
 	logoUrl: GTK_LOGO,
+	category: "GTK 4",
 };
 
 export const gtk4: GirModuleMetadata = {

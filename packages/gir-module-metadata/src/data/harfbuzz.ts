@@ -11,6 +11,7 @@ export const harfBuzz: GirModuleMetadata = {
 	license: "MIT",
 	cDocsUrl: "https://harfbuzz.github.io/",
 	logoUrl: "https://harfbuzz.github.io/HarfBuzz.png",
+	category: "Text Rendering",
 };
 
 export const freetype2: GirModuleMetadata = {
@@ -23,4 +24,5 @@ export const freetype2: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.freedesktop.org/freetype/freetype.git",
 	license: "FTL OR GPL-2.0-or-later",
 	cDocsUrl: "https://freetype.org/freetype2/docs/reference/",
+	category: "Text Rendering",
 };

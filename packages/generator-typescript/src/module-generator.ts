@@ -457,7 +457,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateProperty(tsProp: IntrospectedProperty, construct?: boolean, indentCount = 0) {
 		const desc: string[] = [];
 
-		desc.push(...this.addGirDocComment(tsProp.doc, this.namespace.getTsDocMetadataTags(tsProp.metadata), indentCount));
+		const propTags = [...this.namespace.getTsDocMetadataTags(tsProp.metadata)];
+		if (tsProp.constructOnly) propTags.push({ tagName: "construct-only", paramName: "", text: "" });
+		else if (tsProp.readable && !tsProp.writable) propTags.push({ tagName: "read-only", paramName: "", text: "" });
+		else if (tsProp.writable && !tsProp.readable) propTags.push({ tagName: "write-only", paramName: "", text: "" });
+		desc.push(...this.addGirDocComment(tsProp.doc, propTags, indentCount));
 
 		const indent = generateIndent(indentCount);
 		const name = generateMemberName(tsProp);

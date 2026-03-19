@@ -5,6 +5,7 @@ const WEBKIT_COMMON = {
 	websiteUrl: "https://webkitgtk.org",
 	browseUrl: "https://github.com/nicotinadeb/WebKit/",
 	license: "LGPL-2.1-or-later",
+	category: "Web",
 };
 
 export const webkit6: GirModuleMetadata = {

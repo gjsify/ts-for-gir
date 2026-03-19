@@ -6,6 +6,7 @@ const GST_COMMON = {
 	browseUrl: "https://gitlab.freedesktop.org/gstreamer/gstreamer/",
 	repositoryUrl: "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
 	license: "LGPL-2.1-or-later",
+	category: "Multimedia",
 };
 
 export const gst: GirModuleMetadata = {

@@ -10,4 +10,5 @@ export const cairo: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.freedesktop.org/cairo/cairo.git",
 	license: "LGPL-2.1-only OR MPL-1.1",
 	cDocsUrl: "https://www.cairographics.org/manual/",
+	category: "Graphics",
 };

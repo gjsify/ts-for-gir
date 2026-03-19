@@ -10,4 +10,5 @@ export const graphene: GirModuleMetadata = {
 	repositoryUrl: "https://github.com/ebassi/graphene.git",
 	license: "MIT",
 	cDocsUrl: "https://ebassi.github.io/graphene/docs/",
+	category: "Graphics",
 };

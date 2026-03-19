@@ -70,9 +70,19 @@ export function shouldShowGirParenthetical(tsKind: string, girLabel: string): bo
 	return !equivSet || !equivSet.includes(girLabel);
 }
 
-/** Minimal shape of the girMetadata field injected by GirMetadataSerializer (fallback). */
+/** Shape of the girMetadata field injected by GirMetadataSerializer (fallback for data not in TSDoc). */
 interface GirReflectionMeta {
 	girKind: string;
+	introducedVersion?: string;
+	deprecated?: boolean;
+	deprecatedVersion?: string;
+	propertyMetadata?: { readable: boolean; writable: boolean; constructOnly: boolean };
+	signalMetadata?: {
+		signalName: string;
+		detailed: boolean;
+		action?: boolean;
+		when?: "first" | "last" | "cleanup";
+	};
 }
 
 /** Safely access girMetadata from any reflection (fallback for data not in TSDoc). */
@@ -80,23 +90,71 @@ function getGirMetadata(refl: Reflection): GirReflectionMeta | undefined {
 	return (refl as unknown as { girMetadata?: GirReflectionMeta }).girMetadata;
 }
 
+/** Check if a reflection has a specific modifier tag (checks signatures too). */
+function hasModifierTag(refl: Reflection, tag: string): boolean {
+	const comment = (refl as DeclarationReflection).comment;
+	if (comment?.modifierTags.has(tag as `@${string}`)) return true;
+	const signatures = (refl as DeclarationReflection).signatures;
+	if (signatures) {
+		return signatures.some((sig) => sig.comment?.modifierTags.has(tag as `@${string}`) ?? false);
+	}
+	return false;
+}
+
 /**
- * Returns a badge label for member-level GIR annotations.
- * Prefers TSDoc tags (@virtual, @signal), falls back to girMetadata JSON,
- * and finally uses the vfunc_ naming convention as a last resort for
- * inherited virtual methods that lose their metadata.
+ * Returns all applicable GIR badge labels for a reflection.
+ * Prefers TSDoc modifier tags, falls back to girMetadata JSON.
  */
-export function girMemberBadgeFromComment(refl: Reflection): { label: string; cssModifier: string } | null {
-	// TSDoc-first: check modifier tags
-	if (hasSignalTag(refl)) return { label: "Signal", cssModifier: "signal" };
-	if (hasVirtualTag(refl)) return { label: "Virtual", cssModifier: "virtual-method" };
-	// Fallback: girMetadata JSON (e.g. signals generated as raw strings without TSDoc)
+export function girMemberBadgesFromReflection(refl: Reflection): Array<{ label: string; cssModifier: string }> {
+	const badges: Array<{ label: string; cssModifier: string }> = [];
 	const gir = getGirMetadata(refl);
-	if (gir?.girKind === "signal") return { label: "Signal", cssModifier: "signal" };
-	if (gir?.girKind === "virtual-method") return { label: "Virtual", cssModifier: "virtual-method" };
-	// Convention fallback: in GJS, vfunc_ prefix always denotes a virtual method
-	if (refl.name.startsWith("vfunc_")) return { label: "Virtual", cssModifier: "virtual-method" };
-	return null;
+
+	// 1. Signal / Virtual kind badges (TSDoc-first, girMetadata fallback)
+	const isSignal = hasSignalTag(refl) || gir?.girKind === "signal";
+	const isVirtual = hasVirtualTag(refl) || gir?.girKind === "virtual-method" || refl.name.startsWith("vfunc_");
+	if (isSignal) badges.push({ label: "Signal", cssModifier: "signal" });
+	if (isVirtual) badges.push({ label: "Virtual", cssModifier: "virtual-method" });
+
+	// 2. Signal-specific metadata badges (TSDoc-first: @detailed, @action, @run-first/last/cleanup)
+	if (isSignal) {
+		const detailed = hasModifierTag(refl, "@detailed") || gir?.signalMetadata?.detailed;
+		const action = hasModifierTag(refl, "@action") || gir?.signalMetadata?.action;
+		const runFirst = hasModifierTag(refl, "@run-first");
+		const runLast = hasModifierTag(refl, "@run-last");
+		const runCleanup = hasModifierTag(refl, "@run-cleanup");
+		const when = runFirst ? "first" : runLast ? "last" : runCleanup ? "cleanup" : gir?.signalMetadata?.when;
+
+		if (detailed) badges.push({ label: "Detailed", cssModifier: "signal-detailed" });
+		if (action) badges.push({ label: "Action", cssModifier: "signal-action" });
+		if (when) {
+			const w = when.charAt(0).toUpperCase() + when.slice(1);
+			badges.push({ label: `Run ${w}`, cssModifier: "signal-when" });
+		}
+	}
+
+	// 3. Property flag badges (TSDoc-first: @construct-only, @read-only, @write-only)
+	const constructOnly = hasModifierTag(refl, "@construct-only") || gir?.propertyMetadata?.constructOnly;
+	const readOnly =
+		hasModifierTag(refl, "@read-only") || (gir?.propertyMetadata?.readable && !gir.propertyMetadata.writable);
+	const writeOnly =
+		hasModifierTag(refl, "@write-only") || (gir?.propertyMetadata?.writable && !gir.propertyMetadata.readable);
+
+	if (constructOnly) badges.push({ label: "Construct Only", cssModifier: "construct-only" });
+	else if (readOnly) badges.push({ label: "Read-Only", cssModifier: "read-only" });
+	else if (writeOnly) badges.push({ label: "Write-Only", cssModifier: "write-only" });
+
+	// 4. Deprecated badge (with version from girMetadata)
+	if (refl.isDeprecated()) {
+		const version = gir?.deprecatedVersion;
+		badges.push({ label: version ? `Deprecated ${version}` : "Deprecated", cssModifier: "deprecated" });
+	}
+
+	// 5. Since version badge (from girMetadata — @since is a block tag, not a modifier)
+	if (gir?.introducedVersion) {
+		badges.push({ label: `Since ${gir.introducedVersion}`, cssModifier: "since" });
+	}
+
+	return badges;
 }
 
 /**
@@ -147,6 +205,7 @@ export interface GirNamespaceMetadata {
 	websiteUrl?: string;
 	cDocsUrl?: string;
 	license?: string;
+	category?: string;
 }
 
 /** Safely access girNamespaceMetadata from a module-level reflection. */
@@ -171,9 +230,7 @@ export function findCompanionNamespace(refl: DeclarationReflection): Declaration
 	if (!parent || !("children" in parent)) return undefined;
 	const siblings = (parent as DeclarationReflection).children;
 	if (!siblings) return undefined;
-	return siblings.find(
-		(child) => child !== refl && child.kindOf(ReflectionKind.Namespace) && child.name === refl.name,
-	);
+	return siblings.find((child) => child !== refl && child.kindOf(ReflectionKind.Namespace) && child.name === refl.name);
 }
 
 /**

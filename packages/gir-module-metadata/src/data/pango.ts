@@ -7,6 +7,7 @@ const PANGO_COMMON = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/pango.git",
 	license: "LGPL-2.1-or-later",
 	logoUrl: "https://docs.gtk.org/Pango/pango-name.png",
+	category: "Pango",
 };
 
 export const pango: GirModuleMetadata = {

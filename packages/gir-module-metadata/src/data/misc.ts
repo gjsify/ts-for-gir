@@ -11,6 +11,7 @@ export const gtksource5: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/gtksourceview.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/",
+	category: "GNOME Libraries",
 };
 
 export const shumate: GirModuleMetadata = {
@@ -23,6 +24,7 @@ export const shumate: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/libshumate.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/libshumate/",
+	category: "GNOME Libraries",
 };
 
 export const notify: GirModuleMetadata = {
@@ -34,6 +36,7 @@ export const notify: GirModuleMetadata = {
 	browseUrl: "https://gitlab.gnome.org/GNOME/libnotify/",
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/libnotify.git",
 	license: "LGPL-2.1-or-later",
+	category: "GNOME Libraries",
 };
 
 export const secret: GirModuleMetadata = {
@@ -45,6 +48,7 @@ export const secret: GirModuleMetadata = {
 	browseUrl: "https://gitlab.gnome.org/GNOME/libsecret/",
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/libsecret.git",
 	license: "LGPL-2.1-or-later",
+	category: "GNOME Libraries",
 };
 
 export const json: GirModuleMetadata = {
@@ -57,6 +61,7 @@ export const json: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/json-glib.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/json-glib/",
+	category: "GNOME Libraries",
 };
 
 export const nm: GirModuleMetadata = {
@@ -69,6 +74,7 @@ export const nm: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://networkmanager.dev/docs/api/latest/",
+	category: "GNOME Libraries",
 };
 
 export const polkit: GirModuleMetadata = {
@@ -80,4 +86,5 @@ export const polkit: GirModuleMetadata = {
 	browseUrl: "https://gitlab.freedesktop.org/polkit/polkit/",
 	repositoryUrl: "https://gitlab.freedesktop.org/polkit/polkit.git",
 	license: "LGPL-2.0-or-later",
+	category: "GNOME Libraries",
 };

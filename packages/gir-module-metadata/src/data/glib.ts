@@ -6,6 +6,7 @@ const GLIB_COMMON = {
 	browseUrl: "https://gitlab.gnome.org/GNOME/glib/",
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/glib.git",
 	license: "LGPL-2.1-or-later",
+	category: "GLib",
 };
 
 export const glib: GirModuleMetadata = {

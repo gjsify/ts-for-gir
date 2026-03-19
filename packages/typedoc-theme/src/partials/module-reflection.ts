@@ -9,7 +9,7 @@ import {
 	ReflectionKind,
 } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { classNames, getDisplayName, isCompanionNamespace } from "../utils.ts";
+import { classNames, type GirNamespaceMetadata, getDisplayName, isCompanionNamespace } from "../utils.ts";
 
 // ---------------------------------------------------------------------------
 // Reimplemented helpers from TypeDoc's internal lib.tsx
@@ -78,6 +78,78 @@ export function getMemberSections(parent: ContainerReflection): MemberSection[] 
 }
 
 // ---------------------------------------------------------------------------
+// Categorized project homepage
+// ---------------------------------------------------------------------------
+
+const CATEGORY_ORDER = [
+	"GJS Core",
+	"GLib",
+	"GTK 4",
+	"GTK 3",
+	"Pango",
+	"Graphics",
+	"Text Rendering",
+	"Multimedia",
+	"Web",
+	"GNOME Libraries",
+];
+
+export function renderCategorizedProject(
+	context: GiDocgenThemeRenderContext,
+	mod: DeclarationReflection | ProjectReflection,
+	children: DeclarationReflection[],
+): JSX.Element {
+	// Group children by category from girNamespaceMetadata
+	const grouped = new Map<string, DeclarationReflection[]>();
+	for (const child of children) {
+		const nsMeta = (child as unknown as { girNamespaceMetadata?: GirNamespaceMetadata }).girNamespaceMetadata;
+		const cat = nsMeta?.category || "Other";
+		const existing = grouped.get(cat);
+		if (existing) existing.push(child);
+		else grouped.set(cat, [child]);
+	}
+
+	// Sort categories: defined order first, then any remaining
+	const sortedCategories = [
+		...CATEGORY_ORDER.filter((c) => grouped.has(c)),
+		...Array.from(grouped.keys()).filter((c) => !CATEGORY_ORDER.includes(c)),
+	];
+
+	return JSX.createElement(
+		JSX.Fragment,
+		null,
+		// Comment summary + tags
+		mod.hasComment(context.options.getValue("notRenderedTags") as unknown as readonly `@${string}`[]) &&
+			JSX.createElement(
+				"section",
+				{ class: "tsd-panel tsd-comment" },
+				context.commentSummary(mod),
+				context.commentTags(mod),
+			),
+		// Categorized module sections
+		...sortedCategories.map((category) => {
+			const categoryChildren = grouped.get(category) ?? [];
+			context.page.startNewSection(category);
+			return JSX.createElement(
+				"details",
+				{ class: "tsd-panel-group tsd-member-group tsd-accordion", open: true },
+				JSX.createElement(
+					"summary",
+					{ class: "tsd-accordion-summary", "data-key": `section-${category}` },
+					context.icons.chevronDown(),
+					JSX.createElement("h2", null, category),
+				),
+				JSX.createElement(
+					"dl",
+					{ class: "tsd-member-summaries" },
+					...categoryChildren.map((item) => context.moduleMemberSummary(item)),
+				),
+			);
+		}),
+	);
+}
+
+// ---------------------------------------------------------------------------
 // Module reflection override: metadata → members → README (at bottom)
 // ---------------------------------------------------------------------------
 
@@ -111,6 +183,12 @@ export function giDocgenModuleReflection(
 				),
 			);
 		}
+	}
+
+	// For the project homepage, group modules by category
+	if (mod.isProject()) {
+		const children = (mod as ProjectReflection).children ?? [];
+		return renderCategorizedProject(context, mod, children);
 	}
 
 	// Filter companion namespaces from member sections
@@ -232,7 +310,9 @@ export function giDocgenModuleMemberSummary(
 	context: GiDocgenThemeRenderContext,
 	member: DeclarationReflection | DocumentReflection,
 ): JSX.Element {
-	const id = member.isReference() ? context.getAnchor(member)! : context.slugger.slug(member.name);
+	const id = member.isReference()
+		? (context.getAnchor(member) ?? context.slugger.slug(member.name))
+		: context.slugger.slug(member.name);
 	context.page.pageHeadings.push({
 		link: `#${id}`,
 		text: getDisplayName(member),

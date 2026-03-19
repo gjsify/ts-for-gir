@@ -198,6 +198,7 @@ export class TypeDocPipeline {
 					websiteUrl: gjsMeta?.websiteUrl ?? gjsPkgJson?.homepage,
 					cDocsUrl: gjsMeta?.cDocsUrl,
 					license: gjsMeta?.license ?? gjsPkgJson?.license,
+					category: gjsMeta?.category,
 				};
 				result.app.serializer.on(Serializer.EVENT_END, (event) => {
 					if (event.output) {
@@ -337,14 +338,38 @@ export class TypeDocPipeline {
 		}
 
 		const modTags = app.options.getValue("modifierTags") as string[];
-		if (!modTags.includes("@signal")) {
-			app.options.setValue("modifierTags", [...modTags, "@signal"]);
+		const newModTags = [
+			"@signal",
+			"@detailed",
+			"@action",
+			"@run-first",
+			"@run-last",
+			"@run-cleanup",
+			"@construct-only",
+			"@read-only",
+			"@write-only",
+		];
+		const missingModTags = newModTags.filter((t) => !modTags.includes(t));
+		if (missingModTags.length > 0) {
+			app.options.setValue("modifierTags", [...modTags, ...missingModTags]);
 		}
 
 		// Prevent TypeDoc from rendering these tags in comment output —
 		// the theme handles display via badges instead.
 		const notRendered = app.options.getValue("notRenderedTags") as string[];
-		const tagsToSuppress = ["@gir-type", "@virtual", "@signal"];
+		const tagsToSuppress = [
+			"@gir-type",
+			"@virtual",
+			"@signal",
+			"@detailed",
+			"@action",
+			"@run-first",
+			"@run-last",
+			"@run-cleanup",
+			"@construct-only",
+			"@read-only",
+			"@write-only",
+		];
 		const missing = tagsToSuppress.filter((t) => !notRendered.includes(t));
 		if (missing.length > 0) {
 			app.options.setValue("notRenderedTags", [...notRendered, ...missing]);
@@ -527,6 +552,7 @@ export class TypeDocPipeline {
 			websiteUrl: meta?.websiteUrl ?? pkgJson?.homepage,
 			cDocsUrl: meta?.cDocsUrl,
 			license: meta?.license ?? pkgJson?.license,
+			category: meta?.category,
 		};
 	}
 

@@ -78,6 +78,14 @@ export interface GirSignalMetadata {
 	signalName: string;
 	/** Whether this is a detailed signal */
 	detailed: boolean;
+	/** Whether this signal can be emitted directly from user code */
+	action?: boolean;
+	/** Whether this signal prevents recursive emission */
+	noRecurse?: boolean;
+	/** Whether this signal disables emission hooks */
+	noHooks?: boolean;
+	/** Default handler timing relative to signal emission */
+	when?: "first" | "last" | "cleanup";
 }
 
 export interface GirRecordMetadata {
@@ -113,6 +121,8 @@ export interface GirNamespaceMetadata {
 	cDocsUrl?: string;
 	/** SPDX license identifier */
 	license?: string;
+	/** Category for grouping on documentation homepage */
+	category?: string;
 }
 
 /** A DeclarationReflection extended with optional GIR-specific metadata. */

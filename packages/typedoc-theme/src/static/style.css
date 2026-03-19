@@ -569,12 +569,16 @@ body.menu-visible .overlay {
 	padding-left: 0.5rem;
 }
 
-/* Dependencies section — link styles inherited from .gi-docgen-module-list */
-#gi-docgen-sidebar .gi-docgen-dependencies {
+#gi-docgen-sidebar .gi-docgen-module-versions {
+	margin-bottom: 1em;
+}
+
+/* Sidebar sub-sections (namespaces, dependencies, etc.) */
+#gi-docgen-sidebar .gi-docgen-sidebar-section {
 	margin-top: 0.75em;
 }
 
-#gi-docgen-sidebar .gi-docgen-dependencies .gi-docgen-dep-external {
+#gi-docgen-sidebar .gi-docgen-sidebar-section .gi-docgen-dep-external {
 	display: block;
 	font-size: 0.9rem;
 	opacity: 0.6;

@@ -11,8 +11,8 @@ export const giDocgenNavigation = (_context: GiDocgenThemeRenderContext, props: 
 	const owningModule = findOwningModule(props.model);
 	return JSX.createElement(
 		"nav",
-		{ class: "tsd-navigation" },
-		JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "Modules"),
+		{ class: "tsd-navigation gi-docgen-sidebar-section" },
+		JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "All Modules"),
 		JSX.createElement(
 			"ul",
 			{

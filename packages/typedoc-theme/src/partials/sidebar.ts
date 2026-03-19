@@ -52,7 +52,7 @@ function giDocgenModuleInfo(
 		children.length > 0 &&
 		JSX.createElement(
 			"div",
-			{ class: "gi-docgen-dependencies" },
+			{ class: "gi-docgen-sidebar-section" },
 			JSX.createElement("h5", { class: "gi-docgen-section-heading" }, title),
 			JSX.createElement(
 				"ul",
@@ -67,17 +67,21 @@ function giDocgenModuleInfo(
 		"div",
 		{ class: "gi-docgen-module-info" },
 		JSX.createElement("h3", null, JSX.createElement("a", { href: context.urlTo(mod) }, displayName)),
-		nsMeta.version && JSX.createElement("p", null, `API Version: ${nsMeta.version}`),
-		nsMeta.libraryVersion && JSX.createElement("p", null, `Library Version: ${nsMeta.libraryVersion}`),
-		packageVersion &&
-			packageVersion !== nsMeta.libraryVersion &&
-			JSX.createElement("p", null, `Package Version: ${packageVersion}`),
+		JSX.createElement(
+			"div",
+			{ class: "gi-docgen-module-versions" },
+			nsMeta.version && JSX.createElement("p", null, `API Version: ${nsMeta.version}`),
+			nsMeta.libraryVersion && JSX.createElement("p", null, `Library Version: ${nsMeta.libraryVersion}`),
+			packageVersion &&
+				packageVersion !== nsMeta.libraryVersion &&
+				JSX.createElement("p", null, `Package Version: ${packageVersion}`),
+		),
 		renderChildSection(childNamespaces, "Namespaces"),
 		renderChildSection(childModules, "Modules"),
 		depElements.length > 0 &&
 			JSX.createElement(
 				"div",
-				{ class: "gi-docgen-dependencies" },
+				{ class: "gi-docgen-sidebar-section" },
 				JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "Dependencies"),
 				JSX.createElement("ul", { class: "gi-docgen-module-list" }, ...depElements),
 			),
@@ -93,9 +97,9 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 	const logoAlt = nsMeta?.displayName || nsMeta?.namespace || "GJS TypeScript Definitions";
 	const logoHref = owningModule ? context.urlTo(owningModule) : context.relativeURL("index.html", true);
 
-	// Subtitle: "TypeScript type definitions for <MODULE>" or "GJS"
+	// Subtitle: "TypeScript API Reference for <MODULE>" or "GJS"
 	const subtitleTarget = nsMeta ? (nsMeta.displayName || nsMeta.packageName).toUpperCase() : "GJS";
-	const subtitle = `TypeScript type definitions for ${subtitleTarget}`;
+	const subtitle = `TypeScript API Reference for ${subtitleTarget}`;
 
 	return JSX.createElement(
 		JSX.Fragment,
@@ -151,6 +155,36 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 		),
 		/* Module info section — only when viewing a module's pages */
 		nsMeta && giDocgenModuleInfo(context, owningModule as DeclarationReflection, nsMeta),
+		/* External references */
+		JSX.createElement(
+			"nav",
+			{ class: "tsd-navigation gi-docgen-sidebar-section" },
+			JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "References"),
+			JSX.createElement(
+				"ul",
+				{ class: "tsd-small-nested-navigation gi-docgen-module-list" },
+				JSX.createElement(
+					"li",
+					null,
+					JSX.createElement("a", { href: "https://gjs.guide/", target: "_blank" }, "GJS Guide"),
+				),
+				JSX.createElement(
+					"li",
+					null,
+					JSX.createElement("a", { href: context.relativeURL("index.html", true) }, "TypeScript API References"),
+				),
+				JSX.createElement(
+					"li",
+					null,
+					JSX.createElement("a", { href: "https://gjs-docs.gnome.org/", target: "_blank" }, "JavaScript API References"),
+				),
+				JSX.createElement(
+					"li",
+					null,
+					JSX.createElement("a", { href: "https://docs.gtk.org/", target: "_blank" }, "GTK Documentation"),
+				),
+			),
+		),
 		context.navigation(props),
 		context.settings(),
 		JSX.createElement(

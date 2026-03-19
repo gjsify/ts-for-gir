@@ -6,7 +6,6 @@ import {
 	getGirNamespaceMetadata,
 	getGirTypeFromComment,
 	girKindInfoFromTag,
-	shouldShowGirParenthetical,
 } from "../utils.ts";
 
 /** Helper: create a table row with label and value. */
@@ -94,14 +93,14 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 		kindString = ReflectionKind.singularString(props.model.kind);
 	}
 
-	// Append GIR kind in parentheses when it differs from the TypeScript kind,
-	// e.g. "Class (Struct)" for a GIR record exposed as a TS class.
+	// Append GIR kind in parentheses, e.g. "Class (GI Struct)" or "Namespace (GI Enum)".
+	// Always shown when a @gir-type tag is present.
 	if (kindString) {
 		const girType = getGirTypeFromComment(props.model);
 		if (girType) {
 			const girInfo = girKindInfoFromTag(girType);
-			if (girInfo && shouldShowGirParenthetical(kindString, girInfo.label)) {
-				kindString = `${kindString} (${girInfo.label})`;
+			if (girInfo) {
+				kindString = `${kindString} (GI ${girInfo.label})`;
 			}
 		}
 	}

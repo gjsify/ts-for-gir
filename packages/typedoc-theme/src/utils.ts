@@ -54,21 +54,6 @@ export function girKindInfoFromTag(girType: string): { label: string; modifier: 
 	return GIR_TYPE_INFO[girType] ?? null;
 }
 
-/**
- * Returns true when the GIR kind label adds information beyond the TypeScript kind.
- * When they are equivalent concepts, parenthetical display is unnecessary.
- */
-const KIND_EQUIVALENCES: Record<string, string[]> = {
-	Class: ["Class"],
-	Interface: ["Interface"],
-	Enumeration: ["Enum"],
-	"Type alias": ["Alias"],
-};
-
-export function shouldShowGirParenthetical(tsKind: string, girLabel: string): boolean {
-	const equivSet = KIND_EQUIVALENCES[tsKind];
-	return !equivSet || !equivSet.includes(girLabel);
-}
 
 /** Shape of the girMetadata field injected by GirMetadataSerializer (fallback for data not in TSDoc). */
 interface GirReflectionMeta {

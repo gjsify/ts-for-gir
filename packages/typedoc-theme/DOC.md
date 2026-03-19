@@ -1,10 +1,8 @@
-<p align="center">
-  <img src="../../.github/ts-for-gir_x4.png" />
-</p>
+![TS for GIR](../../.github/ts-for-gir_x4.png)
 
 This is the TypeScript API reference for [GJS](https://gjs.guide/) — the GNOME JavaScript runtime. Browse the modules below to find detailed type information for GLib, GTK, GStreamer, and many other GNOME libraries.
 
-All type definitions are auto-generated from [GObject Introspection](https://gi.readthedocs.io/en/latest/) data using [ts-for-gir](https://github.com/gjsify/ts-for-gir) and can be installed as NPM packages for use in your projects.
+All type definitions are auto-generated from [GObject Introspection](https://gi.readthedocs.io/en/latest/) data using [ts-for-gir](https://github.com/gjsify/ts-for-gir) and can be installed as NPM packages for use in your projects. You can also use ts-for-gir to generate the type definitions and this documentation yourself for any GIR module available on your system.
 
 ## Install
 
@@ -28,7 +26,7 @@ All pre-generated packages can be found on [gjsify/types](https://github.com/gjs
 
 ## Showcase
 
-Applications built with GJS and TypeScript:
+**GNOME Applications**
 
 * [Audio Player](https://flathub.org/apps/org.gnome.Decibels) - Play audio files
 * [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters) - Keep track of anything
@@ -39,13 +37,17 @@ Applications built with GJS and TypeScript:
 * [Weather](https://flathub.org/apps/org.gnome.Weather) - Show weather conditions and forecast
 * [K'uychi](https://flathub.org/en/apps/one.naiara.Kuychi) - Generate color palettes
 
+**GNOME Shell Extensions**
+
+* [gTile](https://github.com/gTile/gTile) - Tiling window management for GNOME Shell
+* [Copyous](https://github.com/boerdereinar/copyous) - Clipboard manager for GNOME Shell
+* [Rounded Window Corners](https://github.com/flexagoon/rounded-window-corners) - Add rounded corners to windows
+
 ## Example Projects
 
 Looking for a starting point? These example projects demonstrate how to use the TypeScript definitions with various bundlers:
 
 - [GTK 4 Template with Vite](https://github.com/gjsify/ts-for-gir/tree/main/examples/gtk-4-template-vite) - Modern UI with Vite bundling
-- [GTK 3 Browser](https://github.com/gjsify/ts-for-gir/tree/main/examples/gtk-3-browser) - Web browser using WebKit
-- [Gio File Operations](https://github.com/gjsify/ts-for-gir/tree/main/examples/gio-2-cat) - File system operations with Gio
 - [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) - A template using GTK, libadwaita, TypeScript, Flatpak, and Meson
 
 More examples with screenshots and descriptions can be found in the [ts-for-gir examples directory](https://github.com/gjsify/ts-for-gir/tree/main/examples).

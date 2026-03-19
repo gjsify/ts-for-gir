@@ -45,6 +45,17 @@ function giDocgenModuleInfo(
 	// Package version: prefer TypeDoc reflection, fallback to metadata
 	const packageVersion = (mod as unknown as { packageVersion?: string }).packageVersion || nsMeta.packageVersion;
 
+	// Determine active child: walk from current page model up to find a direct child of this module
+	const pageModel = context.page.model;
+	const isChildActive = (child: DeclarationReflection): boolean => {
+		let current: Reflection | undefined = pageModel;
+		while (current) {
+			if (current === child) return true;
+			current = current.parent;
+		}
+		return false;
+	};
+
 	const renderChildSection = (children: typeof childNamespaces, title: string) =>
 		children &&
 		children.length > 0 &&
@@ -56,14 +67,25 @@ function giDocgenModuleInfo(
 				"ul",
 				{ class: "gi-docgen-module-list" },
 				...children.map((child) =>
-					JSX.createElement("li", null, JSX.createElement("a", { href: context.urlTo(child) }, child.name)),
+					JSX.createElement(
+						"li",
+						null,
+						JSX.createElement(
+							"a",
+							{ href: context.urlTo(child), class: isChildActive(child) ? "current" : undefined },
+							child.name,
+						),
+					),
 				),
 			),
 		);
 
+	const displayName = nsMeta.displayName || nsMeta.namespace;
+
 	return JSX.createElement(
 		"div",
 		{ class: "gi-docgen-module-info" },
+		JSX.createElement("h3", null, JSX.createElement("a", { href: context.urlTo(mod) }, displayName)),
 		JSX.createElement(
 			"div",
 			{ class: "gi-docgen-module-versions" },
@@ -94,9 +116,9 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 	const logoAlt = nsMeta?.displayName || nsMeta?.namespace || "GJS TypeScript Definitions";
 	const logoHref = owningModule ? context.urlTo(owningModule) : context.relativeURL("index.html", true);
 
-	// Subtitle: "TypeScript API Reference for <MODULE>" or "GJS"
+	// Subtitle: "TypeScript API Documentation for <MODULE>" or "GJS"
 	const subtitleTarget = nsMeta ? (nsMeta.displayName || nsMeta.packageName).toUpperCase() : "GJS";
-	const subtitle = `TypeScript API Reference for ${subtitleTarget}`;
+	const subtitle = `TypeScript API Documentation for ${subtitleTarget}`;
 
 	// Are we inside a module page or on the overview (index/modules)?
 	const isModulePage = !!owningModule;
@@ -105,7 +127,34 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 		JSX.Fragment,
 		null,
 		context.sidebarLinks(),
-		/* Logo + subtitle — above search, like gi-docgen */
+		/* Header: back button (module pages only) + subtitle — always present */
+		JSX.createElement(
+			"div",
+			{ class: "gi-docgen-sidebar-header" },
+			isModulePage &&
+				JSX.createElement(
+					"a",
+					{
+						href: context.relativeURL("index.html", true),
+						class: "gi-docgen-back-button",
+						"aria-label": "Back to overview",
+						title: "Back to overview",
+					},
+					JSX.createElement(
+						"svg",
+						{ width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", "aria-hidden": "true" },
+						JSX.createElement("path", {
+							d: "M12.5 15L7.5 10L12.5 5",
+							stroke: "currentColor",
+							"stroke-width": "2",
+							"stroke-linecap": "round",
+							"stroke-linejoin": "round",
+						}),
+					),
+				),
+			JSX.createElement("p", { class: "gi-docgen-logo-subtitle" }, subtitle),
+		),
+		/* Logo — centered, below header */
 		JSX.createElement(
 			"div",
 			{ class: "gi-docgen-module-logo" },
@@ -114,7 +163,6 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				{ href: logoHref },
 				JSX.createElement("img", { src: logoUrl, alt: logoAlt, class: "logo" }),
 			),
-			JSX.createElement("p", { class: "gi-docgen-logo-subtitle" }, subtitle),
 		),
 		/* Search input in the sidebar, gi-docgen style */
 		JSX.createElement(
@@ -153,28 +201,6 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				),
 			),
 		),
-		/* Module page: back button (fixed top-left) + module info */
-		isModulePage &&
-			JSX.createElement(
-				"a",
-				{
-					href: context.relativeURL("index.html", true),
-					class: "gi-docgen-back-button",
-					"aria-label": "Back to overview",
-					title: "Back to overview",
-				},
-				JSX.createElement(
-					"svg",
-					{ width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", "aria-hidden": "true" },
-					JSX.createElement("path", {
-						d: "M12.5 15L7.5 10L12.5 5",
-						stroke: "currentColor",
-						"stroke-width": "2",
-						"stroke-linecap": "round",
-						"stroke-linejoin": "round",
-					}),
-				),
-			),
 		isModulePage && nsMeta && giDocgenModuleInfo(context, owningModule as DeclarationReflection, nsMeta),
 		/* Overview page: References + All Modules */
 		!isModulePage &&

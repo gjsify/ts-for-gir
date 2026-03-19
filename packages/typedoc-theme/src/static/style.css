@@ -403,6 +403,26 @@ body.menu-visible .overlay {
 	z-index: 5;
 }
 
+/* Readme section: downscale heading levels so h1 looks like h3, h2 like h4, etc.
+ * The Readme accordion title is an h2, so inner headings must be visually smaller. */
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h1 {
+	font-size: 1.2em;
+}
+
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h2 {
+	font-size: 1.1em;
+}
+
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h3 {
+	font-size: 1em;
+}
+
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h4,
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h5,
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h6 {
+	font-size: 0.95em;
+}
+
 /* ============================
  * Accordion chevrons (shared between content area, TOC, and sidebar)
  * ============================ */
@@ -513,37 +533,12 @@ body.menu-visible .overlay {
 	color: var(--sidebar-text-color);
 	opacity: 0.7;
 	margin: 0 0 0.3em 0;
-	padding-left: 0.5rem;
-}
-
-/* Back button in sidebar (module pages only) */
-#gi-docgen-sidebar .gi-docgen-back-button {
-	position: absolute;
-	top: 0.75rem;
-	left: 0.75rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 32px;
-	height: 32px;
-	border-radius: 8px;
-	color: var(--sidebar-text-color);
-	opacity: 0.7;
-	transition: opacity 150ms ease, background-color 150ms ease;
-	z-index: 1;
-}
-
-#gi-docgen-sidebar .gi-docgen-back-button:hover {
-	opacity: 1;
-	background: var(--sidebar-hover-bg);
-	color: var(--sidebar-text-color);
-	text-decoration: none;
 }
 
 /* Module logo in sidebar (gi-docgen style) */
 #gi-docgen-sidebar .gi-docgen-module-logo {
 	text-align: center;
-	margin-bottom: 0.75em;
+	margin-bottom: 0.5em;
 }
 
 #gi-docgen-sidebar .gi-docgen-module-logo .logo {
@@ -553,28 +548,52 @@ body.menu-visible .overlay {
 	width: auto;
 }
 
+/* Sidebar header: back button + subtitle row */
+#gi-docgen-sidebar .gi-docgen-sidebar-header {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	margin-bottom: 0.75em;
+	min-height: 32px;
+	padding: 0 0.25rem;
+}
+
+#gi-docgen-sidebar .gi-docgen-back-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	color: var(--sidebar-text-color);
+	opacity: 0.7;
+	transition: opacity 150ms ease, background-color 150ms ease;
+}
+
+#gi-docgen-sidebar .gi-docgen-back-button:hover {
+	opacity: 1;
+	background: var(--sidebar-hover-bg);
+	color: var(--sidebar-text-color);
+	text-decoration: none;
+}
+
 #gi-docgen-sidebar .gi-docgen-logo-subtitle {
-	text-align: center;
 	font-size: 0.75rem;
 	color: var(--sidebar-text-color);
 	opacity: 0.6;
-	margin: 0.3em 0 0 0;
+	margin: 0;
 	line-height: 1.3;
-}
-
-/* Module info section in sidebar (gi-docgen namespace style) */
-#gi-docgen-sidebar .gi-docgen-module-info {
-	padding-bottom: 1em;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	margin-bottom: 1em;
+	text-align: center;
+	flex: 1;
 }
 
 #gi-docgen-sidebar .gi-docgen-module-info h3 {
 	font-size: 1.5em;
 	text-transform: uppercase;
 	font-weight: 900;
-	margin: 1em 0 0.5em 0;
-	padding-left: 0.5rem;
+	margin: 0.75rem;
+	padding-left: 0;
 	line-height: 1.2;
 }
 
@@ -590,16 +609,27 @@ body.menu-visible .overlay {
 	font-size: 0.9rem;
 	opacity: 0.8;
 	margin: 0;
-	padding-left: 0.5rem;
+	padding-left: 0;
 }
 
 #gi-docgen-sidebar .gi-docgen-module-versions {
-	margin-bottom: 1em;
+	margin: 0.75em;
 }
 
 /* Sidebar sub-sections (namespaces, dependencies, etc.) */
 #gi-docgen-sidebar .gi-docgen-sidebar-section {
 	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+#gi-docgen-sidebar .gi-docgen-sidebar-section > .gi-docgen-section-heading {
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+}
+
+#gi-docgen-sidebar .gi-docgen-sidebar-section > .gi-docgen-module-list a {
+	padding-left: 0.75em;
+	padding-right: 0.75em;
 }
 
 #gi-docgen-sidebar .gi-docgen-sidebar-section .gi-docgen-dep-external {
@@ -686,7 +716,7 @@ body.menu-visible .overlay {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-	padding: 0.2rem 0.5rem;
+	padding: 0.2rem;
 	margin-bottom: 0.15rem;
 	border-radius: var(--box-radius);
 	font-size: 0.9rem;

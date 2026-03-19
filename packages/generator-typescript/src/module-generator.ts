@@ -992,6 +992,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (girEnum.isRegistered) {
+			const nsTags = [
+				{ tagName: "gir-type", paramName: "", text: girEnum.flags ? "Flags" : "Enum" } as const,
+			];
+			desc.push(...this.addGirDocComment(null, nsTags, indentCount));
 			desc.push(`export namespace ${name} {`);
 			const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
 			desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`);

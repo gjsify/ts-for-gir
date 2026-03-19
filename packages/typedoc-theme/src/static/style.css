@@ -2,7 +2,7 @@
  * gi-docgen inspired theme for TypeDoc
  * Provides a 3-column layout: dark sidebar | content | table of contents
  *
- * CSS is ordered by ascending specificity to satisfy linters:
+ * CSS is ordered by ascending specificity:
  * 1. Custom properties (:root)
  * 2. Element/class selectors (low specificity)
  * 3. Content area (.gi-docgen-content — specificity 0,1,x)
@@ -13,11 +13,12 @@
  * CSS Custom Properties
  * ============================ */
 :root {
-	/* gi-docgen theme colors */
+	/* Theme colors */
 	--text-color: rgb(51, 51, 51);
 	--text-color-muted: rgba(51, 51, 51, 0.65);
 	--primary: rgb(28, 118, 228);
 	--body-bg: #fff;
+	--link-color: var(--primary);
 
 	/* Override TypeDoc's built-in variables for light mode */
 	--light-color-background: #fff;
@@ -27,7 +28,7 @@
 	--light-color-text-aside: rgba(51, 51, 51, 0.65);
 	--light-color-link: rgb(28, 118, 228);
 
-	/* Override TypeDoc's dark mode variables too */
+	/* Override TypeDoc's dark mode variables */
 	--dark-color-background: #121212;
 	--dark-color-background-secondary: #2a2a2a;
 	--dark-color-background-active: #444;
@@ -43,9 +44,14 @@
 	--sidebar-hover-bg: rgba(127, 127, 127, 0.2);
 	--sidebar-search-bg: rgba(127, 127, 127, 0.25);
 	--sidebar-search-focus-bg: rgba(127, 127, 127, 0.3);
+	--sidebar-border-color: rgba(255, 255, 255, 0.1);
 	--sidebar-padding: 1.5em;
+	--sidebar-section-spacing: 0.75em;
 	--sidebar-min-width: 30ch;
 	--sidebar-max-width: 43ch;
+	--sidebar-font-size-sm: 0.75rem;
+	--sidebar-font-size: 0.85rem;
+	--sidebar-font-size-lg: 0.9rem;
 
 	/* Boxes / Code Blocks */
 	--box-bg: rgba(135, 135, 135, 0.085);
@@ -64,10 +70,26 @@
 
 	/* Layout */
 	--preferred-content-width: 111ch;
+	--content-padding: 2em 4em;
 	--toc-width: 25ch;
 
-	/* Links */
-	--link-color: var(--primary);
+	/* Transitions */
+	--transition-speed: 150ms;
+
+	/* Badge colors (light mode) */
+	--badge-signal: #c04040;
+	--badge-signal-bg: rgba(220, 80, 80, 0.12);
+	--badge-signal-light-bg: rgba(220, 80, 80, 0.08);
+	--badge-virtual: #1c76e4;
+	--badge-virtual-bg: rgba(28, 118, 228, 0.12);
+	--badge-orange: #b35c1e;
+	--badge-orange-bg: rgba(230, 126, 34, 0.12);
+	--badge-purple: #8e44ad;
+	--badge-purple-bg: rgba(142, 68, 173, 0.12);
+	--badge-deprecated: #c01c24;
+	--badge-deprecated-bg: rgba(224, 27, 36, 0.12);
+	--badge-since: #1a7f37;
+	--badge-since-bg: rgba(38, 162, 105, 0.12);
 
 	/* Warning/Error */
 	--warning-bg: rgba(229, 165, 10, 0.15);
@@ -76,8 +98,8 @@
 
 /* ============================
  * Dark Mode
- * The variables are duplicated because CSS requires separate rules
- * for explicit dark theme vs OS-level preference (media query).
+ * Duplicated for data-theme="dark" (explicit) and data-theme="os" (system preference).
+ * CSS requires separate rules — no way to merge these.
  * ============================ */
 @media (prefers-color-scheme: dark) {
 	:root[data-theme="os"] {
@@ -90,6 +112,12 @@
 		--box-bg: rgba(135, 135, 135, 0.15);
 		--box-text-color: #eee;
 		--link-color: var(--primary);
+		--badge-signal: #f07070;
+		--badge-virtual: #5aaeff;
+		--badge-orange: #e0944d;
+		--badge-purple: #b87fd8;
+		--badge-deprecated: #f06070;
+		--badge-since: #56d364;
 	}
 }
 
@@ -103,6 +131,12 @@
 	--box-bg: rgba(135, 135, 135, 0.15);
 	--box-text-color: #eee;
 	--link-color: var(--primary);
+	--badge-signal: #f07070;
+	--badge-virtual: #5aaeff;
+	--badge-orange: #e0944d;
+	--badge-purple: #b87fd8;
+	--badge-deprecated: #f06070;
+	--badge-since: #56d364;
 }
 
 /* ============================
@@ -179,10 +213,10 @@ h3 {
 }
 
 /* ============================
- * Content Styles (class selectors — low specificity first)
+ * Content Styles (class selectors — low specificity)
  * ============================ */
 
-/* Kind icons — hidden in gi-docgen theme (fallback for JS-generated icons) */
+/* Kind icons — hidden in gi-docgen theme */
 .tsd-kind-icon {
 	display: none;
 }
@@ -202,7 +236,7 @@ h3 {
 	display: inline-block;
 	padding: 0.1em 0.5em;
 	border-radius: 3px;
-	font-size: 0.75rem;
+	font-size: var(--sidebar-font-size-sm);
 	font-weight: 600;
 	text-transform: uppercase;
 	background: var(--box-bg);
@@ -211,12 +245,9 @@ h3 {
 }
 
 /* Source links */
-.tsd-sources {
-	font-size: 0.85rem;
-	color: var(--text-color-muted);
-}
-
+.tsd-sources,
 .tsd-sources a {
+	font-size: var(--sidebar-font-size);
 	color: var(--text-color-muted);
 }
 
@@ -267,7 +298,7 @@ h3 {
 
 .gi-docgen-object-type {
 	display: block;
-	font-size: 0.75rem;
+	font-size: var(--sidebar-font-size-sm);
 	text-transform: uppercase;
 	letter-spacing: 0.07em;
 	color: var(--text-color-muted);
@@ -276,8 +307,7 @@ h3 {
 
 .gi-docgen-page-title h1 {
 	font-size: 2rem;
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 0;
 	line-height: 1.2;
 	display: flex;
 	align-items: center;
@@ -287,7 +317,6 @@ h3 {
 
 .gi-docgen-page-title h1 a {
 	color: var(--primary);
-	text-decoration: none;
 }
 
 .gi-docgen-page-title h1 a:hover {
@@ -313,7 +342,7 @@ h3 {
 
 .gi-docgen-module-metadata table {
 	border-collapse: collapse;
-	font-size: 0.9rem;
+	font-size: var(--sidebar-font-size-lg);
 }
 
 .gi-docgen-module-metadata td {
@@ -336,7 +365,6 @@ h3 {
 	z-index: 1;
 	text-decoration: none;
 	padding: 0 0.4em;
-	margin: 0;
 	color: var(--text-color-muted);
 }
 
@@ -350,7 +378,7 @@ h3 {
 
 .tsd-anchor-icon::before {
 	content: "#";
-	font-size: 0.85em;
+	font-size: var(--sidebar-font-size);
 }
 
 /* Member items */
@@ -369,7 +397,7 @@ h3 {
 	overflow-x: auto;
 }
 
-/* Breadcrumbs separator */
+/* Breadcrumbs */
 .tsd-breadcrumb {
 	list-style: none;
 	padding: 0;
@@ -395,10 +423,7 @@ h3 {
 body.menu-visible .overlay {
 	display: block;
 	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	inset: 0;
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 5;
 }
@@ -420,11 +445,10 @@ body.menu-visible .overlay {
 }
 
 .gi-docgen-content .tsd-member-summary-name {
-	margin: 0;
 	padding: 0;
 }
 
-/* Readme section: downscale heading levels so h1 looks like h3, h2 like h4, etc.
+/* Readme section: downscale heading levels so h1→h3 size, h2→h4 size, etc.
  * The Readme accordion title is an h2, so inner headings must be visually smaller. */
 .gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h1 {
 	font-size: 1.2em;
@@ -438,9 +462,7 @@ body.menu-visible .overlay {
 	font-size: 1em;
 }
 
-.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h4,
-.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h5,
-.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h6 {
+.gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography :is(h4, h5, h6) {
 	font-size: 0.95em;
 }
 
@@ -486,14 +508,15 @@ body.menu-visible .overlay {
 	font-weight: bold;
 	color: var(--box-text-color);
 	background: var(--box-bg);
-	vertical-align: middle;
 }
 
 :is(.gi-docgen-content, #gi-docgen-toc, #gi-docgen-sidebar) .tsd-accordion[open] > summary::before {
 	content: "-";
 }
 
-/* Sidebar search (gi-docgen style) */
+/* ============================
+ * Sidebar search (gi-docgen style)
+ * ============================ */
 .gi-docgen-search {
 	margin-bottom: 1em;
 }
@@ -506,12 +529,12 @@ body.menu-visible .overlay {
 	border: none;
 	border-radius: 50px;
 	padding: 0.5em 1em;
-	font-size: 0.9rem;
+	font-size: var(--sidebar-font-size-lg);
 	font-family: var(--body-font-family);
 	background: var(--sidebar-search-bg);
 	color: var(--sidebar-text-color);
 	cursor: pointer;
-	transition: background-color 150ms ease;
+	transition: background-color var(--transition-speed) ease;
 }
 
 .gi-docgen-search-button:hover,
@@ -530,155 +553,45 @@ body.menu-visible .overlay {
 	opacity: 0.6;
 }
 
-/* Generator credits in left sidebar */
-#gi-docgen-sidebar .gi-docgen-generator {
-	padding-top: 1em;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
-	font-size: 0.75rem;
-	opacity: 0.6;
-}
-
-#gi-docgen-sidebar .gi-docgen-generator p {
-	margin: 0;
-}
-
-#gi-docgen-sidebar .gi-docgen-generator a {
-	color: var(--sidebar-primary);
-}
-
-/* Shared sidebar section heading style (Dependencies, Modules, etc.) */
-#gi-docgen-sidebar .gi-docgen-section-heading {
-	font-size: 0.85rem;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	color: var(--sidebar-text-color);
-	opacity: 0.7;
-	margin: 0 0 0.3em 0;
-}
-
-/* Module logo in sidebar (gi-docgen style) */
-#gi-docgen-sidebar .gi-docgen-module-logo {
-	text-align: center;
-	margin-bottom: 0.5em;
-}
-
-#gi-docgen-sidebar .gi-docgen-module-logo .logo {
-	display: block;
-	margin: 0 auto;
-	height: 72px;
-	width: auto;
-}
-
-/* Sidebar header: back button + subtitle row */
-#gi-docgen-sidebar .gi-docgen-sidebar-header {
-	display: flex;
-	align-items: center;
-	gap: 0.4em;
-	margin-bottom: 0.75em;
-	min-height: 32px;
-	padding: 0 0.25rem;
-}
-
-#gi-docgen-sidebar .gi-docgen-back-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	width: 28px;
-	height: 28px;
-	border-radius: 6px;
-	color: var(--sidebar-text-color);
-	opacity: 0.7;
-	transition: opacity 150ms ease, background-color 150ms ease;
-}
-
-#gi-docgen-sidebar .gi-docgen-back-button:hover {
-	opacity: 1;
-	background: var(--sidebar-hover-bg);
-	color: var(--sidebar-text-color);
-	text-decoration: none;
-}
-
-#gi-docgen-sidebar .gi-docgen-logo-subtitle {
-	font-size: 0.75rem;
-	color: var(--sidebar-text-color);
-	opacity: 0.6;
-	margin: 0;
-	line-height: 1.3;
-	text-align: center;
-	flex: 1;
-}
-
-#gi-docgen-sidebar .gi-docgen-module-info h3 {
-	font-size: 1.5em;
-	text-transform: uppercase;
-	font-weight: 900;
-	margin: 0.75rem;
-	padding-left: 0;
-	line-height: 1.2;
-}
-
-#gi-docgen-sidebar .gi-docgen-module-info h3 a {
-	color: var(--sidebar-text-color);
-}
-
-#gi-docgen-sidebar .gi-docgen-module-info h3 a:hover {
-	color: var(--sidebar-primary);
-}
-
-#gi-docgen-sidebar .gi-docgen-module-info p {
-	font-size: 0.9rem;
-	opacity: 0.8;
-	margin: 0;
-	padding-left: 0;
-}
-
-#gi-docgen-sidebar .gi-docgen-module-versions {
-	margin: 0.75em;
-}
-
-/* Sidebar sub-sections (namespaces, dependencies, etc.) */
-#gi-docgen-sidebar .gi-docgen-sidebar-section {
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-}
-
-#gi-docgen-sidebar .gi-docgen-sidebar-section > .gi-docgen-section-heading {
-	padding-left: 0.75em;
-	padding-right: 0.75em;
-}
-
-#gi-docgen-sidebar .gi-docgen-sidebar-section > .gi-docgen-module-list a {
-	padding-left: 0.75em;
-	padding-right: 0.75em;
-}
-
-#gi-docgen-sidebar .gi-docgen-sidebar-section .gi-docgen-dep-external {
-	display: block;
-	font-size: 0.9rem;
-	opacity: 0.6;
-	padding: 0.2rem 0.5rem;
-}
-
-/* Menu trigger (mobile) */
-.tsd-widget.menu {
-	display: none;
-}
-
-/* Hide TypeDoc default elements we don't use */
-.container.container-main,
-.col-sidebar,
-.col-content {
-	display: contents;
-}
-
 /* ============================
- * 3-Column Layout (ID selectors — high specificity)
+ * GIR member badges (extend .tsd-tag base style)
  * ============================ */
-#gi-docgen-body-wrapper {
-	display: flex;
-	height: 100vh;
-	overflow: hidden;
+.tsd-tag-gir-signal {
+	background: var(--badge-signal-bg);
+	color: var(--badge-signal);
+}
+
+.tsd-tag-gir-virtual-method,
+.tsd-tag-gir-read-only {
+	background: var(--badge-virtual-bg);
+	color: var(--badge-virtual);
+}
+
+.tsd-tag-gir-signal-detailed,
+.tsd-tag-gir-signal-when {
+	background: var(--badge-signal-light-bg);
+	color: var(--badge-signal);
+}
+
+.tsd-tag-gir-signal-action,
+.tsd-tag-gir-write-only {
+	background: var(--badge-orange-bg);
+	color: var(--badge-orange);
+}
+
+.tsd-tag-gir-construct-only {
+	background: var(--badge-purple-bg);
+	color: var(--badge-purple);
+}
+
+.tsd-tag-gir-deprecated {
+	background: var(--badge-deprecated-bg);
+	color: var(--badge-deprecated);
+}
+
+.tsd-tag-gir-since {
+	background: var(--badge-since-bg);
+	color: var(--badge-since);
 }
 
 /* ============================
@@ -721,6 +634,118 @@ body.menu-visible .overlay {
 	font-weight: 600;
 }
 
+/* Sidebar header: back button + subtitle row */
+#gi-docgen-sidebar .gi-docgen-sidebar-header {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	margin-bottom: var(--sidebar-section-spacing);
+	min-height: 32px;
+	padding: 0 0.25rem;
+}
+
+#gi-docgen-sidebar .gi-docgen-back-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	color: var(--sidebar-text-color);
+	opacity: 0.7;
+	transition: opacity var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+#gi-docgen-sidebar .gi-docgen-back-button:hover {
+	opacity: 1;
+	background: var(--sidebar-hover-bg);
+	color: var(--sidebar-text-color);
+	text-decoration: none;
+}
+
+#gi-docgen-sidebar .gi-docgen-logo-subtitle {
+	font-size: var(--sidebar-font-size-sm);
+	color: var(--sidebar-text-color);
+	opacity: 0.6;
+	margin: 0;
+	line-height: 1.3;
+	text-align: center;
+	flex: 1;
+}
+
+/* Module logo */
+#gi-docgen-sidebar .gi-docgen-module-logo {
+	text-align: center;
+	margin-bottom: 0.5em;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-logo .logo {
+	display: block;
+	margin: 0 auto;
+	height: 72px;
+	width: auto;
+}
+
+/* Module info section (module pages: name, versions, children, deps) */
+#gi-docgen-sidebar .gi-docgen-module-info {
+	margin: var(--sidebar-section-spacing);
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info h3 {
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: 900;
+	margin: 0.75rem;
+	line-height: 1.2;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info h3 a {
+	color: var(--sidebar-text-color);
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info h3 a:hover {
+	color: var(--sidebar-primary);
+}
+
+#gi-docgen-sidebar .gi-docgen-module-info p {
+	font-size: var(--sidebar-font-size-lg);
+	opacity: 0.8;
+	margin: 0;
+}
+
+#gi-docgen-sidebar .gi-docgen-module-versions {
+	margin: var(--sidebar-section-spacing);
+}
+
+/* Sidebar section headings */
+#gi-docgen-sidebar .gi-docgen-section-heading {
+	font-size: var(--sidebar-font-size);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--sidebar-text-color);
+	opacity: 0.7;
+	margin: 0 0 0.3em 0;
+}
+
+/* Sidebar sub-sections (namespaces, dependencies, etc.) */
+#gi-docgen-sidebar .gi-docgen-sidebar-section {
+	margin-top: var(--sidebar-section-spacing);
+	margin-bottom: var(--sidebar-section-spacing);
+}
+
+#gi-docgen-sidebar .gi-docgen-sidebar-section > .gi-docgen-section-heading {
+	padding-left: var(--sidebar-section-spacing);
+	padding-right: var(--sidebar-section-spacing);
+}
+
+#gi-docgen-sidebar .gi-docgen-sidebar-section .gi-docgen-dep-external {
+	display: block;
+	font-size: var(--sidebar-font-size-lg);
+	opacity: 0.6;
+	padding: 0.2rem 0.5rem;
+}
+
 /* Module list in sidebar — flat links, gi-docgen style */
 #gi-docgen-sidebar .gi-docgen-module-list {
 	list-style: none;
@@ -740,9 +765,14 @@ body.menu-visible .overlay {
 	padding: 0.2rem;
 	margin-bottom: 0.15rem;
 	border-radius: var(--box-radius);
-	font-size: 0.9rem;
+	font-size: var(--sidebar-font-size-lg);
 	color: var(--sidebar-primary);
-	transition: background-color 150ms ease;
+	transition: background-color var(--transition-speed) ease;
+}
+
+#gi-docgen-sidebar .gi-docgen-sidebar-section > .gi-docgen-module-list a {
+	padding-left: var(--sidebar-section-spacing);
+	padding-right: var(--sidebar-section-spacing);
 }
 
 #gi-docgen-sidebar .gi-docgen-module-list a:hover {
@@ -757,104 +787,31 @@ body.menu-visible .overlay {
 	font-weight: 600;
 }
 
-/* GIR member badges — extend .tsd-tag base style */
-
-/* Kind badges */
-.tsd-tag-gir-signal {
-	background: rgba(220, 80, 80, 0.12);
-	color: #c04040;
-}
-.tsd-tag-gir-virtual-method {
-	background: rgba(28, 118, 228, 0.12);
-	color: #1c76e4;
+/* Generator credits */
+#gi-docgen-sidebar .gi-docgen-generator {
+	padding-top: 1em;
+	border-top: 1px solid var(--sidebar-border-color);
+	font-size: var(--sidebar-font-size-sm);
+	opacity: 0.6;
 }
 
-/* Signal metadata badges */
-.tsd-tag-gir-signal-detailed {
-	background: rgba(220, 80, 80, 0.08);
-	color: #c04040;
-}
-.tsd-tag-gir-signal-action {
-	background: rgba(230, 126, 34, 0.12);
-	color: #b35c1e;
-}
-.tsd-tag-gir-signal-when {
-	background: rgba(220, 80, 80, 0.08);
-	color: #c04040;
+#gi-docgen-sidebar .gi-docgen-generator p {
+	margin: 0;
 }
 
-/* Property flag badges */
-.tsd-tag-gir-read-only {
-	background: rgba(28, 118, 228, 0.12);
-	color: #1c76e4;
-}
-.tsd-tag-gir-write-only {
-	background: rgba(230, 126, 34, 0.12);
-	color: #b35c1e;
-}
-.tsd-tag-gir-construct-only {
-	background: rgba(142, 68, 173, 0.12);
-	color: #8e44ad;
-}
-
-/* Deprecation badge */
-.tsd-tag-gir-deprecated {
-	background: rgba(224, 27, 36, 0.12);
-	color: #c01c24;
-}
-
-/* Since version badge */
-.tsd-tag-gir-since {
-	background: rgba(38, 162, 105, 0.12);
-	color: #1a7f37;
-}
-
-/* Dark mode variants */
-:root[data-theme="dark"] .tsd-tag-gir-signal {
-	color: #f07070;
-}
-:root[data-theme="dark"] .tsd-tag-gir-virtual-method {
-	color: #5aaeff;
-}
-:root[data-theme="dark"] .tsd-tag-gir-signal-detailed {
-	color: #e06060;
-}
-:root[data-theme="dark"] .tsd-tag-gir-signal-action {
-	color: #e0944d;
-}
-:root[data-theme="dark"] .tsd-tag-gir-signal-when {
-	color: #e06060;
-}
-:root[data-theme="dark"] .tsd-tag-gir-read-only {
-	color: #6cb6ff;
-}
-:root[data-theme="dark"] .tsd-tag-gir-write-only {
-	color: #e0944d;
-}
-:root[data-theme="dark"] .tsd-tag-gir-construct-only {
-	color: #b87fd8;
-}
-:root[data-theme="dark"] .tsd-tag-gir-deprecated {
-	color: #f06070;
-}
-:root[data-theme="dark"] .tsd-tag-gir-since {
-	color: #56d364;
-}
-
-/* Hide type icons in the sidebar */
-#gi-docgen-sidebar .tsd-kind-icon {
-	display: none;
+#gi-docgen-sidebar .gi-docgen-generator a {
+	color: var(--sidebar-primary);
 }
 
 /* Settings at the bottom of the left sidebar */
 #gi-docgen-sidebar .tsd-navigation.settings {
 	margin-top: auto;
 	padding-top: 1em;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid var(--sidebar-border-color);
 }
 
 #gi-docgen-sidebar .tsd-navigation.settings h3 {
-	font-size: 0.85rem;
+	font-size: var(--sidebar-font-size);
 	margin: 0;
 	color: var(--sidebar-text-color);
 }
@@ -872,7 +829,7 @@ body.menu-visible .overlay {
 	display: flex;
 	align-items: center;
 	gap: 0.3em;
-	font-size: 0.85rem;
+	font-size: var(--sidebar-font-size);
 	cursor: pointer;
 }
 
@@ -889,18 +846,25 @@ body.menu-visible .overlay {
 	border: none;
 	border-radius: var(--box-radius);
 	padding: 0.2em 0.5em;
-	font-size: 0.85rem;
+	font-size: var(--sidebar-font-size);
 }
 
 /* ============================
- * Main Content (Center)
+ * 3-Column Layout
  * ============================ */
+#gi-docgen-body-wrapper {
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+}
+
+/* Main Content (Center) */
 #gi-docgen-main {
 	flex: 999 1 0%;
 	min-width: 0;
 	min-height: 0;
 	max-width: calc(var(--preferred-content-width) + 8em);
-	padding: 2em 4em;
+	padding: var(--content-padding);
 	overflow-y: auto;
 }
 
@@ -940,12 +904,10 @@ body.menu-visible .overlay {
 #tsd-sidebar-links a {
 	display: block;
 	padding: 0.2em 0;
-	font-size: 0.9rem;
+	font-size: var(--sidebar-font-size-lg);
 }
 
-/* ============================
- * Table of Contents (Right)
- * ============================ */
+/* Table of Contents (Right) */
 #gi-docgen-toc {
 	position: sticky;
 	top: 0;
@@ -957,7 +919,7 @@ body.menu-visible .overlay {
 }
 
 #gi-docgen-toc .tsd-page-navigation h3 {
-	font-size: 0.85rem;
+	font-size: var(--sidebar-font-size);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	color: var(--text-color-muted);
@@ -967,7 +929,7 @@ body.menu-visible .overlay {
 #gi-docgen-toc a {
 	display: block;
 	padding: 0.15em 0;
-	font-size: 0.85rem;
+	font-size: var(--sidebar-font-size);
 	color: var(--text-color-muted);
 }
 
@@ -980,6 +942,17 @@ body.menu-visible .overlay {
 	list-style: none;
 	padding-left: 0.8em;
 	margin: 0;
+}
+
+/* Hide TypeDoc default layout elements (replaced by our 3-column layout) */
+.container.container-main,
+.col-sidebar,
+.col-content {
+	display: contents;
+}
+
+.tsd-widget.menu {
+	display: none;
 }
 
 /* ============================

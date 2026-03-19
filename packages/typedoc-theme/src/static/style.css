@@ -403,6 +403,27 @@ body.menu-visible .overlay {
 	z-index: 5;
 }
 
+/* Module member summaries (categorized homepage + module pages) */
+.gi-docgen-content .tsd-member-summaries {
+	margin: 0;
+	padding: 0;
+}
+
+.gi-docgen-content .tsd-member-summary {
+	margin: 0;
+	padding: 0;
+}
+
+.gi-docgen-content .tsd-member-summary p {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+
+.gi-docgen-content .tsd-member-summary-name {
+	margin: 0;
+	padding: 0;
+}
+
 /* Readme section: downscale heading levels so h1 looks like h3, h2 like h4, etc.
  * The Readme accordion title is an h2, so inner headings must be visually smaller. */
 .gi-docgen-content .tsd-accordion .tsd-panel.tsd-typography h1 {

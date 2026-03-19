@@ -363,6 +363,11 @@ export function giDocgenModuleMemberSummary(
 		);
 	}
 
+	// Description: prefer TSDoc comment summary, fallback to girNamespaceMetadata.description
+	const nsMeta = (member as unknown as { girNamespaceMetadata?: GirNamespaceMetadata }).girNamespaceMetadata;
+	const commentSummary = context.commentShortSummary(member);
+	const description = commentSummary || (nsMeta?.description ? JSX.createElement("p", null, nsMeta.description) : null);
+
 	return JSX.createElement(
 		JSX.Fragment,
 		null,
@@ -374,7 +379,7 @@ export function giDocgenModuleMemberSummary(
 		JSX.createElement(
 			"dd",
 			{ class: classNames({ "tsd-member-summary": true }, context.getReflectionClasses(member)) },
-			context.commentShortSummary(member),
+			description,
 		),
 	);
 }

@@ -153,23 +153,26 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				),
 			),
 		),
-		/* Module page: "Back to overview" link + module info (without breadcrumb) */
+		/* Module page: back button (fixed top-left) + module info */
 		isModulePage &&
 			JSX.createElement(
-				"nav",
-				{ class: "tsd-navigation gi-docgen-sidebar-section" },
+				"a",
+				{
+					href: context.relativeURL("index.html", true),
+					class: "gi-docgen-back-button",
+					"aria-label": "Back to overview",
+					title: "Back to overview",
+				},
 				JSX.createElement(
-					"ul",
-					{ class: "tsd-small-nested-navigation gi-docgen-module-list" },
-					JSX.createElement(
-						"li",
-						null,
-						JSX.createElement(
-							"a",
-							{ href: context.relativeURL("index.html", true) },
-							"\u2190 Back to overview",
-						),
-					),
+					"svg",
+					{ width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", "aria-hidden": "true" },
+					JSX.createElement("path", {
+						d: "M12.5 15L7.5 10L12.5 5",
+						stroke: "currentColor",
+						"stroke-width": "2",
+						"stroke-linecap": "round",
+						"stroke-linejoin": "round",
+					}),
 				),
 			),
 		isModulePage && nsMeta && giDocgenModuleInfo(context, owningModule as DeclarationReflection, nsMeta),

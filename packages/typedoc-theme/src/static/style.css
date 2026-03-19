@@ -516,6 +516,30 @@ body.menu-visible .overlay {
 	padding-left: 0.5rem;
 }
 
+/* Back button in sidebar (module pages only) */
+#gi-docgen-sidebar .gi-docgen-back-button {
+	position: absolute;
+	top: 0.75rem;
+	left: 0.75rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	color: var(--sidebar-text-color);
+	opacity: 0.7;
+	transition: opacity 150ms ease, background-color 150ms ease;
+	z-index: 1;
+}
+
+#gi-docgen-sidebar .gi-docgen-back-button:hover {
+	opacity: 1;
+	background: var(--sidebar-hover-bg);
+	color: var(--sidebar-text-color);
+	text-decoration: none;
+}
+
 /* Module logo in sidebar (gi-docgen style) */
 #gi-docgen-sidebar .gi-docgen-module-logo {
 	text-align: center;

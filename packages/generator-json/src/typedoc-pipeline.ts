@@ -226,7 +226,7 @@ export class TypeDocPipeline {
 			{
 				entryPoints: [join(this.tempDir, "*")],
 				entryPointStrategy: "packages",
-				name: "GIR API Documentation",
+				name: "TypeScript API Documentation for GJS",
 				...this.sourceLinkOptions,
 				packageOptions: {
 					skipErrorChecking: true,
@@ -258,7 +258,7 @@ export class TypeDocPipeline {
 				highlightLanguages: ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"],
 				entryPoints: [join(jsonDir, "*.json")],
 				entryPointStrategy: "merge",
-				name: "GIR API Documentation",
+				name: "TypeScript API Documentation for GJS",
 			},
 			[],
 		);

@@ -99,6 +99,10 @@ export default {
     promisify: true,
     onlyVersionPrefix: false,
     package: true,
+    readme: './packages/typedoc-theme/DOC.md',
+    jsonDir: './json',
+    outdir: './docs',
+    merge: true,
     sourceLinkTemplate: 'https://github.com/gjsify/types/blob/main/{path}#L{line}',
     verbose: true,
 }

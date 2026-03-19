@@ -87,7 +87,7 @@ export const giDocgenHeader = (context: GiDocgenThemeRenderContext, props: PageE
 		if (props.url === "index.html" && "readme" in props.model && props.model.readme) {
 			renderTitle = headings.readme;
 		}
-	} else if ("isDocument" in props.model && typeof props.model.isDocument === "function" && props.model.isDocument()) {
+	} else if (props.model.isDocument()) {
 		renderTitle = headings.document;
 	} else {
 		kindString = ReflectionKind.singularString(props.model.kind);

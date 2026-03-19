@@ -2,8 +2,7 @@ import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
 import { type TypeDocAppResult, TypeDocPipeline } from "@ts-for-gir/generator-json";
-import type { GirModule, NSRegistry, OptionsGeneration } from "@ts-for-gir/lib";
-import { Reporter, ReporterService } from "@ts-for-gir/lib";
+import { type GirModule, type NSRegistry, type OptionsGeneration, Reporter, ReporterService } from "@ts-for-gir/lib";
 import { load as loadGiDocgenTheme } from "@ts-for-gir/typedoc-theme";
 import type { Application } from "typedoc";
 

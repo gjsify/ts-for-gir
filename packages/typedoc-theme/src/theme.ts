@@ -7,6 +7,15 @@ import { GiDocgenThemeRenderContext } from "./context.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+/** Favicon files to copy into the assets directory. */
+const FAVICON_FILES = [
+	"favicon.ico",
+	"favicon-96x96.png",
+	"apple-touch-icon.png",
+	"web-app-manifest-192x192.png",
+	"web-app-manifest-512x512.png",
+] as const;
+
 /**
  * Flattens navigation to top-level modules/packages only (no children).
  * Skips a single scope-wrapper root (e.g. "@girs") and strips icon/kind data.
@@ -46,13 +55,7 @@ export class GiDocgenTheme extends DefaultTheme {
 
 			// Copy favicon files
 			const faviconDir = join(__dirname, "static", "favicon");
-			for (const file of [
-				"favicon.ico",
-				"favicon-96x96.png",
-				"apple-touch-icon.png",
-				"web-app-manifest-192x192.png",
-				"web-app-manifest-512x512.png",
-			]) {
+			for (const file of FAVICON_FILES) {
 				copyFileSync(join(faviconDir, file), join(assetsDir, file));
 			}
 

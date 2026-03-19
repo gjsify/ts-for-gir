@@ -116,46 +116,52 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 	};
 
 	if (configFileData) {
-		// Boolean options
-		mergeConfigValue(userConfig, configFileData, "verbose", options.verbose.default, isBoolean);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"ignoreVersionConflicts",
-			options.ignoreVersionConflicts.default,
-			isBoolean,
-		);
-		mergeConfigValue(userConfig, configFileData, "print", options.print.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "noNamespace", options.noNamespace.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "noComments", options.noComments.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "promisify", options.promisify.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "workspace", options.workspace.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "onlyVersionPrefix", options.onlyVersionPrefix.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "noPrettyPrint", options.noPrettyPrint.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "noAdvancedVariants", options.noAdvancedVariants.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "package", options.package.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "reporter", options.reporter.default, isBoolean);
+		// Boolean options — config file overrides CLI defaults
+		const booleanKeys: Array<[keyof UserConfig, unknown]> = [
+			["verbose", options.verbose.default],
+			["ignoreVersionConflicts", options.ignoreVersionConflicts.default],
+			["print", options.print.default],
+			["noNamespace", options.noNamespace.default],
+			["noComments", options.noComments.default],
+			["promisify", options.promisify.default],
+			["workspace", options.workspace.default],
+			["onlyVersionPrefix", options.onlyVersionPrefix.default],
+			["noPrettyPrint", options.noPrettyPrint.default],
+			["noAdvancedVariants", options.noAdvancedVariants.default],
+			["package", options.package.default],
+			["reporter", options.reporter.default],
+			["combined", docOptions.combined.default],
+			["merge", docOptions.merge.default],
+		];
+		for (const [key, defaultVal] of booleanKeys) {
+			mergeConfigValue(userConfig, configFileData, key, defaultVal, isBoolean);
+		}
 
-		// String options
-		mergeConfigValue(userConfig, configFileData, "npmScope", options.npmScope.default);
-		mergeConfigValue(userConfig, configFileData, "reporterOutput", options.reporterOutput.default);
+		// String options — config file overrides CLI defaults
+		const stringKeys: Array<[keyof UserConfig, unknown]> = [
+			["npmScope", options.npmScope.default],
+			["reporterOutput", options.reporterOutput.default],
+			["theme", docOptions.theme.default],
+			["sourceLinkTemplate", undefined],
+			["readme", undefined],
+			["jsonDir", undefined],
+		];
+		for (const [key, defaultVal] of stringKeys) {
+			mergeConfigValue(userConfig, configFileData, key, defaultVal);
+		}
 
-		// Doc-specific options
-		mergeConfigValue(userConfig, configFileData, "combined", docOptions.combined.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "sourceLinkTemplate", undefined);
-		mergeConfigValue(userConfig, configFileData, "theme", docOptions.theme.default);
-		mergeConfigValue(userConfig, configFileData, "readme", undefined);
-		mergeConfigValue(userConfig, configFileData, "merge", docOptions.merge.default, isBoolean);
-		mergeConfigValue(userConfig, configFileData, "jsonDir", undefined);
-
-		// Array options
-		mergeConfigValue(userConfig, configFileData, "girDirectories", options.girDirectories.default);
-		mergeConfigValue(userConfig, configFileData, "ignore", options.ignore.default);
-		mergeConfigValue(userConfig, configFileData, "modules", options.modules.default);
+		// Array options — config file overrides CLI defaults
+		const arrayKeys: Array<[keyof UserConfig, unknown]> = [
+			["girDirectories", options.girDirectories.default],
+			["ignore", options.ignore.default],
+			["modules", options.modules.default],
+		];
+		for (const [key, defaultVal] of arrayKeys) {
+			mergeConfigValue(userConfig, configFileData, key, defaultVal);
+		}
 
 		// Special handling for root
 		if (userConfig.root === options.root.default && (configFileData.root || configFile?.filepath)) {
-			// Use the config file path as the root path if no root path is set
 			userConfig.root =
 				configFileData.root || (configFile?.filepath ? dirname(configFile.filepath) : (options.root.default as string));
 		}

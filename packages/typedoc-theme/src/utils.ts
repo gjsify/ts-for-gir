@@ -54,7 +54,6 @@ export function girKindInfoFromTag(girType: string): { label: string; modifier: 
 	return GIR_TYPE_INFO[girType] ?? null;
 }
 
-
 /** Shape of the girMetadata field injected by GirMetadataSerializer (fallback for data not in TSDoc). */
 interface GirReflectionMeta {
 	girKind: string;

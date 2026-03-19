@@ -228,20 +228,12 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 					JSX.createElement(
 						"li",
 						null,
-						JSX.createElement(
-							"a",
-							{ href: "https://docs.gtk.org/", target: "_blank" },
-							"GTK Documentation",
-						),
+						JSX.createElement("a", { href: "https://docs.gtk.org/", target: "_blank" }, "GTK Documentation"),
 					),
 					JSX.createElement(
 						"li",
 						null,
-						JSX.createElement(
-							"a",
-							{ href: "https://github.com/gjsify/ts-for-gir", target: "_blank" },
-							"ts-for-gir",
-						),
+						JSX.createElement("a", { href: "https://github.com/gjsify/ts-for-gir", target: "_blank" }, "ts-for-gir"),
 					),
 				),
 			),

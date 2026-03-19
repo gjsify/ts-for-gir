@@ -3,7 +3,7 @@ import { JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
 import { classNames } from "../utils.ts";
 
-function buildSectionNavigation(_context: GiDocgenThemeRenderContext, headings: PageHeading[]) {
+function buildSectionNavigation(headings: PageHeading[]) {
 	const levels: JSX.Element[][] = [[]];
 
 	function finalizeLevel(finishedHandlingHeadings: boolean) {
@@ -71,11 +71,11 @@ export const giDocgenPageNavigation = (context: GiDocgenThemeRenderContext, prop
 						context.icons.chevronDown(),
 						section.title,
 					),
-					JSX.createElement("div", null, buildSectionNavigation(context, section.headings)),
+					JSX.createElement("div", null, buildSectionNavigation(section.headings)),
 				),
 			);
 		} else {
-			sections.push(buildSectionNavigation(context, section.headings));
+			sections.push(buildSectionNavigation(section.headings));
 		}
 	}
 

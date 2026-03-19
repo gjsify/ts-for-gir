@@ -37,8 +37,6 @@ function giDocgenModuleInfo(
 		);
 	});
 
-	const displayName = nsMeta.displayName || nsMeta.namespace;
-
 	// Namespaces or sub-modules exported by this module (exclude "default")
 	const childNamespaces = mod.children?.filter(
 		(child) => child.kindOf(ReflectionKind.Namespace) && child.name !== "default" && !isCompanionNamespace(child),
@@ -66,7 +64,6 @@ function giDocgenModuleInfo(
 	return JSX.createElement(
 		"div",
 		{ class: "gi-docgen-module-info" },
-		JSX.createElement("h3", null, JSX.createElement("a", { href: context.urlTo(mod) }, displayName)),
 		JSX.createElement(
 			"div",
 			{ class: "gi-docgen-module-versions" },
@@ -100,6 +97,9 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 	// Subtitle: "TypeScript API Reference for <MODULE>" or "GJS"
 	const subtitleTarget = nsMeta ? (nsMeta.displayName || nsMeta.packageName).toUpperCase() : "GJS";
 	const subtitle = `TypeScript API Reference for ${subtitleTarget}`;
+
+	// Are we inside a module page or on the overview (index/modules)?
+	const isModulePage = !!owningModule;
 
 	return JSX.createElement(
 		JSX.Fragment,
@@ -153,43 +153,70 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 				),
 			),
 		),
-		/* Module info section — only when viewing a module's pages */
-		nsMeta && giDocgenModuleInfo(context, owningModule as DeclarationReflection, nsMeta),
-		/* External references */
-		JSX.createElement(
-			"nav",
-			{ class: "tsd-navigation gi-docgen-sidebar-section" },
-			JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "References"),
+		/* Module page: "Back to overview" link + module info (without breadcrumb) */
+		isModulePage &&
 			JSX.createElement(
-				"ul",
-				{ class: "tsd-small-nested-navigation gi-docgen-module-list" },
+				"nav",
+				{ class: "tsd-navigation gi-docgen-sidebar-section" },
 				JSX.createElement(
-					"li",
-					null,
-					JSX.createElement("a", { href: "https://gjs.guide/", target: "_blank" }, "GJS Guide"),
-				),
-				JSX.createElement(
-					"li",
-					null,
-					JSX.createElement("a", { href: context.relativeURL("index.html", true) }, "TypeScript API References"),
-				),
-				JSX.createElement(
-					"li",
-					null,
+					"ul",
+					{ class: "tsd-small-nested-navigation gi-docgen-module-list" },
 					JSX.createElement(
-						"a",
-						{ href: "https://gjs-docs.gnome.org/", target: "_blank" },
-						"JavaScript API References",
+						"li",
+						null,
+						JSX.createElement(
+							"a",
+							{ href: context.relativeURL("index.html", true) },
+							"\u2190 Back to overview",
+						),
 					),
 				),
+			),
+		isModulePage && nsMeta && giDocgenModuleInfo(context, owningModule as DeclarationReflection, nsMeta),
+		/* Overview page: References + All Modules */
+		!isModulePage &&
+			JSX.createElement(
+				"nav",
+				{ class: "tsd-navigation gi-docgen-sidebar-section" },
+				JSX.createElement("h5", { class: "gi-docgen-section-heading" }, "References"),
 				JSX.createElement(
-					"li",
-					null,
-					JSX.createElement("a", { href: "https://docs.gtk.org/", target: "_blank" }, "GTK Documentation"),
+					"ul",
+					{ class: "tsd-small-nested-navigation gi-docgen-module-list" },
+					JSX.createElement(
+						"li",
+						null,
+						JSX.createElement("a", { href: "https://gjs.guide/", target: "_blank" }, "GJS Guide"),
+					),
+					JSX.createElement(
+						"li",
+						null,
+						JSX.createElement(
+							"a",
+							{ href: "https://gjs-docs.gnome.org/", target: "_blank" },
+							"JavaScript API References",
+						),
+					),
+					JSX.createElement(
+						"li",
+						null,
+						JSX.createElement(
+							"a",
+							{ href: "https://docs.gtk.org/", target: "_blank" },
+							"GTK Documentation",
+						),
+					),
+					JSX.createElement(
+						"li",
+						null,
+						JSX.createElement(
+							"a",
+							{ href: "https://github.com/gjsify/ts-for-gir", target: "_blank" },
+							"ts-for-gir",
+						),
+					),
 				),
 			),
-		),
-		context.navigation(props),
+		!isModulePage && context.navigation(props),
 		context.settings(),
 		JSX.createElement(
 			"div",

@@ -27,6 +27,27 @@ export const giDocgenLayout = (
 			JSX.createElement("meta", { name: "description", content: `Documentation for ${props.project.name}` }),
 			JSX.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1" }),
 
+			JSX.createElement("link", {
+				rel: "icon",
+				type: "image/png",
+				href: context.relativeURL("assets/favicon-96x96.png", true),
+				sizes: "96x96",
+			}),
+			JSX.createElement("link", {
+				rel: "shortcut icon",
+				href: context.relativeURL("assets/favicon.ico", true),
+			}),
+			JSX.createElement("link", {
+				rel: "apple-touch-icon",
+				sizes: "180x180",
+				href: context.relativeURL("assets/apple-touch-icon.png", true),
+			}),
+			JSX.createElement("meta", { name: "apple-mobile-web-app-title", content: props.project.name || "TS for GIR" }),
+			JSX.createElement("link", {
+				rel: "manifest",
+				href: context.relativeURL("assets/site.webmanifest", true),
+			}),
+
 			JSX.createElement("link", { rel: "stylesheet", href: context.relativeURL("assets/style.css", true) }),
 			JSX.createElement("link", { rel: "stylesheet", href: context.relativeURL("assets/highlight.css", true) }),
 			JSX.createElement("link", { rel: "stylesheet", href: context.relativeURL("assets/gi-docgen.css", true) }),

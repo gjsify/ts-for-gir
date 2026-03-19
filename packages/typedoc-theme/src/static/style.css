@@ -525,8 +525,17 @@ body.menu-visible .overlay {
 #gi-docgen-sidebar .gi-docgen-module-logo .logo {
 	display: block;
 	margin: 0 auto;
-	width: 50%;
-	max-width: 160px;
+	height: 72px;
+	width: auto;
+}
+
+#gi-docgen-sidebar .gi-docgen-logo-subtitle {
+	text-align: center;
+	font-size: 0.75rem;
+	color: var(--sidebar-text-color);
+	opacity: 0.6;
+	margin: 0.3em 0 0 0;
+	line-height: 1.3;
 }
 
 /* Module info section in sidebar (gi-docgen namespace style) */

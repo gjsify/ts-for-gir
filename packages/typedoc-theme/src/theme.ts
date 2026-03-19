@@ -1,4 +1,4 @@
-import { copyFileSync } from "node:fs";
+import { copyFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { NavigationElement, ProjectReflection, Renderer } from "typedoc";
@@ -40,6 +40,36 @@ export class GiDocgenTheme extends DefaultTheme {
 
 			// Copy inherited member toggle script
 			copyFileSync(join(__dirname, "static", "gi-docgen-inherited.js"), join(assetsDir, "gi-docgen-inherited.js"));
+
+			// Copy default logo
+			copyFileSync(join(__dirname, "static", "logo_x4.png"), join(assetsDir, "logo_x4.png"));
+
+			// Copy favicon files
+			const faviconDir = join(__dirname, "static", "favicon");
+			for (const file of [
+				"favicon.ico",
+				"favicon-96x96.png",
+				"apple-touch-icon.png",
+				"web-app-manifest-192x192.png",
+				"web-app-manifest-512x512.png",
+			]) {
+				copyFileSync(join(faviconDir, file), join(assetsDir, file));
+			}
+
+			// Generate site.webmanifest with configurable name
+			const projectName = event.project.name || "TS for GIR";
+			const manifest = {
+				name: `TypeScript type definitions for ${projectName}`,
+				short_name: projectName,
+				icons: [
+					{ src: "web-app-manifest-192x192.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
+					{ src: "web-app-manifest-512x512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+				],
+				theme_color: "#ffffff",
+				background_color: "#1e1e1e",
+				display: "standalone",
+			};
+			writeFileSync(join(assetsDir, "site.webmanifest"), JSON.stringify(manifest, null, 2));
 		});
 	}
 

@@ -88,21 +88,30 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 	const owningModule = findOwningModule(props.model);
 	const nsMeta = owningModule ? getGirNamespaceMetadata(props.model) : undefined;
 
+	// Logo: use module logo if available, otherwise default project logo
+	const logoUrl = nsMeta?.logoUrl || context.relativeURL("assets/logo_x4.png", true);
+	const logoAlt = nsMeta?.displayName || nsMeta?.namespace || "GJS TypeScript Definitions";
+	const logoHref = owningModule ? context.urlTo(owningModule) : context.relativeURL("index.html", true);
+
+	// Subtitle: "TypeScript type definitions for <MODULE>" or "GJS"
+	const subtitleTarget = nsMeta ? (nsMeta.displayName || nsMeta.packageName).toUpperCase() : "GJS";
+	const subtitle = `TypeScript type definitions for ${subtitleTarget}`;
+
 	return JSX.createElement(
 		JSX.Fragment,
 		null,
 		context.sidebarLinks(),
-		/* Logo — above search, like gi-docgen */
-		nsMeta?.logoUrl &&
+		/* Logo + subtitle — above search, like gi-docgen */
+		JSX.createElement(
+			"div",
+			{ class: "gi-docgen-module-logo" },
 			JSX.createElement(
-				"div",
-				{ class: "gi-docgen-module-logo" },
-				JSX.createElement(
-					"a",
-					{ href: owningModule ? context.urlTo(owningModule) : undefined },
-					JSX.createElement("img", { src: nsMeta.logoUrl, alt: nsMeta.displayName || nsMeta.namespace, class: "logo" }),
-				),
+				"a",
+				{ href: logoHref },
+				JSX.createElement("img", { src: logoUrl, alt: logoAlt, class: "logo" }),
 			),
+			JSX.createElement("p", { class: "gi-docgen-logo-subtitle" }, subtitle),
+		),
 		/* Search input in the sidebar, gi-docgen style */
 		JSX.createElement(
 			"div",

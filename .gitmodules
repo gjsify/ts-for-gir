@@ -35,4 +35,4 @@
 	url = git@github.com:vala-lang/valadoc-org.git
 [submodule "refs/gtk-doc"]
 	path = refs/gtk-doc
-	url = git@ssh.gitlab.gnome.org:GNOME/gtk-doc.git
+	url = https://gitlab.gnome.org/GNOME/gtk-doc.git

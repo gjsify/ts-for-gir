@@ -59,3 +59,7 @@ More examples with screenshots and descriptions can be found in the [ts-for-gir 
 - [JavaScript API References](https://gjs-docs.gnome.org/) - GJS JavaScript API reference
 - [ts-for-gir](https://github.com/gjsify/ts-for-gir) - The generator behind these type definitions
 - [GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Type definitions for GNOME Shell Extensions
+
+## Modules
+
+The following modules are documented on this site, grouped by category. Click on any module to browse its classes, interfaces, enums, functions, and constants.

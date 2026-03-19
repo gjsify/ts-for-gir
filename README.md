@@ -45,6 +45,8 @@ npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
 
 ## Showcase
 
+**GNOME Applications**
+
 * [Audio Player](https://flathub.org/apps/org.gnome.Decibels) - Play audio files
 * [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters) - Keep track of anything
 * [Ignition](https://flathub.org/apps/io.github.flattool.Ignition) - Manage startup apps and scripts
@@ -54,17 +56,20 @@ npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
 * [Weather](https://flathub.org/apps/org.gnome.Weather) - Show weather conditions and forecast
 * [K’uychi](https://flathub.org/en/apps/one.naiara.Kuychi) - Generate color palettes
 
+**GNOME Shell Extensions**
+
+* [gTile](https://github.com/gTile/gTile) - Tiling window management for GNOME Shell
+* [Copyous](https://github.com/boerdereinar/copyous) - Clipboard manager for GNOME Shell
+* [Rounded Window Corners](https://github.com/flexagoon/rounded-window-corners) - Add rounded corners to windows
+
 ## Example Projects
 
-The repository includes numerous example projects that demonstrate how to use the generated TypeScript definitions with various bundlers and libraries. These examples serve as great starting points for your own GJS applications.
+Looking for a starting point? These example projects demonstrate how to use the TypeScript definitions with various bundlers:
 
-**Popular examples:**
 - [GTK 4 Template with Vite](/examples/gtk-4-template-vite) - Modern UI with Vite bundling
-- [GTK 3 Browser](/examples/gtk-3-browser) - Web browser using WebKit
-- [Gio File Operations](/examples/gio-2-cat) - File system operations with Gio
-- [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) - A template for creating GNOME applications using GTK, libadwaita, TypeScript, Flatpak, and Meson
+- [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) - A template using GTK, libadwaita, TypeScript, Flatpak, and Meson
 
-See the [Examples directory](/examples/README.md) for a complete list of examples with screenshots and detailed descriptions. For information on using the examples with different CLI options, refer to the [CLI documentation](/packages/cli/README.md#using-the-generated-types).
+More examples with screenshots and descriptions can be found in the [Examples directory](/examples/README.md). For information on using the examples with different CLI options, refer to the [CLI documentation](/packages/cli/README.md#using-the-generated-types).
 
 ## NPM Packages
 

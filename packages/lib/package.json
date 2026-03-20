@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/lib",
-	"version": "4.0.0-beta.40",
+	"version": "4.0.0-beta.41",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

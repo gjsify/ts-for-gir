@@ -41,18 +41,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:^2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/biome@npm:2.4.5"
+"@biomejs/biome@npm:^2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/biome@npm:2.4.6"
   dependencies:
-    "@biomejs/cli-darwin-arm64": "npm:2.4.5"
-    "@biomejs/cli-darwin-x64": "npm:2.4.5"
-    "@biomejs/cli-linux-arm64": "npm:2.4.5"
-    "@biomejs/cli-linux-arm64-musl": "npm:2.4.5"
-    "@biomejs/cli-linux-x64": "npm:2.4.5"
-    "@biomejs/cli-linux-x64-musl": "npm:2.4.5"
-    "@biomejs/cli-win32-arm64": "npm:2.4.5"
-    "@biomejs/cli-win32-x64": "npm:2.4.5"
+    "@biomejs/cli-darwin-arm64": "npm:2.4.6"
+    "@biomejs/cli-darwin-x64": "npm:2.4.6"
+    "@biomejs/cli-linux-arm64": "npm:2.4.6"
+    "@biomejs/cli-linux-arm64-musl": "npm:2.4.6"
+    "@biomejs/cli-linux-x64": "npm:2.4.6"
+    "@biomejs/cli-linux-x64-musl": "npm:2.4.6"
+    "@biomejs/cli-win32-arm64": "npm:2.4.6"
+    "@biomejs/cli-win32-x64": "npm:2.4.6"
   dependenciesMeta:
     "@biomejs/cli-darwin-arm64":
       optional: true
@@ -72,62 +72,62 @@ __metadata:
       optional: true
   bin:
     biome: bin/biome
-  checksum: 10/e347734ee73c921f1f2866c4c2dca220feb3dcf514533a08c1ea96160a9909dd82a49921b229b36eb331309045605e2076fa1b30b9aa4301e62c8ff29d491c1d
+  checksum: 10/a956525e8322fe8448a85915c6fdfacfbfd77fb729cf1644d7166c787d12ccd0cd4386bcee9f5d797f1dff6ba9d96b4f8491a938cdd5bf1a6efab2aebbd718cf
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-arm64@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-darwin-arm64@npm:2.4.5"
+"@biomejs/cli-darwin-arm64@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-darwin-arm64@npm:2.4.6"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-x64@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-darwin-x64@npm:2.4.5"
+"@biomejs/cli-darwin-x64@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-darwin-x64@npm:2.4.6"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64-musl@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.4.5"
+"@biomejs/cli-linux-arm64-musl@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.4.6"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-linux-arm64@npm:2.4.5"
+"@biomejs/cli-linux-arm64@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-linux-arm64@npm:2.4.6"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64-musl@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-linux-x64-musl@npm:2.4.5"
+"@biomejs/cli-linux-x64-musl@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-linux-x64-musl@npm:2.4.6"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-linux-x64@npm:2.4.5"
+"@biomejs/cli-linux-x64@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-linux-x64@npm:2.4.6"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-arm64@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-win32-arm64@npm:2.4.5"
+"@biomejs/cli-win32-arm64@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-win32-arm64@npm:2.4.6"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-x64@npm:2.4.5":
-  version: 2.4.5
-  resolution: "@biomejs/cli-win32-x64@npm:2.4.5"
+"@biomejs/cli-win32-x64@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@biomejs/cli-win32-x64@npm:2.4.6"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -339,7 +339,7 @@ __metadata:
   resolution: "@gi.ts/parser@workspace:packages/parser"
   dependencies:
     "@ts-for-gir/tsconfig": "workspace:^"
-    fast-xml-parser: "npm:^5.4.2"
+    fast-xml-parser: "npm:^5.5.3"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -15524,7 +15524,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@ts-for-gir/language-server": "workspace:*"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     typescript: "npm:^5.9.3"
     vitest: "npm:^4.0.18"
   languageName: unknown
@@ -15566,11 +15566,11 @@ __metadata:
     "@ts-for-gir/tsconfig": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/inquirer": "npm:^9.0.9"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     "@types/yargs": "npm:^17.0.35"
     colorette: "npm:^2.0.20"
     cosmiconfig: "npm:^9.0.1"
-    ejs: "npm:^4.0.1"
+    ejs: "npm:^5.0.1"
     esbuild: "npm:^0.27.3"
     glob: "npm:^13.0.6"
     inquirer: "npm:^13.3.0"
@@ -15591,7 +15591,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -15601,10 +15601,13 @@ __metadata:
   resolution: "@ts-for-gir/generator-html-doc@workspace:packages/generator-html-doc"
   dependencies:
     "@ts-for-gir/generator-base": "workspace:^"
+    "@ts-for-gir/generator-json": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
-    "@types/node": "npm:^24.11.0"
+    "@ts-for-gir/typedoc-theme": "workspace:^"
+    "@types/node": "npm:^24.12.0"
     rimraf: "npm:^6.1.3"
+    typedoc: "npm:^0.28.17"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -15616,10 +15619,11 @@ __metadata:
     "@gi.ts/parser": "workspace:^"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/generator-typescript": "workspace:^"
+    "@ts-for-gir/gir-module-metadata": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/reporter": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     typedoc: "npm:^0.28.17"
     typescript: "npm:^5.9.3"
   languageName: unknown
@@ -15635,11 +15639,20 @@ __metadata:
     "@ts-for-gir/templates": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     "@types/xml2js": "npm:^0.4.14"
-    ejs: "npm:^4.0.1"
+    ejs: "npm:^5.0.1"
     typescript: "npm:^5.9.3"
     xml2js: "npm:^0.6.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/gir-module-metadata@workspace:^, @ts-for-gir/gir-module-metadata@workspace:packages/gir-module-metadata":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/gir-module-metadata@workspace:packages/gir-module-metadata"
+  dependencies:
+    "@ts-for-gir/tsconfig": "workspace:^"
+    typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -15649,7 +15662,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/lib": "workspace:^"
     "@ts-for-gir/tsconfig": "workspace:^"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     typescript: "npm:^5.9.3"
     vitest: "npm:^4.0.18"
   languageName: unknown
@@ -15665,9 +15678,9 @@ __metadata:
     "@ts-for-gir/tsconfig": "workspace:^"
     "@types/ejs": "npm:^3.1.5"
     "@types/lodash": "npm:^4.17.24"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     colorette: "npm:^2.0.20"
-    ejs: "npm:^4.0.1"
+    ejs: "npm:^5.0.1"
     glob: "npm:^13.0.6"
     lodash: "npm:^4.17.23"
     rimraf: "npm:^6.1.3"
@@ -15680,7 +15693,7 @@ __metadata:
   resolution: "@ts-for-gir/reporter@workspace:packages/reporter"
   dependencies:
     "@ts-for-gir/tsconfig": "workspace:^"
-    "@types/node": "npm:^24.11.0"
+    "@types/node": "npm:^24.12.0"
     colorette: "npm:^2.0.20"
     typescript: "npm:^5.9.3"
   languageName: unknown
@@ -15697,6 +15710,17 @@ __metadata:
   resolution: "@ts-for-gir/tsconfig@workspace:packages/tsconfig"
   peerDependencies:
     typescript: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/typedoc-theme@workspace:^, @ts-for-gir/typedoc-theme@workspace:packages/typedoc-theme":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/typedoc-theme@workspace:packages/typedoc-theme"
+  dependencies:
+    "@ts-for-gir/tsconfig": "workspace:^"
+    "@types/node": "npm:^24.12.0"
+    typedoc: "npm:^0.28.17"
+    typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -15799,12 +15823,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.11.0":
-  version: 24.11.0
-  resolution: "@types/node@npm:24.11.0"
+"@types/node@npm:^24.12.0":
+  version: 24.12.0
+  resolution: "@types/node@npm:24.12.0"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10/d2f4f898c6a0f14980e55c697904fb58681729fc46b4e264d5f64dc391b23da73c9b422cfffbca28c045e6e8eca72dab5f28ed633faa95398ef1528af5398382
+  checksum: 10/e9dcf8a378af5a636353b6d88a6fae018504bab776410ac6b5411e29afbe601ba9d7957356556fc27268a62814ca4085974f785613482c18f739686efcd49655
   languageName: node
   linkType: hard
 
@@ -16295,13 +16319,6 @@ __metadata:
   version: 2.0.1
   resolution: "argparse@npm:2.0.1"
   checksum: 10/18640244e641a417ec75a9bd38b0b2b6b95af5199aa241b131d4b2fb206f334d7ecc600bd194861610a5579084978bfcbb02baa399dbe442d56d0ae5e60dbaef
-  languageName: node
-  linkType: hard
-
-"async@npm:^3.2.6":
-  version: 3.2.6
-  resolution: "async@npm:3.2.6"
-  checksum: 10/cb6e0561a3c01c4b56a799cc8bab6ea5fef45f069ab32500b6e19508db270ef2dffa55e5aed5865c5526e9907b1f8be61b27530823b411ffafb5e1538c86c368
   languageName: node
   linkType: hard
 
@@ -16809,14 +16826,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ejs@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "ejs@npm:4.0.1"
-  dependencies:
-    jake: "npm:^10.9.1"
+"ejs@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "ejs@npm:5.0.1"
   bin:
     ejs: bin/cli.js
-  checksum: 10/5ce609bcabaf16ca85d6323b0069d17a6b7825a0b6c5cf5a2c1b0adb93e28602bfaf09b3b7cadf4303ed7c548d7868ff9df422a5229f9899ecb779a6b0ad2365
+  checksum: 10/72b0476020930ba11446f24b5f5ecb282b2419b2fbefc5be03b8b29e4618a0d4bfbf1a9daf2f58eb5319d7e51b6c914d74c7a44bf3a121ed093ada99b231407a
   languageName: node
   linkType: hard
 
@@ -17206,22 +17221,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-builder@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "fast-xml-builder@npm:1.0.0"
-  checksum: 10/06c04d80545e5c9f4d1d6cca00567b5cc09953a92c6328fa48cfb4d7f42630313b8c2bb62e9cb81accee7bb5e1c5312fcae06c3d20dbe52d969a5938233316da
+"fast-xml-builder@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "fast-xml-builder@npm:1.1.2"
+  dependencies:
+    path-expression-matcher: "npm:^1.1.3"
+  checksum: 10/477a2dedd476b1a3fb6f9c8a80fca586726f3eb117c6e0aa4b02c3d80e9d31ac28770c853d9570cc2aa0145e73797935b0f0bb8c4592b22b975d4607e4a0a8d1
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:^5.4.2":
-  version: 5.4.2
-  resolution: "fast-xml-parser@npm:5.4.2"
+"fast-xml-parser@npm:^5.5.3":
+  version: 5.5.3
+  resolution: "fast-xml-parser@npm:5.5.3"
   dependencies:
-    fast-xml-builder: "npm:^1.0.0"
+    fast-xml-builder: "npm:^1.1.2"
+    path-expression-matcher: "npm:^1.1.3"
     strnum: "npm:^2.1.2"
   bin:
     fxparser: src/cli/cli.js
-  checksum: 10/12585d5dd77113411d01cf41818cfecbbaf8f3d9e8448b1c35f50a7eb51205408bc8db27af5733173a77f96f72d7e121d9e675674f71334569157c77845aba39
+  checksum: 10/fe14534c4e198fe12177dd5e281d80aa36c82c5f7ef0a21607b83f9d098d4792e6907b6f65feb94cba16a61315c028c383b6cd4481ebb62281c7946a02309fde
   languageName: node
   linkType: hard
 
@@ -17250,15 +17268,6 @@ __metadata:
   dependencies:
     is-unicode-supported: "npm:^2.0.0"
   checksum: 10/9822d13630bee8e6a9f2da866713adf13854b07e0bfde042defa8bba32d47a1c0b2afa627ce73837c674cf9a5e3edce7e879ea72cb9ea7960b2390432d8e1167
-  languageName: node
-  linkType: hard
-
-"filelist@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "filelist@npm:1.0.4"
-  dependencies:
-    minimatch: "npm:^5.0.1"
-  checksum: 10/4b436fa944b1508b95cffdfc8176ae6947b92825483639ef1b9a89b27d82f3f8aa22b21eed471993f92709b431670d4e015b39c087d435a61e1bb04564cf51de
   languageName: node
   linkType: hard
 
@@ -17711,19 +17720,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jake@npm:^10.9.1":
-  version: 10.9.4
-  resolution: "jake@npm:10.9.4"
-  dependencies:
-    async: "npm:^3.2.6"
-    filelist: "npm:^1.0.4"
-    picocolors: "npm:^1.1.1"
-  bin:
-    jake: bin/cli.js
-  checksum: 10/97e48f73f5e315a3b6e1a48b4bcc0cdf2c2cf82100ec9e76a032fd5d614dcd32c4315572cfcb66e9f9bdecca3900aaa61fe72b781a74b06aefd3ec4c1c917f0b
-  languageName: node
-  linkType: hard
-
 "jest-worker@npm:^27.4.5":
   version: 27.5.1
   resolution: "jest-worker@npm:27.5.1"
@@ -18133,15 +18129,6 @@ __metadata:
   dependencies:
     brace-expansion: "npm:^5.0.2"
   checksum: 10/aea4874e521c55bb60744685bbffe3d152e5460f84efac3ea936e6bbe2ceba7deb93345fec3f9bb17f7b6946776073a64d40ae32bf5f298ad690308121068a1f
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^5.0.1":
-  version: 5.1.6
-  resolution: "minimatch@npm:5.1.6"
-  dependencies:
-    brace-expansion: "npm:^2.0.1"
-  checksum: 10/126b36485b821daf96d33b5c821dac600cc1ab36c87e7a532594f9b1652b1fa89a1eebcaad4dff17c764dce1a7ac1531327f190fed5f97d8f6e5f889c116c429
   languageName: node
   linkType: hard
 
@@ -18617,6 +18604,13 @@ __metadata:
   version: 4.0.0
   resolution: "path-exists@npm:4.0.0"
   checksum: 10/505807199dfb7c50737b057dd8d351b82c033029ab94cb10a657609e00c1bc53b951cfdbccab8de04c5584d5eff31128ce6afd3db79281874a5ef2adbba55ed1
+  languageName: node
+  linkType: hard
+
+"path-expression-matcher@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "path-expression-matcher@npm:1.1.3"
+  checksum: 10/9a607d0bf9807cf86b0a29fb4263f0c00285c13bedafb6ad3efc8bc87ae878da2faf657a9138ac918726cb19f147235a0ca695aec3e4ea1ee04641b6520e6c9e
   languageName: node
   linkType: hard
 
@@ -19632,7 +19626,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ts-for-gir@workspace:."
   dependencies:
-    "@biomejs/biome": "npm:^2.4.5"
+    "@biomejs/biome": "npm:^2.4.6"
     "@ts-for-gir/cli": "workspace:^"
     concurrently: "npm:^9.2.1"
     rimraf: "npm:^6.1.3"

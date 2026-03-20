@@ -7,11 +7,11 @@ if (packageName === 'Gjs') {
 let entryPoints = [`./${entryPointName}.d.ts`]
 
 if (packageName === 'Gjs') {
-  // entryPoints.push(`./ambient.d.ts`)
-  // entryPoints.push(`./cairo.d.ts`)
-  // entryPoints.push(`./gettext.d.ts`)
-  // entryPoints.push(`./system.d.ts`)
-  // entryPoints.push('./dom.d.ts')
+  entryPoints.push('./cairo.d.ts')
+  entryPoints.push('./gettext.d.ts')
+  entryPoints.push('./system.d.ts')
+  entryPoints.push('./dom.d.ts')
+  entryPoints.push('./console.d.ts')
 } else {
   // entryPoints.push(`./${entryPointName}-ambient.d.ts`)
   // entryPoints.push(`./${entryPointName}-import.d.ts`)
@@ -22,5 +22,7 @@ _%>
     "entryPoints": <%- JSON.stringify(entryPoints) %>,
     "readme": "./README.md",
     "name": "<%- packageName %>",
-    "tsconfig": "./tsconfig.json"
+    "tsconfig": "./tsconfig.json",
+    "skipErrorChecking": true,
+    "highlightLanguages": ["typescript", "javascript", "c", "cpp", "xml", "bash", "json", "css"]
 }

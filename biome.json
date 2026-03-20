@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.5/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.4.6/schema.json",
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -29,6 +29,7 @@
 			"!**/tests",
 			"!**/templates",
 			"!**/@types",
+			"!**/docs",
 			"!refs",
 			"!types-dev",
 			"!types-release",

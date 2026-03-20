@@ -34,7 +34,7 @@ declare global {
     // See https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/esm/_timers.js
 
     /**
-     * @version Gjs 1.71.1
+     * @since 1.71.1
      * @param callback a callback function
      * @param delay the duration in milliseconds to wait before running callback
      * @param args arguments to pass to callback
@@ -42,7 +42,7 @@ declare global {
     function setTimeout(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib.Source
 
     /**
-     * @version Gjs 1.71.1
+     * @since 1.71.1
      * @param callback a callback function
      * @param delay the duration in milliseconds to wait between calling callback
      * @param args arguments to pass to callback
@@ -50,13 +50,13 @@ declare global {
     function setInterval(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib.Source
 
     /**
-     * @version Gjs 1.71.1
+     * @since 1.71.1
      * @param timeout the timeout to clear
      */
     function clearTimeout(timeout: GLib.Source): void
 
     /**
-     * @version Gjs 1.71.1
+     * @since 1.71.1
      * @param timeout the timeout to clear
      */
     function clearInterval(timeout: GLib.Source): void
@@ -244,7 +244,7 @@ declare global {
      * The TextDecoder interface represents a decoder for a specific text encoding.
      * It takes a stream of bytes as input and emits a stream of code points.
      *
-     * @version Gjs 1.69.2
+     * @since 1.69.2
      */
     interface TextDecoder {
         /** A string containing the name of the decoder, that is a string describing the method the TextDecoder will use. */
@@ -273,7 +273,7 @@ declare global {
     /**
      * TextEncoder takes a stream of code points as input and emits a stream of bytes.
      *
-     * @version Gjs 1.69.2
+     * @since 1.69.2
      */
     interface TextEncoder {
         readonly encoding: 'utf-8'

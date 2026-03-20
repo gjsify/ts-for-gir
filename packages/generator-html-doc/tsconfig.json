@@ -2,7 +2,10 @@
 	"extends": "@ts-for-gir/tsconfig/tsconfig.base.json",
 	"compilerOptions": {
 		"rootDir": "src",
-		"outDir": "lib"
+		"outDir": "lib",
+		"jsx": "react",
+		"jsxFactory": "JSX.createElement",
+		"jsxFragmentFactory": "JSX.Fragment"
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],
 	"exclude": ["lib", "node_modules", "**/*.spec.ts", "templates"]

@@ -13,6 +13,8 @@ export const defaults = {
 	configName: ".ts-for-girrc.js",
 	root: process.cwd(),
 	outdir: "./@types",
+	/** Default output directory for `ts-for-gir doc` (HTML documentation). */
+	docOutdir: "./docs",
 	girDirectories: getDefaultGirDirectories(),
 	modules: ["*"],
 	ignore: [],
@@ -29,6 +31,9 @@ export const defaults = {
 	package: false,
 	reporter: false,
 	reporterOutput: "ts-for-gir-report.json",
+	combined: true,
+	/** Default theme for `ts-for-gir doc` (HTML documentation). */
+	theme: "gi-docgen",
 };
 
 /**

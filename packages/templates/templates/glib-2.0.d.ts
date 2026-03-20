@@ -989,7 +989,7 @@ export class Variant<S extends string = any> {
      * @returns The recursively unpacked JavaScript value with all Variants converted to native types
      * @see {@link deepUnpack} for one-level unpacking with type preservation
      * @see {@link unpack} for shallow unpacking only
-     * @since GJS 1.64 (GNOME 3.36)
+     * @since 1.64
      */
     recursiveUnpack(): $ParseRecursiveVariant<S>;
     recursiveUnpack<T>(): T;

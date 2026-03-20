@@ -12,6 +12,7 @@ import {
 	filterConflicts,
 	filterFunctionConflict,
 	type Generic,
+	type GirDocContext,
 	type GirEnumMember,
 	type GirModule,
 	generateIndent,
@@ -54,6 +55,7 @@ import {
 	type TsDocTag,
 	TypeConflict,
 	type TypeExpression,
+	transformGirDocTagTextWithContext,
 	transformGirDocText,
 } from "@ts-for-gir/lib";
 import { ModuleExporter, SignalGenerator } from "./generators/index.ts";
@@ -75,6 +77,33 @@ export enum ModuleGeneratorFormat {
 	/** Output as inline DTS format */
 	Inline = "inline",
 }
+
+/**
+ * Base URLs for gi-docgen content pages per namespace.
+ * Version-specific keys (e.g. "Gtk-4.0") take priority over plain namespace keys.
+ */
+const DOC_BASE_URLS = new Map<string, string>([
+	// GNOME core (docs.gtk.org)
+	["GLib", "https://docs.gtk.org/glib/"],
+	["GObject", "https://docs.gtk.org/gobject/"],
+	["Gio", "https://docs.gtk.org/gio/"],
+	["GdkPixbuf", "https://docs.gtk.org/gdk-pixbuf/"],
+	["Pango", "https://docs.gtk.org/Pango/"],
+	["PangoCairo", "https://docs.gtk.org/PangoCairo/"],
+	// GTK 4
+	["Gtk-4.0", "https://docs.gtk.org/gtk4/"],
+	["Gdk-4.0", "https://docs.gtk.org/gdk4/"],
+	["Gsk-4.0", "https://docs.gtk.org/gsk4/"],
+	["GdkWayland-4.0", "https://docs.gtk.org/gdk4-wayland/"],
+	["GdkX11-4.0", "https://docs.gtk.org/gdk4-x11/"],
+	// GTK 3
+	["Gtk-3.0", "https://docs.gtk.org/gtk3/"],
+	["Gdk-3.0", "https://docs.gtk.org/gdk3/"],
+	// Libadwaita
+	["Adw-1", "https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1-latest/"],
+	// GtkSourceView
+	["GtkSource-5", "https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/"],
+]);
 
 export class ModuleGenerator extends FormatGenerator<string[]> {
 	log: Reporter;
@@ -131,6 +160,79 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		this.signalGenerator = new SignalGenerator(this);
 		this.moduleExporter = new ModuleExporter(this);
+		this._docContext = this.buildDocContext();
+	}
+
+	private readonly _docContext: GirDocContext;
+
+	/**
+	 * Build a GirDocContext that resolves C identifiers to TypeScript paths
+	 * by searching the current namespace and all its dependencies.
+	 */
+	private buildDocContext(): GirDocContext {
+		const ns = this.namespace;
+
+		// Collect all available namespaces (current + dependencies)
+		const allNamespaces: GirModule[] = [ns];
+		for (const dep of ns.allDependencies) {
+			const imported = ns.getInstalledImport(dep.namespace);
+			if (imported) allNamespaces.push(imported);
+		}
+
+		// Resolve base URL for gi-docgen content pages
+		const docBaseUrl = DOC_BASE_URLS.get(`${ns.namespace}-${ns.version}`) ?? DOC_BASE_URLS.get(ns.namespace);
+
+		// Pre-merge enum constants for O(1) lookup
+		const constantMap = new Map<string, string>();
+		for (const mod of allNamespaces) {
+			for (const [cId, result] of mod.enum_constants) {
+				if (!constantMap.has(cId)) {
+					constantMap.set(cId, `${mod.namespace}.${result[0]}.${result[1]}`);
+				}
+			}
+		}
+
+		// Type resolution cache — populated lazily on first miss
+		const typeCache = new Map<string, string | null>();
+
+		return {
+			docBaseUrl,
+			resolveType(cTypeName: string): string | null {
+				const cached = typeCache.get(cTypeName);
+				if (cached !== undefined) return cached;
+
+				let result: string | null = null;
+				// Strategy 1: _resolve_names lookup
+				for (const mod of allNamespaces) {
+					const member = mod.getMemberWithoutOverrides(cTypeName);
+					if (member && "name" in member) {
+						result = `${mod.namespace}.${member.name}`;
+						break;
+					}
+				}
+				// Strategy 2: C prefix stripping
+				if (!result) {
+					for (const mod of allNamespaces) {
+						for (const prefix of mod.c_prefixes) {
+							if (cTypeName.startsWith(prefix) && cTypeName.length > prefix.length) {
+								const girName = cTypeName.slice(prefix.length);
+								if (mod.hasSymbol(girName)) {
+									result = `${mod.namespace}.${girName}`;
+									break;
+								}
+							}
+						}
+						if (result) break;
+					}
+				}
+
+				typeCache.set(cTypeName, result);
+				return result;
+			},
+			resolveConstant(cIdentifier: string): string | null {
+				return constantMap.get(cIdentifier) ?? null;
+			},
+		};
 	}
 
 	/**
@@ -318,14 +420,22 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 
 	generateSignal(node: IntrospectedSignal, type: IntrospectedSignalType = IntrospectedSignalType.CONNECT): string[] {
+		let fn: IntrospectedClassFunction;
 		switch (type) {
 			case IntrospectedSignalType.CONNECT:
-				return node.asConnect(false).asString(this);
+				fn = node.asConnect(false);
+				break;
 			case IntrospectedSignalType.CONNECT_AFTER:
-				return node.asConnect(true).asString(this);
+				fn = node.asConnect(true);
+				break;
 			case IntrospectedSignalType.EMIT:
-				return node.asEmit().asString(this);
+				fn = node.asEmit();
+				break;
 		}
+		fn.doc = node.doc;
+		fn.metadata = node.metadata;
+		fn.signalOrigin = node.name;
+		return fn.asString(this);
 	}
 
 	generateStaticClassFunction(node: IntrospectedStaticClassFunction): string[] {
@@ -347,7 +457,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateProperty(tsProp: IntrospectedProperty, construct?: boolean, indentCount = 0) {
 		const desc: string[] = [];
 
-		desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount));
+		const propTags = [...this.namespace.getTsDocMetadataTags(tsProp.metadata)];
+		if (tsProp.constructOnly) propTags.push({ tagName: "construct-only", paramName: "", text: "" });
+		else if (tsProp.readable && !tsProp.writable) propTags.push({ tagName: "read-only", paramName: "", text: "" });
+		else if (tsProp.writable && !tsProp.readable) propTags.push({ tagName: "write-only", paramName: "", text: "" });
+		desc.push(...this.addGirDocComment(tsProp.doc, propTags, indentCount));
 
 		const indent = generateIndent(indentCount);
 		const name = generateMemberName(tsProp);
@@ -428,7 +542,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const desc: string[] = [];
 		const isStatic = tsProp.isStatic;
 
-		desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount));
+		desc.push(...this.addGirDocComment(tsProp.doc, this.namespace.getTsDocMetadataTags(tsProp.metadata), indentCount));
 
 		const indent = generateIndent(indentCount);
 		const name = generateMemberName(tsProp);
@@ -539,9 +653,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			return desc;
 		}
 
-		const text = tsDoc ? transformGirDocText(tsDoc) : null;
+		const text = tsDoc ? transformGirDocText(tsDoc, this._docContext) : null;
 
-		if (text) {
+		if (text || tags.length) {
 			desc.push(`${indent}/**`);
 
 			if (text) {
@@ -554,15 +668,41 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			}
 
 			for (const tag of tags) {
+				const tagText = tag.text ? transformGirDocTagTextWithContext(tag.text, this._docContext) : "";
 				if (tag.paramName) {
-					desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`);
+					desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tagText}`);
+				} else if (tagText) {
+					desc.push(`${indent} * @${tag.tagName} ${tagText}`);
 				} else {
-					desc.push(`${indent} * @${tag.tagName} ${tag.text}`);
+					desc.push(`${indent} * @${tag.tagName}`);
 				}
 			}
 			desc.push(`${indent} */`);
 		}
 		return desc;
+	}
+
+	private getGirTypeTags(
+		obj: IntrospectedClass | IntrospectedRecord | IntrospectedInterface | IntrospectedCallback | IntrospectedAlias,
+	): TsDocTag[] {
+		let girType: string;
+
+		if (obj instanceof IntrospectedRecord) {
+			if (obj.structFor) girType = "Class Struct";
+			else if (obj.isForeign()) girType = "Foreign Struct";
+			else girType = "Struct";
+		} else if (obj instanceof IntrospectedInterface) {
+			girType = "Interface";
+		} else if (obj instanceof IntrospectedClass) {
+			girType = "Class";
+		} else if (obj instanceof IntrospectedCallback) {
+			girType = "Callback";
+		} else {
+			// IntrospectedAlias
+			girType = "Alias";
+		}
+
+		return [{ tagName: "gir-type", paramName: "", text: girType }];
 	}
 
 	/**
@@ -700,17 +840,23 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const { parameters: inParams } = tsFunction;
 
-		if (tsFunction.doc)
-			def.push(
-				...this.addGirDocComment(
-					tsFunction.doc,
-					[
-						...this.namespace.getTsDocInParamTags(tsFunction.parameters),
-						...this.namespace.getTsDocReturnTags(tsFunction),
-					],
-					indentCount,
-				),
-			);
+		def.push(
+			...this.addGirDocComment(
+				tsFunction.doc,
+				[
+					...this.namespace.getTsDocInParamTags(tsFunction.parameters),
+					...this.namespace.getTsDocReturnTags(tsFunction),
+					...this.namespace.getTsDocMetadataTags(tsFunction.metadata),
+					...(tsFunction instanceof IntrospectedVirtualClassFunction
+						? [{ tagName: "virtual", paramName: "", text: "" } as const]
+						: []),
+					...("signalOrigin" in tsFunction && tsFunction.signalOrigin
+						? [{ tagName: "signal", paramName: "", text: "" } as const]
+						: []),
+				],
+				indentCount,
+			),
+		);
 
 		const warning = tsFunction.getWarning();
 		if (warning) def.push(warning);
@@ -782,7 +928,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	) {
 		const def: string[] = [];
 
-		def.push(...this.addGirDocComment(tsCallback.doc, [], indentCount));
+		const callbackTags =
+			tsCallback instanceof IntrospectedCallback && !(tsCallback instanceof IntrospectedClassCallback)
+				? [...this.getGirTypeTags(tsCallback), ...this.namespace.getTsDocMetadataTags(tsCallback.metadata)]
+				: this.namespace.getTsDocMetadataTags(tsCallback.metadata);
+		def.push(...this.addGirDocComment(tsCallback.doc, callbackTags, indentCount));
 
 		const indent = generateIndent(indentCount);
 		const indentBody = generateIndent(indentCount + 1);
@@ -842,6 +992,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		if (girEnum.isRegistered) {
+			const nsTags = [{ tagName: "gir-type", paramName: "", text: girEnum.flags ? "Flags" : "Enum" } as const];
+			desc.push(...this.addGirDocComment(null, nsTags, indentCount));
 			desc.push(`export namespace ${name} {`);
 			const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
 			desc.push(`    export const $gtype: ${gtypeNamespace}GType<${name}>;`);
@@ -849,7 +1001,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			desc.push("");
 		}
 
-		desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount));
+		const enumTags = [
+			{ tagName: "gir-type", paramName: "", text: girEnum.flags ? "Flags" : "Enum" } as const,
+			...this.namespace.getTsDocMetadataTags(girEnum.metadata),
+		];
+		desc.push(...this.addGirDocComment(girEnum.doc, enumTags, indentCount));
 		desc.push(this.generateExport("enum", name, "{", indentCount));
 		if (girEnum.members) {
 			for (const girEnumMember of girEnum.members.values()) {
@@ -882,7 +1038,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateConst(tsConst: IntrospectedConstant, indentCount = 0) {
 		const desc: string[] = [];
 
-		desc.push(...this.addGirDocComment(tsConst.doc, [], indentCount));
+		desc.push(
+			...this.addGirDocComment(tsConst.doc, this.namespace.getTsDocMetadataTags(tsConst.metadata), indentCount),
+		);
 
 		const indent = generateIndent(indentCount);
 		const exp = !this.config.noNamespace ? "" : "export ";
@@ -898,6 +1056,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const { namespace, options } = this;
 
 		const desc: string[] = [];
+
+		desc.push(
+			...this.addGirDocComment(
+				girAlias.doc,
+				[...this.getGirTypeTags(girAlias), ...this.namespace.getTsDocMetadataTags(girAlias.metadata)],
+				indentCount,
+			),
+		);
 
 		const indent = generateIndent(indentCount);
 
@@ -1347,6 +1513,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const ext = implementationNames.length ? ` extends ${implementationNames.join(", ")}` : "";
 		const interfaceHead = `${girClass.name}${genericParameters}${ext}`;
+
+		// Add @gir-type doc comment for interfaces (classes/records handle this in generateClass)
+		if (girClass instanceof IntrospectedInterface) {
+			def.push(
+				...this.addGirDocComment(
+					girClass.doc,
+					[...this.getGirTypeTags(girClass), ...this.namespace.getTsDocMetadataTags(girClass.metadata)],
+					0,
+				),
+			);
+		}
+
 		def.push(this.generateExport("interface", interfaceHead, "{"));
 
 		if (girClass.__ts__indexSignature) {
@@ -1512,7 +1690,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		def.push(...this.generateClassNamespaces(girClass));
 
-		def.push(...this.addGirDocComment(girClass.doc, [], 0));
+		def.push(
+			...this.addGirDocComment(
+				girClass.doc,
+				[...this.getGirTypeTags(girClass), ...this.namespace.getTsDocMetadataTags(girClass.metadata)],
+				0,
+			),
+		);
 
 		const genericParameters = this.generateGenericParameters(girClass.generics);
 		const ext = this.extends(girClass);
@@ -1564,27 +1748,45 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			def.push(...this.generateClassMethods(girClass));
 
 			if (girClass instanceof IntrospectedClass) {
-				const implementedProperties = girClass.implementedProperties().map((prop) => prop.copy({ parent: girClass }));
-				const implementedMethods = girClass
-					.implementedMethods(implementedProperties)
-					.map((method) => method.copy({ parent: girClass }));
+				const rawProperties = girClass.implementedProperties();
+				const rawMethods = girClass.implementedMethods(rawProperties);
+				const selfName = `${girClass.namespace.namespace}.${girClass.name}`;
 
-				const generatedImplementedProperties = filterConflicts(
-					girClass.namespace,
-					girClass,
-					implementedProperties,
-				).flatMap((m) => m.asString(this));
+				// Group inherited properties by source interface
+				const propsBySource = groupBySource(rawProperties);
+				for (const [source, props] of propsBySource) {
+					const copied = props.map((p) => p.copy({ parent: girClass }));
+					for (const m of filterConflicts(girClass.namespace, girClass, copied)) {
+						const memberLines = m.asString(this);
+						if (memberLines.length > 0) {
+							// Only tag as inherited if source is a different class
+							if (source !== selfName) {
+								injectInheritedTags(memberLines, source);
+							}
+							def.push(...memberLines);
+						}
+					}
+				}
 
-				if (generatedImplementedProperties.length > 0)
-					def.push("\n// Inherited properties", ...generatedImplementedProperties);
-
-				const filteredImplMethods = promisifyIfEnabled(
-					this.options,
-					filterFunctionConflict(girClass.namespace, girClass, implementedMethods, []),
-				);
-				const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this));
-
-				if (generatedImplementedMethods.length > 0) def.push("\n// Inherited methods", ...generatedImplementedMethods);
+				// Group inherited methods by source interface
+				const methodsBySource = groupBySource(rawMethods);
+				for (const [source, methods] of methodsBySource) {
+					const copied = methods.map((m) => m.copy({ parent: girClass }));
+					const filtered = promisifyIfEnabled(
+						this.options,
+						filterFunctionConflict(girClass.namespace, girClass, copied, []),
+					);
+					for (const m of filtered) {
+						const memberLines = m.asString(this);
+						if (memberLines.length > 0) {
+							// Only tag as inherited if source is a different class
+							if (source !== selfName) {
+								injectInheritedTags(memberLines, source);
+							}
+							def.push(...memberLines);
+						}
+					}
+				}
 			}
 			// END BODY
 
@@ -1799,6 +2001,46 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	async generateNamespaceAsString(girModule: GirModule): Promise<string> {
 		const result = await this.generateNamespace(girModule);
 		return result.join("\n");
+	}
+}
+
+/**
+ * Groups items by their source interface/class name (e.g. "Gtk.Accessible").
+ * Must be called BEFORE copy({ parent: ... }) so the original parent is preserved.
+ */
+function groupBySource<T extends { parent: { namespace: { namespace: string }; name: string } }>(
+	items: T[],
+): Map<string, T[]> {
+	const groups = new Map<string, T[]>();
+	for (const item of items) {
+		const source = `${item.parent.namespace.namespace}.${item.parent.name}`;
+		const list = groups.get(source);
+		if (list) list.push(item);
+		else groups.set(source, [item]);
+	}
+	return groups;
+}
+
+/**
+ * Injects a `@category` TSDoc tag into generated member strings.
+ * Places the member in a subcategory "Inherited from X" within its kind group,
+ * so inherited members appear grouped after own members.
+ */
+function injectInheritedTags(lines: string[], source: string): void {
+	const category = `Inherited from ${source}`;
+	// Search backwards — `*/` is typically on the last or second-to-last line
+	let closingIdx = -1;
+	for (let i = lines.length - 1; i >= 0; i--) {
+		if (lines[i].trimEnd().endsWith("*/")) {
+			closingIdx = i;
+			break;
+		}
+	}
+	if (closingIdx >= 0) {
+		const indent = lines[closingIdx].match(/^(\s*)/)?.[1] ?? "";
+		lines.splice(closingIdx, 0, `${indent} * @category ${category}`);
+	} else {
+		lines.unshift(`/** @category ${category} */`);
 	}
 }
 

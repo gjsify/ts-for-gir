@@ -17,6 +17,8 @@ import {
 } from "@ts-for-gir/lib";
 import type { ModuleGenerator } from "../module-generator.ts";
 
+const SIGNAL_JSDOC = "/** @signal */";
+
 /** Handles generation of GObject signal-related TypeScript definitions. */
 export class SignalGenerator {
 	constructor(private readonly core: ModuleGenerator) {}
@@ -130,6 +132,25 @@ export class SignalGenerator {
 				cbType = `(${paramTypes.join(", ")}) => ${returnTypeStr}`;
 			}
 
+			// Add signal doc comment with @signal tag and signal-specific modifier tags
+			if (!signalInfo.isNotifySignal && signalInfo.signal) {
+				const signalTags = [
+					{ tagName: "signal", paramName: "", text: "" },
+					...this.namespace.getTsDocMetadataTags(signalInfo.signal.metadata),
+				];
+				if (signalInfo.signal.detailed) signalTags.push({ tagName: "detailed", paramName: "", text: "" });
+				if (signalInfo.signal.action) signalTags.push({ tagName: "action", paramName: "", text: "" });
+				if (signalInfo.signal.when)
+					signalTags.push({ tagName: `run-${signalInfo.signal.when}`, paramName: "", text: "" });
+				const comment = this.core.addGirDocComment(signalInfo.signal.doc, signalTags, indentCount + 1);
+				if (comment.length) {
+					def.push(...comment);
+				} else {
+					def.push(`${indent}    /** @signal */`);
+				}
+			} else if (!signalInfo.isNotifySignal) {
+				def.push(`${indent}    /** @signal */`);
+			}
 			def.push(`${indent}    ${signalKey}: ${cbType};`);
 		});
 
@@ -206,6 +227,7 @@ export class SignalGenerator {
 
 		if (allowedNames.has("connect")) {
 			methods.push(
+				SIGNAL_JSDOC,
 				`connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
 				"connect(signal: string, callback: (...args: any[]) => any): number;",
 			);
@@ -213,6 +235,7 @@ export class SignalGenerator {
 
 		if (allowedNames.has("connect_after")) {
 			methods.push(
+				SIGNAL_JSDOC,
 				`connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
 				"connect_after(signal: string, callback: (...args: any[]) => any): number;",
 			);
@@ -220,6 +243,7 @@ export class SignalGenerator {
 
 		if (allowedNames.has("emit")) {
 			methods.push(
+				SIGNAL_JSDOC,
 				`emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
 				"emit(signal: string, ...args: any[]): void;",
 			);

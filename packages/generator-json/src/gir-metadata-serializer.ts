@@ -65,56 +65,39 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 		return dotIndex >= 0 ? fullName.substring(dotIndex + 1) : fullName;
 	}
 
-	private buildMetadata(girObj: unknown): GirReflectionMetadata | null {
-		if (girObj instanceof IntrospectedRecord) {
-			return this.buildRecordMetadata(girObj);
-		}
-		if (girObj instanceof IntrospectedClass) {
-			return this.buildClassMetadata(girObj);
-		}
-		if (girObj instanceof IntrospectedBaseClass) {
-			return this.buildBaseMetadata(girObj, "interface");
-		}
-		if (girObj instanceof IntrospectedError) {
-			return this.buildEnumMetadata(girObj, true);
-		}
-		if (girObj instanceof IntrospectedEnum) {
-			return this.buildEnumMetadata(girObj, false);
-		}
-		if (girObj instanceof IntrospectedConstructor) {
-			return this.buildFunctionLikeMetadata(girObj, "constructor");
-		}
-		if (girObj instanceof IntrospectedVirtualClassFunction) {
-			return this.buildFunctionLikeMetadata(girObj, "virtual-method", { isVirtual: true });
-		}
-		if (girObj instanceof IntrospectedStaticClassFunction) {
-			return this.buildFunctionLikeMetadata(girObj, "static-method", { isStatic: true });
-		}
-		if (girObj instanceof IntrospectedClassFunction) {
-			return this.buildFunctionLikeMetadata(girObj, "method");
-		}
-		if (girObj instanceof IntrospectedCallback) {
-			return this.buildFunctionLikeMetadata(girObj, "callback");
-		}
-		if (girObj instanceof IntrospectedFunction) {
-			return this.buildFunctionLikeMetadata(girObj, "function");
-		}
-		if (girObj instanceof IntrospectedProperty) {
-			return this.buildPropertyMetadata(girObj);
-		}
-		if (girObj instanceof IntrospectedField) {
-			return this.buildBaseMetadata(girObj, "field");
-		}
-		if (girObj instanceof IntrospectedSignal) {
-			return this.buildSignalMetadata(girObj);
-		}
-		if (girObj instanceof IntrospectedConstant) {
-			return this.buildBaseMetadata(girObj, "constant");
-		}
-		if (girObj instanceof IntrospectedAlias) {
-			return this.buildBaseMetadata(girObj, "alias");
-		}
+	/**
+	 * Dispatch table mapping GIR class constructors to their metadata builders.
+	 * Order matters: subclasses must appear before superclasses (e.g.
+	 * IntrospectedRecord before IntrospectedBaseClass, IntrospectedError before IntrospectedEnum).
+	 */
+	private static readonly METADATA_DISPATCH: Array<
+		// biome-ignore lint/suspicious/noExplicitAny: heterogeneous constructors and handlers require any
+		[abstract new (...args: any[]) => unknown, (self: GirMetadataSerializer, obj: any) => GirReflectionMetadata]
+	> = [
+		[IntrospectedRecord, (s, o) => s.buildRecordMetadata(o)],
+		[IntrospectedClass, (s, o) => s.buildClassMetadata(o)],
+		[IntrospectedBaseClass, (s, o) => s.buildBaseMetadata(o, "interface")],
+		[IntrospectedError, (s, o) => s.buildEnumMetadata(o, true)],
+		[IntrospectedEnum, (s, o) => s.buildEnumMetadata(o, false)],
+		[IntrospectedConstructor, (s, o) => s.buildFunctionLikeMetadata(o, "constructor")],
+		[IntrospectedVirtualClassFunction, (s, o) => s.buildFunctionLikeMetadata(o, "virtual-method", { isVirtual: true })],
+		[IntrospectedStaticClassFunction, (s, o) => s.buildFunctionLikeMetadata(o, "static-method", { isStatic: true })],
+		[IntrospectedClassFunction, (s, o) => s.buildFunctionLikeMetadata(o, "method")],
+		[IntrospectedCallback, (s, o) => s.buildFunctionLikeMetadata(o, "callback")],
+		[IntrospectedFunction, (s, o) => s.buildFunctionLikeMetadata(o, "function")],
+		[IntrospectedProperty, (s, o) => s.buildPropertyMetadata(o)],
+		[IntrospectedField, (s, o) => s.buildBaseMetadata(o, "field")],
+		[IntrospectedSignal, (s, o) => s.buildSignalMetadata(o)],
+		[IntrospectedConstant, (s, o) => s.buildBaseMetadata(o, "constant")],
+		[IntrospectedAlias, (s, o) => s.buildBaseMetadata(o, "alias")],
+	];
 
+	private buildMetadata(girObj: unknown): GirReflectionMetadata | null {
+		for (const [ctor, handler] of GirMetadataSerializer.METADATA_DISPATCH) {
+			if (girObj instanceof ctor) {
+				return handler(this, girObj);
+			}
+		}
 		return null;
 	}
 
@@ -244,6 +227,10 @@ export class GirMetadataSerializer implements SerializerComponent<DeclarationRef
 		metadata.signalMetadata = {
 			signalName: signal.name,
 			detailed: signal.detailed,
+			...(signal.action ? { action: true } : {}),
+			...(signal.noRecurse ? { noRecurse: true } : {}),
+			...(signal.noHooks ? { noHooks: true } : {}),
+			...(signal.when ? { when: signal.when } : {}),
 		};
 		return metadata;
 	}

@@ -34,12 +34,20 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 	parameters: IntrospectedFunctionParameter[];
 	return_type: TypeExpression;
 	detailed: boolean;
+	action: boolean;
+	noRecurse: boolean;
+	noHooks: boolean;
+	when?: "first" | "last" | "cleanup";
 
 	constructor({
 		name,
 		parameters = [],
 		return_type = UnknownType,
 		detailed = false,
+		action = false,
+		noRecurse = false,
+		noHooks = false,
+		when,
 		parent,
 		...args
 	}: Options<{
@@ -47,6 +55,10 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		parameters?: IntrospectedFunctionParameter[];
 		return_type?: TypeExpression;
 		detailed?: boolean;
+		action?: boolean;
+		noRecurse?: boolean;
+		noHooks?: boolean;
+		when?: "first" | "last" | "cleanup";
 		parent: IntrospectedClass;
 	}>) {
 		super(name, parent, { ...args });
@@ -54,6 +66,10 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		this.parameters = parameters.map((p) => p.copy({ parent: this }));
 		this.return_type = return_type;
 		this.detailed = detailed;
+		this.action = action;
+		this.noRecurse = noRecurse;
+		this.noHooks = noHooks;
+		this.when = when;
 	}
 
 	accept(visitor: GirVisitor): IntrospectedSignal {
@@ -72,11 +88,19 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		parameters,
 		returnType,
 		detailed,
+		action,
+		noRecurse,
+		noHooks,
+		when,
 	}: {
 		parent?: IntrospectedClass;
 		parameters?: IntrospectedFunctionParameter[];
 		returnType?: TypeExpression;
 		detailed?: boolean;
+		action?: boolean;
+		noRecurse?: boolean;
+		noHooks?: boolean;
+		when?: "first" | "last" | "cleanup";
 	} = {}): IntrospectedSignal {
 		return new IntrospectedSignal({
 			name: this.name,
@@ -84,6 +108,10 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 			parameters: parameters ?? this.parameters,
 			return_type: returnType ?? this.return_type,
 			detailed: detailed ?? this.detailed,
+			action: action ?? this.action,
+			noRecurse: noRecurse ?? this.noRecurse,
+			noHooks: noHooks ?? this.noHooks,
+			when: when ?? this.when,
 		})._copyBaseProperties(this);
 	}
 
@@ -93,6 +121,10 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 			name: element.$.name,
 			parent,
 			detailed: element.$.detailed === "1",
+			action: element.$.action === "1",
+			noRecurse: element.$["no-recurse"] === "1",
+			noHooks: element.$["no-hooks"] === "1",
+			when: element.$.when as "first" | "last" | "cleanup" | undefined,
 			isIntrospectable: isIntrospectable(element),
 		});
 

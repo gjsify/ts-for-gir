@@ -55,4 +55,16 @@ export interface UserConfig {
 	 * Output file path for the reporter
 	 */
 	reporterOutput: string;
+	/** Generate a single unified documentation for all modules instead of separate per-module docs */
+	combined?: boolean;
+	/** URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders */
+	sourceLinkTemplate?: string;
+	/** Theme for HTML documentation generation (default: "gi-docgen") */
+	theme?: string;
+	/** Path to a README file to use as the documentation index page (default: "none") */
+	readme?: string;
+	/** Use TypeDoc merge mode to generate HTML from pre-generated JSON files */
+	merge?: boolean;
+	/** Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json') */
+	jsonDir?: string;
 }

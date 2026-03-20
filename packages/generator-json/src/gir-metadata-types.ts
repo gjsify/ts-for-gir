@@ -78,6 +78,14 @@ export interface GirSignalMetadata {
 	signalName: string;
 	/** Whether this is a detailed signal */
 	detailed: boolean;
+	/** Whether this signal can be emitted directly from user code */
+	action?: boolean;
+	/** Whether this signal prevents recursive emission */
+	noRecurse?: boolean;
+	/** Whether this signal disables emission hooks */
+	noHooks?: boolean;
+	/** Default handler timing relative to signal emission */
+	when?: "first" | "last" | "cleanup";
 }
 
 export interface GirRecordMetadata {
@@ -99,4 +107,26 @@ export interface GirNamespaceMetadata {
 	cPrefixes: string[];
 	libraryVersion: string;
 	dependencies: Array<{ namespace: string; version: string }>;
+	/** NPM package version (e.g. "4.20.3-4.0.0-beta.40") */
+	packageVersion?: string;
+	/** Human-readable display name, e.g. "GTK" */
+	displayName?: string;
+	/** Short description of the library */
+	description?: string;
+	/** Logo/icon URL */
+	logoUrl?: string;
+	/** Project website URL */
+	websiteUrl?: string;
+	/** URL to upstream C API documentation */
+	cDocsUrl?: string;
+	/** SPDX license identifier */
+	license?: string;
+	/** Category for grouping on documentation homepage */
+	category?: string;
+}
+
+/** A DeclarationReflection extended with optional GIR-specific metadata. */
+export interface GirEnrichedReflection {
+	girMetadata?: GirReflectionMetadata;
+	girNamespaceMetadata?: GirNamespaceMetadata;
 }

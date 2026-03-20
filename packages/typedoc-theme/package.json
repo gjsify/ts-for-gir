@@ -1,0 +1,45 @@
+{
+	"name": "@ts-for-gir/typedoc-theme",
+	"version": "4.0.0-beta.40",
+	"description": "Custom TypeDoc theme inspired by gi-docgen for ts-for-gir",
+	"main": "src/index.ts",
+	"module": "src/index.ts",
+	"type": "module",
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"check": "tsc --noEmit"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gjsify/ts-for-gir.git"
+	},
+	"author": "Pascal Garber <pascal@mailfreun.de>",
+	"files": [
+		"src"
+	],
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/gjsify/ts-for-gir/issues"
+	},
+	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
+	"keywords": [
+		"typedoc",
+		"theme",
+		"gi-docgen",
+		"gir",
+		"documentation"
+	],
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"devDependencies": {
+		"@ts-for-gir/tsconfig": "workspace:^",
+		"@types/node": "^24.12.0",
+		"typescript": "^5.9.3"
+	},
+	"dependencies": {
+		"typedoc": "^0.28.17"
+	}
+}

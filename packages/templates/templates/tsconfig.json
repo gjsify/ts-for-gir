@@ -3,9 +3,31 @@ let includes = []
 let entryPointName = importName
 if (packageName === 'Gjs') {
   entryPointName = 'gjs'
-  includes.push(`./dom.d.ts`)
+  includes.push('./dom.d.ts')
+  includes.push('./cairo.d.ts')
+  includes.push('./gettext.d.ts')
+  includes.push('./system.d.ts')
+  includes.push('./console.d.ts')
+  includes.push('./gjs-ambient.d.ts')
 }
 includes.push(`./${entryPointName}.d.ts`)
+
+// Build paths mappings for cross-package type resolution (needed for TypeDoc inheritance)
+let paths = {}
+if (typeof girModule !== 'undefined' && girModule && girModule.transitiveDependencies) {
+  girModule.transitiveDependencies.forEach(dependency => {
+    if (girModule.packageName !== dependency.packageName && dependency.exists) {
+      paths[dependency.importPath] = [`../${dependency.importName}/index.d.ts`]
+    }
+  })
+}
+if (packageName !== 'Gjs' && typeof dep !== 'undefined' && dep) {
+  const Gjs = await dep.getGjs()
+  if (Gjs && Gjs.importPath) {
+    paths[Gjs.importPath] = [`../gjs/index.d.ts`]
+  }
+}
+const hasPaths = Object.keys(paths).length > 0
 _%>
 {
   "compilerOptions": {
@@ -26,7 +48,9 @@ _%>
     "inlineSources": false,
     "newLine": "LF",
     // Show diagnostics
-    "diagnostics": true
+    "diagnostics": true<%_ if (hasPaths) { _%>,
+    "paths": <%- JSON.stringify(paths, null, 6) %>
+    <%_ } _%>
   },
   "include": <%- JSON.stringify(includes) %>
 }

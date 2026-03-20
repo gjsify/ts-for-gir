@@ -7,7 +7,8 @@ import type { ConfigFlags, OptionsGeneration, UserConfig, UserConfigLoadResult }
 import { APP_NAME, isEqual } from "@ts-for-gir/lib";
 import { type Options as ConfigSearchOptions, cosmiconfig } from "cosmiconfig";
 import { setConfigFilePath } from "./config-writer.ts";
-import { options } from "./options.ts";
+import { defaults } from "./defaults.ts";
+import { docOptions, options } from "./options.ts";
 
 /**
  * The user can create a `.ts-for-girrc` file for his default configs,
@@ -73,6 +74,8 @@ export function validate(config: UserConfig): UserConfig {
  * @param optionDefault The default value from options
  * @param validator Optional validation function
  */
+const isBoolean = (v: unknown) => typeof v === "boolean";
+
 function mergeConfigValue<K extends keyof UserConfig>(
 	userConfig: UserConfig,
 	configFileData: Partial<UserConfig>,
@@ -113,90 +116,74 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 	};
 
 	if (configFileData) {
-		// Boolean options
-		mergeConfigValue(userConfig, configFileData, "verbose", options.verbose.default, (v) => typeof v === "boolean");
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"ignoreVersionConflicts",
-			options.ignoreVersionConflicts.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(userConfig, configFileData, "print", options.print.default, (v) => typeof v === "boolean");
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noNamespace",
-			options.noNamespace.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noComments",
-			options.noComments.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(userConfig, configFileData, "promisify", options.promisify.default, (v) => typeof v === "boolean");
-		mergeConfigValue(userConfig, configFileData, "workspace", options.workspace.default, (v) => typeof v === "boolean");
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"onlyVersionPrefix",
-			options.onlyVersionPrefix.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noPrettyPrint",
-			options.noPrettyPrint.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(
-			userConfig,
-			configFileData,
-			"noAdvancedVariants",
-			options.noAdvancedVariants.default,
-			(v) => typeof v === "boolean",
-		);
-		mergeConfigValue(userConfig, configFileData, "package", options.package.default, (v) => typeof v === "boolean");
-		mergeConfigValue(userConfig, configFileData, "reporter", options.reporter.default, (v) => typeof v === "boolean");
+		// Boolean options — config file overrides CLI defaults
+		const booleanKeys: Array<[keyof UserConfig, unknown]> = [
+			["verbose", options.verbose.default],
+			["ignoreVersionConflicts", options.ignoreVersionConflicts.default],
+			["print", options.print.default],
+			["noNamespace", options.noNamespace.default],
+			["noComments", options.noComments.default],
+			["promisify", options.promisify.default],
+			["workspace", options.workspace.default],
+			["onlyVersionPrefix", options.onlyVersionPrefix.default],
+			["noPrettyPrint", options.noPrettyPrint.default],
+			["noAdvancedVariants", options.noAdvancedVariants.default],
+			["package", options.package.default],
+			["reporter", options.reporter.default],
+			["combined", docOptions.combined.default],
+			["merge", docOptions.merge.default],
+		];
+		for (const [key, defaultVal] of booleanKeys) {
+			mergeConfigValue(userConfig, configFileData, key, defaultVal, isBoolean);
+		}
 
-		// String options
-		mergeConfigValue(userConfig, configFileData, "npmScope", options.npmScope.default);
-		mergeConfigValue(userConfig, configFileData, "reporterOutput", options.reporterOutput.default);
+		// String options — config file overrides CLI defaults
+		const stringKeys: Array<[keyof UserConfig, unknown]> = [
+			["npmScope", options.npmScope.default],
+			["reporterOutput", options.reporterOutput.default],
+			["theme", docOptions.theme.default],
+			["sourceLinkTemplate", undefined],
+			["readme", undefined],
+			["jsonDir", undefined],
+		];
+		for (const [key, defaultVal] of stringKeys) {
+			mergeConfigValue(userConfig, configFileData, key, defaultVal);
+		}
 
-		// Array options
-		mergeConfigValue(userConfig, configFileData, "girDirectories", options.girDirectories.default);
-		mergeConfigValue(userConfig, configFileData, "ignore", options.ignore.default);
-		mergeConfigValue(userConfig, configFileData, "modules", options.modules.default);
+		// Array options — config file overrides CLI defaults
+		const arrayKeys: Array<[keyof UserConfig, unknown]> = [
+			["girDirectories", options.girDirectories.default],
+			["ignore", options.ignore.default],
+			["modules", options.modules.default],
+		];
+		for (const [key, defaultVal] of arrayKeys) {
+			mergeConfigValue(userConfig, configFileData, key, defaultVal);
+		}
 
 		// Special handling for root
 		if (userConfig.root === options.root.default && (configFileData.root || configFile?.filepath)) {
-			// Use the config file path as the root path if no root path is set
 			userConfig.root =
 				configFileData.root || (configFile?.filepath ? dirname(configFile.filepath) : (options.root.default as string));
 		}
 
-		// Special handling for outdir
-		if (userConfig.outdir === options.outdir.default && configFileData.outdir) {
+		// Special handling for outdir (override with config file value if still at a default)
+		const isDefaultOutdir = userConfig.outdir === options.outdir.default || userConfig.outdir === defaults.docOutdir;
+		if (isDefaultOutdir && configFileData.outdir) {
 			userConfig.outdir = userConfig.print ? null : configFileData.outdir;
 		}
 	}
 
-	// Make paths absolute
-	if (userConfig.outdir && !userConfig.outdir.startsWith("/")) {
-		userConfig.outdir = resolve(userConfig.root, userConfig.outdir);
-	}
+	// Make paths absolute relative to root
+	const resolveToRoot = (path: string) => (path.startsWith("/") ? path : resolve(userConfig.root, path));
 
+	if (userConfig.outdir) {
+		userConfig.outdir = resolveToRoot(userConfig.outdir);
+	}
+	if (userConfig.jsonDir) {
+		userConfig.jsonDir = resolveToRoot(userConfig.jsonDir);
+	}
 	if (userConfig.girDirectories) {
-		userConfig.girDirectories = userConfig.girDirectories.map((dir) => {
-			if (!dir.startsWith("/")) {
-				return resolve(userConfig.root, dir);
-			}
-			return dir;
-		});
+		userConfig.girDirectories = userConfig.girDirectories.map(resolveToRoot);
 	}
 
 	return validate(userConfig);

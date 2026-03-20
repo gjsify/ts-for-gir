@@ -14,5 +14,6 @@ export default {
     promisify: true,
     onlyVersionPrefix: false,
     package: true,
-    reporter: true
+    reporter: true,
+    sourceLinkTemplate: 'https://github.com/gjsify/types/blob/main/{path}#L{line}'
 }

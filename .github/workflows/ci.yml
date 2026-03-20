@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [24.x]
         architecture:
           - x64
     steps:

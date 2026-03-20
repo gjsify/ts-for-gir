@@ -201,7 +201,7 @@ and/or use gtk-doc annotations.  -->
       <method name="close" c:identifier="frdp_display_close">
         <doc xml:space="preserve"
              filename="src/frdp-display.c"
-             line="561">Request the closing of the RDP session.</doc>
+             line="571">Request the closing of the RDP session.</doc>
         <source-position filename="src/frdp-display.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -210,7 +210,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="563">the RDP display widget</doc>
+                 line="573">the RDP display widget</doc>
             <type name="Display" c:type="FrdpDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -218,19 +218,31 @@ and/or use gtk-doc annotations.  -->
       <method name="get_pixbuf" c:identifier="frdp_display_get_pixbuf">
         <doc xml:space="preserve"
              filename="src/frdp-display.c"
-             line="824">Take a screenshot of the display.</doc>
-        <source-position filename="src/frdp-display.h" line="88"/>
+             line="834">Take a screenshot of the display.</doc>
+        <source-position filename="src/frdp-display.h" line="90"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/frdp-display.c"
-               line="830">a #GdkPixbuf with the screenshot image buffer</doc>
+               line="840">a #GdkPixbuf with the screenshot image buffer</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="826">the RDP display widget</doc>
+                 line="836">the RDP display widget</doc>
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_keyboard_grabbed"
+              c:identifier="frdp_display_is_keyboard_grabbed">
+        <source-position filename="src/frdp-display.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
             <type name="Display" c:type="FrdpDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -238,19 +250,19 @@ and/or use gtk-doc annotations.  -->
       <method name="is_open" c:identifier="frdp_display_is_open">
         <doc xml:space="preserve"
              filename="src/frdp-display.c"
-             line="545">Check if the connection for the display is currently open</doc>
+             line="555">Check if the connection for the display is currently open</doc>
         <source-position filename="src/frdp-display.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/frdp-display.c"
-               line="551">TRUE if open, FALSE if closing/closed</doc>
+               line="561">TRUE if open, FALSE if closing/closed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="547">the RDP display widget</doc>
+                 line="557">the RDP display widget</doc>
             <type name="Display" c:type="FrdpDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -258,7 +270,7 @@ and/or use gtk-doc annotations.  -->
       <method name="open_host" c:identifier="frdp_display_open_host">
         <doc xml:space="preserve"
              filename="src/frdp-display.c"
-             line="507">Opens a TCP connection to the given @host litening on
+             line="517">Opens a TCP connection to the given @host litening on
 @port.</doc>
         <source-position filename="src/frdp-display.h" line="40"/>
         <return-value transfer-ownership="none">
@@ -268,19 +280,19 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="509">the RDP display widget</doc>
+                 line="519">the RDP display widget</doc>
             <type name="Display" c:type="FrdpDisplay*"/>
           </instance-parameter>
           <parameter name="host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="510">the hostname or IP address</doc>
+                 line="520">the hostname or IP address</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="511">the service name or port number</doc>
+                 line="521">the service name or port number</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -290,7 +302,7 @@ and/or use gtk-doc annotations.  -->
               glib:set-property="scaling">
         <doc xml:space="preserve"
              filename="src/frdp-display.c"
-             line="575">Set whether the remote desktop contents is automatically
+             line="585">Set whether the remote desktop contents is automatically
 scaled to fit the available widget size, or whether it will
 be rendered at 1:1 size</doc>
         <source-position filename="src/frdp-display.h" line="48"/>
@@ -301,13 +313,13 @@ be rendered at 1:1 size</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="577">the RDP display widget</doc>
+                 line="587">the RDP display widget</doc>
             <type name="Display" c:type="FrdpDisplay*"/>
           </instance-parameter>
           <parameter name="scaling" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frdp-display.c"
-                 line="578">TRUE to scale the desktop to fit, FALSE otherwise</doc>
+                 line="588">TRUE to scale the desktop to fit, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>

@@ -156,7 +156,7 @@ export async function splitSearchIndex(outputDir: string): Promise<void> {
 	writeFileSync(join(assetsDir, "search-modules.js"), `window.searchData = "${modulesChunk}";`);
 
 	// Replace original search.js with a null stub
-	writeFileSync(join(assetsDir, "search.js"), 'window.searchData = null;');
+	writeFileSync(join(assetsDir, "search.js"), "window.searchData = null;");
 
 	const totalChunks = moduleMap.size + 1; // +1 for modules index
 	console.log(`[search-splitter] Split ${rows.length} entries into ${totalChunks} chunks (${moduleMap.size} modules)`);

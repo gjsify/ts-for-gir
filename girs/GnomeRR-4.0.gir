@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gdk" version="4.0"/>
   <include name="GnomeDesktop" version="4.0"/>
   <package name="gnome-rr-4"/>
+  <doc:format name="unknown"/>
   <namespace name="GnomeRR"
              version="4.0"
              shared-library="libgnome-rr-4.so.2"
@@ -1705,7 +1707,9 @@ If the monitor is a tiled monitor, it sets the geometry for the complete monitor
           </parameter>
         </parameters>
       </constructor>
-      <function name="new_async" c:identifier="gnome_rr_screen_new_async">
+      <function name="new_async"
+                c:identifier="gnome_rr_screen_new_async"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-rr/gnome-rr-screen.c"
              line="1021">Asynchronously creates a new #GnomeRRScreen instance.

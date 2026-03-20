@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="AtrilDocument" version="1.5.0"/>
   <include name="GLib" version="2.0"/>
@@ -15,6 +16,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gtk" version="3.0"/>
   <package name="atril-document-1.5.0"/>
   <package name="atril-view-1.5.0"/>
+  <doc:format name="unknown"/>
   <namespace name="AtrilView"
              version="1.5.0"
              shared-library="libatrilview.so.3"

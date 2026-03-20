@@ -5,9 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <include name="GtkSource" version="4"/>
+  <doc:format name="unknown"/>
   <namespace name="Pluma"
              version="1.0"
              shared-library=""
@@ -15,6 +17,33 @@ and/or use gtk-doc annotations.  -->
              c:symbol-prefixes="pluma">
     <function-macro name="APP" c:identifier="PLUMA_APP" introspectable="0">
       <source-position filename="pluma-app.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLICATION"
+                    c:identifier="PLUMA_APPLICATION"
+                    introspectable="0">
+      <source-position filename="pluma-application.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLICATION_CLASS"
+                    c:identifier="PLUMA_APPLICATION_CLASS"
+                    introspectable="0">
+      <source-position filename="pluma-application.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLICATION_GET_CLASS"
+                    c:identifier="PLUMA_APPLICATION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="pluma-application.h" line="38"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -62,19 +91,19 @@ represents the running pluma instance.</doc>
       <method name="create_window" c:identifier="pluma_app_create_window">
         <doc xml:space="preserve"
              filename="pluma-app.c"
-             line="595">Create a new #PlumaWindow part of @app.</doc>
+             line="599">Create a new #PlumaWindow part of @app.</doc>
         <source-position filename="pluma-app.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-app.c"
-               line="602">the new #PlumaWindow</doc>
+               line="606">the new #PlumaWindow</doc>
           <type name="Window" c:type="PlumaWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-app.c"
-                 line="597">the #PlumaApp</doc>
+                 line="601">the #PlumaApp</doc>
             <type name="App" c:type="PlumaApp*"/>
           </instance-parameter>
           <parameter name="screen"
@@ -89,19 +118,19 @@ represents the running pluma instance.</doc>
               c:identifier="pluma_app_get_active_window">
         <doc xml:space="preserve"
              filename="pluma-app.c"
-             line="650">Retrives the #PlumaWindow currently active.</doc>
+             line="654">Retrives the #PlumaWindow currently active.</doc>
         <source-position filename="pluma-app.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-app.c"
-               line="656">the active #PlumaWindow</doc>
+               line="660">the active #PlumaWindow</doc>
           <type name="Window" c:type="PlumaWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-app.c"
-                 line="652">the #PlumaApp</doc>
+                 line="656">the #PlumaApp</doc>
             <type name="App" c:type="PlumaApp*"/>
           </instance-parameter>
         </parameters>
@@ -109,12 +138,12 @@ represents the running pluma instance.</doc>
       <method name="get_documents" c:identifier="pluma_app_get_documents">
         <doc xml:space="preserve"
              filename="pluma-app.c"
-             line="767">Returns all the documents currently open in #PlumaApp.</doc>
+             line="771">Returns all the documents currently open in #PlumaApp.</doc>
         <source-position filename="pluma-app.h" line="104"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="pluma-app.c"
-               line="773">
+               line="777">
 a newly allocated list of #PlumaDocument objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -124,7 +153,7 @@ a newly allocated list of #PlumaDocument objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-app.c"
-                 line="769">the #PlumaApp</doc>
+                 line="773">the #PlumaApp</doc>
             <type name="App" c:type="PlumaApp*"/>
           </instance-parameter>
         </parameters>
@@ -134,7 +163,7 @@ a newly allocated list of #PlumaDocument objects</doc>
               glib:get-property="lockdown">
         <doc xml:space="preserve"
              filename="pluma-app.c"
-             line="827">Gets the lockdown mask (see #PlumaLockdownMask) for the application.
+             line="831">Gets the lockdown mask (see #PlumaLockdownMask) for the application.
 The lockdown mask determines which functions are locked down using
 the MATE-wise lockdown GSettings keys.</doc>
         <source-position filename="pluma-app.h" line="110"/>
@@ -145,7 +174,7 @@ the MATE-wise lockdown GSettings keys.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-app.c"
-                 line="829">a #PlumaApp</doc>
+                 line="833">a #PlumaApp</doc>
             <type name="App" c:type="PlumaApp*"/>
           </instance-parameter>
         </parameters>
@@ -153,12 +182,12 @@ the MATE-wise lockdown GSettings keys.</doc>
       <method name="get_views" c:identifier="pluma_app_get_views">
         <doc xml:space="preserve"
              filename="pluma-app.c"
-             line="797">Returns all the views currently present in #PlumaApp.</doc>
+             line="801">Returns all the views currently present in #PlumaApp.</doc>
         <source-position filename="pluma-app.h" line="107"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="pluma-app.c"
-               line="803">
+               line="807">
 a newly allocated list of #PlumaView objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -168,7 +197,7 @@ a newly allocated list of #PlumaView objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-app.c"
-                 line="799">the #PlumaApp</doc>
+                 line="803">the #PlumaApp</doc>
             <type name="App" c:type="PlumaApp*"/>
           </instance-parameter>
         </parameters>
@@ -176,12 +205,12 @@ a newly allocated list of #PlumaView objects</doc>
       <method name="get_windows" c:identifier="pluma_app_get_windows">
         <doc xml:space="preserve"
              filename="pluma-app.c"
-             line="633">Returns all the windows currently present in #PlumaApp.</doc>
+             line="637">Returns all the windows currently present in #PlumaApp.</doc>
         <source-position filename="pluma-app.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-app.c"
-               line="639">the list of #PlumaWindows objects.
+               line="643">the list of #PlumaWindows objects.
 The list should not be freed</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="Window"/>
@@ -191,7 +220,7 @@ The list should not be freed</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-app.c"
-                 line="635">the #PlumaApp</doc>
+                 line="639">the #PlumaApp</doc>
             <type name="App" c:type="PlumaApp*"/>
           </instance-parameter>
         </parameters>
@@ -349,6 +378,73 @@ The list should not be freed</doc>
             disguised="1"
             opaque="1">
       <source-position filename="pluma-app.h" line="52"/>
+    </record>
+    <class name="Application"
+           c:symbol-prefix="application"
+           c:type="PlumaApplication"
+           parent="Gtk.Application"
+           glib:type-name="PlumaApplication"
+           glib:get-type="pluma_application_get_type"
+           glib:type-struct="ApplicationClass">
+      <source-position filename="pluma-application.h" line="64"/>
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
+      <constructor name="new" c:identifier="pluma_application_new">
+        <source-position filename="pluma-application.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <type name="Application" c:type="PlumaApplication*"/>
+        </return-value>
+      </constructor>
+      <method name="set_command_line_options"
+              c:identifier="pluma_application_set_command_line_options"
+              introspectable="0">
+        <source-position filename="pluma-application.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <type name="Application" c:type="PlumaApplication*"/>
+          </instance-parameter>
+          <parameter name="line_pos" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="encoding" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="new_window" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="new_document" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="file_list" transfer-ownership="none">
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.Application" c:type="GtkApplication"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ApplicationPrivate" c:type="PlumaApplicationPrivate*"/>
+      </field>
+    </class>
+    <record name="ApplicationClass"
+            c:type="PlumaApplicationClass"
+            glib:is-gtype-struct-for="Application">
+      <source-position filename="pluma-application.h" line="64"/>
+      <field name="parent_class">
+        <type name="Gtk.ApplicationClass" c:type="GtkApplicationClass"/>
+      </field>
+    </record>
+    <record name="ApplicationPrivate"
+            c:type="PlumaApplicationPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="pluma-application.h" line="41"/>
     </record>
     <function-macro name="DOCUMENT"
                     c:identifier="PLUMA_DOCUMENT"
@@ -1987,6 +2083,24 @@ as a line ending when saving the document</doc>
       <source-position filename="pluma-app.h" line="47"/>
       <parameters>
         <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_APPLICATION"
+                    c:identifier="PLUMA_IS_APPLICATION"
+                    introspectable="0">
+      <source-position filename="pluma-application.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_APPLICATION_CLASS"
+                    c:identifier="PLUMA_IS_APPLICATION_CLASS"
+                    introspectable="0">
+      <source-position filename="pluma-application.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
         </parameter>
       </parameters>
     </function-macro>
@@ -6682,12 +6796,14 @@ otherwise sets it to @font_name.</doc>
     <class name="Window"
            c:symbol-prefix="window"
            c:type="PlumaWindow"
-           parent="Gtk.Window"
+           parent="Gtk.ApplicationWindow"
            glib:type-name="PlumaWindow"
            glib:get-type="pluma_window_get_type"
            glib:type-struct="WindowClass">
       <source-position filename="pluma-window.h" line="99"/>
       <implements name="Atk.ImplementorIface"/>
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
       <implements name="Gtk.Buildable"/>
       <virtual-method name="active_tab_changed">
         <source-position filename="pluma-window.h" line="95"/>
@@ -6756,7 +6872,7 @@ otherwise sets it to @font_name.</doc>
       <method name="close_all_tabs" c:identifier="pluma_window_close_all_tabs">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4354">Closes all opened tabs.</doc>
+             line="4343">Closes all opened tabs.</doc>
         <source-position filename="pluma-window.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6765,7 +6881,7 @@ otherwise sets it to @font_name.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4356">a #PlumaWindow</doc>
+                 line="4345">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6773,7 +6889,7 @@ otherwise sets it to @font_name.</doc>
       <method name="close_tab" c:identifier="pluma_window_close_tab">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4335">Closes the @tab.</doc>
+             line="4324">Closes the @tab.</doc>
         <source-position filename="pluma-window.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6782,13 +6898,13 @@ otherwise sets it to @font_name.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4337">a #PlumaWindow</doc>
+                 line="4326">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4338">the #PlumaTab to close</doc>
+                 line="4327">the #PlumaTab to close</doc>
             <type name="Tab" c:type="PlumaTab*"/>
           </parameter>
         </parameters>
@@ -6796,7 +6912,7 @@ otherwise sets it to @font_name.</doc>
       <method name="close_tabs" c:identifier="pluma_window_close_tabs">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4374">Closes all tabs specified by @tabs.</doc>
+             line="4363">Closes all tabs specified by @tabs.</doc>
         <source-position filename="pluma-window.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6805,13 +6921,13 @@ otherwise sets it to @font_name.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4376">a #PlumaWindow</doc>
+                 line="4365">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
           <parameter name="tabs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4377">a list of #PlumaTab</doc>
+                 line="4366">a list of #PlumaTab</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="Tab"/>
             </type>
@@ -6821,26 +6937,26 @@ otherwise sets it to @font_name.</doc>
       <method name="create_tab" c:identifier="pluma_window_create_tab">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4162">Creates a new #PlumaTab and adds the new tab to the #PlumaNotebook.
+             line="4151">Creates a new #PlumaTab and adds the new tab to the #PlumaNotebook.
 In case @jump_to is %TRUE the #PlumaNotebook switches to that new #PlumaTab.</doc>
         <source-position filename="pluma-window.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4170">a new #PlumaTab</doc>
+               line="4159">a new #PlumaTab</doc>
           <type name="Tab" c:type="PlumaTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4164">a #PlumaWindow</doc>
+                 line="4153">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
           <parameter name="jump_to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4165">%TRUE to set the new #PlumaTab as active</doc>
+                 line="4154">%TRUE to set the new #PlumaTab as active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6849,7 +6965,7 @@ In case @jump_to is %TRUE the #PlumaNotebook switches to that new #PlumaTab.</do
               c:identifier="pluma_window_create_tab_from_uri">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4196">Creates a new #PlumaTab loading the document specified by @uri.
+             line="4185">Creates a new #PlumaTab loading the document specified by @uri.
 In case @jump_to is %TRUE the #PlumaNotebook swithes to that new #PlumaTab.
 Whether @create is %TRUE, creates a new empty document if location does
 not refer to an existing file</doc>
@@ -6857,44 +6973,44 @@ not refer to an existing file</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4210">a new #PlumaTab</doc>
+               line="4199">a new #PlumaTab</doc>
           <type name="Tab" c:type="PlumaTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4198">a #PlumaWindow</doc>
+                 line="4187">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4199">the uri of the document</doc>
+                 line="4188">the uri of the document</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="encoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4200">a #PlumaEncoding</doc>
+                 line="4189">a #PlumaEncoding</doc>
             <type name="Encoding" c:type="const PlumaEncoding*"/>
           </parameter>
           <parameter name="line_pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4201">the line position to visualize</doc>
+                 line="4190">the line position to visualize</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="create" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4202">%TRUE to create a new document in case @uri does exist</doc>
+                 line="4191">%TRUE to create a new document in case @uri does exist</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="jump_to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4203">%TRUE to set the new #PlumaTab as active</doc>
+                 line="4192">%TRUE to set the new #PlumaTab as active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6903,19 +7019,19 @@ not refer to an existing file</doc>
               c:identifier="pluma_window_get_active_document">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4132">Gets the active #PlumaDocument.</doc>
+             line="4121">Gets the active #PlumaDocument.</doc>
         <source-position filename="pluma-window.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4138">the active #PlumaDocument</doc>
+               line="4127">the active #PlumaDocument</doc>
           <type name="Document" c:type="PlumaDocument*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4134">a #PlumaWindow</doc>
+                 line="4123">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6923,19 +7039,19 @@ not refer to an existing file</doc>
       <method name="get_active_tab" c:identifier="pluma_window_get_active_tab">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4247">Gets the active #PlumaTab in the @window.</doc>
+             line="4236">Gets the active #PlumaTab in the @window.</doc>
         <source-position filename="pluma-window.h" line="124"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4253">the active #PlumaTab in the @window.</doc>
+               line="4242">the active #PlumaTab in the @window.</doc>
           <type name="Tab" c:type="PlumaTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4249">a PlumaWindow</doc>
+                 line="4238">a PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6944,19 +7060,19 @@ not refer to an existing file</doc>
               c:identifier="pluma_window_get_active_view">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4109">Gets the active #PlumaView.</doc>
+             line="4098">Gets the active #PlumaView.</doc>
         <source-position filename="pluma-window.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4115">the active #PlumaView</doc>
+               line="4104">the active #PlumaView</doc>
           <type name="View" c:type="PlumaView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4111">a #PlumaWindow</doc>
+                 line="4100">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6965,19 +7081,19 @@ not refer to an existing file</doc>
               c:identifier="pluma_window_get_bottom_panel">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4511">Gets the bottom #PlumaPanel of the @window.</doc>
+             line="4500">Gets the bottom #PlumaPanel of the @window.</doc>
         <source-position filename="pluma-window.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4517">the bottom #PlumaPanel.</doc>
+               line="4506">the bottom #PlumaPanel.</doc>
           <type name="Panel" c:type="PlumaPanel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4513">a #PlumaWindow</doc>
+                 line="4502">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6985,13 +7101,13 @@ not refer to an existing file</doc>
       <method name="get_documents" c:identifier="pluma_window_get_documents">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4274">Gets a newly allocated list with all the documents in the window.
+             line="4263">Gets a newly allocated list with all the documents in the window.
 This list must be freed.</doc>
         <source-position filename="pluma-window.h" line="134"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4281">a newly
+               line="4270">a newly
 allocated list with all the documents in the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -7001,7 +7117,7 @@ allocated list with all the documents in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4276">a #PlumaWindow</doc>
+                 line="4265">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7009,19 +7125,19 @@ allocated list with all the documents in the window</doc>
       <method name="get_group" c:identifier="pluma_window_get_group">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4455">Gets the #GtkWindowGroup in which @window resides.</doc>
+             line="4444">Gets the #GtkWindowGroup in which @window resides.</doc>
         <source-position filename="pluma-window.h" line="143"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4461">the #GtkWindowGroup</doc>
+               line="4450">the #GtkWindowGroup</doc>
           <type name="Gtk.WindowGroup" c:type="GtkWindowGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4457">a #PlumaWindow</doc>
+                 line="4446">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7030,20 +7146,20 @@ allocated list with all the documents in the window</doc>
               c:identifier="pluma_window_get_message_bus">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4790">Gets the #PlumaMessageBus associated with @window. The returned reference
+             line="4779">Gets the #PlumaMessageBus associated with @window. The returned reference
 is owned by the window and should not be unreffed.</doc>
         <source-position filename="pluma-window.h" line="159"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4797">the #PlumaMessageBus associated with @window</doc>
+               line="4786">the #PlumaMessageBus associated with @window</doc>
           <type name="MessageBus" c:type="PlumaMessageBus*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4792">a #PlumaWindow</doc>
+                 line="4781">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7051,19 +7167,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_side_panel" c:identifier="pluma_window_get_side_panel">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4495">Gets the side #PlumaPanel of the @window.</doc>
+             line="4484">Gets the side #PlumaPanel of the @window.</doc>
         <source-position filename="pluma-window.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4501">the side #PlumaPanel.</doc>
+               line="4490">the side #PlumaPanel.</doc>
           <type name="Panel" c:type="PlumaPanel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4497">a #PlumaWindow</doc>
+                 line="4486">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7073,19 +7189,19 @@ is owned by the window and should not be unreffed.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4543">Retrieves the state of the @window.</doc>
+             line="4532">Retrieves the state of the @window.</doc>
         <source-position filename="pluma-window.h" line="153"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4549">the current #PlumaWindowState of the @window.</doc>
+               line="4538">the current #PlumaWindowState of the @window.</doc>
           <type name="WindowState" c:type="PlumaWindowState"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4545">a #PlumaWindow</doc>
+                 line="4534">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7093,19 +7209,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_statusbar" c:identifier="pluma_window_get_statusbar">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4527">Gets the #PlumaStatusbar of the @window.</doc>
+             line="4516">Gets the #PlumaStatusbar of the @window.</doc>
         <source-position filename="pluma-window.h" line="149"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4533">the #PlumaStatusbar of the @window.</doc>
+               line="4522">the #PlumaStatusbar of the @window.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4529">a #PlumaWindow</doc>
+                 line="4518">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7114,25 +7230,25 @@ is owned by the window and should not be unreffed.</doc>
               c:identifier="pluma_window_get_tab_from_location">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4738">Gets the #PlumaTab that matches with the given @location.</doc>
+             line="4727">Gets the #PlumaTab that matches with the given @location.</doc>
         <source-position filename="pluma-window.h" line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4745">the #PlumaTab that matches with the given @location.</doc>
+               line="4734">the #PlumaTab that matches with the given @location.</doc>
           <type name="Tab" c:type="PlumaTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4740">a #PlumaWindow</doc>
+                 line="4729">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4741">a #GFile</doc>
+                 line="4730">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -7140,19 +7256,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_ui_manager" c:identifier="pluma_window_get_ui_manager">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4479">Gets the #GtkUIManager associated with the @window.</doc>
+             line="4468">Gets the #GtkUIManager associated with the @window.</doc>
         <source-position filename="pluma-window.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4485">the #GtkUIManager of the @window.</doc>
+               line="4474">the #GtkUIManager of the @window.</doc>
           <type name="Gtk.UIManager" c:type="GtkUIManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4481">a #PlumaWindow</doc>
+                 line="4470">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7161,12 +7277,12 @@ is owned by the window and should not be unreffed.</doc>
               c:identifier="pluma_window_get_unsaved_documents">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4586">Gets the list of documents that need to be saved before closing the window.</doc>
+             line="4575">Gets the list of documents that need to be saved before closing the window.</doc>
         <source-position filename="pluma-window.h" line="138"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4592">a list of
+               line="4581">a list of
 #PlumaDocument that need to be saved before closing the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -7176,7 +7292,7 @@ is owned by the window and should not be unreffed.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4588">a #PlumaWindow</doc>
+                 line="4577">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7184,12 +7300,12 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_views" c:identifier="pluma_window_get_views">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4310">Gets a list with all the views in the window. This list must be freed.</doc>
+             line="4299">Gets a list with all the views in the window. This list must be freed.</doc>
         <source-position filename="pluma-window.h" line="141"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="pluma-window.c"
-               line="4316">a newly allocated
+               line="4305">a newly allocated
 list with all the views in the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -7199,7 +7315,7 @@ list with all the views in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4312">a #PlumaWindow</doc>
+                 line="4301">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -7207,7 +7323,7 @@ list with all the views in the window</doc>
       <method name="set_active_tab" c:identifier="pluma_window_set_active_tab">
         <doc xml:space="preserve"
              filename="pluma-window.c"
-             line="4431">Switches to the tab that matches with @tab.</doc>
+             line="4420">Switches to the tab that matches with @tab.</doc>
         <source-position filename="pluma-window.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7216,13 +7332,13 @@ list with all the views in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4433">a #PlumaWindow</doc>
+                 line="4422">a #PlumaWindow</doc>
             <type name="Window" c:type="PlumaWindow*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pluma-window.c"
-                 line="4434">a #PlumaTab</doc>
+                 line="4423">a #PlumaTab</doc>
             <type name="Tab" c:type="PlumaTab*"/>
           </parameter>
         </parameters>
@@ -7234,7 +7350,7 @@ list with all the views in the window</doc>
         <type name="WindowState"/>
       </property>
       <field name="window">
-        <type name="Gtk.Window" c:type="GtkWindow"/>
+        <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow"/>
       </field>
       <field name="priv" readable="0" private="1">
         <type name="WindowPrivate" c:type="PlumaWindowPrivate*"/>
@@ -7465,7 +7581,8 @@ state changes in the window state, due to some event or user action.</doc>
             glib:is-gtype-struct-for="Window">
       <source-position filename="pluma-window.h" line="99"/>
       <field name="parent_class">
-        <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
+        <type name="Gtk.ApplicationWindowClass"
+              c:type="GtkApplicationWindowClass"/>
       </field>
       <field name="tab_added">
         <callback name="tab_added">

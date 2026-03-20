@@ -480,13 +480,26 @@ perform reads and writes.</doc>
       <method name="execute" c:identifier="gom_command_execute" throws="1">
         <source-position filename="gom/gom-command.h" line="53"/>
         <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gom/gom-command.c"
+               line="317">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="command" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gom/gom-command.c"
+                 line="314">a [class@Gom.Command]</doc>
             <type name="Command" c:type="GomCommand*"/>
           </instance-parameter>
-          <parameter name="cursor" transfer-ownership="none">
+          <parameter name="cursor"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="gom/gom-command.c"
+                 line="315">a location for the cursor</doc>
             <type name="Cursor" c:type="GomCursor**"/>
           </parameter>
         </parameters>

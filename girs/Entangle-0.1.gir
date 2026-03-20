@@ -5,13 +5,15 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
-  <include name="GExiv2" version="0.10"/>
+  <include name="GExiv2" version="0.16"/>
   <include name="GObject" version="2.0"/>
   <include name="Gst" version="1.0"/>
   <include name="GstBase" version="1.0"/>
   <include name="Gtk" version="3.0"/>
   <include name="Peas" version="1.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Entangle"
              version="0.1"
              shared-library=""
@@ -40,20 +42,20 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="active-cameras">
         <doc xml:space="preserve"
              filename="src/frontend/entangle-application.c"
-             line="516">Retrieve the active camera list</doc>
+             line="530">Retrieve the active camera list</doc>
         <source-position filename="src/frontend/entangle-application.h"
                          line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/frontend/entangle-application.c"
-               line="522">the camera list</doc>
+               line="536">the camera list</doc>
           <type name="CameraList" c:type="EntangleCameraList*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-application.c"
-                 line="518">the application</doc>
+                 line="532">the application</doc>
             <type name="Application" c:type="EntangleApplication*"/>
           </instance-parameter>
         </parameters>
@@ -62,20 +64,20 @@ and/or use gtk-doc annotations.  -->
               c:identifier="entangle_application_get_plugin_engine">
         <doc xml:space="preserve"
              filename="src/frontend/entangle-application.c"
-             line="564">Retrieve the plugin manager</doc>
+             line="578">Retrieve the plugin manager</doc>
         <source-position filename="src/frontend/entangle-application.h"
                          line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/frontend/entangle-application.c"
-               line="570">the plugin engine</doc>
+               line="584">the plugin engine</doc>
           <type name="Peas.Engine" c:type="PeasEngine*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-application.c"
-                 line="566">the application</doc>
+                 line="580">the application</doc>
             <type name="Application" c:type="EntangleApplication*"/>
           </instance-parameter>
         </parameters>
@@ -85,20 +87,20 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="preferences">
         <doc xml:space="preserve"
              filename="src/frontend/entangle-application.c"
-             line="548">Retrieve the application preferences object</doc>
+             line="562">Retrieve the application preferences object</doc>
         <source-position filename="src/frontend/entangle-application.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/frontend/entangle-application.c"
-               line="554">the application preferences</doc>
+               line="568">the application preferences</doc>
           <type name="Preferences" c:type="EntanglePreferences*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-application.c"
-                 line="550">the application</doc>
+                 line="564">the application</doc>
             <type name="Application" c:type="EntangleApplication*"/>
           </instance-parameter>
         </parameters>
@@ -108,20 +110,20 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="supported-cameras">
         <doc xml:space="preserve"
              filename="src/frontend/entangle-application.c"
-             line="532">Retrieve the supported camera list</doc>
+             line="546">Retrieve the supported camera list</doc>
         <source-position filename="src/frontend/entangle-application.h"
                          line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/frontend/entangle-application.c"
-               line="538">the camera list</doc>
+               line="552">the camera list</doc>
           <type name="CameraList" c:type="EntangleCameraList*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-application.c"
-                 line="534">the application</doc>
+                 line="548">the application</doc>
             <type name="Application" c:type="EntangleApplication*"/>
           </instance-parameter>
         </parameters>
@@ -6363,20 +6365,20 @@ it is backed by a file on disk</doc>
               glib:get-property="media">
         <doc xml:space="preserve"
              filename="src/frontend/entangle-media-statusbar.c"
-             line="305">Retrieve the media that status is currently displayed for</doc>
+             line="333">Retrieve the media that status is currently displayed for</doc>
         <source-position filename="src/frontend/entangle-media-statusbar.h"
                          line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/frontend/entangle-media-statusbar.c"
-               line="311">the media displayed</doc>
+               line="339">the media displayed</doc>
           <type name="Media" c:type="EntangleMedia*"/>
         </return-value>
         <parameters>
           <instance-parameter name="statusbar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-media-statusbar.c"
-                 line="307">the status bar widget</doc>
+                 line="335">the status bar widget</doc>
             <type name="MediaStatusbar" c:type="EntangleMediaStatusbar*"/>
           </instance-parameter>
         </parameters>
@@ -6386,7 +6388,7 @@ it is backed by a file on disk</doc>
               glib:set-property="media">
         <doc xml:space="preserve"
              filename="src/frontend/entangle-media-statusbar.c"
-             line="274">Set the media to display status information for</doc>
+             line="302">Set the media to display status information for</doc>
         <source-position filename="src/frontend/entangle-media-statusbar.h"
                          line="41"/>
         <return-value transfer-ownership="none">
@@ -6396,7 +6398,7 @@ it is backed by a file on disk</doc>
           <instance-parameter name="statusbar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-media-statusbar.c"
-                 line="276">the status bar widget</doc>
+                 line="304">the status bar widget</doc>
             <type name="MediaStatusbar" c:type="EntangleMediaStatusbar*"/>
           </instance-parameter>
           <parameter name="media"
@@ -6405,7 +6407,7 @@ it is backed by a file on disk</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/frontend/entangle-media-statusbar.c"
-                 line="277">the media to display status for, or NULL</doc>
+                 line="305">the media to display status for, or NULL</doc>
             <type name="Media" c:type="EntangleMedia*"/>
           </parameter>
         </parameters>
@@ -9983,7 +9985,7 @@ thumbnails</doc>
     <docsection name="entangle-application">
       <doc xml:space="preserve"
            filename="src/frontend/entangle-application.c"
-           line="36">EntangleApplication maintains some global application state. At this time,
+           line="42">EntangleApplication maintains some global application state. At this time,
 the list of currently attached cameras, the application preferences
 and the plugin manager.</doc>
     </docsection>
@@ -10124,7 +10126,7 @@ video stream.</doc>
               c:identifier="entangle_pixbuf_auto_rotate">
       <doc xml:space="preserve"
            filename="src/backend/entangle-pixbuf.c"
-           line="27">Automatically rotate the pixbuf @src so that it is in its
+           line="46">Automatically rotate the pixbuf @src so that it is in its
 "natural" orientation. Will first try to apply the orientation
 associated in the GdkPixbuf object. If this doesn't apply any
 rotation, then will use the exiv metadata to identify the
@@ -10133,14 +10135,14 @@ orientation</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/backend/entangle-pixbuf.c"
-             line="38">the rotated pixbuf</doc>
+             line="57">the rotated pixbuf</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="src" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backend/entangle-pixbuf.c"
-               line="29">the pixbuf to be rotated</doc>
+               line="48">the pixbuf to be rotated</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="metadata"
@@ -10149,7 +10151,7 @@ orientation</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/backend/entangle-pixbuf.c"
-               line="30">the exiv2 metadata for the pixbuf</doc>
+               line="49">the exiv2 metadata for the pixbuf</doc>
           <type name="GExiv2.Metadata" c:type="GExiv2Metadata*"/>
         </parameter>
       </parameters>
@@ -10158,7 +10160,7 @@ orientation</doc>
               c:identifier="entangle_pixbuf_open_image">
       <doc xml:space="preserve"
            filename="src/backend/entangle-pixbuf.c"
-           line="485">If @slot is ENTANGLE_PIXBUF_IMAGE_SLOT_MASTER then the primary
+           line="505">If @slot is ENTANGLE_PIXBUF_IMAGE_SLOT_MASTER then the primary
 image data is loaded.
 
 If @slot is ENTANGLE_PIXBUF_IMAGE_SLOT_PREVIEW and the image is
@@ -10173,26 +10175,26 @@ is available, the primary image data is loaded.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/backend/entangle-pixbuf.c"
-             line="504">the pixbuf for the image slot</doc>
+             line="524">the pixbuf for the image slot</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="image" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backend/entangle-pixbuf.c"
-               line="487">the camera image to open</doc>
+               line="507">the camera image to open</doc>
           <type name="Image" c:type="EntangleImage*"/>
         </parameter>
         <parameter name="slot" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backend/entangle-pixbuf.c"
-               line="488">the type of image data to open</doc>
+               line="508">the type of image data to open</doc>
           <type name="PixbufImageSlot" c:type="EntanglePixbufImageSlot"/>
         </parameter>
         <parameter name="applyOrientation" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backend/entangle-pixbuf.c"
-               line="489">whether to rotate to natural orientation</doc>
+               line="509">whether to rotate to natural orientation</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="metadata"
@@ -10201,7 +10203,7 @@ is available, the primary image data is loaded.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/backend/entangle-pixbuf.c"
-               line="490">filled with metadata object instance</doc>
+               line="510">filled with metadata object instance</doc>
           <type name="GExiv2.Metadata" c:type="GExiv2Metadata**"/>
         </parameter>
       </parameters>

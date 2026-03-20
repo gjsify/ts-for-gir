@@ -1,0 +1,2902 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="gpiod-glib"/>
+  <c:include name="gpiod-glib.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="Gpiodglib"
+             version="1.0"
+             shared-library="libgpiod-glib.so.1"
+             c:identifier-prefixes="Gpiodglib"
+             c:symbol-prefixes="gpiodglib">
+    <function-macro name="CHIP_INFO_OBJ"
+                    c:identifier="GPIODGLIB_CHIP_INFO_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/chip-info.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHIP_OBJ"
+                    c:identifier="GPIODGLIB_CHIP_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/chip.h" line="25"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Chip"
+           c:symbol-prefix="chip"
+           c:type="GpiodglibChip"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibChip"
+           glib:get-type="gpiodglib_chip_get_type"
+           glib:type-struct="ChipClass">
+      <doc xml:space="preserve"
+           filename="chip.c"
+           line="8">Represents a single GPIO chip.</doc>
+      <source-position filename="gpiod-glib/chip.h" line="22"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="gpiodglib_chip_new" throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="28">Instantiates a new chip object by opening the device file indicated by path.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="35">New GPIO chip object.</doc>
+          <type name="Chip" c:type="GpiodglibChip*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="30">Path to the device file to open.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="close" c:identifier="gpiodglib_chip_close">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="39">Close the GPIO chip device file and free associated resources.
+
+The chip object can live after calling this method but any of the chip's
+methods will result in an error being set.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="41">#GpiodglibChip to close.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_path" c:identifier="gpiodglib_chip_dup_path">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="60">Get the filesystem path that was used to open this GPIO chip.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="66">Path to the underlying character device file. The string is a copy
+and must be freed by the caller with g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="62">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_info"
+              c:identifier="gpiodglib_chip_get_info"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="72">Get information about the chip.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="81"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="79">New #GpiodglibChipInfo.</doc>
+          <type name="ChipInfo" c:type="GpiodglibChipInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="74">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_line_info"
+              c:identifier="gpiodglib_chip_get_line_info"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="83">Retrieve the current snapshot of line information for a single line.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="91">New #GpiodglibLineInfo.</doc>
+          <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="85">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="86">Offset of the line to get the info for.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_line_offset_from_name"
+              c:identifier="gpiodglib_chip_get_line_offset_from_name"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="124">Map a GPIO line's name to its offset within the chip.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="133">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="126">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="127">Name of the GPIO line to map.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="128">Return location for the mapped offset.</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_closed" c:identifier="gpiodglib_chip_is_closed">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="50">@brief Check if this object is valid.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="56">TRUE if this object's methods can be used, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="52">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_lines"
+              c:identifier="gpiodglib_chip_request_lines"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="139">Request a set of lines for exclusive usage.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="151"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="148">New #GpiodglibLineRequest.</doc>
+          <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="141">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+          <parameter name="req_cfg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="142">Request config object. Can be NULL for default settings.</doc>
+            <type name="RequestConfig" c:type="GpiodglibRequestConfig*"/>
+          </parameter>
+          <parameter name="line_cfg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="143">Line config object.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unwatch_line_info"
+              c:identifier="gpiodglib_chip_unwatch_line_info"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="110">Stop watching the line at given offset for info events.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="118">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="112">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="113">Offset of the line to get the info for.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="watch_line_info"
+              c:identifier="gpiodglib_chip_watch_line_info"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip.h"
+             line="96">Retrieve the current snapshot of line information for a single line and
+start watching this line for future changes.</doc>
+        <source-position filename="gpiod-glib/chip.h" line="108"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip.h"
+               line="105">New #GpiodglibLineInfo.</doc>
+          <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="98">#GpiodglibChip to manipulate.</doc>
+            <type name="Chip" c:type="GpiodglibChip*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip.h"
+                 line="99">Offset of the line to get the info for and to watch.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="chip.c"
+             line="176">Path that was used to open this GPIO chip.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="info-event" when="last">
+        <doc xml:space="preserve"
+             filename="chip.c"
+             line="189">Emitted when the state of a watched GPIO line changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="chip.c"
+                 line="192">The #GpiodglibInfoEvent</doc>
+            <type name="InfoEvent"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ChipClass"
+            c:type="GpiodglibChipClass"
+            glib:is-gtype-struct-for="Chip">
+      <source-position filename="gpiod-glib/chip.h" line="22"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ChipInfo"
+           c:symbol-prefix="chip_info"
+           c:type="GpiodglibChipInfo"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibChipInfo"
+           glib:get-type="gpiodglib_chip_info_get_type"
+           glib:type-struct="ChipInfoClass">
+      <doc xml:space="preserve"
+           filename="chip-info.c"
+           line="8">Represents an immutable snapshot of GPIO chip information.</doc>
+      <source-position filename="gpiod-glib/chip-info.h" line="16"/>
+      <method name="dup_label" c:identifier="gpiodglib_chip_info_dup_label">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip-info.h"
+             line="37">Get the label of the chip as represented in the kernel.</doc>
+        <source-position filename="gpiod-glib/chip-info.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip-info.h"
+               line="43">Valid pointer to a human-readable string
+containing the chip label. The returned string is a copy and must be freed
+by the caller using g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip-info.h"
+                 line="39">#GpiodglibChipInfo to manipulate.</doc>
+            <type name="ChipInfo" c:type="GpiodglibChipInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_name" c:identifier="gpiodglib_chip_info_dup_name">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip-info.h"
+             line="24">Get the name of the chip as represented in the kernel.</doc>
+        <source-position filename="gpiod-glib/chip-info.h" line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip-info.h"
+               line="30">Valid pointer to a human-readable string
+containing the chip name. The returned string is a copy and must be freed by
+the caller using g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip-info.h"
+                 line="26">#GpiodglibChipInfo to manipulate.</doc>
+            <type name="ChipInfo" c:type="GpiodglibChipInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_num_lines"
+              c:identifier="gpiodglib_chip_info_get_num_lines"
+              glib:get-property="num-lines">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/chip-info.h"
+             line="50">Get the number of lines exposed by the chip.</doc>
+        <source-position filename="gpiod-glib/chip-info.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/chip-info.h"
+               line="56">Number of GPIO lines.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/chip-info.h"
+                 line="52">#GpiodglibChipInfo to manipulate.</doc>
+            <type name="ChipInfo" c:type="GpiodglibChipInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="label" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="chip-info.c"
+             line="78">Label of this GPIO chip device.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="chip-info.c"
+             line="68">Name of this GPIO chip device.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="num-lines"
+                transfer-ownership="none"
+                getter="get_num_lines"
+                default-value="1">
+        <doc xml:space="preserve"
+             filename="chip-info.c"
+             line="88">Number of GPIO lines exposed by this chip.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="ChipInfoClass"
+            c:type="GpiodglibChipInfoClass"
+            glib:is-gtype-struct-for="ChipInfo">
+      <source-position filename="gpiod-glib/chip-info.h" line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="EDGE_EVENT_OBJ"
+                    c:identifier="GPIODGLIB_EDGE_EVENT_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/edge-event.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="EdgeEvent"
+           c:symbol-prefix="edge_event"
+           c:type="GpiodglibEdgeEvent"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibEdgeEvent"
+           glib:get-type="gpiodglib_edge_event_get_type"
+           glib:type-struct="EdgeEventClass">
+      <doc xml:space="preserve"
+           filename="edge-event.c"
+           line="8">#GpiodglibEdgeEvent stores information about a single line edge event.
+It contains the event type, timestamp and the offset of the line on which
+the event occurred as well as two sequence numbers (global for all lines
+in the associated request and local for this line only).</doc>
+      <source-position filename="gpiod-glib/edge-event.h" line="18"/>
+      <method name="get_event_type"
+              c:identifier="gpiodglib_edge_event_get_event_type"
+              glib:get-property="event-type">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="38">Get the event type.</doc>
+        <source-position filename="gpiod-glib/edge-event.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/edge-event.h"
+               line="44">The event type (@GPIODGLIB_EDGE_EVENT_RISING_EDGE or
+@GPIODGLIB_EDGE_EVENT_FALLING_EDGE).</doc>
+          <type name="EdgeEventType" c:type="GpiodglibEdgeEventType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/edge-event.h"
+                 line="40">#GpiodglibEdgeEvent to manipulate.</doc>
+            <type name="EdgeEvent" c:type="GpiodglibEdgeEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_global_seqno"
+              c:identifier="gpiodglib_edge_event_get_global_seqno"
+              glib:get-property="global-seqno">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="73">Get the global sequence number of the event.</doc>
+        <source-position filename="gpiod-glib/edge-event.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/edge-event.h"
+               line="79">Sequence number of the event in the series of events for all lines
+in the associated line request.</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/edge-event.h"
+                 line="75">#GpiodglibEdgeEvent to manipulate.</doc>
+            <type name="EdgeEvent" c:type="GpiodglibEdgeEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_line_offset"
+              c:identifier="gpiodglib_edge_event_get_line_offset"
+              glib:get-property="line-offset">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="63">Get the offset of the line which triggered the event.</doc>
+        <source-position filename="gpiod-glib/edge-event.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/edge-event.h"
+               line="69">Line offset.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/edge-event.h"
+                 line="65">#GpiodglibEdgeEvent to manipulate.</doc>
+            <type name="EdgeEvent" c:type="GpiodglibEdgeEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_line_seqno"
+              c:identifier="gpiodglib_edge_event_get_line_seqno"
+              glib:get-property="line-seqno">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="84">Get the event sequence number specific to the line.</doc>
+        <source-position filename="gpiod-glib/edge-event.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/edge-event.h"
+               line="90">Sequence number of the event in the series of events only for this
+line within the lifetime of the associated line request.</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/edge-event.h"
+                 line="86">#GpiodglibEdgeEvent to manipulate.</doc>
+            <type name="EdgeEvent" c:type="GpiodglibEdgeEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timestamp_ns"
+              c:identifier="gpiodglib_edge_event_get_timestamp_ns"
+              glib:get-property="timestamp-ns">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="50">Get the timestamp of the event.
+
+The source clock for the timestamp depends on the event_clock setting for
+the line.</doc>
+        <source-position filename="gpiod-glib/edge-event.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/edge-event.h"
+               line="59">Timestamp in nanoseconds.</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/edge-event.h"
+                 line="52">#GpiodglibEdgeEvent to manipulate.</doc>
+            <type name="EdgeEvent" c:type="GpiodglibEdgeEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="event-type"
+                transfer-ownership="none"
+                getter="get_event_type"
+                default-value="GPIODGLIB_EDGE_EVENT_RISING_EDGE">
+        <doc xml:space="preserve"
+             filename="edge-event.c"
+             line="83">Type of the edge event.</doc>
+        <type name="EdgeEventType"/>
+      </property>
+      <property name="global-seqno"
+                transfer-ownership="none"
+                getter="get_global_seqno"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="edge-event.c"
+             line="121">Global sequence number of this event.</doc>
+        <type name="gulong" c:type="gulong"/>
+      </property>
+      <property name="line-offset"
+                transfer-ownership="none"
+                getter="get_line_offset"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="edge-event.c"
+             line="109">Offset of the line on which this event was registered.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="line-seqno"
+                transfer-ownership="none"
+                getter="get_line_seqno"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="edge-event.c"
+             line="133">Event sequence number specific to the line.</doc>
+        <type name="gulong" c:type="gulong"/>
+      </property>
+      <property name="timestamp-ns"
+                transfer-ownership="none"
+                getter="get_timestamp_ns"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="edge-event.c"
+             line="96">Timestamp of the edge event expressed in nanoseconds.</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+    </class>
+    <record name="EdgeEventClass"
+            c:type="GpiodglibEdgeEventClass"
+            glib:is-gtype-struct-for="EdgeEvent">
+      <source-position filename="gpiod-glib/edge-event.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="EdgeEventType"
+                 glib:type-name="GpiodglibEdgeEventType"
+                 glib:get-type="gpiodglib_edge_event_type_get_type"
+                 c:type="GpiodglibEdgeEventType">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/edge-event.h"
+           line="26">Edge event types.</doc>
+      <member name="rising_edge"
+              value="1"
+              c:identifier="GPIODGLIB_EDGE_EVENT_RISING_EDGE"
+              glib:nick="rising-edge"
+              glib:name="GPIODGLIB_EDGE_EVENT_RISING_EDGE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="28">Rising edge event.</doc>
+      </member>
+      <member name="falling_edge"
+              value="2"
+              c:identifier="GPIODGLIB_EDGE_EVENT_FALLING_EDGE"
+              glib:nick="falling-edge"
+              glib:name="GPIODGLIB_EDGE_EVENT_FALLING_EDGE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/edge-event.h"
+             line="29">Falling edge event.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="Error"
+                 c:type="GpiodglibError"
+                 glib:error-domain="g-gpiod-error">
+      <source-position filename="gpiod-glib/error.h" line="39"/>
+      <member name="failed" value="1" c:identifier="GPIODGLIB_ERR_FAILED">
+      </member>
+      <member name="chip_closed"
+              value="2"
+              c:identifier="GPIODGLIB_ERR_CHIP_CLOSED">
+      </member>
+      <member name="request_released"
+              value="3"
+              c:identifier="GPIODGLIB_ERR_REQUEST_RELEASED">
+      </member>
+      <member name="perm" value="4" c:identifier="GPIODGLIB_ERR_PERM">
+      </member>
+      <member name="noent" value="5" c:identifier="GPIODGLIB_ERR_NOENT">
+      </member>
+      <member name="intr" value="6" c:identifier="GPIODGLIB_ERR_INTR">
+      </member>
+      <member name="io" value="7" c:identifier="GPIODGLIB_ERR_IO">
+      </member>
+      <member name="nxio" value="8" c:identifier="GPIODGLIB_ERR_NXIO">
+      </member>
+      <member name="e2big" value="9" c:identifier="GPIODGLIB_ERR_E2BIG">
+      </member>
+      <member name="badfd" value="10" c:identifier="GPIODGLIB_ERR_BADFD">
+      </member>
+      <member name="child" value="11" c:identifier="GPIODGLIB_ERR_CHILD">
+      </member>
+      <member name="again" value="12" c:identifier="GPIODGLIB_ERR_AGAIN">
+      </member>
+      <member name="nomem" value="13" c:identifier="GPIODGLIB_ERR_NOMEM">
+      </member>
+      <member name="acces" value="14" c:identifier="GPIODGLIB_ERR_ACCES">
+      </member>
+      <member name="fault" value="15" c:identifier="GPIODGLIB_ERR_FAULT">
+      </member>
+      <member name="busy" value="16" c:identifier="GPIODGLIB_ERR_BUSY">
+      </member>
+      <member name="exist" value="17" c:identifier="GPIODGLIB_ERR_EXIST">
+      </member>
+      <member name="nodev" value="18" c:identifier="GPIODGLIB_ERR_NODEV">
+      </member>
+      <member name="inval" value="19" c:identifier="GPIODGLIB_ERR_INVAL">
+      </member>
+      <member name="notty" value="20" c:identifier="GPIODGLIB_ERR_NOTTY">
+      </member>
+      <member name="pipe" value="21" c:identifier="GPIODGLIB_ERR_PIPE">
+      </member>
+    </enumeration>
+    <function-macro name="INFO_EVENT_OBJ"
+                    c:identifier="GPIODGLIB_INFO_EVENT_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/info-event.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="InfoEvent"
+           c:symbol-prefix="info_event"
+           c:type="GpiodglibInfoEvent"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibInfoEvent"
+           glib:get-type="gpiodglib_info_event_get_type"
+           glib:type-struct="InfoEventClass">
+      <doc xml:space="preserve"
+           filename="info-event.c"
+           line="8">#GpiodglibInfoEvent contains information about the event itself (timestamp,
+type) as well as a snapshot of line's status in the form of a line-info
+object.</doc>
+      <source-position filename="gpiod-glib/info-event.h" line="18"/>
+      <method name="get_event_type"
+              c:identifier="gpiodglib_info_event_get_event_type"
+              glib:get-property="event-type">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/info-event.h"
+             line="41">Get the event type of the status change event.</doc>
+        <source-position filename="gpiod-glib/info-event.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/info-event.h"
+               line="47">One of @GPIODGLIB_INFO_EVENT_LINE_REQUESTED,
+@GPIODGLIB_INFO_EVENT_LINE_RELEASED or
+@GPIODGLIB_INFO_EVENT_LINE_CONFIG_CHANGED.</doc>
+          <type name="InfoEventType" c:type="GpiodglibInfoEventType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/info-event.h"
+                 line="43">#GpiodglibInfoEvent to manipulate.</doc>
+            <type name="InfoEvent" c:type="GpiodglibInfoEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_line_info"
+              c:identifier="gpiodglib_info_event_get_line_info"
+              glib:get-property="line-info">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/info-event.h"
+             line="64">@self #GpiodglibInfoEvent to manipulate.
+Get the snapshot of line-info associated with the event.</doc>
+        <source-position filename="gpiod-glib/info-event.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/info-event.h"
+               line="70">New reference to the associated line-info object.</doc>
+          <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="InfoEvent" c:type="GpiodglibInfoEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timestamp_ns"
+              c:identifier="gpiodglib_info_event_get_timestamp_ns"
+              glib:get-property="timestamp-ns">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/info-event.h"
+             line="54">Get the timestamp of the event.</doc>
+        <source-position filename="gpiod-glib/info-event.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/info-event.h"
+               line="60">Timestamp in nanoseconds, read from the monotonic clock.</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/info-event.h"
+                 line="56">#GpiodglibInfoEvent to manipulate.</doc>
+            <type name="InfoEvent" c:type="GpiodglibInfoEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="event-type"
+                transfer-ownership="none"
+                getter="get_event_type"
+                default-value="GPIODGLIB_INFO_EVENT_LINE_REQUESTED">
+        <doc xml:space="preserve"
+             filename="info-event.c"
+             line="91">Type of the info event. One of @GPIODGLIB_INFO_EVENT_LINE_REQUESTED,
+@GPIODGLIB_INFO_EVENT_LINE_RELEASED or
+@GPIODGLIB_INFO_EVENT_LINE_CONFIG_CHANGED.</doc>
+        <type name="InfoEventType"/>
+      </property>
+      <property name="line-info"
+                transfer-ownership="none"
+                getter="get_line_info">
+        <doc xml:space="preserve"
+             filename="info-event.c"
+             line="119">New line-info snapshot associated with this info event.</doc>
+        <type name="LineInfo"/>
+      </property>
+      <property name="timestamp-ns"
+                transfer-ownership="none"
+                getter="get_timestamp_ns"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="info-event.c"
+             line="106">Timestamp (in nanoseconds).</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+    </class>
+    <record name="InfoEventClass"
+            c:type="GpiodglibInfoEventClass"
+            glib:is-gtype-struct-for="InfoEvent">
+      <source-position filename="gpiod-glib/info-event.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="InfoEventType"
+                 glib:type-name="GpiodglibInfoEventType"
+                 glib:get-type="gpiodglib_info_event_type_get_type"
+                 c:type="GpiodglibInfoEventType">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/info-event.h"
+           line="26">Line status change event types.</doc>
+      <member name="requested"
+              value="1"
+              c:identifier="GPIODGLIB_INFO_EVENT_LINE_REQUESTED"
+              glib:nick="requested"
+              glib:name="GPIODGLIB_INFO_EVENT_LINE_REQUESTED">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/info-event.h"
+             line="28">Line has been requested.</doc>
+      </member>
+      <member name="released"
+              value="2"
+              c:identifier="GPIODGLIB_INFO_EVENT_LINE_RELEASED"
+              glib:nick="released"
+              glib:name="GPIODGLIB_INFO_EVENT_LINE_RELEASED">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/info-event.h"
+             line="29">Previously requested line has been
+released.</doc>
+      </member>
+      <member name="config_changed"
+              value="3"
+              c:identifier="GPIODGLIB_INFO_EVENT_LINE_CONFIG_CHANGED"
+              glib:nick="config-changed"
+              glib:name="GPIODGLIB_INFO_EVENT_LINE_CONFIG_CHANGED">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/info-event.h"
+             line="31">Line configuration has changed.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="LINE_CONFIG_OBJ"
+                    c:identifier="GPIODGLIB_LINE_CONFIG_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/line-config.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LINE_INFO_OBJ"
+                    c:identifier="GPIODGLIB_LINE_INFO_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/line-info.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LINE_REQUEST_OBJ"
+                    c:identifier="GPIODGLIB_LINE_REQUEST_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/line-request.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LINE_SETTINGS_OBJ"
+                    c:identifier="GPIODGLIB_LINE_SETTINGS_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/line-settings.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="LineBias"
+                 glib:type-name="GpiodglibLineBias"
+                 glib:get-type="gpiodglib_line_bias_get_type"
+                 c:type="GpiodglibLineBias">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/line.h"
+           line="61">Internal bias settings.</doc>
+      <member name="as_is"
+              value="1"
+              c:identifier="GPIODGLIB_LINE_BIAS_AS_IS"
+              glib:nick="as-is"
+              glib:name="GPIODGLIB_LINE_BIAS_AS_IS">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="63">Don't change the bias setting when applying line
+config.</doc>
+      </member>
+      <member name="unknown"
+              value="2"
+              c:identifier="GPIODGLIB_LINE_BIAS_UNKNOWN"
+              glib:nick="unknown"
+              glib:name="GPIODGLIB_LINE_BIAS_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="65">The internal bias state is unknown.</doc>
+      </member>
+      <member name="disabled"
+              value="3"
+              c:identifier="GPIODGLIB_LINE_BIAS_DISABLED"
+              glib:nick="disabled"
+              glib:name="GPIODGLIB_LINE_BIAS_DISABLED">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="66">The internal bias is disabled.</doc>
+      </member>
+      <member name="pull_up"
+              value="4"
+              c:identifier="GPIODGLIB_LINE_BIAS_PULL_UP"
+              glib:nick="pull-up"
+              glib:name="GPIODGLIB_LINE_BIAS_PULL_UP">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="67">The internal pull-up bias is enabled.</doc>
+      </member>
+      <member name="pull_down"
+              value="5"
+              c:identifier="GPIODGLIB_LINE_BIAS_PULL_DOWN"
+              glib:nick="pull-down"
+              glib:name="GPIODGLIB_LINE_BIAS_PULL_DOWN">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="68">The internal pull-down bias is enabled.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="LineClock"
+                 glib:type-name="GpiodglibLineClock"
+                 glib:get-type="gpiodglib_line_clock_get_type"
+                 c:type="GpiodglibLineClock">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/line.h"
+           line="94">Clock settings.</doc>
+      <member name="monotonic"
+              value="1"
+              c:identifier="GPIODGLIB_LINE_CLOCK_MONOTONIC"
+              glib:nick="monotonic"
+              glib:name="GPIODGLIB_LINE_CLOCK_MONOTONIC">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="96">Line uses the monotonic clock for edge
+event timestamps.</doc>
+      </member>
+      <member name="realtime"
+              value="2"
+              c:identifier="GPIODGLIB_LINE_CLOCK_REALTIME"
+              glib:nick="realtime"
+              glib:name="GPIODGLIB_LINE_CLOCK_REALTIME">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="98">Line uses the realtime clock for edge event
+timestamps.</doc>
+      </member>
+      <member name="hte"
+              value="3"
+              c:identifier="GPIODGLIB_LINE_CLOCK_HTE"
+              glib:nick="hte"
+              glib:name="GPIODGLIB_LINE_CLOCK_HTE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="100">Line uses the hardware timestamp engine for event
+timestamps.</doc>
+      </member>
+    </enumeration>
+    <class name="LineConfig"
+           c:symbol-prefix="line_config"
+           c:type="GpiodglibLineConfig"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibLineConfig"
+           glib:get-type="gpiodglib_line_config_get_type"
+           glib:type-struct="LineConfigClass">
+      <doc xml:space="preserve"
+           filename="line-config.c"
+           line="8">The line-config object contains the configuration for lines that can be
+used in two cases:
+ - when making a line request
+ - when reconfiguring a set of already requested lines.</doc>
+      <source-position filename="gpiod-glib/line-config.h" line="18"/>
+      <constructor name="new" c:identifier="gpiodglib_line_config_new">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-config.h"
+             line="26">Create a new #GpiodglibLineConfig.</doc>
+        <source-position filename="gpiod-glib/line-config.h" line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-config.h"
+               line="31">Empty #GpiodglibLineConfig.</doc>
+          <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+        </return-value>
+      </constructor>
+      <method name="add_line_settings"
+              c:identifier="gpiodglib_line_config_add_line_settings"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-config.h"
+             line="43">Add line settings for a set of offsets.</doc>
+        <source-position filename="gpiod-glib/line-config.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-config.h"
+               line="53">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="45">#GpiodglibLineConfig to manipulate.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </instance-parameter>
+          <parameter name="offsets" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="46">GArray of offsets for which to apply the
+settings.</doc>
+            <array name="GLib.Array" c:type="const GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+          <parameter name="settings" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="48">#GpiodglibLineSettings to apply.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_configured_offsets"
+              c:identifier="gpiodglib_line_config_get_configured_offsets"
+              glib:get-property="configured-offsets">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-config.h"
+             line="88">Get configured offsets.</doc>
+        <source-position filename="gpiod-glib/line-config.h" line="97"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-config.h"
+               line="94">GArray containing the
+offsets for which configuration has been set.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <array name="GLib.Array">
+              <type name="gpointer" c:type="gpointer"/>
+            </array>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="90">#GpiodglibLineConfig to manipulate.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_line_settings"
+              c:identifier="gpiodglib_line_config_get_line_settings">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-config.h"
+             line="61">Get line settings for offset.</doc>
+        <source-position filename="gpiod-glib/line-config.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-config.h"
+               line="68">New reference to a #GpiodglibLineSettings.</doc>
+          <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="63">#GpiodglibLineConfig to manipulate.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="64">Offset for which to get line settings.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="gpiodglib_line_config_reset">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-config.h"
+             line="35">Reset the line config object.</doc>
+        <source-position filename="gpiod-glib/line-config.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="37">#GpiodglibLineConfig to manipulate.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_output_values"
+              c:identifier="gpiodglib_line_config_set_output_values"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-config.h"
+             line="74">@brief Set output values for a number of lines.</doc>
+        <source-position filename="gpiod-glib/line-config.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-config.h"
+               line="82">TRUE on success, FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="76">#GpiodglibLineConfig to manipulate.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </instance-parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-config.h"
+                 line="77">GArray containing the output values.</doc>
+            <array name="GLib.Array" c:type="const GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="configured-offsets"
+                transfer-ownership="none"
+                getter="get_configured_offsets">
+        <doc xml:space="preserve"
+             filename="line-config.c"
+             line="71">Array of offsets for which line settings have been set.</doc>
+        <array name="GLib.Array">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </property>
+    </class>
+    <record name="LineConfigClass"
+            c:type="GpiodglibLineConfigClass"
+            glib:is-gtype-struct-for="LineConfig">
+      <source-position filename="gpiod-glib/line-config.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="LineDirection"
+                 glib:type-name="GpiodglibLineDirection"
+                 glib:get-type="gpiodglib_line_direction_get_type"
+                 c:type="GpiodglibLineDirection">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/line.h"
+           line="28">Direction settings.</doc>
+      <member name="as_is"
+              value="1"
+              c:identifier="GPIODGLIB_LINE_DIRECTION_AS_IS"
+              glib:nick="as-is"
+              glib:name="GPIODGLIB_LINE_DIRECTION_AS_IS">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="30">Request the line(s), but don't change
+direction.</doc>
+      </member>
+      <member name="input"
+              value="2"
+              c:identifier="GPIODGLIB_LINE_DIRECTION_INPUT"
+              glib:nick="input"
+              glib:name="GPIODGLIB_LINE_DIRECTION_INPUT">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="32">Direction is input - for reading the value
+of an externally driven GPIO line.</doc>
+      </member>
+      <member name="output"
+              value="3"
+              c:identifier="GPIODGLIB_LINE_DIRECTION_OUTPUT"
+              glib:nick="output"
+              glib:name="GPIODGLIB_LINE_DIRECTION_OUTPUT">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="34">Direction is output - for driving the GPIO
+line.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="LineDrive"
+                 glib:type-name="GpiodglibLineDrive"
+                 glib:get-type="gpiodglib_line_drive_get_type"
+                 c:type="GpiodglibLineDrive">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/line.h"
+           line="80">Drive settings.</doc>
+      <member name="push_pull"
+              value="1"
+              c:identifier="GPIODGLIB_LINE_DRIVE_PUSH_PULL"
+              glib:nick="push-pull"
+              glib:name="GPIODGLIB_LINE_DRIVE_PUSH_PULL">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="82">Drive setting is push-pull.</doc>
+      </member>
+      <member name="open_drain"
+              value="2"
+              c:identifier="GPIODGLIB_LINE_DRIVE_OPEN_DRAIN"
+              glib:nick="open-drain"
+              glib:name="GPIODGLIB_LINE_DRIVE_OPEN_DRAIN">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="83">Line output is open-drain.</doc>
+      </member>
+      <member name="open_source"
+              value="3"
+              c:identifier="GPIODGLIB_LINE_DRIVE_OPEN_SOURCE"
+              glib:nick="open-source"
+              glib:name="GPIODGLIB_LINE_DRIVE_OPEN_SOURCE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="84">Line output is open-source.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="LineEdge"
+                 glib:type-name="GpiodglibLineEdge"
+                 glib:get-type="gpiodglib_line_edge_get_type"
+                 c:type="GpiodglibLineEdge">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/line.h"
+           line="45">Edge detection settings.</doc>
+      <member name="none"
+              value="1"
+              c:identifier="GPIODGLIB_LINE_EDGE_NONE"
+              glib:nick="none"
+              glib:name="GPIODGLIB_LINE_EDGE_NONE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="47">Line edge detection is disabled.</doc>
+      </member>
+      <member name="rising"
+              value="2"
+              c:identifier="GPIODGLIB_LINE_EDGE_RISING"
+              glib:nick="rising"
+              glib:name="GPIODGLIB_LINE_EDGE_RISING">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="48">Line detects rising edge events.</doc>
+      </member>
+      <member name="falling"
+              value="3"
+              c:identifier="GPIODGLIB_LINE_EDGE_FALLING"
+              glib:nick="falling"
+              glib:name="GPIODGLIB_LINE_EDGE_FALLING">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="49">Line detects falling edge events.</doc>
+      </member>
+      <member name="both"
+              value="4"
+              c:identifier="GPIODGLIB_LINE_EDGE_BOTH"
+              glib:nick="both"
+              glib:name="GPIODGLIB_LINE_EDGE_BOTH">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="50">Line detects both rising and falling edge events.</doc>
+      </member>
+    </enumeration>
+    <class name="LineInfo"
+           c:symbol-prefix="line_info"
+           c:type="GpiodglibLineInfo"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibLineInfo"
+           glib:get-type="gpiodglib_line_info_get_type"
+           glib:type-struct="LineInfoClass">
+      <doc xml:space="preserve"
+           filename="line-info.c"
+           line="8">Line info object contains an immutable snapshot of a line's status.
+
+The line info contains all the publicly available information about a
+line, which does not include the line value. The line must be requested
+to access the line value.</doc>
+      <source-position filename="gpiod-glib/line-info.h" line="18"/>
+      <method name="dup_consumer"
+              c:identifier="gpiodglib_line_info_dup_consumer">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="68">Get the name of the consumer of the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="80"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="74">Name of the GPIO consumer as it is represented in the kernel. This
+function returns a valid pointer to a null-terminated string or NULL if the
+consumer name is not set. The string is a copy of the consumer label and
+must be freed by the caller with g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="70">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_name" c:identifier="gpiodglib_line_info_dup_name">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="39">Get the name of the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="45">Name of the GPIO line as it is represented in the kernel. This
+function returns a valid pointer to a null-terminated string or NULL if the
+line is unnamed. The string is a copy of the line name and must be freed by
+the caller with g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="41">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_bias"
+              c:identifier="gpiodglib_line_info_get_bias"
+              glib:get-property="bias">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="105">Get the bias setting of the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="111">@GPIODGLIB_LINE_BIAS_PULL_UP, @GPIODGLIB_LINE_BIAS_PULL_DOWN,
+@GPIODGLIB_LINE_BIAS_DISABLED or @GPIODGLIB_LINE_BIAS_UNKNOWN.</doc>
+          <type name="LineBias" c:type="GpiodglibLineBias"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="107">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_debounce_period_us"
+              c:identifier="gpiodglib_line_info_get_debounce_period_us"
+              glib:get-property="debounce-period-us">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="148">Get the debounce period of the line, in microseconds.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="154">Debounce period in microseconds. 0 if the line is not debounced.</doc>
+          <type name="GLib.TimeSpan" c:type="GTimeSpan"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="150">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_direction"
+              c:identifier="gpiodglib_line_info_get_direction"
+              glib:get-property="direction">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="82">Get the direction setting of the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="88">@GPIODGLIB_LINE_DIRECTION_INPUT or @GPIODGLIB_LINE_DIRECTION_OUTPUT.</doc>
+          <type name="LineDirection" c:type="GpiodglibLineDirection"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="84">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_drive"
+              c:identifier="gpiodglib_line_info_get_drive"
+              glib:get-property="drive">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="116">Get the drive setting of the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="122">@GPIODGLIB_LINE_DRIVE_PUSH_PULL, @GPIODGLIB_LINE_DRIVE_OPEN_DRAIN
+or @GPIODGLIB_LINE_DRIVE_OPEN_SOURCE.</doc>
+          <type name="LineDrive" c:type="GpiodglibLineDrive"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="118">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_edge_detection"
+              c:identifier="gpiodglib_line_info_get_edge_detection"
+              glib:get-property="edge-detection">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="93">Get the edge detection setting of the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="99">@GPIODGLIB_LINE_EDGE_NONE, @GPIODGLIB_LINE_EDGE_RISING,
+@GPIODGLIB_LINE_EDGE_FALLING or @GPIODGLIB_LINE_EDGE_BOTH.</doc>
+          <type name="LineEdge" c:type="GpiodglibLineEdge"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="95">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_event_clock"
+              c:identifier="gpiodglib_line_info_get_event_clock"
+              glib:get-property="event-clock">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="158">Get the event clock setting used for edge event timestamps for the line.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="164">@GPIODGLIB_LINE_CLOCK_MONOTONIC, @GPIODGLIB_LINE_CLOCK_HTE or
+@GPIODGLIB_LINE_CLOCK_REALTIME.</doc>
+          <type name="LineClock" c:type="GpiodglibLineClock"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="160">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_offset"
+              c:identifier="gpiodglib_line_info_get_offset"
+              glib:get-property="offset">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="26">Get the offset of the line.
+
+The offset uniquely identifies the line on the chip. The combination of the
+chip and offset uniquely identifies the line within the system.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="35">Offset of the line within the parent chip.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="28">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_active_low"
+              c:identifier="gpiodglib_line_info_is_active_low"
+              glib:get-property="active-low">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="127">Check if the logical value of the line is inverted compared to the physical.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="133">TRUE if the line is "active-low", FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="129">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_debounced"
+              c:identifier="gpiodglib_line_info_is_debounced"
+              glib:get-property="debounced">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="137">Check if the line is debounced (either by hardware or by the kernel
+software debouncer).</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="144">TRUE if the line is debounced, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="139">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_used"
+              c:identifier="gpiodglib_line_info_is_used"
+              glib:get-property="used">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-info.h"
+             line="53">Check if the line is in use.
+
+The exact reason a line is busy cannot be determined from user space.
+It may have been requested by another process or hogged by the kernel.
+It only matters that the line is used and can't be requested until
+released by the existing consumer.</doc>
+        <source-position filename="gpiod-glib/line-info.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-info.h"
+               line="64">TRUE if the line is in use, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-info.h"
+                 line="55">#GpiodglibLineInfo to manipulate.</doc>
+            <type name="LineInfo" c:type="GpiodglibLineInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="active-low"
+                transfer-ownership="none"
+                getter="is_active_low"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="215">Indicates whether the signal of the line is inverted.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="bias"
+                transfer-ownership="none"
+                getter="get_bias"
+                default-value="GPIODGLIB_LINE_BIAS_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="191">Bias setting of the GPIO line.</doc>
+        <type name="LineBias"/>
+      </property>
+      <property name="consumer" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="154">Name of the consumer of the GPIO line, if requested.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="debounce-period-us"
+                transfer-ownership="none"
+                getter="get_debounce_period_us"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="238">Debounce period of the line (expressed in microseconds).</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="debounced"
+                transfer-ownership="none"
+                getter="is_debounced"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="226">Indicates whether the line is debounced (by hardware or by the
+kernel software debouncer).</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="direction"
+                transfer-ownership="none"
+                getter="get_direction"
+                default-value="GPIODGLIB_LINE_DIRECTION_INPUT">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="165">Direction of the GPIO line.</doc>
+        <type name="LineDirection"/>
+      </property>
+      <property name="drive"
+                transfer-ownership="none"
+                getter="get_drive"
+                default-value="GPIODGLIB_LINE_DRIVE_PUSH_PULL">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="203">Drive setting of the GPIO line.</doc>
+        <type name="LineDrive"/>
+      </property>
+      <property name="edge-detection"
+                transfer-ownership="none"
+                getter="get_edge_detection"
+                default-value="GPIODGLIB_LINE_EDGE_NONE">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="178">Edge detection setting of the GPIO line.</doc>
+        <type name="LineEdge"/>
+      </property>
+      <property name="event-clock"
+                transfer-ownership="none"
+                getter="get_event_clock"
+                default-value="GPIODGLIB_LINE_CLOCK_MONOTONIC">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="251">Event clock used to timestamp the edge events of the line.</doc>
+        <type name="LineClock"/>
+      </property>
+      <property name="name" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="134">Name of the GPIO line, if named.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="offset"
+                transfer-ownership="none"
+                getter="get_offset"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="123">Offset of the GPIO line.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="used"
+                transfer-ownership="none"
+                getter="is_used"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="line-info.c"
+             line="144">Indicates whether the GPIO line is requested for exclusive usage.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="LineInfoClass"
+            c:type="GpiodglibLineInfoClass"
+            glib:is-gtype-struct-for="LineInfo">
+      <source-position filename="gpiod-glib/line-info.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="LineRequest"
+           c:symbol-prefix="line_request"
+           c:type="GpiodglibLineRequest"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibLineRequest"
+           glib:get-type="gpiodglib_line_request_get_type"
+           glib:type-struct="LineRequestClass">
+      <doc xml:space="preserve"
+           filename="line-request.c"
+           line="10">Line request object allows interacting with a set of requested GPIO lines.</doc>
+      <source-position filename="gpiod-glib/line-request.h" line="16"/>
+      <method name="dup_chip_name"
+              c:identifier="gpiodglib_line_request_dup_chip_name">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="43">Get the name of the chip this request was made on.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="49">Name the GPIO chip device. The string is a copy and must be freed
+by the caller using g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="45">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_requested_offsets"
+              c:identifier="gpiodglib_line_request_get_requested_offsets"
+              glib:get-property="requested-offsets">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="55">Get the offsets of the lines in the request.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="61">Array containing the
+requested offsets.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <array name="GLib.Array">
+              <type name="gpointer" c:type="gpointer"/>
+            </array>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="57">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="gpiodglib_line_request_get_value"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="85">Get the value of a single requested line.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="94">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="87">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="88">The offset of the line of which the value should be read.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="89">Return location for the value.</doc>
+            <type name="LineValue" c:type="GpiodglibLineValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_values"
+              c:identifier="gpiodglib_line_request_get_values"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="119">Get the values of all requested lines.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="129">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="121">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="122">Array in which the values will be stored.
+Can be NULL in which case a new array will be created and its location
+stored here.</doc>
+            <array name="GLib.Array" c:type="GArray**">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_values_subset"
+              c:identifier="gpiodglib_line_request_get_values_subset"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="100">Get the values of a subset of requested lines.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="112">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="102">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="offsets" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="103">Array of offsets identifying the subset of
+requested lines from which to read values.</doc>
+            <array name="GLib.Array" c:type="const GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="105">Array in which the values will be stored.
+Can be NULL in which case a new array will be created and its location
+stored here.</doc>
+            <array name="GLib.Array" c:type="GArray**">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_released"
+              c:identifier="gpiodglib_line_request_is_released">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="32">Check if this request was released.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="38">TRUE if this request was released and is no longer valid, FALSE
+otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="34">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reconfigure_lines"
+              c:identifier="gpiodglib_line_request_reconfigure_lines"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="67">Update the configuration of lines associated with a line request.
+
+The new line configuration completely replaces the old. Any requested lines
+without overrides are configured to the requested defaults. Any configured
+overrides for lines that have not been requested are silently ignored.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="79">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="69">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="70">New line config to apply.</doc>
+            <type name="LineConfig" c:type="GpiodglibLineConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release" c:identifier="gpiodglib_line_request_release">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="24">Release the requested lines and free all associated resources.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="26">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_value"
+              c:identifier="gpiodglib_line_request_set_value"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="134">Set the value of a single requested line.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="143">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="136">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="137">The offset of the line for which the value should be set.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="138">Value to set.</doc>
+            <type name="LineValue" c:type="GpiodglibLineValue"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_values"
+              c:identifier="gpiodglib_line_request_set_values"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="168">Set the values of all lines associated with a request.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="179">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="170">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="171">Array containing the values to set. Must be
+sized to contain the number of values equal to the number of requested lines.
+Each value is associated with the line identified by the corresponding entry
+in the offset array filled by @gpiodglib_line_request_get_requested_offsets.</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_values_subset"
+              c:identifier="gpiodglib_line_request_set_values_subset"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-request.h"
+             line="149">Set the values of a subset of requested lines.</doc>
+        <source-position filename="gpiod-glib/line-request.h" line="163"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-request.h"
+               line="161">TRUE on success, FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="151">#GpiodglibLineRequest to manipulate.</doc>
+            <type name="LineRequest" c:type="GpiodglibLineRequest*"/>
+          </instance-parameter>
+          <parameter name="offsets" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="152">Array of offsets identifying the requested
+lines for which to set values.</doc>
+            <array name="GLib.Array" c:type="const GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-request.h"
+                 line="154">Array in which the values will be stored.
+Can be NULL in which case a new array will be created and its location
+stored here.</doc>
+            <array name="GLib.Array" c:type="const GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="chip-name"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="line-request.c"
+             line="145">Name of the GPIO chip this request was made on.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="requested-offsets"
+                transfer-ownership="none"
+                getter="get_requested_offsets">
+        <doc xml:space="preserve"
+             filename="line-request.c"
+             line="156">Array of requested offsets.</doc>
+        <array name="GLib.Array">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </property>
+      <glib:signal name="edge-event" when="last">
+        <doc xml:space="preserve"
+             filename="line-request.c"
+             line="168">Emitted when an edge event is detected on one of the requested GPIO
+line.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="line-request.c"
+                 line="171">The #GpiodglibEdgeEvent</doc>
+            <type name="EdgeEvent"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="LineRequestClass"
+            c:type="GpiodglibLineRequestClass"
+            glib:is-gtype-struct-for="LineRequest">
+      <source-position filename="gpiod-glib/line-request.h" line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="LineSettings"
+           c:symbol-prefix="line_settings"
+           c:type="GpiodglibLineSettings"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibLineSettings"
+           glib:get-type="gpiodglib_line_settings_get_type"
+           glib:type-struct="LineSettingsClass">
+      <doc xml:space="preserve"
+           filename="line-settings.c"
+           line="9">Line settings object contains a set of line properties that can be used
+when requesting lines or reconfiguring an existing request.</doc>
+      <source-position filename="gpiod-glib/line-settings.h" line="18"/>
+      <constructor name="new"
+                   c:identifier="gpiodglib_line_settings_new"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="26">Create a new line settings object.
+
+The constructor allows to set object's properties when it's first created
+instead of having to build an empty object and then call mutators separately.
+
+Currently supported properties are: `direction`, `edge-detection`, `bias`,
+`drive`, `debounce-period-us`, `active-low`, 'event-clock` and
+`output-value`.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="39">New #GpiodglibLineSettings.</doc>
+          <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+        </return-value>
+        <parameters>
+          <parameter name="first_prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="28">Name of the first property to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_active_low"
+              c:identifier="gpiodglib_line_settings_get_active_low"
+              glib:get-property="active-low">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="145">Get active-low setting.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="153"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="151">TRUE if active-low is enabled, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="147">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_bias"
+              c:identifier="gpiodglib_line_settings_get_bias"
+              glib:get-property="bias">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="104">Get bias.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="110">Current bias setting.</doc>
+          <type name="LineBias" c:type="GpiodglibLineBias"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="106">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_debounce_period_us"
+              c:identifier="gpiodglib_line_settings_get_debounce_period_us"
+              glib:get-property="debounce-period-us">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="165">Get debounce period.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="174"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="171">Current debounce period in microseconds.</doc>
+          <type name="GLib.TimeSpan" c:type="GTimeSpan"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="167">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_direction"
+              c:identifier="gpiodglib_line_settings_get_direction"
+              glib:get-property="direction">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="62">Get direction.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="68">Current direction.</doc>
+          <type name="LineDirection" c:type="GpiodglibLineDirection"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="64">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_drive"
+              c:identifier="gpiodglib_line_settings_get_drive"
+              glib:get-property="drive">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="124">Get drive.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="130">Current drive setting.</doc>
+          <type name="LineDrive" c:type="GpiodglibLineDrive"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="126">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_edge_detection"
+              c:identifier="gpiodglib_line_settings_get_edge_detection"
+              glib:get-property="edge-detection">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="83">Get edge detection.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="89">Current edge detection setting.</doc>
+          <type name="LineEdge" c:type="GpiodglibLineEdge"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="85">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_event_clock"
+              c:identifier="gpiodglib_line_settings_get_event_clock"
+              glib:get-property="event-clock">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="186">Get event clock setting.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="195"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="192">Current event clock setting.</doc>
+          <type name="LineClock" c:type="GpiodglibLineClock"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="188">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_output_value"
+              c:identifier="gpiodglib_line_settings_get_output_value"
+              glib:get-property="output-value">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="207">Get the output value.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="216"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/line-settings.h"
+               line="213">Current output value.</doc>
+          <type name="LineValue" c:type="GpiodglibLineValue"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="209">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="gpiodglib_line_settings_reset">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="44">Reset the line settings object to its default values.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="46">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active_low"
+              c:identifier="gpiodglib_line_settings_set_active_low"
+              glib:set-property="active-low">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="135">Set active-low setting.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="137">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="active_low" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="138">New active-low setting.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_bias"
+              c:identifier="gpiodglib_line_settings_set_bias"
+              glib:set-property="bias">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="94">Set bias.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="96">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="bias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="97">New bias.</doc>
+            <type name="LineBias" c:type="GpiodglibLineBias"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_debounce_period_us"
+              c:identifier="gpiodglib_line_settings_set_debounce_period_us"
+              glib:set-property="debounce-period-us">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="155">Set debounce period.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="162"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="157">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="period" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="158">New debounce period in microseconds.</doc>
+            <type name="GLib.TimeSpan" c:type="GTimeSpan"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_direction"
+              c:identifier="gpiodglib_line_settings_set_direction"
+              glib:set-property="direction">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="52">Set direction.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="54">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="55">New direction.</doc>
+            <type name="LineDirection" c:type="GpiodglibLineDirection"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_drive"
+              c:identifier="gpiodglib_line_settings_set_drive"
+              glib:set-property="drive">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="114">Set drive.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="116">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="drive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="117">New drive setting.</doc>
+            <type name="LineDrive" c:type="GpiodglibLineDrive"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_edge_detection"
+              c:identifier="gpiodglib_line_settings_set_edge_detection"
+              glib:set-property="edge-detection">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="73">Set edge detection.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="75">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="edge" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="76">New edge detection setting.</doc>
+            <type name="LineEdge" c:type="GpiodglibLineEdge"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_event_clock"
+              c:identifier="gpiodglib_line_settings_set_event_clock"
+              glib:set-property="event-clock">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="176">Set event clock.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="183"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="178">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="event_clock" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="179">New event clock.</doc>
+            <type name="LineClock" c:type="GpiodglibLineClock"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_output_value"
+              c:identifier="gpiodglib_line_settings_set_output_value"
+              glib:set-property="output-value">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line-settings.h"
+             line="197">Set the output value.</doc>
+        <source-position filename="gpiod-glib/line-settings.h" line="204"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="199">#GpiodglibLineSettings to manipulate.</doc>
+            <type name="LineSettings" c:type="GpiodglibLineSettings*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/line-settings.h"
+                 line="200">New output value.</doc>
+            <type name="LineValue" c:type="GpiodglibLineValue"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-low"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_active_low"
+                getter="get_active_low"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="217">Line active-low settings.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="bias"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_bias"
+                getter="get_bias"
+                default-value="GPIODGLIB_LINE_BIAS_AS_IS">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="191">Line bias setting.</doc>
+        <type name="LineBias"/>
+      </property>
+      <property name="debounce-period-us"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_debounce_period_us"
+                getter="get_debounce_period_us"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="228">Line debounce period (expressed in microseconds).</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="direction"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_direction"
+                getter="get_direction"
+                default-value="GPIODGLIB_LINE_DIRECTION_AS_IS">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="165">Line direction setting.</doc>
+        <type name="LineDirection"/>
+      </property>
+      <property name="drive"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_drive"
+                getter="get_drive"
+                default-value="GPIODGLIB_LINE_DRIVE_PUSH_PULL">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="204">Line drive setting.</doc>
+        <type name="LineDrive"/>
+      </property>
+      <property name="edge-detection"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_edge_detection"
+                getter="get_edge_detection"
+                default-value="GPIODGLIB_LINE_EDGE_NONE">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="178">Line edge detection setting.</doc>
+        <type name="LineEdge"/>
+      </property>
+      <property name="event-clock"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_event_clock"
+                getter="get_event_clock"
+                default-value="GPIODGLIB_LINE_CLOCK_MONOTONIC">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="241">Clock used to timestamp edge events.</doc>
+        <type name="LineClock"/>
+      </property>
+      <property name="output-value"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_output_value"
+                getter="get_output_value"
+                default-value="GPIODGLIB_LINE_VALUE_INACTIVE">
+        <doc xml:space="preserve"
+             filename="line-settings.c"
+             line="254">Line output value.</doc>
+        <type name="LineValue"/>
+      </property>
+    </class>
+    <record name="LineSettingsClass"
+            c:type="GpiodglibLineSettingsClass"
+            glib:is-gtype-struct-for="LineSettings">
+      <source-position filename="gpiod-glib/line-settings.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="LineValue"
+                 glib:type-name="GpiodglibLineValue"
+                 glib:get-type="gpiodglib_line_value_get_type"
+                 c:type="GpiodglibLineValue">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/line.h"
+           line="16">Logical line state.</doc>
+      <member name="inactive"
+              value="0"
+              c:identifier="GPIODGLIB_LINE_VALUE_INACTIVE"
+              glib:nick="inactive"
+              glib:name="GPIODGLIB_LINE_VALUE_INACTIVE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="18">Line is logically inactive.</doc>
+      </member>
+      <member name="active"
+              value="1"
+              c:identifier="GPIODGLIB_LINE_VALUE_ACTIVE"
+              glib:nick="active"
+              glib:name="GPIODGLIB_LINE_VALUE_ACTIVE">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/line.h"
+             line="19">Line is logically active.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="REQUEST_CONFIG_OBJ"
+                    c:identifier="GPIODGLIB_REQUEST_CONFIG_OBJ"
+                    introspectable="0">
+      <source-position filename="gpiod-glib/request-config.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="RequestConfig"
+           c:symbol-prefix="request_config"
+           c:type="GpiodglibRequestConfig"
+           parent="GObject.Object"
+           glib:type-name="GpiodglibRequestConfig"
+           glib:get-type="gpiodglib_request_config_get_type"
+           glib:type-struct="RequestConfigClass">
+      <doc xml:space="preserve"
+           filename="request-config.c"
+           line="9">Request config objects are used to pass a set of options to the kernel at
+the time of the line request.</doc>
+      <source-position filename="gpiod-glib/request-config.h" line="16"/>
+      <constructor name="new"
+                   c:identifier="gpiodglib_request_config_new"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/request-config.h"
+             line="24">Create a new request config object.</doc>
+        <source-position filename="gpiod-glib/request-config.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/request-config.h"
+               line="30">New #GpiodglibRequestConfig.
+
+The constructor allows to set object's properties when it's first created
+instead of having to build an empty object and then call mutators separately.
+
+Currently supported properties are: `consumer` and `event-buffer-size`.</doc>
+          <type name="RequestConfig" c:type="GpiodglibRequestConfig*"/>
+        </return-value>
+        <parameters>
+          <parameter name="first_prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="26">Name of the first property to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_consumer"
+              c:identifier="gpiodglib_request_config_dup_consumer">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/request-config.h"
+             line="53">Get the consumer name configured in the request config.</doc>
+        <source-position filename="gpiod-glib/request-config.h" line="63"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/request-config.h"
+               line="59">Consumer name stored in the request config. The returned string is
+a copy and must be freed by the caller using g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="55">#GpiodglibRequestConfig object to manipulate.</doc>
+            <type name="RequestConfig" c:type="GpiodglibRequestConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_event_buffer_size"
+              c:identifier="gpiodglib_request_config_get_event_buffer_size"
+              glib:get-property="event-buffer-size">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/request-config.h"
+             line="80">Get the edge event buffer size for the request config.</doc>
+        <source-position filename="gpiod-glib/request-config.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/request-config.h"
+               line="86">Edge event buffer size setting from the request config.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="82">#GpiodglibRequestConfig object to manipulate.</doc>
+            <type name="RequestConfig" c:type="GpiodglibRequestConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_consumer"
+              c:identifier="gpiodglib_request_config_set_consumer"
+              glib:set-property="consumer">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/request-config.h"
+             line="40">Set the consumer name for the request.
+
+If the consumer string is too long, it will be truncated to the max
+accepted length.</doc>
+        <source-position filename="gpiod-glib/request-config.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="42">#GpiodglibRequestConfig object to manipulate.</doc>
+            <type name="RequestConfig" c:type="GpiodglibRequestConfig*"/>
+          </instance-parameter>
+          <parameter name="consumer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="43">Consumer name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_event_buffer_size"
+              c:identifier="gpiodglib_request_config_set_event_buffer_size"
+              glib:set-property="event-buffer-size">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/request-config.h"
+             line="65">Set the size of the kernel event buffer for the request.
+
+The kernel may adjust the value if it's too high. If set to 0, the default
+value will be used.</doc>
+        <source-position filename="gpiod-glib/request-config.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="67">#GpiodglibRequestConfig object to manipulate.</doc>
+            <type name="RequestConfig" c:type="GpiodglibRequestConfig*"/>
+          </instance-parameter>
+          <parameter name="event_buffer_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gpiod-glib/request-config.h"
+                 line="68">New event buffer size.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="consumer"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_consumer"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="request-config.c"
+             line="86">Name of the request consumer.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="event-buffer-size"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_event_buffer_size"
+                getter="get_event_buffer_size"
+                default-value="64">
+        <doc xml:space="preserve"
+             filename="request-config.c"
+             line="97">Size of the kernel event buffer size of the request.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="RequestConfigClass"
+            c:type="GpiodglibRequestConfigClass"
+            glib:is-gtype-struct-for="RequestConfig">
+      <source-position filename="gpiod-glib/request-config.h" line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function name="api_version" c:identifier="gpiodglib_api_version">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/misc.h"
+           line="26">Get the API version of the library as a human-readable string.</doc>
+      <source-position filename="gpiod-glib/misc.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/misc.h"
+             line="31">A valid pointer to a human-readable string containing the library
+version. The pointer is valid for the lifetime of the program and must not
+be freed by the caller.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="error_quark" c:identifier="gpiodglib_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="is_gpiochip_device"
+              c:identifier="gpiodglib_is_gpiochip_device">
+      <doc xml:space="preserve"
+           filename="gpiod-glib/misc.h"
+           line="15">Check if the file pointed to by path is a GPIO chip character device.</doc>
+      <source-position filename="gpiod-glib/misc.h" line="24"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gpiod-glib/misc.h"
+             line="21">TRUE if the file exists and is either a GPIO chip character device
+or a symbolic link to one, FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gpiod-glib/misc.h"
+               line="17">Path to check.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

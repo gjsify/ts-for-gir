@@ -5,8 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Eom"
              version="1.0"
              shared-library=""
@@ -1198,12 +1200,12 @@ from the libexif package for possible values (e.g. %EXIF_TAG_EXPOSURE_MODE).</do
                 c:identifier="eom_image_get_supported_mime_types">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2199">Gets the list of supported mimetypes</doc>
+             line="2201">Gets the list of supported mimetypes</doc>
         <source-position filename="eom-image.h" line="199"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2204">a #GList of supported mimetypes</doc>
+               line="2206">a #GList of supported mimetypes</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="utf8"/>
           </type>
@@ -1235,7 +1237,7 @@ from the libexif package for possible values (e.g. %EXIF_TAG_EXPOSURE_MODE).</do
       <virtual-method name="file_changed" invoker="file_changed">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2406">Marks the image files contents as changed. Also, emits
+             line="2408">Marks the image files contents as changed. Also, emits
 EomImage::file-changed signal</doc>
         <source-position filename="eom-image.h" line="117"/>
         <return-value transfer-ownership="none">
@@ -1245,7 +1247,7 @@ EomImage::file-changed signal</doc>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2408">a #EomImage</doc>
+                 line="2410">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1353,7 +1355,7 @@ EomImage::file-changed signal</doc>
       <method name="file_changed" c:identifier="eom_image_file_changed">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2406">Marks the image files contents as changed. Also, emits
+             line="2408">Marks the image files contents as changed. Also, emits
 EomImage::file-changed signal</doc>
         <source-position filename="eom-image.h" line="217"/>
         <return-value transfer-ownership="none">
@@ -1363,7 +1365,7 @@ EomImage::file-changed signal</doc>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2408">a #EomImage</doc>
+                 line="2410">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1372,19 +1374,19 @@ EomImage::file-changed signal</doc>
               c:identifier="eom_image_get_autorotate_transform">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2389">Get @img autorotate transform.</doc>
+             line="2391">Get @img autorotate transform.</doc>
         <source-position filename="eom-image.h" line="213"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2395">A #EomTransform.</doc>
+               line="2397">A #EomTransform.</doc>
           <type name="Transform" c:type="EomTransform*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2391">a #EomImage</doc>
+                 line="2393">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1425,19 +1427,19 @@ EomImage::file-changed signal</doc>
       <method name="get_file" c:identifier="eom_image_get_file">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2070">Gets the #GFile associated with @img</doc>
+             line="2072">Gets the #GFile associated with @img</doc>
         <source-position filename="eom-image.h" line="176"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2076">a #GFile</doc>
+               line="2078">a #GFile</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2072">a #EomImage</doc>
+                 line="2074">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1446,20 +1448,20 @@ EomImage::file-changed signal</doc>
               c:identifier="eom_image_get_metadata_status">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2141">Returns the current status of the image metadata, that is,
+             line="2143">Returns the current status of the image metadata, that is,
 whether the metadata has not been read yet, is ready, or not available at all.</doc>
         <source-position filename="eom-image.h" line="182"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2148">one of #EomImageMetadataStatus</doc>
+               line="2150">one of #EomImageMetadataStatus</doc>
           <type name="ImageMetadataStatus" c:type="EomImageMetadataStatus"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2143">a #EomImage</doc>
+                 line="2145">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1467,19 +1469,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_pixbuf" c:identifier="eom_image_get_pixbuf">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="1322">Gets the #GdkPixbuf of the image</doc>
+             line="1324">Gets the #GdkPixbuf of the image</doc>
         <source-position filename="eom-image.h" line="152"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="1328">a #GdkPixbuf</doc>
+               line="1330">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="1324">a #EomImage</doc>
+                 line="1326">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1515,19 +1517,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_thumbnail" c:identifier="eom_image_get_thumbnail">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="1358">Gets the thumbnail pixbuf for @img</doc>
+             line="1360">Gets the thumbnail pixbuf for @img</doc>
         <source-position filename="eom-image.h" line="154"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="1364">a #GdkPixbuf with a thumbnail</doc>
+               line="1366">a #GdkPixbuf with a thumbnail</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="1360">a #EomImage</doc>
+                 line="1362">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1535,19 +1537,19 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_transform" c:identifier="eom_image_get_transform">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2372">Get @img transform.</doc>
+             line="2374">Get @img transform.</doc>
         <source-position filename="eom-image.h" line="212"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2378">A #EomTransform.</doc>
+               line="2380">A #EomTransform.</doc>
           <type name="Transform" c:type="EomTransform*"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2374">a #EomImage</doc>
+                 line="2376">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1567,20 +1569,20 @@ whether the metadata has not been read yet, is ready, or not available at all.</
       <method name="get_xmp_info" c:identifier="eom_image_get_xmp_info">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2042">Gets the XMP info for @img or NULL if compiled without
+             line="2044">Gets the XMP info for @img or NULL if compiled without
 libexempi support.</doc>
         <source-position filename="eom-image.h" line="174"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2049">the xmp data</doc>
+               line="2051">the xmp data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2044">a #EomImage</doc>
+                 line="2046">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1602,19 +1604,19 @@ libexempi support.</doc>
       <method name="is_animation" c:identifier="eom_image_is_animation">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2291">Checks whether a given image is animated.</doc>
+             line="2293">Checks whether a given image is animated.</doc>
         <source-position filename="eom-image.h" line="203"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2297">#TRUE if it is an animated image, #FALSE otherwise.</doc>
+               line="2299">#TRUE if it is an animated image, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2293">a #EomImage</doc>
+                 line="2295">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1732,19 +1734,19 @@ libexempi support.</doc>
       <method name="start_animation" c:identifier="eom_image_start_animation">
         <doc xml:space="preserve"
              filename="eom-image.c"
-             line="2324">Starts playing an animated image.</doc>
+             line="2326">Starts playing an animated image.</doc>
         <source-position filename="eom-image.h" line="205"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-image.c"
-               line="2330">%TRUE on success, %FALSE if @img is already playing or isn't an animated image.</doc>
+               line="2332">%TRUE on success, %FALSE if @img is already playing or isn't an animated image.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="img" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-image.c"
-                 line="2326">a #EomImage</doc>
+                 line="2328">a #EomImage</doc>
             <type name="Image" c:type="EomImage*"/>
           </instance-parameter>
         </parameters>
@@ -1933,7 +1935,7 @@ advances to the next frame.</doc>
             <parameter name="img" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eom-image.c"
-                   line="2408">a #EomImage</doc>
+                   line="2410">a #EomImage</doc>
               <type name="Image" c:type="EomImage*"/>
             </parameter>
           </parameters>
@@ -2374,7 +2376,7 @@ advances to the next frame.</doc>
       <virtual-method name="run" invoker="run">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="136">Executes the job passed as @job. Usually there is no need to call this
+             line="137">Executes the job passed as @job. Usually there is no need to call this
 on your own. Jobs should be executed by using the EomJobQueue.</doc>
         <source-position filename="eom-jobs.h" line="134"/>
         <return-value transfer-ownership="none">
@@ -2384,13 +2386,13 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
           <instance-parameter name="job" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="138">the job to execute.</doc>
+                 line="139">the job to execute.</doc>
             <type name="Job" c:type="EomJob*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <method name="finished" c:identifier="eom_job_finished">
-        <source-position filename="eom-jobs.h" line="234"/>
+        <source-position filename="eom-jobs.h" line="235"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2425,9 +2427,9 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
       <method name="run" c:identifier="eom_job_run">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="136">Executes the job passed as @job. Usually there is no need to call this
+             line="137">Executes the job passed as @job. Usually there is no need to call this
 on your own. Jobs should be executed by using the EomJobQueue.</doc>
-        <source-position filename="eom-jobs.h" line="235"/>
+        <source-position filename="eom-jobs.h" line="236"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2435,13 +2437,13 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
           <instance-parameter name="job" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="138">the job to execute.</doc>
+                 line="139">the job to execute.</doc>
             <type name="Job" c:type="EomJob*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="set_progress" c:identifier="eom_job_set_progress">
-        <source-position filename="eom-jobs.h" line="236"/>
+        <source-position filename="eom-jobs.h" line="237"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2531,7 +2533,7 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
             <parameter name="job" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eom-jobs.c"
-                   line="138">the job to execute.</doc>
+                   line="139">the job to execute.</doc>
               <type name="Job" c:type="EomJob*"/>
             </parameter>
           </parameters>
@@ -2545,23 +2547,23 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
            glib:type-name="EomJobCopy"
            glib:get-type="eom_job_copy_get_type"
            glib:type-struct="JobCopyClass">
-      <source-position filename="eom-jobs.h" line="230"/>
+      <source-position filename="eom-jobs.h" line="231"/>
       <constructor name="new" c:identifier="eom_job_copy_new">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="863">Creates a new #EomJob.</doc>
-        <source-position filename="eom-jobs.h" line="269"/>
+             line="868">Creates a new #EomJob.</doc>
+        <source-position filename="eom-jobs.h" line="271"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-jobs.c"
-               line="870">A #EomJob.</doc>
+               line="875">A #EomJob.</doc>
           <type name="Job" c:type="EomJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="865">a #EomImage list</doc>
+                 line="870">a #EomImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -2569,7 +2571,7 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
           <parameter name="dest" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="866">destination path for the copy</doc>
+                 line="871">destination path for the copy</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2592,7 +2594,7 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
     <record name="JobCopyClass"
             c:type="EomJobCopyClass"
             glib:is-gtype-struct-for="JobCopy">
-      <source-position filename="eom-jobs.h" line="230"/>
+      <source-position filename="eom-jobs.h" line="231"/>
       <field name="parent_class">
         <type name="JobClass" c:type="EomJobClass"/>
       </field>
@@ -2606,7 +2608,7 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
            glib:type-struct="JobLoadClass">
       <source-position filename="eom-jobs.h" line="159"/>
       <constructor name="new" c:identifier="eom_job_load_new">
-        <source-position filename="eom-jobs.h" line="245"/>
+        <source-position filename="eom-jobs.h" line="246"/>
         <return-value transfer-ownership="full">
           <type name="Job" c:type="EomJob*"/>
         </return-value>
@@ -2644,26 +2646,32 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
            glib:type-name="EomJobModel"
            glib:get-type="eom_job_model_get_type"
            glib:type-struct="JobModelClass">
-      <source-position filename="eom-jobs.h" line="171"/>
+      <source-position filename="eom-jobs.h" line="172"/>
       <constructor name="new" c:identifier="eom_job_model_new">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="351">Creates a new #EomJob model.</doc>
-        <source-position filename="eom-jobs.h" line="250"/>
+             line="352">Creates a new #EomJob model.</doc>
+        <source-position filename="eom-jobs.h" line="251"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-jobs.c"
-               line="357">A #EomJob.</doc>
+               line="359">A #EomJob.</doc>
           <type name="Job" c:type="EomJob*"/>
         </return-value>
         <parameters>
           <parameter name="file_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="353">a #GFile list</doc>
+                 line="354">a #GFile list</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Gio.File"/>
             </type>
+          </parameter>
+          <parameter name="preserve_order" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eom-jobs.c"
+                 line="355">Flag to indicate whether to honor the order of input parameters.</doc>
+            <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </constructor>
@@ -2678,11 +2686,14 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </type>
       </field>
+      <field name="preserve_order">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
     </class>
     <record name="JobModelClass"
             c:type="EomJobModelClass"
             glib:is-gtype-struct-for="JobModel">
-      <source-position filename="eom-jobs.h" line="171"/>
+      <source-position filename="eom-jobs.h" line="172"/>
       <field name="parent_class">
         <type name="JobClass" c:type="EomJobClass"/>
       </field>
@@ -2694,23 +2705,23 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
            glib:type-name="EomJobSave"
            glib:get-type="eom_job_save_get_type"
            glib:type-struct="JobSaveClass">
-      <source-position filename="eom-jobs.h" line="205"/>
+      <source-position filename="eom-jobs.h" line="206"/>
       <constructor name="new" c:identifier="eom_job_save_new">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="576">Creates a new #EomJob for image saving.</doc>
-        <source-position filename="eom-jobs.h" line="259"/>
+             line="581">Creates a new #EomJob for image saving.</doc>
+        <source-position filename="eom-jobs.h" line="261"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-jobs.c"
-               line="582">A #EomJob.</doc>
+               line="587">A #EomJob.</doc>
           <type name="Job" c:type="EomJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="578">a #EomImage list</doc>
+                 line="583">a #EomImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -2739,23 +2750,23 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
            glib:type-name="EomJobSaveAs"
            glib:get-type="eom_job_save_as_get_type"
            glib:type-struct="JobSaveAsClass">
-      <source-position filename="eom-jobs.h" line="217"/>
+      <source-position filename="eom-jobs.h" line="218"/>
       <constructor name="new" c:identifier="eom_job_save_as_new">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="704">Creates a new #EomJob for save as.</doc>
-        <source-position filename="eom-jobs.h" line="263"/>
+             line="709">Creates a new #EomJob for save as.</doc>
+        <source-position filename="eom-jobs.h" line="265"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-jobs.c"
-               line="712">A #EomJob.</doc>
+               line="717">A #EomJob.</doc>
           <type name="Job" c:type="EomJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="706">a #EomImage list</doc>
+                 line="711">a #EomImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -2763,7 +2774,7 @@ on your own. Jobs should be executed by using the EomJobQueue.</doc>
           <parameter name="converter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="707">a URI converter
+                 line="712">a URI converter
 file: a #GFile</doc>
             <type name="URIConverter" c:type="EomURIConverter*"/>
           </parameter>
@@ -2785,7 +2796,7 @@ file: a #GFile</doc>
     <record name="JobSaveAsClass"
             c:type="EomJobSaveAsClass"
             glib:is-gtype-struct-for="JobSaveAs">
-      <source-position filename="eom-jobs.h" line="217"/>
+      <source-position filename="eom-jobs.h" line="218"/>
       <field name="parent">
         <type name="JobSaveClass" c:type="EomJobSaveClass"/>
       </field>
@@ -2793,7 +2804,7 @@ file: a #GFile</doc>
     <record name="JobSaveClass"
             c:type="EomJobSaveClass"
             glib:is-gtype-struct-for="JobSave">
-      <source-position filename="eom-jobs.h" line="205"/>
+      <source-position filename="eom-jobs.h" line="206"/>
       <field name="parent_class">
         <type name="JobClass" c:type="EomJobClass"/>
       </field>
@@ -2848,7 +2859,7 @@ file: a #GFile</doc>
            glib:type-struct="JobThumbnailClass">
       <source-position filename="eom-jobs.h" line="147"/>
       <constructor name="new" c:identifier="eom_job_thumbnail_new">
-        <source-position filename="eom-jobs.h" line="241"/>
+        <source-position filename="eom-jobs.h" line="242"/>
         <return-value transfer-ownership="full">
           <type name="Job" c:type="EomJob*"/>
         </return-value>
@@ -2883,23 +2894,23 @@ file: a #GFile</doc>
            glib:type-name="EomJobTransform"
            glib:get-type="eom_job_transform_get_type"
            glib:type-struct="JobTransformClass">
-      <source-position filename="eom-jobs.h" line="183"/>
+      <source-position filename="eom-jobs.h" line="184"/>
       <constructor name="new" c:identifier="eom_job_transform_new">
         <doc xml:space="preserve"
              filename="eom-jobs.c"
-             line="480">Create a new #EomJob for image transformation.</doc>
-        <source-position filename="eom-jobs.h" line="254"/>
+             line="485">Create a new #EomJob for image transformation.</doc>
+        <source-position filename="eom-jobs.h" line="256"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-jobs.c"
-               line="487">A #EomJob.</doc>
+               line="492">A #EomJob.</doc>
           <type name="Job" c:type="EomJob*"/>
         </return-value>
         <parameters>
           <parameter name="images" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="482">a #EomImage list</doc>
+                 line="487">a #EomImage list</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -2907,7 +2918,7 @@ file: a #GFile</doc>
           <parameter name="trans" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-jobs.c"
-                 line="483">a #EomTransform</doc>
+                 line="488">a #EomTransform</doc>
             <type name="Transform" c:type="EomTransform*"/>
           </parameter>
         </parameters>
@@ -2927,7 +2938,7 @@ file: a #GFile</doc>
     <record name="JobTransformClass"
             c:type="EomJobTransformClass"
             glib:is-gtype-struct-for="JobTransform">
-      <source-position filename="eom-jobs.h" line="183"/>
+      <source-position filename="eom-jobs.h" line="184"/>
       <field name="parent_class">
         <type name="JobClass" c:type="EomJobClass"/>
       </field>
@@ -2981,12 +2992,12 @@ file: a #GFile</doc>
       <constructor name="new" c:identifier="eom_list_store_new">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="169">Creates a new and empty #EomListStore.</doc>
+             line="171">Creates a new and empty #EomListStore.</doc>
         <source-position filename="eom-list-store.h" line="76"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="174">a newly created #EomListStore.</doc>
+               line="176">a newly created #EomListStore.</doc>
           <type name="Gtk.ListStore" c:type="GtkListStore*"/>
         </return-value>
       </constructor>
@@ -2994,20 +3005,20 @@ file: a #GFile</doc>
                    c:identifier="eom_list_store_new_from_glist">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="664">Creates a new #EomListStore from a list of #EomImage's.
+             line="676">Creates a new #EomListStore from a list of #EomImage's.
 The given list must be %NULL-terminated.</doc>
         <source-position filename="eom-list-store.h" line="78"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="671">a new #EomListStore.</doc>
+               line="683">a new #EomListStore.</doc>
           <type name="Gtk.ListStore" c:type="GtkListStore*"/>
         </return-value>
         <parameters>
           <parameter name="list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="666">a %NULL-terminated list of #EomImage's.</doc>
+                 line="678">a %NULL-terminated list of #EomImage's.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Image"/>
             </type>
@@ -3017,7 +3028,7 @@ The given list must be %NULL-terminated.</doc>
       <method name="add_files" c:identifier="eom_list_store_add_files">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="528">Adds a list of #GFile's to @store. The given list
+             line="534">Adds a list of #GFile's to @store. The given list
 must be %NULL-terminated.
 
 If any of the #GFile's in @file_list is a directory, all the images
@@ -3032,23 +3043,29 @@ directory will be added as well to @store.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="530">An #EomListStore.</doc>
+                 line="536">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="file_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="531">A %NULL-terminated list of #GFile's.</doc>
+                 line="537">A %NULL-terminated list of #GFile's.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Gio.File"/>
             </type>
+          </parameter>
+          <parameter name="preserve_order" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eom-list-store.c"
+                 line="538">Flag to indicate whether to honor the order of input parameters.</doc>
+            <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="append_image" c:identifier="eom_list_store_append_image">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="323">Adds an #EomImage to @store. The thumbnail of the image is not
+             line="325">Adds an #EomImage to @store. The thumbnail of the image is not
 loaded and will only be loaded if the thumbnail is made visible
 or eom_list_store_set_thumbnail() is called.</doc>
         <source-position filename="eom-list-store.h" line="80"/>
@@ -3059,13 +3076,13 @@ or eom_list_store_set_thumbnail() is called.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="325">An #EomListStore.</doc>
+                 line="327">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="326">An #EomImage.</doc>
+                 line="328">An #EomImage.</doc>
             <type name="Image" c:type="EomImage*"/>
           </parameter>
         </parameters>
@@ -3074,26 +3091,26 @@ or eom_list_store_set_thumbnail() is called.</doc>
               c:identifier="eom_list_store_get_image_by_pos">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="718">Gets the #EomImage in the position @pos of @store. If there is
+             line="730">Gets the #EomImage in the position @pos of @store. If there is
 no image at position @pos, %NULL is returned.</doc>
-        <source-position filename="eom-list-store.h" line="92"/>
+        <source-position filename="eom-list-store.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="726">the #EomImage in position @pos or %NULL.</doc>
+               line="738">the #EomImage in position @pos or %NULL.</doc>
           <type name="Image" c:type="EomImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="720">An #EomListStore.</doc>
+                 line="732">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="721">the position of the required #EomImage.</doc>
+                 line="733">the position of the required #EomImage.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3102,20 +3119,20 @@ no image at position @pos, %NULL is returned.</doc>
               c:identifier="eom_list_store_get_initial_pos">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="787">Gets the position of the #EomImage that should be loaded first.
+             line="799">Gets the position of the #EomImage that should be loaded first.
 If not set, it returns -1.</doc>
-        <source-position filename="eom-list-store.h" line="100"/>
+        <source-position filename="eom-list-store.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="794">the position of the image to be loaded first or -1.</doc>
+               line="806">the position of the image to be loaded first or -1.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="789">An #EomListStore.</doc>
+                 line="801">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
         </parameters>
@@ -3124,26 +3141,26 @@ If not set, it returns -1.</doc>
               c:identifier="eom_list_store_get_pos_by_image">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="688">Gets the position where @image is stored in @store. If @image
+             line="700">Gets the position where @image is stored in @store. If @image
 is not stored in @store, -1 is returned.</doc>
-        <source-position filename="eom-list-store.h" line="89"/>
+        <source-position filename="eom-list-store.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="696">the position of @image in @store or -1 if not found.</doc>
+               line="708">the position of @image in @store or -1 if not found.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="690">An #EomListStore.</doc>
+                 line="702">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="691">An #EomImage.</doc>
+                 line="703">An #EomImage.</doc>
             <type name="Image" c:type="EomImage*"/>
           </parameter>
         </parameters>
@@ -3152,25 +3169,25 @@ is not stored in @store, -1 is returned.</doc>
               c:identifier="eom_list_store_get_pos_by_iter">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="746">Gets the position of the image pointed by @iter.</doc>
-        <source-position filename="eom-list-store.h" line="95"/>
+             line="758">Gets the position of the image pointed by @iter.</doc>
+        <source-position filename="eom-list-store.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="753">The position of the image pointed by @iter.</doc>
+               line="765">The position of the image pointed by @iter.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="748">An #EomListStore.</doc>
+                 line="760">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="749">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="761">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3178,19 +3195,19 @@ is not stored in @store, -1 is returned.</doc>
       <method name="length" c:identifier="eom_list_store_length">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="771">Returns the number of images in the store.</doc>
-        <source-position filename="eom-list-store.h" line="98"/>
+             line="783">Returns the number of images in the store.</doc>
+        <source-position filename="eom-list-store.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-list-store.c"
-               line="777">The number of images in @store.</doc>
+               line="789">The number of images in @store.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="773">An #EomListStore.</doc>
+                 line="785">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
         </parameters>
@@ -3198,8 +3215,8 @@ is not stored in @store, -1 is returned.</doc>
       <method name="remove_image" c:identifier="eom_list_store_remove_image">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="640">Removes @image from @store.</doc>
-        <source-position filename="eom-list-store.h" line="86"/>
+             line="652">Removes @image from @store.</doc>
+        <source-position filename="eom-list-store.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3207,13 +3224,13 @@ is not stored in @store, -1 is returned.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="642">An #EomListStore.</doc>
+                 line="654">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="643">An #EomImage.</doc>
+                 line="655">An #EomImage.</doc>
             <type name="Image" c:type="EomImage*"/>
           </parameter>
         </parameters>
@@ -3222,8 +3239,8 @@ is not stored in @store, -1 is returned.</doc>
               c:identifier="eom_list_store_thumbnail_refresh">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="913">Refreshes the thumbnail for the image pointed by @iter.</doc>
-        <source-position filename="eom-list-store.h" line="108"/>
+             line="925">Refreshes the thumbnail for the image pointed by @iter.</doc>
+        <source-position filename="eom-list-store.h" line="109"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3231,13 +3248,13 @@ is not stored in @store, -1 is returned.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="915">An #EomListStore.</doc>
+                 line="927">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="916">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="928">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3245,8 +3262,8 @@ is not stored in @store, -1 is returned.</doc>
       <method name="thumbnail_set" c:identifier="eom_list_store_thumbnail_set">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="859">Sets the thumbnail for the image pointed by @iter.</doc>
-        <source-position filename="eom-list-store.h" line="102"/>
+             line="871">Sets the thumbnail for the image pointed by @iter.</doc>
+        <source-position filename="eom-list-store.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3254,13 +3271,13 @@ is not stored in @store, -1 is returned.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="861">An #EomListStore.</doc>
+                 line="873">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="862">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="874">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3269,9 +3286,9 @@ is not stored in @store, -1 is returned.</doc>
               c:identifier="eom_list_store_thumbnail_unset">
         <doc xml:space="preserve"
              filename="eom-list-store.c"
-             line="884">Unsets the thumbnail for the image pointed by @iter, changing
+             line="896">Unsets the thumbnail for the image pointed by @iter, changing
 it to a "busy" icon.</doc>
-        <source-position filename="eom-list-store.h" line="105"/>
+        <source-position filename="eom-list-store.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3279,13 +3296,13 @@ it to a "busy" icon.</doc>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="886">An #EomListStore.</doc>
+                 line="898">An #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-list-store.c"
-                 line="887">A #GtkTreeIter pointing to an image in @store.</doc>
+                 line="899">A #GtkTreeIter pointing to an image in @store.</doc>
             <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
           </parameter>
         </parameters>
@@ -3420,14 +3437,14 @@ it to a "busy" icon.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-properties-dialog.c"
-               line="808">a new #EomPropertiesDialog</doc>
+               line="809">a new #EomPropertiesDialog</doc>
           <type name="PropertiesDialog" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-properties-dialog.c"
-                 line="801">the dialog's parent window</doc>
+                 line="802">the dialog's parent window</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
           <parameter name="thumbview" transfer-ownership="none">
@@ -4321,6 +4338,12 @@ scrolling with the scrollwheel to determine the next zoom factor.</doc>
               glib:nick="disable-collection"
               glib:name="EOM_STARTUP_DISABLE_COLLECTION">
       </member>
+      <member name="preserve_order"
+              value="8"
+              c:identifier="EOM_STARTUP_PRESERVE_ORDER"
+              glib:nick="preserve-order"
+              glib:name="EOM_STARTUP_PRESERVE_ORDER">
+      </member>
     </bitfield>
     <class name="Statusbar"
            c:symbol-prefix="statusbar"
@@ -4712,12 +4735,12 @@ widget should be visible.</doc>
       <constructor name="new" c:identifier="eom_thumb_view_new">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="652">Creates a new #EomThumbView object.</doc>
+             line="654">Creates a new #EomThumbView object.</doc>
         <source-position filename="eom-thumb-view.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-thumb-view.c"
-               line="657">a newly created #EomThumbView.</doc>
+               line="659">a newly created #EomThumbView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -4725,21 +4748,21 @@ widget should be visible.</doc>
               c:identifier="eom_thumb_view_get_first_selected_image">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="838">Returns the first selected image. Note that the returned #EomImage
+             line="840">Returns the first selected image. Note that the returned #EomImage
 is not ensured to be really the first selected image in @thumbview, but
 generally, it will be.</doc>
         <source-position filename="eom-thumb-view.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-thumb-view.c"
-               line="846">A #EomImage.</doc>
+               line="848">A #EomImage.</doc>
           <type name="Image" c:type="EomImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="840">A #EomThumbView.</doc>
+                 line="842">A #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
         </parameters>
@@ -4748,19 +4771,19 @@ generally, it will be.</doc>
               c:identifier="eom_thumb_view_get_n_selected">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="793">Gets the number of images that are currently selected in @thumbview.</doc>
+             line="795">Gets the number of images that are currently selected in @thumbview.</doc>
         <source-position filename="eom-thumb-view.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-thumb-view.c"
-               line="799">the number of selected images in @thumbview.</doc>
+               line="801">the number of selected images in @thumbview.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="795">An #EomThumbView.</doc>
+                 line="797">An #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
         </parameters>
@@ -4769,13 +4792,13 @@ generally, it will be.</doc>
               c:identifier="eom_thumb_view_get_selected_images">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="871">Gets a list with the currently selected images. Note that a new reference is
+             line="873">Gets a list with the currently selected images. Note that a new reference is
 hold for each image and the list must be freed with g_list_free().</doc>
         <source-position filename="eom-thumb-view.h" line="73"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eom-thumb-view.c"
-               line="878">A newly allocated list of #EomImage's.</doc>
+               line="880">A newly allocated list of #EomImage's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Image"/>
           </type>
@@ -4784,7 +4807,7 @@ hold for each image and the list must be freed with g_list_free().</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="873">A #EomThumbView.</doc>
+                 line="875">A #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
         </parameters>
@@ -4792,7 +4815,7 @@ hold for each image and the list must be freed with g_list_free().</doc>
       <method name="select_single" c:identifier="eom_thumb_view_select_single">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="940">Changes the current selection according to a single movement
+             line="942">Changes the current selection according to a single movement
 described by #EomThumbViewSelectionChange. If there are no
 thumbnails currently selected, one is selected according to the
 natural selection according to the #EomThumbViewSelectionChange
@@ -4806,13 +4829,13 @@ the first thumbnail will be selected.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="942">A #EomThumbView.</doc>
+                 line="944">A #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
           <parameter name="change" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="943">A #EomThumbViewSelectionChange, describing the
+                 line="945">A #EomThumbViewSelectionChange, describing the
 desired selection change.</doc>
             <type name="ThumbViewSelectionChange"
                   c:type="EomThumbViewSelectionChange"/>
@@ -4823,7 +4846,7 @@ desired selection change.</doc>
               c:identifier="eom_thumb_view_set_current_image">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="902">Changes the status of a image, marking it as currently selected.
+             line="904">Changes the status of a image, marking it as currently selected.
 If @deselect_other is %TRUE, all other selected images will be
 deselected.</doc>
         <source-position filename="eom-thumb-view.h" line="78"/>
@@ -4834,19 +4857,19 @@ deselected.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="904">A #EomThumbView.</doc>
+                 line="906">A #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="905">The image to be selected.</doc>
+                 line="907">The image to be selected.</doc>
             <type name="Image" c:type="EomImage*"/>
           </parameter>
           <parameter name="deselect_other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="906">Whether to deselect currently selected images.</doc>
+                 line="908">Whether to deselect currently selected images.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4855,7 +4878,7 @@ deselected.</doc>
               c:identifier="eom_thumb_view_set_item_height">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="766">Sets the height of each thumbnail in @thumbview.</doc>
+             line="768">Sets the height of each thumbnail in @thumbview.</doc>
         <source-position filename="eom-thumb-view.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4864,13 +4887,13 @@ deselected.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="768">A #EomThumbView.</doc>
+                 line="770">A #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="769">The desired height.</doc>
+                 line="771">The desired height.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4878,7 +4901,7 @@ deselected.</doc>
       <method name="set_model" c:identifier="eom_thumb_view_set_model">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="706">Sets the #EomListStore to be used with @thumbview. If an initial image
+             line="708">Sets the #EomListStore to be used with @thumbview. If an initial image
 was set during @store creation, its thumbnail will be selected and visible.</doc>
         <source-position filename="eom-thumb-view.h" line="63"/>
         <return-value transfer-ownership="none">
@@ -4888,13 +4911,13 @@ was set during @store creation, its thumbnail will be selected and visible.</doc
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="708">A #EomThumbView.</doc>
+                 line="710">A #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
           <parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="709">A #EomListStore.</doc>
+                 line="711">A #EomListStore.</doc>
             <type name="ListStore" c:type="EomListStore*"/>
           </parameter>
         </parameters>
@@ -4903,7 +4926,7 @@ was set during @store creation, its thumbnail will be selected and visible.</doc
               c:identifier="eom_thumb_view_set_thumbnail_popup">
         <doc xml:space="preserve"
              filename="eom-thumb-view.c"
-             line="1034">Set the contextual menu to be used with the thumbnails in the
+             line="1036">Set the contextual menu to be used with the thumbnails in the
 widget. This can be done only once.</doc>
         <source-position filename="eom-thumb-view.h" line="82"/>
         <return-value transfer-ownership="none">
@@ -4913,13 +4936,13 @@ widget. This can be done only once.</doc>
           <instance-parameter name="thumbview" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="1036">An #EomThumbView.</doc>
+                 line="1038">An #EomThumbView.</doc>
             <type name="ThumbView" c:type="EomThumbView*"/>
           </instance-parameter>
           <parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-thumb-view.c"
-                 line="1037">A #GtkMenu.</doc>
+                 line="1039">A #GtkMenu.</doc>
             <type name="Gtk.Menu" c:type="GtkMenu*"/>
           </parameter>
         </parameters>
@@ -5308,7 +5331,7 @@ widget. This can be done only once.</doc>
            glib:type-name="EomWindow"
            glib:get-type="eom_window_get_type"
            glib:type-struct="WindowClass">
-      <source-position filename="eom-window.h" line="94"/>
+      <source-position filename="eom-window.h" line="95"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gio.ActionGroup"/>
       <implements name="Gio.ActionMap"/>
@@ -5316,27 +5339,28 @@ widget. This can be done only once.</doc>
       <constructor name="new" c:identifier="eom_window_new">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5327">Creates a new and empty #EomWindow. Use @flags to indicate
-if the window should be initialized fullscreen, in slideshow mode,
-and/or without the thumbnails collection visible. See #EomStartupFlags.</doc>
-        <source-position filename="eom-window.h" line="98"/>
+             line="5334">Creates a new and empty #EomWindow. Use @flags to indicate if the window
+should be initialized fullscreen, in slideshow mode, and/or without the
+thumbnails collection visible. Use preserve-order to maintain
+the order of input parameters instead of sorting. See #EomStartupFlags.</doc>
+        <source-position filename="eom-window.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5336">a newly created #EomWindow.</doc>
+               line="5344">a newly created #EomWindow.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5329">the initialization parameters for the new window.</doc>
+                 line="5336">the initialization parameters for the new window.</doc>
             <type name="StartupFlags" c:type="EomStartupFlags"/>
           </parameter>
         </parameters>
       </constructor>
       <virtual-method name="prepared">
-        <source-position filename="eom-window.h" line="93"/>
+        <source-position filename="eom-window.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5349,20 +5373,20 @@ and/or without the thumbnails collection visible. See #EomStartupFlags.</doc>
       <method name="get_image" c:identifier="eom_window_get_image">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5645">Gets the image currently displayed in @window or %NULL if
+             line="5653">Gets the image currently displayed in @window or %NULL if
 no image is being displayed.</doc>
-        <source-position filename="eom-window.h" line="119"/>
+        <source-position filename="eom-window.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5652">an #EomImage.</doc>
+               line="5660">an #EomImage.</doc>
           <type name="Image" c:type="EomImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5647">an #EomWindow.</doc>
+                 line="5655">an #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5370,19 +5394,19 @@ no image is being displayed.</doc>
       <method name="get_mode" c:identifier="eom_window_get_mode">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5500">Gets the mode of @window. See #EomWindowMode for details.</doc>
-        <source-position filename="eom-window.h" line="100"/>
+             line="5508">Gets the mode of @window. See #EomWindowMode for details.</doc>
+        <source-position filename="eom-window.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5506">An #EomWindowMode.</doc>
+               line="5514">An #EomWindowMode.</doc>
           <type name="WindowMode" c:type="EomWindowMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5502">An #EomWindow.</doc>
+                 line="5510">An #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5391,19 +5415,19 @@ no image is being displayed.</doc>
               c:identifier="eom_window_get_properties_dialog">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="3094">Gets the @window property dialog. The widget will be built on the first call to this function.</doc>
-        <source-position filename="eom-window.h" line="127"/>
+             line="3096">Gets the @window property dialog. The widget will be built on the first call to this function.</doc>
+        <source-position filename="eom-window.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="3100">a #GtkDialog.</doc>
+               line="3102">a #GtkDialog.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="3096">a #EomWindow</doc>
+                 line="3098">a #EomWindow</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5411,19 +5435,19 @@ no image is being displayed.</doc>
       <method name="get_sidebar" c:identifier="eom_window_get_sidebar">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5581">Gets the sidebar widget of @window.</doc>
-        <source-position filename="eom-window.h" line="111"/>
+             line="5589">Gets the sidebar widget of @window.</doc>
+        <source-position filename="eom-window.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5587">the #EomSidebar.</doc>
+               line="5595">the #EomSidebar.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5583">An #EomWindow.</doc>
+                 line="5591">An #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5431,19 +5455,19 @@ no image is being displayed.</doc>
       <method name="get_statusbar" c:identifier="eom_window_get_statusbar">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5629">Gets the statusbar in @window.</doc>
-        <source-position filename="eom-window.h" line="117"/>
+             line="5637">Gets the statusbar in @window.</doc>
+        <source-position filename="eom-window.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5635">a #EomStatusBar.</doc>
+               line="5643">a #EomStatusBar.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5631">an #EomWindow.</doc>
+                 line="5639">an #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5451,20 +5475,20 @@ no image is being displayed.</doc>
       <method name="get_store" c:identifier="eom_window_get_store">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5548">Gets the #EomListStore that contains the images in the collection
+             line="5556">Gets the #EomListStore that contains the images in the collection
 of @window.</doc>
-        <source-position filename="eom-window.h" line="107"/>
+        <source-position filename="eom-window.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5555">an #EomListStore.</doc>
+               line="5563">an #EomListStore.</doc>
           <type name="ListStore" c:type="EomListStore*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5550">An #EomWindow.</doc>
+                 line="5558">An #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5472,19 +5496,19 @@ of @window.</doc>
       <method name="get_thumb_nav" c:identifier="eom_window_get_thumb_nav">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5613">Gets the thumbnails navigation pane in @window.</doc>
-        <source-position filename="eom-window.h" line="115"/>
+             line="5621">Gets the thumbnails navigation pane in @window.</doc>
+        <source-position filename="eom-window.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5619">an #EomThumbNav.</doc>
+               line="5627">an #EomThumbNav.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5615">an #EomWindow.</doc>
+                 line="5623">an #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5492,19 +5516,19 @@ of @window.</doc>
       <method name="get_thumb_view" c:identifier="eom_window_get_thumb_view">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5597">Gets the thumbnails view in @window.</doc>
-        <source-position filename="eom-window.h" line="113"/>
+             line="5605">Gets the thumbnails view in @window.</doc>
+        <source-position filename="eom-window.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5603">an #EomThumbView.</doc>
+               line="5611">an #EomThumbView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5599">an #EomWindow.</doc>
+                 line="5607">an #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5512,19 +5536,19 @@ of @window.</doc>
       <method name="get_ui_manager" c:identifier="eom_window_get_ui_manager">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5484">Gets the #GtkUIManager that describes the UI of @window.</doc>
-        <source-position filename="eom-window.h" line="105"/>
+             line="5492">Gets the #GtkUIManager that describes the UI of @window.</doc>
+        <source-position filename="eom-window.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5490">A #GtkUIManager.</doc>
+               line="5498">A #GtkUIManager.</doc>
           <type name="Gtk.UIManager" c:type="GtkUIManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5486">An #EomWindow.</doc>
+                 line="5494">An #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5532,19 +5556,19 @@ of @window.</doc>
       <method name="get_view" c:identifier="eom_window_get_view">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5565">Gets the #EomScrollView in the window.</doc>
-        <source-position filename="eom-window.h" line="109"/>
+             line="5573">Gets the #EomScrollView in the window.</doc>
+        <source-position filename="eom-window.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5571">the #EomScrollView.</doc>
+               line="5579">the #EomScrollView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5567">An #EomWindow.</doc>
+                 line="5575">An #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5552,19 +5576,19 @@ of @window.</doc>
       <method name="is_empty" c:identifier="eom_window_is_empty">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5662">Tells whether @window is currently empty or not.</doc>
-        <source-position filename="eom-window.h" line="124"/>
+             line="5670">Tells whether @window is currently empty or not.</doc>
+        <source-position filename="eom-window.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-window.c"
-               line="5668">%TRUE if @window has no images, %FALSE otherwise.</doc>
+               line="5676">%TRUE if @window has no images, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5664">an #EomWindow.</doc>
+                 line="5672">an #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
         </parameters>
@@ -5572,10 +5596,10 @@ of @window.</doc>
       <method name="open_file_list" c:identifier="eom_window_open_file_list">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5453">Opens a list of files, adding them to the collection in @window.
+             line="5461">Opens a list of files, adding them to the collection in @window.
 Files will be checked to be readable and later filtered according
 with eom_list_store_add_files().</doc>
-        <source-position filename="eom-window.h" line="121"/>
+        <source-position filename="eom-window.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5583,13 +5607,13 @@ with eom_list_store_add_files().</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5455">An #EomWindow.</doc>
+                 line="5463">An #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
           <parameter name="file_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5456">A %NULL-terminated list of #GFile's.</doc>
+                 line="5464">A %NULL-terminated list of #GFile's.</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Gio.File"/>
             </type>
@@ -5597,7 +5621,7 @@ with eom_list_store_add_files().</doc>
         </parameters>
       </method>
       <method name="reload_image" c:identifier="eom_window_reload_image">
-        <source-position filename="eom-window.h" line="126"/>
+        <source-position filename="eom-window.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5610,9 +5634,9 @@ with eom_list_store_add_files().</doc>
       <method name="set_mode" c:identifier="eom_window_set_mode">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5516">Changes the mode of @window to normal, fullscreen, or slideshow.
+             line="5524">Changes the mode of @window to normal, fullscreen, or slideshow.
 See #EomWindowMode for details.</doc>
-        <source-position filename="eom-window.h" line="102"/>
+        <source-position filename="eom-window.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5620,13 +5644,13 @@ See #EomWindowMode for details.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5518">an #EomWindow.</doc>
+                 line="5526">an #EomWindow.</doc>
             <type name="Window" c:type="EomWindow*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eom-window.c"
-                 line="5519">an #EomWindowMode value.</doc>
+                 line="5527">an #EomWindowMode value.</doc>
             <type name="WindowMode" c:type="EomWindowMode"/>
           </parameter>
         </parameters>
@@ -5637,7 +5661,7 @@ See #EomWindowMode for details.</doc>
                 default-value="EOM_WINDOW_COLLECTION_POS_BOTTOM">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5270">Determines the position of the image collection in the window
+             line="5277">Determines the position of the image collection in the window
 relative to the image.</doc>
         <type name="WindowCollectionPos"/>
       </property>
@@ -5647,7 +5671,7 @@ relative to the image.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5283">If %TRUE the collection will be resizable by the user otherwise it will be
+             line="5290">If %TRUE the collection will be resizable by the user otherwise it will be
 in single column/row mode.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -5658,7 +5682,7 @@ in single column/row mode.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5294">A bitwise OR of #EomStartupFlags elements, indicating how the window
+             line="5301">A bitwise OR of #EomStartupFlags elements, indicating how the window
 should behave upon creation.</doc>
         <type name="StartupFlags"/>
       </property>
@@ -5671,7 +5695,7 @@ should behave upon creation.</doc>
       <glib:signal name="prepared" when="last">
         <doc xml:space="preserve"
              filename="eom-window.c"
-             line="5310">The #EomWindow::prepared signal is emitted when the @window is ready
+             line="5317">The #EomWindow::prepared signal is emitted when the @window is ready
 to be shown.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5778,14 +5802,14 @@ should be attached to.</doc>
     <record name="WindowClass"
             c:type="EomWindowClass"
             glib:is-gtype-struct-for="Window">
-      <source-position filename="eom-window.h" line="94"/>
+      <source-position filename="eom-window.h" line="95"/>
       <field name="parent_class">
         <type name="Gtk.ApplicationWindowClass"
               c:type="GtkApplicationWindowClass"/>
       </field>
       <field name="prepared">
         <callback name="prepared">
-          <source-position filename="eom-window.h" line="93"/>
+          <source-position filename="eom-window.h" line="94"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -6075,19 +6099,19 @@ current locale.</doc>
               c:identifier="eom_thumbnail_add_frame">
       <doc xml:space="preserve"
            filename="eom-thumbnail.c"
-           line="381">Adds a frame to @thumbnail</doc>
+           line="383">Adds a frame to @thumbnail</doc>
       <source-position filename="eom-thumbnail.h" line="38"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="eom-thumbnail.c"
-             line="387">a new #GdkPixbuf, storing @thumbnail nicely framed.</doc>
+             line="389">a new #GdkPixbuf, storing @thumbnail nicely framed.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="thumbnail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-thumbnail.c"
-               line="383">a #GdkPixbuf</doc>
+               line="385">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
       </parameters>
@@ -6096,25 +6120,25 @@ current locale.</doc>
               c:identifier="eom_thumbnail_fit_to_size">
       <doc xml:space="preserve"
            filename="eom-thumbnail.c"
-           line="418">Ensures a pixbuf fits a given @dimension</doc>
+           line="420">Ensures a pixbuf fits a given @dimension</doc>
       <source-position filename="eom-thumbnail.h" line="35"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="eom-thumbnail.c"
-             line="425">a new #GdkPixbuf</doc>
+             line="427">a new #GdkPixbuf</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="thumbnail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-thumbnail.c"
-               line="420">a #GdkPixbuf</doc>
+               line="422">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="dimension" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-thumbnail.c"
-               line="421">the maximum width or height desired</doc>
+               line="423">the maximum width or height desired</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -6130,13 +6154,13 @@ current locale.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="eom-thumbnail.c"
-           line="455">Loads the thumbnail for @image. In case of error, %NULL is returned
+           line="457">Loads the thumbnail for @image. In case of error, %NULL is returned
 and @error is set.</doc>
       <source-position filename="eom-thumbnail.h" line="40"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="eom-thumbnail.c"
-             line="463">a new #GdkPixbuf with the thumbnail for
+             line="465">a new #GdkPixbuf with the thumbnail for
 @image or %NULL in case of error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
@@ -6144,7 +6168,7 @@ and @error is set.</doc>
         <parameter name="image" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eom-thumbnail.c"
-               line="457">a #EomImage</doc>
+               line="459">a #EomImage</doc>
           <type name="Image" c:type="EomImage*"/>
         </parameter>
       </parameters>

@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <package name="libvirt-glib-1.0"/>
   <c:include name="libvirt-glib/libvirt-glib.h"/>
+  <doc:format name="unknown"/>
   <namespace name="LibvirtGLib"
              version="1.0"
              shared-library="libvirt-glib-1.0.so.0"
@@ -276,7 +278,7 @@ of the most recent libvirt error object in the current thread.
 The &lt;code&gt;gvir_error_new&lt;/code&gt;, &lt;code&gt;gvir_error_new_literal&lt;/code&gt; and
 &lt;code&gt;gvir_error_new_valist&lt;/code&gt; methods all return a newly created
 &lt;code&gt;GError *&lt;/code&gt; object instance, differing only in the way the
-message needs to be provided. For most usage though, it is preferrable
+message needs to be provided. For most usage though, it is preferable
 to use the &lt;code&gt;gvir_set_error&lt;/code&gt;, &lt;code&gt;gvir_set_error_literal&lt;/code&gt;
 and &lt;code&gt;gvir_set_error_valist&lt;/code&gt; methods. These all accept a
 &lt;code&gt;GError **&lt;/code&gt; argument and take care to only fill it if it
@@ -325,7 +327,7 @@ int main(int argc, char **argv) {
 &lt;/example&gt;
 
 &lt;example&gt;
-&lt;title&gt;Registering for events using Appplication&lt;/title&gt;
+&lt;title&gt;Registering for events using Application&lt;/title&gt;
 &lt;programlisting&gt;&lt;![CDATA[
 int main(int argc, char **argv) {
   ...setup...

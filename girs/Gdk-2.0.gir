@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gio" version="2.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="cairo" version="1.0"/>
   <package name="gdk-2.0"/>
   <c:include name="gdk/gdk.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Gdk"
              version="2.0"
              shared-library="libgdk-x11-2.0.so.0"

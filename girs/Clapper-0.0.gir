@@ -2285,7 +2285,7 @@ You probably want to implement this function if you also implemented item remova
                        line="37"/>
       <type name="gboolean" c:type="gboolean"/>
     </constant>
-    <constant name="HAVE_SERVER" value="false" c:type="CLAPPER_HAVE_SERVER">
+    <constant name="HAVE_SERVER" value="true" c:type="CLAPPER_HAVE_SERVER">
       <doc xml:space="preserve"
            filename="src/lib/clapper/features/clapper-features-availability.h"
            line="39">Check if Clapper was compiled with Server feature.</doc>
@@ -8028,6 +8028,16 @@ or using this convenience function that does so.</doc>
              line="177">Media item cache location was updated.</doc>
       </member>
     </bitfield>
+    <function-macro name="SERVER_CAST"
+                    c:identifier="CLAPPER_SERVER_CAST"
+                    introspectable="0">
+      <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="STREAM_CAST"
                     c:identifier="CLAPPER_STREAM_CAST"
                     introspectable="0">
@@ -8067,6 +8077,377 @@ or using this convenience function that does so.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <class name="Server"
+           c:symbol-prefix="server"
+           c:type="ClapperServer"
+           deprecated="1"
+           deprecated-version="0.10"
+           parent="Feature"
+           glib:type-name="ClapperServer"
+           glib:get-type="clapper_server_get_type"
+           glib:type-struct="ServerClass">
+      <doc xml:space="preserve"
+           filename="src/lib/clapper/features/server/clapper-server.c"
+           line="19">An optional Server feature to add to the player.
+
+#ClapperServer is a feature that hosts a local server
+providing an ability to both monitor and control playback
+through WebSocket messages and HTTP requests.
+
+Use [const@Clapper.HAVE_SERVER] macro to check if Clapper API
+was compiled with this feature.</doc>
+      <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+      <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                       line="37"/>
+      <constructor name="new"
+                   c:identifier="clapper_server_new"
+                   deprecated="1"
+                   deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="813">Creates a new #ClapperServer instance.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/lib/clapper/features/server/clapper-server.c"
+               line="818">a new #ClapperServer instance.</doc>
+          <type name="Server" c:type="ClapperServer*"/>
+        </return-value>
+      </constructor>
+      <method name="get_current_port"
+              c:identifier="clapper_server_get_current_port"
+              glib:get-property="current-port"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="955">Get port on which server is currently listening on.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/lib/clapper/features/server/clapper-server.c"
+               line="961">Current listening port or 0 if server is not listening.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="957">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled"
+              c:identifier="clapper_server_get_enabled"
+              glib:get-property="enabled"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="860">Get whether #ClapperServer is set to be running.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/lib/clapper/features/server/clapper-server.c"
+               line="866">%TRUE if enabled, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="862">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_port"
+              c:identifier="clapper_server_get_port"
+              glib:get-property="port"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="928">Get requested server listening port.
+
+If you want to know the port server is currently listening on,
+use [method@Clapper.Server.get_current_port] instead.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/lib/clapper/features/server/clapper-server.c"
+               line="937">Requested listening port or 0 when using random port.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="930">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_queue_controllable"
+              c:identifier="clapper_server_get_queue_controllable"
+              glib:get-property="queue-controllable"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1007">Get whether remote @server clients can control [class@Clapper.Queue].</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/lib/clapper/features/server/clapper-server.c"
+               line="1013">%TRUE if control over #ClapperQueue is allowed, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="1009">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_running"
+              c:identifier="clapper_server_get_running"
+              glib:get-property="running"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="878">Get whether #ClapperServer is currently running.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/lib/clapper/features/server/clapper-server.c"
+               line="884">%TRUE if running, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="880">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_enabled"
+              c:identifier="clapper_server_set_enabled"
+              glib:set-property="enabled"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="831">Set whether #ClapperServer should be running.
+
+Note that server feature will run only after being added to the player.
+It can be however set to enabled earlier. If server was already added,
+changing this property allows to start/stop server at any time.
+
+To be notified when server is actually running/stopped after being enabled/disabled,
+you can listen for changes to [property@Clapper.Server:running] property.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="833">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="834">if #ClapperServer should run</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_port"
+              c:identifier="clapper_server_set_port"
+              glib:set-property="port"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="902">Set server listening port.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="904">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+          <parameter name="port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="905">a port number or 0 for random free port</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_queue_controllable"
+              c:identifier="clapper_server_set_queue_controllable"
+              glib:set-property="queue-controllable"
+              deprecated="1"
+              deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="979">Set whether remote @server clients can control [class@Clapper.Queue].
+
+This includes ability to add/remove items from the queue and selecting
+current item for playback remotely using WebSocket messages.
+
+You probably want to keep this disabled if your application
+is supposed to manage what is played now and not WebSocket client.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="server" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="981">a #ClapperServer</doc>
+            <type name="Server" c:type="ClapperServer*"/>
+          </instance-parameter>
+          <parameter name="controllable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="982">if #ClapperQueue should be controllable</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="current-port"
+                deprecated="1"
+                deprecated-version="0.10"
+                transfer-ownership="none"
+                getter="get_current_port"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1178">Port on which server is currently listening on or 0 if not listening.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="enabled"
+                deprecated="1"
+                deprecated-version="0.10"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enabled"
+                getter="get_enabled"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1145">Whether server is enabled.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="port"
+                deprecated="1"
+                deprecated-version="0.10"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_port"
+                getter="get_port"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1167">Port to listen on or 0 for using random unused port.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="queue-controllable"
+                deprecated="1"
+                deprecated-version="0.10"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_queue_controllable"
+                getter="get_queue_controllable"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1189">Whether remote server clients can control #ClapperQueue.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="running"
+                deprecated="1"
+                deprecated-version="0.10"
+                transfer-ownership="none"
+                getter="get_running"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1156">Whether server is currently running.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <glib:signal name="error"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1"
+                   deprecated="1"
+                   deprecated-version="0.10">
+        <doc xml:space="preserve"
+             filename="src/lib/clapper/features/server/clapper-server.c"
+             line="1200">Error signal when server could not start.
+This will be emitted from application main thread.</doc>
+        <doc-deprecated xml:space="preserve">Use Control Hub from `clapper-enhancers` repo instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/lib/clapper/features/server/clapper-server.c"
+                 line="1203">a #GError</doc>
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ServerClass"
+            c:type="ClapperServerClass"
+            glib:is-gtype-struct-for="Server">
+      <source-position filename="src/lib/clapper/features/server/clapper-server.h"
+                       line="37"/>
+      <field name="parent_class">
+        <type name="FeatureClass" c:type="ClapperFeatureClass"/>
+      </field>
+    </record>
     <class name="Stream"
            c:symbol-prefix="stream"
            c:type="ClapperStream"

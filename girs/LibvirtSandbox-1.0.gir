@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="LibvirtGObject" version="1.0"/>
   <package name="libvirt-sandbox-1.0"/>
   <c:include name="libvirt-sandbox/libvirt-sandbox.h"/>
+  <doc:format name="unknown"/>
   <namespace name="LibvirtSandbox"
              version="1.0"
              shared-library="libvirt-sandbox-1.0.so.5"
@@ -5792,7 +5794,10 @@ be a NULL terminated list</doc>
            glib:get-type="gvir_sandbox_console_get_type"
            glib:type-struct="ConsoleClass">
       <source-position filename="libvirt-sandbox-console.h" line="75"/>
-      <virtual-method name="attach" invoker="attach" throws="1">
+      <virtual-method name="attach"
+                      invoker="attach"
+                      introspectable="0"
+                      throws="1">
         <source-position filename="libvirt-sandbox-console.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5802,13 +5807,13 @@ be a NULL terminated list</doc>
             <type name="Console" c:type="GVirSandboxConsole*"/>
           </instance-parameter>
           <parameter name="localStdin" transfer-ownership="none">
-            <type name="Gio.UnixInputStream" c:type="GUnixInputStream*"/>
+            <type c:type="GUnixInputStream*"/>
           </parameter>
           <parameter name="localStdout" transfer-ownership="none">
-            <type name="Gio.UnixOutputStream" c:type="GUnixOutputStream*"/>
+            <type c:type="GUnixOutputStream*"/>
           </parameter>
           <parameter name="localStderr" transfer-ownership="none">
-            <type name="Gio.UnixOutputStream" c:type="GUnixOutputStream*"/>
+            <type c:type="GUnixOutputStream*"/>
           </parameter>
         </parameters>
       </virtual-method>
@@ -5839,6 +5844,7 @@ be a NULL terminated list</doc>
       </virtual-method>
       <method name="attach"
               c:identifier="gvir_sandbox_console_attach"
+              introspectable="0"
               throws="1">
         <source-position filename="libvirt-sandbox-console.h" line="87"/>
         <return-value transfer-ownership="none">
@@ -5849,13 +5855,13 @@ be a NULL terminated list</doc>
             <type name="Console" c:type="GVirSandboxConsole*"/>
           </instance-parameter>
           <parameter name="localStdin" transfer-ownership="none">
-            <type name="Gio.UnixInputStream" c:type="GUnixInputStream*"/>
+            <type c:type="GUnixInputStream*"/>
           </parameter>
           <parameter name="localStdout" transfer-ownership="none">
-            <type name="Gio.UnixOutputStream" c:type="GUnixOutputStream*"/>
+            <type c:type="GUnixOutputStream*"/>
           </parameter>
           <parameter name="localStderr" transfer-ownership="none">
-            <type name="Gio.UnixOutputStream" c:type="GUnixOutputStream*"/>
+            <type c:type="GUnixOutputStream*"/>
           </parameter>
         </parameters>
       </method>
@@ -6040,8 +6046,8 @@ be a NULL terminated list</doc>
           </parameters>
         </callback>
       </field>
-      <field name="attach">
-        <callback name="attach" throws="1">
+      <field name="attach" introspectable="0">
+        <callback name="attach" introspectable="0" throws="1">
           <source-position filename="libvirt-sandbox-console.h" line="66"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -6051,13 +6057,13 @@ be a NULL terminated list</doc>
               <type name="Console" c:type="GVirSandboxConsole*"/>
             </parameter>
             <parameter name="localStdin" transfer-ownership="none">
-              <type name="Gio.UnixInputStream" c:type="GUnixInputStream*"/>
+              <type c:type="GUnixInputStream*"/>
             </parameter>
             <parameter name="localStdout" transfer-ownership="none">
-              <type name="Gio.UnixOutputStream" c:type="GUnixOutputStream*"/>
+              <type c:type="GUnixOutputStream*"/>
             </parameter>
             <parameter name="localStderr" transfer-ownership="none">
-              <type name="Gio.UnixOutputStream" c:type="GUnixOutputStream*"/>
+              <type c:type="GUnixOutputStream*"/>
             </parameter>
           </parameters>
         </callback>

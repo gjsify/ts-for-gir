@@ -1,0 +1,3797 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Adw" version="1"/>
+  <include name="Dex" version="1"/>
+  <include name="Foundry" version="1"/>
+  <include name="FoundryGtk" version="1"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <include name="Peas" version="2"/>
+  <package name="libfoundry-adw-1"/>
+  <c:include name="foundry-adw.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="FoundryAdw"
+             version="1"
+             shared-library="libfoundry-adw-1.so.1"
+             c:identifier-prefixes="Foundry"
+             c:symbol-prefixes="foundry">
+    <class name="DocumentationNavigator"
+           c:symbol-prefix="documentation_navigator"
+           c:type="FoundryDocumentationNavigator"
+           parent="PathNavigator"
+           final="1"
+           glib:type-name="FoundryDocumentationNavigator"
+           glib:get-type="foundry_documentation_navigator_get_type"
+           glib:type-struct="DocumentationNavigatorClass">
+      <source-position filename="libfoundry-adw/foundry-documentation-navigator.h"
+                       line="34"/>
+      <constructor name="new"
+                   c:identifier="foundry_documentation_navigator_new"
+                   version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-documentation-navigator.c"
+             line="271">Creates a new documentation navigator for the given documentation.</doc>
+        <source-position filename="libfoundry-adw/foundry-documentation-navigator.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-documentation-navigator.c"
+               line="277">a new [class@FoundryAdw.DocumentationNavigator]</doc>
+          <type name="DocumentationNavigator"
+                c:type="FoundryDocumentationNavigator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="documentation" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-documentation-navigator.c"
+                 line="273">a [class@Foundry.Documentation]</doc>
+            <type name="Foundry.Documentation" c:type="FoundryDocumentation*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_documentation"
+              c:identifier="foundry_documentation_navigator_dup_documentation"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-documentation-navigator.c"
+             line="291">Gets the documentation for this navigator.</doc>
+        <source-position filename="libfoundry-adw/foundry-documentation-navigator.h"
+                         line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-documentation-navigator.c"
+               line="297">a [class@Foundry.Documentation]</doc>
+          <type name="Foundry.Documentation" c:type="FoundryDocumentation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-documentation-navigator.c"
+                 line="293">a [class@FoundryAdw.DocumentationNavigator]</doc>
+            <type name="DocumentationNavigator"
+                  c:type="FoundryDocumentationNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="documentation"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Foundry.Documentation"/>
+      </property>
+    </class>
+    <record name="DocumentationNavigatorClass"
+            c:type="FoundryDocumentationNavigatorClass"
+            glib:is-gtype-struct-for="DocumentationNavigator">
+      <source-position filename="libfoundry-adw/foundry-documentation-navigator.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="PathNavigatorClass" c:type="FoundryPathNavigatorClass"/>
+      </field>
+    </record>
+    <class name="FileNavigator"
+           c:symbol-prefix="file_navigator"
+           c:type="FoundryFileNavigator"
+           parent="PathNavigator"
+           final="1"
+           glib:type-name="FoundryFileNavigator"
+           glib:get-type="foundry_file_navigator_get_type"
+           glib:type-struct="FileNavigatorClass">
+      <source-position filename="libfoundry-adw/foundry-file-navigator.h"
+                       line="30"/>
+      <constructor name="new"
+                   c:identifier="foundry_file_navigator_new"
+                   version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-file-navigator.c"
+             line="260">Creates a new file navigator for the given file.</doc>
+        <source-position filename="libfoundry-adw/foundry-file-navigator.h"
+                         line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-file-navigator.c"
+               line="266">a new [class@FoundryAdw.FileNavigator]</doc>
+          <type name="FileNavigator" c:type="FoundryFileNavigator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-file-navigator.c"
+                 line="262">a [iface@Gio.File]</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_file"
+              c:identifier="foundry_file_navigator_dup_file"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-file-navigator.c"
+             line="280">Gets the file for this navigator.</doc>
+        <source-position filename="libfoundry-adw/foundry-file-navigator.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-file-navigator.c"
+               line="286">a [iface@Gio.File]</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-file-navigator.c"
+                 line="282">a [class@FoundryAdw.FileNavigator]</doc>
+            <type name="FileNavigator" c:type="FoundryFileNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+    </class>
+    <record name="FileNavigatorClass"
+            c:type="FoundryFileNavigatorClass"
+            glib:is-gtype-struct-for="FileNavigator">
+      <source-position filename="libfoundry-adw/foundry-file-navigator.h"
+                       line="30"/>
+      <field name="parent_class">
+        <type name="PathNavigatorClass" c:type="FoundryPathNavigatorClass"/>
+      </field>
+    </record>
+    <class name="FileRow"
+           c:symbol-prefix="file_row"
+           c:type="FoundryFileRow"
+           version="1.1"
+           parent="Adw.EntryRow"
+           glib:type-name="FoundryFileRow"
+           glib:get-type="foundry_file_row_get_type"
+           glib:type-struct="FileRowClass">
+      <doc xml:space="preserve"
+           filename="libfoundry-adw/foundry-file-row.c"
+           line="26">An `AdwPreferencesRow` that allows typing or navigating to a
+file or directory path. It is capable of expanding relative
+paths from the user's home directory.</doc>
+      <source-position filename="libfoundry-adw/foundry-file-row.h" line="39"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Editable"/>
+      <constructor name="new" c:identifier="foundry_file_row_new">
+        <source-position filename="libfoundry-adw/foundry-file-row.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="dup_file" c:identifier="foundry_file_row_dup_file">
+        <source-position filename="libfoundry-adw/foundry-file-row.h"
+                         line="44"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-file-row.c"
+                 line="228">a [class@FoundryAdw.FileRow]</doc>
+            <type name="FileRow" c:type="FoundryFileRow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_type"
+              c:identifier="foundry_file_row_get_file_type"
+              glib:get-property="file-type"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-file-row.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-file-row.c"
+               line="293">the type of file that should be selected</doc>
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-file-row.c"
+                 line="291">a [class@FoundryAdw.FileRow]</doc>
+            <type name="FileRow" c:type="FoundryFileRow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_file"
+              c:identifier="foundry_file_row_set_file"
+              glib:set-property="file">
+        <source-position filename="libfoundry-adw/foundry-file-row.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="FileRow" c:type="FoundryFileRow*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_file_type"
+              c:identifier="foundry_file_row_set_file_type"
+              glib:set-property="file-type"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-file-row.c"
+             line="307">@file_type must be either `G_FILE_TYPE_REGULAR` or
+`G_FILE_TYPE_DIRECTORY`.
+
+Changing this property while the user is selecting a file is
+undefined behavior.</doc>
+        <source-position filename="libfoundry-adw/foundry-file-row.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-file-row.c"
+                 line="309">a [class@FoundryAdw.FileRow]</doc>
+            <type name="FileRow" c:type="FoundryFileRow*"/>
+          </instance-parameter>
+          <parameter name="file_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-file-row.c"
+                 line="310">the type of file to select</doc>
+            <type name="Gio.FileType" c:type="GFileType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="file"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_file">
+        <type name="Gio.File"/>
+      </property>
+      <property name="file-type"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_file_type"
+                getter="get_file_type"
+                default-value="G_FILE_TYPE_DIRECTORY">
+        <type name="Gio.FileType"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Adw.EntryRow" c:type="AdwEntryRow"/>
+      </field>
+    </class>
+    <record name="FileRowClass"
+            c:type="FoundryFileRowClass"
+            glib:is-gtype-struct-for="FileRow">
+      <source-position filename="libfoundry-adw/foundry-file-row.h" line="39"/>
+      <field name="parent_class">
+        <type name="Adw.EntryRowClass" c:type="AdwEntryRowClass"/>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="Page"
+           c:symbol-prefix="page"
+           c:type="FoundryPage"
+           parent="Gtk.Widget"
+           glib:type-name="FoundryPage"
+           glib:get-type="foundry_page_get_type"
+           glib:type-struct="PageClass">
+      <source-position filename="libfoundry-adw/foundry-page.h" line="50"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <virtual-method name="can_save" invoker="can_save">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="849">Checks if the page can be saved.
+
+Implementations of [class@FoundryAdw.Page] should notify the `can-save`
+property when the value of this function changes.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="858">%TRUE if the page can be saved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="851">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="dup_icon" invoker="dup_icon">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="42"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="771">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="dup_menu" invoker="dup_menu">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="43"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="928">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="dup_subtitle" invoker="dup_subtitle">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="41"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="737">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="dup_title" invoker="dup_title">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="40"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="754">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="presented">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save" invoker="save">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="871">Requests that the page saves.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="877">a [class@Dex.Future] that resolves to any
+  value when the operation has completed or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="873">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save_as" invoker="save_as">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="893">Requests that the page saves to a new file after querying the user
+for the necessary new file.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="900">a [class@Dex.Future] that resolves to any
+  value when the operation has completed or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="895">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="action_set_enabled"
+              c:identifier="foundry_page_action_set_enabled">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_save"
+              c:identifier="foundry_page_can_save"
+              glib:get-property="can-save">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="849">Checks if the page can be saved.
+
+Implementations of [class@FoundryAdw.Page] should notify the `can-save`
+property when the value of this function changes.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="858">%TRUE if the page can be saved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="851">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_icon" c:identifier="foundry_page_dup_icon">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="68"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="771">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_menu" c:identifier="foundry_page_dup_menu">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="70"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="928">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_subtitle" c:identifier="foundry_page_dup_subtitle">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="66"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="737">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_title" c:identifier="foundry_page_dup_title">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="64"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="754">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_auxiliary"
+              c:identifier="foundry_page_get_auxiliary"
+              glib:get-property="auxiliary">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="695">Gets the auxiliary widget for the page, if any.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="77"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="697">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content"
+              c:identifier="foundry_page_get_content"
+              glib:get-property="content">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="72"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="661">the content widget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="659">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_needs_attention"
+              c:identifier="foundry_page_get_needs_attention"
+              glib:get-property="needs-attention"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="794">Gets whether the page needs attention from the user.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="800">%TRUE if the page needs attention, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="796">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="raise" c:identifier="foundry_page_raise">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_close"
+              c:identifier="foundry_page_request_close"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="951">Requests that the page be closed as if the user clicked the close button
+on an AdwTabBar. This will trigger the close-page signal handler which
+performs the actual cleanup.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="953">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="foundry_page_save">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="871">Requests that the page saves.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="95"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="877">a [class@Dex.Future] that resolves to any
+  value when the operation has completed or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="873">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_as" c:identifier="foundry_page_save_as">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="893">Requests that the page saves to a new file after querying the user
+for the necessary new file.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="97"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-page.c"
+               line="900">a [class@Dex.Future] that resolves to any
+  value when the operation has completed or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="895">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_auxiliary"
+              c:identifier="foundry_page_set_auxiliary"
+              glib:set-property="auxiliary">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+          <parameter name="auxiliary" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_content"
+              c:identifier="foundry_page_set_content"
+              glib:set-property="content">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+          <parameter name="content" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_needs_attention"
+              c:identifier="foundry_page_set_needs_attention"
+              glib:set-property="needs-attention"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="814">Sets whether the page needs attention from the user.
+
+When set to %TRUE, this property indicates that the page has
+something that requires user attention. The property is automatically
+cleared when focus enters the page.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="816">a [class@FoundryAdw.Page]</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </instance-parameter>
+          <parameter name="needs_attention" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="817">whether the page needs attention</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="auxiliary"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_auxiliary"
+                getter="get_auxiliary">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="can-save"
+                transfer-ownership="none"
+                getter="can_save"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="content"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_content"
+                getter="get_content">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="icon" transfer-ownership="none">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="needs-attention"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_needs_attention"
+                getter="get_needs_attention"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="subtitle" transfer-ownership="none" default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="title" transfer-ownership="none" default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+      <glib:signal name="presented" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="raise" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="PageClass"
+            c:type="FoundryPageClass"
+            glib:is-gtype-struct-for="Page">
+      <source-position filename="libfoundry-adw/foundry-page.h" line="50"/>
+      <field name="parent_instance">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+      <field name="can_save">
+        <callback name="can_save">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="858">%TRUE if the page can be saved</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="851">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dup_title">
+        <callback name="dup_title">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="40"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="754">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dup_subtitle">
+        <callback name="dup_subtitle">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="41"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="737">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dup_icon">
+        <callback name="dup_icon">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="42"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <type name="Gio.Icon" c:type="GIcon*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="771">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dup_menu">
+        <callback name="dup_menu">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="43"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="928">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save">
+        <callback name="save">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="44"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="877">a [class@Dex.Future] that resolves to any
+  value when the operation has completed or rejects with error.</doc>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="873">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save_as">
+        <callback name="save_as">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="45"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="900">a [class@Dex.Future] that resolves to any
+  value when the operation has completed or rejects with error.</doc>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-page.c"
+                   line="895">a [class@FoundryAdw.Page]</doc>
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="presented">
+        <callback name="presented">
+          <source-position filename="libfoundry-adw/foundry-page.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Page" c:type="FoundryPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="13">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <method name="install_action"
+              c:identifier="foundry_page_class_install_action">
+        <source-position filename="libfoundry-adw/foundry-page.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page_class" transfer-ownership="none">
+            <type name="PageClass" c:type="FoundryPageClass*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="parameter_type" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="activate" transfer-ownership="none" scope="forever">
+            <type name="Gtk.WidgetActionActivateFunc"
+                  c:type="GtkWidgetActionActivateFunc"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="install_property_action"
+              c:identifier="foundry_page_class_install_property_action">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-page.c"
+             line="567">Installs an action called @action_name on @page_class and
+binds its state to the value of the @property_name property.
+
+This function will perform a few santity checks on the property selected
+via @property_name. Namely, the property must exist, must be readable,
+writable and must not be construct-only. There are also restrictions
+on the type of the given property, it must be boolean, int, unsigned int,
+double or string. If any of these conditions are not met, a critical
+warning will be printed and no action will be added.
+
+The state type of the action matches the property type.
+
+If the property is boolean, the action will have no parameter and
+toggle the property value. Otherwise, the action will have a parameter
+of the same type as the property.</doc>
+        <source-position filename="libfoundry-adw/foundry-page.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page_class" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="569">a `FoundryPageClass`</doc>
+            <type name="PageClass" c:type="FoundryPageClass*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="570">name of the action</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="property_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-page.c"
+                 line="571">name of the property in instances of @page_class
+  or any parent class.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <class name="Panel"
+           c:symbol-prefix="panel"
+           c:type="FoundryPanel"
+           parent="Gtk.Widget"
+           abstract="1"
+           glib:type-name="FoundryPanel"
+           glib:get-type="foundry_panel_get_type"
+           glib:type-struct="PanelClass">
+      <source-position filename="libfoundry-adw/foundry-panel.h" line="43"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="foundry_panel_new">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="Panel" c:type="FoundryPanel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="presented">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_child"
+              c:identifier="foundry_panel_get_child"
+              glib:get-property="child">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="63"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="357">a [class@FoundryAdw.Panel]</doc>
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon"
+              c:identifier="foundry_panel_get_icon"
+              glib:get-property="icon">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="55"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="313">a [class@FoundryAdw.Panel]</doc>
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id"
+              c:identifier="foundry_panel_get_id"
+              glib:get-property="id">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_needs_attention"
+              c:identifier="foundry_panel_get_needs_attention"
+              glib:get-property="needs-attention"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-panel.c"
+             line="414">Gets whether the panel needs attention from the user.</doc>
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-panel.c"
+               line="420">%TRUE if the panel needs attention, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="416">a [class@FoundryAdw.Panel]</doc>
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="foundry_panel_get_title"
+              glib:get-property="title">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="50"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="285">a [class@FoundryAdw.Panel]</doc>
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="raise" c:identifier="foundry_panel_raise">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-panel.c"
+             line="389">Emits the "raise" signal on the panel.
+
+This signal can be used to request that the panel be raised to the front
+or made visible in its container.</doc>
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="391">a [class@FoundryAdw.Panel]</doc>
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_child"
+              c:identifier="foundry_panel_set_child"
+              glib:set-property="child">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon"
+              c:identifier="foundry_panel_set_icon"
+              glib:set-property="icon">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+          <parameter name="icon" transfer-ownership="none">
+            <type name="Gio.Icon" c:type="GIcon*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="foundry_panel_set_icon_name"
+              glib:set-property="icon-name">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_needs_attention"
+              c:identifier="foundry_panel_set_needs_attention"
+              glib:set-property="needs-attention"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-panel.c"
+             line="434">Sets whether the panel needs attention from the user.
+
+When set to %TRUE, this property indicates that the panel has
+something that requires user attention. The property is automatically
+cleared when focus enters the panel.</doc>
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="436">a [class@FoundryAdw.Panel]</doc>
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+          <parameter name="needs_attention" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel.c"
+                 line="437">whether the panel needs attention</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_title"
+              c:identifier="foundry_panel_set_title"
+              glib:set-property="title">
+        <source-position filename="libfoundry-adw/foundry-panel.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="child"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_child"
+                getter="get_child">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon"
+                getter="get_icon">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="icon-name"
+                readable="0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_id"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="needs-attention"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_needs_attention"
+                getter="get_needs_attention"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="title"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_title"
+                getter="get_title"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+      <glib:signal name="presented" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="raise" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <class name="PanelBar"
+           c:symbol-prefix="panel_bar"
+           c:type="FoundryPanelBar"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="FoundryPanelBar"
+           glib:get-type="foundry_panel_bar_get_type"
+           glib:type-struct="PanelBarClass">
+      <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                       line="33"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="foundry_panel_bar_new">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_show_bottom"
+              c:identifier="foundry_panel_bar_get_show_bottom"
+              glib:get-property="show-bottom">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PanelBar" c:type="FoundryPanelBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_start"
+              c:identifier="foundry_panel_bar_get_show_start"
+              glib:get-property="show-start">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PanelBar" c:type="FoundryPanelBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_workspace"
+              c:identifier="foundry_panel_bar_get_workspace"
+              glib:get-property="workspace">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="38"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Workspace" c:type="FoundryWorkspace*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-panel-bar.c"
+                 line="331">a [class@FoundryAdw.PanelBar]</doc>
+            <type name="PanelBar" c:type="FoundryPanelBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_show_bottom"
+              c:identifier="foundry_panel_bar_set_show_bottom"
+              glib:set-property="show-bottom">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PanelBar" c:type="FoundryPanelBar*"/>
+          </instance-parameter>
+          <parameter name="bottom" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_start"
+              c:identifier="foundry_panel_bar_set_show_start"
+              glib:set-property="show-start">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PanelBar" c:type="FoundryPanelBar*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_workspace"
+              c:identifier="foundry_panel_bar_set_workspace"
+              glib:set-property="workspace">
+        <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PanelBar" c:type="FoundryPanelBar*"/>
+          </instance-parameter>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="show-bottom"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_bottom"
+                getter="get_show_bottom"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-start"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_start"
+                getter="get_show_start"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="workspace"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_workspace"
+                getter="get_workspace">
+        <type name="Workspace"/>
+      </property>
+    </class>
+    <record name="PanelBarClass"
+            c:type="FoundryPanelBarClass"
+            glib:is-gtype-struct-for="PanelBar">
+      <source-position filename="libfoundry-adw/foundry-panel-bar.h"
+                       line="33"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <record name="PanelClass"
+            c:type="FoundryPanelClass"
+            glib:is-gtype-struct-for="Panel">
+      <source-position filename="libfoundry-adw/foundry-panel.h" line="43"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+      <field name="presented">
+        <callback name="presented">
+          <source-position filename="libfoundry-adw/foundry-panel.h"
+                           line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Panel" c:type="FoundryPanel*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="PathBar"
+           c:symbol-prefix="path_bar"
+           c:type="FoundryPathBar"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="FoundryPathBar"
+           glib:get-type="foundry_path_bar_get_type"
+           glib:type-struct="PathBarClass">
+      <source-position filename="libfoundry-adw/foundry-path-bar.h" line="33"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="foundry_path_bar_new">
+        <source-position filename="libfoundry-adw/foundry-path-bar.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="dup_root"
+              c:identifier="foundry_path_bar_dup_root"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-bar.h"
+                         line="43"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-bar.c"
+                 line="288">a [class@FoundryAdw.PathBar]</doc>
+            <type name="PathBar" c:type="FoundryPathBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected_item"
+              c:identifier="foundry_path_bar_get_selected_item"
+              glib:get-property="selected-item"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-bar.h"
+                         line="38"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-bar.c"
+                 line="258">a [class@FoundryAdw.PathBar]</doc>
+            <type name="PathBar" c:type="FoundryPathBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_root"
+              c:identifier="foundry_path_bar_set_root"
+              glib:set-property="root"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-path-bar.c"
+             line="302">Set a root navigator that will always be shown regardless of the
+selected-item in the pathbar. This is useful for synthesized roots
+that you always want to show.</doc>
+        <source-position filename="libfoundry-adw/foundry-path-bar.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-bar.c"
+                 line="304">a [class@FoundryAdw.PathBar]</doc>
+            <type name="PathBar" c:type="FoundryPathBar*"/>
+          </instance-parameter>
+          <parameter name="root"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-bar.c"
+                 line="305">a root navigator</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_selected_item"
+              c:identifier="foundry_path_bar_set_selected_item"
+              glib:set-property="selected-item">
+        <source-position filename="libfoundry-adw/foundry-path-bar.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PathBar" c:type="FoundryPathBar*"/>
+          </instance-parameter>
+          <parameter name="selected_item" transfer-ownership="none">
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="root"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_root">
+        <type name="PathNavigator"/>
+      </property>
+      <property name="selected-item"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_selected_item"
+                getter="get_selected_item">
+        <type name="PathNavigator"/>
+      </property>
+    </class>
+    <record name="PathBarClass"
+            c:type="FoundryPathBarClass"
+            glib:is-gtype-struct-for="PathBar">
+      <source-position filename="libfoundry-adw/foundry-path-bar.h" line="33"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <class name="PathNavigator"
+           c:symbol-prefix="path_navigator"
+           c:type="FoundryPathNavigator"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="FoundryPathNavigator"
+           glib:get-type="foundry_path_navigator_get_type"
+           glib:type-struct="PathNavigatorClass">
+      <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                       line="48"/>
+      <virtual-method name="dup_icon" invoker="dup_icon" version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="40"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="107">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="dup_intent" invoker="dup_intent" version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-path-navigator.c"
+             line="254">Gets an intent that can be used to navigate to this path navigator.</doc>
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="41"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="260">a [class@Foundry.Intent] or %NULL</doc>
+          <type name="Foundry.Intent" c:type="FoundryIntent*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="256">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="dup_title" invoker="dup_title" version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="39"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="126">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="find_parent" invoker="find_parent" version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="147">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="145">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="list_children"
+                      invoker="list_children"
+                      version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="187">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="185">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="list_siblings"
+                      invoker="list_siblings"
+                      version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="167">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="165">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="dup_icon"
+              c:identifier="foundry_path_navigator_dup_icon"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="53"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="107">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_intent"
+              c:identifier="foundry_path_navigator_dup_intent"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-path-navigator.c"
+             line="254">Gets an intent that can be used to navigate to this path navigator.</doc>
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="63"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="260">a [class@Foundry.Intent] or %NULL</doc>
+          <type name="Foundry.Intent" c:type="FoundryIntent*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="256">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_title"
+              c:identifier="foundry_path_navigator_dup_title"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="51"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="126">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_parent"
+              c:identifier="foundry_path_navigator_find_parent"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="147">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="145">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_children"
+              c:identifier="foundry_path_navigator_list_children"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="187">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="185">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_siblings"
+              c:identifier="foundry_path_navigator_list_siblings"
+              version="1.1">
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="167">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="165">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_to_root"
+              c:identifier="foundry_path_navigator_list_to_root"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-path-navigator.c"
+             line="227">Asynchronously populates a [iface@Gio.ListModel] of [class@FoundryAdw.PathNavigator]
+starting from this navigator to the root navigator by following
+[method@FoundryAdw.PathNavigator.find_parent] until there are no more parents.
+
+The root navigator is placed at position 0 and @self is placed in the last
+position.</doc>
+        <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                         line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-path-navigator.c"
+               line="238">a [class@Dex.Future] that resolves to a
+  [iface@Gio.ListModel] of [class@FoundryAdw.PathNavigator].</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="229">a [class@FoundryAdw.PathNavigator]</doc>
+            <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="icon" transfer-ownership="none">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="intent" transfer-ownership="none">
+        <type name="Foundry.Intent"/>
+      </property>
+      <property name="title" transfer-ownership="none" default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="PathNavigatorClass"
+            c:type="FoundryPathNavigatorClass"
+            glib:is-gtype-struct-for="PathNavigator">
+      <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                       line="48"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="dup_title">
+        <callback name="dup_title">
+          <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                           line="39"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-path-navigator.c"
+                   line="126">a [class@FoundryAdw.PathNavigator]</doc>
+              <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dup_icon">
+        <callback name="dup_icon">
+          <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                           line="40"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <type name="Gio.Icon" c:type="GIcon*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-path-navigator.c"
+                   line="107">a [class@FoundryAdw.PathNavigator]</doc>
+              <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dup_intent">
+        <callback name="dup_intent">
+          <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                           line="41"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="260">a [class@Foundry.Intent] or %NULL</doc>
+            <type name="Foundry.Intent" c:type="FoundryIntent*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-path-navigator.c"
+                   line="256">a [class@FoundryAdw.PathNavigator]</doc>
+              <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="find_parent">
+        <callback name="find_parent">
+          <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                           line="42"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="147">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-path-navigator.c"
+                   line="145">a [class@FoundryAdw.PathNavigator]</doc>
+              <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="list_children">
+        <callback name="list_children">
+          <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                           line="43"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="187">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-path-navigator.c"
+                   line="185">a [class@FoundryAdw.PathNavigator]</doc>
+              <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="list_siblings">
+        <callback name="list_siblings">
+          <source-position filename="libfoundry-adw/foundry-path-navigator.h"
+                           line="44"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-path-navigator.c"
+                 line="167">a [class@Dex.Future] that resolves
+  to a [class@FoundryAdw.PathNavigator] or rejects with error.</doc>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-path-navigator.c"
+                   line="165">a [class@FoundryAdw.PathNavigator]</doc>
+              <type name="PathNavigator" c:type="FoundryPathNavigator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="9">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="SearchDialog"
+           c:symbol-prefix="search_dialog"
+           c:type="FoundrySearchDialog"
+           parent="Adw.Dialog"
+           final="1"
+           glib:type-name="FoundrySearchDialog"
+           glib:get-type="foundry_search_dialog_get_type"
+           glib:type-struct="SearchDialogClass">
+      <source-position filename="libfoundry-adw/foundry-search-dialog.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.ShortcutManager"/>
+      <constructor name="new" c:identifier="foundry_search_dialog_new">
+        <source-position filename="libfoundry-adw/foundry-search-dialog.h"
+                         line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="dup_context"
+              c:identifier="foundry_search_dialog_dup_context">
+        <source-position filename="libfoundry-adw/foundry-search-dialog.h"
+                         line="36"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Foundry.Context" c:type="FoundryContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-search-dialog.c"
+                 line="341">a [class@FoundryAdw.SearchDialog]</doc>
+            <type name="SearchDialog" c:type="FoundrySearchDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_context"
+              c:identifier="foundry_search_dialog_set_context"
+              glib:set-property="context">
+        <source-position filename="libfoundry-adw/foundry-search-dialog.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SearchDialog" c:type="FoundrySearchDialog*"/>
+          </instance-parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Foundry.Context" c:type="FoundryContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="context"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_context">
+        <type name="Foundry.Context"/>
+      </property>
+      <property name="search-text"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="SearchDialogClass"
+            c:type="FoundrySearchDialogClass"
+            glib:is-gtype-struct-for="SearchDialog">
+      <source-position filename="libfoundry-adw/foundry-search-dialog.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="Adw.DialogClass" c:type="AdwDialogClass"/>
+      </field>
+    </record>
+    <interface name="SplitablePage"
+               c:symbol-prefix="splitable_page"
+               c:type="FoundrySplitablePage"
+               glib:type-name="FoundrySplitablePage"
+               glib:get-type="foundry_splitable_page_get_type"
+               glib:type-struct="SplitablePageInterface">
+      <source-position filename="libfoundry-adw/foundry-splitable-page.h"
+                       line="38"/>
+      <prerequisite name="Page"/>
+      <virtual-method name="split" invoker="split">
+        <source-position filename="libfoundry-adw/foundry-splitable-page.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-splitable-page.c"
+               line="36">the new split page</doc>
+          <type name="Page" c:type="FoundryPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-splitable-page.c"
+                 line="34">a [iface@FoundryAdw.SplitablePage]</doc>
+            <type name="SplitablePage" c:type="FoundrySplitablePage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="split" c:identifier="foundry_splitable_page_split">
+        <source-position filename="libfoundry-adw/foundry-splitable-page.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-splitable-page.c"
+               line="36">the new split page</doc>
+          <type name="Page" c:type="FoundryPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-splitable-page.c"
+                 line="34">a [iface@FoundryAdw.SplitablePage]</doc>
+            <type name="SplitablePage" c:type="FoundrySplitablePage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="SplitablePageInterface"
+            c:type="FoundrySplitablePageInterface"
+            glib:is-gtype-struct-for="SplitablePage">
+      <source-position filename="libfoundry-adw/foundry-splitable-page.h"
+                       line="38"/>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="split">
+        <callback name="split">
+          <source-position filename="libfoundry-adw/foundry-splitable-page.h"
+                           line="37"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-splitable-page.c"
+                 line="36">the new split page</doc>
+            <type name="Page" c:type="FoundryPage*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-adw/foundry-splitable-page.c"
+                   line="34">a [iface@FoundryAdw.SplitablePage]</doc>
+              <type name="SplitablePage" c:type="FoundrySplitablePage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="SymbolNavigator"
+           c:symbol-prefix="symbol_navigator"
+           c:type="FoundrySymbolNavigator"
+           parent="PathNavigator"
+           final="1"
+           glib:type-name="FoundrySymbolNavigator"
+           glib:get-type="foundry_symbol_navigator_get_type"
+           glib:type-struct="SymbolNavigatorClass">
+      <source-position filename="libfoundry-adw/foundry-symbol-navigator.h"
+                       line="34"/>
+      <constructor name="new"
+                   c:identifier="foundry_symbol_navigator_new"
+                   version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-symbol-navigator.c"
+             line="270">Creates a new symbol navigator for the given symbol.</doc>
+        <source-position filename="libfoundry-adw/foundry-symbol-navigator.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-symbol-navigator.c"
+               line="276">a new [class@FoundryAdw.SymbolNavigator]</doc>
+          <type name="SymbolNavigator" c:type="FoundrySymbolNavigator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="symbol" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-symbol-navigator.c"
+                 line="272">a [class@Foundry.Symbol]</doc>
+            <type name="Foundry.Symbol" c:type="FoundrySymbol*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_symbol"
+              c:identifier="foundry_symbol_navigator_dup_symbol"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-symbol-navigator.c"
+             line="290">Gets the symbol for this navigator.</doc>
+        <source-position filename="libfoundry-adw/foundry-symbol-navigator.h"
+                         line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-symbol-navigator.c"
+               line="296">a [class@Foundry.Symbol]</doc>
+          <type name="Foundry.Symbol" c:type="FoundrySymbol*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-symbol-navigator.c"
+                 line="292">a [class@FoundryAdw.SymbolNavigator]</doc>
+            <type name="SymbolNavigator" c:type="FoundrySymbolNavigator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="symbol"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Foundry.Symbol"/>
+      </property>
+    </class>
+    <record name="SymbolNavigatorClass"
+            c:type="FoundrySymbolNavigatorClass"
+            glib:is-gtype-struct-for="SymbolNavigator">
+      <source-position filename="libfoundry-adw/foundry-symbol-navigator.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="PathNavigatorClass" c:type="FoundryPathNavigatorClass"/>
+      </field>
+    </record>
+    <class name="TreeExpander"
+           c:symbol-prefix="tree_expander"
+           c:type="FoundryTreeExpander"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="FoundryTreeExpander"
+           glib:get-type="foundry_tree_expander_get_type"
+           glib:type-struct="TreeExpanderClass">
+      <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                       line="32"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="foundry_tree_expander_new">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_activate_on_click"
+              c:identifier="foundry_tree_expander_get_activate_on_click"
+              glib:get-property="activate-on-click"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="1054">Gets whether clicking on the expander activates the row instead of
+expanding or collapsing it.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="1061">%TRUE if clicks activate the row, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="1056">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_expanded_icon"
+              c:identifier="foundry_tree_expander_get_expanded_icon"
+              glib:get-property="expanded-icon">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="711">Gets the icon for the row when expanded.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="50"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="717">a #GIcon or %NULL</doc>
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="713">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_expanded_paintable"
+              c:identifier="foundry_tree_expander_get_expanded_paintable"
+              glib:get-property="expanded-paintable"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="827">Gets the paintable for the row when expanded.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="63"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="833">a #GdkPaintable or %NULL</doc>
+          <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="829">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon"
+              c:identifier="foundry_tree_expander_get_icon"
+              glib:get-property="icon">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="695">Gets the icon for the row.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="42"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="701">a #GIcon or %NULL</doc>
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="697">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ignored"
+              c:identifier="foundry_tree_expander_get_ignored"
+              glib:get-property="ignored">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_item"
+              c:identifier="foundry_tree_expander_get_item"
+              glib:get-property="item">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="649">Gets the item instance from the model.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="88"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="655">a #GObject or %NULL</doc>
+          <type name="GObject.Object" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="651">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_list_row"
+              c:identifier="foundry_tree_expander_get_list_row"
+              glib:get-property="list-row">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="952">Gets the list row for the expander.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="83"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="958">a #GtkTreeListRow or %NULL</doc>
+          <type name="Gtk.TreeListRow" c:type="GtkTreeListRow*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="954">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_model"
+              c:identifier="foundry_tree_expander_get_menu_model"
+              glib:get-property="menu-model">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="668">Sets the menu model to use for context menus.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="37"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="674">a #GMenuModel or %NULL</doc>
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="670">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_paintable"
+              c:identifier="foundry_tree_expander_get_paintable"
+              glib:get-property="paintable"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="783">Gets the paintable for the row.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="58"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="789">a #GdkPaintable or %NULL</doc>
+          <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="785">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_suffix"
+              c:identifier="foundry_tree_expander_get_suffix"
+              glib:get-property="suffix">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="871">Get the suffix widget, if any.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="78"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-tree-expander.c"
+               line="877">a #GtkWidget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="873">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="foundry_tree_expander_get_title"
+              glib:get-property="title">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_use_markup"
+              c:identifier="foundry_tree_expander_get_use_markup"
+              glib:get-property="use-markup">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_activate_on_click"
+              c:identifier="foundry_tree_expander_set_activate_on_click"
+              glib:set-property="activate-on-click"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="1073">Sets whether clicking on the expander should activate the row instead
+of expanding or collapsing it.
+
+This is primarily useful when using autoexpand on #GtkTreeListModel,
+where rows are automatically expanded and collapsed as needed, and
+clicks should instead activate the row.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="1075">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="activate_on_click" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="1076">whether clicks should activate the row</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_expanded_icon"
+              c:identifier="foundry_tree_expander_set_expanded_icon"
+              glib:set-property="expanded-icon">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="icon" transfer-ownership="none">
+            <type name="Gio.Icon" c:type="GIcon*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_expanded_icon_name"
+              c:identifier="foundry_tree_expander_set_expanded_icon_name"
+              glib:set-property="expanded-icon-name">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="expanded_icon_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_expanded_paintable"
+              c:identifier="foundry_tree_expander_set_expanded_paintable"
+              glib:set-property="expanded-paintable"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="845">Sets the paintable for the row when expanded.
+
+If set, this paintable will be preferred over the expanded-icon/expanded-icon-name
+properties.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="847">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="expanded_paintable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="848">a #GdkPaintable or %NULL</doc>
+            <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon"
+              c:identifier="foundry_tree_expander_set_icon"
+              glib:set-property="icon">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="icon" transfer-ownership="none">
+            <type name="Gio.Icon" c:type="GIcon*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="foundry_tree_expander_set_icon_name"
+              glib:set-property="icon-name">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ignored"
+              c:identifier="foundry_tree_expander_set_ignored"
+              glib:set-property="ignored">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="ignored" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_list_row"
+              c:identifier="foundry_tree_expander_set_list_row"
+              glib:set-property="list-row">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="list_row" transfer-ownership="none">
+            <type name="Gtk.TreeListRow" c:type="GtkTreeListRow*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_menu_model"
+              c:identifier="foundry_tree_expander_set_menu_model"
+              glib:set-property="menu-model">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="menu_model" transfer-ownership="none">
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_paintable"
+              c:identifier="foundry_tree_expander_set_paintable"
+              glib:set-property="paintable"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="801">Sets the paintable for the row.
+
+If set, this paintable will be preferred over the icon/icon-name
+properties.</doc>
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="803">a #FoundryTreeExpander</doc>
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="paintable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="804">a #GdkPaintable or %NULL</doc>
+            <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_suffix"
+              c:identifier="foundry_tree_expander_set_suffix"
+              glib:set-property="suffix">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="suffix" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_title"
+              c:identifier="foundry_tree_expander_set_title"
+              glib:set-property="title">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_use_markup"
+              c:identifier="foundry_tree_expander_set_use_markup"
+              glib:set-property="use-markup">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="use_markup" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_popover"
+              c:identifier="foundry_tree_expander_show_popover">
+        <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                         line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeExpander" c:type="FoundryTreeExpander*"/>
+          </instance-parameter>
+          <parameter name="popover" transfer-ownership="none">
+            <type name="Gtk.Popover" c:type="GtkPopover*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="activate-on-click"
+                version="1.1"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_activate_on_click"
+                getter="get_activate_on_click"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="550">Whether clicking on the expander should activate the row instead of
+expanding or collapsing it.
+
+This property is primarily useful when using autoexpand on
+#GtkTreeListModel, where rows are automatically expanded and collapsed
+as needed, and clicks should instead activate the row.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="expanded"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="expanded-icon"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_expanded_icon"
+                getter="get_expanded_icon">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="expanded-icon-name"
+                readable="0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_expanded_icon_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="expanded-paintable"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_expanded_paintable"
+                getter="get_expanded_paintable">
+        <type name="Gdk.Paintable"/>
+      </property>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon"
+                getter="get_icon">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="icon-name"
+                readable="0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="ignored"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_ignored"
+                getter="get_ignored"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="item" transfer-ownership="none" getter="get_item">
+        <type name="GObject.Object"/>
+      </property>
+      <property name="list-row"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_list_row"
+                getter="get_list_row">
+        <type name="Gtk.TreeListRow"/>
+      </property>
+      <property name="menu-model"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_menu_model"
+                getter="get_menu_model">
+        <type name="Gio.MenuModel"/>
+      </property>
+      <property name="paintable"
+                version="1.1"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_paintable"
+                getter="get_paintable">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="498">The paintable to display for the row.
+
+If set, this paintable will be preferred over the icon/icon-name
+properties.</doc>
+        <type name="Gdk.Paintable"/>
+      </property>
+      <property name="suffix"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_suffix"
+                getter="get_suffix">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="title"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_title"
+                getter="get_title"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="use-markup"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_use_markup"
+                getter="get_use_markup"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <glib:signal name="context-menu" when="last">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-tree-expander.c"
+             line="569">Emitted before popover is shown.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="popover" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-tree-expander.c"
+                 line="572">a [class@Gtk.Popover]</doc>
+            <type name="Gtk.Popover"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TreeExpanderClass"
+            c:type="FoundryTreeExpanderClass"
+            glib:is-gtype-struct-for="TreeExpander">
+      <source-position filename="libfoundry-adw/foundry-tree-expander.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <class name="Workspace"
+           c:symbol-prefix="workspace"
+           c:type="FoundryWorkspace"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="FoundryWorkspace"
+           glib:get-type="foundry_workspace_get_type"
+           glib:type-struct="WorkspaceClass">
+      <source-position filename="libfoundry-adw/foundry-workspace.h"
+                       line="36"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="foundry_workspace_new">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="add_bottom_panel"
+              c:identifier="foundry_workspace_add_bottom_panel">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="panel" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_page" c:identifier="foundry_workspace_add_page">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_sidebar_panel"
+              c:identifier="foundry_workspace_add_sidebar_panel">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="panel" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_page_typed"
+              c:identifier="foundry_workspace_find_page_typed"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1520">Find the first page matching @page_type.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="69"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-workspace.c"
+               line="1526">the first page that matches, or %NULL</doc>
+          <type name="Page" c:type="FoundryPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1522">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="page_type" transfer-ownership="none">
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_panel_by_id"
+              c:identifier="foundry_workspace_find_panel_by_id"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1566">Find the first panel matching @id.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="72"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-workspace.c"
+               line="1573">the first panel that matches, or %NULL</doc>
+          <type name="Panel" c:type="FoundryPanel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1568">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1569">the panel ID to search for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_page"
+              c:identifier="foundry_workspace_foreach_page">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1240">Calls @callback for every [class@FoundryAdw.Page] in the workspace.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1242">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <type name="GLib.Func" c:type="GFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_panel"
+              c:identifier="foundry_workspace_foreach_panel">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1273">Calls @callback for every [class@FoundryAdw.Panel] in the workspace.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1275">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <type name="GLib.Func" c:type="GFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_active_page"
+              c:identifier="foundry_workspace_get_active_page"
+              glib:get-property="active-page">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="100"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Page" c:type="FoundryPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1213">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_auxiliary_placeholder"
+              c:identifier="foundry_workspace_get_auxiliary_placeholder"
+              glib:get-property="auxiliary-placeholder"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1612">Gets the auxiliary placeholder widget.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="121"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-workspace.c"
+               line="1618">the auxiliary placeholder widget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1614">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_collapsed"
+              c:identifier="foundry_workspace_get_collapsed"
+              glib:get-property="collapsed">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1390">Gets if the workspace is in collapsed form, meaning a narrow
+representation of the window. In collapsed form, the sidebar
+and main contents are not visible but instead a condensed form
+of the content with access to panels is shown.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_collapsed_titlebar"
+              c:identifier="foundry_workspace_get_collapsed_titlebar"
+              glib:get-property="collapsed-titlebar">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="90"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_context"
+              c:identifier="foundry_workspace_get_context"
+              glib:get-property="context">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="41"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Foundry.Context" c:type="FoundryContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1098">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_has_auxiliary"
+              c:identifier="foundry_workspace_get_has_auxiliary"
+              glib:get-property="has-auxiliary"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1591">Gets if the active page has an auxiliary widget.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-adw/foundry-workspace.c"
+               line="1597">%TRUE if there is an auxiliary page to display.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1593">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_primary_menu"
+              c:identifier="foundry_workspace_get_primary_menu"
+              glib:get-property="primary-menu">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="75"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="670">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_auxiliary"
+              c:identifier="foundry_workspace_get_show_auxiliary"
+              glib:get-property="show-auxiliary">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1436">Gets if the auxiliary should be shown when the workspace is not collapsed.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_sidebar"
+              c:identifier="foundry_workspace_get_show_sidebar"
+              glib:get-property="show-sidebar">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1406">Gets if the sidebar should be shown when the workspace is not collapsed.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_utilities"
+              c:identifier="foundry_workspace_get_show_utilities"
+              glib:get-property="show-utilities">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1466">Gets if the utilities should be shown when the workspace is not collapsed.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sidebar_titlebar"
+              c:identifier="foundry_workspace_get_sidebar_titlebar"
+              glib:get-property="sidebar-titlebar">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="85"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_status_widget"
+              c:identifier="foundry_workspace_get_status_widget"
+              glib:get-property="status-widget">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="95"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1185">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_titlebar"
+              c:identifier="foundry_workspace_get_titlebar"
+              glib:get-property="titlebar">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="80"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_page" c:identifier="foundry_workspace_remove_page">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="Page" c:type="FoundryPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_panel"
+              c:identifier="foundry_workspace_remove_panel">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="panel" transfer-ownership="none">
+            <type name="Panel" c:type="FoundryPanel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_auxiliary_placeholder"
+              c:identifier="foundry_workspace_set_auxiliary_placeholder"
+              glib:set-property="auxiliary-placeholder"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1630">Sets the auxiliary placeholder widget.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1632">a [class@FoundryAdw.Workspace]</doc>
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="placeholder"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace.c"
+                 line="1633">the auxiliary placeholder widget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_collapsed_titlebar"
+              c:identifier="foundry_workspace_set_collapsed_titlebar"
+              glib:set-property="collapsed-titlebar">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="collapsed_titlebar" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_context"
+              c:identifier="foundry_workspace_set_context"
+              glib:set-property="context">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Foundry.Context" c:type="FoundryContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_primary_menu"
+              c:identifier="foundry_workspace_set_primary_menu"
+              glib:set-property="primary-menu">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_auxiliary"
+              c:identifier="foundry_workspace_set_show_auxiliary"
+              glib:set-property="show-auxiliary">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1449">Sets if the auxiliary should be shown when the workspace is not collapsed.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="show_auxiliary" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_sidebar"
+              c:identifier="foundry_workspace_set_show_sidebar"
+              glib:set-property="show-sidebar">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1419">Sets if the sidebar should be shown when the workspace is not collapsed.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="show_sidebar" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_utilities"
+              c:identifier="foundry_workspace_set_show_utilities"
+              glib:set-property="show-utilities">
+        <doc xml:space="preserve"
+             filename="libfoundry-adw/foundry-workspace.c"
+             line="1479">Sets if the utilities should be shown when the workspace is not collapsed.</doc>
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="show_utilities" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sidebar_titlebar"
+              c:identifier="foundry_workspace_set_sidebar_titlebar"
+              glib:set-property="sidebar-titlebar">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="sidebar_titlebar" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_status_widget"
+              c:identifier="foundry_workspace_set_status_widget"
+              glib:set-property="status-widget">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="status_widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_titlebar"
+              c:identifier="foundry_workspace_set_titlebar"
+              glib:set-property="titlebar">
+        <source-position filename="libfoundry-adw/foundry-workspace.h"
+                         line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workspace" c:type="FoundryWorkspace*"/>
+          </instance-parameter>
+          <parameter name="titlebar" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-page"
+                transfer-ownership="none"
+                getter="get_active_page">
+        <type name="Page"/>
+      </property>
+      <property name="auxiliary-placeholder"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_auxiliary_placeholder"
+                getter="get_auxiliary_placeholder">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="collapsed"
+                transfer-ownership="none"
+                getter="get_collapsed"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="collapsed-titlebar"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_collapsed_titlebar"
+                getter="get_collapsed_titlebar">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="context"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_context"
+                getter="get_context">
+        <type name="Foundry.Context"/>
+      </property>
+      <property name="has-auxiliary"
+                transfer-ownership="none"
+                getter="get_has_auxiliary"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="primary-menu"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_primary_menu"
+                getter="get_primary_menu">
+        <type name="Gio.MenuModel"/>
+      </property>
+      <property name="show-auxiliary"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_auxiliary"
+                getter="get_show_auxiliary"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-sidebar"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_sidebar"
+                getter="get_show_sidebar"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-utilities"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_utilities"
+                getter="get_show_utilities"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="sidebar-titlebar"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sidebar_titlebar"
+                getter="get_sidebar_titlebar">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="status-widget"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_status_widget"
+                getter="get_status_widget">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="titlebar"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_titlebar"
+                getter="get_titlebar">
+        <type name="Gtk.Widget"/>
+      </property>
+    </class>
+    <class name="WorkspaceAddin"
+           c:symbol-prefix="workspace_addin"
+           c:type="FoundryWorkspaceAddin"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="FoundryWorkspaceAddin"
+           glib:get-type="foundry_workspace_addin_get_type"
+           glib:type-struct="WorkspaceAddinClass">
+      <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                       line="43"/>
+      <virtual-method name="load" introspectable="0">
+        <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                         line="38"/>
+        <return-value>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="WorkspaceAddin" c:type="FoundryWorkspaceAddin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unload" introspectable="0">
+        <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                         line="39"/>
+        <return-value>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="WorkspaceAddin" c:type="FoundryWorkspaceAddin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="dup_workspace"
+              c:identifier="foundry_workspace_addin_dup_workspace">
+        <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                         line="46"/>
+        <return-value transfer-ownership="full">
+          <type name="Workspace" c:type="FoundryWorkspace*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-adw/foundry-workspace-addin.c"
+                 line="121">a [class@FoundryAdw.WorkspaceAddin]</doc>
+            <type name="WorkspaceAddin" c:type="FoundryWorkspaceAddin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="workspace" transfer-ownership="none">
+        <type name="Workspace"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="WorkspaceAddinClass"
+            c:type="FoundryWorkspaceAddinClass"
+            glib:is-gtype-struct-for="WorkspaceAddin">
+      <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                       line="43"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="load" introspectable="0">
+        <callback name="load" introspectable="0">
+          <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                           line="38"/>
+          <return-value>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="WorkspaceAddin" c:type="FoundryWorkspaceAddin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unload" introspectable="0">
+        <callback name="unload" introspectable="0">
+          <source-position filename="libfoundry-adw/foundry-workspace-addin.h"
+                           line="39"/>
+          <return-value>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="WorkspaceAddin" c:type="FoundryWorkspaceAddin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="5">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="WorkspaceClass"
+            c:type="FoundryWorkspaceClass"
+            glib:is-gtype-struct-for="Workspace">
+      <source-position filename="libfoundry-adw/foundry-workspace.h"
+                       line="36"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <function name="adw_init" c:identifier="foundry_adw_init">
+      <source-position filename="libfoundry-adw/foundry-adw-init.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

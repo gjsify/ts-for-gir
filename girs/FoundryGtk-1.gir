@@ -1,0 +1,2384 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Dex" version="1"/>
+  <include name="Foundry" version="1"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <include name="GtkSource" version="5"/>
+  <include name="Json" version="1.0"/>
+  <include name="Peas" version="2"/>
+  <package name="libfoundry-gtk-1"/>
+  <c:include name="foundry-gtk.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="FoundryGtk"
+             version="1"
+             shared-library="libfoundry-gtk-1.so.1"
+             c:identifier-prefixes="Foundry"
+             c:symbol-prefixes="foundry">
+    <class name="ChangesGutterRenderer"
+           c:symbol-prefix="changes_gutter_renderer"
+           c:type="FoundryChangesGutterRenderer"
+           parent="GtkSource.GutterRenderer"
+           final="1"
+           glib:type-name="FoundryChangesGutterRenderer"
+           glib:get-type="foundry_changes_gutter_renderer_get_type"
+           glib:type-struct="ChangesGutterRendererClass">
+      <source-position filename="libfoundry-gtk/editing/foundry-changes-gutter-renderer.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="foundry_changes_gutter_renderer_new">
+        <source-position filename="libfoundry-gtk/editing/foundry-changes-gutter-renderer.h"
+                         line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="GtkSource.GutterRenderer"
+                c:type="GtkSourceGutterRenderer*"/>
+        </return-value>
+      </constructor>
+      <method name="get_show_overview"
+              c:identifier="foundry_changes_gutter_renderer_get_show_overview"
+              glib:get-property="show-overview">
+        <source-position filename="libfoundry-gtk/editing/foundry-changes-gutter-renderer.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ChangesGutterRenderer"
+                  c:type="FoundryChangesGutterRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_show_overview"
+              c:identifier="foundry_changes_gutter_renderer_set_show_overview"
+              glib:set-property="show-overview">
+        <source-position filename="libfoundry-gtk/editing/foundry-changes-gutter-renderer.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ChangesGutterRenderer"
+                  c:type="FoundryChangesGutterRenderer*"/>
+          </instance-parameter>
+          <parameter name="show_overview" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="show-overview"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_overview"
+                getter="get_show_overview"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="ChangesGutterRendererClass"
+            c:type="FoundryChangesGutterRendererClass"
+            glib:is-gtype-struct-for="ChangesGutterRenderer">
+      <source-position filename="libfoundry-gtk/editing/foundry-changes-gutter-renderer.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="GtkSource.GutterRendererClass"
+              c:type="GtkSourceGutterRendererClass"/>
+      </field>
+    </record>
+    <class name="DiagnosticsGutterRenderer"
+           c:symbol-prefix="diagnostics_gutter_renderer"
+           c:type="FoundryDiagnosticsGutterRenderer"
+           parent="GtkSource.GutterRenderer"
+           final="1"
+           glib:type-name="FoundryDiagnosticsGutterRenderer"
+           glib:get-type="foundry_diagnostics_gutter_renderer_get_type"
+           glib:type-struct="DiagnosticsGutterRendererClass">
+      <source-position filename="libfoundry-gtk/editing/foundry-diagnostics-gutter-renderer.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="foundry_diagnostics_gutter_renderer_new">
+        <source-position filename="libfoundry-gtk/editing/foundry-diagnostics-gutter-renderer.h"
+                         line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="GtkSource.GutterRenderer"
+                c:type="GtkSourceGutterRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="diagnostics" transfer-ownership="none">
+            <type name="Foundry.OnTypeDiagnostics"
+                  c:type="FoundryOnTypeDiagnostics*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_diagnostics"
+              c:identifier="foundry_diagnostics_gutter_renderer_dup_diagnostics">
+        <source-position filename="libfoundry-gtk/editing/foundry-diagnostics-gutter-renderer.h"
+                         line="36"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Foundry.OnTypeDiagnostics"
+                c:type="FoundryOnTypeDiagnostics*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-diagnostics-gutter-renderer.c"
+                 line="400">a [class@FoundryGtk.DiagnosticsGutterRenderer]</doc>
+            <type name="DiagnosticsGutterRenderer"
+                  c:type="FoundryDiagnosticsGutterRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_diagnostics"
+              c:identifier="foundry_diagnostics_gutter_renderer_set_diagnostics"
+              glib:set-property="diagnostics">
+        <source-position filename="libfoundry-gtk/editing/foundry-diagnostics-gutter-renderer.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DiagnosticsGutterRenderer"
+                  c:type="FoundryDiagnosticsGutterRenderer*"/>
+          </instance-parameter>
+          <parameter name="diagnostics" transfer-ownership="none">
+            <type name="Foundry.OnTypeDiagnostics"
+                  c:type="FoundryOnTypeDiagnostics*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="diagnostics"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_diagnostics">
+        <type name="Foundry.OnTypeDiagnostics"/>
+      </property>
+    </class>
+    <record name="DiagnosticsGutterRendererClass"
+            c:type="FoundryDiagnosticsGutterRendererClass"
+            glib:is-gtype-struct-for="DiagnosticsGutterRenderer">
+      <source-position filename="libfoundry-gtk/editing/foundry-diagnostics-gutter-renderer.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="GtkSource.GutterRendererClass"
+              c:type="GtkSourceGutterRendererClass"/>
+      </field>
+    </record>
+    <class name="MarkupView"
+           c:symbol-prefix="markup_view"
+           c:type="FoundryMarkupView"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="FoundryMarkupView"
+           glib:get-type="foundry_markup_view_get_type"
+           glib:type-struct="MarkupViewClass">
+      <source-position filename="libfoundry-gtk/markup/foundry-markup-view.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="foundry_markup_view_new">
+        <source-position filename="libfoundry-gtk/markup/foundry-markup-view.h"
+                         line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="markup" transfer-ownership="none">
+            <type name="Foundry.Markup" c:type="FoundryMarkup*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_markup" c:identifier="foundry_markup_view_dup_markup">
+        <source-position filename="libfoundry-gtk/markup/foundry-markup-view.h"
+                         line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/markup/foundry-markup-view.c"
+               line="477">a [class@Foundry.Markup]</doc>
+          <type name="Foundry.Markup" c:type="FoundryMarkup*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/markup/foundry-markup-view.c"
+                 line="475">a [class@FoundryGtk.MarkupView]</doc>
+            <type name="MarkupView" c:type="FoundryMarkupView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MarkupViewClass"
+            c:type="FoundryMarkupViewClass"
+            glib:is-gtype-struct-for="MarkupView">
+      <source-position filename="libfoundry-gtk/markup/foundry-markup-view.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <class name="MenuManager"
+           c:symbol-prefix="menu_manager"
+           c:type="FoundryMenuManager"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="FoundryMenuManager"
+           glib:get-type="foundry_menu_manager_get_type"
+           glib:type-struct="MenuManagerClass">
+      <doc xml:space="preserve"
+           filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+           line="44">The goal of #FoundryMenuManager is to simplify the process of merging multiple
+GtkBuilder .ui files containing menus into a single representation of the
+application menus. Additionally, it provides the ability to "unmerge"
+previously merged menus.
+
+This allows for an application to have plugins which seemlessly extends
+the core application menus.
+
+Implementation notes:
+
+To make this work, we don't use the GMenu instances created by a GtkBuilder
+instance. Instead, we create the menus ourself and recreate section and
+submenu links. This allows the #FoundryMenuManager to be in full control of
+the generated menus.
+
+foundry_menu_manager_get_menu_by_id() will always return a #GMenu, however
+that menu may contain no children until something has extended it later
+on during the application process.</doc>
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                       line="32"/>
+      <constructor name="new" c:identifier="foundry_menu_manager_new">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuManager" c:type="FoundryMenuManager*"/>
+        </return-value>
+      </constructor>
+      <function name="get_default"
+                c:identifier="foundry_menu_manager_get_default">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="MenuManager" c:type="FoundryMenuManager*"/>
+        </return-value>
+      </function>
+      <method name="add_filename"
+              c:identifier="foundry_menu_manager_add_filename"
+              throws="1">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_resource"
+              c:identifier="foundry_menu_manager_add_resource"
+              version="1.4"
+              throws="1">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+               line="727">the merge id</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="725">a #FoundryMenuManager</doc>
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="resource" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_item_by_id"
+              c:identifier="foundry_menu_manager_find_item_by_id"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+             line="824">Locates a menu item that matches @id and sets the position within
+the resulting #GMenu to @position.
+
+If no match is found, %NULL is returned.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="65"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+               line="835">a #GMenu if successful; otherwise
+  %NULL and @position is unset.</doc>
+          <type name="Gio.Menu" c:type="GMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="826">a #FoundryMenuManager</doc>
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="827">the identifier of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="position"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="828">the position within the resulting menu</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_by_id"
+              c:identifier="foundry_menu_manager_get_menu_by_id"
+              version="1.4">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+               line="698">A #GMenu.</doc>
+          <type name="Gio.Menu" c:type="GMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="menu_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_ids"
+              c:identifier="foundry_menu_manager_get_menu_ids"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+             line="760">Gets the known menu ids as a string array.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="57"/>
+        <return-value transfer-ownership="none">
+          <array c:type="const char* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="762">a #FoundryMenuManager</doc>
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="merge"
+              c:identifier="foundry_menu_manager_merge"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+             line="605">Note that @menu_model is not retained, a copy of it is made.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+               line="613">the merge-id which can be used with foundry_menu_manager_remove()</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="607">a #FoundryMenuManager</doc>
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="menu_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="608">the identifier of the menu</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="menu_model" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="609">the menu model to merge</doc>
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove"
+              c:identifier="foundry_menu_manager_remove"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+             line="644">This removes items from menus that were added as part of a previous
+menu merge. Use the value returned from foundry_menu_manager_merge() as
+the @merge_id.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="646">a #FoundryMenuManager</doc>
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="merge_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="647">A previously registered merge id</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_attribute_string"
+              c:identifier="foundry_menu_manager_set_attribute_string"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+             line="783">Overwrites an attribute for a menu that was created by
+#FoundryMenuManager.
+
+This can be useful when you want to update an attribute such as
+"accel" when an accelerator has changed due to user mappings.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                         line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="785">a #FoundryMenuManager</doc>
+            <type name="MenuManager" c:type="FoundryMenuManager*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="786">the menu that was retreived with foundry_menu_manager_get_menu_by_id()</doc>
+            <type name="Gio.Menu" c:type="GMenu*"/>
+          </parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="787">the index of the item in the menu</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="attribute" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="788">the attribute to change</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-menu-manager.c"
+                 line="789">the new value for the attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MenuManagerClass"
+            c:type="FoundryMenuManagerClass"
+            glib:is-gtype-struct-for="MenuManager">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-manager.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="MenuProxy"
+           c:symbol-prefix="menu_proxy"
+           c:type="FoundryMenuProxy"
+           parent="Gio.MenuModel"
+           final="1"
+           glib:type-name="FoundryMenuProxy"
+           glib:get-type="foundry_menu_proxy_get_type"
+           glib:type-struct="MenuProxyClass">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-proxy.h"
+                       line="32"/>
+      <constructor name="new" c:identifier="foundry_menu_proxy_new">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-proxy.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuProxy" c:type="FoundryMenuProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_menu_id"
+              c:identifier="foundry_menu_proxy_get_menu_id"
+              glib:get-property="menu-id">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-proxy.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MenuProxy" c:type="FoundryMenuProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_menu_id"
+              c:identifier="foundry_menu_proxy_set_menu_id"
+              glib:set-property="menu-id">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-proxy.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MenuProxy" c:type="FoundryMenuProxy*"/>
+          </instance-parameter>
+          <parameter name="menu_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="menu-id"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_menu_id"
+                getter="get_menu_id"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="MenuProxyClass"
+            c:type="FoundryMenuProxyClass"
+            glib:is-gtype-struct-for="MenuProxy">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-menu-proxy.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="Gio.MenuModelClass" c:type="GMenuModelClass"/>
+      </field>
+    </record>
+    <class name="ShortcutBundle"
+           c:symbol-prefix="shortcut_bundle"
+           c:type="FoundryShortcutBundle"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="FoundryShortcutBundle"
+           glib:get-type="foundry_shortcut_bundle_get_type"
+           glib:type-struct="ShortcutBundleClass">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                       line="32"/>
+      <implements name="Gio.ListModel"/>
+      <constructor name="new" c:identifier="foundry_shortcut_bundle_new">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_for_user"
+                   c:identifier="foundry_shortcut_bundle_new_for_user">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="error" c:identifier="foundry_shortcut_bundle_error">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="GLib.Error" c:type="const GError*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="override"
+              c:identifier="foundry_shortcut_bundle_override"
+              throws="1">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="bundle" transfer-ownership="none">
+            <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+          </instance-parameter>
+          <parameter name="shortcut_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="accelerator" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="override_triggers"
+              c:identifier="foundry_shortcut_bundle_override_triggers">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+          </instance-parameter>
+          <parameter name="id_to_trigger" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse"
+              c:identifier="foundry_shortcut_bundle_parse"
+              throws="1">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ShortcutBundleClass"
+            c:type="FoundryShortcutBundleClass"
+            glib:is-gtype-struct-for="ShortcutBundle">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-bundle.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ShortcutInfo"
+            c:type="FoundryShortcutInfo"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                       line="27"/>
+      <method name="get_accelerator"
+              c:identifier="foundry_shortcut_info_get_accelerator">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_action_name"
+              c:identifier="foundry_shortcut_info_get_action_name">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_action_target"
+              c:identifier="foundry_shortcut_info_get_action_target">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="45"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+               line="512">a #GVariant or %NULL</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+                 line="510">a #FoundryShortcutInfo</doc>
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_group" c:identifier="foundry_shortcut_info_get_group">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="foundry_shortcut_info_get_icon_name">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="foundry_shortcut_info_get_id">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_page" c:identifier="foundry_shortcut_info_get_page">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle"
+              c:identifier="foundry_shortcut_info_get_subtitle">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title" c:identifier="foundry_shortcut_info_get_title">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="foreach" c:identifier="foundry_shortcut_info_foreach">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+             line="401">Calls @func for every shortcut info. Accelerators come from
+@shortcuts by matching action and target.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                         line="33"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="shortcuts" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+                 line="403">a #GListModel of #GtkShortcut</doc>
+            <type name="Gio.ListModel" c:type="GListModel*"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+                 line="404">a callback for each shortcut info</doc>
+            <type name="ShortcutInfoFunc" c:type="FoundryShortcutInfoFunc"/>
+          </parameter>
+          <parameter name="func_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+                 line="405">closure data for @func</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <callback name="ShortcutInfoFunc" c:type="FoundryShortcutInfoFunc">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                       line="29"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="info" transfer-ownership="none">
+          <type name="ShortcutInfo" c:type="const FoundryShortcutInfo*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="ShortcutManager"
+           c:symbol-prefix="shortcut_manager"
+           c:type="FoundryShortcutManager"
+           parent="Foundry.Service"
+           final="1"
+           glib:type-name="FoundryShortcutManager"
+           glib:get-type="foundry_shortcut_manager_get_type"
+           glib:type-struct="ShortcutManagerClass">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                       line="34"/>
+      <implements name="Gio.ListModel"/>
+      <implements name="Json.Serializable"/>
+      <function name="add_resources"
+                c:identifier="foundry_shortcut_manager_add_resources">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="resource_path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_context"
+                c:identifier="foundry_shortcut_manager_from_context">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.c"
+             line="506">Gets the shortcut manager for the contenxt</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <type name="ShortcutManager" c:type="FoundryShortcutManager*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.c"
+                 line="508">a [class@Foundry.Context]</doc>
+            <type name="Foundry.Context" c:type="FoundryContext*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_user_bundle"
+                c:identifier="foundry_shortcut_manager_get_user_bundle">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="ShortcutBundle" c:type="FoundryShortcutBundle*"/>
+        </return-value>
+      </function>
+      <function name="remove_resources"
+                c:identifier="foundry_shortcut_manager_remove_resources">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="resource_path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="reset_user"
+                c:identifier="foundry_shortcut_manager_reset_user">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.c"
+             line="600">Reset user modified shortcuts.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </function>
+      <method name="get_observer"
+              c:identifier="foundry_shortcut_manager_get_observer">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="ShortcutObserver" c:type="FoundryShortcutObserver*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.c"
+                 line="588">a [class@FoundryGtk.ShortcutManager]</doc>
+            <type name="ShortcutManager" c:type="FoundryShortcutManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ShortcutManagerClass"
+            c:type="FoundryShortcutManagerClass"
+            glib:is-gtype-struct-for="ShortcutManager">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-manager.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="Foundry.ServiceClass" c:type="FoundryServiceClass"/>
+      </field>
+    </record>
+    <class name="ShortcutObserver"
+           c:symbol-prefix="shortcut_observer"
+           c:type="FoundryShortcutObserver"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="FoundryShortcutObserver"
+           glib:get-type="foundry_shortcut_observer_get_type"
+           glib:type-struct="ShortcutObserverClass">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.h"
+                       line="32"/>
+      <constructor name="new" c:identifier="foundry_shortcut_observer_new">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <type name="ShortcutObserver" c:type="FoundryShortcutObserver*"/>
+        </return-value>
+        <parameters>
+          <parameter name="model" transfer-ownership="none">
+            <type name="Gio.ListModel" c:type="GListModel*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="lookup" c:identifier="foundry_shortcut_observer_lookup">
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ShortcutObserver" c:type="FoundryShortcutObserver*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="model"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.ListModel"/>
+      </property>
+      <glib:signal name="accel-changed" when="last" detailed="1">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.c"
+             line="268">This signal is emitted when an action is determined to have been changed
+by the user or some other mechanism.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.c"
+                 line="271">the action to be performed</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="accel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.c"
+                 line="272">the accelerator for the action</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ShortcutObserverClass"
+            c:type="FoundryShortcutObserverClass"
+            glib:is-gtype-struct-for="ShortcutObserver">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-observer.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="ShortcutProvider"
+               c:symbol-prefix="shortcut_provider"
+               c:type="FoundryShortcutProvider"
+               glib:type-name="FoundryShortcutProvider"
+               glib:get-type="foundry_shortcut_provider_get_type"
+               glib:type-struct="ShortcutProviderInterface">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.h"
+                       line="37"/>
+      <prerequisite name="Foundry.Contextual"/>
+      <virtual-method name="list_shortcuts" invoker="list_shortcuts">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+             line="41">Gets a #GListModel of #GtkShortcut.
+
+This function should return a #GListModel of #GtkShortcut that are updated
+as necessary by the plugin. This list model is used to activate shortcuts
+based on user input and allows more control by plugins over when and how
+shortcuts may activate.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.h"
+                         line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+               line="52">A #GListModel of #GtkShortcut</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+                 line="43">a #FoundryShortcutProvider</doc>
+            <type name="ShortcutProvider" c:type="FoundryShortcutProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="list_shortcuts"
+              c:identifier="foundry_shortcut_provider_list_shortcuts">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+             line="41">Gets a #GListModel of #GtkShortcut.
+
+This function should return a #GListModel of #GtkShortcut that are updated
+as necessary by the plugin. This list model is used to activate shortcuts
+based on user input and allows more control by plugins over when and how
+shortcuts may activate.</doc>
+        <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.h"
+                         line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+               line="52">A #GListModel of #GtkShortcut</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+                 line="43">a #FoundryShortcutProvider</doc>
+            <type name="ShortcutProvider" c:type="FoundryShortcutProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ShortcutProviderInterface"
+            c:type="FoundryShortcutProviderInterface"
+            glib:is-gtype-struct-for="ShortcutProvider">
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.h"
+                       line="37"/>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="list_shortcuts">
+        <callback name="list_shortcuts">
+          <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.h"
+                           line="36"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+                 line="52">A #GListModel of #GtkShortcut</doc>
+            <type name="Gio.ListModel" c:type="GListModel*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libfoundry-gtk/shortcuts/foundry-shortcut-provider.c"
+                   line="43">a #FoundryShortcutProvider</doc>
+              <type name="ShortcutProvider" c:type="FoundryShortcutProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="SourceBuffer"
+           c:symbol-prefix="source_buffer"
+           c:type="FoundrySourceBuffer"
+           parent="GtkSource.Buffer"
+           final="1"
+           glib:type-name="FoundrySourceBuffer"
+           glib:get-type="foundry_source_buffer_get_type"
+           glib:type-struct="SourceBufferClass">
+      <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                       line="31"/>
+      <implements name="Foundry.TextBuffer"/>
+      <method name="comment"
+              c:identifier="foundry_source_buffer_comment"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+             line="772">Comments the specified text range using the appropriate comment syntax
+for the current language.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="774">a [class@FoundryGtk.SourceBuffer]</doc>
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="begin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="775">start of the text range to comment</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="776">end of the text range to comment</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_context"
+              c:identifier="foundry_source_buffer_dup_context">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+               line="552">a [class@Foundry.Context]</doc>
+          <type name="Foundry.Context" c:type="FoundryContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="550">a [class@FoundryGtk.SourceBuffer]</doc>
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_override_spelling"
+              c:identifier="foundry_source_buffer_dup_override_spelling">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_override_syntax"
+              c:identifier="foundry_source_buffer_dup_override_syntax">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+             line="510">Gets the syntax to be used, overriding any language guessing.
+
+`NULL` indicates to use the default guessed syntax.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="46"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="512">a [class@FoundryGtk.SourceBuffer]</doc>
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enable_spellcheck"
+              c:identifier="foundry_source_buffer_get_enable_spellcheck">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_enable_spellcheck"
+              c:identifier="foundry_source_buffer_set_enable_spellcheck">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="enable_spellcheck" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_override_spelling"
+              c:identifier="foundry_source_buffer_set_override_spelling">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="override_spelling" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_override_syntax"
+              c:identifier="foundry_source_buffer_set_override_syntax"
+              glib:set-property="override-syntax">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="override_syntax" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="uncomment"
+              c:identifier="foundry_source_buffer_uncomment"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+             line="850">Removes comment markers from the specified text range.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="852">a [class@FoundryGtk.SourceBuffer]</doc>
+            <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="begin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="853">start of the text range to uncomment</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+                 line="854">end of the text range to uncomment</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="context"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Foundry.Context"/>
+      </property>
+      <property name="language-id"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="override-syntax"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_override_syntax"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-buffer.c"
+             line="219">The GtkSourceLanguage identifier of the syntax to use, ignoring any
+guessed language.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="SourceBufferClass"
+            c:type="FoundrySourceBufferClass"
+            glib:is-gtype-struct-for="SourceBuffer">
+      <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="GtkSource.BufferClass" c:type="GtkSourceBufferClass"/>
+      </field>
+    </record>
+    <class name="SourceView"
+           c:symbol-prefix="source_view"
+           c:type="FoundrySourceView"
+           parent="GtkSource.View"
+           final="1"
+           glib:type-name="FoundrySourceView"
+           glib:get-type="foundry_source_view_get_type"
+           glib:type-struct="SourceViewClass">
+      <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.AccessibleText"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="foundry_source_view_new">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="Foundry.TextDocument" c:type="FoundryTextDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="append_menu"
+              c:identifier="foundry_source_view_append_menu">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_context"
+              c:identifier="foundry_source_view_dup_context">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="38"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/editing/foundry-source-view.c"
+               line="1191">the [class@Foundry.Context] of the document</doc>
+          <type name="Foundry.Context" c:type="FoundryContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1189">a [class@FoundryGtk.SourceView]</doc>
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_document"
+              c:identifier="foundry_source_view_dup_document">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="36"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <type name="Foundry.TextDocument" c:type="FoundryTextDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1000">a [class@FoundryGtk.SourceView]</doc>
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_font" c:identifier="foundry_source_view_dup_font">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="44"/>
+        <return-value transfer-ownership="full">
+          <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1047">a [class@FoundryGtk.SourceView]</doc>
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enable_completion"
+              c:identifier="foundry_source_view_get_enable_completion"
+              glib:get-property="enable-completion">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enable_vim"
+              c:identifier="foundry_source_view_get_enable_vim"
+              glib:get-property="enable-vim">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_line_height"
+              c:identifier="foundry_source_view_get_line_height"
+              glib:get-property="line-height">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_diagnostics"
+              c:identifier="foundry_source_view_get_show_diagnostics"
+              glib:get-property="show-diagnostics">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_line_changes"
+              c:identifier="foundry_source_view_get_show_line_changes"
+              glib:get-property="show-line-changes">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_line_changes_overview"
+              c:identifier="foundry_source_view_get_show_line_changes_overview"
+              glib:get-property="show-line-changes-overview">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_vim_im_context"
+              c:identifier="foundry_source_view_get_vim_im_context"
+              glib:get-property="vim-im-context">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="1309">This may return %NULL when Vim emulation is not in use.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="85"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="Gtk.IMContext" c:type="GtkIMContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1311">a [class@FoundryGtk.SourceView]</doc>
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_visual_position"
+              c:identifier="foundry_source_view_get_visual_position">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="line" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="line_column" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_visual_position_range"
+              c:identifier="foundry_source_view_get_visual_position_range">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="line" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="line_column" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="range" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="jump_to_iter"
+              c:identifier="foundry_source_view_jump_to_iter"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="1325">The goal of this function is to be like gtk_text_view_scroll_to_iter() but
+without any of the scrolling animation. We use it to move to a position
+when animations would cause additional distractions.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+          <parameter name="within_margin" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="use_align" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="xalign" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="yalign" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_menu"
+              c:identifier="foundry_source_view_remove_menu">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rename" c:identifier="foundry_source_view_rename">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="1012">Uses the active [class@Foundry.RenameProvider] to semantically rename the
+word found at @iter with @new_name.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/editing/foundry-source-view.c"
+               line="1021">a [class@Dex.Future] that resolves to a
+  [iface@Gio.ListModel] of [class@Foundry.TextEdit].</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1014">a [class@FoundryGtk.SourceView]</doc>
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1015">the location of the semantic word to rename</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+          <parameter name="new_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view.c"
+                 line="1016">the name for the replacement</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enable_completion"
+              c:identifier="foundry_source_view_set_enable_completion"
+              glib:set-property="enable-completion">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="enable_completion" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enable_vim"
+              c:identifier="foundry_source_view_set_enable_vim"
+              glib:set-property="enable-vim">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="enable_vim" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font"
+              c:identifier="foundry_source_view_set_font"
+              glib:set-property="font">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="font" transfer-ownership="none">
+            <type name="Pango.FontDescription"
+                  c:type="const PangoFontDescription*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_line_height"
+              c:identifier="foundry_source_view_set_line_height"
+              glib:set-property="line-height">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="line_height" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_diagnostics"
+              c:identifier="foundry_source_view_set_show_diagnostics"
+              glib:set-property="show-diagnostics">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="show_diagnostics" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_line_changes"
+              c:identifier="foundry_source_view_set_show_line_changes"
+              glib:set-property="show-line-changes">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="show_line_changes" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_line_changes_overview"
+              c:identifier="foundry_source_view_set_show_line_changes_overview"
+              glib:set-property="show-line-changes-overview">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                         line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceView" c:type="FoundrySourceView*"/>
+          </instance-parameter>
+          <parameter name="show_line_changes_overview"
+                     transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="document"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Foundry.TextDocument"/>
+      </property>
+      <property name="enable-completion"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enable_completion"
+                getter="get_enable_completion"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="enable-vim"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enable_vim"
+                getter="get_enable_vim"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="font"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_font">
+        <type name="Pango.FontDescription"/>
+      </property>
+      <property name="line-height"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_line_height"
+                getter="get_line_height"
+                default-value="1.000000">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="755">Specify a non-default line height for text within the editor.
+Some applications use this for improved readability.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="show-diagnostics"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_diagnostics"
+                getter="get_show_diagnostics"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="768">Shows the line changes on the left-hand side of the editor (when in LTR
+direction) for each line in the editor. If the line is changed or added,
+it will be drawn as a different color.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-line-changes"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_line_changes"
+                getter="get_show_line_changes"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="782">Shows the line changes on the left-hand side of the editor (when in LTR
+direction) for each line in the editor. If the line is changed or added,
+it will be drawn as a different color.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-line-changes-overview"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_line_changes_overview"
+                getter="get_show_line_changes_overview"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="796">Shows the line changes on the right-hand side of the editor (when in LTR
+direction) but as an overview of the entire document. This can give some
+insight as to where in the document other changes are.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="vim-im-context"
+                transfer-ownership="none"
+                getter="get_vim_im_context">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view.c"
+             line="810">Gets the IM context used for vim emulation.</doc>
+        <type name="Gtk.IMContext"/>
+      </property>
+    </class>
+    <class name="SourceViewAddin"
+           c:symbol-prefix="source_view_addin"
+           c:type="FoundrySourceViewAddin"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="FoundrySourceViewAddin"
+           glib:get-type="foundry_source_view_addin_get_type"
+           glib:type-struct="SourceViewAddinClass">
+      <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                       line="41"/>
+      <virtual-method name="load" introspectable="0">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                         line="36"/>
+        <return-value>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceViewAddin" c:type="FoundrySourceViewAddin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unload" introspectable="0">
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                         line="37"/>
+        <return-value>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SourceViewAddin" c:type="FoundrySourceViewAddin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_view"
+              c:identifier="foundry_source_view_addin_get_view">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/editing/foundry-source-view-addin.c"
+             line="115">Gets teh view for the addin.
+
+This will always be %NULL before load has been called and after
+unload has been called.</doc>
+        <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                         line="44"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="SourceView" c:type="FoundrySourceView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/editing/foundry-source-view-addin.c"
+                 line="117">a [class@FoundryGtk.SourceViewAddin]</doc>
+            <type name="SourceViewAddin" c:type="FoundrySourceViewAddin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="vie" transfer-ownership="none">
+        <type name="SourceView"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="SourceViewAddinClass"
+            c:type="FoundrySourceViewAddinClass"
+            glib:is-gtype-struct-for="SourceViewAddin">
+      <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                       line="41"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="load" introspectable="0">
+        <callback name="load" introspectable="0">
+          <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                           line="36"/>
+          <return-value>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="SourceViewAddin" c:type="FoundrySourceViewAddin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unload" introspectable="0">
+        <callback name="unload" introspectable="0">
+          <source-position filename="libfoundry-gtk/editing/foundry-source-view-addin.h"
+                           line="37"/>
+          <return-value>
+            <type name="Dex.Future" c:type="DexFuture*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="SourceViewAddin" c:type="FoundrySourceViewAddin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="13">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="SourceViewClass"
+            c:type="FoundrySourceViewClass"
+            glib:is-gtype-struct-for="SourceView">
+      <source-position filename="libfoundry-gtk/editing/foundry-source-view.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="GtkSource.ViewClass" c:type="GtkSourceViewClass"/>
+      </field>
+    </record>
+    <class name="Terminal"
+           c:symbol-prefix="terminal"
+           c:type="FoundryTerminal"
+           parent="Gtk.Widget"
+           glib:type-name="FoundryTerminal"
+           glib:get-type="foundry_terminal_get_type"
+           glib:type-struct="TerminalClass">
+      <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                       line="43"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.AccessibleText"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="foundry_terminal_new">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <function name="find_palette_set"
+                c:identifier="foundry_terminal_find_palette_set">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/terminal/foundry-terminal.c"
+             line="430">Tries to locate a palette by name.</doc>
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                         line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/terminal/foundry-terminal.c"
+               line="436">a [class@Dex.Future] that resolves to a
+  [class@FoundryGtk.TerminalPaletteSet] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/terminal/foundry-terminal.c"
+                 line="432">the palette name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_palette_sets"
+                c:identifier="foundry_terminal_list_palette_sets">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/terminal/foundry-terminal.c"
+             line="376">Lists available palettes known to Foundry.</doc>
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                         line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/terminal/foundry-terminal.c"
+               line="381">a [class@Dex.Future] that resolves to a
+  [iface@Gio.ListModel] of [class@FoundryGtk.TerminalPaletteSet].</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+      </function>
+      <method name="get_palette"
+              c:identifier="foundry_terminal_get_palette"
+              glib:get-property="palette">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                         line="48"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/terminal/foundry-terminal.c"
+                 line="315">a [class@FoundryGtk.Terminal]</doc>
+            <type name="Terminal" c:type="FoundryTerminal*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_palette"
+              c:identifier="foundry_terminal_set_palette"
+              glib:set-property="palette">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Terminal" c:type="FoundryTerminal*"/>
+          </instance-parameter>
+          <parameter name="palette" transfer-ownership="none">
+            <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="palette"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_palette"
+                getter="get_palette">
+        <type name="TerminalPalette"/>
+      </property>
+      <field name="parent_instance" introspectable="0">
+        <type c:type="VteTerminal"/>
+      </field>
+    </class>
+    <record name="TerminalClass"
+            c:type="FoundryTerminalClass"
+            glib:is-gtype-struct-for="Terminal">
+      <source-position filename="libfoundry-gtk/terminal/foundry-terminal.h"
+                       line="43"/>
+      <field name="parent_class" introspectable="0">
+        <type c:type="VteTerminalClass"/>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="TerminalPalette"
+           c:symbol-prefix="terminal_palette"
+           c:type="FoundryTerminalPalette"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="FoundryTerminalPalette"
+           glib:get-type="foundry_terminal_palette_get_type"
+           glib:type-struct="TerminalPaletteClass">
+      <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                       line="32"/>
+      <constructor name="new" c:identifier="foundry_terminal_palette_new">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+        </return-value>
+      </constructor>
+      <method name="get_background"
+              c:identifier="foundry_terminal_palette_get_background">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_colors"
+              c:identifier="foundry_terminal_palette_get_colors">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+          </instance-parameter>
+          <parameter name="palette_length" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_cursor_background"
+              c:identifier="foundry_terminal_palette_get_cursor_background">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cursor_foreground"
+              c:identifier="foundry_terminal_palette_get_cursor_foreground">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_foreground"
+              c:identifier="foundry_terminal_palette_get_foreground">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="title" transfer-ownership="none" default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="TerminalPaletteClass"
+            c:type="FoundryTerminalPaletteClass"
+            glib:is-gtype-struct-for="TerminalPalette">
+      <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="TerminalPaletteSet"
+           c:symbol-prefix="terminal_palette_set"
+           c:type="FoundryTerminalPaletteSet"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="FoundryTerminalPaletteSet"
+           glib:get-type="foundry_terminal_palette_set_get_type"
+           glib:type-struct="TerminalPaletteSetClass">
+      <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.h"
+                       line="33"/>
+      <constructor name="new" c:identifier="foundry_terminal_palette_set_new">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.h"
+                         line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.c"
+               line="180">a [class@Dex.Future] that resolves to
+  a [class@FoundryGtk.TerminalPaletteSet] or rejects with error.</doc>
+          <type name="Dex.Future" c:type="DexFuture*"/>
+        </return-value>
+        <parameters>
+          <parameter name="bytes" transfer-ownership="none">
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="dup_dark"
+              c:identifier="foundry_terminal_palette_set_dup_dark">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.h"
+                         line="40"/>
+        <return-value transfer-ownership="full">
+          <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.c"
+                 line="239">a [class@FoundryGtk.TerminalPaletteSet]</doc>
+            <type name="TerminalPaletteSet"
+                  c:type="FoundryTerminalPaletteSet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_light"
+              c:identifier="foundry_terminal_palette_set_dup_light">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.h"
+                         line="42"/>
+        <return-value transfer-ownership="full">
+          <type name="TerminalPalette" c:type="FoundryTerminalPalette*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.c"
+                 line="225">a [class@FoundryGtk.TerminalPaletteSet]</doc>
+            <type name="TerminalPaletteSet"
+                  c:type="FoundryTerminalPaletteSet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dup_title"
+              c:identifier="foundry_terminal_palette_set_dup_title">
+        <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TerminalPaletteSet"
+                  c:type="FoundryTerminalPaletteSet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="dark" transfer-ownership="none">
+        <type name="TerminalPalette"/>
+      </property>
+      <property name="light" transfer-ownership="none">
+        <type name="TerminalPalette"/>
+      </property>
+      <property name="title" transfer-ownership="none" default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="TerminalPaletteSetClass"
+            c:type="FoundryTerminalPaletteSetClass"
+            glib:is-gtype-struct-for="TerminalPaletteSet">
+      <source-position filename="libfoundry-gtk/terminal/foundry-terminal-palette-set.h"
+                       line="33"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function name="gtk_init" c:identifier="foundry_gtk_init">
+      <source-position filename="libfoundry-gtk/foundry-gtk-init.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="shortcut_info_foreach"
+              c:identifier="foundry_shortcut_info_foreach"
+              moved-to="ShortcutInfo.foreach">
+      <doc xml:space="preserve"
+           filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+           line="401">Calls @func for every shortcut info. Accelerators come from
+@shortcuts by matching action and target.</doc>
+      <source-position filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.h"
+                       line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="shortcuts" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+               line="403">a #GListModel of #GtkShortcut</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </parameter>
+        <parameter name="func"
+                   transfer-ownership="none"
+                   scope="call"
+                   closure="2">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+               line="404">a callback for each shortcut info</doc>
+          <type name="ShortcutInfoFunc" c:type="FoundryShortcutInfoFunc"/>
+        </parameter>
+        <parameter name="func_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/shortcuts/foundry-shortcut-info.c"
+               line="405">closure data for @func</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

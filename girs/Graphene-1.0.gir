@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <package name="graphene-gobject-1.0"/>
   <c:include name="graphene-gobject.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Graphene"
              version="1.0"
              shared-library="libgraphene-1.0.so.0"
@@ -71,7 +73,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
                line="632">`true` if the box is contained in the given box</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -99,7 +101,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
                line="601">`true` if the point is contained in the given box</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="box" transfer-ownership="none">
@@ -125,7 +127,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
                line="682">`true` if the boxes are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -709,7 +711,7 @@ initialized with graphene_box_empty().</doc>
           <doc xml:space="preserve"
                filename="src/graphene-box.c"
                line="345">true if the two boxes intersect</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -889,7 +891,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_0_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="138"/>
+                       line="137"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -899,17 +901,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_10_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="204"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DEPRECATED_IN_1_12_FOR"
-                    c:identifier="GRAPHENE_DEPRECATED_IN_1_12_FOR"
-                    introspectable="0">
-      <source-position filename="include/graphene-version-macros.h"
-                       line="219"/>
+                       line="203"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -919,7 +911,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_2_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="144"/>
+                       line="143"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -929,7 +921,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_4_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="159"/>
+                       line="158"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -939,7 +931,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_6_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="174"/>
+                       line="173"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -949,7 +941,7 @@ The returned value is owned by Graphene and should not be modified or freed.</do
                     c:identifier="GRAPHENE_DEPRECATED_IN_1_8_FOR"
                     introspectable="0">
       <source-position filename="include/graphene-version-macros.h"
-                       line="189"/>
+                       line="188"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1026,7 +1018,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-euler.c"
                line="688">`true` if the two #graphene_euler_t are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -1876,7 +1868,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-frustum.c"
                line="220">`true` if the point is inside the frustum</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="f" transfer-ownership="none">
@@ -1902,7 +1894,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-frustum.c"
                line="344">`true` if the given frustums are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -2095,7 +2087,7 @@ a #graphene_frustum_t.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-frustum.c"
                line="281">`true` if the box intersects the frustum</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="f" transfer-ownership="none">
@@ -2124,7 +2116,7 @@ a #graphene_frustum_t.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-frustum.c"
                line="250">`true` if the sphere intersects the frustum</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="f" transfer-ownership="none">
@@ -2186,7 +2178,7 @@ published in "Graphics Gems II", edited by Jim Arvo, and
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="2058">`true` if the matrix could be decomposed</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -2273,7 +2265,7 @@ published in "Graphics Gems II", edited by Jim Arvo, and
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="2353">`true` if the two matrices are equal, and `false` otherwise</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -2323,7 +2315,7 @@ graphene_matrix_near(). For instance:
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="2393">`true` if the matrices are equal. and `false` otherwise</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -3174,7 +3166,7 @@ will return an identity matrix.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="1687">`true` if the matrix is invertible</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -3206,7 +3198,7 @@ a 2D affine transformation matrix.</doc>
                filename="src/graphene-matrix.c"
                line="516">`true` if the matrix is compatible with an affine
   transformation matrix</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -3228,7 +3220,7 @@ a 2D affine transformation matrix.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="561">`true` if the back face of the matrix is visible</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -3250,7 +3242,7 @@ a 2D affine transformation matrix.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="499">`true` if the matrix is the identity matrix</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -3272,7 +3264,7 @@ a 2D affine transformation matrix.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="583">`true` if the matrix is singular</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -3333,7 +3325,7 @@ other.</doc>
                filename="src/graphene-matrix.c"
                line="2316">`true` if the two matrices are near each other, and
   `false` otherwise</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -3859,7 +3851,7 @@ and an affine matrix type from other libraries.</doc>
                filename="src/graphene-matrix.c"
                line="666">`true` if the matrix is compatible with an affine
   transformation matrix</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -4457,7 +4449,7 @@ given matrix, within the given axis aligned rectangular @bounds.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-matrix.c"
                line="1294">`true` if the point was successfully untransformed</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="m" transfer-ownership="none">
@@ -4636,7 +4628,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-plane.c"
                line="338">`true` if the given planes are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -5113,34 +5105,6 @@ or graphene_point_init_from_point(), e.g.:
           </parameter>
         </parameters>
       </method>
-      <method name="distance_squared"
-              c:identifier="graphene_point_distance_squared"
-              version="1.12">
-        <doc xml:space="preserve"
-             filename="src/graphene-point.c"
-             line="231">Computes the squared distance between @a and @b.</doc>
-        <source-position filename="include/graphene-point.h" line="102"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="src/graphene-point.c"
-               line="238">the distance between the two points, squared</doc>
-          <type name="gfloat" c:type="float"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="a" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/graphene-point.c"
-                 line="233">a #graphene_point_t</doc>
-            <type name="Point" c:type="const graphene_point_t*"/>
-          </instance-parameter>
-          <parameter name="b" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/graphene-point.c"
-                 line="234">a #graphene_point_t</doc>
-            <type name="Point" c:type="const graphene_point_t*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="equal" c:identifier="graphene_point_equal" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
@@ -5155,7 +5119,7 @@ graphene_point_near() instead.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-point.c"
                line="185">`true` if the points have the same coordinates</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -5284,9 +5248,9 @@ It's safe to call this function multiple times.</doc>
               version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="285">Linearly interpolates the coordinates of @a and @b using the
+             line="260">Linearly interpolates the coordinates of @a and @b using the
 given @factor.</doc>
-        <source-position filename="include/graphene-point.h" line="111"/>
+        <source-position filename="include/graphene-point.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5294,19 +5258,19 @@ given @factor.</doc>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="287">a #graphene_point_t</doc>
+                 line="262">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="288">a #graphene_point_t</doc>
+                 line="263">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </parameter>
           <parameter name="factor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="289">the linear interpolation factor</doc>
+                 line="264">the linear interpolation factor</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="res"
@@ -5315,7 +5279,7 @@ given @factor.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="290">return location for the interpolated
+                 line="265">return location for the interpolated
   point</doc>
             <type name="Point" c:type="graphene_point_t*"/>
           </parameter>
@@ -5324,32 +5288,32 @@ given @factor.</doc>
       <method name="near" c:identifier="graphene_point_near" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="256">Checks whether the two points @a and @b are within
+             line="231">Checks whether the two points @a and @b are within
 the threshold of @epsilon.</doc>
-        <source-position filename="include/graphene-point.h" line="106"/>
+        <source-position filename="include/graphene-point.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-point.c"
-               line="265">`true` if the distance is within @epsilon</doc>
-          <type name="gboolean" c:type="_Bool"/>
+               line="240">`true` if the distance is within @epsilon</doc>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="258">a #graphene_point_t</doc>
+                 line="233">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="259">a #graphene_point_t</doc>
+                 line="234">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </parameter>
           <parameter name="epsilon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="260">threshold between the two points</doc>
+                 line="235">threshold between the two points</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -5359,9 +5323,9 @@ the threshold of @epsilon.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="308">Stores the coordinates of the given #graphene_point_t into a
+             line="283">Stores the coordinates of the given #graphene_point_t into a
 #graphene_vec2_t.</doc>
-        <source-position filename="include/graphene-point.h" line="117"/>
+        <source-position filename="include/graphene-point.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5369,7 +5333,7 @@ the threshold of @epsilon.</doc>
           <instance-parameter name="p" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="310">a #graphene_point_t</doc>
+                 line="285">a #graphene_point_t</doc>
             <type name="Point" c:type="const graphene_point_t*"/>
           </instance-parameter>
           <parameter name="v"
@@ -5378,7 +5342,7 @@ the threshold of @epsilon.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/graphene-point.c"
-                 line="311">return location for the vertex</doc>
+                 line="286">return location for the vertex</doc>
             <type name="Vec2" c:type="graphene_vec2_t*"/>
           </parameter>
         </parameters>
@@ -5386,12 +5350,12 @@ the threshold of @epsilon.</doc>
       <function name="zero" c:identifier="graphene_point_zero" version="1.0">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="327">Returns a point fixed at (0, 0).</doc>
-        <source-position filename="include/graphene-point.h" line="121"/>
+             line="302">Returns a point fixed at (0, 0).</doc>
+        <source-position filename="include/graphene-point.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/graphene-point.c"
-               line="332">a fixed point</doc>
+               line="307">a fixed point</doc>
           <type name="Point" c:type="const graphene_point_t*"/>
         </return-value>
       </function>
@@ -5548,7 +5512,7 @@ the threshold of @epsilon.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-point3d.c"
                line="199">`true` if the points are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -5753,7 +5717,7 @@ an @epsilon factor.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-point3d.c"
                line="219">`true` if the points are near each other</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -6005,7 +5969,7 @@ The contents of the returned instance are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-quad.c"
                line="155">`true` if the point is inside the #graphene_quad_t</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="q" transfer-ownership="none">
@@ -6283,7 +6247,7 @@ The contents of the returned value are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-quaternion.c"
                line="586">`true` if the quaternions are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -7083,7 +7047,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
                line="327">`true` if the given rays are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -7546,7 +7510,7 @@ See also: graphene_ray_intersect_box()</doc>
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
                line="582">`true` if the ray intersects the box</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
@@ -7577,7 +7541,7 @@ See also: graphene_ray_intersect_sphere()</doc>
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
                line="454">`true` if the ray intersects the sphere</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
@@ -7608,7 +7572,7 @@ See also: graphene_ray_intersect_triangle()</doc>
           <doc xml:space="preserve"
                filename="src/graphene-ray.c"
                line="703">`true` if the ray intersects the triangle</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
@@ -7701,7 +7665,7 @@ will internally operate on a normalized copy; all functions returning a
           <doc xml:space="preserve"
                filename="src/graphene-rect.c"
                line="552">`true` if the rectangle contains the point</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="r" transfer-ownership="none">
@@ -7730,7 +7694,7 @@ rectangle.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-rect.c"
                line="579">`true` if the rectangle @a fully contains @b</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -7756,7 +7720,7 @@ rectangle.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-rect.c"
                line="184">`true` if the rectangles are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -8339,7 +8303,7 @@ a degenerate rectangle with origin in (0, 0) and a size of 0.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-rect.c"
                line="508">`true` if the two rectangles intersect</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -8751,7 +8715,7 @@ declaring it, e.g.:
       </parameters>
     </function-macro>
     <record name="Simd4F" c:type="graphene_simd4f_t">
-      <source-position filename="include/graphene-config.h" line="102"/>
+      <source-position filename="include/graphene-config.h" line="94"/>
       <field name="x" readable="0" private="1">
         <type name="gfloat" c:type="float"/>
       </field>
@@ -8766,7 +8730,7 @@ declaring it, e.g.:
       </field>
     </record>
     <record name="Simd4X4F" c:type="graphene_simd4x4f_t">
-      <source-position filename="include/graphene-config.h" line="108"/>
+      <source-position filename="include/graphene-config.h" line="100"/>
       <field name="x" readable="0" private="1">
         <type name="Simd4F" c:type="graphene_simd4f_t"/>
       </field>
@@ -8827,7 +8791,7 @@ The contents of the returned value are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-size.c"
                line="133">`true` if the sizes are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -9054,7 +9018,7 @@ of a #graphene_sphere_t.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-sphere.c"
                line="269">`true` if the sphere contains the point</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="s" transfer-ownership="none">
@@ -9109,7 +9073,7 @@ a #graphene_sphere_t.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-sphere.c"
                line="370">`true` if the spheres are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -9369,7 +9333,7 @@ of the 3D volume that encompasses all @vectors.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-sphere.c"
                line="251">`true` if the sphere is empty</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="s" transfer-ownership="none">
@@ -9464,7 +9428,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-triangle.c"
                line="497">`true` if the point is inside the triangle</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="t" transfer-ownership="none">
@@ -9492,7 +9456,7 @@ The contents of the returned structure are undefined.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-triangle.c"
                line="540">`true` if the triangles are equal</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
@@ -9574,7 +9538,7 @@ The returned #graphene_vec2_t contains the following values, in order:
           <doc xml:space="preserve"
                filename="src/graphene-triangle.c"
                line="445">`true` if the barycentric coordinates are valid</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="t" transfer-ownership="none">
@@ -9798,7 +9762,7 @@ See also: graphene_triangle_get_barycoords()</doc>
           <doc xml:space="preserve"
                filename="src/graphene-triangle.c"
                line="378">`true` if the coordinates are valid</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="t" transfer-ownership="none">
@@ -10265,7 +10229,7 @@ vector @res.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
                line="428">`true` if the two vectors are equal, and false otherwise</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
@@ -10603,7 +10567,7 @@ whether their values are within the given @epsilon.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
                line="448">`true` if the two vectors are near each other</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
@@ -11001,7 +10965,7 @@ vector @res.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
                line="1127">`true` if the two vectors are equal, and false otherwise</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
@@ -11514,7 +11478,7 @@ whether their values are within the given @epsilon.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
                line="1147">`true` if the two vectors are near each other</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
@@ -11898,7 +11862,7 @@ vector @res.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
                line="1844">`true` if the two vectors are equal, and false otherwise</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
@@ -12420,7 +12384,7 @@ whether their values are within the given @epsilon.</doc>
           <doc xml:space="preserve"
                filename="src/graphene-vectors.c"
                line="1864">`true` if the two vectors are near each other</doc>
-          <type name="gboolean" c:type="_Bool"/>
+          <type name="gboolean" c:type="bool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
@@ -13115,12 +13079,12 @@ Each vector type should be treated as an opaque data type.</doc>
               version="1.0">
       <doc xml:space="preserve"
            filename="src/graphene-point.c"
-           line="327">Returns a point fixed at (0, 0).</doc>
-      <source-position filename="include/graphene-point.h" line="121"/>
+           line="302">Returns a point fixed at (0, 0).</doc>
+      <source-position filename="include/graphene-point.h" line="117"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/graphene-point.c"
-             line="332">a fixed point</doc>
+             line="307">a fixed point</doc>
         <type name="Point" c:type="const graphene_point_t*"/>
       </return-value>
     </function>

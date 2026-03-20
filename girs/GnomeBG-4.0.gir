@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gdk" version="4.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="GnomeDesktop" version="4.0"/>
   <package name="gnome-bg-4"/>
+  <doc:format name="unknown"/>
   <namespace name="GnomeBG"
              version="4.0"
              shared-library="libgnome-bg-4.so.2"
@@ -48,7 +50,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gnome_bg_create_frame_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg.c"
-             line="2358">Creates a thumbnail for a certain frame, where 'frame' is somewhat
+             line="2370">Creates a thumbnail for a certain frame, where 'frame' is somewhat
 vaguely defined as 'suitable point to show while single-stepping
 through the slideshow'.</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg.h"
@@ -56,7 +58,7 @@ through the slideshow'.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg.c"
-               line="2365">the newly created thumbnail or
+               line="2377">the newly created thumbnail or
 or NULL if frame_num is out of bounds.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
@@ -379,21 +381,21 @@ or NULL if frame_num is out of bounds.</doc>
       <constructor name="new" c:identifier="gnome_bg_slide_show_new">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="225">Creates a new object to manage a slide show.
+             line="227">Creates a new object to manage a slide show.
 window background between two #cairo_surface_ts.</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="62"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-               line="232">the new #GnomeBGSlideShow</doc>
+               line="234">the new #GnomeBGSlideShow</doc>
           <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="227">The filename of the slide show</doc>
+                 line="229">The filename of the slide show</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -402,7 +404,7 @@ window background between two #cairo_surface_ts.</doc>
               c:identifier="gnome_bg_slide_show_get_current_slide">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="497">Returns the current slides progress.</doc>
+             line="499">Returns the current slides progress.</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="80"/>
         <return-value transfer-ownership="none">
@@ -412,19 +414,19 @@ window background between two #cairo_surface_ts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="499">a #GnomeBGSlideShow</doc>
+                 line="501">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="500">monitor width</doc>
+                 line="502">monitor width</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="501">monitor height</doc>
+                 line="503">monitor height</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="progress"
@@ -435,7 +437,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="502">slide progress</doc>
+                 line="504">slide progress</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="duration"
@@ -446,7 +448,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="503">slide duration</doc>
+                 line="505">slide duration</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="is_fixed"
@@ -457,7 +459,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="504">if slide is fixed</doc>
+                 line="506">if slide is fixed</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="file1"
@@ -468,7 +470,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="505">first file in slide</doc>
+                 line="507">first file in slide</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
           <parameter name="file2"
@@ -479,7 +481,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="506">second file in slide</doc>
+                 line="508">second file in slide</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
         </parameters>
@@ -489,20 +491,20 @@ window background between two #cairo_surface_ts.</doc>
               glib:get-property="has-multiple-sizes">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="814">gets whether or not the slide show has multiple sizes for different monitors</doc>
+             line="816">gets whether or not the slide show has multiple sizes for different monitors</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-               line="820">%TRUE if multiple sizes</doc>
+               line="822">%TRUE if multiple sizes</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="816">a #GnomeBGSlideShow</doc>
+                 line="818">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -511,7 +513,7 @@ window background between two #cairo_surface_ts.</doc>
               c:identifier="gnome_bg_slide_show_get_num_slides">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="828">Returns number of slides in slide show</doc>
+             line="830">Returns number of slides in slide show</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="93"/>
         <return-value transfer-ownership="none">
@@ -521,7 +523,7 @@ window background between two #cairo_surface_ts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="830">a #GnomeBGSlideShow</doc>
+                 line="832">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -529,38 +531,38 @@ window background between two #cairo_surface_ts.</doc>
       <method name="get_slide" c:identifier="gnome_bg_slide_show_get_slide">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="561">Retrieves slide by frame number</doc>
+             line="563">Retrieves slide by frame number</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-               line="575">%TRUE if successful</doc>
+               line="577">%TRUE if successful</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="563">a #GnomeBGSlideShow</doc>
+                 line="565">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
           <parameter name="frame_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="564">frame number</doc>
+                 line="566">frame number</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="565">monitor width</doc>
+                 line="567">monitor width</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="566">monitor height</doc>
+                 line="568">monitor height</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="progress"
@@ -571,7 +573,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="567">slide progress</doc>
+                 line="569">slide progress</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="duration"
@@ -582,7 +584,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="568">slide duration</doc>
+                 line="570">slide duration</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="is_fixed"
@@ -593,7 +595,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="569">if slide is fixed</doc>
+                 line="571">if slide is fixed</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="file1"
@@ -604,7 +606,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="570">first file in slide</doc>
+                 line="572">first file in slide</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
           <parameter name="file2"
@@ -615,7 +617,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="571">second file in slide</doc>
+                 line="573">second file in slide</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
         </parameters>
@@ -625,20 +627,20 @@ window background between two #cairo_surface_ts.</doc>
               glib:get-property="start-time">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="786">gets the start time of the slide show</doc>
+             line="788">gets the start time of the slide show</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-               line="792">a timestamp</doc>
+               line="794">a timestamp</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="788">a #GnomeBGSlideShow</doc>
+                 line="790">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -648,20 +650,20 @@ window background between two #cairo_surface_ts.</doc>
               glib:get-property="total-duration">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="800">gets the total duration of the slide show</doc>
+             line="802">gets the total duration of the slide show</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-               line="806">a timestamp</doc>
+               line="808">a timestamp</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="802">a #GnomeBGSlideShow</doc>
+                 line="804">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -669,20 +671,20 @@ window background between two #cairo_surface_ts.</doc>
       <method name="load" c:identifier="gnome_bg_slide_show_load" throws="1">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="705">Tries to load the slide show.</doc>
+             line="707">Tries to load the slide show.</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-               line="712">%TRUE if successful</doc>
+               line="714">%TRUE if successful</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="707">a #GnomeBGSlideShow</doc>
+                 line="709">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -690,7 +692,7 @@ window background between two #cairo_surface_ts.</doc>
       <method name="load_async" c:identifier="gnome_bg_slide_show_load_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-             line="763">Tries to load the slide show asynchronously.</doc>
+             line="765">Tries to load the slide show asynchronously.</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.h"
                          line="66"/>
         <return-value transfer-ownership="none">
@@ -700,7 +702,7 @@ window background between two #cairo_surface_ts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="765">a #GnomeBGSlideShow</doc>
+                 line="767">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -709,7 +711,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="766">a #GCancellable</doc>
+                 line="768">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -720,7 +722,7 @@ window background between two #cairo_surface_ts.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="767">the callback</doc>
+                 line="769">the callback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -729,7 +731,7 @@ window background between two #cairo_surface_ts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg/gnome-bg-slide-show.c"
-                 line="768">user data</doc>
+                 line="770">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>

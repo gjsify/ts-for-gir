@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GPlugin" version="1.0"/>
   <include name="Gtk" version="4.0"/>
   <package name="gplugin-gtk4"/>
   <c:include name="gplugin-gtk.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GPluginGtk4"
              version="1.0"
              shared-library="libgplugin-gtk4.so.0"
@@ -54,7 +56,7 @@ and/or use gtk-doc annotations.  -->
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="2"
               c:type="GPLUGIN_GTK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gplugin-gtk4/gplugin-gtk-version.c"
@@ -605,7 +607,7 @@ A @plugin value of %NULL will clear the widget.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION" value="0.44.0" c:type="GPLUGIN_GTK_VERSION">
+    <constant name="VERSION" value="0.44.2" c:type="GPLUGIN_GTK_VERSION">
       <doc xml:space="preserve"
            filename="gplugin-gtk4/gplugin-gtk-version.c"
            line="48">This is the string version number of GPluginGtk that was compiled against.</doc>

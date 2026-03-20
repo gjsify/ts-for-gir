@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <package name="gtk-layer-shell-0"/>
   <c:include name="gtk-layer-shell/gtk-layer-shell.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GtkLayerShell"
              version="0.1"
              shared-library="libgtk-layer-shell.so.0"
@@ -377,6 +379,25 @@ compositor or 0 if the protocol is not supported.</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
     </function>
+    <function name="get_respect_close"
+              c:identifier="gtk_layer_get_respect_close"
+              version="0.10">
+      <source-position filename="include/gtk-layer-shell.h" line="427"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-layer-shell.h"
+             line="423">if the respect_close behavior is enabled, see gtk_layer_set_respect_close()</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/gtk-layer-shell.h"
+               line="421">A layer surface.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="get_zwlr_layer_surface_v1"
               c:identifier="gtk_layer_get_zwlr_layer_surface_v1"
               version="0.4">
@@ -697,6 +718,36 @@ Default is "gtk-layer-shell" (which will be used if set to %NULL)</doc>
                filename="include/gtk-layer-shell.h"
                line="173">The namespace of this layer surface.</doc>
           <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_respect_close"
+              c:identifier="gtk_layer_set_respect_close"
+              version="0.10">
+      <doc xml:space="preserve"
+           filename="include/gtk-layer-shell.h"
+           line="403">Compositors may send the `zwlr_layer_surface_v1.closed` event in some cases (such as
+when an output is destroyed). Prior to v0.10 this always triggered a GTK `delete-event`
+signal, which would destroy the window if not intercepted by application code. In v0.10+
+this behavior is disabled by default, and can be turned back on by calling this
+function with %TRUE. To handle the `.closed` event without destroying your window
+turn respect_close on and connect a `delete-event` listener that returns %TRUE.</doc>
+      <source-position filename="include/gtk-layer-shell.h" line="417"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/gtk-layer-shell.h"
+               line="405">A layer surface.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="respect_close" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/gtk-layer-shell.h"
+               line="406">If to forward the .closed event to GTK.</doc>
+          <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
     </function>

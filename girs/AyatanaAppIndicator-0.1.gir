@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gtk" version="2.0"/>
   <c:include name="libayatana-appindicator/app-indicator.h"/>
+  <doc:format name="unknown"/>
   <namespace name="AyatanaAppIndicator"
              version="0.1"
              shared-library="libayatana-appindicator.so.1"
@@ -206,7 +208,7 @@ and #AppIndicator:icon-name with @icon_name.</doc>
                    c:identifier="app_indicator_new_with_path">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="1854">Creates a new #AppIndicator setting the properties:
+             line="1856">Creates a new #AppIndicator setting the properties:
 #AppIndicator:id with @id, #AppIndicator:category with @category,
 #AppIndicator:icon-name with @icon_name and #AppIndicator:icon-theme-path
 with @icon_theme_path.</doc>
@@ -214,32 +216,32 @@ with @icon_theme_path.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="1866">A pointer to a new #AppIndicator object.</doc>
+               line="1868">A pointer to a new #AppIndicator object.</doc>
           <type name="Indicator" c:type="AppIndicator*"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1856">The unique id of the indicator to create.</doc>
+                 line="1858">The unique id of the indicator to create.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1857">The icon name for this indicator</doc>
+                 line="1859">The icon name for this indicator</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1858">The category of indicator.</doc>
+                 line="1860">The category of indicator.</doc>
             <type name="IndicatorCategory" c:type="AppIndicatorCategory"/>
           </parameter>
           <parameter name="icon_theme_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1859">A custom path for finding icons.</doc>
+                 line="1861">A custom path for finding icons.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -449,7 +451,7 @@ with @icon_theme_path.</doc>
               c:identifier="app_indicator_build_menu_from_desktop">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2659">This function allows for building the Application Indicator menu
+             line="2663">This function allows for building the Application Indicator menu
 from a static desktop file.</doc>
         <source-position filename="app-indicator.h" line="304"/>
         <return-value transfer-ownership="none">
@@ -459,19 +461,19 @@ from a static desktop file.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2661">The #AppIndicator object to use</doc>
+                 line="2665">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="desktop_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2662">A path to the desktop file to build the menu from</doc>
+                 line="2666">A path to the desktop file to build the menu from</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="desktop_profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2663">Which entries should be used from the desktop file</doc>
+                 line="2667">Which entries should be used from the desktop file</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -480,19 +482,19 @@ from a static desktop file.</doc>
               c:identifier="app_indicator_get_attention_icon">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2492">Wrapper function for property #AppIndicator:attention-icon-name.</doc>
+             line="2496">Wrapper function for property #AppIndicator:attention-icon-name.</doc>
         <source-position filename="app-indicator.h" line="293"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2498">The current attention icon name.</doc>
+               line="2502">The current attention icon name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2494">The #AppIndicator object to use</doc>
+                 line="2498">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -502,19 +504,19 @@ from a static desktop file.</doc>
               glib:get-property="attention-icon-desc">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2509">Wrapper function for property #AppIndicator:attention-icon-desc.</doc>
+             line="2513">Wrapper function for property #AppIndicator:attention-icon-desc.</doc>
         <source-position filename="app-indicator.h" line="294"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2515">The current attention icon description.</doc>
+               line="2519">The current attention icon description.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2511">The #AppIndicator object to use</doc>
+                 line="2515">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -524,19 +526,19 @@ from a static desktop file.</doc>
               glib:get-property="category">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2407">Wrapper function for property #AppIndicator:category.</doc>
+             line="2411">Wrapper function for property #AppIndicator:category.</doc>
         <source-position filename="app-indicator.h" line="288"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2413">The current category.</doc>
+               line="2417">The current category.</doc>
           <type name="IndicatorCategory" c:type="AppIndicatorCategory"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2409">The #AppIndicator object to use</doc>
+                 line="2413">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -544,19 +546,19 @@ from a static desktop file.</doc>
       <method name="get_icon" c:identifier="app_indicator_get_icon">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2441">Wrapper function for property #AppIndicator:icon-name.</doc>
+             line="2445">Wrapper function for property #AppIndicator:icon-name.</doc>
         <source-position filename="app-indicator.h" line="290"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2447">The current icon name.</doc>
+               line="2451">The current icon name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2443">The #AppIndicator object to use</doc>
+                 line="2447">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -566,19 +568,19 @@ from a static desktop file.</doc>
               glib:get-property="icon-desc">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2458">Wrapper function for property #AppIndicator:icon-desc.</doc>
+             line="2462">Wrapper function for property #AppIndicator:icon-desc.</doc>
         <source-position filename="app-indicator.h" line="291"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2464">The current icon description.</doc>
+               line="2468">The current icon description.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2460">The #AppIndicator object to use</doc>
+                 line="2464">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -588,19 +590,19 @@ from a static desktop file.</doc>
               glib:get-property="icon-theme-path">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2475">Wrapper function for property #AppIndicator:icon-theme-path.</doc>
+             line="2479">Wrapper function for property #AppIndicator:icon-theme-path.</doc>
         <source-position filename="app-indicator.h" line="292"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2481">The current icon theme path.</doc>
+               line="2485">The current icon theme path.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2477">The #AppIndicator object to use</doc>
+                 line="2481">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -610,19 +612,19 @@ from a static desktop file.</doc>
               glib:get-property="id">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2390">Wrapper function for property #AppIndicator:id.</doc>
+             line="2394">Wrapper function for property #AppIndicator:id.</doc>
         <source-position filename="app-indicator.h" line="287"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2396">The current ID</doc>
+               line="2400">The current ID</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2392">The #AppIndicator object to use</doc>
+                 line="2396">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -632,19 +634,19 @@ from a static desktop file.</doc>
               glib:get-property="label">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2566">Wrapper function for property #AppIndicator:label.</doc>
+             line="2570">Wrapper function for property #AppIndicator:label.</doc>
         <source-position filename="app-indicator.h" line="298"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2572">The current label.</doc>
+               line="2576">The current label.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2568">The #AppIndicator object to use</doc>
+                 line="2572">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -654,19 +656,19 @@ from a static desktop file.</doc>
               glib:get-property="label-guide">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2583">Wrapper function for property #AppIndicator:label-guide.</doc>
+             line="2587">Wrapper function for property #AppIndicator:label-guide.</doc>
         <source-position filename="app-indicator.h" line="299"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2589">The current label guide.</doc>
+               line="2593">The current label guide.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2585">The #AppIndicator object to use</doc>
+                 line="2589">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -676,20 +678,20 @@ from a static desktop file.</doc>
               glib:get-property="menu">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2547">Gets the menu being used for this application indicator.
+             line="2551">Gets the menu being used for this application indicator.
 Wrapper function for property #AppIndicator:menu.</doc>
         <source-position filename="app-indicator.h" line="297"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2554">A #GtkMenu object or %NULL if one hasn't been set.</doc>
+               line="2558">A #GtkMenu object or %NULL if one hasn't been set.</doc>
           <type name="Gtk.Menu" c:type="GtkMenu*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2549">The #AppIndicator object to use</doc>
+                 line="2553">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -699,19 +701,19 @@ Wrapper function for property #AppIndicator:menu.</doc>
               glib:get-property="ordering-index">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2600">Wrapper function for property #AppIndicator:ordering-index.</doc>
+             line="2604">Wrapper function for property #AppIndicator:ordering-index.</doc>
         <source-position filename="app-indicator.h" line="300"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2606">The current ordering index.</doc>
+               line="2610">The current ordering index.</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2602">The #AppIndicator object to use</doc>
+                 line="2606">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -720,19 +722,19 @@ Wrapper function for property #AppIndicator:menu.</doc>
               c:identifier="app_indicator_get_secondary_activate_target">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2621">Gets the menuitem being called on secondary-activate event.</doc>
+             line="2625">Gets the menuitem being called on secondary-activate event.</doc>
         <source-position filename="app-indicator.h" line="301"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2627">A #GtkWidget object or %NULL if none has been set.</doc>
+               line="2631">A #GtkWidget object or %NULL if none has been set.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2623">The #AppIndicator object to use</doc>
+                 line="2627">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -742,19 +744,19 @@ Wrapper function for property #AppIndicator:menu.</doc>
               glib:get-property="status">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2424">Wrapper function for property #AppIndicator:status.</doc>
+             line="2428">Wrapper function for property #AppIndicator:status.</doc>
         <source-position filename="app-indicator.h" line="289"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2430">The current status.</doc>
+               line="2434">The current status.</doc>
           <type name="IndicatorStatus" c:type="AppIndicatorStatus"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2426">The #AppIndicator object to use</doc>
+                 line="2430">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -765,20 +767,20 @@ Wrapper function for property #AppIndicator:menu.</doc>
               version="0.5">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2526">Gets the title of the application indicator.  See the function
+             line="2530">Gets the title of the application indicator.  See the function
 app_indicator_set_title() for information on the title.</doc>
         <source-position filename="app-indicator.h" line="295"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="app-indicator.c"
-               line="2533">The current title.</doc>
+               line="2537">The current title.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2528">The #AppIndicator object to use</doc>
+                 line="2532">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
         </parameters>
@@ -788,7 +790,7 @@ app_indicator_set_title() for information on the title.</doc>
               deprecated="1">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="1932">Wrapper for app_indicator_set_attention_icon_full() with a NULL
+             line="1936">Wrapper for app_indicator_set_attention_icon_full() with a NULL
 description.</doc>
         <doc-deprecated xml:space="preserve">Use app_indicator_set_attention_icon_full() instead.</doc-deprecated>
         <source-position filename="app-indicator.h" line="262"/>
@@ -799,13 +801,13 @@ description.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1934">The #AppIndicator object to use</doc>
+                 line="1938">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1935">The name of the attention icon to set for this indicator</doc>
+                 line="1939">The name of the attention icon to set for this indicator</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -814,7 +816,7 @@ description.</doc>
               c:identifier="app_indicator_set_attention_icon_full">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="1948">Wrapper function for property #AppIndicator:attention-icon-name.</doc>
+             line="1952">Wrapper function for property #AppIndicator:attention-icon-name.</doc>
         <source-position filename="app-indicator.h" line="264"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -823,13 +825,13 @@ description.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1950">The #AppIndicator object to use</doc>
+                 line="1954">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1951">The name of the attention icon to set for this indicator</doc>
+                 line="1955">The name of the attention icon to set for this indicator</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="icon_desc"
@@ -838,7 +840,7 @@ description.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1952">A textual description of the icon</doc>
+                 line="1956">A textual description of the icon</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -848,7 +850,7 @@ description.</doc>
               deprecated="1">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2009">Wrapper function for app_indicator_set_icon_full() with a NULL
+             line="2013">Wrapper function for app_indicator_set_icon_full() with a NULL
 description.</doc>
         <doc-deprecated xml:space="preserve">Use app_indicator_set_icon_full()</doc-deprecated>
         <source-position filename="app-indicator.h" line="269"/>
@@ -859,13 +861,13 @@ description.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2011">The #AppIndicator object to use</doc>
+                 line="2015">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2012">The icon name to set.</doc>
+                 line="2016">The icon name to set.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -873,7 +875,7 @@ description.</doc>
       <method name="set_icon_full" c:identifier="app_indicator_set_icon_full">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2025">Sets the default icon to use when the status is active but
+             line="2029">Sets the default icon to use when the status is active but
 not set to attention.  In most cases, this should be the
 application icon for the program.
 
@@ -887,13 +889,13 @@ Wrapper function for property #AppIndicator:icon-name and
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2027">The #AppIndicator object to use</doc>
+                 line="2031">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2028">The icon name to set.</doc>
+                 line="2032">The icon name to set.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="icon_desc"
@@ -902,7 +904,7 @@ Wrapper function for property #AppIndicator:icon-name and
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2029">A textual description of the icon for accessibility</doc>
+                 line="2033">A textual description of the icon for accessibility</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -912,7 +914,7 @@ Wrapper function for property #AppIndicator:icon-name and
               glib:set-property="icon-theme-path">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2182">Sets the path to use when searching for icons.</doc>
+             line="2186">Sets the path to use when searching for icons.</doc>
         <source-position filename="app-indicator.h" line="277"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -921,13 +923,13 @@ Wrapper function for property #AppIndicator:icon-name and
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2184">The #AppIndicator object to use</doc>
+                 line="2188">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="icon_theme_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2185">The icon theme path to set.</doc>
+                 line="2189">The icon theme path to set.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -937,7 +939,7 @@ Wrapper function for property #AppIndicator:icon-name and
               glib:set-property="label">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2097">This is a wrapper function for the #AppIndicator:label and
+             line="2101">This is a wrapper function for the #AppIndicator:label and
 #AppIndicator:label-guide properties.  This function can take #NULL
 as either @label or @guide and will clear the entries.</doc>
         <source-position filename="app-indicator.h" line="274"/>
@@ -948,19 +950,19 @@ as either @label or @guide and will clear the entries.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2099">The #AppIndicator object to use</doc>
+                 line="2103">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2100">The label to show next to the icon.</doc>
+                 line="2104">The label to show next to the icon.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="guide" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2101">A guide to size the label correctly.</doc>
+                 line="2105">A guide to size the label correctly.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -970,7 +972,7 @@ as either @label or @guide and will clear the entries.</doc>
               glib:set-property="menu">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2260">Sets the menu that should be shown when the Application Indicator
+             line="2264">Sets the menu that should be shown when the Application Indicator
 is clicked on in the panel.  An application indicator will not
 be rendered unless it has a menu.
 
@@ -983,7 +985,7 @@ Wrapper function for property #AppIndicator:menu.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2262">The #AppIndicator</doc>
+                 line="2266">The #AppIndicator</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="menu"
@@ -992,7 +994,7 @@ Wrapper function for property #AppIndicator:menu.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2263">A #GtkMenu to set</doc>
+                 line="2267">A #GtkMenu to set</doc>
             <type name="Gtk.Menu" c:type="GtkMenu*"/>
           </parameter>
         </parameters>
@@ -1002,7 +1004,7 @@ Wrapper function for property #AppIndicator:menu.</doc>
               glib:set-property="ordering-index">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2298">Sets the ordering index for the app indicator which effects the
+             line="2302">Sets the ordering index for the app indicator which effects the
 placement of it on the panel.  For almost all app indicator
 this is not the function you're looking for.
 
@@ -1015,13 +1017,13 @@ Wrapper function for property #AppIndicator:ordering-index.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2300">The #AppIndicator</doc>
+                 line="2304">The #AppIndicator</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="ordering_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2301">A value for the ordering of this app indicator</doc>
+                 line="2305">A value for the ordering of this app indicator</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -1030,7 +1032,7 @@ Wrapper function for property #AppIndicator:ordering-index.</doc>
               c:identifier="app_indicator_set_secondary_activate_target">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2321">Set the @menuitem to be activated when a secondary activation event (i.e. a
+             line="2325">Set the @menuitem to be activated when a secondary activation event (i.e. a
 middle-click) is emitted over the #AppIndicator icon/label.
 
 The @menuitem can be also a complex #GtkWidget, but to get activated when
@@ -1046,7 +1048,7 @@ Setting @menuitem to %NULL causes to disable this feature.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2323">The #AppIndicator</doc>
+                 line="2327">The #AppIndicator</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="menuitem"
@@ -1055,7 +1057,7 @@ Setting @menuitem to %NULL causes to disable this feature.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2324">A #GtkWidget to be activated on secondary activation</doc>
+                 line="2328">A #GtkWidget to be activated on secondary activation</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -1065,7 +1067,7 @@ Setting @menuitem to %NULL causes to disable this feature.</doc>
               glib:set-property="status">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="1892">Wrapper function for property #AppIndicator:status.</doc>
+             line="1896">Wrapper function for property #AppIndicator:status.</doc>
         <source-position filename="app-indicator.h" line="260"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1074,13 +1076,13 @@ Setting @menuitem to %NULL causes to disable this feature.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1894">The #AppIndicator object to use</doc>
+                 line="1898">The #AppIndicator object to use</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="1895">The status to set for this indicator</doc>
+                 line="1899">The status to set for this indicator</doc>
             <type name="IndicatorStatus" c:type="AppIndicatorStatus"/>
           </parameter>
         </parameters>
@@ -1091,7 +1093,7 @@ Setting @menuitem to %NULL causes to disable this feature.</doc>
               version="0.5">
         <doc xml:space="preserve"
              filename="app-indicator.c"
-             line="2360">Sets the title of the application indicator, or how it should be referred
+             line="2364">Sets the title of the application indicator, or how it should be referred
 in a human readable form.  This string should be UTF-8 and localized as it
 expected that users will set it.
 
@@ -1108,7 +1110,7 @@ Setting @title to %NULL removes the title.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2362">The #AppIndicator</doc>
+                 line="2366">The #AppIndicator</doc>
             <type name="Indicator" c:type="AppIndicator*"/>
           </instance-parameter>
           <parameter name="title"
@@ -1117,7 +1119,7 @@ Setting @title to %NULL removes the title.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="app-indicator.c"
-                 line="2363">Title of the app indicator</doc>
+                 line="2367">Title of the app indicator</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>

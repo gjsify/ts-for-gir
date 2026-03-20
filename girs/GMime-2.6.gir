@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="gmime-2.6"/>
   <c:include name="gmime/gmime.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GMime"
              version="2.6"
              shared-library="libgmime-2.6.so.0"
@@ -231,7 +233,7 @@ full input buffer of length @x.</doc>
           <doc xml:space="preserve"
                filename="gmime-certificate.c"
                line="456">the creation date of the certificate's key or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert" transfer-ownership="none">
@@ -293,7 +295,7 @@ full input buffer of length @x.</doc>
           <doc xml:space="preserve"
                filename="gmime-certificate.c"
                line="489">the expiration date of the certificate's key or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert" transfer-ownership="none">
@@ -468,7 +470,7 @@ full input buffer of length @x.</doc>
             <doc xml:space="preserve"
                  filename="gmime-certificate.c"
                  line="437">creation date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -538,7 +540,7 @@ full input buffer of length @x.</doc>
             <doc xml:space="preserve"
                  filename="gmime-certificate.c"
                  line="470">expiration date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -753,13 +755,13 @@ full input buffer of length @x.</doc>
         <doc xml:space="preserve"
              filename="gmime-certificate.h"
              line="137">The creation date of the certificate.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="expires">
         <doc xml:space="preserve"
              filename="gmime-certificate.h"
              line="138">The expiration date of the certificate.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="keyid">
         <doc xml:space="preserve"
@@ -10545,7 +10547,7 @@ non-%NULL, then the timezone offset in will be stored in
             <doc xml:space="preserve"
                  filename="gmime-message.c"
                  line="1426">pointer to a date in time_t</doc>
-            <type name="glong" c:type="time_t*"/>
+            <type name="time_t" c:type="time_t*"/>
           </parameter>
           <parameter name="tz_offset"
                      direction="out"
@@ -10770,7 +10772,7 @@ sets @nparts to the number of messages returned or %NULL on fail.</doc>
             <doc xml:space="preserve"
                  filename="gmime-message.c"
                  line="1399">a date to be used in the Date header</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="tz_offset" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -10977,7 +10979,7 @@ Note: The @subject string should be in UTF-8.</doc>
         <doc xml:space="preserve"
              filename="gmime-message.h"
              line="71">Date value</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="tz_offset">
         <doc xml:space="preserve"
@@ -16436,7 +16438,7 @@ headers defined in rfc822.</doc>
           <doc xml:space="preserve"
                filename="gmime-signature.c"
                line="252">the creation date of the signature or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="sig" transfer-ownership="none">
@@ -16478,7 +16480,7 @@ errors may provide a clue as to why.</doc>
           <doc xml:space="preserve"
                filename="gmime-signature.c"
                line="285">the expiration date of the signature or %-1 if unknown.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="sig" transfer-ownership="none">
@@ -16552,7 +16554,7 @@ errors may provide a clue as to why.</doc>
             <doc xml:space="preserve"
                  filename="gmime-signature.c"
                  line="233">creation date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -16598,7 +16600,7 @@ errors may provide a clue as to why.</doc>
             <doc xml:space="preserve"
                  filename="gmime-signature.c"
                  line="266">expiration date</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -16653,13 +16655,13 @@ errors may provide a clue as to why.</doc>
         <doc xml:space="preserve"
              filename="gmime-signature.h"
              line="94">The creation date of the signature.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="expires">
         <doc xml:space="preserve"
              filename="gmime-signature.h"
              line="95">The expiration date of the signature.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
     </class>
     <record name="SignatureClass"
@@ -21247,7 +21249,7 @@ a Message-Id.</doc>
              line="761">the time_t representation of the date string specified by
 @str or (time_t) %0 on error. If @tz_offset is non-NULL, the value
 of the timezone offset will be stored.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
@@ -21404,7 +21406,7 @@ string represented by @time and @tz_offset.</doc>
           <doc xml:space="preserve"
                filename="gmime-utils.c"
                line="193">time_t date representation</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="tz_offset" transfer-ownership="none">
           <doc xml:space="preserve"

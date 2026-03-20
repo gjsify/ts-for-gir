@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="4.0"/>
+  <c:include name="casilda.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="Casilda"
+             version="1.0"
+             shared-library="libcasilda-1.0.so.1"
+             c:identifier-prefixes="Casilda"
+             c:symbol-prefixes="casilda">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="CASILDA_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="84">Compile-time version checking. Evaluates to %TRUE if the version
+of casilda is greater than the required one.</doc>
+      <source-position filename="src/casilda-version.h" line="92"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/casilda-version.h"
+               line="86">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/casilda-version.h"
+               line="87">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="src/casilda-version.h"
+               line="88">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Compositor"
+           c:symbol-prefix="compositor"
+           c:type="CasildaCompositor"
+           parent="Gtk.Widget"
+           glib:type-name="CasildaCompositor"
+           glib:get-type="casilda_compositor_get_type"
+           glib:type-struct="CompositorClass">
+      <doc xml:space="preserve"
+           filename="src/casilda-compositor.c"
+           line="26">A simple Wayland compositor widget for Gtk 4.
+
+It was originally created for Cambalache's workspace using (wlroots)[https://gitlab.freedesktop.org/wlroots/wlroots],
+a modular library to create Wayland compositors.
+
+Following Wayland tradition, this library is named after my hometown in Santa Fe, Argentina.
+
+To embed another process window in your Gtk 4 application all you have to do is create a CasildaCompositor widget
+and add it in the hierarchy just like any other widget.
+
+You can specify which UNIX socket the compositor will listen for clients connections or use
+[method@Casilda.Compositor.get_client_socket_fd] to get a already connected socket to the compositor.
+
+```c
+compositor = casilda_compositor_new ("/tmp/casilda-example.sock");
+gtk_window_set_child (GTK_WINDOW (window), GTK_WIDGET (compositor));
+```
+
+Once the compositor is running you can connect to it by specifying the socket in WAYLAND_DISPLAY environment variable.
+
+```bash
+export GDK_BACKEND=wayland
+export WAYLAND_DISPLAY=/tmp/casilda-example.sock
+gtk4-demo
+```
+
+If you do not want any client being able to connect to the compositor you can pass NULL as socket and spawn the client
+with [method@Casilda.Compositor.spawn_async] or get an already connected socket with
+[method@Casilda.Compositor.get_client_socket_fd] and pass it to the client on WAYLAND_SOCKET env variable.
+
+```c
+compositor = casilda_compositor_new (NULL);
+gtk_window_set_child (GTK_WINDOW (window), GTK_WIDGET (compositor));
+gtk_window_present (GTK_WINDOW (window));
+
+gchar *argv[] = { "/usr/bin/gtk4-demo", NULL };
+casilda_compositor_spawn_async (compositor, NULL, argv, NULL, G_SPAWN_DEFAULT, NULL, NULL, NULL, NULL);
+```</doc>
+      <source-position filename="src/casilda-compositor.h" line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="casilda_compositor_new">
+        <doc xml:space="preserve"
+             filename="src/casilda-compositor.c"
+             line="2633">Create a new `CasildaCompositor` widget using @socket as the name of the Wayland socket.
+Clients can connect to the compositor by setting WAYLAND_DISPLAY=@socket</doc>
+        <source-position filename="src/casilda-compositor.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/casilda-compositor.c"
+               line="2640">a new `CasildaCompositor` widget</doc>
+          <type name="Compositor" c:type="CasildaCompositor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="socket" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2635">the named socket to use or NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_client_socket_fd"
+              c:identifier="casilda_compositor_get_client_socket_fd">
+        <doc xml:space="preserve"
+             filename="src/casilda-compositor.c"
+             line="2649">Create a client socket file descriptor connected to this compositor ready to use by passing it to a client with
+WAYLAND_SOCKET environment variable.
+Once the returned FD is passed to the client it must be closed on the parent otherwise the client windows
+wont get destroyed if the client looses the connection to the server.</doc>
+        <source-position filename="src/casilda-compositor.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/casilda-compositor.c"
+               line="2658">a socket FD connected to the compositor</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="compositor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2651">a `CasildaCompositor`</doc>
+            <type name="Compositor" c:type="CasildaCompositor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_scrollable"
+              c:identifier="casilda_compositor_set_scrollable">
+        <source-position filename="src/casilda-compositor.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="compositor" transfer-ownership="none">
+            <type name="Compositor" c:type="CasildaCompositor*"/>
+          </instance-parameter>
+          <parameter name="scrollable" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="spawn_async"
+              c:identifier="casilda_compositor_spawn_async"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/casilda-compositor.c"
+             line="2684">Executes a child program asynchronously with the right environment to automatically connect to this compositor.
+
+See [func@GLib.spawn_async_with_pipes_and_fds] for a full description; this function simply calls
+[func@GLib.spawn_async_with_pipes_and_fds] without any pipes and with WAYLAND_DISPLAY set to `CasildaCompositor::socket` or
+a fd already connected to the compositor and set to WAYLAND_SOCKET if its NULL.
+
+Please note GDK_BACKEND, WAYLAND_DISPLAY and WAYLAND_SOCKET are set by this function they are ignored from %envp and
+DISPLAY is removed to avoid clients try to connect using X11</doc>
+        <source-position filename="src/casilda-compositor.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/casilda-compositor.c"
+               line="2705">TRUE on success, FALSE if error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="compositor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2686">a `CasildaCompositor`</doc>
+            <type name="Compositor" c:type="CasildaCompositor*"/>
+          </instance-parameter>
+          <parameter name="working_directory"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2687">child's current working directory, or %NULL to inherit parent's</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2688">child's argument vector</doc>
+            <array c:type="gchar**">
+              <type name="filename"/>
+            </array>
+          </parameter>
+          <parameter name="envp"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2689">child's environment, or %NULL to inherit parent's</doc>
+            <array c:type="gchar**">
+              <type name="filename"/>
+            </array>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2690">flags from #GSpawnFlags</doc>
+            <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+          </parameter>
+          <parameter name="child_setup"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2691">function to run in the child just before `exec()`</doc>
+            <type name="GLib.SpawnChildSetupFunc"
+                  c:type="GSpawnChildSetupFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2692">user data for @child_setup</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="child_pid"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/casilda-compositor.c"
+                 line="2693">return location for child process reference, or %NULL</doc>
+            <type name="GLib.Pid" c:type="GPid*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="socket"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="src/casilda-compositor.c"
+             line="1968">Wayland socket the compositor will listen on.
+
+If NULL you can still use WAYLAND_SOCKET with an fd returned by
+casilda_compositor_get_client_socket_fd() instead of setting up WAYLAND_DISPLAY.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="CompositorClass"
+            c:type="CasildaCompositorClass"
+            glib:is-gtype-struct-for="Compositor">
+      <source-position filename="src/casilda-compositor.h" line="31"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="CASILDA_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="src/casilda-version.h" line="72"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAJOR_VERSION" value="1" c:type="CASILDA_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="36">casilda major version component (e.g. 1 if %CASILDA_VERSION is 1.2.3)</doc>
+      <source-position filename="src/casilda-version.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="0" c:type="CASILDA_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="50">casilda micro version component (e.g. 3 if %CASILDA_VERSION is 1.2.3)</doc>
+      <source-position filename="src/casilda-version.h" line="55"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="0" c:type="CASILDA_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="43">casilda minor version component (e.g. 2 if %CASILDA_VERSION is 1.2.3)</doc>
+      <source-position filename="src/casilda-version.h" line="48"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_S" value="1.0.0" c:type="CASILDA_VERSION_S">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="64">casilda version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="src/casilda-version.h" line="70"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <docsection name="casildaversion">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="28">casilda provides macros to check the version of the library
+at compile-time</doc>
+    </docsection>
+  </namespace>
+</repository>

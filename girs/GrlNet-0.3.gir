@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <include name="Soup" version="3.0"/>
   <c:include name="net/grl-net.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GrlNet"
              version="0.3"
              shared-library="libgrlnet-0.3.so.0"
@@ -70,7 +72,7 @@ use it.</doc>
               c:identifier="grl_net_wc_flush_delayed_requests">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
-             line="1173">This method will flush all the pending request in the queue.</doc>
+             line="1170">This method will flush all the pending request in the queue.</doc>
         <source-position filename="libs/net/grl-net-wc.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -79,12 +81,14 @@ use it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1175">a #GrlNetWc instance</doc>
+                 line="1172">a #GrlNetWc instance</doc>
             <type name="Wc" c:type="GrlNetWc*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="request_async" c:identifier="grl_net_wc_request_async">
+      <method name="request_async"
+              c:identifier="grl_net_wc_request_async"
+              glib:finish-func="request_finish">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
              line="883">Request the fetching of a web resource given the @uri. This request is
@@ -334,7 +338,7 @@ headers for this request or %NULL to ignore</doc>
               version="0.1.12">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
-             line="1119">Sets if cache must be used. Note that this will only work if caching is
+             line="1116">Sets if cache must be used. Note that this will only work if caching is
 supporting.  If sets %TRUE, a new cache will be created. If sets to %FALSE,
 current cache is clean and removed.</doc>
         <source-position filename="libs/net/grl-net-wc.h" line="143"/>
@@ -345,13 +349,13 @@ current cache is clean and removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1121">a #GrlNetWc instance</doc>
+                 line="1118">a #GrlNetWc instance</doc>
             <type name="Wc" c:type="GrlNetWc*"/>
           </instance-parameter>
           <parameter name="use_cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1122">if cache must be used or not</doc>
+                 line="1119">if cache must be used or not</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -362,7 +366,7 @@ current cache is clean and removed.</doc>
               version="0.1.12">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
-             line="1146">Sets the new maximum size of cache, in Megabytes. Default value is 10. Using
+             line="1143">Sets the new maximum size of cache, in Megabytes. Default value is 10. Using
 0 means no cache will be done.</doc>
         <source-position filename="libs/net/grl-net-wc.h" line="146"/>
         <return-value transfer-ownership="none">
@@ -372,13 +376,13 @@ current cache is clean and removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1148">a #GrlNetWc instance</doc>
+                 line="1145">a #GrlNetWc instance</doc>
             <type name="Wc" c:type="GrlNetWc*"/>
           </instance-parameter>
           <parameter name="cache_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1149">size of cache (in Mb)</doc>
+                 line="1146">size of cache (in Mb)</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -386,7 +390,7 @@ current cache is clean and removed.</doc>
       <method name="set_log_level" c:identifier="grl_net_wc_set_log_level">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
-             line="1045">Setting the log level the logger feature is added into
+             line="1042">Setting the log level the logger feature is added into
 the libsoup session.</doc>
         <source-position filename="libs/net/grl-net-wc.h" line="137"/>
         <return-value transfer-ownership="none">
@@ -396,13 +400,13 @@ the libsoup session.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1047">a #GrlNetWc instance</doc>
+                 line="1044">a #GrlNetWc instance</doc>
             <type name="Wc" c:type="GrlNetWc*"/>
           </instance-parameter>
           <parameter name="log_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1048">the libsoup log level to set [0,3]</doc>
+                 line="1045">the libsoup log level to set [0,3]</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -412,7 +416,7 @@ the libsoup session.</doc>
               glib:set-property="throttling">
         <doc xml:space="preserve"
              filename="libs/net/grl-net-wc.c"
-             line="1079">Setting this property, the #GrlNetWc will queue all the requests and
+             line="1076">Setting this property, the #GrlNetWc will queue all the requests and
 will dispatch them with a pause between them of this value.
 
 Note that if the grl-net library was compiled against libsoup3, changing
@@ -426,13 +430,13 @@ request.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1081">a #GrlNetWc instance</doc>
+                 line="1078">a #GrlNetWc instance</doc>
             <type name="Wc" c:type="GrlNetWc*"/>
           </instance-parameter>
           <parameter name="throttling" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/net/grl-net-wc.c"
-                 line="1082">the number of seconds to wait between requests</doc>
+                 line="1079">the number of seconds to wait between requests</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>

@@ -907,7 +907,7 @@ used as the "return value" from execution.</doc>
       <source-position filename="src/tmpl-version.h" line="45"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="38" c:type="TMPL_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="40" c:type="TMPL_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/tmpl-version.h"
            line="33">Template-GLibl minor version component (e.g. 2 if %TMPL_VERSION is 1.2.3)</doc>
@@ -1839,7 +1839,7 @@ directives when parsing the template.</doc>
       <method name="expand" c:identifier="tmpl_template_expand" throws="1">
         <doc xml:space="preserve"
              filename="src/tmpl-template.c"
-             line="415">Expands a template into @stream using the @scope provided.
+             line="417">Expands a template into @stream using the @scope provided.
 
 @scope should have all of the variables set that are required to expand
 the template, or you will get a symbol reference error and %FALSE will
@@ -1851,20 +1851,20 @@ a value using tmpl_scope_assign_value() or similar methods.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/tmpl-template.c"
-               line="432">%TRUE if successful, otherwise %FALSE and @error is set.</doc>
+               line="434">%TRUE if successful, otherwise %FALSE and @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="417">A TmplTemplate.</doc>
+                 line="419">A TmplTemplate.</doc>
             <type name="Template" c:type="TmplTemplate*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="418">a #GOutputStream to write the results to</doc>
+                 line="420">a #GOutputStream to write the results to</doc>
             <type name="Gio.OutputStream" c:type="GOutputStream*"/>
           </parameter>
           <parameter name="scope"
@@ -1873,7 +1873,7 @@ a value using tmpl_scope_assign_value() or similar methods.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="419">A #TmplScope containing state for the template, or %NULL.</doc>
+                 line="421">A #TmplScope containing state for the template, or %NULL.</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1882,7 +1882,7 @@ a value using tmpl_scope_assign_value() or similar methods.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="420">An optional cancellable for the operation.</doc>
+                 line="422">An optional cancellable for the operation.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1892,19 +1892,19 @@ a value using tmpl_scope_assign_value() or similar methods.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/tmpl-template.c"
-             line="488">Expands the template and returns the result as a string.</doc>
+             line="490">Expands the template and returns the result as a string.</doc>
         <source-position filename="src/tmpl-template.h" line="82"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/tmpl-template.c"
-               line="496">A newly allocated string, or %NULL upon failure.</doc>
+               line="498">A newly allocated string, or %NULL upon failure.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="490">A #TmplTemplate.</doc>
+                 line="492">A #TmplTemplate.</doc>
             <type name="Template" c:type="TmplTemplate*"/>
           </instance-parameter>
           <parameter name="scope"
@@ -1913,7 +1913,7 @@ a value using tmpl_scope_assign_value() or similar methods.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="491">A #TmplScope or %NULL.</doc>
+                 line="493">A #TmplScope or %NULL.</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </parameter>
         </parameters>
@@ -1923,19 +1923,19 @@ a value using tmpl_scope_assign_value() or similar methods.</doc>
               glib:get-property="locator">
         <doc xml:space="preserve"
              filename="src/tmpl-template.c"
-             line="534">Gets the template locator used when resolving template includes.</doc>
+             line="536">Gets the template locator used when resolving template includes.</doc>
         <source-position filename="src/tmpl-template.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/tmpl-template.c"
-               line="540">a #TmplTemplateLocator or %NULL.</doc>
+               line="542">a #TmplTemplateLocator or %NULL.</doc>
           <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-template.c"
-                 line="536">A #TmplTemplate</doc>
+                 line="538">A #TmplTemplate</doc>
             <type name="Template" c:type="TmplTemplate*"/>
           </instance-parameter>
         </parameters>
@@ -2258,7 +2258,7 @@ the template loader.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="3.38.0" c:type="TMPL_VERSION_S">
+    <constant name="VERSION_S" value="3.40.0" c:type="TMPL_VERSION_S">
       <doc xml:space="preserve"
            filename="src/tmpl-version.h"
            line="54">Template-GLib version, encoded as a string, useful for printing and

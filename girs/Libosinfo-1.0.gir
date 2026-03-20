@@ -8342,19 +8342,19 @@ the specified type.</doc>
       <method name="get_db" c:identifier="osinfo_loader_get_db">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_loader.c"
-             line="2556">Retrieves the database being populated</doc>
+             line="2553">Retrieves the database being populated</doc>
         <source-position filename="osinfo/osinfo_loader.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osinfo/osinfo_loader.c"
-               line="2562">the database</doc>
+               line="2559">the database</doc>
           <type name="Db" c:type="OsinfoDb*"/>
         </return-value>
         <parameters>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2558">the loader object</doc>
+                 line="2555">the loader object</doc>
             <type name="Loader" c:type="OsinfoLoader*"/>
           </instance-parameter>
         </parameters>
@@ -8378,7 +8378,7 @@ the specified type.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_loader.c"
-             line="2783">Loads data from the local path.</doc>
+             line="2780">Loads data from the local path.</doc>
         <source-position filename="osinfo/osinfo_loader.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8387,7 +8387,7 @@ the specified type.</doc>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2785">the loader object</doc>
+                 line="2782">the loader object</doc>
             <type name="Loader" c:type="OsinfoLoader*"/>
           </instance-parameter>
         </parameters>
@@ -8397,7 +8397,7 @@ the specified type.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_loader.c"
-             line="2571">Loads data from the specified path. If the path
+             line="2568">Loads data from the specified path. If the path
 points to a file, that will be loaded as XML
 Otherwise it can point to a directory which will
 be recursively traversed, loading all files as XML.</doc>
@@ -8409,13 +8409,13 @@ be recursively traversed, loading all files as XML.</doc>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2573">the loader object</doc>
+                 line="2570">the loader object</doc>
             <type name="Loader" c:type="OsinfoLoader*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2574">the fully qualified path</doc>
+                 line="2571">the fully qualified path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8426,7 +8426,7 @@ be recursively traversed, loading all files as XML.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_loader.c"
-             line="2758">Loads data from the system path.</doc>
+             line="2755">Loads data from the system path.</doc>
         <source-position filename="osinfo/osinfo_loader.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8435,7 +8435,7 @@ be recursively traversed, loading all files as XML.</doc>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2760">the loader object</doc>
+                 line="2757">the loader object</doc>
             <type name="Loader" c:type="OsinfoLoader*"/>
           </instance-parameter>
         </parameters>
@@ -8445,7 +8445,7 @@ be recursively traversed, loading all files as XML.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_loader.c"
-             line="2596">Loads data from the specified URI. If the URI
+             line="2593">Loads data from the specified URI. If the URI
 points to a file, that will be loaded as XML
 Otherwise it can point to a directory which will
 be recursively traversed, loading all files as XML.</doc>
@@ -8457,13 +8457,13 @@ be recursively traversed, loading all files as XML.</doc>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2598">the loader object</doc>
+                 line="2595">the loader object</doc>
             <type name="Loader" c:type="OsinfoLoader*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2599">the data source URI</doc>
+                 line="2596">the data source URI</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8474,7 +8474,7 @@ be recursively traversed, loading all files as XML.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_loader.c"
-             line="2803">Loads data from user path.</doc>
+             line="2800">Loads data from user path.</doc>
         <source-position filename="osinfo/osinfo_loader.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8483,7 +8483,7 @@ be recursively traversed, loading all files as XML.</doc>
           <instance-parameter name="loader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osinfo/osinfo_loader.c"
-                 line="2805">the loader object</doc>
+                 line="2802">the loader object</doc>
             <type name="Loader" c:type="OsinfoLoader*"/>
           </instance-parameter>
         </parameters>

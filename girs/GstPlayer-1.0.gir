@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstAudio" version="1.0"/>
@@ -14,6 +15,7 @@ and/or use gtk-doc annotations.  -->
   <include name="GstVideo" version="1.0"/>
   <package name="gstreamer-player-1.0"/>
   <c:include name="gst/player/player.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstPlayer"
              version="1.0"
              shared-library="libgstplayer-1.0.so.0"
@@ -477,19 +479,22 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="gst_player_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="615">Creates a new #GstPlayer instance that uses @signal_dispatcher to dispatch
+             line="582">Creates a new #GstPlayer instance that uses @signal_dispatcher to dispatch
 signals to some event loop system, or emits signals directly if NULL is
 passed. See gst_player_g_main_context_signal_dispatcher_new().
 
 Video is going to be rendered by @video_renderer, or if %NULL is provided
 no special video set up will be done and some default handling will be
-performed.</doc>
+performed.
+
+This also initializes GStreamer via `gst_init()` on the first call if this
+didn't happen before.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="628">a new #GstPlayer instance</doc>
+               line="598">a new #GstPlayer instance</doc>
           <type name="Player" c:type="GstPlayer*"/>
         </return-value>
         <parameters>
@@ -499,7 +504,7 @@ performed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="617">GstPlayerVideoRenderer to use</doc>
+                 line="584">GstPlayerVideoRenderer to use</doc>
             <type name="PlayerVideoRenderer" c:type="GstPlayerVideoRenderer*"/>
           </parameter>
           <parameter name="signal_dispatcher"
@@ -508,7 +513,7 @@ performed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="618">GstPlayerSignalDispatcher to use</doc>
+                 line="585">GstPlayerSignalDispatcher to use</doc>
             <type name="PlayerSignalDispatcher"
                   c:type="GstPlayerSignalDispatcher*"/>
           </parameter>
@@ -522,14 +527,14 @@ performed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1679">current position update interval in milliseconds</doc>
+               line="1648">current position update interval in milliseconds</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1677">a #GstPlayer configuration</doc>
+                 line="1646">a #GstPlayer configuration</doc>
             <type name="Gst.Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -542,14 +547,14 @@ performed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1726">%TRUE if accurate seeking is enabled</doc>
+               line="1695">%TRUE if accurate seeking is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1724">a #GstPlayer configuration</doc>
+                 line="1693">a #GstPlayer configuration</doc>
             <type name="Gst.Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -559,21 +564,21 @@ performed.</doc>
                 version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1630">Return the user agent which has been configured using
+             line="1600">Return the user agent which has been configured using
 gst_player_config_set_user_agent() if any.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="276"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1637">the configured agent, or %NULL</doc>
+               line="1607">the configured agent, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1632">a #GstPlayer configuration</doc>
+                 line="1602">a #GstPlayer configuration</doc>
             <type name="Gst.Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -583,7 +588,7 @@ gst_player_config_set_user_agent() if any.</doc>
                 version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1654">set interval in milliseconds between two position-updated signals.
+             line="1623">set interval in milliseconds between two position-updated signals.
 pass 0 to stop updating the position.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="279"/>
@@ -594,13 +599,13 @@ pass 0 to stop updating the position.</doc>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1656">a #GstPlayer configuration</doc>
+                 line="1625">a #GstPlayer configuration</doc>
             <type name="Gst.Structure" c:type="GstStructure*"/>
           </parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1657">interval in ms</doc>
+                 line="1626">interval in ms</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -610,7 +615,7 @@ pass 0 to stop updating the position.</doc>
                 version="1.12">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1696">Enable or disable accurate seeking. When enabled, elements will try harder
+             line="1665">Enable or disable accurate seeking. When enabled, elements will try harder
 to seek as accurately as possible to the requested seek position. Generally
 it will be slower especially for formats that don't have any indexes or
 timestamp markers in the stream.
@@ -628,13 +633,13 @@ Accurate seeking is disabled by default.</doc>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1698">a #GstPlayer configuration</doc>
+                 line="1667">a #GstPlayer configuration</doc>
             <type name="Gst.Structure" c:type="GstStructure*"/>
           </parameter>
           <parameter name="accurate" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1699">accurate seek or not</doc>
+                 line="1668">accurate seek or not</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -644,7 +649,7 @@ Accurate seeking is disabled by default.</doc>
                 version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1609">Set the user agent to pass to the server if @player needs to connect
+             line="1579">Set the user agent to pass to the server if @player needs to connect
 to a server during playback. This is typically used when playing HTTP
 or RTSP streams.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
@@ -656,7 +661,7 @@ or RTSP streams.</doc>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1611">a #GstPlayer configuration</doc>
+                 line="1581">a #GstPlayer configuration</doc>
             <type name="Gst.Structure" c:type="GstStructure*"/>
           </parameter>
           <parameter name="agent"
@@ -665,7 +670,7 @@ or RTSP streams.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1612">the string to use as user agent</doc>
+                 line="1582">the string to use as user agent</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -778,20 +783,20 @@ matching #GstPlayerVideoInfo.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1353">Retrieve the current value of audio-video-offset property</doc>
+             line="1323">Retrieve the current value of audio-video-offset property</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="249"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1359">The current value of audio-video-offset in nanoseconds</doc>
+               line="1329">The current value of audio-video-offset in nanoseconds</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1355">#GstPlayer instance</doc>
+                 line="1325">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -800,13 +805,13 @@ matching #GstPlayerVideoInfo.</doc>
               c:identifier="gst_player_get_color_balance">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1252">Retrieve the current value of the indicated @type.</doc>
+             line="1222">Retrieve the current value of the indicated @type.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="230"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1259">The current value of @type, between [0,1]. In case of
+               line="1229">The current value of @type, between [0,1]. In case of
   error -1 is returned.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -814,13 +819,13 @@ matching #GstPlayerVideoInfo.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1254">#GstPlayer instance</doc>
+                 line="1224">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1255">#GstPlayerColorBalanceType</doc>
+                 line="1225">#GstPlayerColorBalanceType</doc>
             <type name="PlayerColorBalanceType"
                   c:type="GstPlayerColorBalanceType"/>
           </parameter>
@@ -831,7 +836,7 @@ matching #GstPlayerVideoInfo.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1588">Get a copy of the current configuration of the player. This configuration
+             line="1558">Get a copy of the current configuration of the player. This configuration
 can either be modified and used for the gst_player_set_config() call
 or it must be freed after usage.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
@@ -839,7 +844,7 @@ or it must be freed after usage.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1596">a copy of the current configuration of @player. Use
+               line="1566">a copy of the current configuration of @player. Use
 gst_structure_free() after usage or gst_player_set_config().</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </return-value>
@@ -847,7 +852,7 @@ gst_structure_free() after usage or gst_player_set_config().</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1590">#GstPlayer instance</doc>
+                 line="1560">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -857,13 +862,13 @@ gst_structure_free() after usage or gst_player_set_config().</doc>
               glib:get-property="current-audio-track">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="980">A Function to get current audio #GstPlayerAudioInfo instance.</doc>
+             line="950">A Function to get current audio #GstPlayerAudioInfo instance.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="202"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="986">current audio track.
+               line="956">current audio track.
 
 The caller should free it with g_object_unref()</doc>
           <type name="PlayerAudioInfo" c:type="GstPlayerAudioInfo*"/>
@@ -872,7 +877,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="982">#GstPlayer instance</doc>
+                 line="952">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -882,13 +887,13 @@ The caller should free it with g_object_unref()</doc>
               glib:get-property="current-subtitle-track">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1032">A Function to get current subtitle #GstPlayerSubtitleInfo instance.</doc>
+             line="1002">A Function to get current subtitle #GstPlayerSubtitleInfo instance.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="208"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1038">current subtitle track.
+               line="1008">current subtitle track.
 
 The caller should free it with g_object_unref()</doc>
           <type name="PlayerSubtitleInfo" c:type="GstPlayerSubtitleInfo*"/>
@@ -897,7 +902,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1034">#GstPlayer instance</doc>
+                 line="1004">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -907,13 +912,13 @@ The caller should free it with g_object_unref()</doc>
               glib:get-property="current-video-track">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1006">A Function to get current video #GstPlayerVideoInfo instance.</doc>
+             line="976">A Function to get current video #GstPlayerVideoInfo instance.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="205"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1012">current video track.
+               line="982">current video track.
 
 The caller should free it with g_object_unref()</doc>
           <type name="PlayerVideoInfo" c:type="GstPlayerVideoInfo*"/>
@@ -922,7 +927,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1008">#GstPlayer instance</doc>
+                 line="978">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -934,7 +939,7 @@ The caller should free it with g_object_unref()</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1175">Name of the currently enabled
+               line="1145">Name of the currently enabled
   visualization.
   g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -943,7 +948,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1173">#GstPlayer instance</doc>
+                 line="1143">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -953,13 +958,13 @@ The caller should free it with g_object_unref()</doc>
               glib:get-property="duration">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="840">Retrieves the duration of the media stream that self represents.</doc>
+             line="810">Retrieves the duration of the media stream that self represents.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="846">the duration of the currently-playing media stream, in
+               line="816">the duration of the currently-playing media stream, in
 nanoseconds.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
@@ -967,7 +972,7 @@ nanoseconds.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="842">#GstPlayer instance</doc>
+                 line="812">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -977,13 +982,13 @@ nanoseconds.</doc>
               glib:get-property="media-info">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="953">A Function to get the current media info #GstPlayerMediaInfo instance.</doc>
+             line="923">A Function to get the current media info #GstPlayerMediaInfo instance.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="199"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="959">media info instance.
+               line="929">media info instance.
 
 The caller should free it with g_object_unref()</doc>
           <type name="PlayerMediaInfo" c:type="GstPlayerMediaInfo*"/>
@@ -992,7 +997,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="955">#GstPlayer instance</doc>
+                 line="925">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1002,13 +1007,13 @@ The caller should free it with g_object_unref()</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1313">Retrieve the current value of the indicated @type.</doc>
+             line="1283">Retrieve the current value of the indicated @type.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="242"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1319">The current value of @type, Default: 0x00000000 "none</doc>
+               line="1289">The current value of @type, Default: 0x00000000 "none</doc>
           <type name="GstVideo.VideoMultiviewFlags"
                 c:type="GstVideoMultiviewFlags"/>
         </return-value>
@@ -1016,7 +1021,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1315">#GstPlayer instance</doc>
+                 line="1285">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1026,13 +1031,13 @@ The caller should free it with g_object_unref()</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1271">Retrieve the current value of the indicated @type.</doc>
+             line="1241">Retrieve the current value of the indicated @type.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="235"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1277">The current value of @type, Default: -1 "none"</doc>
+               line="1247">The current value of @type, Default: -1 "none"</doc>
           <type name="GstVideo.VideoMultiviewFramePacking"
                 c:type="GstVideoMultiviewFramePacking"/>
         </return-value>
@@ -1040,7 +1045,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1273">#GstPlayer instance</doc>
+                 line="1243">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1053,14 +1058,14 @@ The caller should free it with g_object_unref()</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="904">%TRUE if the currently-playing stream is muted.</doc>
+               line="874">%TRUE if the currently-playing stream is muted.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="902">#GstPlayer instance</doc>
+                 line="872">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1073,7 +1078,7 @@ The caller should free it with g_object_unref()</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="937">The internal playbin instance.
+               line="907">The internal playbin instance.
 
 The caller should free it with g_object_unref()</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
@@ -1082,7 +1087,7 @@ The caller should free it with g_object_unref()</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="935">#GstPlayer instance</doc>
+                 line="905">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1095,7 +1100,7 @@ The caller should free it with g_object_unref()</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="825">the absolute position time, in nanoseconds, of the
+               line="795">the absolute position time, in nanoseconds, of the
 currently-playing stream.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
@@ -1103,7 +1108,7 @@ currently-playing stream.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="823">#GstPlayer instance</doc>
+                 line="793">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1116,14 +1121,14 @@ currently-playing stream.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="716">current playback rate</doc>
+               line="686">current playback rate</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="714">#GstPlayer instance</doc>
+                 line="684">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1132,13 +1137,13 @@ currently-playing stream.</doc>
               c:identifier="gst_player_get_subtitle_uri">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="800">current subtitle URI</doc>
+             line="770">current subtitle URI</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="145"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="806">URI of the current external subtitle.
+               line="776">URI of the current external subtitle.
   g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -1146,7 +1151,7 @@ currently-playing stream.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="802">#GstPlayer instance</doc>
+                 line="772">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1157,20 +1162,20 @@ currently-playing stream.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1392">Retrieve the current value of subtitle-video-offset property</doc>
+             line="1362">Retrieve the current value of subtitle-video-offset property</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="256"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1398">The current value of subtitle-video-offset in nanoseconds</doc>
+               line="1368">The current value of subtitle-video-offset in nanoseconds</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1394">#GstPlayer instance</doc>
+                 line="1364">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1180,13 +1185,13 @@ currently-playing stream.</doc>
               glib:get-property="uri">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="747">Gets the URI of the currently-playing stream.</doc>
+             line="717">Gets the URI of the currently-playing stream.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="138"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="753">a string containing the URI of the
+               line="723">a string containing the URI of the
 currently-playing stream. g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -1194,7 +1199,7 @@ currently-playing stream. g_free() after usage.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="749">#GstPlayer instance</doc>
+                 line="719">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1204,7 +1209,7 @@ currently-playing stream. g_free() after usage.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1743">Get a snapshot of the currently selected video stream, if any. The format can be
+             line="1711">Get a snapshot of the currently selected video stream, if any. The format can be
 selected with @format and optional configuration is possible with @config
 Currently supported settings are:
 - width, height of type G_TYPE_INT
@@ -1215,20 +1220,20 @@ Currently supported settings are:
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1756">Current video snapshot sample or %NULL on failure</doc>
+               line="1724">Current video snapshot sample or %NULL on failure</doc>
           <type name="Gst.Sample" c:type="GstSample*"/>
         </return-value>
         <parameters>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1745">#GstPlayer instance</doc>
+                 line="1713">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1746">output format of the video snapshot</doc>
+                 line="1714">output format of the video snapshot</doc>
             <type name="PlayerSnapshotFormat"
                   c:type="GstPlayerSnapshotFormat"/>
           </parameter>
@@ -1238,7 +1243,7 @@ Currently supported settings are:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1747">Additional configuration</doc>
+                 line="1715">Additional configuration</doc>
             <type name="Gst.Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -1248,20 +1253,20 @@ Currently supported settings are:
               glib:get-property="volume">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="861">Returns the current volume level, as a percentage between 0 and 1.</doc>
+             line="831">Returns the current volume level, as a percentage between 0 and 1.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="867">the volume as percentage between 0 and 1.</doc>
+               line="837">the volume as percentage between 0 and 1.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="863">#GstPlayer instance</doc>
+                 line="833">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1270,13 +1275,13 @@ Currently supported settings are:
               c:identifier="gst_player_has_color_balance">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1215">Checks whether the @player has color balance support available.</doc>
+             line="1185">Checks whether the @player has color balance support available.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="222"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1221">%TRUE if @player has color balance support. Otherwise,
+               line="1191">%TRUE if @player has color balance support. Otherwise,
   %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1284,7 +1289,7 @@ Currently supported settings are:
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1217">#GstPlayer instance</doc>
+                 line="1187">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1292,7 +1297,7 @@ Currently supported settings are:
       <method name="pause" c:identifier="gst_player_pause">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="667">Pauses the current stream.</doc>
+             line="637">Pauses the current stream.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="121"/>
         <return-value transfer-ownership="none">
@@ -1302,7 +1307,7 @@ Currently supported settings are:
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="669">#GstPlayer instance</doc>
+                 line="639">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1310,7 +1315,7 @@ Currently supported settings are:
       <method name="play" c:identifier="gst_player_play">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="653">Request to play the loaded stream.</doc>
+             line="623">Request to play the loaded stream.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="118"/>
         <return-value transfer-ownership="none">
@@ -1320,7 +1325,7 @@ Currently supported settings are:
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="655">#GstPlayer instance</doc>
+                 line="625">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -1328,7 +1333,7 @@ Currently supported settings are:
       <method name="seek" c:identifier="gst_player_seek">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="730">Seeks the currently-playing stream to the absolute @position time
+             line="700">Seeks the currently-playing stream to the absolute @position time
 in nanoseconds.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="127"/>
@@ -1339,13 +1344,13 @@ in nanoseconds.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="732">#GstPlayer instance</doc>
+                 line="702">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="733">position to seek in nanoseconds</doc>
+                 line="703">position to seek in nanoseconds</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -1356,7 +1361,7 @@ in nanoseconds.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1063">%TRUE or %FALSE
+               line="1033">%TRUE or %FALSE
 
 Sets the audio track @stream_idex.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -1365,13 +1370,13 @@ Sets the audio track @stream_idex.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1060">#GstPlayer instance</doc>
+                 line="1030">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="stream_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1061">stream index</doc>
+                 line="1031">stream index</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1380,9 +1385,266 @@ Sets the audio track @stream_idex.</doc>
               c:identifier="gst_player_set_audio_track_enabled">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1109">Enable or disable the current audio track.</doc>
+             line="1079">Enable or disable the current audio track.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="179"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1081">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1082">TRUE or FALSE</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_audio_video_offset"
+              c:identifier="gst_player_set_audio_video_offset"
+              glib:set-property="audio-video-offset"
+              version="1.10">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="1345">Sets audio-video-offset property by value of @offset</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="252"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1347">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1348">#gint64 in nanoseconds</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_color_balance"
+              c:identifier="gst_player_set_color_balance">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="1202">Sets the current value of the indicated channel @type to the passed
+value.</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="225"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1204">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1205">#GstPlayerColorBalanceType</doc>
+            <type name="PlayerColorBalanceType"
+                  c:type="GstPlayerColorBalanceType"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1206">The new value for the @type, ranged [0,1]</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_config"
+              c:identifier="gst_player_set_config"
+              version="1.10">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="1531">Set the configuration of the player. If the player is already configured, and
+the configuration haven't change, this function will return %TRUE. If the
+player is not in the GST_PLAYER_STATE_STOPPED, this method will return %FALSE
+and active configuration will remain.
+
+@config is a #GstStructure that contains the configuration parameters for
+the player.
+
+This function takes ownership of @config.</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="263"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/player/gstplayer.c"
+               line="1546">%TRUE when the configuration could be set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1533">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="config" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1534">a #GstStructure</doc>
+            <type name="Gst.Structure" c:type="GstStructure*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_multiview_flags"
+              c:identifier="gst_player_set_multiview_flags"
+              version="1.10">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="1305">Sets the current value of the indicated mode @type to the passed
+value.</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="245"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1307">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1308">The new value for the @type</doc>
+            <type name="GstVideo.VideoMultiviewFlags"
+                  c:type="GstVideoMultiviewFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_multiview_mode"
+              c:identifier="gst_player_set_multiview_mode"
+              version="1.10">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="1264">Sets the current value of the indicated mode @type to the passed
+value.</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="238"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1266">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1267">The new value for the @type</doc>
+            <type name="GstVideo.VideoMultiviewFramePacking"
+                  c:type="GstVideoMultiviewFramePacking"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mute"
+              c:identifier="gst_player_set_mute"
+              glib:set-property="mute">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="888">%TRUE if the currently-playing stream should be muted.</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="168"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="890">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="891">Mute state the should be set</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rate"
+              c:identifier="gst_player_set_rate"
+              glib:set-property="rate">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="666">Playback at specified rate</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="668">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="rate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="669">playback rate</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_track"
+              c:identifier="gst_player_set_subtitle_track">
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="195"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/player/gstplayer.c"
+               line="1067">%TRUE or %FALSE
+
+Sets the subtitle stack @stream_index.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1064">#GstPlayer instance</doc>
+            <type name="Player" c:type="GstPlayer*"/>
+          </instance-parameter>
+          <parameter name="stream_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/player/gstplayer.c"
+                 line="1065">stream index</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_track_enabled"
+              c:identifier="gst_player_set_subtitle_track_enabled">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/player/gstplayer.c"
+             line="1109">Enable or disable the current subtitle track.</doc>
+        <source-position filename="gst-libs/gst/player/gstplayer.h"
+                         line="183"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1401,268 +1663,11 @@ Sets the audio track @stream_idex.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_audio_video_offset"
-              c:identifier="gst_player_set_audio_video_offset"
-              glib:set-property="audio-video-offset"
-              version="1.10">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="1375">Sets audio-video-offset property by value of @offset</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="252"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1377">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="offset" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1378">#gint64 in nanoseconds</doc>
-            <type name="gint64" c:type="gint64"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_color_balance"
-              c:identifier="gst_player_set_color_balance">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="1232">Sets the current value of the indicated channel @type to the passed
-value.</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="225"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1234">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="type" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1235">#GstPlayerColorBalanceType</doc>
-            <type name="PlayerColorBalanceType"
-                  c:type="GstPlayerColorBalanceType"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1236">The new value for the @type, ranged [0,1]</doc>
-            <type name="gdouble" c:type="gdouble"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_config"
-              c:identifier="gst_player_set_config"
-              version="1.10">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="1561">Set the configuration of the player. If the player is already configured, and
-the configuration haven't change, this function will return %TRUE. If the
-player is not in the GST_PLAYER_STATE_STOPPED, this method will return %FALSE
-and active configuration will remain.
-
-@config is a #GstStructure that contains the configuration parameters for
-the player.
-
-This function takes ownership of @config.</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="263"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/player/gstplayer.c"
-               line="1576">%TRUE when the configuration could be set.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1563">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="config" transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1564">a #GstStructure</doc>
-            <type name="Gst.Structure" c:type="GstStructure*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_multiview_flags"
-              c:identifier="gst_player_set_multiview_flags"
-              version="1.10">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="1335">Sets the current value of the indicated mode @type to the passed
-value.</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="245"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1337">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="flags" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1338">The new value for the @type</doc>
-            <type name="GstVideo.VideoMultiviewFlags"
-                  c:type="GstVideoMultiviewFlags"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_multiview_mode"
-              c:identifier="gst_player_set_multiview_mode"
-              version="1.10">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="1294">Sets the current value of the indicated mode @type to the passed
-value.</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="238"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1296">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="mode" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1297">The new value for the @type</doc>
-            <type name="GstVideo.VideoMultiviewFramePacking"
-                  c:type="GstVideoMultiviewFramePacking"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_mute"
-              c:identifier="gst_player_set_mute"
-              glib:set-property="mute">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="918">%TRUE if the currently-playing stream should be muted.</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="168"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="920">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="val" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="921">Mute state the should be set</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_rate"
-              c:identifier="gst_player_set_rate"
-              glib:set-property="rate">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="696">Playback at specified rate</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="131"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="698">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="rate" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="699">playback rate</doc>
-            <type name="gdouble" c:type="gdouble"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_subtitle_track"
-              c:identifier="gst_player_set_subtitle_track">
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="195"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/player/gstplayer.c"
-               line="1097">%TRUE or %FALSE
-
-Sets the subtitle stack @stream_index.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1094">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="stream_index" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1095">stream index</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_subtitle_track_enabled"
-              c:identifier="gst_player_set_subtitle_track_enabled">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/player/gstplayer.c"
-             line="1139">Enable or disable the current subtitle track.</doc>
-        <source-position filename="gst-libs/gst/player/gstplayer.h"
-                         line="183"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="player" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1141">#GstPlayer instance</doc>
-            <type name="Player" c:type="GstPlayer*"/>
-          </instance-parameter>
-          <parameter name="enabled" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/player/gstplayer.c"
-                 line="1142">TRUE or FALSE</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="set_subtitle_uri"
               c:identifier="gst_player_set_subtitle_uri">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="783">Sets the external subtitle URI. This should be combined with a call to
+             line="753">Sets the external subtitle URI. This should be combined with a call to
 gst_player_set_subtitle_track_enabled(@player, TRUE) so the subtitles are actually
 rendered.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
@@ -1674,7 +1679,7 @@ rendered.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="785">#GstPlayer instance</doc>
+                 line="755">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="uri"
@@ -1683,7 +1688,7 @@ rendered.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="786">subtitle URI</doc>
+                 line="756">subtitle URI</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1694,7 +1699,7 @@ rendered.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1414">Sets subtitle-video-offset property by value of @offset</doc>
+             line="1384">Sets subtitle-video-offset property by value of @offset</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="259"/>
         <return-value transfer-ownership="none">
@@ -1704,13 +1709,13 @@ rendered.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1416">#GstPlayer instance</doc>
+                 line="1386">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1417">#gint64 in nanoseconds</doc>
+                 line="1387">#gint64 in nanoseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1720,7 +1725,7 @@ rendered.</doc>
               glib:set-property="uri">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="768">Sets the next URI to play.</doc>
+             line="738">Sets the next URI to play.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="141"/>
         <return-value transfer-ownership="none">
@@ -1730,7 +1735,7 @@ rendered.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="770">#GstPlayer instance</doc>
+                 line="740">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="uri"
@@ -1739,7 +1744,7 @@ rendered.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="771">next URI to play.</doc>
+                 line="741">next URI to play.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1750,7 +1755,7 @@ rendered.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1080">%TRUE or %FALSE
+               line="1050">%TRUE or %FALSE
 
 Sets the video track @stream_index.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -1759,13 +1764,13 @@ Sets the video track @stream_index.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1077">#GstPlayer instance</doc>
+                 line="1047">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="stream_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1078">stream index</doc>
+                 line="1048">stream index</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1774,7 +1779,7 @@ Sets the video track @stream_index.</doc>
               c:identifier="gst_player_set_video_track_enabled">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1124">Enable or disable the current video track.</doc>
+             line="1094">Enable or disable the current video track.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="175"/>
         <return-value transfer-ownership="none">
@@ -1784,13 +1789,13 @@ Sets the video track @stream_index.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1126">#GstPlayer instance</doc>
+                 line="1096">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1127">TRUE or FALSE</doc>
+                 line="1097">TRUE or FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1802,7 +1807,7 @@ Sets the video track @stream_index.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1160">%TRUE if the visualizations was set correctly. Otherwise,
+               line="1130">%TRUE if the visualizations was set correctly. Otherwise,
 %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1810,7 +1815,7 @@ Sets the video track @stream_index.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1156">#GstPlayer instance</doc>
+                 line="1126">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="name"
@@ -1819,7 +1824,7 @@ Sets the video track @stream_index.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1157">visualization element obtained from
+                 line="1127">visualization element obtained from
 #gst_player_visualizations_get()</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1829,7 +1834,7 @@ Sets the video track @stream_index.</doc>
               c:identifier="gst_player_set_visualization_enabled">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1187">Enable or disable the visualization.</doc>
+             line="1157">Enable or disable the visualization.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="215"/>
         <return-value transfer-ownership="none">
@@ -1839,13 +1844,13 @@ Sets the video track @stream_index.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1189">#GstPlayer instance</doc>
+                 line="1159">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1190">TRUE or FALSE</doc>
+                 line="1160">TRUE or FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1855,7 +1860,7 @@ Sets the video track @stream_index.</doc>
               glib:set-property="volume">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="881">Sets the volume level of the stream as a percentage between 0 and 1.
+             line="851">Sets the volume level of the stream as a percentage between 0 and 1.
 
 This volume is a linear factor. For showing the volume in a GUI it
 might make sense to first convert from a different format. Volume sliders
@@ -1869,13 +1874,13 @@ should usually use a cubic volume. See gst_stream_volume_convert_volume().</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="883">#GstPlayer instance</doc>
+                 line="853">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
           <parameter name="val" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="884">the new volume level, as a percentage between 0 and 1</doc>
+                 line="854">the new volume level, as a percentage between 0 and 1</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -1883,7 +1888,7 @@ should usually use a cubic volume. See gst_stream_volume_convert_volume().</doc>
       <method name="stop" c:identifier="gst_player_stop">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="681">Stops playing the current stream and resets to the first position
+             line="651">Stops playing the current stream and resets to the first position
 in the stream.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h"
                          line="124"/>
@@ -1894,7 +1899,7 @@ in the stream.</doc>
           <instance-parameter name="player" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="683">#GstPlayer instance</doc>
+                 line="653">#GstPlayer instance</doc>
             <type name="Player" c:type="GstPlayer*"/>
           </instance-parameter>
         </parameters>
@@ -2325,12 +2330,12 @@ gain.</doc>
                 c:identifier="gst_player_color_balance_type_get_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1459">Gets a string representing the given color balance type.</doc>
+             line="1429">Gets a string representing the given color balance type.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1465">a string with the name of the color
+               line="1435">a string with the name of the color
   balance type.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2338,7 +2343,7 @@ gain.</doc>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1461">a #GstPlayerColorBalanceType</doc>
+                 line="1431">a #GstPlayerColorBalanceType</doc>
             <type name="PlayerColorBalanceType"
                   c:type="GstPlayerColorBalanceType"/>
           </parameter>
@@ -2362,19 +2367,19 @@ gain.</doc>
       <function name="get_name" c:identifier="gst_player_error_get_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1541">Gets a string representing the given error.</doc>
+             line="1511">Gets a string representing the given error.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1547">a string with the given error.</doc>
+               line="1517">a string with the given error.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1543">a #GstPlayerError</doc>
+                 line="1513">a #GstPlayerError</doc>
             <type name="PlayerError" c:type="GstPlayerError"/>
           </parameter>
         </parameters>
@@ -2399,14 +2404,14 @@ gain.</doc>
                 c:identifier="gst_player_g_main_context_signal_dispatcher_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer-g-main-context-signal-dispatcher.c"
-             line="198">Creates a new GstPlayerSignalDispatcher that uses @application_context,
+             line="199">Creates a new GstPlayerSignalDispatcher that uses @application_context,
 or the thread default one if %NULL is used. See gst_player_new().</doc>
         <source-position filename="gst-libs/gst/player/gstplayer-g-main-context-signal-dispatcher.h"
                          line="46"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer-g-main-context-signal-dispatcher.c"
-               line="205">the new GstPlayerSignalDispatcher</doc>
+               line="206">the new GstPlayerSignalDispatcher</doc>
           <type name="PlayerSignalDispatcher"
                 c:type="GstPlayerSignalDispatcher*"/>
         </return-value>
@@ -2417,7 +2422,7 @@ or the thread default one if %NULL is used. See gst_player_new().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer-g-main-context-signal-dispatcher.c"
-                 line="200">GMainContext to use or %NULL</doc>
+                 line="201">GMainContext to use or %NULL</doc>
             <type name="GLib.MainContext" c:type="GMainContext*"/>
           </parameter>
         </parameters>
@@ -2943,19 +2948,19 @@ stream.</doc>
       <function name="get_name" c:identifier="gst_player_state_get_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1498">Gets a string representing the given state.</doc>
+             line="1468">Gets a string representing the given state.</doc>
         <source-position filename="gst-libs/gst/player/gstplayer.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1504">a string with the name of the state.</doc>
+               line="1474">a string with the name of the state.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/player/gstplayer.c"
-                 line="1500">a #GstPlayerState</doc>
+                 line="1470">a #GstPlayerState</doc>
             <type name="PlayerState" c:type="GstPlayerState"/>
           </parameter>
         </parameters>
@@ -3684,12 +3689,12 @@ freed using gst_player_visualization_free().</doc>
               moved-to="PlayerColorBalanceType.get_name">
       <doc xml:space="preserve"
            filename="gst-libs/gst/player/gstplayer.c"
-           line="1459">Gets a string representing the given color balance type.</doc>
+           line="1429">Gets a string representing the given color balance type.</doc>
       <source-position filename="gst-libs/gst/player/gstplayer.h" line="97"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1465">a string with the name of the color
+             line="1435">a string with the name of the color
   balance type.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -3697,7 +3702,7 @@ freed using gst_player_visualization_free().</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1461">a #GstPlayerColorBalanceType</doc>
+               line="1431">a #GstPlayerColorBalanceType</doc>
           <type name="PlayerColorBalanceType"
                 c:type="GstPlayerColorBalanceType"/>
         </parameter>
@@ -3708,19 +3713,19 @@ freed using gst_player_visualization_free().</doc>
               moved-to="PlayerError.get_name">
       <doc xml:space="preserve"
            filename="gst-libs/gst/player/gstplayer.c"
-           line="1541">Gets a string representing the given error.</doc>
+           line="1511">Gets a string representing the given error.</doc>
       <source-position filename="gst-libs/gst/player/gstplayer.h" line="74"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1547">a string with the given error.</doc>
+             line="1517">a string with the given error.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="error" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1543">a #GstPlayerError</doc>
+               line="1513">a #GstPlayerError</doc>
           <type name="PlayerError" c:type="GstPlayerError"/>
         </parameter>
       </parameters>
@@ -3737,19 +3742,19 @@ freed using gst_player_visualization_free().</doc>
               moved-to="PlayerState.get_name">
       <doc xml:space="preserve"
            filename="gst-libs/gst/player/gstplayer.c"
-           line="1498">Gets a string representing the given state.</doc>
+           line="1468">Gets a string representing the given state.</doc>
       <source-position filename="gst-libs/gst/player/gstplayer.h" line="55"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/player/gstplayer.c"
-             line="1504">a string with the name of the state.</doc>
+             line="1474">a string with the name of the state.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="state" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/player/gstplayer.c"
-               line="1500">a #GstPlayerState</doc>
+               line="1470">a #GstPlayerState</doc>
           <type name="PlayerState" c:type="GstPlayerState"/>
         </parameter>
       </parameters>

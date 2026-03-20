@@ -5,17 +5,408 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="libxfce4util-1.0"/>
   <c:include name="libxfce4util/libxfce4util.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Libxfce4util"
              version="1.0"
              shared-library="libxfce4util.so.7"
-             c:identifier-prefixes="Xfce,xfce,libxfce"
-             c:symbol-prefixes="xfce,xfce,libxfce">
+             c:identifier-prefixes="Xfce,xfce"
+             c:symbol-prefixes="xfce,xfce">
+    <class name="Consolekit"
+           c:symbol-prefix="consolekit"
+           c:type="XfceConsolekit"
+           parent="GObject.Object"
+           glib:type-name="XfceConsolekit"
+           glib:get-type="xfce_consolekit_get_type"
+           glib:type-struct="ConsolekitClass">
+      <source-position filename="xfce-consolekit.h" line="35"/>
+      <function name="get" c:identifier="xfce_consolekit_get" version="4.19.1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="326">Create a new #XfceConsolekit instance or increase reference count.</doc>
+        <source-position filename="xfce-consolekit.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="331">A reference to the singleton object, to be released with g_object_unref().</doc>
+          <type name="Consolekit" c:type="XfceConsolekit*"/>
+        </return-value>
+      </function>
+      <method name="can_hibernate"
+              c:identifier="xfce_consolekit_can_hibernate"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="617">Check whether ConsoleKit can trigger and has authorization for Hibernate.</doc>
+        <source-position filename="xfce-consolekit.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="626">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="619">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="can_hibernate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="620">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_hibernate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="621">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_hybrid_sleep"
+              c:identifier="xfce_consolekit_can_hybrid_sleep"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="644">Check whether ConsoleKit can trigger and has authorization for HybridSleep.</doc>
+        <source-position filename="xfce-consolekit.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="653">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="646">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="can_hybrid_sleep"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="647">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_hybrid_sleep"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="648">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_power_off"
+              c:identifier="xfce_consolekit_can_power_off"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="549">Check whether ConsoleKit can trigger PowerOff.</doc>
+        <source-position filename="xfce-consolekit.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="558">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="551">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="can_power_off"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="552">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_power_off"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="553">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_reboot"
+              c:identifier="xfce_consolekit_can_reboot"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="508">Check whether ConsoleKit can trigger Reboot.</doc>
+        <source-position filename="xfce-consolekit.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="517">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="510">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="can_reboot"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="511">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_reboot"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="512">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_suspend"
+              c:identifier="xfce_consolekit_can_suspend"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="590">Check whether ConsoleKit can trigger and has authorization for Suspend.</doc>
+        <source-position filename="xfce-consolekit.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="599">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="592">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="can_suspend"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="593">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_suspend"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="594">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="hibernate"
+              c:identifier="xfce_consolekit_hibernate"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="458">Ask ConsoleKit to trigger Hibernate.</doc>
+        <source-position filename="xfce-consolekit.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="466">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="460">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="461">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="hybrid_sleep"
+              c:identifier="xfce_consolekit_hybrid_sleep"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="483">Ask ConsoleKit to trigger HybridSleep.</doc>
+        <source-position filename="xfce-consolekit.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="491">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="485">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="486">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="power_off"
+              c:identifier="xfce_consolekit_power_off"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="394">Ask ConsoleKit to trigger PowerOff.</doc>
+        <source-position filename="xfce-consolekit.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="402">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="396">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="397">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reboot"
+              c:identifier="xfce_consolekit_reboot"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="355">Ask ConsoleKit to trigger Reboot.</doc>
+        <source-position filename="xfce-consolekit.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="363">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="357">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="358">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="suspend"
+              c:identifier="xfce_consolekit_suspend"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-consolekit.c"
+             line="433">Ask ConsoleKit to trigger Suspend.</doc>
+        <source-position filename="xfce-consolekit.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-consolekit.c"
+               line="441">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="consolekit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="435">the #XfceConsolekit object</doc>
+            <type name="Consolekit" c:type="XfceConsolekit*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-consolekit.c"
+                 line="436">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ConsolekitClass"
+            c:type="XfceConsolekitClass"
+            glib:is-gtype-struct-for="Consolekit">
+      <source-position filename="xfce-consolekit.h" line="35"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <function-macro name="GENERIC_STACK"
                     c:identifier="XFCE_GENERIC_STACK"
                     introspectable="0">
@@ -49,19 +440,19 @@ and furtheron refer to your stack type as `MyDoubleStack`.</doc>
       <constructor name="new" c:identifier="xfce_kiosk_new" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-kiosk.c"
-             line="103">Creates and returns a new instance of #XfceKiosk.</doc>
-        <source-position filename="xfce-kiosk.h" line="37"/>
+             line="107">Creates and returns a new instance of #XfceKiosk.</doc>
+        <source-position filename="xfce-kiosk.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfce-kiosk.c"
-               line="109">a new instance of #XfceKiosk.</doc>
+               line="113">a new instance of #XfceKiosk.</doc>
           <type name="Kiosk" c:type="XfceKiosk*"/>
         </return-value>
         <parameters>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-kiosk.c"
-                 line="105">The Xfce project to query about</doc>
+                 line="109">The Xfce project to query about</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -69,9 +460,9 @@ and furtheron refer to your stack type as `MyDoubleStack`.</doc>
       <method name="free" c:identifier="xfce_kiosk_free" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-kiosk.c"
-             line="214">Frees the @kiosk object.
+             line="220">Frees the @kiosk object.
 In 4.13 and above, this is equivalent to calling g_clear_object.</doc>
-        <source-position filename="xfce-kiosk.h" line="40"/>
+        <source-position filename="xfce-kiosk.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -79,7 +470,7 @@ In 4.13 and above, this is equivalent to calling g_clear_object.</doc>
           <instance-parameter name="kiosk" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-kiosk.c"
-                 line="216">A #XfceKiosk.</doc>
+                 line="222">A #XfceKiosk.</doc>
             <type name="Kiosk" c:type="XfceKiosk*"/>
           </instance-parameter>
         </parameters>
@@ -87,26 +478,26 @@ In 4.13 and above, this is equivalent to calling g_clear_object.</doc>
       <method name="query" c:identifier="xfce_kiosk_query" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-kiosk.c"
-             line="132">Queries the @kiosk object for a given capability and returns %TRUE if
+             line="136">Queries the @kiosk object for a given capability and returns %TRUE if
 the current user has the @capability, else %FALSE.</doc>
-        <source-position filename="xfce-kiosk.h" line="38"/>
+        <source-position filename="xfce-kiosk.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-kiosk.c"
-               line="140">%TRUE if the current user has the @capability, else %FALSE.</doc>
+               line="144">%TRUE if the current user has the @capability, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="kiosk" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-kiosk.c"
-                 line="134">A #XfceKiosk.</doc>
+                 line="138">A #XfceKiosk.</doc>
             <type name="Kiosk" c:type="const XfceKiosk*"/>
           </instance-parameter>
           <parameter name="capability" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-kiosk.c"
-                 line="135">The name of the capability to check.</doc>
+                 line="139">The name of the capability to check.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -123,11 +514,11 @@ the current user has the @capability, else %FALSE.</doc>
     <constant name="LOCALE_FULL_MATCH"
               value="50"
               c:type="XFCE_LOCALE_FULL_MATCH">
-      <source-position filename="xfce-i18n.h" line="60"/>
+      <source-position filename="xfce-i18n.h" line="66"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="LOCALE_NO_MATCH" value="0" c:type="XFCE_LOCALE_NO_MATCH">
-      <source-position filename="xfce-i18n.h" line="61"/>
+      <source-position filename="xfce-i18n.h" line="67"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <enumeration name="LicenseTextType" c:type="XfceLicenseTextType">
@@ -231,11 +622,11 @@ the current user has the @capability, else %FALSE.</doc>
       <method name="close" c:identifier="xfce_rc_close" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="192">Destructs @rc.
+             line="191">Destructs @rc.
 
 If @rc was opened read-write and contains dirty (modified) entries, these
 will be flushed to permanent storage first.</doc>
-        <source-position filename="xfce-rc.h" line="49"/>
+        <source-position filename="xfce-rc.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -243,7 +634,7 @@ will be flushed to permanent storage first.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="194">an #XfceRc object.</doc>
+                 line="193">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -253,9 +644,9 @@ will be flushed to permanent storage first.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="491">Similar to #xfce_rc_delete_group, but works on an entry in the current
+             line="490">Similar to #xfce_rc_delete_group, but works on an entry in the current
 group.</doc>
-        <source-position filename="xfce-rc.h" line="71"/>
+        <source-position filename="xfce-rc.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -263,19 +654,19 @@ group.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="493">an #XfceRc object.</doc>
+                 line="492">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="494">the key to delete.</doc>
+                 line="493">the key to delete.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="495">whether to delete @key globally.</doc>
+                 line="494">whether to delete @key globally.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -285,7 +676,7 @@ group.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="392">If @rc is a simple config object and @group exists, it is deleted. All entries
+             line="391">If @rc is a simple config object and @group exists, it is deleted. All entries
 within @group will be deleted. For simple config objects, @global is ignored.
 
 If @rc is a complex config object and @group exists, it will be deleted will
@@ -294,7 +685,7 @@ therefore all calls to #xfce_rc_read_entry and related functions will return
 the fallback values. If @global is %FALSE, the @group will be deleted in the
 per-user config file, and further calls to #xfce_rc_read_entry will most
 probably return the system-wide config entries.</doc>
-        <source-position filename="xfce-rc.h" line="62"/>
+        <source-position filename="xfce-rc.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -302,19 +693,19 @@ probably return the system-wide config entries.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="394">an #XfceRc object.</doc>
+                 line="393">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="395">name of the group to delete.</doc>
+                 line="394">name of the group to delete.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="396">whether to delete the group globally.</doc>
+                 line="395">whether to delete the group globally.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -322,10 +713,10 @@ probably return the system-wide config entries.</doc>
       <method name="flush" c:identifier="xfce_rc_flush" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="225">Flushes all changes that currently reside only in memory back to permanent
+             line="224">Flushes all changes that currently reside only in memory back to permanent
 storage. Dirty configuration entries are written in the most specific file
 available.</doc>
-        <source-position filename="xfce-rc.h" line="50"/>
+        <source-position filename="xfce-rc.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -333,7 +724,7 @@ available.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="227">an #XfceRc object.</doc>
+                 line="226">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -343,17 +734,17 @@ available.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="362">Returns the names of all entries in @group if any.
+             line="361">Returns the names of all entries in @group if any.
 
 %NULL is a valid input value for @group. #xfce_rc_get_entries will
 then return all entries in the so called "NULL group". Though this
 "NULL group" should only be used for backward compatibility with old
 applications. You should not use it in newly written code.</doc>
-        <source-position filename="xfce-rc.h" line="59"/>
+        <source-position filename="xfce-rc.h" line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="374">a NULL-terminated string array with all entries in @group. Has to
+               line="373">a NULL-terminated string array with all entries in @group. Has to
               be freed using g_strfreev() if no longer needed. If the specified
               @group does not exists, %NULL is returned. If the @group has no entries,
               an empty string array is returned.</doc>
@@ -365,13 +756,13 @@ applications. You should not use it in newly written code.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="364">an #XfceRc object.</doc>
+                 line="363">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="365">the name of the group to get entries from.</doc>
+                 line="364">the name of the group to get entries from.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -379,21 +770,21 @@ applications. You should not use it in newly written code.</doc>
       <method name="get_group" c:identifier="xfce_rc_get_group" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="421">Returns the name of the group in which we are searching for keys and
+             line="420">Returns the name of the group in which we are searching for keys and
 from which we are retrieving entries. If the currently active group is
 the default group (the so called "NULL group"), %NULL will be returned.</doc>
-        <source-position filename="xfce-rc.h" line="65"/>
+        <source-position filename="xfce-rc.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="429">the name of the current group.</doc>
+               line="428">the name of the current group.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="423">an #XfceRc object.</doc>
+                 line="422">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -403,16 +794,16 @@ the default group (the so called "NULL group"), %NULL will be returned.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="336">Returns the names of all known groups in @rc.
+             line="335">Returns the names of all known groups in @rc.
 
 Since the default groups (the "NULL group") name is %NULL, it will not be
 returned with this functions. But it does not matter at all, since the
 default group is known to always exist.</doc>
-        <source-position filename="xfce-rc.h" line="58"/>
+        <source-position filename="xfce-rc.h" line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="346">a NULL-terminated string array will the names of all groups in
+               line="345">a NULL-terminated string array will the names of all groups in
               @rc. Should be freed using g_strfreev() when no longer needed.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
@@ -422,7 +813,7 @@ default group is known to always exist.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="338">an #XfceRc object.</doc>
+                 line="337">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -432,19 +823,19 @@ default group is known to always exist.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="313">Returns current locale used by @rc to lookup translated entries.</doc>
-        <source-position filename="xfce-rc.h" line="56"/>
+             line="312">Returns current locale used by @rc to lookup translated entries.</doc>
+        <source-position filename="xfce-rc.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="319">a string representing the current locale.</doc>
+               line="318">a string representing the current locale.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="315">an #XfceRc object.</doc>
+                 line="314">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -452,25 +843,25 @@ default group is known to always exist.</doc>
       <method name="has_entry" c:identifier="xfce_rc_has_entry" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="514">Checks whether the @key has an entry in the current group.</doc>
-        <source-position filename="xfce-rc.h" line="74"/>
+             line="513">Checks whether the @key has an entry in the current group.</doc>
+        <source-position filename="xfce-rc.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="521">%TRUE if the @key is available, else %FALSE.</doc>
+               line="520">%TRUE if the @key is available, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="516">an #XfceRc object.</doc>
+                 line="515">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="517">the key to search for.</doc>
+                 line="516">the key to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -478,25 +869,25 @@ default group is known to always exist.</doc>
       <method name="has_group" c:identifier="xfce_rc_has_group" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="444">Returns %TRUE if the specified @group is known about.</doc>
-        <source-position filename="xfce-rc.h" line="66"/>
+             line="443">Returns %TRUE if the specified @group is known about.</doc>
+        <source-position filename="xfce-rc.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="451">%TRUE if the @group exists.</doc>
+               line="450">%TRUE if the @group exists.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="446">an #XfceRc object.</doc>
+                 line="445">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="447">the group to search for.</doc>
+                 line="446">the group to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -504,19 +895,19 @@ default group is known to always exist.</doc>
       <method name="is_dirty" c:identifier="xfce_rc_is_dirty" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="267">Checks whether @rc has any dirty (modified) entries.</doc>
-        <source-position filename="xfce-rc.h" line="53"/>
+             line="266">Checks whether @rc has any dirty (modified) entries.</doc>
+        <source-position filename="xfce-rc.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="273">%TRUE if @rc has any dirty (modified) entries.</doc>
+               line="272">%TRUE if @rc has any dirty (modified) entries.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="269">an #XfceRc object.</doc>
+                 line="268">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -526,19 +917,19 @@ default group is known to always exist.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="290">Returns the read-only status of @rc.</doc>
-        <source-position filename="xfce-rc.h" line="54"/>
+             line="289">Returns the read-only status of @rc.</doc>
+        <source-position filename="xfce-rc.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="296">the read-only status.</doc>
+               line="295">the read-only status.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="292">an #XfceRc object.</doc>
+                 line="291">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -548,33 +939,33 @@ default group is known to always exist.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="604">Reads the value of an entry specified by @key in the current group and interpret
+             line="603">Reads the value of an entry specified by @key in the current group and interpret
 it as a boolean value. Currently "on", "true" and "yes" are accepted as true,
 everything else is false.</doc>
-        <source-position filename="xfce-rc.h" line="83"/>
+        <source-position filename="xfce-rc.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="614">the value for this @key.</doc>
+               line="613">the value for this @key.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="606">an #XfceRc object.</doc>
+                 line="605">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="607">the key to search for.</doc>
+                 line="606">the key to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="608">a default value returned if the @key was not found.</doc>
+                 line="607">a default value returned if the @key was not found.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -584,31 +975,31 @@ everything else is false.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="540">Reads the value of an entry specified by @key in the current group.</doc>
-        <source-position filename="xfce-rc.h" line="77"/>
+             line="539">Reads the value of an entry specified by @key in the current group.</doc>
+        <source-position filename="xfce-rc.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="548">the value for this @key, or @fallback if @key was not found.</doc>
+               line="547">the value for this @key, or @fallback if @key was not found.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="542">an #XfceRc object.</doc>
+                 line="541">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="543">the key to search for.</doc>
+                 line="542">the key to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="544">a default value returned if the @key was not found.</doc>
+                 line="543">a default value returned if the @key was not found.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -618,13 +1009,13 @@ everything else is false.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="571">Reads the value of an entry specified by @key in the current group. The
+             line="570">Reads the value of an entry specified by @key in the current group. The
 untranslated entry is returned. You normally do not need this.</doc>
-        <source-position filename="xfce-rc.h" line="80"/>
+        <source-position filename="xfce-rc.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="580">the untranslated value for this @key, or @fallback if @key was not
+               line="579">the untranslated value for this @key, or @fallback if @key was not
               found.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -632,19 +1023,19 @@ untranslated entry is returned. You normally do not need this.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="573">an #XfceRc object.</doc>
+                 line="572">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="574">the key to search for.</doc>
+                 line="573">the key to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="575">a default value returned if the @key was not found.</doc>
+                 line="574">a default value returned if the @key was not found.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -654,32 +1045,32 @@ untranslated entry is returned. You normally do not need this.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="638">Reads the value of an entry specified by @key in the current group
+             line="637">Reads the value of an entry specified by @key in the current group
 and interprets it as an integer value.</doc>
-        <source-position filename="xfce-rc.h" line="86"/>
+        <source-position filename="xfce-rc.h" line="107"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="647">the value for this @key.</doc>
+               line="646">the value for this @key.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="640">an #XfceRc object.</doc>
+                 line="639">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="641">the key to search for.</doc>
+                 line="640">the key to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="642">a default value returned if the @key was not found.</doc>
+                 line="641">a default value returned if the @key was not found.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -689,16 +1080,16 @@ and interprets it as an integer value.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="677">Reads a list of strings in the entry specified by key in the current group.
+             line="676">Reads a list of strings in the entry specified by key in the current group.
 The returned list has to be freed using g_strfreev() when no longer needed.
 
 This does not support delimiter escaping. If you need this feature, use
 g_key_file_get_string_list() instead.</doc>
-        <source-position filename="xfce-rc.h" line="89"/>
+        <source-position filename="xfce-rc.h" line="111"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="691">the list or NULL if the entry does not exist.</doc>
+               line="690">the list or NULL if the entry does not exist.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -707,19 +1098,19 @@ g_key_file_get_string_list() instead.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="679">an #XfceRc object.</doc>
+                 line="678">an #XfceRc object.</doc>
             <type name="Rc" c:type="const XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="680">the key to search for.</doc>
+                 line="679">the key to search for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="delimiter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="681">a string which specifies the places at which to split the string.
+                 line="680">a string which specifies the places at which to split the string.
              The delimiter is not included in any of the resulting strings.
              If NULL, "," is used.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -729,10 +1120,10 @@ g_key_file_get_string_list() instead.</doc>
       <method name="rollback" c:identifier="xfce_rc_rollback" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="246">Mark @rc as "clean", i.e. don't write dirty entries at destruction time. If
+             line="245">Mark @rc as "clean", i.e. don't write dirty entries at destruction time. If
 you then call #xfce_rc_write_entry again, the dirty flag is set again and
 dirty entries will be written at a subsequent #xfce_rc_flush call.</doc>
-        <source-position filename="xfce-rc.h" line="51"/>
+        <source-position filename="xfce-rc.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -740,7 +1131,7 @@ dirty entries will be written at a subsequent #xfce_rc_flush call.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="248">an #XfceRc object.</doc>
+                 line="247">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
         </parameters>
@@ -748,13 +1139,13 @@ dirty entries will be written at a subsequent #xfce_rc_flush call.</doc>
       <method name="set_group" c:identifier="xfce_rc_set_group" version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="466">Specifies the group in which keys will be read and written. Subsequent calls
+             line="465">Specifies the group in which keys will be read and written. Subsequent calls
 to #xfce_rc_read_entry and #xfce_rc_write_entry will be applied only in the
 active group.
 
 If @group references a group that does not exists, it will be created for
 you. But note, that empty groups will not be synced to permanent storage.</doc>
-        <source-position filename="xfce-rc.h" line="68"/>
+        <source-position filename="xfce-rc.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -762,13 +1153,13 @@ you. But note, that empty groups will not be synced to permanent storage.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="468">an #XfceRc object.</doc>
+                 line="467">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="469">the name of the new group or %NULL to to switch back to the default group.</doc>
+                 line="468">the name of the new group or %NULL to to switch back to the default group.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -778,8 +1169,8 @@ you. But note, that empty groups will not be synced to permanent storage.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="746">Wrapper for #xfce_rc_write_entry, that stores a boolean @value.</doc>
-        <source-position filename="xfce-rc.h" line="95"/>
+             line="745">Wrapper for #xfce_rc_write_entry, that stores a boolean @value.</doc>
+        <source-position filename="xfce-rc.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -787,19 +1178,19 @@ you. But note, that empty groups will not be synced to permanent storage.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="748">an #XfceRc object.</doc>
+                 line="747">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="749">the key to write.</doc>
+                 line="748">the key to write.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="750">the value to write.</doc>
+                 line="749">the value to write.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -809,14 +1200,14 @@ you. But note, that empty groups will not be synced to permanent storage.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="715">Writes a @key/@value pair. This has no effect if the resource config
+             line="714">Writes a @key/@value pair. This has no effect if the resource config
 was opened readonly, else the value will be written to permanent storage
 on the next call to #xfce_rc_flush or when @rc is destroyed using
 #xfce_rc_close.
 
 If @rc was opened using #xfce_rc_config_open, the value will be
 written to the most specific config file.</doc>
-        <source-position filename="xfce-rc.h" line="92"/>
+        <source-position filename="xfce-rc.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -824,19 +1215,19 @@ written to the most specific config file.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="717">an #XfceRc object.</doc>
+                 line="716">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="718">the key to write.</doc>
+                 line="717">the key to write.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="719">the value to write.</doc>
+                 line="718">the value to write.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -846,8 +1237,8 @@ written to the most specific config file.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="766">Wrapper for #xfce_rc_write_entry, that stores an integer @value.</doc>
-        <source-position filename="xfce-rc.h" line="98"/>
+             line="765">Wrapper for #xfce_rc_write_entry, that stores an integer @value.</doc>
+        <source-position filename="xfce-rc.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -855,19 +1246,19 @@ written to the most specific config file.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="768">an #XfceRc object.</doc>
+                 line="767">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="769">the key to write.</doc>
+                 line="768">the key to write.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="770">the value to write.</doc>
+                 line="769">the value to write.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -877,11 +1268,11 @@ written to the most specific config file.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="789">Wrapper for #xfce_rc_write_entry, that stores a string list @value.
+             line="788">Wrapper for #xfce_rc_write_entry, that stores a string list @value.
 
 This does not support delimiter escaping. If you need this feature, use
 g_key_file_set_string_list() instead.</doc>
-        <source-position filename="xfce-rc.h" line="101"/>
+        <source-position filename="xfce-rc.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -889,25 +1280,25 @@ g_key_file_set_string_list() instead.</doc>
           <instance-parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="791">an #XfceRc object.</doc>
+                 line="790">an #XfceRc object.</doc>
             <type name="Rc" c:type="XfceRc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="792">the key to write.</doc>
+                 line="791">the key to write.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="793">a %NULL terminated list of strings to store in the entry specified by key.</doc>
+                 line="792">a %NULL terminated list of strings to store in the entry specified by key.</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="separator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="794">the list separator. Defaults to "," if %NULL.</doc>
+                 line="793">the list separator. Defaults to "," if %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -917,7 +1308,7 @@ g_key_file_set_string_list() instead.</doc>
                 version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="159">If @readonly is %TRUE parsing is generally faster, because only untranslated
+             line="158">If @readonly is %TRUE parsing is generally faster, because only untranslated
 entries and entries that match the current locale will be loaded. Also if
 you pass %TRUE for @readonly, #xfce_rc_config will fail if @resource
 does not reference a regular file.
@@ -925,30 +1316,30 @@ does not reference a regular file.
 It is no error if @readonly is %FALSE and the file referenced by @resource
 does not exists. In this case you'll start with a fresh config, which contains
 only the default group and no entries.</doc>
-        <source-position filename="xfce-rc.h" line="45"/>
+        <source-position filename="xfce-rc.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="174">the newly created #XfceRc object, or %NULL on error.</doc>
+               line="173">the newly created #XfceRc object, or %NULL on error.</doc>
           <type name="Rc" c:type="XfceRc*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="161">The resource type being opened</doc>
+                 line="160">The resource type being opened</doc>
             <type name="ResourceType" c:type="XfceResourceType"/>
           </parameter>
           <parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="162">The resource name to open</doc>
+                 line="161">The resource name to open</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="readonly" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="163">whether to open @resource readonly.</doc>
+                 line="162">whether to open @resource readonly.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -958,7 +1349,7 @@ only the default group and no entries.</doc>
                 version="4.2">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="114">Parses the resource config file specified by @filename.
+             line="113">Parses the resource config file specified by @filename.
 
 If @readonly is %TRUE parsing is generally faster, because only untranslated
 entries and entries that match the current locale will be loaded. Also if
@@ -968,24 +1359,24 @@ does not reference a regular file.
 It is no error if @readonly is %FALSE and the file referenced by @filename
 does not exists. In this case you'll start with a fresh config, which contains
 only the default group and no entries.</doc>
-        <source-position filename="xfce-rc.h" line="42"/>
+        <source-position filename="xfce-rc.h" line="44"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="130">the newly created #XfceRc object, or %NULL on error.</doc>
+               line="129">the newly created #XfceRc object, or %NULL on error.</doc>
           <type name="Rc" c:type="XfceRc*"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="116">name of the filename to open.</doc>
+                 line="115">name of the filename to open.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="readonly" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfce-rc.c"
-                 line="117">whether to open @filename readonly.</doc>
+                 line="116">whether to open @filename readonly.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1019,15 +1410,404 @@ only the default group and no entries.</doc>
              line="37">themes search path.</doc>
       </member>
     </enumeration>
+    <class name="Systemd"
+           c:symbol-prefix="systemd"
+           c:type="XfceSystemd"
+           parent="GObject.Object"
+           glib:type-name="XfceSystemd"
+           glib:get-type="xfce_systemd_get_type"
+           glib:type-struct="SystemdClass">
+      <source-position filename="xfce-systemd.h" line="34"/>
+      <function name="get" c:identifier="xfce_systemd_get" version="4.19.1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="245">Create a new #XfceSystemd instance or increase reference count.</doc>
+        <source-position filename="xfce-systemd.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="250">A reference to the singleton object, to be released with g_object_unref().</doc>
+          <type name="Systemd" c:type="XfceSystemd*"/>
+        </return-value>
+      </function>
+      <method name="can_hibernate"
+              c:identifier="xfce_systemd_can_hibernate"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="480">Check whether systemd can trigger and has authorization for Hibernate.</doc>
+        <source-position filename="xfce-systemd.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="489">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="482">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="can_hibernate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="483">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_hibernate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="484">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_hybrid_sleep"
+              c:identifier="xfce_systemd_can_hybrid_sleep"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="507">Check whether systemd can trigger and has authorization for HybridSleep.</doc>
+        <source-position filename="xfce-systemd.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="516">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="509">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="can_hybrid_sleep"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="510">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_hybrid_sleep"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="511">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_power_off"
+              c:identifier="xfce_systemd_can_power_off"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="426">Check whether systemd can trigger PowerOff.</doc>
+        <source-position filename="xfce-systemd.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="435">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="428">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="can_power_off"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="429">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_power_off"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="430">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_reboot"
+              c:identifier="xfce_systemd_can_reboot"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="399">Check whether systemd can trigger Reboot.</doc>
+        <source-position filename="xfce-systemd.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="408">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="401">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="can_reboot"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="402">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_reboot"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="403">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_suspend"
+              c:identifier="xfce_systemd_can_suspend"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="453">Check whether systemd can trigger and has authorization for Suspend.</doc>
+        <source-position filename="xfce-systemd.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="462">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="455">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="can_suspend"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="456">location to store capacity or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="auth_suspend"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="457">location to store authorization or %NULL</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="hibernate"
+              c:identifier="xfce_systemd_hibernate"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="349">Ask systemd to trigger Hibernate.</doc>
+        <source-position filename="xfce-systemd.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="357">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="351">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="352">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="hybrid_sleep"
+              c:identifier="xfce_systemd_hybrid_sleep"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="374">Ask systemd to trigger HybridSleep.</doc>
+        <source-position filename="xfce-systemd.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="382">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="376">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="377">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="power_off"
+              c:identifier="xfce_systemd_power_off"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="299">Ask systemd to trigger PowerOff.</doc>
+        <source-position filename="xfce-systemd.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="307">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="301">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="302">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reboot"
+              c:identifier="xfce_systemd_reboot"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="274">Ask systemd to trigger Reboot.</doc>
+        <source-position filename="xfce-systemd.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="282">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="276">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="277">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="suspend"
+              c:identifier="xfce_systemd_suspend"
+              version="4.19.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-systemd.c"
+             line="324">Ask systemd to trigger Suspend.</doc>
+        <source-position filename="xfce-systemd.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-systemd.c"
+               line="332">%TRUE if the D-Bus request was successful, %FALSE otherwise and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="systemd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="326">the #XfceSystemd object</doc>
+            <type name="Systemd" c:type="XfceSystemd*"/>
+          </instance-parameter>
+          <parameter name="polkit_interactive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-systemd.c"
+                 line="327">whether PolicyKit should ask the user to authenticate if needed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="SystemdClass"
+            c:type="XfceSystemdClass"
+            glib:is-gtype-struct-for="Systemd">
+      <source-position filename="xfce-systemd.h" line="34"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <function name="append_quoted"
               c:identifier="xfce_append_quoted"
               deprecated="1"
               deprecated-version="4.17">
       <doc xml:space="preserve"
            filename="xfce-miscutils.c"
-           line="467">An alias of xfce_g_string_append_quoted().</doc>
+           line="469">An alias of xfce_g_string_append_quoted().</doc>
       <doc-deprecated xml:space="preserve">Renamed to xfce_g_string_append_quoted()</doc-deprecated>
-      <source-position filename="xfce-miscutils.h" line="88"/>
+      <source-position filename="xfce-miscutils.h" line="95"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1035,13 +1815,13 @@ only the default group and no entries.</doc>
         <parameter name="string" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="469">A #GString.</doc>
+               line="471">A #GString.</doc>
           <type name="GLib.String" c:type="GString*"/>
         </parameter>
         <parameter name="unquoted" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="470">A literal string.</doc>
+               line="472">A literal string.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1055,7 +1835,7 @@ only the default group and no entries.</doc>
 and @size. No checks are made regarding the existence of the thumbnail.
 
 It is the duty of the caller to free the returned string.</doc>
-      <source-position filename="xfce-fileutils.h" line="36"/>
+      <source-position filename="xfce-fileutils.h" line="38"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-fileutils.c"
@@ -1082,12 +1862,12 @@ a local filename.</doc>
               c:identifier="xfce_expand_desktop_entry_field_codes">
       <doc xml:space="preserve"
            filename="xfce-miscutils.c"
-           line="485">Expands field codes in @command according to Freedesktop.org Desktop Entry Specification.</doc>
-      <source-position filename="xfce-miscutils.h" line="92"/>
+           line="487">Expands field codes in @command according to Freedesktop.org Desktop Entry Specification.</doc>
+      <source-position filename="xfce-miscutils.h" line="100"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
-             line="496">%NULL on error, else the string, which should be freed using g_free() when
+             line="498">%NULL on error, else the string, which should be freed using g_free() when
               no longer needed.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -1095,13 +1875,13 @@ a local filename.</doc>
         <parameter name="command" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="487">Input string (command to expand) or %NULL.</doc>
+               line="489">Input string (command to expand) or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="uri_list" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="488">Input string list (filename/URL field) or %NULL.</doc>
+               line="490">Input string list (filename/URL field) or %NULL.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="utf8"/>
           </type>
@@ -1109,25 +1889,25 @@ a local filename.</doc>
         <parameter name="icon" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="489">Input string (icon field) or %NULL.</doc>
+               line="491">Input string (icon field) or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="490">Input string (name field) or %NULL.</doc>
+               line="492">Input string (name field) or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="491">Input string (URI field) or %NULL.</doc>
+               line="493">Input string (URI field) or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="requires_terminal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="492">Input boolean.</doc>
+               line="494">Input boolean.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -1139,7 +1919,7 @@ a local filename.</doc>
            filename="xfce-miscutils.c"
            line="334">Expands shell like environment variables and tilde (~/ and ~user/ are both supported)
 in @command.</doc>
-      <source-position filename="xfce-miscutils.h" line="85"/>
+      <source-position filename="xfce-miscutils.h" line="91"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
@@ -1171,7 +1951,7 @@ in @command.</doc>
       <doc xml:space="preserve"
            filename="xfce-gio-extensions.c"
            line="77">Generates an SHA-256 hash of the @file.</doc>
-      <source-position filename="xfce-gio-extensions.h" line="33"/>
+      <source-position filename="xfce-gio-extensions.h" line="35"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="xfce-gio-extensions.c"
@@ -1209,7 +1989,7 @@ is considered safe.
 
 Read the documentation of
 xfce_g_file_set_trusted() for details.</doc>
-      <source-position filename="xfce-gio-extensions.h" line="40"/>
+      <source-position filename="xfce-gio-extensions.h" line="44"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-gio-extensions.c"
@@ -1242,7 +2022,7 @@ or not supported. %FALSE otherwise.</doc>
            filename="xfce-gio-extensions.c"
            line="46">Checks if GVFS-metadata is available for
 the @file provided.</doc>
-      <source-position filename="xfce-gio-extensions.h" line="32"/>
+      <source-position filename="xfce-gio-extensions.h" line="33"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-gio-extensions.c"
@@ -1277,7 +2057,7 @@ an tar archive) and is set by user.
 The checksum of the file is stored, and
 would be considered "on" only if checksum
 matches with the file on execution.</doc>
-      <source-position filename="xfce-gio-extensions.h" line="36"/>
+      <source-position filename="xfce-gio-extensions.h" line="39"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-gio-extensions.c"
@@ -1317,7 +2097,7 @@ matches with the file on execution.</doc>
 #GString @string. The shell will interpret the quoted string
 to mean @unquoted. The quoting style used is undefined
 (check g_shell_quote ()).</doc>
-      <source-position filename="xfce-string.h" line="33"/>
+      <source-position filename="xfce-string.h" line="34"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1339,13 +2119,13 @@ to mean @unquoted. The quoting style used is undefined
     <function name="get_dir_localized" c:identifier="xfce_get_dir_localized">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="231">Similar to xfce_get_file_localized(), but works on directory instead of
+           line="227">Similar to xfce_get_file_localized(), but works on directory instead of
 a file.</doc>
-      <source-position filename="xfce-i18n.h" line="49"/>
+      <source-position filename="xfce-i18n.h" line="53"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-i18n.c"
-             line="238">path of the localized directory name or copy of @directory if
+             line="234">path of the localized directory name or copy of @directory if
               no such directory exists. Returned string should be freed using
               g_free().</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1354,7 +2134,7 @@ a file.</doc>
         <parameter name="directory" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="233">directory name to check for a localized variant.</doc>
+               line="229">directory name to check for a localized variant.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1363,32 +2143,32 @@ a file.</doc>
               c:identifier="xfce_get_dir_localized_r">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="254">Similar to #xfce_get_file_localized_r, but works on directory instead
+           line="250">Similar to #xfce_get_file_localized_r, but works on directory instead
 of regular file.</doc>
-      <source-position filename="xfce-i18n.h" line="50"/>
+      <source-position filename="xfce-i18n.h" line="55"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-i18n.c"
-             line="263">pointer to @buffer or %NULL on error.</doc>
+             line="259">pointer to @buffer or %NULL on error.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="256">destination buffer to store the localized filename to.</doc>
+               line="252">destination buffer to store the localized filename to.</doc>
           <type name="utf8" c:type="gchar*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="257">size of @buffer in bytes.</doc>
+               line="253">size of @buffer in bytes.</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="directory" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="258">name of directory to check for localized variant of.</doc>
+               line="254">name of directory to check for localized variant of.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1396,17 +2176,17 @@ of regular file.</doc>
     <function name="get_file_localized" c:identifier="xfce_get_file_localized">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="183">Checks if theres a version of @filename which is localized to the current
+           line="179">Checks if theres a version of @filename which is localized to the current
 locale. This is done by appending the full locale name to @filename, separated
 by a '.'. If theres no file of that name, it retries using the full locale
 name without the encoding (if any), then without the qualifier (if any) and
 at last the base locale is tried. If all of those fails, a copy of @filename
 is returned.</doc>
-      <source-position filename="xfce-i18n.h" line="44"/>
+      <source-position filename="xfce-i18n.h" line="46"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-i18n.c"
-             line="194">path of the localized file or copy of @filename if no such
+             line="190">path of the localized file or copy of @filename if no such
               file exists. Returned string should be freed using g_free().</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -1414,7 +2194,7 @@ is returned.</doc>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="185">name of a file to look for a localized version.</doc>
+               line="181">name of a file to look for a localized version.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1423,32 +2203,32 @@ is returned.</doc>
               c:identifier="xfce_get_file_localized_r">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="209">Similar in functionality to xfce_get_file_localized(), but stores the
+           line="205">Similar in functionality to xfce_get_file_localized(), but stores the
 result in @buffer instead of allocating a new buffer.</doc>
-      <source-position filename="xfce-i18n.h" line="45"/>
+      <source-position filename="xfce-i18n.h" line="48"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-i18n.c"
-             line="218">pointer to @buffer or %NULL on error.</doc>
+             line="214">pointer to @buffer or %NULL on error.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="211">destination buffer to store the localized filename to.</doc>
+               line="207">destination buffer to store the localized filename to.</doc>
           <type name="utf8" c:type="gchar*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="212">size of @buffer in bytes.</doc>
+               line="208">size of @buffer in bytes.</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="213">name of a file to look for a localized version.</doc>
+               line="209">name of a file to look for a localized version.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1463,7 +2243,7 @@ valid character pointer with the absolute path to the user's home directory.
 
 The returned string is owned by libxfce4util and must not be freed by
 the caller.</doc>
-      <source-position filename="xfce-miscutils.h" line="37"/>
+      <source-position filename="xfce-miscutils.h" line="38"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
@@ -1474,7 +2254,7 @@ the caller.</doc>
     <function-macro name="get_homefile"
                     c:identifier="xfce_get_homefile"
                     introspectable="0">
-      <source-position filename="xfce-miscutils.h" line="53"/>
+      <source-position filename="xfce-miscutils.h" line="57"/>
       <parameters>
         <parameter name="...">
         </parameter>
@@ -1491,7 +2271,7 @@ defined @buffer instead of allocating a new buffer.
 xfce_get_homefile_r uses safe string operations, that says, it garanties
 that the resulting string is always zero terminated, as long as the
 @length is greater than zero.</doc>
-      <source-position filename="xfce-miscutils.h" line="39"/>
+      <source-position filename="xfce-miscutils.h" line="41"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
@@ -1532,7 +2312,7 @@ that the resulting string is always zero terminated, as long as the
 @license_type translated to the current language. If no
 translation is available, the english license text will
 be returned.</doc>
-      <source-position filename="xfce-license.h" line="46"/>
+      <source-position filename="xfce-license.h" line="47"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-license.c"
@@ -1551,7 +2331,7 @@ be returned.</doc>
     <function name="get_path_localized" c:identifier="xfce_get_path_localized">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="276">@paths is a ':'-separated list of pathnames, with:
+           line="272">@paths is a ':'-separated list of pathnames, with:
 
 - `%F`: the @filename
 - `%L`: the language string, as returned by `setlocale(LC_MESSAGES, NULL)`
@@ -1559,7 +2339,7 @@ be returned.</doc>
 - `%N`: application name
 
 Example paths: `/usr/local/lib/%L/%F:/usr/local/share/%N/%l/%F`</doc>
-      <source-position filename="xfce-i18n.h" line="54"/>
+      <source-position filename="xfce-i18n.h" line="60"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -1567,31 +2347,31 @@ Example paths: `/usr/local/lib/%L/%F:/usr/local/share/%N/%l/%F`</doc>
         <parameter name="dst" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="278">destination buffer.</doc>
+               line="274">destination buffer.</doc>
           <type name="utf8" c:type="gchar*"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="279">size of @dst in bytes.</doc>
+               line="275">size of @dst in bytes.</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="paths" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="280">the path</doc>
+               line="276">the path</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="281">the filename</doc>
+               line="277">the filename</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="test" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="282">test</doc>
+               line="278">test</doc>
           <type name="GLib.FileTest" c:type="GFileTest"/>
         </parameter>
       </parameters>
@@ -1608,7 +2388,7 @@ $HOME is replaced with the absolute path to the user's home directory.
 
 The returned string is managed by libxfce4util and must not be freed by
 the caller.</doc>
-      <source-position filename="xfce-miscutils.h" line="44"/>
+      <source-position filename="xfce-miscutils.h" line="47"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
@@ -1619,7 +2399,7 @@ the caller.</doc>
     <function-macro name="get_userfile"
                     c:identifier="xfce_get_userfile"
                     introspectable="0">
-      <source-position filename="xfce-miscutils.h" line="56"/>
+      <source-position filename="xfce-miscutils.h" line="60"/>
       <parameters>
         <parameter name="...">
         </parameter>
@@ -1628,7 +2408,7 @@ the caller.</doc>
     <function name="get_userfile_r"
               c:identifier="xfce_get_userfile_r"
               introspectable="0">
-      <source-position filename="xfce-miscutils.h" line="46"/>
+      <source-position filename="xfce-miscutils.h" line="50"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
@@ -1668,7 +2448,7 @@ the caller.</doc>
            line="287">Portable way to query the hostname of the node running the process. This
 function does not ever return %NULL, but always returns a string containing
 the current node's hostname.</doc>
-      <source-position filename="xfce-miscutils.h" line="83"/>
+      <source-position filename="xfce-miscutils.h" line="88"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
@@ -1687,17 +2467,17 @@ the current node's hostname.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="454">The locale is of the general form LANG_COUNTRY.ENCODING @ MODIFIER, where
+           line="450">The locale is of the general form LANG_COUNTRY.ENCODING @ MODIFIER, where
 each of COUNTRY, ENCODING and MODIFIER can be absent.
 
 The match is done by actually removing the rightmost element one by one. This
 is not entirely according to the freedesktop.org specification, but much easier.
 Will probably be fixed in the future.</doc>
-      <source-position filename="xfce-i18n.h" line="63"/>
+      <source-position filename="xfce-i18n.h" line="70"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-i18n.c"
-             line="466">an integer value indicating the level of matching, where
+             line="462">an integer value indicating the level of matching, where
               the constant #XFCE_LOCALE_FULL_MATCH indicates a full match
               and #XFCE_LOCALE_NO_MATCH means no match. Every other value
               indicates a partial match, the higher the value, the better
@@ -1710,13 +2490,13 @@ Will probably be fixed in the future.</doc>
         <parameter name="locale1" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="456">the current locale value as returned by setlocale(LC_MESSAGES,%NULL).</doc>
+               line="452">the current locale value as returned by setlocale(LC_MESSAGES,%NULL).</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="locale2" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="457">the locale value to match against.</doc>
+               line="453">the locale value to match against.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1733,7 +2513,7 @@ of the @whole_path do not exists, they are created as well.
 
 If the directory specified by @whole_path already exists, this function
 performs no operation and simply returns %TRUE.</doc>
-      <source-position filename="xfce-fileutils.h" line="33"/>
+      <source-position filename="xfce-fileutils.h" line="34"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-fileutils.c"
@@ -1760,13 +2540,13 @@ performs no operation and simply returns %TRUE.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="xfce-posix-signal-handler.c"
-           line="126">Initializes the POSIX signal handler system.  Must be called
+           line="125">Initializes the POSIX signal handler system.  Must be called
 before setting any POSIX signal handlers.</doc>
-      <source-position filename="xfce-posix-signal-handler.h" line="39"/>
+      <source-position filename="xfce-posix-signal-handler.h" line="40"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-posix-signal-handler.c"
-             line="133">%TRUE on success, %FALSE on failure, in which case
+             line="132">%TRUE on success, %FALSE on failure, in which case
          @error will be set.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1775,8 +2555,8 @@ before setting any POSIX signal handlers.</doc>
               c:identifier="xfce_posix_signal_handler_restore_handler">
       <doc xml:space="preserve"
            filename="xfce-posix-signal-handler.c"
-           line="255">Restores the default handler for @signal.</doc>
-      <source-position filename="xfce-posix-signal-handler.h" line="46"/>
+           line="261">Restores the default handler for @signal.</doc>
+      <source-position filename="xfce-posix-signal-handler.h" line="50"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1784,7 +2564,7 @@ before setting any POSIX signal handlers.</doc>
         <parameter name="signal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-posix-signal-handler.c"
-               line="257">A POSIX signal id number.</doc>
+               line="263">A POSIX signal id number.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -1794,14 +2574,14 @@ before setting any POSIX signal handlers.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="xfce-posix-signal-handler.c"
-           line="192">Sets @handler to be called whenever @signal is caught by the
+           line="193">Sets @handler to be called whenever @signal is caught by the
 application.  The @user_data parameter will be passed as an argument
 to @handler.</doc>
-      <source-position filename="xfce-posix-signal-handler.h" line="42"/>
+      <source-position filename="xfce-posix-signal-handler.h" line="45"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfce-posix-signal-handler.c"
-             line="203">%TRUE on success, %FALSE otherwise, in which case
+             line="204">%TRUE on success, %FALSE otherwise, in which case
          @error will be set.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1809,7 +2589,7 @@ to @handler.</doc>
         <parameter name="signal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-posix-signal-handler.c"
-               line="194">A POSIX signal id number.</doc>
+               line="195">A POSIX signal id number.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="handler"
@@ -1818,7 +2598,7 @@ to @handler.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="xfce-posix-signal-handler.c"
-               line="195">A callback function.</doc>
+               line="196">A callback function.</doc>
           <type name="PosixSignalHandler" c:type="XfcePosixSignalHandler"/>
         </parameter>
         <parameter name="user_data"
@@ -1827,7 +2607,7 @@ to @handler.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="xfce-posix-signal-handler.c"
-               line="196">Arbitrary data that will be passed to @handler.</doc>
+               line="197">Arbitrary data that will be passed to @handler.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -1836,9 +2616,9 @@ to @handler.</doc>
               c:identifier="xfce_posix_signal_handler_shutdown">
       <doc xml:space="preserve"
            filename="xfce-posix-signal-handler.c"
-           line="164">Frees all memory associated with the POSIX signal handling system
+           line="165">Frees all memory associated with the POSIX signal handling system
 and restores all default signal handlers.</doc>
-      <source-position filename="xfce-posix-signal-handler.h" line="40"/>
+      <source-position filename="xfce-posix-signal-handler.h" line="42"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1849,7 +2629,7 @@ and restores all default signal handlers.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-rc.c"
-           line="159">If @readonly is %TRUE parsing is generally faster, because only untranslated
+           line="158">If @readonly is %TRUE parsing is generally faster, because only untranslated
 entries and entries that match the current locale will be loaded. Also if
 you pass %TRUE for @readonly, #xfce_rc_config will fail if @resource
 does not reference a regular file.
@@ -1857,30 +2637,30 @@ does not reference a regular file.
 It is no error if @readonly is %FALSE and the file referenced by @resource
 does not exists. In this case you'll start with a fresh config, which contains
 only the default group and no entries.</doc>
-      <source-position filename="xfce-rc.h" line="45"/>
+      <source-position filename="xfce-rc.h" line="48"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="174">the newly created #XfceRc object, or %NULL on error.</doc>
+             line="173">the newly created #XfceRc object, or %NULL on error.</doc>
         <type name="Rc" c:type="XfceRc*"/>
       </return-value>
       <parameters>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="161">The resource type being opened</doc>
+               line="160">The resource type being opened</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="resource" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="162">The resource name to open</doc>
+               line="161">The resource name to open</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="readonly" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="163">whether to open @resource readonly.</doc>
+               line="162">whether to open @resource readonly.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -1891,7 +2671,7 @@ only the default group and no entries.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-rc.c"
-           line="114">Parses the resource config file specified by @filename.
+           line="113">Parses the resource config file specified by @filename.
 
 If @readonly is %TRUE parsing is generally faster, because only untranslated
 entries and entries that match the current locale will be loaded. Also if
@@ -1901,24 +2681,24 @@ does not reference a regular file.
 It is no error if @readonly is %FALSE and the file referenced by @filename
 does not exists. In this case you'll start with a fresh config, which contains
 only the default group and no entries.</doc>
-      <source-position filename="xfce-rc.h" line="42"/>
+      <source-position filename="xfce-rc.h" line="44"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-rc.c"
-             line="130">the newly created #XfceRc object, or %NULL on error.</doc>
+             line="129">the newly created #XfceRc object, or %NULL on error.</doc>
         <type name="Rc" c:type="XfceRc*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="116">name of the filename to open.</doc>
+               line="115">name of the filename to open.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="readonly" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-rc.c"
-               line="117">whether to open @filename readonly.</doc>
+               line="116">whether to open @filename readonly.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -1928,7 +2708,7 @@ only the default group and no entries.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="406">Queries the list of possible directories for the specified @type. The
+           line="412">Queries the list of possible directories for the specified @type. The
 first element of the list is always the save location for @type. None
 of the directories returned in the list are garantied to exist.
 
@@ -1936,11 +2716,11 @@ This function should be rarely used. You should consider using
 xfce_resource_lookup() or xfce_resource_match() instead.
 
 The returned list must be freed using g_strfreev().</doc>
-      <source-position filename="xfce-resource.h" line="60"/>
+      <source-position filename="xfce-resource.h" line="61"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-resource.c"
-             line="419">list of possible directories for @type.</doc>
+             line="425">list of possible directories for @type.</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
         </array>
@@ -1949,7 +2729,7 @@ The returned list must be freed using g_strfreev().</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="408">type of the resource.</doc>
+               line="414">type of the resource.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
       </parameters>
@@ -1959,18 +2739,18 @@ The returned list must be freed using g_strfreev().</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="457">Looks for a resource of the specified @type whose relative path matches
+           line="463">Looks for a resource of the specified @type whose relative path matches
 @filename. @filename can either reference a regular file, in which case
 it must not end with a slash character ('/'), or a directory, when
 @filename contains a trailing slash character ('/').
 
 The caller is responsible to free the returned string using g_free()
 when no longer needed.</doc>
-      <source-position filename="xfce-resource.h" line="61"/>
+      <source-position filename="xfce-resource.h" line="63"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-resource.c"
-             line="470">the absolute path to the first file or directory in the
+             line="476">the absolute path to the first file or directory in the
               search path, that matches @filename or %NULL if no such
               file or directory could be found.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1979,13 +2759,13 @@ when no longer needed.</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="459">type of resource to lookup.</doc>
+               line="465">type of resource to lookup.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="460">relative filename of the resource, e.g. "xfwm4/xfwmrc".</doc>
+               line="466">relative filename of the resource, e.g. "xfwm4/xfwmrc".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1995,16 +2775,16 @@ when no longer needed.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="510">Similar to xfce_resource_lookup(), but returns all resource of the specified @type,
+           line="515">Similar to xfce_resource_lookup(), but returns all resource of the specified @type,
 that whose name is @filename.
 
 The caller is responsible to free the returned string array using g_strfreev()
 when no longer needed.</doc>
-      <source-position filename="xfce-resource.h" line="63"/>
+      <source-position filename="xfce-resource.h" line="66"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-resource.c"
-             line="523">list of possible resources for @type.</doc>
+             line="528">list of possible resources for @type.</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
         </array>
@@ -2013,13 +2793,13 @@ when no longer needed.</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="512">type of the resource to lookup.</doc>
+               line="517">type of the resource to lookup.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="513">relative file path. If @filename contains a trailing slash character
+               line="518">relative file path. If @filename contains a trailing slash character
             it is taken to reference a directory, else it is taken to reference
             a file.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -2031,7 +2811,7 @@ when no longer needed.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="578">Tries to find all resources with the specified @type. The function will
+           line="583">Tries to find all resources with the specified @type. The function will
 look into all specified directories and return all filenames in these
 directories. The returned filenames are given relative the base directories
 specified by @type.
@@ -2044,11 +2824,11 @@ functions like #xfce_resource_lookup or #xfce_resource_save_location.
 
 Example: xfce_resource_match (XFCE_RESOURCE_CONFIG, "foo/bar*") will probably
 return ("foo/bar", "foo/barbaz", ...).</doc>
-      <source-position filename="xfce-resource.h" line="65"/>
+      <source-position filename="xfce-resource.h" line="69"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-resource.c"
-             line="599">string array of all the relative paths whose names matches the
+             line="604">string array of all the relative paths whose names matches the
               given @pattern. The return value has to be freed using
               g_strfreev() when no longer needed.</doc>
         <array c:type="gchar**">
@@ -2059,20 +2839,20 @@ return ("foo/bar", "foo/barbaz", ...).</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="580">type of the resource to locate directories for.</doc>
+               line="585">type of the resource to locate directories for.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="pattern" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="581">only accept filenames that fit to the pattern. The pattern
+               line="586">only accept filenames that fit to the pattern. The pattern
              needs to be a valid GPattern.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="unique" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="583">if %TRUE, only return items which have unique suffixes.</doc>
+               line="588">if %TRUE, only return items which have unique suffixes.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -2082,12 +2862,12 @@ return ("foo/bar", "foo/barbaz", ...).</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="637">Yet to be implemented!</doc>
-      <source-position filename="xfce-resource.h" line="68"/>
+           line="642">Yet to be implemented!</doc>
+      <source-position filename="xfce-resource.h" line="73"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-resource.c"
-             line="647">The caller is responsible to free
+             line="652">The caller is responsible to free
          the returned string array using g_strfreev() when no longer needed.</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
@@ -2097,13 +2877,13 @@ return ("foo/bar", "foo/barbaz", ...).</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="639">type of the resource to locate directories for.</doc>
+               line="644">type of the resource to locate directories for.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="unique" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="640">if %TRUE, only return items which have unique suffixes.</doc>
+               line="645">if %TRUE, only return items which have unique suffixes.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="func"
@@ -2112,7 +2892,7 @@ return ("foo/bar", "foo/barbaz", ...).</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="641">callback to determine if there was a match</doc>
+               line="646">callback to determine if there was a match</doc>
           <type name="MatchFunc" c:type="XfceMatchFunc"/>
         </parameter>
         <parameter name="user_data"
@@ -2121,7 +2901,7 @@ return ("foo/bar", "foo/barbaz", ...).</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="642">caller defined data</doc>
+               line="647">caller defined data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -2131,11 +2911,11 @@ return ("foo/bar", "foo/barbaz", ...).</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="712">Undoes the effect of the latest call to xfce_resource_push_path(). You
+           line="717">Undoes the effect of the latest call to xfce_resource_push_path(). You
 should take special care to call xfce_resource_pop_path() exactly same
 times as xfce_resource_push_path(), everything else might result in
 unwanted and maybe even undefined behaviour. You have been warned!</doc>
-      <source-position filename="xfce-resource.h" line="74"/>
+      <source-position filename="xfce-resource.h" line="81"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2143,7 +2923,7 @@ unwanted and maybe even undefined behaviour. You have been warned!</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="714">type of the resource which search list should be shrinked.</doc>
+               line="719">type of the resource which search list should be shrinked.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
       </parameters>
@@ -2153,7 +2933,7 @@ unwanted and maybe even undefined behaviour. You have been warned!</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="682">Appends @path to the search path list for @type. This function was
+           line="687">Appends @path to the search path list for @type. This function was
 written primary for use within modules in larger applications, for example
 MCS plugins.
 
@@ -2161,7 +2941,7 @@ For example, if you need to add a specific path to the search path list
 in your MCS, you should call xfce_resource_push_path() prior to calling
 one of the resource search functions and call xfce_resource_pop_path()
 right afterwards.</doc>
-      <source-position filename="xfce-resource.h" line="72"/>
+      <source-position filename="xfce-resource.h" line="78"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2169,13 +2949,13 @@ right afterwards.</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="684">type of the resource which search list should be expanded.</doc>
+               line="689">type of the resource which search list should be expanded.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="685">search path to add.</doc>
+               line="690">search path to add.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2185,7 +2965,7 @@ right afterwards.</doc>
               version="4.2">
       <doc xml:space="preserve"
            filename="xfce-resource.c"
-           line="742">If @relpath contains a trailing slash ('/') character, xfce_resource_save_location()
+           line="747">If @relpath contains a trailing slash ('/') character, xfce_resource_save_location()
 finds the directory to save files into for the given type in the user's
 home directory. All directories needed (including those given by
 @relpath) will be created on demand if @create if %TRUE.
@@ -2197,11 +2977,11 @@ needed will be created on demand if @create is %TRUE.
 Specifying %NULL or the empty string for @relpath allows you to discover
 the base path for saving files of the specified @type, though normally
 you should not need this.</doc>
-      <source-position filename="xfce-resource.h" line="75"/>
+      <source-position filename="xfce-resource.h" line="83"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-resource.c"
-             line="761">the path where resources of the specified @type should be
+             line="766">the path where resources of the specified @type should be
               saved or %NULL on error. The returned string should be freed
               when no longer needed.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -2210,19 +2990,19 @@ you should not need this.</doc>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="744">type of location to return.</doc>
+               line="749">type of location to return.</doc>
           <type name="ResourceType" c:type="XfceResourceType"/>
         </parameter>
         <parameter name="relpath" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="745">relative path of the resource.</doc>
+               line="750">relative path of the resource.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="create" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-resource.c"
-               line="746">whether to create missing directory.</doc>
+               line="751">whether to create missing directory.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -2232,13 +3012,13 @@ you should not need this.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="xfce-generics.h"
-           line="126">Frees a stack, that was allocated using #xfce_stack_new.</doc>
-      <source-position filename="xfce-generics.h" line="134"/>
+           line="131">Frees a stack, that was allocated using #xfce_stack_new.</doc>
+      <source-position filename="xfce-generics.h" line="139"/>
       <parameters>
         <parameter name="stack">
           <doc xml:space="preserve"
                filename="xfce-generics.h"
-               line="128">A stack object.</doc>
+               line="133">A stack object.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2268,13 +3048,13 @@ MyDoubleStack *my_stack = xfce_stack_new (MyDoubleStack);
                     introspectable="0">
       <doc xml:space="preserve"
            filename="xfce-generics.h"
-           line="159">Removes the top element from @stack.</doc>
-      <source-position filename="xfce-generics.h" line="166"/>
+           line="164">Removes the top element from @stack.</doc>
+      <source-position filename="xfce-generics.h" line="171"/>
       <parameters>
         <parameter name="stack">
           <doc xml:space="preserve"
                filename="xfce-generics.h"
-               line="161">A stack object.</doc>
+               line="166">A stack object.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2283,18 +3063,18 @@ MyDoubleStack *my_stack = xfce_stack_new (MyDoubleStack);
                     introspectable="0">
       <doc xml:space="preserve"
            filename="xfce-generics.h"
-           line="174">Pushes a new @value on top of @stack.</doc>
-      <source-position filename="xfce-generics.h" line="182"/>
+           line="179">Pushes a new @value on top of @stack.</doc>
+      <source-position filename="xfce-generics.h" line="187"/>
       <parameters>
         <parameter name="stack">
           <doc xml:space="preserve"
                filename="xfce-generics.h"
-               line="176">A stack object.</doc>
+               line="181">A stack object.</doc>
         </parameter>
         <parameter name="value">
           <doc xml:space="preserve"
                filename="xfce-generics.h"
-               line="177">the value to push</doc>
+               line="182">the value to push</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2303,13 +3083,13 @@ MyDoubleStack *my_stack = xfce_stack_new (MyDoubleStack);
                     introspectable="0">
       <doc xml:space="preserve"
            filename="xfce-generics.h"
-           line="142">Removes the top element from @stack.</doc>
-      <source-position filename="xfce-generics.h" line="150"/>
+           line="147">Removes the top element from @stack.</doc>
+      <source-position filename="xfce-generics.h" line="155"/>
       <parameters>
         <parameter name="stack">
           <doc xml:space="preserve"
                filename="xfce-generics.h"
-               line="144">A stack object.</doc>
+               line="149">A stack object.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2319,14 +3099,14 @@ MyDoubleStack *my_stack = xfce_stack_new (MyDoubleStack);
                     introspectable="0">
       <doc xml:space="preserve"
            filename="xfce-string.h"
-           line="42">Macro to check if a string is %NULL or empty. You should prefer
+           line="44">Macro to check if a string is %NULL or empty. You should prefer
 this function over strlen (str) == 0.</doc>
-      <source-position filename="xfce-string.h" line="53"/>
+      <source-position filename="xfce-string.h" line="55"/>
       <parameters>
         <parameter name="string">
           <doc xml:space="preserve"
                filename="xfce-string.h"
-               line="44">a string</doc>
+               line="46">a string</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2347,7 +3127,7 @@ removed from the string.
 
 Note for future Xfce developers: Deprecate this function when
 g_string_replace() is available. (Added since Glib &gt;= 2.68)</doc>
-      <source-position filename="xfce-string.h" line="36"/>
+      <source-position filename="xfce-string.h" line="38"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="xfce-string.c"
@@ -2381,8 +3161,8 @@ g_string_replace() is available. (Added since Glib &gt;= 2.68)</doc>
     <function name="textdomain" c:identifier="xfce_textdomain">
       <doc xml:space="preserve"
            filename="xfce-i18n.c"
-           line="145">Sets up the translations for @package.</doc>
-      <source-position filename="xfce-i18n.h" line="40"/>
+           line="141">Sets up the translations for @package.</doc>
+      <source-position filename="xfce-i18n.h" line="41"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2390,19 +3170,19 @@ g_string_replace() is available. (Added since Glib &gt;= 2.68)</doc>
         <parameter name="package" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="147">the package name.</doc>
+               line="143">the package name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="localedir" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="148">the @package&lt;!----&gt;s locale directory.</doc>
+               line="144">the @package&lt;!----&gt;s locale directory.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="encoding" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-i18n.c"
-               line="149">the encoding to use the @package&lt;!----&gt;s translations
+               line="145">the encoding to use the @package&lt;!----&gt;s translations
              or %NULL to use "UTF-8".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -2413,12 +3193,12 @@ g_string_replace() is available. (Added since Glib &gt;= 2.68)</doc>
               version="4.18">
       <doc xml:space="preserve"
            filename="xfce-miscutils.c"
-           line="596">Unescapes sequences in @value according to Freedesktop.org Desktop Entry Specification.</doc>
-      <source-position filename="xfce-miscutils.h" line="99"/>
+           line="605">Unescapes sequences in @value according to Freedesktop.org Desktop Entry Specification.</doc>
+      <source-position filename="xfce-miscutils.h" line="108"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-miscutils.c"
-             line="602">%NULL on error, else the string, which should be freed using g_free() when
+             line="611">%NULL on error, else the string, which should be freed using g_free() when
               no longer needed.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -2426,7 +3206,7 @@ g_string_replace() is available. (Added since Glib &gt;= 2.68)</doc>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfce-miscutils.c"
-               line="598">Value string to replace escape sequences.</doc>
+               line="607">Value string to replace escape sequences.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2442,7 +3222,7 @@ UTF-8), where both @str and @max_len may not be given.
 
 Control characters are replaced in @str by whitespaces, no new string
 will be allocated. The operation is done in-place.</doc>
-      <source-position filename="xfce-utf8.h" line="34"/>
+      <source-position filename="xfce-utf8.h" line="35"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-utf8.c"
@@ -2480,7 +3260,7 @@ will be allocated. The operation is done in-place.</doc>
 
 The caller is responsible to free the returned string
 using g_free() when no longer needed.</doc>
-      <source-position filename="xfce-utf8.h" line="38"/>
+      <source-position filename="xfce-utf8.h" line="40"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="xfce-utf8.c"

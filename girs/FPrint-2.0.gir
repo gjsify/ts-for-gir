@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GUsb" version="1.0"/>
   <include name="Gio" version="2.0"/>
   <package name="fprint"/>
   <c:include name="fprint.h"/>
+  <doc:format name="unknown"/>
   <namespace name="FPrint"
              version="2.0"
              shared-library="libfprint-2.so.2"
@@ -216,10 +218,10 @@ information.</doc>
               glib:sync-func="capture_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1513">Start an asynchronous operation to capture an image. The callback will
+             line="1516">Start an asynchronous operation to capture an image. The callback will
 be called once the operation has finished. Retrieve the result with
 fp_device_capture_finish().</doc>
-        <source-position filename="libfprint/fp-device.h" line="281"/>
+        <source-position filename="libfprint/fp-device.h" line="284"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -227,13 +229,13 @@ fp_device_capture_finish().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1515">a #FpDevice</doc>
+                 line="1518">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="wait_for_finger" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1516">Whether to wait for a finger or not</doc>
+                 line="1519">Whether to wait for a finger or not</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -242,7 +244,7 @@ fp_device_capture_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1517">a #GCancellable, or %NULL</doc>
+                 line="1520">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -253,7 +255,7 @@ fp_device_capture_finish().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1518">the function to call on completion</doc>
+                 line="1521">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -262,7 +264,7 @@ fp_device_capture_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1519">the data to pass to @callback</doc>
+                 line="1522">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -272,29 +274,29 @@ fp_device_capture_finish().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1579">Finish an asynchronous operation to capture an image. You should check
+             line="1582">Finish an asynchronous operation to capture an image. You should check
 for an error of type %FP_DEVICE_RETRY to prompt the user again if there
 was an interaction issue.
 
 See fp_device_capture().</doc>
-        <source-position filename="libfprint/fp-device.h" line="328"/>
+        <source-position filename="libfprint/fp-device.h" line="331"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1591">#FpImage or %NULL on error</doc>
+               line="1594">#FpImage or %NULL on error</doc>
           <type name="Image" c:type="FpImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1581">A #FpDevice</doc>
+                 line="1584">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1582">A #GAsyncResult</doc>
+                 line="1585">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -305,25 +307,25 @@ See fp_device_capture().</doc>
               glib:async-func="capture">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2022">Start an synchronous operation to capture an image.</doc>
-        <source-position filename="libfprint/fp-device.h" line="369"/>
+             line="2025">Start an synchronous operation to capture an image.</doc>
+        <source-position filename="libfprint/fp-device.h" line="372"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2031">A new #FpImage or %NULL on error</doc>
+               line="2034">A new #FpImage or %NULL on error</doc>
           <type name="Image" c:type="FpImage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2024">a #FpDevice</doc>
+                 line="2027">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="wait_for_finger" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2025">Whether to wait for a finger or not</doc>
+                 line="2028">Whether to wait for a finger or not</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -332,7 +334,7 @@ See fp_device_capture().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2026">a #GCancellable, or %NULL</doc>
+                 line="2029">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -343,13 +345,13 @@ See fp_device_capture().</doc>
               glib:sync-func="clear_storage_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1758">Start an asynchronous operation to delete all prints from the device.
+             line="1761">Start an asynchronous operation to delete all prints from the device.
 The callback will be called once the operation has finished. Retrieve
 the result with fp_device_clear_storage_finish().
 
 This only makes sense on devices that store prints on-chip, but is safe
 to always call.</doc>
-        <source-position filename="libfprint/fp-device.h" line="298"/>
+        <source-position filename="libfprint/fp-device.h" line="301"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -357,7 +359,7 @@ to always call.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1760">a #FpDevice</doc>
+                 line="1763">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -366,7 +368,7 @@ to always call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1761">a #GCancellable, or %NULL</doc>
+                 line="1764">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -377,7 +379,7 @@ to always call.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1762">the function to call on completion</doc>
+                 line="1765">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -386,7 +388,7 @@ to always call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1763">the data to pass to @callback</doc>
+                 line="1766">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -396,27 +398,27 @@ to always call.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1825">Finish an asynchronous operation to delete all enrolled prints.
+             line="1828">Finish an asynchronous operation to delete all enrolled prints.
 
 See fp_device_clear_storage().</doc>
-        <source-position filename="libfprint/fp-device.h" line="337"/>
+        <source-position filename="libfprint/fp-device.h" line="340"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1835">%FALSE on error, %TRUE otherwise</doc>
+               line="1838">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1827">A #FpDevice</doc>
+                 line="1830">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1828">A #GAsyncResult</doc>
+                 line="1831">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -427,19 +429,19 @@ See fp_device_clear_storage().</doc>
               glib:async-func="clear_storage">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2113">Clear sensor storage.</doc>
-        <source-position filename="libfprint/fp-device.h" line="380"/>
+             line="2116">Clear sensor storage.</doc>
+        <source-position filename="libfprint/fp-device.h" line="383"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2121">%FALSE on error, %TRUE otherwise</doc>
+               line="2124">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2115">a #FpDevice</doc>
+                 line="2118">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -448,7 +450,7 @@ See fp_device_clear_storage().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2116">a #GCancellable, or %NULL</doc>
+                 line="2119">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -459,10 +461,10 @@ See fp_device_clear_storage().</doc>
               glib:sync-func="close_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="888">Start an asynchronous operation to close the device. The callback will
+             line="891">Start an asynchronous operation to close the device. The callback will
 be called once the operation has finished. Retrieve the result with
 fp_device_close_finish().</doc>
-        <source-position filename="libfprint/fp-device.h" line="239"/>
+        <source-position filename="libfprint/fp-device.h" line="242"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -470,7 +472,7 @@ fp_device_close_finish().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="890">a #FpDevice</doc>
+                 line="893">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -479,7 +481,7 @@ fp_device_close_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="891">a #GCancellable, or %NULL</doc>
+                 line="894">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -490,7 +492,7 @@ fp_device_close_finish().</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="892">the function to call on completion</doc>
+                 line="895">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -499,7 +501,7 @@ fp_device_close_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="893">the data to pass to @callback</doc>
+                 line="896">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -509,26 +511,26 @@ fp_device_close_finish().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="933">Finish an asynchronous operation to close the device.
+             line="936">Finish an asynchronous operation to close the device.
 See fp_device_close().</doc>
-        <source-position filename="libfprint/fp-device.h" line="306"/>
+        <source-position filename="libfprint/fp-device.h" line="309"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="942">%FALSE on error, %TRUE otherwise</doc>
+               line="945">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="935">A #FpDevice</doc>
+                 line="938">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="936">A #GAsyncResult</doc>
+                 line="939">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -539,19 +541,19 @@ See fp_device_close().</doc>
               glib:async-func="close">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1879">Close the device synchronously.</doc>
-        <source-position filename="libfprint/fp-device.h" line="344"/>
+             line="1882">Close the device synchronously.</doc>
+        <source-position filename="libfprint/fp-device.h" line="347"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1887">%FALSE on error, %TRUE otherwise</doc>
+               line="1890">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1881">a #FpDevice</doc>
+                 line="1884">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -560,7 +562,7 @@ See fp_device_close().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1882">a #GCancellable, or %NULL</doc>
+                 line="1885">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -571,13 +573,13 @@ See fp_device_close().</doc>
               glib:sync-func="delete_print_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1601">Start an asynchronous operation to delete a print from the device.
+             line="1604">Start an asynchronous operation to delete a print from the device.
 The callback will be called once the operation has finished. Retrieve
 the result with fp_device_delete_print_finish().
 
 This only makes sense on devices that store prints on-chip, but is safe
 to always call.</doc>
-        <source-position filename="libfprint/fp-device.h" line="287"/>
+        <source-position filename="libfprint/fp-device.h" line="290"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -585,13 +587,13 @@ to always call.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1603">a #FpDevice</doc>
+                 line="1606">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="enrolled_print" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1604">a #FpPrint to delete</doc>
+                 line="1607">a #FpPrint to delete</doc>
             <type name="Print" c:type="FpPrint*"/>
           </parameter>
           <parameter name="cancellable"
@@ -600,7 +602,7 @@ to always call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1605">a #GCancellable, or %NULL</doc>
+                 line="1608">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -611,7 +613,7 @@ to always call.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1606">the function to call on completion</doc>
+                 line="1609">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -620,7 +622,7 @@ to always call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1607">the data to pass to @callback</doc>
+                 line="1610">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -630,27 +632,27 @@ to always call.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1663">Finish an asynchronous operation to delete an enrolled print.
+             line="1666">Finish an asynchronous operation to delete an enrolled print.
 
 See fp_device_delete_print().</doc>
-        <source-position filename="libfprint/fp-device.h" line="331"/>
+        <source-position filename="libfprint/fp-device.h" line="334"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1673">%FALSE on error, %TRUE otherwise</doc>
+               line="1676">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1665">A #FpDevice</doc>
+                 line="1668">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1666">A #GAsyncResult</doc>
+                 line="1669">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -661,25 +663,25 @@ See fp_device_delete_print().</doc>
               glib:async-func="delete_print">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2053">Delete a given print from the device.</doc>
-        <source-position filename="libfprint/fp-device.h" line="373"/>
+             line="2056">Delete a given print from the device.</doc>
+        <source-position filename="libfprint/fp-device.h" line="376"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2062">%FALSE on error, %TRUE otherwise</doc>
+               line="2065">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2055">a #FpDevice</doc>
+                 line="2058">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="enrolled_print" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2056">a #FpPrint to verify</doc>
+                 line="2059">a #FpPrint to verify</doc>
             <type name="Print" c:type="FpPrint*"/>
           </parameter>
           <parameter name="cancellable"
@@ -688,7 +690,7 @@ See fp_device_delete_print().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2057">a #GCancellable, or %NULL</doc>
+                 line="2060">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -699,7 +701,7 @@ See fp_device_delete_print().</doc>
               glib:sync-func="enroll_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1101">Start an asynchronous operation to enroll a print. The callback will
+             line="1104">Start an asynchronous operation to enroll a print. The callback will
 be called once the operation has finished. Retrieve the result with
 fp_device_enroll_finish().
 
@@ -709,7 +711,7 @@ enrolled fingerprints if a device driver supports it. The driver may make use
 of the metadata, when e.g. storing the print on device memory. It is undefined
 whether this print is filled in by the driver and returned, or whether the
 driver will return a newly created print after enrollment succeeded.</doc>
-        <source-position filename="libfprint/fp-device.h" line="254"/>
+        <source-position filename="libfprint/fp-device.h" line="257"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -717,13 +719,13 @@ driver will return a newly created print after enrollment succeeded.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1103">a #FpDevice</doc>
+                 line="1106">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="template_print" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1104">a #FpPrint</doc>
+                 line="1107">a #FpPrint</doc>
             <type name="Print" c:type="FpPrint*"/>
           </parameter>
           <parameter name="cancellable"
@@ -732,7 +734,7 @@ driver will return a newly created print after enrollment succeeded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1105">a #GCancellable, or %NULL</doc>
+                 line="1108">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_cb"
@@ -744,18 +746,17 @@ driver will return a newly created print after enrollment succeeded.</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1106">progress reporting callback</doc>
+                 line="1109">progress reporting callback</doc>
             <type name="EnrollProgress" c:type="FpEnrollProgress"/>
           </parameter>
           <parameter name="progress_data"
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="2">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1107">user data for @progress_cb</doc>
+                 line="1110">user data for @progress_cb</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="progress_destroy"
@@ -764,7 +765,7 @@ driver will return a newly created print after enrollment succeeded.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1108">Destroy notify for @progress_data</doc>
+                 line="1111">Destroy notify for @progress_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="callback"
@@ -775,7 +776,7 @@ driver will return a newly created print after enrollment succeeded.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1109">the function to call on completion</doc>
+                 line="1112">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -784,7 +785,7 @@ driver will return a newly created print after enrollment succeeded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1110">the data to pass to @callback</doc>
+                 line="1113">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -794,28 +795,28 @@ driver will return a newly created print after enrollment succeeded.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1208">Finish an asynchronous operation to enroll a print. You should check
+             line="1211">Finish an asynchronous operation to enroll a print. You should check
 for an error of type %FP_DEVICE_RETRY to prompt the user again if there
 was an interaction issue.
 See fp_device_enroll().</doc>
-        <source-position filename="libfprint/fp-device.h" line="315"/>
+        <source-position filename="libfprint/fp-device.h" line="318"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1219">The enrolled #FpPrint, or %NULL on error</doc>
+               line="1222">The enrolled #FpPrint, or %NULL on error</doc>
           <type name="Print" c:type="FpPrint*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1210">A #FpDevice</doc>
+                 line="1213">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1211">A #GAsyncResult</doc>
+                 line="1214">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -826,26 +827,26 @@ See fp_device_enroll().</doc>
               glib:async-func="enroll">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1905">Enroll a new print. See fp_device_enroll(). It is undefined whether
+             line="1908">Enroll a new print. See fp_device_enroll(). It is undefined whether
 @template_print is updated or a newly created #FpPrint is returned.</doc>
-        <source-position filename="libfprint/fp-device.h" line="347"/>
+        <source-position filename="libfprint/fp-device.h" line="350"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1918">A #FpPrint on success, %NULL otherwise</doc>
+               line="1921">A #FpPrint on success, %NULL otherwise</doc>
           <type name="Print" c:type="FpPrint*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1907">a #FpDevice</doc>
+                 line="1910">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="template_print" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1908">A #FpPrint to fill in or use
+                 line="1911">A #FpPrint to fill in or use
   as a template.</doc>
             <type name="Print" c:type="FpPrint*"/>
           </parameter>
@@ -855,7 +856,7 @@ See fp_device_enroll().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1910">a #GCancellable, or %NULL</doc>
+                 line="1913">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_cb"
@@ -866,7 +867,7 @@ See fp_device_enroll().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1911">progress reporting callback</doc>
+                 line="1914">progress reporting callback</doc>
             <type name="EnrollProgress" c:type="FpEnrollProgress"/>
           </parameter>
           <parameter name="progress_data"
@@ -875,7 +876,7 @@ See fp_device_enroll().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1912">user data for @progress_cb</doc>
+                 line="1915">user data for @progress_cb</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -883,18 +884,18 @@ See fp_device_enroll().</doc>
       <method name="get_device_id"
               c:identifier="fp_device_get_device_id"
               glib:get-property="device-id">
-        <source-position filename="libfprint/fp-device.h" line="221"/>
+        <source-position filename="libfprint/fp-device.h" line="224"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="623">The ID of the device</doc>
+               line="626">The ID of the device</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="621">A #FpDevice</doc>
+                 line="624">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -902,18 +903,18 @@ See fp_device_enroll().</doc>
       <method name="get_driver"
               c:identifier="fp_device_get_driver"
               glib:get-property="driver">
-        <source-position filename="libfprint/fp-device.h" line="220"/>
+        <source-position filename="libfprint/fp-device.h" line="223"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="609">The ID of the driver</doc>
+               line="612">The ID of the driver</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="607">A #FpDevice</doc>
+                 line="610">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -921,19 +922,19 @@ See fp_device_enroll().</doc>
       <method name="get_features" c:identifier="fp_device_get_features">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2193">Gets the #FpDeviceFeature's supported by the @device.</doc>
-        <source-position filename="libfprint/fp-device.h" line="229"/>
+             line="2196">Gets the #FpDeviceFeature's supported by the @device.</doc>
+        <source-position filename="libfprint/fp-device.h" line="232"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2199">#FpDeviceFeature flags of supported features</doc>
+               line="2202">#FpDeviceFeature flags of supported features</doc>
           <type name="DeviceFeature" c:type="FpDeviceFeature"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2195">a #FpDevice</doc>
+                 line="2198">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -943,21 +944,21 @@ See fp_device_enroll().</doc>
               glib:get-property="finger-status">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="685">Retrieves the finger status flags for the device.
+             line="688">Retrieves the finger status flags for the device.
 This can be used by the UI to present the relevant feedback, although it
 is not guaranteed to be a relevant value when not performing any action.</doc>
-        <source-position filename="libfprint/fp-device.h" line="225"/>
+        <source-position filename="libfprint/fp-device.h" line="228"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="693">The current #FpFingerStatusFlags</doc>
+               line="696">The current #FpFingerStatusFlags</doc>
           <type name="FingerStatusFlags" c:type="FpFingerStatusFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="687">A #FpDevice</doc>
+                 line="690">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -965,18 +966,18 @@ is not guaranteed to be a relevant value when not performing any action.</doc>
       <method name="get_name"
               c:identifier="fp_device_get_name"
               glib:get-property="name">
-        <source-position filename="libfprint/fp-device.h" line="222"/>
+        <source-position filename="libfprint/fp-device.h" line="225"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="639">The human readable name of the device</doc>
+               line="642">The human readable name of the device</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="637">A #FpDevice</doc>
+                 line="640">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -986,19 +987,19 @@ is not guaranteed to be a relevant value when not performing any action.</doc>
               glib:get-property="nr-enroll-stages">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="705">Retrieves the number of enroll stages for this device.</doc>
-        <source-position filename="libfprint/fp-device.h" line="226"/>
+             line="708">Retrieves the number of enroll stages for this device.</doc>
+        <source-position filename="libfprint/fp-device.h" line="229"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="711">The number of enroll stages</doc>
+               line="714">The number of enroll stages</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="707">A #FpDevice</doc>
+                 line="710">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1008,19 +1009,19 @@ is not guaranteed to be a relevant value when not performing any action.</doc>
               glib:get-property="scan-type">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="667">Retrieves the scan type of the device.</doc>
-        <source-position filename="libfprint/fp-device.h" line="224"/>
+             line="670">Retrieves the scan type of the device.</doc>
+        <source-position filename="libfprint/fp-device.h" line="227"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="673">The #FpScanType</doc>
+               line="676">The #FpScanType</doc>
           <type name="ScanType" c:type="FpScanType"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="669">A #FpDevice</doc>
+                 line="672">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1030,20 +1031,20 @@ is not guaranteed to be a relevant value when not performing any action.</doc>
               glib:get-property="temperature">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="723">Retrieves simple temperature information for device. It is not possible
+             line="726">Retrieves simple temperature information for device. It is not possible
 to use a device when this is #FP_TEMPERATURE_HOT.</doc>
-        <source-position filename="libfprint/fp-device.h" line="227"/>
+        <source-position filename="libfprint/fp-device.h" line="230"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="730">The current temperature estimation.</doc>
+               line="733">The current temperature estimation.</doc>
           <type name="Temperature" c:type="FpTemperature"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="725">A #FpDevice</doc>
+                 line="728">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1051,26 +1052,26 @@ to use a device when this is #FP_TEMPERATURE_HOT.</doc>
       <method name="has_feature" c:identifier="fp_device_has_feature">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2211">Checks if @device supports the requested #FpDeviceFeature's.
+             line="2214">Checks if @device supports the requested #FpDeviceFeature's.
 See fp_device_get_features()</doc>
-        <source-position filename="libfprint/fp-device.h" line="230"/>
+        <source-position filename="libfprint/fp-device.h" line="233"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2219">%TRUE if supported, %FALSE otherwise</doc>
+               line="2222">%TRUE if supported, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2213">a #FpDevice</doc>
+                 line="2216">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="feature" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2214">#FpDeviceFeature flags to check against device supported features</doc>
+                 line="2217">#FpDeviceFeature flags to check against device supported features</doc>
             <type name="DeviceFeature" c:type="FpDeviceFeature"/>
           </parameter>
         </parameters>
@@ -1081,12 +1082,12 @@ See fp_device_get_features()</doc>
               deprecated-version="1.92.0">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="782">Whether the device has on-chip storage. If it has, you can list the
+             line="785">Whether the device has on-chip storage. If it has, you can list the
 prints stored on the with fp_device_list_prints() and you should
 always delete prints from the device again using
 fp_device_delete_print().</doc>
         <doc-deprecated xml:space="preserve">Use fp_device_has_feature() instead.</doc-deprecated>
-        <source-position filename="libfprint/fp-device.h" line="396"/>
+        <source-position filename="libfprint/fp-device.h" line="399"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1094,7 +1095,7 @@ fp_device_delete_print().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="784">A #FpDevice</doc>
+                 line="787">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1105,10 +1106,10 @@ fp_device_delete_print().</doc>
               glib:sync-func="identify_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1372">Start an asynchronous operation to identify prints. The callback will
+             line="1375">Start an asynchronous operation to identify prints. The callback will
 be called once the operation has finished. Retrieve the result with
 fp_device_identify_finish().</doc>
-        <source-position filename="libfprint/fp-device.h" line="272"/>
+        <source-position filename="libfprint/fp-device.h" line="275"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1116,13 +1117,13 @@ fp_device_identify_finish().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1374">a #FpDevice</doc>
+                 line="1377">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="prints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1375">#GPtrArray of #FpPrint</doc>
+                 line="1378">#GPtrArray of #FpPrint</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray*">
               <type name="Print"/>
             </array>
@@ -1133,7 +1134,7 @@ fp_device_identify_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1376">a #GCancellable, or %NULL</doc>
+                 line="1379">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="match_cb"
@@ -1145,18 +1146,17 @@ fp_device_identify_finish().</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1377">match reporting callback</doc>
+                 line="1380">match reporting callback</doc>
             <type name="MatchCb" c:type="FpMatchCb"/>
           </parameter>
           <parameter name="match_data"
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="2">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1378">user data for @match_cb</doc>
+                 line="1381">user data for @match_cb</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="match_destroy"
@@ -1165,7 +1165,7 @@ fp_device_identify_finish().</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1379">Destroy notify for @match_data</doc>
+                 line="1382">Destroy notify for @match_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="callback"
@@ -1176,7 +1176,7 @@ fp_device_identify_finish().</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1380">the function to call on completion</doc>
+                 line="1383">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1185,7 +1185,7 @@ fp_device_identify_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1381">the data to pass to @callback</doc>
+                 line="1384">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1195,7 +1195,7 @@ fp_device_identify_finish().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1467">Finish an asynchronous operation to identify a print. You should check
+             line="1470">Finish an asynchronous operation to identify a print. You should check
 for an error of type %FP_DEVICE_RETRY to prompt the user again if there
 was an interaction issue.
 
@@ -1203,24 +1203,24 @@ Use @match to find the print that matched. With @print you can fetch the
 newly created print and retrieve the image data if available.
 
 See fp_device_identify().</doc>
-        <source-position filename="libfprint/fp-device.h" line="323"/>
+        <source-position filename="libfprint/fp-device.h" line="326"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1484">%FALSE on error, %TRUE otherwise</doc>
+               line="1487">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1469">A #FpDevice</doc>
+                 line="1472">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1470">A #GAsyncResult</doc>
+                 line="1473">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="match"
@@ -1230,7 +1230,7 @@ See fp_device_identify().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1471">Location for the matched #FpPrint, or %NULL</doc>
+                 line="1474">Location for the matched #FpPrint, or %NULL</doc>
             <type name="Print" c:type="FpPrint**"/>
           </parameter>
           <parameter name="print"
@@ -1240,7 +1240,7 @@ See fp_device_identify().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1472">Location for the new #FpPrint, or %NULL</doc>
+                 line="1475">Location for the new #FpPrint, or %NULL</doc>
             <type name="Print" c:type="FpPrint**"/>
           </parameter>
         </parameters>
@@ -1251,25 +1251,25 @@ See fp_device_identify().</doc>
               glib:async-func="identify">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1981">Identify a print synchronously.</doc>
-        <source-position filename="libfprint/fp-device.h" line="361"/>
+             line="1984">Identify a print synchronously.</doc>
+        <source-position filename="libfprint/fp-device.h" line="364"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1994">%FALSE on error, %TRUE otherwise</doc>
+               line="1997">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1983">a #FpDevice</doc>
+                 line="1986">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="prints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1984">#GPtrArray of #FpPrint</doc>
+                 line="1987">#GPtrArray of #FpPrint</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray*">
               <type name="Print"/>
             </array>
@@ -1280,7 +1280,7 @@ See fp_device_identify().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1985">a #GCancellable, or %NULL</doc>
+                 line="1988">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="match_cb"
@@ -1291,17 +1291,16 @@ See fp_device_identify().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1986">match reporting callback</doc>
+                 line="1989">match reporting callback</doc>
             <type name="MatchCb" c:type="FpMatchCb"/>
           </parameter>
           <parameter name="match_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="2">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1987">user data for @match_cb</doc>
+                 line="1990">user data for @match_cb</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="match"
@@ -1311,7 +1310,7 @@ See fp_device_identify().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1988">Location for the matched #FpPrint, or %NULL</doc>
+                 line="1991">Location for the matched #FpPrint, or %NULL</doc>
             <type name="Print" c:type="FpPrint**"/>
           </parameter>
           <parameter name="print"
@@ -1321,24 +1320,26 @@ See fp_device_identify().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1989">Location for the new #FpPrint, or %NULL</doc>
+                 line="1992">Location for the new #FpPrint, or %NULL</doc>
             <type name="Print" c:type="FpPrint**"/>
           </parameter>
         </parameters>
       </method>
-      <method name="is_open" c:identifier="fp_device_is_open">
-        <source-position filename="libfprint/fp-device.h" line="223"/>
+      <method name="is_open"
+              c:identifier="fp_device_is_open"
+              glib:get-property="open">
+        <source-position filename="libfprint/fp-device.h" line="226"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="655">Whether the device is open or not</doc>
+               line="658">Whether the device is open or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="653">A #FpDevice</doc>
+                 line="656">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1349,11 +1350,11 @@ See fp_device_identify().</doc>
               glib:sync-func="list_prints_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1683">Start an asynchronous operation to list all prints stored on the device.
+             line="1686">Start an asynchronous operation to list all prints stored on the device.
 This only makes sense on devices that store prints on-chip.
 
 Retrieve the result with fp_device_list_prints_finish().</doc>
-        <source-position filename="libfprint/fp-device.h" line="293"/>
+        <source-position filename="libfprint/fp-device.h" line="296"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1361,7 +1362,7 @@ Retrieve the result with fp_device_list_prints_finish().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1685">a #FpDevice</doc>
+                 line="1688">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1370,7 +1371,7 @@ Retrieve the result with fp_device_list_prints_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1686">a #GCancellable, or %NULL</doc>
+                 line="1689">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1381,7 +1382,7 @@ Retrieve the result with fp_device_list_prints_finish().</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1687">the function to call on completion</doc>
+                 line="1690">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1390,7 +1391,7 @@ Retrieve the result with fp_device_list_prints_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1688">the data to pass to @callback</doc>
+                 line="1691">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1400,14 +1401,14 @@ Retrieve the result with fp_device_list_prints_finish().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1738">Finish an asynchronous operation to list all device stored prints.
+             line="1741">Finish an asynchronous operation to list all device stored prints.
 
 See fp_device_list_prints().</doc>
-        <source-position filename="libfprint/fp-device.h" line="334"/>
+        <source-position filename="libfprint/fp-device.h" line="337"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1748">Array of prints or %NULL on error</doc>
+               line="1751">Array of prints or %NULL on error</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Print"/>
           </array>
@@ -1416,13 +1417,13 @@ See fp_device_list_prints().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1740">A #FpDevice</doc>
+                 line="1743">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1741">A #GAsyncResult</doc>
+                 line="1744">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1433,12 +1434,12 @@ See fp_device_list_prints().</doc>
               glib:async-func="list_prints">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2084">List device stored prints synchronously.</doc>
-        <source-position filename="libfprint/fp-device.h" line="377"/>
+             line="2087">List device stored prints synchronously.</doc>
+        <source-position filename="libfprint/fp-device.h" line="380"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2092">Array of prints, or %NULL on error</doc>
+               line="2095">Array of prints, or %NULL on error</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Print"/>
           </array>
@@ -1447,7 +1448,7 @@ See fp_device_list_prints().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2086">a #FpDevice</doc>
+                 line="2089">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1456,22 +1457,21 @@ See fp_device_list_prints().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2087">a #GCancellable, or %NULL</doc>
+                 line="2090">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
       <method name="open"
               c:identifier="fp_device_open"
-              glib:get-property="open"
               glib:finish-func="open_finish"
               glib:sync-func="open_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="802">Start an asynchronous operation to open the device. The callback will
+             line="805">Start an asynchronous operation to open the device. The callback will
 be called once the operation has finished. Retrieve the result with
 fp_device_open_finish().</doc>
-        <source-position filename="libfprint/fp-device.h" line="234"/>
+        <source-position filename="libfprint/fp-device.h" line="237"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1479,7 +1479,7 @@ fp_device_open_finish().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="804">a #FpDevice</doc>
+                 line="807">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1488,7 +1488,7 @@ fp_device_open_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="805">a #GCancellable, or %NULL</doc>
+                 line="808">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1499,7 +1499,7 @@ fp_device_open_finish().</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="806">the function to call on completion</doc>
+                 line="809">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1508,7 +1508,7 @@ fp_device_open_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="807">the data to pass to @callback</doc>
+                 line="810">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1518,26 +1518,26 @@ fp_device_open_finish().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="869">Finish an asynchronous operation to open the device.
+             line="872">Finish an asynchronous operation to open the device.
 See fp_device_open().</doc>
-        <source-position filename="libfprint/fp-device.h" line="303"/>
+        <source-position filename="libfprint/fp-device.h" line="306"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="878">%FALSE on error, %TRUE otherwise</doc>
+               line="881">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="871">A #FpDevice</doc>
+                 line="874">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="872">A #GAsyncResult</doc>
+                 line="875">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1548,19 +1548,19 @@ See fp_device_open().</doc>
               glib:async-func="open">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1853">Open the device synchronously.</doc>
-        <source-position filename="libfprint/fp-device.h" line="341"/>
+             line="1856">Open the device synchronously.</doc>
+        <source-position filename="libfprint/fp-device.h" line="344"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1861">%FALSE on error, %TRUE otherwise</doc>
+               line="1864">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1855">a #FpDevice</doc>
+                 line="1858">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1569,7 +1569,7 @@ See fp_device_open().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1856">a #GCancellable, or %NULL</doc>
+                 line="1859">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1580,13 +1580,13 @@ See fp_device_open().</doc>
               glib:sync-func="resume_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1026">Resume device after system suspend. Retrieve the result with
+             line="1029">Resume device after system suspend. Retrieve the result with
 fp_device_suspend_finish().
 
 Note that it is not defined when any ongoing operation may return (success or
 error). You must be ready to handle this before, during or after the
 resume operation.</doc>
-        <source-position filename="libfprint/fp-device.h" line="249"/>
+        <source-position filename="libfprint/fp-device.h" line="252"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1594,7 +1594,7 @@ resume operation.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1028">a #FpDevice</doc>
+                 line="1031">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1603,7 +1603,7 @@ resume operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1029">a #GCancellable, or %NULL, currently not used</doc>
+                 line="1032">a #GCancellable, or %NULL, currently not used</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1614,7 +1614,7 @@ resume operation.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1030">the function to call on completion</doc>
+                 line="1033">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1623,7 +1623,7 @@ resume operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1031">the data to pass to @callback</doc>
+                 line="1034">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1633,28 +1633,28 @@ resume operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1070">Finish an asynchronous operation to resume the device after suspend.
+             line="1073">Finish an asynchronous operation to resume the device after suspend.
 See fp_device_resume().
 
 The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
-        <source-position filename="libfprint/fp-device.h" line="312"/>
+        <source-position filename="libfprint/fp-device.h" line="315"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1081">%FALSE on error, %TRUE otherwise</doc>
+               line="1084">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1072">A #FpDevice</doc>
+                 line="1075">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1073">A #GAsyncResult</doc>
+                 line="1076">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1665,19 +1665,19 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
               glib:async-func="resume">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2167">Resume device after suspend.</doc>
-        <source-position filename="libfprint/fp-device.h" line="386"/>
+             line="2170">Resume device after suspend.</doc>
+        <source-position filename="libfprint/fp-device.h" line="389"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2175">%FALSE on error, %TRUE otherwise</doc>
+               line="2178">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2169">a #FpDevice</doc>
+                 line="2172">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1686,7 +1686,7 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2170">a #GCancellable, or %NULL, currently not used</doc>
+                 line="2173">a #GCancellable, or %NULL, currently not used</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1697,20 +1697,20 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
               deprecated-version="1.92.0">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="762">Check whether the device supports capturing images.</doc>
+             line="765">Check whether the device supports capturing images.</doc>
         <doc-deprecated xml:space="preserve">Use fp_device_has_feature() instead.</doc-deprecated>
-        <source-position filename="libfprint/fp-device.h" line="394"/>
+        <source-position filename="libfprint/fp-device.h" line="397"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="768">Whether the device supports image capture</doc>
+               line="771">Whether the device supports image capture</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="764">A #FpDevice</doc>
+                 line="767">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1721,20 +1721,20 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
               deprecated-version="1.92.0">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="742">Check whether the device supports identification.</doc>
+             line="745">Check whether the device supports identification.</doc>
         <doc-deprecated xml:space="preserve">Use fp_device_has_feature() instead.</doc-deprecated>
-        <source-position filename="libfprint/fp-device.h" line="392"/>
+        <source-position filename="libfprint/fp-device.h" line="395"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="748">Whether the device supports identification</doc>
+               line="751">Whether the device supports identification</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="744">A #FpDevice</doc>
+                 line="747">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
         </parameters>
@@ -1745,7 +1745,7 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
               glib:sync-func="suspend_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="952">Prepare the device for system suspend. Retrieve the result with
+             line="955">Prepare the device for system suspend. Retrieve the result with
 fp_device_suspend_finish().
 
 The suspend method can be called at any time (even if the device is not
@@ -1760,7 +1760,7 @@ code of #FP_DEVICE_ERROR_BUSY before the suspend async routine finishes.
 
 Any operation started while the device is suspended will fail with
 #FP_DEVICE_ERROR_BUSY, this includes calls to open or close the device.</doc>
-        <source-position filename="libfprint/fp-device.h" line="244"/>
+        <source-position filename="libfprint/fp-device.h" line="247"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1768,7 +1768,7 @@ Any operation started while the device is suspended will fail with
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="954">a #FpDevice</doc>
+                 line="957">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1777,7 +1777,7 @@ Any operation started while the device is suspended will fail with
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="955">a #GCancellable, or %NULL, currently not used</doc>
+                 line="958">a #GCancellable, or %NULL, currently not used</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1788,7 +1788,7 @@ Any operation started while the device is suspended will fail with
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="956">the function to call on completion</doc>
+                 line="959">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1797,7 +1797,7 @@ Any operation started while the device is suspended will fail with
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="957">the data to pass to @callback</doc>
+                 line="960">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1807,28 +1807,28 @@ Any operation started while the device is suspended will fail with
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1005">Finish an asynchronous operation to prepare the device for suspend.
+             line="1008">Finish an asynchronous operation to prepare the device for suspend.
 See fp_device_suspend().
 
 The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
-        <source-position filename="libfprint/fp-device.h" line="309"/>
+        <source-position filename="libfprint/fp-device.h" line="312"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1016">%FALSE on error, %TRUE otherwise</doc>
+               line="1019">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1007">A #FpDevice</doc>
+                 line="1010">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1008">A #GAsyncResult</doc>
+                 line="1011">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1839,19 +1839,19 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
               glib:async-func="suspend">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="2141">Prepare device for suspend.</doc>
-        <source-position filename="libfprint/fp-device.h" line="383"/>
+             line="2144">Prepare device for suspend.</doc>
+        <source-position filename="libfprint/fp-device.h" line="386"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="2149">%FALSE on error, %TRUE otherwise</doc>
+               line="2152">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2143">a #FpDevice</doc>
+                 line="2146">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1860,7 +1860,7 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="2144">a #GCancellable, or %NULL, currently not used</doc>
+                 line="2147">a #GCancellable, or %NULL, currently not used</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1871,10 +1871,10 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
               glib:sync-func="verify_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1246">Start an asynchronous operation to verify a print. The callback will
+             line="1249">Start an asynchronous operation to verify a print. The callback will
 be called once the operation has finished. Retrieve the result with
 fp_device_verify_finish().</doc>
-        <source-position filename="libfprint/fp-device.h" line="263"/>
+        <source-position filename="libfprint/fp-device.h" line="266"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1882,13 +1882,13 @@ fp_device_verify_finish().</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1248">a #FpDevice</doc>
+                 line="1251">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="enrolled_print" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1249">a #FpPrint to verify</doc>
+                 line="1252">a #FpPrint to verify</doc>
             <type name="Print" c:type="FpPrint*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1897,7 +1897,7 @@ fp_device_verify_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1250">a #GCancellable, or %NULL</doc>
+                 line="1253">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="match_cb"
@@ -1909,18 +1909,17 @@ fp_device_verify_finish().</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1251">match reporting callback</doc>
+                 line="1254">match reporting callback</doc>
             <type name="MatchCb" c:type="FpMatchCb"/>
           </parameter>
           <parameter name="match_data"
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1"
-                     scope="notified"
-                     closure="2">
+                     scope="notified">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1252">user data for @match_cb</doc>
+                 line="1255">user data for @match_cb</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="match_destroy"
@@ -1929,7 +1928,7 @@ fp_device_verify_finish().</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1253">Destroy notify for @match_data</doc>
+                 line="1256">Destroy notify for @match_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="callback"
@@ -1940,7 +1939,7 @@ fp_device_verify_finish().</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1254">the function to call on completion</doc>
+                 line="1257">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1949,7 +1948,7 @@ fp_device_verify_finish().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1255">the data to pass to @callback</doc>
+                 line="1258">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1959,31 +1958,31 @@ fp_device_verify_finish().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1326">Finish an asynchronous operation to verify an enrolled print. You should check
+             line="1329">Finish an asynchronous operation to verify an enrolled print. You should check
 for an error of type %FP_DEVICE_RETRY to prompt the user again if there
 was an interaction issue.
 
 With @print you can fetch the newly created print and retrieve the image data if available.
 
 See fp_device_verify().</doc>
-        <source-position filename="libfprint/fp-device.h" line="318"/>
+        <source-position filename="libfprint/fp-device.h" line="321"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1342">%FALSE on error, %TRUE otherwise</doc>
+               line="1345">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1328">A #FpDevice</doc>
+                 line="1331">A #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1329">A #GAsyncResult</doc>
+                 line="1332">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="match"
@@ -1992,7 +1991,7 @@ See fp_device_verify().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1330">Whether the user presented the correct finger</doc>
+                 line="1333">Whether the user presented the correct finger</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="print"
@@ -2002,7 +2001,7 @@ See fp_device_verify().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1331">Location to store the scanned print, or %NULL to ignore</doc>
+                 line="1334">Location to store the scanned print, or %NULL to ignore</doc>
             <type name="Print" c:type="FpPrint**"/>
           </parameter>
         </parameters>
@@ -2013,25 +2012,25 @@ See fp_device_verify().</doc>
               glib:async-func="verify">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="1941">Verify a given print synchronously.</doc>
-        <source-position filename="libfprint/fp-device.h" line="353"/>
+             line="1944">Verify a given print synchronously.</doc>
+        <source-position filename="libfprint/fp-device.h" line="356"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
-               line="1954">%FALSE on error, %TRUE otherwise</doc>
+               line="1957">%FALSE on error, %TRUE otherwise</doc>
           <type name="none" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1943">a #FpDevice</doc>
+                 line="1946">a #FpDevice</doc>
             <type name="Device" c:type="FpDevice*"/>
           </instance-parameter>
           <parameter name="enrolled_print" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1944">a #FpPrint to verify</doc>
+                 line="1947">a #FpPrint to verify</doc>
             <type name="Print" c:type="FpPrint*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2040,7 +2039,7 @@ See fp_device_verify().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1945">a #GCancellable, or %NULL</doc>
+                 line="1948">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="match_cb"
@@ -2051,17 +2050,16 @@ See fp_device_verify().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1946">match reporting callback</doc>
+                 line="1949">match reporting callback</doc>
             <type name="MatchCb" c:type="FpMatchCb"/>
           </parameter>
           <parameter name="match_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="2">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1947">user data for @match_cb</doc>
+                 line="1950">user data for @match_cb</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="match"
@@ -2070,7 +2068,7 @@ See fp_device_verify().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1948">Whether the user presented the correct finger</doc>
+                 line="1951">Whether the user presented the correct finger</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="print"
@@ -2080,7 +2078,7 @@ See fp_device_verify().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-device.c"
-                 line="1949">Location to store the scanned print, or %NULL to ignore</doc>
+                 line="1952">Location to store the scanned print, or %NULL to ignore</doc>
             <type name="Print" c:type="FpPrint**"/>
           </parameter>
         </parameters>
@@ -2152,7 +2150,7 @@ See fp_device_verify().</doc>
       </property>
       <property name="open"
                 transfer-ownership="none"
-                getter="open"
+                getter="is_open"
                 default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -2177,7 +2175,7 @@ See fp_device_verify().</doc>
       <glib:signal name="removed" when="last">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
-             line="498">This signal is emitted after the device has been removed and no operation
+             line="501">This signal is emitted after the device has been removed and no operation
 is pending anymore.
 
 The API user is still required to close a removed device. The above
@@ -2208,7 +2206,7 @@ closed by the API user.</doc>
                  glib:error-domain="fp - device - error - quark">
       <doc xml:space="preserve"
            filename="libfprint/fp-device.h"
-           line="127">Error codes for device operations. More specific errors from other domains
+           line="130">Error codes for device operations. More specific errors from other domains
 such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
       <member name="general"
               value="0"
@@ -2217,7 +2215,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_GENERAL">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="129">A general error occurred.</doc>
+             line="132">A general error occurred.</doc>
       </member>
       <member name="not_supported"
               value="1"
@@ -2226,7 +2224,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_NOT_SUPPORTED">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="130">The device does not support the requested
+             line="133">The device does not support the requested
  operation.</doc>
       </member>
       <member name="not_open"
@@ -2236,7 +2234,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_NOT_OPEN">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="132">The device needs to be opened to start this
+             line="135">The device needs to be opened to start this
   operation.</doc>
       </member>
       <member name="already_open"
@@ -2246,7 +2244,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_ALREADY_OPEN">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="134">The device has already been opened.</doc>
+             line="137">The device has already been opened.</doc>
       </member>
       <member name="busy"
               value="4"
@@ -2255,7 +2253,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_BUSY">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="135">The device is busy with another request.</doc>
+             line="138">The device is busy with another request.</doc>
       </member>
       <member name="proto"
               value="5"
@@ -2264,7 +2262,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_PROTO">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="136">Protocol error</doc>
+             line="139">Protocol error</doc>
       </member>
       <member name="data_invalid"
               value="6"
@@ -2273,7 +2271,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_DATA_INVALID">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="137">The passed data is invalid</doc>
+             line="140">The passed data is invalid</doc>
       </member>
       <member name="data_not_found"
               value="7"
@@ -2282,7 +2280,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_DATA_NOT_FOUND">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="138">Requested print was not found on device</doc>
+             line="141">Requested print was not found on device</doc>
       </member>
       <member name="data_full"
               value="8"
@@ -2291,7 +2289,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_DATA_FULL">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="139">No space on device available for operation</doc>
+             line="142">No space on device available for operation</doc>
       </member>
       <member name="data_duplicate"
               value="9"
@@ -2300,7 +2298,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_DATA_DUPLICATE">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="140">Enrolling template duplicates storaged templates</doc>
+             line="143">Enrolling template duplicates storaged templates</doc>
       </member>
       <member name="removed"
               value="256"
@@ -2309,7 +2307,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_REMOVED">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="141">The device has been removed.</doc>
+             line="144">The device has been removed.</doc>
       </member>
       <member name="too_hot"
               value="257"
@@ -2318,7 +2316,7 @@ such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.</doc>
               glib:name="FP_DEVICE_ERROR_TOO_HOT">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.h"
-             line="142">The device might be getting too hot</doc>
+             line="145">The device might be getting too hot</doc>
       </member>
       <function name="quark" c:identifier="fp_device_error_quark">
         <return-value transfer-ownership="none">
@@ -2482,8 +2480,18 @@ retry.</doc>
   pressure problems; the user should remove their finger from the scanner
   before retrying.</doc>
       </member>
+      <member name="too_fast"
+              value="4"
+              c:identifier="FP_DEVICE_RETRY_TOO_FAST"
+              glib:nick="too-fast"
+              glib:name="FP_DEVICE_RETRY_TOO_FAST">
+        <doc xml:space="preserve"
+             filename="libfprint/fp-device.h"
+             line="116">The scan did not succeed because the finger
+  swipe or touch was too fast.</doc>
+      </member>
       <function name="quark" c:identifier="fp_device_retry_quark">
-        <source-position filename="libfprint/fp-device.h" line="163"/>
+        <source-position filename="libfprint/fp-device.h" line="166"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.c"
@@ -2527,8 +2535,8 @@ retry.</doc>
     <callback name="EnrollProgress" c:type="FpEnrollProgress">
       <doc xml:space="preserve"
            filename="libfprint/fp-device.h"
-           line="166">The passed error is guaranteed to be of type %FP_DEVICE_RETRY if set.</doc>
-      <source-position filename="libfprint/fp-device.h" line="176"/>
+           line="169">The passed error is guaranteed to be of type %FP_DEVICE_RETRY if set.</doc>
+      <source-position filename="libfprint/fp-device.h" line="179"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2536,13 +2544,13 @@ retry.</doc>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="168">a #FpDevice</doc>
+               line="171">a #FpDevice</doc>
           <type name="Device" c:type="FpDevice*"/>
         </parameter>
         <parameter name="completed_stages" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="169">Number of completed stages</doc>
+               line="172">Number of completed stages</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="print"
@@ -2551,7 +2559,7 @@ retry.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="170">The last scanned print</doc>
+               line="173">The last scanned print</doc>
           <type name="Print" c:type="FpPrint*"/>
         </parameter>
         <parameter name="user_data"
@@ -2561,7 +2569,7 @@ retry.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="171">User provided data</doc>
+               line="174">User provided data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="error"
@@ -2570,7 +2578,7 @@ retry.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="172">#GError or %NULL</doc>
+               line="175">#GError or %NULL</doc>
           <type name="GLib.Error" c:type="GError*"/>
         </parameter>
       </parameters>
@@ -3068,7 +3076,7 @@ be fixed to 500 points per inch (~19.685 p/mm) for most drivers.</doc>
     <callback name="MatchCb" c:type="FpMatchCb">
       <doc xml:space="preserve"
            filename="libfprint/fp-device.h"
-           line="182">Report the result of a match (identify or verify) operation.
+           line="185">Report the result of a match (identify or verify) operation.
 
 If @match is non-%NULL, then it is set to the matching #FpPrint as passed
 to the match operation. In this case @error will always be %NULL.
@@ -3091,7 +3099,7 @@ This callback exists because it makes sense for drivers to wait e.g. on
 finger removal before completing the match operation. However, the
 success/failure can often be reported at an earlier time, and there is
 no need to make the user wait.</doc>
-      <source-position filename="libfprint/fp-device.h" line="214"/>
+      <source-position filename="libfprint/fp-device.h" line="217"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3099,7 +3107,7 @@ no need to make the user wait.</doc>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="184">a #FpDevice</doc>
+               line="187">a #FpDevice</doc>
           <type name="Device" c:type="FpDevice*"/>
         </parameter>
         <parameter name="match"
@@ -3108,7 +3116,7 @@ no need to make the user wait.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="185">The matching print if any matched @print</doc>
+               line="188">The matching print if any matched @print</doc>
           <type name="Print" c:type="FpPrint*"/>
         </parameter>
         <parameter name="print"
@@ -3117,7 +3125,7 @@ no need to make the user wait.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="186">The newly scanned print</doc>
+               line="189">The newly scanned print</doc>
           <type name="Print" c:type="FpPrint*"/>
         </parameter>
         <parameter name="user_data"
@@ -3127,7 +3135,7 @@ no need to make the user wait.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="187">User provided data</doc>
+               line="190">User provided data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="error"
@@ -3136,7 +3144,7 @@ no need to make the user wait.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libfprint/fp-device.h"
-               line="188">#GError or %NULL</doc>
+               line="191">#GError or %NULL</doc>
           <type name="GLib.Error" c:type="GError*"/>
         </parameter>
       </parameters>
@@ -3767,7 +3775,7 @@ because the internal libfprint state about the device is lost.</doc>
     <function name="device_retry_quark"
               c:identifier="fp_device_retry_quark"
               moved-to="DeviceRetry.quark">
-      <source-position filename="libfprint/fp-device.h" line="163"/>
+      <source-position filename="libfprint/fp-device.h" line="166"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"

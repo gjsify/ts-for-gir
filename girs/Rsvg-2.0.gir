@@ -394,7 +394,7 @@ require any of [flags@Rsvg.HandleFlags] to be set, use any of
 need these, use [ctor@Rsvg.Handle.new_from_stream_sync] instead by creating
 a [class@Gio.MemoryInputStream] from your data.</doc>
         <source-position filename="include/librsvg/rsvg.h" line="1118"/>
-        <return-value transfer-ownership="full" nullable="1">
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="include/librsvg/rsvg.h"
                line="1114">A [class@Rsvg.Handle] or `NULL` if an error occurs.</doc>
@@ -428,7 +428,7 @@ a [class@Gio.MemoryInputStream] from your data.</doc>
 handle.  If you require the use of [flags@Rsvg.HandleFlags], use
 [ctor@Rsvg.Handle.new_from_gfile_sync].</doc>
         <source-position filename="include/librsvg/rsvg.h" line="1134"/>
-        <return-value transfer-ownership="full" nullable="1">
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="include/librsvg/rsvg.h"
                line="1130">A [class@Rsvg.Handle] or `NULL` if an error occurs.</doc>
@@ -460,7 +460,7 @@ triggering the cancellable object from another thread. If the
 operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
 returned in @error.</doc>
         <source-position filename="include/librsvg/rsvg.h" line="1068"/>
-        <return-value transfer-ownership="full" nullable="1">
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="include/librsvg/rsvg.h"
                line="1063">a new [class@Rsvg.Handle] on success, or `NULL` with @error filled in</doc>
@@ -507,7 +507,7 @@ triggering the cancellable object from another thread. If the
 operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
 returned in @error.</doc>
         <source-position filename="include/librsvg/rsvg.h" line="1097"/>
-        <return-value transfer-ownership="full" nullable="1">
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="include/librsvg/rsvg.h"
                line="1092">a new [class@Rsvg.Handle] on success, or `NULL` with @error filled in</doc>
@@ -2463,7 +2463,7 @@ your program), or for programs not written in C, use
       <source-position filename="include/librsvg/rsvg-version.h" line="8"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="3" c:type="LIBRSVG_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="LIBRSVG_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="include/librsvg/rsvg-features.h"
            line="64">This is a C macro that expands to a number with the micro version
@@ -2483,7 +2483,7 @@ your program), or for programs not written in C, use
       <source-position filename="include/librsvg/rsvg-version.h" line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="61" c:type="LIBRSVG_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="62" c:type="LIBRSVG_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="include/librsvg/rsvg-features.h"
            line="45">This is a C macro that expands to a number with the minor version
@@ -2664,7 +2664,7 @@ a `default` case in a `switch()` statement).</doc>
              line="769">advance measure of a '0' character (depends on the text orientation)</doc>
       </member>
     </enumeration>
-    <constant name="VERSION" value="2.61.3" c:type="LIBRSVG_VERSION">
+    <constant name="VERSION" value="2.62.0" c:type="LIBRSVG_VERSION">
       <doc xml:space="preserve"
            filename="include/librsvg/rsvg-features.h"
            line="83">This is a C macro that expands to a string with the version of

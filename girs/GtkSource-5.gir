@@ -54,7 +54,7 @@ If the style is GTK_SOURCE_ANNOTATION_STYLE_NONE it will use the same color as [
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="icon"
-                     transfer-ownership="none"
+                     transfer-ownership="full"
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
@@ -5194,7 +5194,7 @@ operation, the encoding is non-%NULL.</doc>
               c:identifier="gtk_source_file_get_location"
               glib:get-property="location">
         <source-position filename="gtksourceview/gtksourcefile.h" line="96"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcefile.c"
                line="287">the #GFile.</doc>
@@ -8790,13 +8790,13 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
                    c:identifier="gtk_source_gutter_renderer_text_new">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutterrenderertext.c"
-             line="500">Create a new #GtkSourceGutterRendererText.</doc>
+             line="497">Create a new #GtkSourceGutterRendererText.</doc>
         <source-position filename="gtksourceview/gtksourcegutterrenderertext.h"
                          line="45"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcegutterrenderertext.c"
-               line="505">A #GtkSourceGutterRenderer</doc>
+               line="502">A #GtkSourceGutterRenderer</doc>
           <type name="GutterRenderer" c:type="GtkSourceGutterRenderer*"/>
         </return-value>
       </constructor>
@@ -8804,7 +8804,7 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
               c:identifier="gtk_source_gutter_renderer_text_measure">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutterrenderertext.c"
-             line="287">Measures the text provided using the pango layout used by the
+             line="284">Measures the text provided using the pango layout used by the
 #GtkSourceGutterRendererText.</doc>
         <source-position filename="gtksourceview/gtksourcegutterrenderertext.h"
                          line="55"/>
@@ -8815,14 +8815,14 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="289">a #GtkSourceGutterRendererText.</doc>
+                 line="286">a #GtkSourceGutterRendererText.</doc>
             <type name="GutterRendererText"
                   c:type="GtkSourceGutterRendererText*"/>
           </instance-parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="290">the text to measure.</doc>
+                 line="287">the text to measure.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="width"
@@ -8833,7 +8833,7 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="291">location to store the width of the text in pixels,
+                 line="288">location to store the width of the text in pixels,
   or %NULL.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
@@ -8845,7 +8845,7 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="293">location to store the height of the text in
+                 line="290">location to store the height of the text in
   pixels, or %NULL.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
@@ -8855,7 +8855,7 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
               c:identifier="gtk_source_gutter_renderer_text_measure_markup">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutterrenderertext.c"
-             line="311">Measures the pango markup provided using the pango layout used by the
+             line="308">Measures the pango markup provided using the pango layout used by the
 #GtkSourceGutterRendererText.</doc>
         <source-position filename="gtksourceview/gtksourcegutterrenderertext.h"
                          line="60"/>
@@ -8866,14 +8866,14 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
           <instance-parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="313">a #GtkSourceGutterRendererText.</doc>
+                 line="310">a #GtkSourceGutterRendererText.</doc>
             <type name="GutterRendererText"
                   c:type="GtkSourceGutterRendererText*"/>
           </instance-parameter>
           <parameter name="markup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="314">the pango markup to measure.</doc>
+                 line="311">the pango markup to measure.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="width"
@@ -8884,7 +8884,7 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="315">location to store the width of the text in pixels,
+                 line="312">location to store the width of the text in pixels,
   or %NULL.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
@@ -8896,7 +8896,7 @@ A `GtkSourceGutterRendererText` can be used to render text in a cell of
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutterrenderertext.c"
-                 line="317">location to store the height of the text in
+                 line="314">location to store the height of the text in
   pixels, or %NULL.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
@@ -10590,7 +10590,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="18"
+              value="20"
               c:type="GTK_SOURCE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceversion.h"
@@ -14090,7 +14090,7 @@ details.</doc>
               glib:get-property="match-style">
         <source-position filename="gtksourceview/gtksourcesearchcontext.h"
                          line="50"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcesearchcontext.c"
                line="2981">the #GtkSourceStyle to apply on search matches.</doc>
@@ -20276,7 +20276,7 @@ This may be executed in relation to the user running the `:write` or `:w` comman
 at runtime instead of compile time. This is useful for compiling
 against older versions of GtkSourceView, but using features from newer
 versions.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="320"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="336"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20435,7 +20435,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MAJOR_VERSION
 macro, which represents the major version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="314"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="330"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20454,7 +20454,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MICRO_VERSION
 macro, which represents the micro version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="318"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="334"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20473,7 +20473,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MINOR_VERSION
 macro, which represents the minor version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="316"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="332"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20499,7 +20499,8 @@ when using memory debugging tools.</doc>
     <function name="scheduler_add"
               c:identifier="gtk_source_scheduler_add"
               shadowed-by="scheduler_add_full"
-              version="5.2">
+              version="5.2"
+              introspectable="0">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourcescheduler.c"
            line="232">Simplified version of [func@scheduler_add_full].</doc>
@@ -20511,7 +20512,7 @@ when using memory debugging tools.</doc>
       <parameters>
         <parameter name="callback"
                    transfer-ownership="none"
-                   scope="notified"
+                   scope="forever"
                    closure="1">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcescheduler.c"

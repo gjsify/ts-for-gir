@@ -5,7 +5,7 @@
 <include name="Gtk" version="4.0"/>
 <package name="gci-1"/>
 <c:include name="gci/gci.h"/>
-<namespace name="GCi" version="1" shared-library="gci/libgci-1.so.0" c:prefix="GCi" c:identifier-prefixes="GCi" c:symbol-prefixes="gci">
+<namespace name="GCi" version="1" shared-library="libgci-1.so.0" c:prefix="GCi" c:identifier-prefixes="GCi" c:symbol-prefixes="gci">
 	<class name="EntryController" c:type="GCiEntryController" c:symbol-prefix="entry_controller" glib:type-name="GCiEntryController" glib:get-type="gci_entry_controller_get_type" glib:type-struct="EntryControllerClass" parent="GObject.Object">
 		<field name="parent_instance" readable="0" private="1">
 			<type name="GObject.Object" c:type="GObject"/>

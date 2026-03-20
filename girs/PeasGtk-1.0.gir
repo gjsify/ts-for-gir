@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <include name="Peas" version="1.0"/>
   <package name="libpeas-gtk-1.0"/>
   <c:include name="libpeas-gtk/peas-gtk.h"/>
+  <doc:format name="unknown"/>
   <namespace name="PeasGtk"
              version="1.0"
              shared-library="libpeas-gtk-1.0.so.0"
@@ -137,6 +139,9 @@ This method should always return a valid [class@Gtk.Widget] instance, never %NUL
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="create_configure_widget">
+        <doc xml:space="preserve"
+             filename="libpeas-gtk/peas-gtk-configurable.h"
+             line="50">Creates the configure widget for the plugin.</doc>
         <callback name="create_configure_widget">
           <source-position filename="libpeas-gtk/peas-gtk-configurable.h"
                            line="58"/>
@@ -286,7 +291,7 @@ and should only be accessed using the provided API.</doc>
       <constructor name="new" c:identifier="peas_gtk_plugin_manager_new">
         <doc xml:space="preserve"
              filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-             line="581">Creates a new plugin manager for the given [class@Peas.Engine].
+             line="584">Creates a new plugin manager for the given [class@Peas.Engine].
 
 If @engine is %NULL, then the default engine will be used.</doc>
         <source-position filename="libpeas-gtk/peas-gtk-plugin-manager.h"
@@ -294,7 +299,7 @@ If @engine is %NULL, then the default engine will be used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-               line="589">the new #PeasGtkPluginManager.</doc>
+               line="592">the new #PeasGtkPluginManager.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -304,7 +309,7 @@ If @engine is %NULL, then the default engine will be used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-                 line="583">A #PeasEngine, or %NULL.</doc>
+                 line="586">A #PeasEngine, or %NULL.</doc>
             <type name="Peas.Engine" c:type="PeasEngine*"/>
           </parameter>
         </parameters>
@@ -314,20 +319,20 @@ If @engine is %NULL, then the default engine will be used.</doc>
               glib:get-property="view">
         <doc xml:space="preserve"
              filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-             line="601">Returns the [class@PluginManagerView] of @pm.</doc>
+             line="604">Returns the [class@PluginManagerView] of @pm.</doc>
         <source-position filename="libpeas-gtk/peas-gtk-plugin-manager.h"
                          line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-               line="607">the #GtkTreeView of @pm.</doc>
+               line="610">the #GtkTreeView of @pm.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pm" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-                 line="603">A #PeasGtkPluginManager.</doc>
+                 line="606">A #PeasGtkPluginManager.</doc>
             <type name="PluginManager" c:type="PeasGtkPluginManager*"/>
           </instance-parameter>
         </parameters>
@@ -338,7 +343,7 @@ If @engine is %NULL, then the default engine will be used.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-             line="550">The [class@Peas.Engine] this manager is attached to.</doc>
+             line="553">The [class@Peas.Engine] this manager is attached to.</doc>
         <type name="Peas.Engine"/>
       </property>
       <property name="view"
@@ -348,7 +353,7 @@ If @engine is %NULL, then the default engine will be used.</doc>
                 getter="get_view">
         <doc xml:space="preserve"
              filename="libpeas-gtk/peas-gtk-plugin-manager.c"
-             line="564">The [class@PluginManagerView] shown in the #PeasGtkPluginManager.</doc>
+             line="567">The [class@PluginManagerView] shown in the #PeasGtkPluginManager.</doc>
         <type name="PluginManagerView"/>
       </property>
       <field name="box">
@@ -429,6 +434,10 @@ If @engine is %NULL, then the default engine will be used.</doc>
         </parameters>
       </constructor>
       <virtual-method name="populate_popup">
+        <doc xml:space="preserve"
+             filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
+             line="63">Signal class handler for the
+                 #PeasGtkPluginManagerView::populate-popup signal.</doc>
         <source-position filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
                          line="71"/>
         <return-value transfer-ownership="none">
@@ -607,6 +616,10 @@ connect to this signal and add your menuitems to the @menu.</doc>
         <type name="Gtk.TreeViewClass" c:type="GtkTreeViewClass"/>
       </field>
       <field name="populate_popup">
+        <doc xml:space="preserve"
+             filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
+             line="63">Signal class handler for the
+                 #PeasGtkPluginManagerView::populate-popup signal.</doc>
         <callback name="populate_popup">
           <source-position filename="libpeas-gtk/peas-gtk-plugin-manager-view.h"
                            line="71"/>

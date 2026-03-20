@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <c:include name="lightdm.h"/>
+  <doc:format name="unknown"/>
   <namespace name="LightDM"
              version="1"
              shared-library="liblightdm-gobject-1.so.0"
@@ -2706,7 +2708,7 @@ using the provided functions.</doc>
           <doc xml:space="preserve"
                filename="user.c"
                line="613">The uid of the given user</doc>
-          <type name="guint" c:type="uid_t"/>
+          <type name="uid_t" c:type="uid_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="user" transfer-ownership="none">

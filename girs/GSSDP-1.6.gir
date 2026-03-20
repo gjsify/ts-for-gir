@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <include name="Soup" version="3.0"/>
   <package name="gssdp-1.6"/>
   <c:include name="libgssdp/gssdp.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GSSDP"
              version="1.6"
              shared-library="libgssdp-1.6.so.0"
@@ -46,7 +48,7 @@ belong t the same network device.</doc>
       <constructor name="new"
                    c:identifier="gssdp_client_new"
                    deprecated="1"
-                   deprecated-version="1.6."
+                   deprecated-version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
@@ -78,7 +80,7 @@ auto-detection.</doc>
       </constructor>
       <constructor name="new_for_address"
                    c:identifier="gssdp_client_new_for_address"
-                   version="1.6."
+                   version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
@@ -120,7 +122,7 @@ random.</doc>
       </constructor>
       <constructor name="new_full"
                    c:identifier="gssdp_client_new_full"
-                   version="1.6."
+                   version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
@@ -172,7 +174,7 @@ random.</doc>
       <constructor name="new_with_port"
                    c:identifier="gssdp_client_new_with_port"
                    deprecated="1"
-                   deprecated-version="1.6."
+                   deprecated-version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
@@ -791,7 +793,7 @@ Since 1.2.0</doc>
       </property>
       <property name="host-ip"
                 deprecated="1"
-                deprecated-version="1.6."
+                deprecated-version="1.6.0"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
@@ -1158,13 +1160,13 @@ bus. There are several possible targets such as
         <attribute name="org.gtk.Method.get_property" value="active"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="641">Get whether the browser is currently active.</doc>
+             line="640">Get whether the browser is currently active.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="647">%TRUE if @resource_browser is active.</doc>
+               line="646">%TRUE if @resource_browser is active.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1172,7 +1174,7 @@ bus. There are several possible targets such as
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="643">A #GSSDPResourceBrowser</doc>
+                 line="642">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1208,13 +1210,13 @@ bus. There are several possible targets such as
         <attribute name="org.gtk.Method.get_property" value="mx"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="589">Get the current MX value.</doc>
+             line="588">Get the current MX value.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="595">The used MX value.</doc>
+               line="594">The used MX value.</doc>
           <type name="gushort" c:type="gushort"/>
         </return-value>
         <parameters>
@@ -1222,7 +1224,7 @@ bus. There are several possible targets such as
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="591">A #GSSDPResourceBrowser</doc>
+                 line="590">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1233,13 +1235,13 @@ bus. There are several possible targets such as
         <attribute name="org.gtk.Method.get_property" value="target"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="545">Get the current browse target.</doc>
+             line="544">Get the current browse target.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="551">The browser target.</doc>
+               line="550">The browser target.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -1247,7 +1249,7 @@ bus. There are several possible targets such as
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="547">A #GSSDPResourceBrowser</doc>
+                 line="546">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1255,14 +1257,14 @@ bus. There are several possible targets such as
       <method name="rescan" c:identifier="gssdp_resource_browser_rescan">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="661">Begins discovery if @resource_browser is active and no discovery is
+             line="660">Begins discovery if @resource_browser is active and no discovery is
 performed. Otherwise does nothing.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="668">%TRUE if rescaning has been started.</doc>
+               line="667">%TRUE if rescaning has been started.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1270,7 +1272,7 @@ performed. Otherwise does nothing.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="663">A #GSSDPResourceBrowser</doc>
+                 line="662">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1281,7 +1283,7 @@ performed. Otherwise does nothing.</doc>
         <attribute name="org.gtk.Method.set_property" value="active"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="609">(De)activates @resource_browser.</doc>
+             line="608">(De)activates @resource_browser.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="79"/>
         <return-value transfer-ownership="none">
@@ -1292,13 +1294,13 @@ performed. Otherwise does nothing.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="611">A #GSSDPResourceBrowser</doc>
+                 line="610">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
           <parameter name="active" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="612">%TRUE to activate @resource_browser</doc>
+                 line="611">%TRUE to activate @resource_browser</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1309,7 +1311,7 @@ performed. Otherwise does nothing.</doc>
         <attribute name="org.gtk.Method.set_property" value="mx"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="564">Sets the used MX value of @resource_browser to @mx.</doc>
+             line="563">Sets the used MX value of @resource_browser to @mx.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="72"/>
         <return-value transfer-ownership="none">
@@ -1320,13 +1322,13 @@ performed. Otherwise does nothing.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="566">A #GSSDPResourceBrowser</doc>
+                 line="565">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
           <parameter name="mx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="567">The to be used MX value</doc>
+                 line="566">The to be used MX value</doc>
             <type name="gushort" c:type="gushort"/>
           </parameter>
         </parameters>

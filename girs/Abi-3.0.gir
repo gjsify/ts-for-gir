@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gsf" version="1"/>
   <include name="Gtk" version="3.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Abi"
              version="3.0"
              shared-library="libabiword-3.0.so"
@@ -157,21 +159,21 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="AbiTable"
            glib:get-type="abi_table_get_type"
            glib:type-struct="TableClass">
-      <source-position filename="af/xap/gtk/xap_UnixTableWidget.h" line="80"/>
+      <source-position filename="af/xap/gtk/xap_UnixTableWidget.h" line="82"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Actionable"/>
       <implements name="Gtk.Activatable"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="abi_table_new">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="84"/>
+                         line="86"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
       <virtual-method name="selected">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="79"/>
+                         line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -189,25 +191,25 @@ and/or use gtk-doc annotations.  -->
       </virtual-method>
       <method name="get_label" c:identifier="abi_table_get_label">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="101"/>
+                         line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="af/xap/gtk/xap_UnixTableWidget.cpp"
-               line="834">the label widget.</doc>
+               line="727">the label widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="abi_table" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="af/xap/gtk/xap_UnixTableWidget.cpp"
-                 line="832">#AbiTable</doc>
+                 line="725">#AbiTable</doc>
             <type name="Table" c:type="AbiTable*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_max_size" c:identifier="abi_table_get_max_size">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="94"/>
+                         line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -225,7 +227,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_selected" c:identifier="abi_table_get_selected">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="89"/>
+                         line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -243,7 +245,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_icon" c:identifier="abi_table_set_icon">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="105"/>
+                         line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -258,7 +260,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_labels" c:identifier="abi_table_set_labels">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="97"/>
+                         line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -276,7 +278,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_max_size" c:identifier="abi_table_set_max_size">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="92"/>
+                         line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -294,7 +296,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_selected" c:identifier="abi_table_set_selected">
         <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                         line="87"/>
+                         line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -345,6 +347,12 @@ and/or use gtk-doc annotations.  -->
       <field name="style_context" readable="0" private="1">
         <type name="Gtk.StyleContext" c:type="GtkStyleContext*"/>
       </field>
+      <field name="pos_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="pos_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
       <field name="selected_rows" readable="0" private="1">
         <type name="guint" c:type="guint"/>
       </field>
@@ -386,14 +394,14 @@ and/or use gtk-doc annotations.  -->
     <record name="TableClass"
             c:type="AbiTableClass"
             glib:is-gtype-struct-for="Table">
-      <source-position filename="af/xap/gtk/xap_UnixTableWidget.h" line="80"/>
+      <source-position filename="af/xap/gtk/xap_UnixTableWidget.h" line="82"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
       <field name="selected">
         <callback name="selected">
           <source-position filename="af/xap/gtk/xap_UnixTableWidget.h"
-                           line="79"/>
+                           line="81"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>

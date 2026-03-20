@@ -637,19 +637,19 @@ a font.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_MAJOR" value="11" c:type="HB_VERSION_MAJOR">
+    <constant name="VERSION_MAJOR" value="12" c:type="HB_VERSION_MAJOR">
       <source-position filename="src/hb-version.h" line="44"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="1" c:type="HB_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="2" c:type="HB_VERSION_MICRO">
       <source-position filename="src/hb-version.h" line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MINOR" value="5" c:type="HB_VERSION_MINOR">
+    <constant name="VERSION_MINOR" value="3" c:type="HB_VERSION_MINOR">
       <source-position filename="src/hb-version.h" line="50"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_STRING" value="11.5.1" c:type="HB_VERSION_STRING">
+    <constant name="VERSION_STRING" value="12.3.2" c:type="HB_VERSION_STRING">
       <source-position filename="src/hb-version.h" line="63"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
@@ -5365,7 +5365,7 @@ The serialized glyphs will look something like:
   #HB_BUFFER_SERIALIZE_FLAG_NO_GLYPH_NAMES flag is set. Then,
   - If #HB_BUFFER_SERIALIZE_FLAG_NO_CLUSTERS is not set, `=` then #hb_glyph_info_t.cluster.
   - If #HB_BUFFER_SERIALIZE_FLAG_NO_POSITIONS is not set, the #hb_glyph_position_t in the format:
-    - If both #hb_glyph_position_t.x_offset and #hb_glyph_position_t.y_offset are not 0, `@x_offset,y_offset`. Then,
+    - If #hb_glyph_position_t.x_offset and #hb_glyph_position_t.y_offset are not both 0, `@x_offset,y_offset`. Then,
     - `+x_advance`, then `,y_advance` if #hb_glyph_position_t.y_advance is not 0. Then,
   - If #HB_BUFFER_SERIALIZE_FLAG_GLYPH_EXTENTS is set, the #hb_glyph_extents_t in the format `&lt;x_bearing,y_bearing,width,height&gt;`
 
@@ -6157,26 +6157,26 @@ and output glyphs and their information after shaping.</doc>
     <function name="calloc" c:identifier="hb_calloc" version="11.0.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1239">Allocates @nmemb elements of @size bytes each, initialized to zero,
+           line="1202">Allocates @nmemb elements of @size bytes each, initialized to zero,
 using the allocator set at compile-time. Typically just calloc().</doc>
       <source-position filename="src/hb-common.h" line="526"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1247">A pointer to the allocated memory.</doc>
+             line="1210">A pointer to the allocated memory.</doc>
         <type name="gpointer" c:type="void*"/>
       </return-value>
       <parameters>
         <parameter name="nmemb" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1241">The number of elements to allocate.</doc>
+               line="1204">The number of elements to allocate.</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1242">The size of each element.</doc>
+               line="1205">The size of each element.</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
       </parameters>
@@ -6186,19 +6186,19 @@ using the allocator set at compile-time. Typically just calloc().</doc>
               version="2.1.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1162">Fetches the alpha channel of the given @color.</doc>
+           line="1125">Fetches the alpha channel of the given @color.</doc>
       <source-position filename="src/hb-common.h" line="481"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1168">Alpha channel value</doc>
+             line="1131">Alpha channel value</doc>
         <type name="guint8" c:type="uint8_t"/>
       </return-value>
       <parameters>
         <parameter name="color" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1164">an #hb_color_t we are interested in its channels.</doc>
+               line="1127">an #hb_color_t we are interested in its channels.</doc>
           <type name="color_t" c:type="hb_color_t"/>
         </parameter>
       </parameters>
@@ -6208,19 +6208,19 @@ using the allocator set at compile-time. Typically just calloc().</doc>
               version="2.1.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1210">Fetches the blue channel of the given @color.</doc>
+           line="1173">Fetches the blue channel of the given @color.</doc>
       <source-position filename="src/hb-common.h" line="493"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1216">Blue channel value</doc>
+             line="1179">Blue channel value</doc>
         <type name="guint8" c:type="uint8_t"/>
       </return-value>
       <parameters>
         <parameter name="color" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1212">an #hb_color_t we are interested in its channels.</doc>
+               line="1175">an #hb_color_t we are interested in its channels.</doc>
           <type name="color_t" c:type="hb_color_t"/>
         </parameter>
       </parameters>
@@ -6230,19 +6230,19 @@ using the allocator set at compile-time. Typically just calloc().</doc>
               version="2.1.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1194">Fetches the green channel of the given @color.</doc>
+           line="1157">Fetches the green channel of the given @color.</doc>
       <source-position filename="src/hb-common.h" line="489"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1200">Green channel value</doc>
+             line="1163">Green channel value</doc>
         <type name="guint8" c:type="uint8_t"/>
       </return-value>
       <parameters>
         <parameter name="color" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1196">an #hb_color_t we are interested in its channels.</doc>
+               line="1159">an #hb_color_t we are interested in its channels.</doc>
           <type name="color_t" c:type="hb_color_t"/>
         </parameter>
       </parameters>
@@ -6252,19 +6252,19 @@ using the allocator set at compile-time. Typically just calloc().</doc>
               version="2.1.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1178">Fetches the red channel of the given @color.</doc>
+           line="1141">Fetches the red channel of the given @color.</doc>
       <source-position filename="src/hb-common.h" line="485"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1184">Red channel value</doc>
+             line="1147">Red channel value</doc>
         <type name="guint8" c:type="uint8_t"/>
       </return-value>
       <parameters>
         <parameter name="color" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1180">an #hb_color_t we are interested in its channels.</doc>
+               line="1143">an #hb_color_t we are interested in its channels.</doc>
           <type name="color_t" c:type="hb_color_t"/>
         </parameter>
       </parameters>
@@ -6576,7 +6576,7 @@ section for details.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="144">Converts a string to an #hb_direction_t.
+           line="107">Converts a string to an #hb_direction_t.
 
 Matching is loose and applies only to the first letter. For
 examples, "LTR" and "left-to-right" will both return #HB_DIRECTION_LTR.
@@ -6586,14 +6586,14 @@ Unmatched strings will return #HB_DIRECTION_INVALID.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="156">The #hb_direction_t matching @str</doc>
+             line="119">The #hb_direction_t matching @str</doc>
         <type name="direction_t" c:type="hb_direction_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="146">String to convert</doc>
+               line="109">String to convert</doc>
           <array length="1" zero-terminated="0" c:type="const char*">
             <type name="guint8"/>
           </array>
@@ -6601,7 +6601,7 @@ Unmatched strings will return #HB_DIRECTION_INVALID.</doc>
         <parameter name="len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="147">Length of @str, or -1 if it is `NULL`-terminated</doc>
+               line="110">Length of @str, or -1 if it is `NULL`-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -6646,19 +6646,19 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="177">Converts an #hb_direction_t to a string.</doc>
+           line="140">Converts an #hb_direction_t to a string.</doc>
       <source-position filename="src/hb-common.h" line="250"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="183">The string corresponding to @direction</doc>
+             line="146">The string corresponding to @direction</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="179">The #hb_direction_t to convert</doc>
+               line="142">The #hb_direction_t to convert</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
       </parameters>
@@ -8749,7 +8749,7 @@ This API is used in rare circumstances.</doc>
               version="0.9.5">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="897">Parses a string into a #hb_feature_t.
+           line="860">Parses a string into a #hb_feature_t.
 
 The format for specifying feature strings follows. All valid CSS
 font-feature-settings values other than 'normal' and the global values are
@@ -8790,14 +8790,14 @@ The format is Python-esque.  Here is how it all works:
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="941">`true` if @str is successfully parsed, `false` otherwise</doc>
+             line="904">`true` if @str is successfully parsed, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="899">a string to parse</doc>
+               line="862">a string to parse</doc>
           <array length="1" zero-terminated="0" c:type="const char*">
             <type name="guint8"/>
           </array>
@@ -8805,7 +8805,7 @@ The format is Python-esque.  Here is how it all works:
         <parameter name="len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="900">length of @str, or -1 if string is `NULL` terminated</doc>
+               line="863">length of @str, or -1 if string is `NULL` terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="feature"
@@ -8814,7 +8814,7 @@ The format is Python-esque.  Here is how it all works:
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="901">the #hb_feature_t to initialize with the parsed values</doc>
+               line="864">the #hb_feature_t to initialize with the parsed values</doc>
           <type name="feature_t" c:type="hb_feature_t*"/>
         </parameter>
       </parameters>
@@ -8864,7 +8864,7 @@ specifies that the feature always applies to the entire buffer.</doc>
               version="0.9.5">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="967">Converts a #hb_feature_t into a `NULL`-terminated string in the format
+             line="930">Converts a #hb_feature_t into a `NULL`-terminated string in the format
 understood by hb_feature_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.
 
@@ -8878,7 +8878,7 @@ string won't include any whitespace.</doc>
           <instance-parameter name="feature" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="969">an #hb_feature_t to convert</doc>
+                 line="932">an #hb_feature_t to convert</doc>
             <type name="feature_t" c:type="hb_feature_t*"/>
           </instance-parameter>
           <parameter name="buf"
@@ -8887,7 +8887,7 @@ string won't include any whitespace.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="970">output string</doc>
+                 line="933">output string</doc>
             <array length="1" zero-terminated="0" c:type="char*">
               <type name="utf8" c:type="char"/>
             </array>
@@ -8898,7 +8898,7 @@ string won't include any whitespace.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="971">the allocated size of @buf</doc>
+                 line="934">the allocated size of @buf</doc>
             <type name="guint" c:type="unsigned int"/>
           </parameter>
         </parameters>
@@ -8909,7 +8909,7 @@ string won't include any whitespace.</doc>
               version="0.9.5">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="967">Converts a #hb_feature_t into a `NULL`-terminated string in the format
+           line="930">Converts a #hb_feature_t into a `NULL`-terminated string in the format
 understood by hb_feature_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.
 
@@ -8923,7 +8923,7 @@ string won't include any whitespace.</doc>
         <parameter name="feature" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="969">an #hb_feature_t to convert</doc>
+               line="932">an #hb_feature_t to convert</doc>
           <type name="feature_t" c:type="hb_feature_t*"/>
         </parameter>
         <parameter name="buf"
@@ -8932,7 +8932,7 @@ string won't include any whitespace.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="970">output string</doc>
+               line="933">output string</doc>
           <array length="2" zero-terminated="0" c:type="char*">
             <type name="utf8" c:type="char"/>
           </array>
@@ -8943,7 +8943,7 @@ string won't include any whitespace.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="971">the allocated size of @buf</doc>
+               line="934">the allocated size of @buf</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
       </parameters>
@@ -14680,7 +14680,7 @@ or vertical) depending on the value of @direction.</doc>
     <function name="free" c:identifier="hb_free" version="11.0.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1267">Frees the memory pointed to by @ptr, using the allocator set at
+           line="1230">Frees the memory pointed to by @ptr, using the allocator set at
 compile-time. Typically just free().</doc>
       <source-position filename="src/hb-common.h" line="530"/>
       <return-value transfer-ownership="none">
@@ -14693,7 +14693,7 @@ compile-time. Typically just free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1269">The pointer to the memory to free.</doc>
+               line="1232">The pointer to the memory to free.</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
       </parameters>
@@ -15838,7 +15838,7 @@ HarfBuzz provides built-in default functions for each method in
     <docsection name="hb-version">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="656">These functions and macros allow accessing version of the HarfBuzz
+           line="619">These functions and macros allow accessing version of the HarfBuzz
 library used at compile- as well as run-time, and to direct code
 conditionally based on those versions, again, at compile- or run-time.</doc>
     </docsection>
@@ -15847,13 +15847,13 @@ conditionally based on those versions, again, at compile- or run-time.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="330">Converts @str representing a BCP 47 language tag to the corresponding
+           line="293">Converts @str representing a BCP 47 language tag to the corresponding
 #hb_language_t.</doc>
       <source-position filename="src/hb-common.h" line="320"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="339">
+             line="302">
 The #hb_language_t corresponding to the BCP 47 language tag.</doc>
         <type name="language_t" c:type="hb_language_t"/>
       </return-value>
@@ -15861,7 +15861,7 @@ The #hb_language_t corresponding to the BCP 47 language tag.</doc>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="332">a string representing
+               line="295">a string representing
       a BCP 47 language tag</doc>
           <array length="1" zero-terminated="0" c:type="const char*">
             <type name="guint8"/>
@@ -15870,7 +15870,7 @@ The #hb_language_t corresponding to the BCP 47 language tag.</doc>
         <parameter name="len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="334">length of the @str, or -1 if it is `NULL`-terminated.</doc>
+               line="297">length of the @str, or -1 if it is `NULL`-terminated.</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -15880,7 +15880,7 @@ The #hb_language_t corresponding to the BCP 47 language tag.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="386">Fetch the default language from current locale.
+           line="349">Fetch the default language from current locale.
 
 &lt;note&gt;Note that the first time this function is called, it calls
 "setlocale (LC_CTYPE, nullptr)" to fetch current locale.  The underlying
@@ -15892,7 +15892,7 @@ HarfBuzz itself.&lt;/note&gt;</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="398">The default language of the locale as
+             line="361">The default language of the locale as
 an #hb_language_t</doc>
         <type name="language_t" c:type="hb_language_t"/>
       </return-value>
@@ -15902,27 +15902,27 @@ an #hb_language_t</doc>
               version="5.0.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="418">Check whether a second language tag is the same or a more
+           line="381">Check whether a second language tag is the same or a more
 specific version of the provided language tag.  For example,
 "fa_IR.utf8" is a more specific tag for "fa" or for "fa_IR".</doc>
       <source-position filename="src/hb-common.h" line="338"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="427">`true` if languages match, `false` otherwise.</doc>
+             line="390">`true` if languages match, `false` otherwise.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="language" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="420">The #hb_language_t to work on</doc>
+               line="383">The #hb_language_t to work on</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="specific" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="421">Another #hb_language_t</doc>
+               line="384">Another #hb_language_t</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
       </parameters>
@@ -15939,12 +15939,12 @@ language tag.</doc>
               version="0.9.2">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="366">Converts an #hb_language_t to a string.</doc>
+             line="329">Converts an #hb_language_t to a string.</doc>
         <source-position filename="src/hb-common.h" line="323"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="372">
+               line="335">
 A `NULL`-terminated string representing the @language. Must not be freed by
 the caller.</doc>
           <type name="utf8" c:type="const char*"/>
@@ -15953,7 +15953,7 @@ the caller.</doc>
           <instance-parameter name="language" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="368">The #hb_language_t to convert</doc>
+                 line="331">The #hb_language_t to convert</doc>
             <type name="language_t" c:type="hb_language_t"/>
           </instance-parameter>
         </parameters>
@@ -15964,12 +15964,12 @@ the caller.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="366">Converts an #hb_language_t to a string.</doc>
+           line="329">Converts an #hb_language_t to a string.</doc>
       <source-position filename="src/hb-common.h" line="323"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="372">
+             line="335">
 A `NULL`-terminated string representing the @language. Must not be freed by
 the caller.</doc>
         <type name="utf8" c:type="const char*"/>
@@ -15978,7 +15978,7 @@ the caller.</doc>
         <parameter name="language" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="368">The #hb_language_t to convert</doc>
+               line="331">The #hb_language_t to convert</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
       </parameters>
@@ -15986,20 +15986,20 @@ the caller.</doc>
     <function name="malloc" c:identifier="hb_malloc" version="11.0.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1226">Allocates @size bytes of memory, using the allocator set at
+           line="1189">Allocates @size bytes of memory, using the allocator set at
 compile-time. Typically just malloc().</doc>
       <source-position filename="src/hb-common.h" line="524"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1233">A pointer to the allocated memory.</doc>
+             line="1196">A pointer to the allocated memory.</doc>
         <type name="gpointer" c:type="void*"/>
       </return-value>
       <parameters>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1228">The size of the memory to allocate.</doc>
+               line="1191">The size of the memory to allocate.</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
       </parameters>
@@ -17123,14 +17123,14 @@ for fonts newly created.</doc>
               c:type="hb_ot_layout_baseline_tag_t">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.h"
-           line="471">Baseline tags from [Baseline Tags](https://docs.microsoft.com/en-us/typography/opentype/spec/baselinetags) registry.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="510"/>
+           line="477">Baseline tags from [Baseline Tags](https://docs.microsoft.com/en-us/typography/opentype/spec/baselinetags) registry.</doc>
+      <source-position filename="src/hb-ot-layout.h" line="516"/>
       <member name="b_ot_layout_baseline_tag_roman"
               value="1919905134"
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_ROMAN">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="473">The baseline used by alphabetic scripts such as Latin, Cyrillic and Greek.
+             line="479">The baseline used by alphabetic scripts such as Latin, Cyrillic and Greek.
 In vertical writing mode, the alphabetic baseline for characters rotated 90 degrees clockwise.
 (This would not apply to alphabetic characters that remain upright in vertical writing mode, since these
 characters are not rotated.)</doc>
@@ -17140,7 +17140,7 @@ characters are not rotated.)</doc>
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_HANGING">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="477">The hanging baseline. In horizontal direction, this is the horizontal
+             line="483">The hanging baseline. In horizontal direction, this is the horizontal
 line from which syllables seem, to hang in Tibetan and other similar scripts. In vertical writing mode,
 for Tibetan (or some other similar script) characters rotated 90 degrees clockwise.</doc>
       </member>
@@ -17149,7 +17149,7 @@ for Tibetan (or some other similar script) characters rotated 90 degrees clockwi
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_IDEO_FACE_BOTTOM_OR_LEFT">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="480">Ideographic character face bottom or left edge,
+             line="486">Ideographic character face bottom or left edge,
 if the direction is horizontal or vertical, respectively.</doc>
       </member>
       <member name="b_ot_layout_baseline_tag_ideo_face_top_or_right"
@@ -17157,7 +17157,7 @@ if the direction is horizontal or vertical, respectively.</doc>
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_IDEO_FACE_TOP_OR_RIGHT">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="482">Ideographic character face top or right edge,
+             line="488">Ideographic character face top or right edge,
 if the direction is horizontal or vertical, respectively.</doc>
       </member>
       <member name="b_ot_layout_baseline_tag_ideo_face_central"
@@ -17165,14 +17165,14 @@ if the direction is horizontal or vertical, respectively.</doc>
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_IDEO_FACE_CENTRAL">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="484">The center of the ideographic character face. Since: 4.0.0</doc>
+             line="490">The center of the ideographic character face. Since: 4.0.0</doc>
       </member>
       <member name="b_ot_layout_baseline_tag_ideo_embox_bottom_or_left"
               value="1768187247"
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_IDEO_EMBOX_BOTTOM_OR_LEFT">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="485">Ideographic em-box bottom or left edge,
+             line="491">Ideographic em-box bottom or left edge,
 if the direction is horizontal or vertical, respectively.</doc>
       </member>
       <member name="b_ot_layout_baseline_tag_ideo_embox_top_or_right"
@@ -17180,14 +17180,14 @@ if the direction is horizontal or vertical, respectively.</doc>
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_IDEO_EMBOX_TOP_OR_RIGHT">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="487">Ideographic em-box top or right edge baseline,</doc>
+             line="493">Ideographic em-box top or right edge baseline,</doc>
       </member>
       <member name="b_ot_layout_baseline_tag_ideo_embox_central"
               value="1231315813"
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_IDEO_EMBOX_CENTRAL">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="488">The center of the ideographic em-box. Since: 4.0.0
+             line="494">The center of the ideographic em-box. Since: 4.0.0
 if the direction is horizontal or vertical, respectively.</doc>
       </member>
       <member name="b_ot_layout_baseline_tag_math"
@@ -17195,7 +17195,7 @@ if the direction is horizontal or vertical, respectively.</doc>
               c:identifier="HB_OT_LAYOUT_BASELINE_TAG_MATH">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.h"
-             line="490">The baseline about which mathematical characters are centered.
+             line="496">The baseline about which mathematical characters are centered.
 In vertical writing mode when mathematical characters rotated 90 degrees clockwise, are centered.</doc>
       </member>
     </bitfield>
@@ -17401,7 +17401,7 @@ list of features is provided, all features will be queried.</doc>
            filename="src/hb-ot-layout.cc"
            line="1849">Fetches a list of the characters defined as having a variant under the specified
 "Character Variant" ("cvXX") feature tag.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="445"/>
+      <source-position filename="src/hb-ot-layout.h" line="451"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
@@ -17530,7 +17530,7 @@ begin at the offset provided.</doc>
            filename="src/hb-ot-layout.cc"
            line="1775">Fetches name indices from feature parameters for "Stylistic Set" ('ssXX') or
 "Character Variant" ('cvXX') features.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="434"/>
+      <source-position filename="src/hb-ot-layout.h" line="440"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
@@ -17747,44 +17747,44 @@ Useful if the client program wishes to cache the list.</doc>
               version="2.6.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2273">Fetches a baseline value from the face.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="516"/>
+           line="2278">Fetches a baseline value from the face.</doc>
+      <source-position filename="src/hb-ot-layout.h" line="522"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2284">`true` if found baseline value in the font.</doc>
+             line="2289">`true` if found baseline value in the font.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2275">a font</doc>
+               line="2280">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2276">a baseline tag</doc>
+               line="2281">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2277">text direction.</doc>
+               line="2282">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2278">script tag.</doc>
+               line="2283">script tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="language_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2279">language tag, currently unused.</doc>
+               line="2284">language tag, currently unused.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="coord"
@@ -17794,7 +17794,7 @@ Useful if the client program wishes to cache the list.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2280">baseline value if found.</doc>
+               line="2285">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17804,41 +17804,41 @@ Useful if the client program wishes to cache the list.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2299">Fetches a baseline value from the face.
+           line="2304">Fetches a baseline value from the face.
 
 This function is like hb_ot_layout_get_baseline() but takes
 #hb_script_t and #hb_language_t instead of OpenType #hb_tag_t.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="524"/>
+      <source-position filename="src/hb-ot-layout.h" line="530"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2313">`true` if found baseline value in the font.</doc>
+             line="2318">`true` if found baseline value in the font.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2301">a font</doc>
+               line="2306">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2302">a baseline tag</doc>
+               line="2307">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2303">text direction.</doc>
+               line="2308">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2304">script.</doc>
+               line="2309">script.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
         <parameter name="language"
@@ -17847,7 +17847,7 @@ This function is like hb_ot_layout_get_baseline() but takes
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2305">language, currently unused.</doc>
+               line="2310">language, currently unused.</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="coord"
@@ -17857,7 +17857,7 @@ This function is like hb_ot_layout_get_baseline() but takes
                    nullable="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2306">baseline value if found.</doc>
+               line="2311">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17867,9 +17867,9 @@ This function is like hb_ot_layout_get_baseline() but takes
               version="4.0.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2335">Fetches a baseline value from the face, and synthesizes
+           line="2340">Fetches a baseline value from the face, and synthesizes
 it if the font does not have it.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="532"/>
+      <source-position filename="src/hb-ot-layout.h" line="538"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -17877,32 +17877,32 @@ it if the font does not have it.</doc>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2337">a font</doc>
+               line="2342">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2338">a baseline tag</doc>
+               line="2343">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2339">text direction.</doc>
+               line="2344">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2340">script tag.</doc>
+               line="2345">script tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="language_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2341">language tag, currently unused.</doc>
+               line="2346">language tag, currently unused.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="coord"
@@ -17911,7 +17911,7 @@ it if the font does not have it.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2342">baseline value if found.</doc>
+               line="2347">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17921,12 +17921,12 @@ it if the font does not have it.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2557">Fetches a baseline value from the face, and synthesizes
+           line="2562">Fetches a baseline value from the face, and synthesizes
 it if the font does not have it.
 
 This function is like hb_ot_layout_get_baseline_with_fallback() but takes
 #hb_script_t and #hb_language_t instead of OpenType #hb_tag_t.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="540"/>
+      <source-position filename="src/hb-ot-layout.h" line="546"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -17934,26 +17934,26 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2559">a font</doc>
+               line="2564">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2560">a baseline tag</doc>
+               line="2565">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2561">text direction.</doc>
+               line="2566">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2562">script.</doc>
+               line="2567">script.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
         <parameter name="language"
@@ -17962,7 +17962,7 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2563">language, currently unused.</doc>
+               line="2568">language, currently unused.</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="coord"
@@ -17971,7 +17971,7 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2564">baseline value if found.</doc>
+               line="2569">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17981,7 +17981,7 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
               version="8.0.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2117">Fetches script/language-specific font extents.  These values are
+           line="2122">Fetches script/language-specific font extents.  These values are
 looked up in the `BASE` table's `MinMax` records.
 
 If no such extents are found, the default extents for the font are
@@ -17989,36 +17989,36 @@ fetched. As such, the return value of this function can for the
 most part be ignored.  Note that the per-script/language extents
 do not have a line-gap value, and the line-gap is set to zero in
 that case.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="458"/>
+      <source-position filename="src/hb-ot-layout.h" line="464"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2134">`true` if found script/language-specific font extents.</doc>
+             line="2139">`true` if found script/language-specific font extents.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2119">a font</doc>
+               line="2124">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2120">text direction.</doc>
+               line="2125">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2121">script tag.</doc>
+               line="2126">script tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="language_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2122">language tag.</doc>
+               line="2127">language tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="extents"
@@ -18028,7 +18028,7 @@ that case.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2123">font extents if found.</doc>
+               line="2128">font extents if found.</doc>
           <type name="font_extents_t" c:type="hb_font_extents_t*"/>
         </parameter>
       </parameters>
@@ -18038,7 +18038,7 @@ that case.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2162">Fetches script/language-specific font extents.  These values are
+           line="2167">Fetches script/language-specific font extents.  These values are
 looked up in the `BASE` table's `MinMax` records.
 
 If no such extents are found, the default extents for the font are
@@ -18049,30 +18049,30 @@ that case.
 
 This function is like hb_ot_layout_get_font_extents() but takes
 #hb_script_t and #hb_language_t instead of OpenType #hb_tag_t.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="465"/>
+      <source-position filename="src/hb-ot-layout.h" line="471"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2182">`true` if found script/language-specific font extents.</doc>
+             line="2187">`true` if found script/language-specific font extents.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2164">a font</doc>
+               line="2169">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2165">text direction.</doc>
+               line="2170">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2166">script.</doc>
+               line="2171">script.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
         <parameter name="language"
@@ -18081,7 +18081,7 @@ This function is like hb_ot_layout_get_font_extents() but takes
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2167">language.</doc>
+               line="2172">language.</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="extents"
@@ -18091,7 +18091,7 @@ This function is like hb_ot_layout_get_font_extents() but takes
                    nullable="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2168">font extents if found.</doc>
+               line="2173">font extents if found.</doc>
           <type name="font_extents_t" c:type="hb_font_extents_t*"/>
         </parameter>
       </parameters>
@@ -18168,12 +18168,12 @@ glyph class in the face's GDEF table.</doc>
               version="4.0.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2202">Fetches the dominant horizontal baseline tag used by @script.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="513"/>
+           line="2207">Fetches the dominant horizontal baseline tag used by @script.</doc>
+      <source-position filename="src/hb-ot-layout.h" line="519"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2208">dominant baseline tag for the @script.</doc>
+             line="2213">dominant baseline tag for the @script.</doc>
         <type name="ot_layout_baseline_tag_t"
               c:type="hb_ot_layout_baseline_tag_t"/>
       </return-value>
@@ -18181,7 +18181,7 @@ glyph class in the face's GDEF table.</doc>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2204">a script tag.</doc>
+               line="2209">a script tag.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
       </parameters>
@@ -18268,7 +18268,7 @@ a subfamily are not covered by the `size` feature.
 
 For more information on this distinction, see the [`size` feature documentation](
 https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).</doc>
-      <source-position filename="src/hb-ot-layout.h" line="415"/>
+      <source-position filename="src/hb-ot-layout.h" line="421"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
@@ -18397,7 +18397,7 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
            line="1650">Tests whether the specified face includes any GPOS positioning.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="410"/>
+      <source-position filename="src/hb-ot-layout.h" line="416"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
@@ -18740,6 +18740,69 @@ underneath the specified script and language.</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="ot_layout_lookup_collect_glyph_alternates"
+              c:identifier="hb_ot_layout_lookup_collect_glyph_alternates"
+              version="12.1.0">
+      <doc xml:space="preserve"
+           filename="src/hb-ot-layout.cc"
+           line="2672">Collects alternates of glyphs from a given GSUB lookup index.
+
+For one-to-one GSUB glyph substitutions, this function collects the
+substituted glyph.
+
+For lookups that assign multiple alternates to a glyph, all alternate glyphs are collected.
+
+For other lookup types, nothing is performed and `false` is returned.
+
+The `alternate_count` mapping will contain the number of alternates for each glyph id.
+Upon entry, this mapping should contain the glyph ids as keys, and the number of alternates
+currently known for each glyph id as values.
+
+The `alternate_glyphs` mapping will contain the alternate glyph ids for each glyph id.
+The mapping is encoded in the following way, upon entry and after processing:
+If G is the glyph id, and A0, A1, ..., A(n-1) are the alternate glyph ids,
+the mapping will contain the following entries: (G + (i &lt;&lt; 24)) -&gt; A(i)
+for i = 0, 1, ..., n-1 where n is the number of alternates for G as per `alternate_count`.</doc>
+      <source-position filename="src/hb-ot-layout.h" line="387"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/hb-ot-layout.cc"
+             line="2698">`true` if alternates were collected, `false` otherwise.</doc>
+        <type name="bool_t" c:type="hb_bool_t"/>
+      </return-value>
+      <parameters>
+        <parameter name="face" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/hb-ot-layout.cc"
+               line="2674">a face.</doc>
+          <type name="face_t" c:type="hb_face_t*"/>
+        </parameter>
+        <parameter name="lookup_index" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/hb-ot-layout.cc"
+               line="2675">index of the feature lookup to query.</doc>
+          <type name="guint" c:type="unsigned"/>
+        </parameter>
+        <parameter name="alternate_count"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/hb-ot-layout.cc"
+               line="2676">mapping from glyph index to number of alternates for that glyph.</doc>
+          <type name="map_t" c:type="hb_map_t*"/>
+        </parameter>
+        <parameter name="alternate_glyphs"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/hb-ot-layout.cc"
+               line="2677">mapping from encoded glyph index and alternate index, to alternate glyph ids.</doc>
+          <type name="map_t" c:type="hb_map_t*"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="ot_layout_lookup_collect_glyphs"
               c:identifier="hb_ot_layout_lookup_collect_glyphs"
               version="0.9.7">
@@ -18817,38 +18880,38 @@ specified face's GSUB table or GPOS table.</doc>
               version="2.6.8">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2615">Fetches alternates of a glyph from a given GSUB lookup index. Note that for one-to-one GSUB
+           line="2620">Fetches alternates of a glyph from a given GSUB lookup index. Note that for one-to-one GSUB
 glyph substitutions, this function fetches the substituted glyph.</doc>
       <source-position filename="src/hb-ot-layout.h" line="379"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2629">Total number of alternates found in the specific lookup index for the given glyph id.</doc>
+             line="2634">Total number of alternates found in the specific lookup index for the given glyph id.</doc>
         <type name="guint" c:type="unsigned"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2617">a face.</doc>
+               line="2622">a face.</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2618">index of the feature lookup to query.</doc>
+               line="2623">index of the feature lookup to query.</doc>
           <type name="guint" c:type="unsigned"/>
         </parameter>
         <parameter name="glyph" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2619">a glyph id.</doc>
+               line="2624">a glyph id.</doc>
           <type name="codepoint_t" c:type="hb_codepoint_t"/>
         </parameter>
         <parameter name="start_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2620">starting offset.</doc>
+               line="2625">starting offset.</doc>
           <type name="guint" c:type="unsigned"/>
         </parameter>
         <parameter name="alternate_count"
@@ -18858,7 +18921,7 @@ glyph substitutions, this function fetches the substituted glyph.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2621">Input = the maximum number of alternate glyphs to return;
+               line="2626">Input = the maximum number of alternate glyphs to return;
                   Output = the actual number of alternate glyphs returned (may be zero).</doc>
           <type name="guint" c:type="unsigned*"/>
         </parameter>
@@ -18868,7 +18931,7 @@ glyph substitutions, this function fetches the substituted glyph.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2623">A glyphs buffer.
+               line="2628">A glyphs buffer.
                    Alternate glyphs associated with the glyph id.</doc>
           <array length="4" zero-terminated="0" c:type="hb_codepoint_t*">
             <type name="codepoint_t" c:type="hb_codepoint_t"/>
@@ -18881,38 +18944,38 @@ glyph substitutions, this function fetches the substituted glyph.</doc>
               version="5.3.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-layout.cc"
-           line="2668">Fetches the optical bound of a glyph positioned at the margin of text.
+           line="2731">Fetches the optical bound of a glyph positioned at the margin of text.
 The direction identifies which edge of the glyph to query.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="423"/>
+      <source-position filename="src/hb-ot-layout.h" line="429"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
-             line="2678">Adjustment value. Negative values mean the glyph will stick out of the margin.</doc>
+             line="2741">Adjustment value. Negative values mean the glyph will stick out of the margin.</doc>
         <type name="position_t" c:type="hb_position_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2670">a font.</doc>
+               line="2733">a font.</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2671">index of the feature lookup to query.</doc>
+               line="2734">index of the feature lookup to query.</doc>
           <type name="guint" c:type="unsigned"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2672">edge of the glyph to query.</doc>
+               line="2735">edge of the glyph to query.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="glyph" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-layout.cc"
-               line="2673">a glyph id.</doc>
+               line="2736">a glyph id.</doc>
           <type name="codepoint_t" c:type="hb_codepoint_t"/>
         </parameter>
       </parameters>
@@ -18924,7 +18987,7 @@ The direction identifies which edge of the glyph to query.</doc>
            filename="src/hb-ot-layout.cc"
            line="1579">Compute the transitive closure of glyphs needed for a
 specified lookup.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="394"/>
+      <source-position filename="src/hb-ot-layout.h" line="400"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -18959,7 +19022,7 @@ specified lookup.</doc>
            filename="src/hb-ot-layout.cc"
            line="1530">Tests whether a specified lookup in the specified face would
 trigger a substitution on the given glyph sequence.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="387"/>
+      <source-position filename="src/hb-ot-layout.h" line="393"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-layout.cc"
@@ -19007,7 +19070,7 @@ in substitutions</doc>
            filename="src/hb-ot-layout.cc"
            line="1604">Compute the transitive closure of glyphs needed for all of the
 provided lookups.</doc>
-      <source-position filename="src/hb-ot-layout.h" line="400"/>
+      <source-position filename="src/hb-ot-layout.h" line="406"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -21536,7 +21599,7 @@ used as long as @face is alive.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-ot-shape.cc"
-           line="1270">Computes the transitive closure of glyphs needed for a specified
+           line="1293">Computes the transitive closure of glyphs needed for a specified
 input buffer under the given font and feature list. The closure is
 computed as a set, not as a list.</doc>
       <source-position filename="src/hb-ot-shape.h" line="40"/>
@@ -21547,19 +21610,19 @@ computed as a set, not as a list.</doc>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1272">#hb_font_t to work upon</doc>
+               line="1295">#hb_font_t to work upon</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1273">The input buffer to compute from</doc>
+               line="1296">The input buffer to compute from</doc>
           <type name="buffer_t" c:type="hb_buffer_t*"/>
         </parameter>
         <parameter name="features" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1274">The features enabled on the buffer</doc>
+               line="1297">The features enabled on the buffer</doc>
           <array length="3" zero-terminated="0" c:type="const hb_feature_t*">
             <type name="feature_t" c:type="hb_feature_t"/>
           </array>
@@ -21567,7 +21630,7 @@ computed as a set, not as a list.</doc>
         <parameter name="num_features" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1275">The number of features enabled on the buffer</doc>
+               line="1298">The number of features enabled on the buffer</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="glyphs"
@@ -21576,7 +21639,7 @@ computed as a set, not as a list.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1276">The #hb_set_t set of glyphs comprising the transitive closure of the query</doc>
+               line="1299">The #hb_set_t set of glyphs comprising the transitive closure of the query</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
       </parameters>
@@ -21586,7 +21649,7 @@ computed as a set, not as a list.</doc>
               version="0.9.7">
       <doc xml:space="preserve"
            filename="src/hb-ot-shape.cc"
-           line="1200">Computes the complete set of GSUB or GPOS lookups that are applicable
+           line="1223">Computes the complete set of GSUB or GPOS lookups that are applicable
 under a given @shape_plan.</doc>
       <source-position filename="src/hb-ot-shape.h" line="47"/>
       <return-value transfer-ownership="none">
@@ -21596,13 +21659,13 @@ under a given @shape_plan.</doc>
         <parameter name="shape_plan" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1202">#hb_shape_plan_t to query</doc>
+               line="1225">#hb_shape_plan_t to query</doc>
           <type name="shape_plan_t" c:type="hb_shape_plan_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1203">GSUB or GPOS</doc>
+               line="1226">GSUB or GPOS</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="lookup_indexes"
@@ -21611,7 +21674,7 @@ under a given @shape_plan.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1204">The #hb_set_t set of lookups returned</doc>
+               line="1227">The #hb_set_t set of lookups returned</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
       </parameters>
@@ -21621,25 +21684,25 @@ under a given @shape_plan.</doc>
               version="10.3.0">
       <doc xml:space="preserve"
            filename="src/hb-ot-shape.cc"
-           line="1220">Fetches the list of OpenType feature tags enabled for a shaping plan, if possible.</doc>
+           line="1243">Fetches the list of OpenType feature tags enabled for a shaping plan, if possible.</doc>
       <source-position filename="src/hb-ot-shape.h" line="52"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-ot-shape.cc"
-             line="1230">Total number of feature tagss.</doc>
+             line="1253">Total number of feature tagss.</doc>
         <type name="guint" c:type="unsigned int"/>
       </return-value>
       <parameters>
         <parameter name="shape_plan" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1222">A shaping plan</doc>
+               line="1245">A shaping plan</doc>
           <type name="shape_plan_t" c:type="hb_shape_plan_t*"/>
         </parameter>
         <parameter name="start_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1223">The index of first feature to retrieve</doc>
+               line="1246">The index of first feature to retrieve</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="tag_count"
@@ -21648,7 +21711,7 @@ under a given @shape_plan.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1224">Input = the maximum number of features to return;
+               line="1247">Input = the maximum number of features to return;
                      Output = the actual number of features returned (may be zero)</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
@@ -21658,7 +21721,7 @@ under a given @shape_plan.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-ot-shape.cc"
-               line="1226">The array of enabled feature</doc>
+               line="1249">The array of enabled feature</doc>
           <array length="2" zero-terminated="0" c:type="hb_tag_t*">
             <type name="tag_t" c:type="hb_tag_t"/>
           </array>
@@ -25301,13 +25364,13 @@ of the gradient, and how to interpret the @color_line.</doc>
     <function name="realloc" c:identifier="hb_realloc" version="11.0.0">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1253">Reallocates the memory pointed to by @ptr to @size bytes, using the
+           line="1216">Reallocates the memory pointed to by @ptr to @size bytes, using the
 allocator set at compile-time. Typically just realloc().</doc>
       <source-position filename="src/hb-common.h" line="528"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1261">A pointer to the reallocated memory.</doc>
+             line="1224">A pointer to the reallocated memory.</doc>
         <type name="gpointer" c:type="void*"/>
       </return-value>
       <parameters>
@@ -25317,13 +25380,13 @@ allocator set at compile-time. Typically just realloc().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1255">The pointer to the memory to reallocate.</doc>
+               line="1218">The pointer to the memory to reallocate.</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1256">The new size of the memory.</doc>
+               line="1219">The new size of the memory.</doc>
           <type name="gsize" c:type="size_t"/>
         </parameter>
       </parameters>
@@ -25376,19 +25439,19 @@ hb_face_reference_blob() to create a face blob out of individual table blobs.</d
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="453">Converts an ISO 15924 script tag to a corresponding #hb_script_t.</doc>
+           line="416">Converts an ISO 15924 script tag to a corresponding #hb_script_t.</doc>
       <source-position filename="src/hb-common.h" line="346"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="459">An #hb_script_t corresponding to the ISO 15924 tag.</doc>
+             line="422">An #hb_script_t corresponding to the ISO 15924 tag.</doc>
         <type name="script_t" c:type="hb_script_t"/>
       </return-value>
       <parameters>
         <parameter name="tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="455">an #hb_tag_t representing an ISO 15924 tag.</doc>
+               line="418">an #hb_tag_t representing an ISO 15924 tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
       </parameters>
@@ -25398,21 +25461,21 @@ hb_face_reference_blob() to create a face blob out of individual table blobs.</d
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="503">Converts a string @str representing an ISO 15924 script tag to a
+           line="466">Converts a string @str representing an ISO 15924 script tag to a
 corresponding #hb_script_t. Shorthand for hb_tag_from_string() then
 hb_script_from_iso15924_tag().</doc>
       <source-position filename="src/hb-common.h" line="349"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="513">An #hb_script_t corresponding to the ISO 15924 tag.</doc>
+             line="476">An #hb_script_t corresponding to the ISO 15924 tag.</doc>
         <type name="script_t" c:type="hb_script_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="505">a string representing an
+               line="468">a string representing an
       ISO 15924 tag.</doc>
           <array length="1" zero-terminated="0" c:type="const char*">
             <type name="guint8"/>
@@ -25421,7 +25484,7 @@ hb_script_from_iso15924_tag().</doc>
         <parameter name="len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="507">length of the @str, or -1 if it is `NULL`-terminated.</doc>
+               line="470">length of the @str, or -1 if it is `NULL`-terminated.</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -25431,7 +25494,7 @@ hb_script_from_iso15924_tag().</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="541">Fetches the #hb_direction_t of a script when it is
+           line="504">Fetches the #hb_direction_t of a script when it is
 set horizontally. All right-to-left scripts will return
 #HB_DIRECTION_RTL. All left-to-right scripts will return
 #HB_DIRECTION_LTR.
@@ -25444,14 +25507,14 @@ Unknown scripts will return #HB_DIRECTION_LTR.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="555">The horizontal #hb_direction_t of @script</doc>
+             line="518">The horizontal #hb_direction_t of @script</doc>
         <type name="direction_t" c:type="hb_direction_t"/>
       </return-value>
       <parameters>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="543">The #hb_script_t to query</doc>
+               line="506">The #hb_script_t to query</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
       </parameters>
@@ -26709,19 +26772,19 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="524">Converts an #hb_script_t to a corresponding ISO 15924 script tag.</doc>
+           line="487">Converts an #hb_script_t to a corresponding ISO 15924 script tag.</doc>
       <source-position filename="src/hb-common.h" line="352"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="530">An #hb_tag_t representing an ISO 15924 script tag.</doc>
+             line="493">An #hb_tag_t representing an ISO 15924 script tag.</doc>
         <type name="tag_t" c:type="hb_tag_t"/>
       </return-value>
       <parameters>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="526">an #hb_script_t to convert.</doc>
+               line="489">an #hb_script_t to convert.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
       </parameters>
@@ -28461,7 +28524,7 @@ or the CSS font-weight property.</doc>
               version="0.9.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="82">Converts a string into an #hb_tag_t. Valid tags
+           line="45">Converts a string into an #hb_tag_t. Valid tags
 are four characters. Shorter input strings will be
 padded with spaces. Longer input strings will be
 truncated.</doc>
@@ -28469,14 +28532,14 @@ truncated.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="92">The #hb_tag_t corresponding to @str</doc>
+             line="55">The #hb_tag_t corresponding to @str</doc>
         <type name="tag_t" c:type="hb_tag_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="84">String to convert</doc>
+               line="47">String to convert</doc>
           <array length="1" zero-terminated="0" c:type="const char*">
             <type name="guint8"/>
           </array>
@@ -28484,7 +28547,7 @@ truncated.</doc>
         <parameter name="len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="85">Length of @str, or -1 if it is `NULL`-terminated</doc>
+               line="48">Length of @str, or -1 if it is `NULL`-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -28494,7 +28557,7 @@ truncated.</doc>
               version="0.9.5">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="115">Converts an #hb_tag_t to a string and returns it in @buf.
+           line="78">Converts an #hb_tag_t to a string and returns it in @buf.
 Strings will be four characters long.</doc>
       <source-position filename="src/hb-common.h" line="219"/>
       <return-value transfer-ownership="none">
@@ -28504,7 +28567,7 @@ Strings will be four characters long.</doc>
         <parameter name="tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="117">#hb_tag_t to convert</doc>
+               line="80">#hb_tag_t to convert</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="buf"
@@ -28513,7 +28576,7 @@ Strings will be four characters long.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="118">Converted string</doc>
+               line="81">Converted string</doc>
           <array zero-terminated="0" c:type="char*" fixed-size="4">
             <type name="guint8"/>
           </array>
@@ -30541,7 +30604,7 @@ specified Unicode code point.</doc>
               version="1.4.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1041">Parses a string into a #hb_variation_t.
+           line="1004">Parses a string into a #hb_variation_t.
 
 The format for specifying variation settings follows. All valid CSS
 font-variation-settings values other than 'normal' and 'inherited' are also
@@ -30553,14 +30616,14 @@ number. For example `wght=500`, or `slnt=-7.5`.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1056">`true` if @str is successfully parsed, `false` otherwise</doc>
+             line="1019">`true` if @str is successfully parsed, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1043">a string to parse</doc>
+               line="1006">a string to parse</doc>
           <array length="1" zero-terminated="0" c:type="const char*">
             <type name="guint8"/>
           </array>
@@ -30568,7 +30631,7 @@ number. For example `wght=500`, or `slnt=-7.5`.</doc>
         <parameter name="len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1044">length of @str, or -1 if string is `NULL` terminated</doc>
+               line="1007">length of @str, or -1 if string is `NULL` terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="variation"
@@ -30577,7 +30640,7 @@ number. For example `wght=500`, or `slnt=-7.5`.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1045">the #hb_variation_t to initialize with the parsed values</doc>
+               line="1008">the #hb_variation_t to initialize with the parsed values</doc>
           <type name="variation_t" c:type="hb_variation_t*"/>
         </parameter>
       </parameters>
@@ -30607,7 +30670,7 @@ variation-axis tags are listed in
               version="1.4.2">
         <doc xml:space="preserve"
              filename="src/hb-common.cc"
-             line="1123">Converts an #hb_variation_t into a `NULL`-terminated string in the format
+             line="1086">Converts an #hb_variation_t into a `NULL`-terminated string in the format
 understood by hb_variation_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.
 
@@ -30620,7 +30683,7 @@ Note that the string won't include any whitespace.</doc>
           <instance-parameter name="variation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="1125">an #hb_variation_t to convert</doc>
+                 line="1088">an #hb_variation_t to convert</doc>
             <type name="variation_t" c:type="hb_variation_t*"/>
           </instance-parameter>
           <parameter name="buf"
@@ -30629,7 +30692,7 @@ Note that the string won't include any whitespace.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="1126">output string</doc>
+                 line="1089">output string</doc>
             <array length="1" zero-terminated="0" c:type="char*">
               <type name="utf8" c:type="char"/>
             </array>
@@ -30640,7 +30703,7 @@ Note that the string won't include any whitespace.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hb-common.cc"
-                 line="1127">the allocated size of @buf</doc>
+                 line="1090">the allocated size of @buf</doc>
             <type name="guint" c:type="unsigned int"/>
           </parameter>
         </parameters>
@@ -30651,7 +30714,7 @@ Note that the string won't include any whitespace.</doc>
               version="1.4.2">
       <doc xml:space="preserve"
            filename="src/hb-common.cc"
-           line="1123">Converts an #hb_variation_t into a `NULL`-terminated string in the format
+           line="1086">Converts an #hb_variation_t into a `NULL`-terminated string in the format
 understood by hb_variation_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.
 
@@ -30664,7 +30727,7 @@ Note that the string won't include any whitespace.</doc>
         <parameter name="variation" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1125">an #hb_variation_t to convert</doc>
+               line="1088">an #hb_variation_t to convert</doc>
           <type name="variation_t" c:type="hb_variation_t*"/>
         </parameter>
         <parameter name="buf"
@@ -30673,7 +30736,7 @@ Note that the string won't include any whitespace.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1126">output string</doc>
+               line="1089">output string</doc>
           <array length="2" zero-terminated="0" c:type="char*">
             <type name="utf8" c:type="char"/>
           </array>
@@ -30684,7 +30747,7 @@ Note that the string won't include any whitespace.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hb-common.cc"
-               line="1127">the allocated size of @buf</doc>
+               line="1090">the allocated size of @buf</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
       </parameters>

@@ -5,9 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
   <package name="libcinnamon-menu-3.0"/>
+  <doc:format name="unknown"/>
   <namespace name="CMenu"
              version="3.0"
              shared-library="libcinnamon-menu-3.so.0"
@@ -564,6 +566,7 @@ occur while using this function.</doc>
       </method>
       <method name="launch_uris_as_manager"
               c:identifier="gmenu_desktopappinfo_launch_uris_as_manager"
+              introspectable="0"
               throws="1">
         <doc xml:space="preserve"
              filename="libmenu/gmenu-desktopappinfo.c"
@@ -624,7 +627,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
                      nullable="1"
                      allow-none="1"
                      scope="async"
-                     closure="4">
+                     closure="6">
             <doc xml:space="preserve"
                  filename="libmenu/gmenu-desktopappinfo.c"
                  line="731">a #GSpawnChildSetupFunc, used once
@@ -635,8 +638,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
           <parameter name="user_setup_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="3">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="libmenu/gmenu-desktopappinfo.c"
                  line="733">User data for @user_setup</doc>
@@ -645,20 +647,16 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
           <parameter name="pid_callback"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     scope="call"
-                     closure="6">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="libmenu/gmenu-desktopappinfo.c"
                  line="734">Callback for child processes</doc>
-            <type name="Gio.DesktopAppLaunchCallback"
-                  c:type="GDesktopAppLaunchCallback"/>
+            <type c:type="GDesktopAppLaunchCallback"/>
           </parameter>
           <parameter name="pid_callback_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="5">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="libmenu/gmenu-desktopappinfo.c"
                  line="735">User data for @callback</doc>

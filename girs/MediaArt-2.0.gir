@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="libmediaart-2.0"/>
   <c:include name="libmediaart/mediaart.h"/>
+  <doc:format name="unknown"/>
   <namespace name="MediaArt"
              version="2.0"
              shared-library="libmediaart-2.0.so.0"
@@ -144,7 +146,8 @@ This function initializes cache hash tables and backend plugins,</doc>
       <method name="buffer"
               c:identifier="media_art_process_buffer"
               version="0.5.0"
-              throws="1">
+              throws="1"
+              glib:async-func="buffer_async">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1459">Processes a memory buffer represented by @buffer and @len. If you
@@ -246,7 +249,9 @@ ignore</doc>
       </method>
       <method name="buffer_async"
               c:identifier="media_art_process_buffer_async"
-              version="0.7.0">
+              version="0.7.0"
+              glib:finish-func="buffer_finish"
+              glib:sync-func="buffer">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1604">Processes media art. Precisely the same operation as
@@ -409,7 +414,8 @@ media_art_process_file_async().</doc>
       <method name="file"
               c:identifier="media_art_process_file"
               version="0.3.0"
-              throws="1">
+              throws="1"
+              glib:async-func="file_async">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
              line="1692">Process @file and check if media art exists and if it is up to date
@@ -503,10 +509,12 @@ ignore</doc>
       </method>
       <method name="file_async"
               c:identifier="media_art_process_file_async"
-              version="0.7.0">
+              version="0.7.0"
+              glib:finish-func="file_finish"
+              glib:sync-func="file">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
-             line="1836">Processes media art. Precisely the same operation as
+             line="1845">Processes media art. Precisely the same operation as
 media_art_process_file() is performing, but asynchronously.
 
 When all i/o for the operation is finished the @callback will be
@@ -531,25 +539,25 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1838">Media art process object</doc>
+                 line="1847">Media art process object</doc>
             <type name="Process" c:type="MediaArtProcess*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1839">The type of media</doc>
+                 line="1848">The type of media</doc>
             <type name="Type" c:type="MediaArtType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1840">The options given for how to process the media art</doc>
+                 line="1849">The options given for how to process the media art</doc>
             <type name="ProcessFlags" c:type="MediaArtProcessFlags"/>
           </parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1841">File to be processed</doc>
+                 line="1850">File to be processed</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="artist"
@@ -558,7 +566,7 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1842">The artist name @file or %NULL</doc>
+                 line="1851">The artist name @file or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="title"
@@ -567,13 +575,13 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1843">The title for @file or %NULL</doc>
+                 line="1852">The title for @file or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1844">the [I/O priority][io-priority] of the request</doc>
+                 line="1853">the [I/O priority][io-priority] of the request</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="cancellable"
@@ -582,7 +590,7 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1845">optional #GCancellable object, %NULL to
+                 line="1854">optional #GCancellable object, %NULL to
 ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -594,7 +602,7 @@ ignore</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1847">a #GAsyncReadyCallback to call when the
+                 line="1856">a #GAsyncReadyCallback to call when the
 request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -604,7 +612,7 @@ request is satisfied</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1849">the data to pass to callback function</doc>
+                 line="1858">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -615,26 +623,26 @@ request is satisfied</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
-             line="1892">Finishes the asynchronous operation started with
+             line="1901">Finishes the asynchronous operation started with
 media_art_process_file_async().</doc>
         <source-position filename="libmediaart/extract.h" line="178"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/extract.c"
-               line="1902">%TRUE on success, otherwise %FALSE when @error will be set.</doc>
+               line="1911">%TRUE on success, otherwise %FALSE when @error will be set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1894">the #MediaArtProcess</doc>
+                 line="1903">the #MediaArtProcess</doc>
             <type name="Process" c:type="MediaArtProcess*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1895">a #GAsyncResult.</doc>
+                 line="1904">a #GAsyncResult.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -642,42 +650,43 @@ media_art_process_file_async().</doc>
       <method name="uri"
               c:identifier="media_art_process_uri"
               version="0.5.0"
-              throws="1">
+              throws="1"
+              glib:async-func="uri_async">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
-             line="1917">This function calls media_art_process_file(), but takes the @uri as
+             line="1926">This function calls media_art_process_file(), but takes the @uri as
 a string rather than a #GFile object. Either @artist OR @title can be
 %NULL, but they can not both be %NULL.</doc>
         <source-position filename="libmediaart/extract.h" line="134"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/extract.c"
-               line="1933">%TRUE if @uri could be processed or %FALSE if @error is set.</doc>
+               line="1942">%TRUE if @uri could be processed or %FALSE if @error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1919">Media art process object</doc>
+                 line="1928">Media art process object</doc>
             <type name="Process" c:type="MediaArtProcess*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1920">The type of media that contained the image data</doc>
+                 line="1929">The type of media that contained the image data</doc>
             <type name="Type" c:type="MediaArtType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1921">How the media art is processed</doc>
+                 line="1930">How the media art is processed</doc>
             <type name="ProcessFlags" c:type="MediaArtProcessFlags"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1922">URI of the media file that contained the data</doc>
+                 line="1931">URI of the media file that contained the data</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="artist"
@@ -686,7 +695,7 @@ a string rather than a #GFile object. Either @artist OR @title can be
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1923">The artist name @uri or %NULL</doc>
+                 line="1932">The artist name @uri or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="title"
@@ -695,7 +704,7 @@ a string rather than a #GFile object. Either @artist OR @title can be
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1924">The title for @uri or %NULL</doc>
+                 line="1933">The title for @uri or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -704,7 +713,7 @@ a string rather than a #GFile object. Either @artist OR @title can be
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1925">optional #GCancellable object, %NULL to
+                 line="1934">optional #GCancellable object, %NULL to
 ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -712,10 +721,12 @@ ignore</doc>
       </method>
       <method name="uri_async"
               c:identifier="media_art_process_uri_async"
-              version="0.7.0">
+              version="0.7.0"
+              glib:finish-func="uri_finish"
+              glib:sync-func="uri">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
-             line="1971">Processes media art. Precisely the same operation as
+             line="1980">Processes media art. Precisely the same operation as
 media_art_process_uri() is performing, but asynchronously.
 
 When all i/o for the operation is finished the @callback will be
@@ -740,25 +751,25 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1973">Media art process object</doc>
+                 line="1982">Media art process object</doc>
             <type name="Process" c:type="MediaArtProcess*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1974">The type of media</doc>
+                 line="1983">The type of media</doc>
             <type name="Type" c:type="MediaArtType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1975">The options given for how to process the media art</doc>
+                 line="1984">The options given for how to process the media art</doc>
             <type name="ProcessFlags" c:type="MediaArtProcessFlags"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1976">A string representing a URI to be processed</doc>
+                 line="1985">A string representing a URI to be processed</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="artist"
@@ -767,7 +778,7 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1977">The artist name @file or %NULL</doc>
+                 line="1986">The artist name @file or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="title"
@@ -776,13 +787,13 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1978">The title for @file or %NULL</doc>
+                 line="1987">The title for @file or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1979">the [I/O priority][io-priority] of the request</doc>
+                 line="1988">the [I/O priority][io-priority] of the request</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="cancellable"
@@ -791,7 +802,7 @@ priority. Default priority is %G_PRIORITY_DEFAULT.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1980">optional #GCancellable object, %NULL to
+                 line="1989">optional #GCancellable object, %NULL to
 ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -803,7 +814,7 @@ ignore</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1982">a #GAsyncReadyCallback to call when the
+                 line="1991">a #GAsyncReadyCallback to call when the
 request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -813,7 +824,7 @@ request is satisfied</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="1984">the data to pass to callback function</doc>
+                 line="1993">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -824,26 +835,26 @@ request is satisfied</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libmediaart/extract.c"
-             line="2027">Finishes the asynchronous operation started with
+             line="2036">Finishes the asynchronous operation started with
 media_art_process_file_async().</doc>
         <source-position filename="libmediaart/extract.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/extract.c"
-               line="2037">%TRUE on success, otherwise %FALSE when @error will be set.</doc>
+               line="2046">%TRUE on success, otherwise %FALSE when @error will be set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="2029">the #MediaArtProcess</doc>
+                 line="2038">the #MediaArtProcess</doc>
             <type name="Process" c:type="MediaArtProcess*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmediaart/extract.c"
-                 line="2030">a #GAsyncResult.</doc>
+                 line="2039">a #GAsyncResult.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1245,7 +1256,7 @@ to be provided.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libmediaart/cache.c"
-           line="419">Removes media art for given album/artist provided.
+           line="420">Removes media art for given album/artist provided.
 
 If @artist and @album are %NULL, ALL media art cache is removed.
 
@@ -1255,14 +1266,14 @@ input has not already been validated.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libmediaart/cache.c"
-             line="433">#TRUE on success, otherwise #FALSE where @error will be set.</doc>
+             line="434">#TRUE on success, otherwise #FALSE where @error will be set.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="artist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="421">artist the media art belongs to</doc>
+               line="422">artist the media art belongs to</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="album"
@@ -1271,7 +1282,7 @@ input has not already been validated.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="422">album the media art belongs or %NULL</doc>
+               line="423">album the media art belongs or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="cancellable"
@@ -1280,7 +1291,7 @@ input has not already been validated.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="423">optional #GCancellable object, %NULL to ignore.</doc>
+               line="424">optional #GCancellable object, %NULL to ignore.</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -1290,7 +1301,7 @@ input has not already been validated.</doc>
               version="0.7.0">
       <doc xml:space="preserve"
            filename="libmediaart/cache.c"
-           line="600">Removes media art for given album/artist provided. Precisely the
+           line="601">Removes media art for given album/artist provided. Precisely the
 same operation as media_art_remove() is performing, but
 asynchronously.
 
@@ -1319,7 +1330,7 @@ input has not already been validated.</doc>
         <parameter name="artist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="602">artist the media art belongs to</doc>
+               line="603">artist the media art belongs to</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="album"
@@ -1328,13 +1339,13 @@ input has not already been validated.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="603">album the media art belongs or %NULL</doc>
+               line="604">album the media art belongs or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="606">the [I/O priority][io-priority] of the request</doc>
+               line="607">the [I/O priority][io-priority] of the request</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="source_object"
@@ -1343,7 +1354,7 @@ input has not already been validated.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="604">the #GObject this task belongs to,
+               line="605">the #GObject this task belongs to,
 can be %NULL.</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </parameter>
@@ -1353,7 +1364,7 @@ can be %NULL.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="607">optional #GCancellable object, %NULL to
+               line="608">optional #GCancellable object, %NULL to
 ignore</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
@@ -1365,7 +1376,7 @@ ignore</doc>
                    closure="6">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="609">a #GAsyncReadyCallback to call when the
+               line="610">a #GAsyncReadyCallback to call when the
 request is satisfied</doc>
           <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
         </parameter>
@@ -1375,7 +1386,7 @@ request is satisfied</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="611">the data to pass to callback function</doc>
+               line="612">the data to pass to callback function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -1386,13 +1397,13 @@ request is satisfied</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libmediaart/cache.c"
-           line="655">Finishes the asynchronous operation started with
+           line="656">Finishes the asynchronous operation started with
 media_art_remove_async().</doc>
       <source-position filename="libmediaart/cache.h" line="63"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libmediaart/cache.c"
-             line="666">%TRUE on success, otherwise %FALSE when @error will be set.</doc>
+             line="667">%TRUE on success, otherwise %FALSE when @error will be set.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
@@ -1402,14 +1413,14 @@ media_art_remove_async().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="657">the #GObject this task belongs to,
+               line="658">the #GObject this task belongs to,
 can be %NULL.</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </parameter>
         <parameter name="result" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmediaart/cache.c"
-               line="659">a #GAsyncResult.</doc>
+               line="660">a #GAsyncResult.</doc>
           <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
         </parameter>
       </parameters>

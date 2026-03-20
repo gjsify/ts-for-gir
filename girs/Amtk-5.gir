@@ -5,13 +5,15 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
-  <package name="amtk-5"/>
+  <package name="libgedit-amtk-5"/>
   <c:include name="amtk/amtk.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Amtk"
              version="5"
-             shared-library="libamtk-5.so.0"
+             shared-library="libgedit-amtk-5.so.0"
              c:identifier-prefixes="Amtk"
              c:symbol-prefixes="amtk">
     <function-macro name="ACTION_INFO_CENTRAL_STORE"
@@ -1204,7 +1206,7 @@ if it is %NULL gtk_application_set_accels_for_action() won't be called.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="606">Creates a new #GtkCheckMenuItem for @action_name with the
+             line="613">Creates a new #GtkCheckMenuItem for @action_name with the
 #AmtkFactory:default-flags.
 
 See the documentation of amtk_factory_create_check_menu_item_full() for more
@@ -1213,20 +1215,20 @@ information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="617">a new #GtkCheckMenuItem for @action_name.</doc>
+               line="624">a new #GtkCheckMenuItem for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="608">an #AmtkFactory.</doc>
+                 line="615">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="609">an action name.</doc>
+                 line="616">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1236,7 +1238,7 @@ information.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="632">This function ignores the #AmtkFactory:default-flags property and takes the
+             line="639">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 Note that since it is a #GtkCheckMenuItem the icon is not set, even if it
@@ -1248,26 +1250,26 @@ If the action controls a boolean property, think about using
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="647">a new #GtkCheckMenuItem for @action_name.</doc>
+               line="654">a new #GtkCheckMenuItem for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="634">an #AmtkFactory.</doc>
+                 line="641">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="635">an action name.</doc>
+                 line="642">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="636">#AmtkFactoryFlags.</doc>
+                 line="643">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
         </parameters>
@@ -1277,26 +1279,26 @@ If the action controls a boolean property, think about using
               version="5.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="751">Calls amtk_factory_create_gmenu_item_full() with the
+             line="758">Calls amtk_factory_create_gmenu_item_full() with the
 #AmtkFactory:default-flags.</doc>
         <source-position filename="amtk/amtk-factory.h" line="124"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="759">a new #GMenuItem for @action_name.</doc>
+               line="766">a new #GMenuItem for @action_name.</doc>
           <type name="Gio.MenuItem" c:type="GMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="753">an #AmtkFactory.</doc>
+                 line="760">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="754">an action name.</doc>
+                 line="761">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1306,7 +1308,7 @@ If the action controls a boolean property, think about using
               version="5.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="774">This function ignores the #AmtkFactory:default-flags property and takes the
+             line="781">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 Creates a new #GMenuItem for @action_name. It ignores the tooltip, i.e. the
@@ -1315,26 +1317,26 @@ return value of amtk_action_info_get_tooltip().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="786">a new #GMenuItem for @action_name.</doc>
+               line="793">a new #GMenuItem for @action_name.</doc>
           <type name="Gio.MenuItem" c:type="GMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="776">an #AmtkFactory.</doc>
+                 line="783">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="777">an action name.</doc>
+                 line="784">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="778">#AmtkFactoryFlags.</doc>
+                 line="785">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
         </parameters>
@@ -1408,7 +1410,7 @@ return value of amtk_action_info_get_tooltip().</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="892">Creates a new #GtkMenuToolButton for @action_name with the
+             line="899">Creates a new #GtkMenuToolButton for @action_name with the
 #AmtkFactory:default-flags.
 
 See the documentation of amtk_factory_create_menu_tool_button_full() for more
@@ -1417,20 +1419,20 @@ information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="903">a new #GtkMenuToolButton for @action_name.</doc>
+               line="910">a new #GtkMenuToolButton for @action_name.</doc>
           <type name="Gtk.MenuToolButton" c:type="GtkMenuToolButton*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="894">an #AmtkFactory.</doc>
+                 line="901">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="895">an action name.</doc>
+                 line="902">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1440,7 +1442,7 @@ information.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="918">This function ignores the #AmtkFactory:default-flags property and takes the
+             line="925">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 After calling this function, you need to use the #GtkMenuToolButton API to
@@ -1449,26 +1451,26 @@ set the menu and also possibly set a tooltip to the arrow.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="930">a new #GtkMenuToolButton for @action_name.</doc>
+               line="937">a new #GtkMenuToolButton for @action_name.</doc>
           <type name="Gtk.MenuToolButton" c:type="GtkMenuToolButton*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="920">an #AmtkFactory.</doc>
+                 line="927">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="921">an action name.</doc>
+                 line="928">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="922">#AmtkFactoryFlags.</doc>
+                 line="929">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
         </parameters>
@@ -1478,26 +1480,26 @@ set the menu and also possibly set a tooltip to the arrow.</doc>
               version="5.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="955">Calls amtk_factory_create_shortcut_full() with the
+             line="962">Calls amtk_factory_create_shortcut_full() with the
 #AmtkFactory:default-flags.</doc>
         <source-position filename="amtk/amtk-factory.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="963">a new #GtkShortcutsShortcut for @action_name.</doc>
+               line="970">a new #GtkShortcutsShortcut for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="957">an #AmtkFactory.</doc>
+                 line="964">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="958">an action name.</doc>
+                 line="965">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1507,7 +1509,7 @@ set the menu and also possibly set a tooltip to the arrow.</doc>
               version="5.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="978">This function ignores the #AmtkFactory:default-flags property and takes the
+             line="985">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 This function creates a new #GtkShortcutsShortcut for @action_name.
@@ -1532,26 +1534,26 @@ accelerators, you need to set @flags appropriately.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="1006">a new #GtkShortcutsShortcut for @action_name.</doc>
+               line="1013">a new #GtkShortcutsShortcut for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="980">an #AmtkFactory.</doc>
+                 line="987">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="981">an action name.</doc>
+                 line="988">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="982">#AmtkFactoryFlags.</doc>
+                 line="989">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
         </parameters>
@@ -1561,26 +1563,26 @@ accelerators, you need to set @flags appropriately.</doc>
               version="5.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="672">Calls amtk_factory_create_simple_menu_full() with the
+             line="679">Calls amtk_factory_create_simple_menu_full() with the
 #AmtkFactory:default-flags.</doc>
         <source-position filename="amtk/amtk-factory.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="682">a new simple #GtkMenu for @entries.</doc>
+               line="689">a new simple #GtkMenu for @entries.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="674">an #AmtkFactory.</doc>
+                 line="681">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="entries" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="675">a
+                 line="682">a
   pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
             <array length="1"
                    zero-terminated="0"
@@ -1591,7 +1593,7 @@ accelerators, you need to set @flags appropriately.</doc>
           <parameter name="n_entries" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="677">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
+                 line="684">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1601,7 +1603,7 @@ accelerators, you need to set @flags appropriately.</doc>
               version="5.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="700">This function ignores the #AmtkFactory:default-flags property and takes the
+             line="707">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 This function:
@@ -1617,20 +1619,20 @@ So this function is useful only if the #GtkMenu contains only simple
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="721">a new simple #GtkMenu for @entries.</doc>
+               line="728">a new simple #GtkMenu for @entries.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="702">an #AmtkFactory.</doc>
+                 line="709">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="entries" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="703">a
+                 line="710">a
   pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
             <array length="1"
                    zero-terminated="0"
@@ -1641,13 +1643,13 @@ So this function is useful only if the #GtkMenu contains only simple
           <parameter name="n_entries" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="705">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
+                 line="712">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="706">#AmtkFactoryFlags.</doc>
+                 line="713">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
         </parameters>
@@ -1657,26 +1659,26 @@ So this function is useful only if the #GtkMenu contains only simple
               version="3.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="835">Creates a new #GtkToolButton for @action_name with the
+             line="842">Creates a new #GtkToolButton for @action_name with the
 #AmtkFactory:default-flags.</doc>
         <source-position filename="amtk/amtk-factory.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="843">a new #GtkToolButton for @action_name.</doc>
+               line="850">a new #GtkToolButton for @action_name.</doc>
           <type name="Gtk.ToolItem" c:type="GtkToolItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="837">an #AmtkFactory.</doc>
+                 line="844">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="838">an action name.</doc>
+                 line="845">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1686,32 +1688,32 @@ So this function is useful only if the #GtkMenu contains only simple
               version="3.0">
         <doc xml:space="preserve"
              filename="amtk/amtk-factory.c"
-             line="858">This function ignores the #AmtkFactory:default-flags property and takes the
+             line="865">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.</doc>
         <source-position filename="amtk/amtk-factory.h" line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="amtk/amtk-factory.c"
-               line="867">a new #GtkToolButton for @action_name.</doc>
+               line="874">a new #GtkToolButton for @action_name.</doc>
           <type name="Gtk.ToolItem" c:type="GtkToolItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="860">an #AmtkFactory.</doc>
+                 line="867">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="861">an action name.</doc>
+                 line="868">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="amtk/amtk-factory.c"
-                 line="862">#AmtkFactoryFlags.</doc>
+                 line="869">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
         </parameters>
@@ -2632,7 +2634,9 @@ beginning of main(), before any other Amtk function call.</doc>
     </function>
     <function name="menu_item_set_icon_name"
               c:identifier="amtk_menu_item_set_icon_name"
-              version="2.0">
+              version="2.0"
+              deprecated="1"
+              deprecated-version="5.9">
       <doc xml:space="preserve"
            filename="amtk/amtk-menu-item.c"
            line="55">Sets an icon to a #GtkMenuItem.
@@ -2647,6 +2651,8 @@ is inserted to the #GtkBox, alongside the icon.
 
 As a consequence, if you want to call functions on the #GtkAccelLabel, it's
 easier to do it before calling this function.</doc>
+      <doc-deprecated xml:space="preserve">Use #GtkImageMenuItem instead, even if deprecated. This
+  function doesn't place the icon at the right place.</doc-deprecated>
       <source-position filename="amtk/amtk-menu-item.h" line="24"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>

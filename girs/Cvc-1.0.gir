@@ -5,9 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Cvc"
              version="1.0"
              shared-library="libcvc.so.0"
@@ -741,19 +743,19 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gvc_mixer_card_change_profile">
         <doc xml:space="preserve"
              filename="libcvc/gvc-mixer-card.c"
-             line="223">Change the profile in use on this card.</doc>
+             line="228">Change the profile in use on this card.</doc>
         <source-position filename="libcvc/gvc-mixer-card.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-card.c"
-               line="230">%TRUE if profile successfully changed or already using this profile.</doc>
+               line="235">%TRUE if profile successfully changed or already using this profile.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="card" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-card.c"
-                 line="225">a #GvcMixerCard</doc>
+                 line="230">a #GvcMixerCard</doc>
             <type name="MixerCard" c:type="GvcMixerCard*"/>
           </instance-parameter>
           <parameter name="profile"
@@ -762,7 +764,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-card.c"
-                 line="226">the profile to change to or %NULL.</doc>
+                 line="231">the profile to change to or %NULL.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1075,7 +1077,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-card.c"
-               line="299">1 if @a has a higher priority, -1 if @b has a higher
+               line="304">1 if @a has a higher priority, -1 if @b has a higher
 priority, 0 if @a and @b have the same priority.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -1337,11 +1339,11 @@ priority, 0 if @a and @b have the same priority.</doc>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-control.c"
-                 line="672">This method is called from the UI when the user selects a previously unselected device.
+                 line="650">This method is called from the UI when the user selects a previously unselected device.
 - Firstly it queries the stream from the device.
   - It assumes that if the stream is null that it cannot be a bluetooth or network stream (they never show unless they have valid sinks and sources)
   In the scenario of a NULL stream on the device
-       - It fetches the device's preferred profile or if NUll the profile with the highest priority on that device.
+       - It fetches the device's preferred profile or if NULL the profile with the highest priority on that device.
        - It then caches this device in control-&gt;priv-&gt;cached_desired_input_id so that when the update_source triggered
          from when we attempt to change profile we will know exactly what device to highlight on that stream.
        - It attempts to swap the profile on the card from that device and returns.
@@ -1366,11 +1368,11 @@ priority, 0 if @a and @b have the same priority.</doc>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-control.c"
-                 line="580">This method is called from the UI when the user selects a previously unselected device.
+                 line="578">This method is called from the UI when the user selects a previously unselected device.
 - Firstly it queries the stream from the device.
   - It assumes that if the stream is null that it cannot be a bluetooth or network stream (they never show unless they have valid sinks and sources)
   In the scenario of a NULL stream on the device
-       - It fetches the device's preferred profile or if NUll the profile with the highest priority on that device.
+       - It fetches the device's preferred profile or if NULL the profile with the highest priority on that device.
        - It then caches this device in control-&gt;priv-&gt;cached_desired_output_id so that when the update_sink triggered
          from when we attempt to change profile we will know exactly what device to highlight on that stream.
        - It attempts to swap the profile on the card from that device and returns.
@@ -1388,7 +1390,7 @@ priority, 0 if @a and @b have the same priority.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-control.c"
-               line="532">This method will attempt to swap the profile on the card of
+               line="525">This method will attempt to swap the profile on the card of
 the device with given profile name.  If successful it will set the
 preferred profile on that device so as we know the next time the user
 moves to that device it should have this profile active.</doc>
@@ -1407,7 +1409,7 @@ moves to that device it should have this profile active.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-control.c"
-                 line="530">Can be %NULL if any profile present on this port is okay</doc>
+                 line="523">Can be %NULL if any profile present on this port is okay</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1610,7 +1612,7 @@ moves to that device it should have this profile active.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-control.c"
-               line="233">a #GvcUIDevice or %NULL</doc>
+               line="235">a #GvcUIDevice or %NULL</doc>
           <type name="MixerUIDevice" c:type="GvcMixerUIDevice*"/>
         </return-value>
         <parameters>
@@ -2568,10 +2570,11 @@ moves to that device it should have this profile active.</doc>
         </parameters>
       </method>
       <method name="get_base_volume"
-              c:identifier="gvc_mixer_stream_get_base_volume">
+              c:identifier="gvc_mixer_stream_get_base_volume"
+              introspectable="0">
         <source-position filename="libcvc/gvc-mixer-stream.h" line="92"/>
-        <return-value transfer-ownership="none">
-          <type name="guint32" c:type="guint32"/>
+        <return-value>
+          <type name="guint32" c:type="pa_volume_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
@@ -2662,14 +2665,14 @@ moves to that device it should have this profile active.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-stream.c"
-               line="444">a new #GIcon</doc>
+               line="446">a new #GIcon</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-stream.c"
-                 line="442">a #GvcMixerStream</doc>
+                 line="444">a #GvcMixerStream</doc>
             <type name="MixerStream" c:type="GvcMixerStream*"/>
           </instance-parameter>
         </parameters>
@@ -2793,10 +2796,11 @@ moves to that device it should have this profile active.</doc>
       </method>
       <method name="get_volume"
               c:identifier="gvc_mixer_stream_get_volume"
-              glib:get-property="volume">
+              glib:get-property="volume"
+              introspectable="0">
         <source-position filename="libcvc/gvc-mixer-stream.h" line="89"/>
-        <return-value transfer-ownership="none">
-          <type name="guint32" c:type="guint32"/>
+        <return-value>
+          <type name="guint32" c:type="pa_volume_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
@@ -2864,7 +2868,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_application_id"
               c:identifier="gvc_mixer_stream_set_application_id"
               glib:set-property="application-id">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="135"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="136"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2879,7 +2883,7 @@ moves to that device it should have this profile active.</doc>
       </method>
       <method name="set_base_volume"
               c:identifier="gvc_mixer_stream_set_base_volume">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="137"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2888,14 +2892,14 @@ moves to that device it should have this profile active.</doc>
             <type name="MixerStream" c:type="GvcMixerStream*"/>
           </instance-parameter>
           <parameter name="base_volume" transfer-ownership="none">
-            <type name="guint32" c:type="guint32"/>
+            <type name="guint32" c:type="pa_volume_t"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_can_decibel"
               c:identifier="gvc_mixer_stream_set_can_decibel"
               glib:set-property="can-decibel">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="119"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2911,7 +2915,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_card_index"
               c:identifier="gvc_mixer_stream_set_card_index"
               glib:set-property="card-index">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="143"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2927,7 +2931,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_decibel"
               c:identifier="gvc_mixer_stream_set_decibel"
               glib:set-property="decibel">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="115"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2943,7 +2947,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_description"
               c:identifier="gvc_mixer_stream_set_description"
               glib:set-property="description">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="123"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2959,7 +2963,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_form_factor"
               c:identifier="gvc_mixer_stream_set_form_factor"
               glib:set-property="form-factor">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="127"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2975,7 +2979,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_icon_name"
               c:identifier="gvc_mixer_stream_set_icon_name"
               glib:set-property="icon-name">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="125"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2991,7 +2995,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_is_event_stream"
               c:identifier="gvc_mixer_stream_set_is_event_stream"
               glib:set-property="is-event-stream">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="131"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3007,7 +3011,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_is_muted"
               c:identifier="gvc_mixer_stream_set_is_muted"
               glib:set-property="is-muted">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="117"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3023,7 +3027,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_is_virtual"
               c:identifier="gvc_mixer_stream_set_is_virtual"
               glib:set-property="is-virtual">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="133"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3039,7 +3043,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_name"
               c:identifier="gvc_mixer_stream_set_name"
               glib:set-property="name">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="121"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3055,7 +3059,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_port"
               c:identifier="gvc_mixer_stream_set_port"
               glib:set-property="port">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="139"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3069,7 +3073,7 @@ moves to that device it should have this profile active.</doc>
         </parameters>
       </method>
       <method name="set_ports" c:identifier="gvc_mixer_stream_set_ports">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="141"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3087,7 +3091,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_state"
               c:identifier="gvc_mixer_stream_set_state"
               glib:set-property="state">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="145"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="146"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3103,7 +3107,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_sysfs_path"
               c:identifier="gvc_mixer_stream_set_sysfs_path"
               glib:set-property="sysfs-path">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="129"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3119,7 +3123,7 @@ moves to that device it should have this profile active.</doc>
       <method name="set_volume"
               c:identifier="gvc_mixer_stream_set_volume"
               glib:set-property="volume">
-        <source-position filename="libcvc/gvc-mixer-stream.h" line="113"/>
+        <source-position filename="libcvc/gvc-mixer-stream.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3128,7 +3132,7 @@ moves to that device it should have this profile active.</doc>
             <type name="MixerStream" c:type="GvcMixerStream*"/>
           </instance-parameter>
           <parameter name="volume" transfer-ownership="none">
-            <type name="guint32" c:type="guint32"/>
+            <type name="guint32" c:type="pa_volume_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3481,7 +3485,7 @@ moves to that device it should have this profile active.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-ui-device.c"
-               line="458">a profile name, valid as long as the UI device profiles are.</doc>
+               line="468">a profile name, valid as long as the UI device profiles are.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -3494,13 +3498,13 @@ moves to that device it should have this profile active.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-ui-device.c"
-                 line="455">The selected profile or its canonical name or %NULL for any profile</doc>
+                 line="465">The selected profile or its canonical name or %NULL for any profile</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="current" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-ui-device.c"
-                 line="456">The currently selected profile</doc>
+                 line="466">The currently selected profile</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3695,7 +3699,7 @@ moves to that device it should have this profile active.</doc>
               c:identifier="gvc_mixer_ui_device_set_profiles">
         <doc xml:space="preserve"
              filename="libcvc/gvc-mixer-ui-device.c"
-             line="400">Assigns value to
+             line="407">Assigns value to
  - device-&gt;priv-&gt;profiles (profiles to be added to combobox)
  - device-&gt;priv-&gt;supported_profiles (all profiles of this port)
  - device-&gt;priv-&gt;disable_profile_swapping (whether to show the combobox)
@@ -3724,7 +3728,7 @@ It does this by the following.
           <parameter name="in_profiles" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcvc/gvc-mixer-ui-device.c"
-                 line="402">a list of GvcMixerCardProfile</doc>
+                 line="409">a list of GvcMixerCardProfile</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="MixerCardProfile"/>
             </type>

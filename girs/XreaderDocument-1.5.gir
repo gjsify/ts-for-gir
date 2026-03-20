@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
@@ -13,6 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <package name="xreader-document-1.5"/>
+  <doc:format name="unknown"/>
   <namespace name="XreaderDocument"
              version="1.5"
              shared-library="libxreaderdocument.so.3"
@@ -9271,7 +9273,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="libdocument/ev-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="EV_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="EV_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="46">The micro version number of the EV library
@@ -9279,7 +9281,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="libdocument/ev-version.h" line="52"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="2" c:type="EV_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="6" c:type="EV_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="38">The minor version number of the EV library

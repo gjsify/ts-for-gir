@@ -5,9 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <include name="GtkSource" version="4"/>
+  <doc:format name="unknown"/>
   <namespace name="Xed"
              version="1.0"
              shared-library="libxed.so"
@@ -132,19 +134,19 @@ and/or use gtk-doc annotations.  -->
       <method name="create_window" c:identifier="xed_app_create_window">
         <doc xml:space="preserve"
              filename="xed/xed-app.c"
-             line="1098">Create a new #XedWindow part of @app.</doc>
+             line="1105">Create a new #XedWindow part of @app.</doc>
         <source-position filename="xed/xed-app.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-app.c"
-               line="1105">the new #XedWindow</doc>
+               line="1112">the new #XedWindow</doc>
           <type name="Window" c:type="XedWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-app.c"
-                 line="1100">the #XedApp</doc>
+                 line="1107">the #XedApp</doc>
             <type name="App" c:type="XedApp*"/>
           </instance-parameter>
           <parameter name="screen"
@@ -158,12 +160,12 @@ and/or use gtk-doc annotations.  -->
       <method name="get_documents" c:identifier="xed_app_get_documents">
         <doc xml:space="preserve"
              filename="xed/xed-app.c"
-             line="1169">Returns all the documents currently open in #XedApp.</doc>
+             line="1176">Returns all the documents currently open in #XedApp.</doc>
         <source-position filename="xed/xed-app.h" line="87"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-app.c"
-               line="1175">
+               line="1182">
 a newly allocated list of #XedDocument objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -173,7 +175,7 @@ a newly allocated list of #XedDocument objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-app.c"
-                 line="1171">the #XedApp</doc>
+                 line="1178">the #XedApp</doc>
             <type name="App" c:type="XedApp*"/>
           </instance-parameter>
         </parameters>
@@ -181,14 +183,14 @@ a newly allocated list of #XedDocument objects</doc>
       <method name="get_main_windows" c:identifier="xed_app_get_main_windows">
         <doc xml:space="preserve"
              filename="xed/xed-app.c"
-             line="1138">Returns all #XedWindow currently open in #XedApp.
+             line="1145">Returns all #XedWindow currently open in #XedApp.
 This differs from gtk_application_get_windows() since it does not
 include the preferences dialog and other auxiliary windows.</doc>
         <source-position filename="xed/xed-app.h" line="85"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-app.c"
-               line="1146">
+               line="1153">
 a newly allocated list of #XedWindow objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
@@ -198,7 +200,7 @@ a newly allocated list of #XedWindow objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-app.c"
-                 line="1140">the #XedApp</doc>
+                 line="1147">the #XedApp</doc>
             <type name="App" c:type="XedApp*"/>
           </instance-parameter>
         </parameters>
@@ -206,12 +208,12 @@ a newly allocated list of #XedWindow objects</doc>
       <method name="get_views" c:identifier="xed_app_get_views">
         <doc xml:space="preserve"
              filename="xed/xed-app.c"
-             line="1195">Returns all the views currently present in #XedApp.</doc>
+             line="1202">Returns all the views currently present in #XedApp.</doc>
         <source-position filename="xed/xed-app.h" line="90"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-app.c"
-               line="1201">
+               line="1208">
 a newly allocated list of #XedView objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -221,7 +223,7 @@ a newly allocated list of #XedView objects</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-app.c"
-                 line="1197">the #XedApp</doc>
+                 line="1204">the #XedApp</doc>
             <type name="App" c:type="XedApp*"/>
           </instance-parameter>
         </parameters>
@@ -5723,7 +5725,7 @@ or duplicates the current line if nothing is selected</doc>
       <method name="scroll_to_cursor" c:identifier="xed_view_scroll_to_cursor">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="821">Scrolls the @view to the cursor position.</doc>
+             line="831">Scrolls the @view to the cursor position.</doc>
         <source-position filename="xed/xed-view.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5732,7 +5734,7 @@ or duplicates the current line if nothing is selected</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="823">a #XedView</doc>
+                 line="833">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
         </parameters>
@@ -5740,7 +5742,7 @@ or duplicates the current line if nothing is selected</doc>
       <method name="select_all" c:identifier="xed_view_select_all">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="798">Selects all the text displayed in the @view.</doc>
+             line="808">Selects all the text displayed in the @view.</doc>
         <source-position filename="xed/xed-view.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5749,7 +5751,7 @@ or duplicates the current line if nothing is selected</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="800">a #XedView</doc>
+                 line="810">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
         </parameters>
@@ -5758,7 +5760,7 @@ or duplicates the current line if nothing is selected</doc>
               c:identifier="xed_view_set_draw_whitespace">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="913">Enables or disables rendering of any whitespace.
+             line="923">Enables or disables rendering of any whitespace.
 The locations and types of whitespace to render is set by
 xed_view_update_draw_whitespace_locations_and_types()</doc>
         <source-position filename="xed/xed-view.h" line="65"/>
@@ -5769,13 +5771,13 @@ xed_view_update_draw_whitespace_locations_and_types()</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="915">a #XedView</doc>
+                 line="925">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="916">whether whitespace should be drawn</doc>
+                 line="926">whether whitespace should be drawn</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5783,7 +5785,7 @@ xed_view_update_draw_whitespace_locations_and_types()</doc>
       <method name="set_font" c:identifier="xed_view_set_font">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="843">If @def is #TRUE, resets the font of the @view to the default font
+             line="853">If @def is #TRUE, resets the font of the @view to the default font
 otherwise sets it to @font_name.</doc>
         <source-position filename="xed/xed-view.h" line="64"/>
         <return-value transfer-ownership="none">
@@ -5793,19 +5795,19 @@ otherwise sets it to @font_name.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="845">a #XedView</doc>
+                 line="855">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
           <parameter name="def" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="846">whether to reset the default font</doc>
+                 line="856">whether to reset the default font</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="font_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="847">the name of the font to use</doc>
+                 line="857">the name of the font to use</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5814,7 +5816,7 @@ otherwise sets it to @font_name.</doc>
               c:identifier="xed_view_update_draw_whitespace_locations_and_types">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="934">Updates the view to render whitespace at the locations and for types
+             line="944">Updates the view to render whitespace at the locations and for types
 set in the preferences</doc>
         <source-position filename="xed/xed-view.h" line="66"/>
         <return-value transfer-ownership="none">
@@ -5824,7 +5826,7 @@ set in the preferences</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="936">a #XedView</doc>
+                 line="946">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
         </parameters>

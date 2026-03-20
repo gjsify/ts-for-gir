@@ -5,35 +5,806 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="4.0"/>
   <c:include name="cmb_private.h"/>
+  <doc:format name="unknown"/>
   <namespace name="CambalachePrivate"
              version="4.0"
              shared-library="libcambalacheprivate-4.so"
              c:identifier-prefixes="CmbPrivate"
              c:symbol-prefixes="cmb_private">
-    <class name="BuilderScope"
-           c:symbol-prefix="builder_scope"
-           c:type="CmbPrivateBuilderScope"
-           parent="Gtk.BuilderCScope"
-           glib:type-name="CmbPrivateBuilderScope"
-           glib:get-type="cmb_private_builder_scope_get_type"
-           glib:type-struct="BuilderScopeClass">
-      <source-position filename="cambalache/private/cmb_private.h" line="34"/>
-      <implements name="Gtk.BuilderScope"/>
+    <class name="Svg"
+           c:symbol-prefix="svg"
+           c:type="CmbPrivateSvg"
+           version="4.22"
+           parent="GObject.Object"
+           glib:type-name="CmbPrivateSvg"
+           glib:get-type="cmb_private_svg_get_type"
+           glib:type-struct="SvgClass">
+      <doc xml:space="preserve"
+           filename="cambalache/private/cmb_private_svg.c"
+           line="86">A paintable implementation that renders (a subset of) SVG,
+with animations.
+
+`CmbPrivateSvg` objects are created by parsing a subset of SVG,
+including SVG animations.
+
+The `CmbPrivateSvg` fills or strokes paths with symbolic or fixed
+colors. It can have multiple states, and paths can be included
+in a subset of the states. The special 'empty' state is always
+available. States can have animation, and the transition between
+different states can also be animated.
+
+To find out what states a `CmbPrivateSvg` has, use [method@Gtk.Svg.get_n_states].
+To set the current state, use [method@Gtk.Svg.set_state].
+
+To play the animations in an SVG file, use
+[method@Gtk.Svg.set_frame_clock] to connect the paintable to a frame clock,
+and then use [method@Gtk.Svg.play] to start the animation.
+
+
+## Error handling
+
+Loading an SVG into `CmbPrivateSvg` will always produce a (possibly empty)
+paintable. GTK will drop things that it can't handle and try to make
+sense of the rest.
+
+To track errors during parsing or rednering, connect to the
+[signal@Gtk.Svg::error] signal.
+
+For parsing errors in the `CMB_PRIVATE_SVG_ERROR` domain, the functions
+[func@Gtk.SvgError.get_start], [func@Gtk.SvgError.get_end],
+[func@Gtk.SvgError.get_element] and [func@Gtk.SvgError.get_attribute]
+can be used to obtain information about where the error occurred.
+
+
+## The supported subset of SVG
+
+The paintable does not support text or images, only shapes and paths.
+
+In `&lt;defs&gt;`, only `&lt;clipPath&gt;`, `&lt;mask&gt;`, gradients and shapes are
+supported, not `&lt;filter&gt;`, `&lt;pattern&gt;` or other things.
+
+Gradient templating is not implemented, and radial gradients with
+`fx,fy != cx,cy` are not supported.
+
+The support for filters is limited to filter functions minus
+`drop-shadow()` plus a custom `alpha-level()` function, which
+implements one particular case of feComponentTransfer.
+
+The `transform-origin` and `transform-box` attributes are not supported.
+
+The support for the `mask` attribute is limited to just a url
+referring to the `&lt;mask&gt;` element by ID.
+
+In animation elements, the parsing of `begin` and `end` attributes
+is limited, and the `by`, `min` and `max` attributes are not supported.
+
+Lastly, there is no CSS support, and no interactivity.
+
+
+## SVG Extensions
+
+The paintable supports a number of [custom attributes](icon-format.html)
+that offer a convenient way to define states, transitions and animations.
+For example,
+
+    &lt;circle cx='5' cy='5' r='5'
+            gpa:states='0 1'
+            gpa:animation-type='automatic'
+            gpa:animation-direction='segment'
+            gpa:animation-duration='600ms'/&gt;
+
+defines the circle to be shown in states 0 and 1, and animates a segment
+of the circle.
+
+&lt;image src="svg-renderer1.svg"&gt;
+
+Note that the generated animations assume a `pathLengh` value of 1.
+Setting `pathLength` in your SVG is therefore going to interfere with
+generated animations.
+
+To connect general SVG animations to the states of the paintable,
+use the custom `gpa:states(...)` condition in the `begin` and `end`
+attributes of SVG animation elements. For example,
+
+    &lt;animate href='path1'
+             attributeName='fill'
+             begin='gpa:states(0).begin'
+             dur='300ms'
+             fill='freeze'
+             from='black'
+             to='magenta'/&gt;
+
+will make the fill color of path1 transition from black to
+magenta when the renderer enters state 0.
+
+&lt;image src="svg-renderer2.svg"&gt;
+
+The `gpa:states(...)` condition triggers for upcoming state changes
+as well, to support fade-out transitions. For example,
+
+    &lt;animate href='path1'
+             attributeName='opacity'
+             begin='gpa:states(0).end -300ms'
+             dur='300ms'
+             fill='freeze'
+             from='1'
+             to='0'/&gt;
+
+will start a fade-out of path1 300ms before state 0 ends.
+
+In addition to `gpa:fill` and `gpa:stroke`, symbolic colors can
+also be specified as a custom paint server reference, like this:
+`url(gpa:#warning)`. This works in `fill` and `stroke` attributes,
+but also when specifying colors in SVG animation attributes like
+`to` or `values`.
+
+Note that the SVG syntax allows for a fallback RGB color to be
+specified after the url, for compatibility with other SVG consumers:
+
+    fill='url(gpa:#warning) orange'
+
+In contrast to SVG 1.1 and 2.0, we allow the `transform` attribute
+to be animated with `&lt;animate&gt;`.</doc>
+      <source-position filename="cambalache/private/cmb_private_svg.h"
+                       line="35"/>
+      <implements name="Gdk.Paintable"/>
+      <implements name="Gtk.SymbolicPaintable"/>
+      <constructor name="new"
+                   c:identifier="cmb_private_svg_new"
+                   version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12593">Creates a new, empty SVG paintable.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12598">the paintable</doc>
+          <type name="Svg" c:type="CmbPrivateSvg*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_bytes"
+                   c:identifier="cmb_private_svg_new_from_bytes"
+                   version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12608">Parses the SVG data in @bytes and creates a paintable.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12614">the paintable</doc>
+          <type name="Svg" c:type="CmbPrivateSvg*"/>
+        </return-value>
+        <parameters>
+          <parameter name="bytes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12610">the data</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_resource"
+                   c:identifier="cmb_private_svg_new_from_resource"
+                   version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12628">Parses the SVG data in the resource and creates a paintable.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12634">the paintable</doc>
+          <type name="Svg" c:type="CmbPrivateSvg*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12630">the resource path</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="error_get_attribute"
+                c:identifier="cmb_private_svg_error_get_attribute"
+                version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="13015">Returns context information about what XML attribute
+the parsing error occurred in.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="92"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="13022">the attribute name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="13017">an error in the [error@Gtk.SvgError] domain</doc>
+            <type name="GLib.Error" c:type="const GError*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="error_get_element"
+                c:identifier="cmb_private_svg_error_get_element"
+                version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12993">Returns context information about what XML element
+the parsing error occurred in.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="91"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="13000">the element name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12995">an error in the [error@Gtk.SvgError] domain</doc>
+            <type name="GLib.Error" c:type="const GError*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="error_get_end"
+                c:identifier="cmb_private_svg_error_get_end"
+                version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="13059">Returns context information about the end position
+in the document where the parsing error occurred.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="96"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="13066">the [struct@Gtk.SvgLocation]</doc>
+          <type name="SvgLocation" c:type="const CmbPrivateSvgLocation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="13061">an error in the [error@Gtk.SvgError] domain</doc>
+            <type name="GLib.Error" c:type="const GError*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="error_get_start"
+                c:identifier="cmb_private_svg_error_get_start"
+                version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="13037">Returns context information about the start position
+in the document where the parsing error occurred.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="94"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="13044">the [struct@Gtk.SvgLocation]</doc>
+          <type name="SvgLocation" c:type="const CmbPrivateSvgLocation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="13039">an error in the [error@Gtk.SvgError] domain</doc>
+            <type name="GLib.Error" c:type="const GError*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="error_quark" c:identifier="cmb_private_svg_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="get_n_states"
+              c:identifier="cmb_private_svg_get_n_states"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12857">Gets the number of states defined in the SVG.
+
+Note that there is always an empty state, which does
+not count towards this number. If this function returns
+the value N, the meaningful states of the SVG are
+0, 1, ..., N - 1 and `CMB_PRIVATE_SVG_STATE_EMPTY`.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12868">the number of states</doc>
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12859">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="cmb_private_svg_get_state"
+              glib:get-property="state"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12839">Gets the current state of the paintable.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12845">the state</doc>
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12841">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_weight"
+              c:identifier="cmb_private_svg_get_weight"
+              glib:get-property="weight"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12760">Gets the value of the weight property.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12766">the weight</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12762">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_from_bytes"
+              c:identifier="cmb_private_svg_load_from_bytes"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12647">Loads SVG content into an existing SVG paintable.
+
+To track errors while loading SVG content,
+connect to the [signal@Gtk.Svg::error] signal.
+
+This clears any previously loaded content.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12649">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+          <parameter name="bytes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12650">the data to load</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pause" c:identifier="cmb_private_svg_pause" version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12935">Stop any playing animations.
+
+Animations can be paused and started repeatedly.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12937">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play" c:identifier="cmb_private_svg_play" version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12916">Start playing animations.
+
+Note that this is necessary for state changes as
+well.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12918">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serialize"
+              c:identifier="cmb_private_svg_serialize"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12676">Serializes the content of the renderer as SVG.
+
+The SVG will be similar to the orignally loaded one,
+but is not guaranteed to be 100% identical.
+
+This function serializes the DOM, i.e. the results
+of parsing the SVG. It does not reflect the effect
+of applying animations.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="46"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12689">the serialized contents</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12678">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_frame_clock"
+              c:identifier="cmb_private_svg_set_frame_clock"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12883">Sets a frame clock.
+
+Without a frame clock, GTK has to rely
+on simple timeouts to run animations.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12885">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+          <parameter name="clock" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12886">the frame clock</doc>
+            <type name="Gdk.FrameClock" c:type="GdkFrameClock*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_state"
+              c:identifier="cmb_private_svg_set_state"
+              glib:set-property="state"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12778">Sets the state of the paintable.
+
+Use [method@Gtk.Svg.get_n_states] to find out
+what states @self has.
+
+Note that [method@Gtk.Svg.play] must have been
+called for the SVG paintable to react to state changes.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12780">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12781">the state to set, as a value between 0 and 63,
+  or `(unsigned int) -1`</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_weight"
+              c:identifier="cmb_private_svg_set_weight"
+              glib:set-property="weight"
+              version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12732">Sets the weight that is used when rendering.
+
+The default value of -1 means to use the font weight
+from CSS.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12734">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+          <parameter name="weight" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12735">the font weight, as a value between -1 and 1000</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_to_file"
+              c:identifier="cmb_private_svg_write_to_file"
+              version="4.22"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12699">Serializes the paintable, and saves the result to a file.</doc>
+        <source-position filename="cambalache/private/cmb_private_svg.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cambalache/private/cmb_private_svg.c"
+               line="12707">true, unless an error occurred</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12701">an SVG paintable</doc>
+            <type name="Svg" c:type="CmbPrivateSvg*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12702">the file to save to</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="playing"
+                version="4.22"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12021">Whether the paintable is currently animating its content.
+
+To set this property, use the [method@Gtk.Svg.play] and
+[method@Gtk.Svg.pause] functions.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="resource"
+                version="4.22"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12008">Construct-only property to create a paintable from
+a resource in ui files.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="state"
+                version="4.22"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_state"
+                getter="get_state"
+                default-value="4294967295">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12049">The current state of the renderer.
+
+This can be a number between 0 and 63, or the special value
+`(unsigned int) -1` to indicate the 'empty' state in which
+nothing is drawn.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="weight"
+                version="4.22"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_weight"
+                getter="get_weight"
+                default-value="-1.000000">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12036">If not set to -1, this value overrides the weight used
+when rendering the paintable.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <glib:signal name="error" when="last" version="4.22">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12067">Signals that an error occurred.
+
+Errors can occur both during parsing and during rendering.
+
+The expected error values are in the [error@Gtk.SvgError] enumeration,
+context information about the location of parsing errors can
+be obtained with the various `cmb_private_svg_error` functions.
+
+Parsing errors are never fatal, so the parsing will resume after
+the error. Errors may however cause parts of the given data or
+even all of it to not be parsed at all. So it is a useful idea
+to check that the parsing succeeds by connecting to this signal.
+
+::: note
+    This signal is emitted in the middle of parsing or rendering,
+    and if you handle it, you must be careful. Logging the errors
+    you receive is fine, but modifying the widget hierarchy or
+    changing the paintable state definitively isn't.
+
+    If in doubt, defer to an idle.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cambalache/private/cmb_private_svg.c"
+                 line="12070">the error</doc>
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
     </class>
-    <record name="BuilderScopeClass"
-            c:type="CmbPrivateBuilderScopeClass"
-            glib:is-gtype-struct-for="BuilderScope">
-      <source-position filename="cambalache/private/cmb_private.h" line="34"/>
+    <record name="SvgClass"
+            c:type="CmbPrivateSvgClass"
+            glib:is-gtype-struct-for="Svg">
+      <source-position filename="cambalache/private/cmb_private_svg.h"
+                       line="35"/>
       <field name="parent_class">
-        <type name="Gtk.BuilderCScopeClass" c:type="GtkBuilderCScopeClass"/>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="SvgError" version="4.22" c:type="CmbPrivateSvgError">
+      <doc xml:space="preserve"
+           filename="cambalache/private/cmb_private_svg.c"
+           line="12956">Error codes in the `CMB_PRIVATE_SVG_ERROR` domain for errors
+that happen during parsing or rendering of SVG.</doc>
+      <source-position filename="cambalache/private/cmb_private_svg.h"
+                       line="79"/>
+      <member name="invalid_element"
+              value="0"
+              c:identifier="CMB_PRIVATE_SVG_ERROR_INVALID_ELEMENT">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12958">An XML element is invalid
+  (either because it is not part of SVG, or because it is
+  in the wrong place, or because it not implemented in GTK)</doc>
+      </member>
+      <member name="invalid_attribute"
+              value="1"
+              c:identifier="CMB_PRIVATE_SVG_ERROR_INVALID_ATTRIBUTE">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12961">An XML attribute is invalid
+  (either because it is not part of SVG, or because it is
+  not implemented in GTK, or its value is problematic)</doc>
+      </member>
+      <member name="missing_attribute"
+              value="2"
+              c:identifier="CMB_PRIVATE_SVG_ERROR_MISSING_ATTRIBUTE">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12964">A required attribute is missing</doc>
+      </member>
+      <member name="invalid_reference"
+              value="3"
+              c:identifier="CMB_PRIVATE_SVG_ERROR_INVALID_REFERENCE">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12965">A reference does not point to
+  a suitable element</doc>
+      </member>
+      <member name="failed_update"
+              value="4"
+              c:identifier="CMB_PRIVATE_SVG_ERROR_FAILED_UPDATE">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12967">An animation could not be updated</doc>
+      </member>
+      <member name="failed_rendering"
+              value="5"
+              c:identifier="CMB_PRIVATE_SVG_ERROR_FAILED_RENDERING">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12968">Rendering is not according to
+  expecations</doc>
+      </member>
+    </enumeration>
+    <record name="SvgLocation" c:type="CmbPrivateSvgLocation" version="4.22">
+      <doc xml:space="preserve"
+           filename="cambalache/private/cmb_private_svg.c"
+           line="12977">Provides information about a location in an SVG document.
+
+The information should be considered approximate; it is
+meant to provide feedback for errors in an editor.</doc>
+      <source-position filename="cambalache/private/cmb_private_svg.h"
+                       line="86"/>
+      <field name="bytes" writable="1">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12979">the byte index in document. If unknown, this will
+  be zero (which is also a valid value, but only if all
+  three values are zero)</doc>
+        <type name="gsize" c:type="size_t"/>
+      </field>
+      <field name="lines" writable="1">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12982">the line index in the document, 0-based</doc>
+        <type name="gsize" c:type="size_t"/>
+      </field>
+      <field name="line_chars" writable="1">
+        <doc xml:space="preserve"
+             filename="cambalache/private/cmb_private_svg.c"
+             line="12983">the char index in the line, 0-based</doc>
+        <type name="gsize" c:type="size_t"/>
       </field>
     </record>
     <function name="object_set_property_from_string"
               c:identifier="cmb_private_object_set_property_from_string">
-      <source-position filename="cambalache/private/cmb_private.h" line="50"/>
+      <source-position filename="cambalache/private/cmb_private.h" line="43"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -48,6 +819,21 @@ and/or use gtk-doc annotations.  -->
                    transfer-ownership="none"
                    nullable="1"
                    allow-none="1">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="widget_set_application_id"
+              c:identifier="cmb_private_widget_set_application_id">
+      <source-position filename="cambalache/private/cmb_private.h" line="48"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="app_id" transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

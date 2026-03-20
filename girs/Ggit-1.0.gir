@@ -198,9 +198,7 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="BUILD_TYPE"
-              value="debugoptimized"
-              c:type="GGIT_BUILD_TYPE">
+    <constant name="BUILD_TYPE" value="plain" c:type="GGIT_BUILD_TYPE">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="52">The build type of the installed build.</doc>
@@ -2313,14 +2311,8 @@ will be checked out.</doc>
               glib:type-name="GgitCheckoutStrategy"
               glib:get-type="ggit_checkout_strategy_get_type"
               c:type="GgitCheckoutStrategy">
-      <member name="none"
-              value="0"
-              c:identifier="GGIT_CHECKOUT_NONE"
-              glib:nick="none"
-              glib:name="GGIT_CHECKOUT_NONE">
-      </member>
       <member name="safe"
-              value="1"
+              value="0"
               c:identifier="GGIT_CHECKOUT_SAFE"
               glib:nick="safe"
               glib:name="GGIT_CHECKOUT_SAFE">
@@ -2432,6 +2424,24 @@ will be checked out.</doc>
               c:identifier="GGIT_CHECKOUT_DONT_WRITE_INDEX"
               glib:nick="dont-write-index"
               glib:name="GGIT_CHECKOUT_DONT_WRITE_INDEX">
+      </member>
+      <member name="dry_run"
+              value="16777216"
+              c:identifier="GGIT_CHECKOUT_DRY_RUN"
+              glib:nick="dry-run"
+              glib:name="GGIT_CHECKOUT_DRY_RUN">
+      </member>
+      <member name="conflict_style_zdiff3"
+              value="33554432"
+              c:identifier="GGIT_CHECKOUT_CONFLICT_STYLE_ZDIFF3"
+              glib:nick="conflict-style-zdiff3"
+              glib:name="GGIT_CHECKOUT_CONFLICT_STYLE_ZDIFF3">
+      </member>
+      <member name="none"
+              value="1073741824"
+              c:identifier="GGIT_CHECKOUT_NONE"
+              glib:nick="none"
+              glib:name="GGIT_CHECKOUT_NONE">
       </member>
       <member name="update_submodules"
               value="65536"
@@ -4250,7 +4260,7 @@ If the reference count drops to 0, @entry is freed.</doc>
                  glib:get-type="ggit_config_level_get_type"
                  c:type="GgitConfigLevel">
       <doc xml:space="preserve"
-           filename="libgit2-glib/ggit-types-pre18.h"
+           filename="libgit2-glib/ggit-types-19.h"
            line="24">Priority level of a config file.
 These priority levels correspond to the natural escalation logic
 (from higher to lower) when searching for config entries in git.git.</doc>
@@ -4260,7 +4270,7 @@ These priority levels correspond to the natural escalation logic
               glib:nick="programdata"
               glib:name="GGIT_CONFIG_LEVEL_PROGRAMDATA">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
+             filename="libgit2-glib/ggit-types-19.h"
              line="26">System-wide on Windows, for compatibility with portable git.</doc>
       </member>
       <member name="system"
@@ -4269,7 +4279,7 @@ These priority levels correspond to the natural escalation logic
               glib:nick="system"
               glib:name="GGIT_CONFIG_LEVEL_SYSTEM">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
+             filename="libgit2-glib/ggit-types-19.h"
              line="27">System-wide configuration file.</doc>
       </member>
       <member name="xdg"
@@ -4278,7 +4288,7 @@ These priority levels correspond to the natural escalation logic
               glib:nick="xdg"
               glib:name="GGIT_CONFIG_LEVEL_XDG">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
+             filename="libgit2-glib/ggit-types-19.h"
              line="28">XDG compatible configuration file (.config/git/config).</doc>
       </member>
       <member name="global"
@@ -4287,7 +4297,7 @@ These priority levels correspond to the natural escalation logic
               glib:nick="global"
               glib:name="GGIT_CONFIG_LEVEL_GLOBAL">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
+             filename="libgit2-glib/ggit-types-19.h"
              line="29">User-specific configuration file, also called Global configuration file.</doc>
       </member>
       <member name="local"
@@ -4296,17 +4306,23 @@ These priority levels correspond to the natural escalation logic
               glib:nick="local"
               glib:name="GGIT_CONFIG_LEVEL_LOCAL">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
+             filename="libgit2-glib/ggit-types-19.h"
              line="30">Repository specific configuration file.</doc>
       </member>
-      <member name="app"
+      <member name="worktree"
               value="6"
+              c:identifier="GGIT_CONFIG_LEVEL_WORKTREE"
+              glib:nick="worktree"
+              glib:name="GGIT_CONFIG_LEVEL_WORKTREE">
+      </member>
+      <member name="app"
+              value="7"
               c:identifier="GGIT_CONFIG_LEVEL_APP"
               glib:nick="app"
               glib:name="GGIT_CONFIG_LEVEL_APP">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
-             line="31">Application specific configuration file; freely defined by applications.</doc>
+             filename="libgit2-glib/ggit-types-19.h"
+             line="32">Application specific configuration file; freely defined by applications.</doc>
       </member>
       <member name="highest"
               value="-1"
@@ -4314,8 +4330,8 @@ These priority levels correspond to the natural escalation logic
               glib:nick="highest"
               glib:name="GGIT_CONFIG_LEVEL_HIGHEST">
         <doc xml:space="preserve"
-             filename="libgit2-glib/ggit-types-pre18.h"
-             line="32">Represents the highest level of a config file.</doc>
+             filename="libgit2-glib/ggit-types-19.h"
+             line="33">Represents the highest level of a config file.</doc>
       </member>
     </enumeration>
     <callback name="ConfigMatchCallback" c:type="GgitConfigMatchCallback">

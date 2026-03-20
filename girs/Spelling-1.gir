@@ -862,7 +862,7 @@ if the language is not supported.</doc>
            glib:type-struct="TextBufferAdapterClass">
       <doc xml:space="preserve"
            filename="lib/spelling-text-buffer-adapter.c"
-           line="33">`SpellingTextBufferAdapter` implements helpers to easily add spellchecking
+           line="35">`SpellingTextBufferAdapter` implements helpers to easily add spellchecking
 capabilities to a `GtkSourceBuffer`.</doc>
       <source-position filename="lib/spelling-text-buffer-adapter.h"
                        line="34"/>
@@ -1091,7 +1091,7 @@ change.</doc>
               glib:set-property="enabled">
         <doc xml:space="preserve"
              filename="lib/spelling-text-buffer-adapter.c"
-             line="686">If %TRUE spellcheck is enabled.</doc>
+             line="690">If %TRUE spellcheck is enabled.</doc>
         <source-position filename="lib/spelling-text-buffer-adapter.h"
                          line="44"/>
         <return-value transfer-ownership="none">
@@ -1101,14 +1101,14 @@ change.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/spelling-text-buffer-adapter.c"
-                 line="688">a `SpellingTextBufferAdapter`</doc>
+                 line="692">a `SpellingTextBufferAdapter`</doc>
             <type name="TextBufferAdapter"
                   c:type="SpellingTextBufferAdapter*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/spelling-text-buffer-adapter.c"
-                 line="689">whether the spellcheck is enabled</doc>
+                 line="693">whether the spellcheck is enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1171,7 +1171,7 @@ automatic timeout caused by cursor movements.</doc>
                 getter="get_buffer">
         <doc xml:space="preserve"
              filename="lib/spelling-text-buffer-adapter.c"
-             line="910">The [class@GtkSource.Buffer].</doc>
+             line="912">The [class@GtkSource.Buffer].</doc>
         <type name="GtkSource.Buffer"/>
       </property>
       <property name="checker"
@@ -1181,7 +1181,7 @@ automatic timeout caused by cursor movements.</doc>
                 getter="get_checker">
         <doc xml:space="preserve"
              filename="lib/spelling-text-buffer-adapter.c"
-             line="920">The [class@Spelling.Checker].</doc>
+             line="922">The [class@Spelling.Checker].</doc>
         <type name="Checker"/>
       </property>
       <property name="enabled"
@@ -1192,7 +1192,7 @@ automatic timeout caused by cursor movements.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="lib/spelling-text-buffer-adapter.c"
-             line="930">Whether spellcheck is enabled.</doc>
+             line="932">Whether spellcheck is enabled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="language"
@@ -1203,7 +1203,7 @@ automatic timeout caused by cursor movements.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/spelling-text-buffer-adapter.c"
-             line="940">The language code, such as `en_US`.</doc>
+             line="942">The language code, such as `en_US`.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
     </class>

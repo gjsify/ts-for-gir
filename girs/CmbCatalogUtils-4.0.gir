@@ -19,75 +19,27 @@ and/or use gtk-doc annotations.  -->
               c:identifier="cmb_catalog_utils_buildable_get_internal_child">
       <doc xml:space="preserve"
            filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-           line="104">Return internal child</doc>
+           line="51">Return internal child</doc>
       <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
-                       line="34"/>
+                       line="31"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-             line="111">the internal child of the buildable object</doc>
+             line="58">the internal child of the buildable object</doc>
         <type name="GObject.Object" c:type="GObject*"/>
       </return-value>
       <parameters>
         <parameter name="buildable" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-               line="106">Object to check</doc>
+               line="53">Object to check</doc>
           <type name="Gtk.Buildable" c:type="GtkBuildable*"/>
         </parameter>
         <parameter name="childname" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-               line="107">internal child</doc>
+               line="54">internal child</doc>
           <type name="utf8" c:type="const char*"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="get_class_properties"
-              c:identifier="cmb_catalog_utils_get_class_properties">
-      <doc xml:space="preserve"
-           filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-           line="34">Return the list of properties declared in @name</doc>
-      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
-                       line="29"/>
-      <return-value transfer-ownership="container">
-        <doc xml:space="preserve"
-             filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-             line="40">class properties</doc>
-        <array c:type="GParamSpec**">
-          <type name="GObject.ParamSpec"/>
-        </array>
-      </return-value>
-      <parameters>
-        <parameter name="name" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-               line="36">Class name</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="get_iface_properties"
-              c:identifier="cmb_catalog_utils_get_iface_properties">
-      <doc xml:space="preserve"
-           filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-           line="54">Return the list of properties declared in @name iface</doc>
-      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
-                       line="30"/>
-      <return-value transfer-ownership="container">
-        <doc xml:space="preserve"
-             filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-             line="60">iface properties</doc>
-        <array c:type="GParamSpec**">
-          <type name="GObject.ParamSpec"/>
-        </array>
-      </return-value>
-      <parameters>
-        <parameter name="name" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-               line="56">Interface type name</doc>
-          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -95,9 +47,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="cmb_catalog_utils_implements_buildable_add_child">
       <doc xml:space="preserve"
            filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-           line="77">Return whether buildable implements add_child() or not</doc>
+           line="24">Return whether buildable implements add_child() or not</doc>
       <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
-                       line="32"/>
+                       line="29"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -105,40 +57,8 @@ and/or use gtk-doc annotations.  -->
         <parameter name="buildable" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
-               line="79">Object to check</doc>
+               line="26">Object to check</doc>
           <type name="GObject.Object" c:type="GObject*"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="pspec_enum_get_default_nick"
-              c:identifier="cmb_catalog_utils_pspec_enum_get_default_nick">
-      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
-                       line="36"/>
-      <return-value transfer-ownership="none">
-        <type name="utf8" c:type="const gchar*"/>
-      </return-value>
-      <parameters>
-        <parameter name="gtype" transfer-ownership="none">
-          <type name="GType" c:type="GType"/>
-        </parameter>
-        <parameter name="default_value" transfer-ownership="none">
-          <type name="gint" c:type="gint"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="pspec_flags_get_default_nick"
-              c:identifier="cmb_catalog_utils_pspec_flags_get_default_nick">
-      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
-                       line="38"/>
-      <return-value transfer-ownership="full">
-        <type name="utf8" c:type="gchar*"/>
-      </return-value>
-      <parameters>
-        <parameter name="gtype" transfer-ownership="none">
-          <type name="GType" c:type="GType"/>
-        </parameter>
-        <parameter name="default_value" transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
     </function>

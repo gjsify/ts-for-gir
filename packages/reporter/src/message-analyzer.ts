@@ -71,13 +71,13 @@ export function analyzeWarning(message: string, args?: unknown[]): AnalyzedMessa
 export function analyzeError(message: string, args?: unknown[]): AnalyzedMessage | null {
 	const details = args && args.length > 0 ? JSON.stringify(args) : undefined;
 
-	// Type resolution errors
+	// Type resolution failures are non-fatal (produce 'never' type), classify as WARNING
 	if (message.includes("Unable to resolve type") || message.includes("could not be resolved")) {
 		const unresolvedMatch = message.match(/Unable to resolve type (\w+) in same namespace (\w+)!/);
 		if (unresolvedMatch) {
 			const [, typeName, namespace] = unresolvedMatch;
 			return {
-				severity: ProblemSeverity.ERROR,
+				severity: ProblemSeverity.WARNING,
 				category: ProblemCategory.TYPE_RESOLUTION,
 				typeName,
 				namespace,
@@ -93,12 +93,12 @@ export function analyzeError(message: string, args?: unknown[]): AnalyzedMessage
 			const namespace = namespaceMatch ? namespaceMatch[1] : context;
 
 			return {
-				severity: ProblemSeverity.ERROR,
+				severity: ProblemSeverity.WARNING,
 				category: ProblemCategory.TYPE_RESOLUTION,
 				typeName,
 				namespace,
 				details,
-				metadata: { namespace, typeName, context },
+				metadata: { namespace, typeName, context, resolutionType: "cross_namespace" },
 			};
 		}
 	}

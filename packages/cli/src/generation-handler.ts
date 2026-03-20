@@ -8,6 +8,7 @@ import {
 	ERROR_NO_MODULE_SPECIFIED,
 	FILE_PARSING_DONE,
 	GENERATING_TYPES_DONE,
+	girParsingReporter,
 	type GirModule,
 	type NSRegistry,
 	type OptionsGeneration,
@@ -34,9 +35,10 @@ export class GenerationHandler {
 		// Configure the reporter service
 		this.reporterService.configure(config.reporter, config.reporterOutput);
 
-		// Configure TypeIdentifier and ConflictsReporter globally
+		// Configure reporters globally
 		TypeIdentifier.configureReporter(config.reporter, config.reporterOutput);
 		conflictsReporter.configure(config.reporter, config.reporterOutput);
+		girParsingReporter.configure(config.reporter, config.reporterOutput);
 
 		// Register the main handler reporter
 		if (config.reporter) {

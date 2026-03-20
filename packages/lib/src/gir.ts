@@ -164,7 +164,7 @@ export class TypeIdentifier extends TypeExpression {
 
 			return new TypeIdentifier(c_resolved_name, ns.namespace);
 		} else if (namespace.namespace === ns.namespace) {
-			this.log.reportTypeResolutionError(
+			this.log.reportTypeResolutionWarning(
 				this.name,
 				ns.namespace,
 				`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`,
@@ -173,11 +173,12 @@ export class TypeIdentifier extends TypeExpression {
 			return null;
 		}
 
-		this.log.reportTypeResolutionError(
+		this.log.reportTypeResolutionWarning(
 			this.name,
 			this.namespace,
 			`Type ${this.name} could not be resolved in ${namespace.namespace} ${namespace.version}`,
-			`Failed to resolve type during namespace processing`,
+			`Referenced from ${namespace.namespace} ${namespace.version}`,
+			`${namespace.namespace} ${namespace.version}`,
 		);
 		return null;
 	}

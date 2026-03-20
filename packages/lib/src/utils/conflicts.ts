@@ -21,7 +21,14 @@ import { findMap } from "../util.ts";
 import { isSubtypeOf } from "./type-resolution.ts";
 
 export const conflictsReporter = new LazyReporter("conflicts");
-const log = conflictsReporter.get();
+
+// Use a function to always get the current reporter instance.
+// A module-level `const log = conflictsReporter.get()` would capture a stale
+// reference from before configure() is called, causing problems to be logged
+// to console but not stored in the report.
+function getLog() {
+	return conflictsReporter.get();
+}
 
 // Constants for GObject methods that always conflict
 const GOBJECT_RESERVED_METHODS = ["connect", "connect_after", "emit"] as const;
@@ -78,7 +85,7 @@ export function filterFunctionConflict<
 
 			if (conflictResult.shouldOmit) {
 				// Always omit methods that conflict with properties/fields
-				log.reportTypeConflict(
+				getLog().reportTypeConflict(
 					"field_property",
 					next.name,
 					next.parent?.namespace.namespace || "unknown",
@@ -86,7 +93,7 @@ export function filterFunctionConflict<
 				);
 			} else if (conflictResult.hasConflict) {
 				if (isInheritedMethods) {
-					log.reportTypeConflict(
+					getLog().reportTypeConflict(
 						"method",
 						next.name,
 						next.parent?.namespace.namespace || "unknown",
@@ -404,7 +411,7 @@ function checkPropertyConflicts<T extends IntrospectedClassMember | Introspected
 					element instanceof IntrospectedProperty &&
 					!isSubtypeOf(ns, thisType, resolved_parent.getType(), element.type, p.type)
 				) {
-					log.reportTypeConflict(
+					getLog().reportTypeConflict(
 						"general",
 						element.name,
 						element.parent?.namespace.namespace || "unknown",

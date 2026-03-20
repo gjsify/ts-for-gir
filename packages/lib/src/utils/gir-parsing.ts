@@ -10,6 +10,7 @@ import type {
 	GirType,
 } from "@gi.ts/parser";
 import { GirDirection } from "@gi.ts/parser";
+import { LazyReporter } from "@ts-for-gir/reporter";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import {
 	ArrayType,
@@ -24,6 +25,8 @@ import {
 import type { IntrospectedMetadata } from "../types/introspected.ts";
 import { deprecatedVersion, introducedVersion, isDeprecated } from "./girs.ts";
 import { isPrimitiveType, parseTypeExpression, resolvePrimitiveArrayType } from "./types.ts";
+
+export const girParsingReporter = new LazyReporter("GirParsing");
 
 /**
  * Parse documentation from a GIR element
@@ -123,10 +126,12 @@ export function getType(
 				name = possibleName;
 			} else {
 				name = "unknown";
-				console.log(
-					`Failed to find array type in ${ns.packageName}: `,
-					JSON.stringify(parameter.$, null, 4),
-					"\nMarking as unknown!",
+				const cType = (arr.type?.[0].$ as Record<string, string>)?.["c:type"] || "unknown";
+				girParsingReporter.get().reportTypeResolutionWarning(
+					cType,
+					ns.namespace,
+					`Failed to find array type in ${ns.packageName}, marking as unknown`,
+					`c:type=${cType}`,
 				);
 			}
 			arrayDepth = depth;
@@ -140,10 +145,12 @@ export function getType(
 			name = possibleName;
 		} else {
 			name = "unknown";
-			console.log(
-				`Failed to find type in ${modName}: `,
-				JSON.stringify(parameter.type[0].$, null, 4),
-				"\nMarking as unknown!",
+			const cType = (parameter.type[0].$ as Record<string, string>)?.["c:type"] || "unknown";
+			girParsingReporter.get().reportTypeResolutionWarning(
+				cType,
+				modName,
+				`Failed to find type in ${modName}, marking as unknown`,
+				`c:type=${cType}`,
 			);
 		}
 		isPointer = isPointerType(parameter.type);
@@ -152,7 +159,12 @@ export function getType(
 		name = "any";
 	} else {
 		name = "unknown";
-		console.log(`Unknown varargs type in ${modName}: `, JSON.stringify(parameter.$, null, 4), "\nMarking as unknown!");
+		girParsingReporter.get().reportTypeResolutionWarning(
+			"varargs",
+			modName,
+			`Unknown varargs type in ${modName}, marking as unknown`,
+			parameter.$ ? JSON.stringify(parameter.$) : undefined,
+		);
 	}
 
 	let closure = null as null | number;

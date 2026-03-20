@@ -10,6 +10,7 @@ import { PACKAGE_VERSION } from "./constants.ts";
 import type { ReporterBase } from "./reporter-base.ts";
 import type { GenerationReport, ProblemEntry, ReportStatistics } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
+import { determineGenerationStatus } from "./types/report.ts";
 
 /**
  * Centralized service for managing multiple Reporter instances
@@ -161,7 +162,7 @@ export class ReporterService {
 		const byModule: Record<string, number> = {};
 
 		// Type-specific tracking
-		const unresolvedTypes: Record<string, { count: number; namespaces: Set<string> }> = {};
+		const unresolvedTypes: Record<string, { count: number; namespaces: Set<string>; sourceModules: Set<string> }> = {};
 		const typeConflicts: Record<string, { count: number; examples: Set<string> }> = {};
 		const namespaceProblems: Record<string, { count: number; types: Set<string> }> = {};
 
@@ -173,11 +174,15 @@ export class ReporterService {
 			// Track type resolution problems
 			if (problem.category === ProblemCategory.TYPE_RESOLUTION && problem.typeName) {
 				if (!unresolvedTypes[problem.typeName]) {
-					unresolvedTypes[problem.typeName] = { count: 0, namespaces: new Set() };
+					unresolvedTypes[problem.typeName] = { count: 0, namespaces: new Set(), sourceModules: new Set() };
 				}
 				unresolvedTypes[problem.typeName].count++;
 				if (problem.location) {
 					unresolvedTypes[problem.typeName].namespaces.add(problem.location);
+				}
+				const sourceModule = problem.metadata?.sourceModule as string | undefined;
+				if (sourceModule) {
+					unresolvedTypes[problem.typeName].sourceModules.add(sourceModule);
 				}
 
 				// Track namespace problems
@@ -209,6 +214,7 @@ export class ReporterService {
 				type,
 				count: data.count,
 				namespaces: Array.from(data.namespaces),
+				sourceModules: Array.from(data.sourceModules),
 			}))
 			.sort((a, b) => b.count - a.count)
 			.slice(0, 20);
@@ -273,14 +279,7 @@ export class ReporterService {
 		}
 
 		// Generate summary
-		const errorCount = statistics.bySeverity[ProblemSeverity.ERROR] || 0;
-		const _criticalCount = statistics.bySeverity[ProblemSeverity.CRITICAL] || 0;
-		const warningCount = statistics.bySeverity[ProblemSeverity.WARNING] || 0;
-
-		let status: "success" | "partial" = "success";
-		if (errorCount > 0 || warningCount > 20) {
-			status = "partial";
-		}
+		const status = determineGenerationStatus(statistics.bySeverity, statistics.byCategory);
 
 		const keyIssues: string[] = [];
 		const recommendations: string[] = [];
@@ -292,8 +291,10 @@ export class ReporterService {
 		const conflictCount = statistics.byCategory[ProblemCategory.TYPE_CONFLICT] || 0;
 
 		if (typeResolutionCount > 0) {
-			keyIssues.push(`${typeResolutionCount} type resolution issues across all modules`);
-			recommendations.push("Review GIR files for missing or incorrect type definitions");
+			keyIssues.push(`${typeResolutionCount} type resolution warnings across all modules (produce 'never' type in output)`);
+			recommendations.push(
+				"Unresolved types produce 'never' in output — these are typically non-introspectable types or missing GIR dependencies",
+			);
 		}
 
 		if (parsingFailureCount > 0) {
@@ -306,9 +307,9 @@ export class ReporterService {
 			recommendations.push("Review template configuration and output settings");
 		}
 
-		if (conflictCount > 10) {
-			keyIssues.push(`High number of type conflicts (${conflictCount})`);
-			recommendations.push("Consider using ignore patterns or updating GIR files to resolve conflicts");
+		if (conflictCount > 0) {
+			keyIssues.push(`${conflictCount} type conflicts detected`);
+			recommendations.push("Type conflicts are handled automatically — conflicting members are omitted or use union types");
 		}
 
 		if (keyIssues.length === 0 && statistics.totalProblems > 0) {
@@ -367,8 +368,11 @@ export class ReporterService {
 		console.log("=".repeat(60));
 
 		// Overall status
-		const statusColor = summary.status === "success" ? green : yellow;
+		const statusColor = summary.status === "partial" ? yellow : green;
 		console.log(`\n🎯 Overall Status: ${statusColor(summary.status.toUpperCase())}`);
+		if (summary.status === "success_with_warnings") {
+			console.log(green("  All issues are non-blocking. Generated types are complete."));
+		}
 
 		// Total statistics
 		console.log(`\n📈 Total Statistics:`);
@@ -396,9 +400,9 @@ export class ReporterService {
 				}
 			}
 
-			// Most problematic modules
+			// Most problematic namespaces (byModule now tracks GIR namespaces)
 			if (statistics.mostProblematicModules.length > 0) {
-				console.log(`\n📦 Most Problematic Modules:`);
+				console.log(`\n📦 Namespaces with Most Issues:`);
 				statistics.mostProblematicModules.slice(0, 10).forEach(({ module, count }) => {
 					const percentage = Math.round((count / statistics.totalProblems) * 100);
 					console.log(`  ${module}: ${count} issues (${percentage}%)`);

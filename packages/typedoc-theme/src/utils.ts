@@ -202,7 +202,7 @@ export function getGirNamespaceMetadata(reflection: Reflection): GirNamespaceMet
 // Companion namespace detection
 // ---------------------------------------------------------------------------
 
-const COMPANION_OWNER_KINDS = ReflectionKind.Class | ReflectionKind.Interface;
+const COMPANION_OWNER_KINDS = ReflectionKind.Class | ReflectionKind.Interface | ReflectionKind.Enum;
 
 /**
  * Find the companion namespace for a class or interface reflection.

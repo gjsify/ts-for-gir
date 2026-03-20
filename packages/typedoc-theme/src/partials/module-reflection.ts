@@ -161,11 +161,19 @@ export function giDocgenModuleReflection(
 	if (mod.isDeclaration() && isCompanionNamespace(mod as DeclarationReflection)) {
 		const parent = mod.parent;
 		const siblings = parent && "children" in parent ? (parent as DeclarationReflection).children : undefined;
-		const companionClass = siblings?.find(
-			(child) => child !== mod && child.kindOf(ReflectionKind.Class) && child.name === mod.name,
+		const companionOwner = siblings?.find(
+			(child) =>
+				child !== mod &&
+				child.kindOf(ReflectionKind.Class | ReflectionKind.Interface | ReflectionKind.Enum) &&
+				child.name === mod.name,
 		);
-		if (companionClass) {
-			const classUrl = context.urlTo(companionClass);
+		if (companionOwner) {
+			const ownerUrl = context.urlTo(companionOwner);
+			const kindName = companionOwner.kindOf(ReflectionKind.Enum)
+				? "enum"
+				: companionOwner.kindOf(ReflectionKind.Interface)
+					? "interface"
+					: "class";
 			return JSX.createElement(
 				JSX.Fragment,
 				null,
@@ -173,13 +181,13 @@ export function giDocgenModuleReflection(
 					"p",
 					null,
 					"This namespace is a companion to the ",
-					JSX.createElement("a", { href: classUrl }, companionClass.name),
-					" class. See the class page for full documentation.",
+					JSX.createElement("a", { href: ownerUrl }, companionOwner.name),
+					` ${kindName}. See the ${kindName} page for full documentation.`,
 				),
 				JSX.createElement(
 					"script",
 					null,
-					JSX.createElement(JSX.Raw, { html: `window.location.replace("${classUrl}");` }),
+					JSX.createElement(JSX.Raw, { html: `window.location.replace("${ownerUrl}");` }),
 				),
 			);
 		}

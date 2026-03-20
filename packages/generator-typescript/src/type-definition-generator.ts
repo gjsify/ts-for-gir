@@ -84,6 +84,9 @@ export class TypeDefinitionGenerator implements Generator {
 			await templateProcessor.create("gjs/console.d.ts", config.outdir, "console.d.ts");
 			await templateProcessor.create("gjs/console.js", config.outdir, "console.js");
 
+			await templateProcessor.create("gjs/gi.d.ts", config.outdir, "gi.d.ts");
+			await templateProcessor.create("gjs/gi.js", config.outdir, "gi.js");
+
 			// Import ambient types
 			await templateProcessor.create("gjs/gjs-ambient.d.ts", config.outdir, "gjs-ambient.d.ts");
 			await templateProcessor.create("gjs/gjs-ambient.js", config.outdir, "gjs-ambient.js");
@@ -113,6 +116,9 @@ export class TypeDefinitionGenerator implements Generator {
 				config.outdir,
 				"console.d.ts",
 			);
+
+			const giContent = await templateProcessor.load("gjs/gi.d.ts");
+			await templateProcessor.write(`${giContent.prepend}\n${giContent.append}`, config.outdir, "gi.d.ts");
 
 			// Additional DOM types supported by GJS
 			const domContent = await templateProcessor.load("gjs/dom.d.ts");

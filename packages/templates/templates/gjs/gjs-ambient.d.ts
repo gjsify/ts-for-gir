@@ -24,3 +24,9 @@ declare module 'console' {
     export { setConsoleLogDomain, getConsoleLogDomain, DEFAULT_LOG_DOMAIN }
     export default Console
 }
+
+declare module 'gi' {
+    import Gi, { require } from '@girs/gjs/gi'
+    export { require }
+    export default Gi
+}

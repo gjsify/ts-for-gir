@@ -10,6 +10,7 @@
 /// <reference path="./gettext.d.ts" />
 /// <reference path="./system.d.ts" />
 /// <reference path="./cairo.d.ts" />
+/// <reference path="./gi.d.ts" />
 <% } -%>
 
 /**

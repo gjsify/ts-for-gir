@@ -127,12 +127,14 @@ export function getType(
 			} else {
 				name = "unknown";
 				const cType = (arr.type?.[0].$ as Record<string, string>)?.["c:type"] || "unknown";
-				girParsingReporter.get().reportTypeResolutionWarning(
-					cType,
-					ns.namespace,
-					`Failed to find array type in ${ns.packageName}, marking as unknown`,
-					`c:type=${cType}`,
-				);
+				girParsingReporter
+					.get()
+					.reportTypeResolutionWarning(
+						cType,
+						ns.namespace,
+						`Failed to find array type in ${ns.packageName}, marking as unknown`,
+						`c:type=${cType}`,
+					);
 			}
 			arrayDepth = depth;
 			isPointer = isPointerType(array.type);
@@ -146,12 +148,14 @@ export function getType(
 		} else {
 			name = "unknown";
 			const cType = (parameter.type[0].$ as Record<string, string>)?.["c:type"] || "unknown";
-			girParsingReporter.get().reportTypeResolutionWarning(
-				cType,
-				modName,
-				`Failed to find type in ${modName}, marking as unknown`,
-				`c:type=${cType}`,
-			);
+			girParsingReporter
+				.get()
+				.reportTypeResolutionWarning(
+					cType,
+					modName,
+					`Failed to find type in ${modName}, marking as unknown`,
+					`c:type=${cType}`,
+				);
 		}
 		isPointer = isPointerType(parameter.type);
 	} else if (parameter.varargs || (parameter.$ && parameter.$.name === "...")) {
@@ -159,12 +163,14 @@ export function getType(
 		name = "any";
 	} else {
 		name = "unknown";
-		girParsingReporter.get().reportTypeResolutionWarning(
-			"varargs",
-			modName,
-			`Unknown varargs type in ${modName}, marking as unknown`,
-			parameter.$ ? JSON.stringify(parameter.$) : undefined,
-		);
+		girParsingReporter
+			.get()
+			.reportTypeResolutionWarning(
+				"varargs",
+				modName,
+				`Unknown varargs type in ${modName}, marking as unknown`,
+				parameter.$ ? JSON.stringify(parameter.$) : undefined,
+			);
 	}
 
 	let closure = null as null | number;

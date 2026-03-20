@@ -291,7 +291,9 @@ export class ReporterService {
 		const conflictCount = statistics.byCategory[ProblemCategory.TYPE_CONFLICT] || 0;
 
 		if (typeResolutionCount > 0) {
-			keyIssues.push(`${typeResolutionCount} type resolution warnings across all modules (produce 'never' type in output)`);
+			keyIssues.push(
+				`${typeResolutionCount} type resolution warnings across all modules (produce 'never' type in output)`,
+			);
 			recommendations.push(
 				"Unresolved types produce 'never' in output — these are typically non-introspectable types or missing GIR dependencies",
 			);
@@ -309,7 +311,9 @@ export class ReporterService {
 
 		if (conflictCount > 0) {
 			keyIssues.push(`${conflictCount} type conflicts detected`);
-			recommendations.push("Type conflicts are handled automatically — conflicting members are omitted or use union types");
+			recommendations.push(
+				"Type conflicts are handled automatically — conflicting members are omitted or use union types",
+			);
 		}
 
 		if (keyIssues.length === 0 && statistics.totalProblems > 0) {

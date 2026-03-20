@@ -389,7 +389,9 @@ export class ConsoleReporter extends ReporterBase {
 
 		// Analyze key issues
 		if (byCategory[ProblemCategory.TYPE_RESOLUTION] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.TYPE_RESOLUTION]} type resolution warnings (produce 'never' type in output)`);
+			keyIssues.push(
+				`${byCategory[ProblemCategory.TYPE_RESOLUTION]} type resolution warnings (produce 'never' type in output)`,
+			);
 			recommendations.push(
 				"Unresolved types produce 'never' in output — these are typically non-introspectable types or missing GIR dependencies",
 			);
@@ -407,7 +409,9 @@ export class ConsoleReporter extends ReporterBase {
 
 		if (byCategory[ProblemCategory.TYPE_CONFLICT] > 0) {
 			keyIssues.push(`${byCategory[ProblemCategory.TYPE_CONFLICT]} type conflicts detected`);
-			recommendations.push("Type conflicts are handled automatically — conflicting members are omitted or use union types");
+			recommendations.push(
+				"Type conflicts are handled automatically — conflicting members are omitted or use union types",
+			);
 		}
 
 		if (keyIssues.length === 0 && totalProblems > 0) {
@@ -517,13 +521,10 @@ export class ConsoleReporter extends ReporterBase {
 				statistics.typeStatistics.commonUnresolvedTypes
 					.slice(0, 10)
 					.forEach(({ type, count, namespaces, sourceModules }) => {
-						console.log(
-							`  ${yellow(type)}: ${count} occurrences (origin: ${namespaces.join(", ") || "unknown"})`,
-						);
+						console.log(`  ${yellow(type)}: ${count} occurrences (origin: ${namespaces.join(", ") || "unknown"})`);
 						if (sourceModules.length > 0) {
 							const moduleList = sourceModules.slice(0, 5).join(", ");
-							const moreModules =
-								sourceModules.length > 5 ? ` and ${sourceModules.length - 5} more` : "";
+							const moreModules = sourceModules.length > 5 ? ` and ${sourceModules.length - 5} more` : "";
 							console.log(`    └─ Referenced from: ${gray(moduleList + moreModules)}`);
 						}
 					});

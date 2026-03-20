@@ -38,7 +38,8 @@
 			"!**/*.mjs",
 			"!**/*.cjs",
 			"!**/.*",
-			"!ts-for-gir-report.json"
+			"!**/*.json",
+			"!json"
 		]
 	}
 }

@@ -105,14 +105,12 @@ export class GenerationHandler {
 
 	private async generateComprehensiveReport(): Promise<void> {
 		try {
-			// Print comprehensive summary to console
-			this.reporterService.printComprehensiveSummary();
-
-			// Save comprehensive report to file
-			await this.reporterService.saveComprehensiveReport();
-
-			// Log final statistics
+			// Generate report once, pass to print and save
 			const report = this.reporterService.generateComprehensiveReport();
+
+			this.reporterService.printComprehensiveSummary(report);
+			await this.reporterService.saveComprehensiveReport(undefined, report);
+
 			const totalProblems = report.statistics.totalProblems;
 			const modulesProcessed = this.reporterService.getReporters().size;
 

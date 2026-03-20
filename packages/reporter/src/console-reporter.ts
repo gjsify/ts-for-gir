@@ -8,9 +8,9 @@ import { blue, gray, green, red, yellow, yellowBright } from "colorette";
 import { PACKAGE_VERSION } from "./constants.ts";
 import { analyzeError, analyzeWarning } from "./message-analyzer.ts";
 import { ReporterBase } from "./reporter-base.ts";
-import type { GenerationReport, ProblemEntry, ReporterConfig, ReportStatistics } from "./types/index.ts";
+import type { GenerationReport, ReporterConfig } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
-import { determineGenerationStatus } from "./types/report.ts";
+import { computeProblemStatistics, generateReportSummary, groupProblemsByCategory } from "./types/report.ts";
 
 /**
  * Console Reporter implementation with full logging capabilities
@@ -154,7 +154,7 @@ export class ConsoleReporter extends ReporterBase {
 			details,
 			typeName,
 			namespace,
-			{ namespace, typeName },
+			undefined,
 			namespace,
 		);
 
@@ -178,7 +178,7 @@ export class ConsoleReporter extends ReporterBase {
 			details,
 			typeName,
 			namespace,
-			{ namespace, typeName, sourceModule },
+			sourceModule ? { sourceModule } : undefined,
 			namespace,
 		);
 
@@ -230,7 +230,7 @@ export class ConsoleReporter extends ReporterBase {
 			details,
 			elementName,
 			namespace,
-			{ conflictType, namespace },
+			{ conflictType },
 			namespace,
 		);
 
@@ -260,190 +260,9 @@ export class ConsoleReporter extends ReporterBase {
 
 	// === Report generation methods ===
 
-	private generateStatistics(): ReportStatistics {
-		const bySeverity = Object.values(ProblemSeverity).reduce(
-			(acc, severity) => {
-				acc[severity] = 0;
-				return acc;
-			},
-			{} as Record<ProblemSeverity, number>,
-		);
-
-		const byCategory = Object.values(ProblemCategory).reduce(
-			(acc, category) => {
-				acc[category] = 0;
-				return acc;
-			},
-			{} as Record<ProblemCategory, number>,
-		);
-
-		const byModule: Record<string, number> = {};
-
-		// Type-specific tracking
-		const unresolvedTypes: Record<string, { count: number; namespaces: Set<string>; sourceModules: Set<string> }> = {};
-		const typeConflicts: Record<string, { count: number; examples: Set<string> }> = {};
-		const namespaceProblems: Record<string, { count: number; types: Set<string> }> = {};
-
-		for (const problem of this.problems) {
-			bySeverity[problem.severity]++;
-			byCategory[problem.category]++;
-			byModule[problem.module] = (byModule[problem.module] || 0) + 1;
-
-			// Track type resolution problems
-			if (problem.category === ProblemCategory.TYPE_RESOLUTION && problem.typeName) {
-				if (!unresolvedTypes[problem.typeName]) {
-					unresolvedTypes[problem.typeName] = { count: 0, namespaces: new Set(), sourceModules: new Set() };
-				}
-				unresolvedTypes[problem.typeName].count++;
-				if (problem.location) {
-					unresolvedTypes[problem.typeName].namespaces.add(problem.location);
-				}
-				const sourceModule = problem.metadata?.sourceModule as string | undefined;
-				if (sourceModule) {
-					unresolvedTypes[problem.typeName].sourceModules.add(sourceModule);
-				}
-
-				// Track namespace problems
-				if (problem.location) {
-					if (!namespaceProblems[problem.location]) {
-						namespaceProblems[problem.location] = { count: 0, types: new Set() };
-					}
-					namespaceProblems[problem.location].count++;
-					namespaceProblems[problem.location].types.add(problem.typeName);
-				}
-			}
-
-			// Track type conflicts
-			if (problem.category === ProblemCategory.TYPE_CONFLICT && problem.metadata?.conflictType) {
-				const conflictType = problem.metadata.conflictType as string;
-				if (!typeConflicts[conflictType]) {
-					typeConflicts[conflictType] = { count: 0, examples: new Set() };
-				}
-				typeConflicts[conflictType].count++;
-				if (problem.typeName) {
-					typeConflicts[conflictType].examples.add(problem.typeName);
-				}
-			}
-		}
-
-		// Convert to arrays and sort
-		const commonUnresolvedTypes = Object.entries(unresolvedTypes)
-			.map(([type, data]) => ({
-				type,
-				count: data.count,
-				namespaces: Array.from(data.namespaces),
-				sourceModules: Array.from(data.sourceModules),
-			}))
-			.sort((a, b) => b.count - a.count)
-			.slice(0, 20);
-
-		const commonTypeConflicts = Object.entries(typeConflicts)
-			.map(([conflictType, data]) => ({
-				conflictType,
-				count: data.count,
-				examples: Array.from(data.examples).slice(0, 5),
-			}))
-			.sort((a, b) => b.count - a.count);
-
-		const problematicNamespaces = Object.entries(namespaceProblems)
-			.map(([namespace, data]) => ({
-				namespace,
-				problems: data.count,
-				types: Array.from(data.types).slice(0, 10),
-			}))
-			.sort((a, b) => b.problems - a.problems)
-			.slice(0, 10);
-
-		const mostProblematicModules = Object.entries(byModule)
-			.sort(([, a], [, b]) => b - a)
-			.slice(0, 10)
-			.map(([module, count]) => ({ module, count }));
-
-		const endTime = new Date();
-		const durationMs = endTime.getTime() - this.startTime.getTime();
-
-		return {
-			bySeverity,
-			byCategory,
-			byModule,
-			totalProblems: this.problems.length,
-			mostProblematicModules,
-			typeStatistics: {
-				commonUnresolvedTypes,
-				commonTypeConflicts,
-				problematicNamespaces,
-			},
-			startTime: this.startTime,
-			endTime,
-			durationMs,
-		};
-	}
-
-	private generateSummary(statistics: ReportStatistics): GenerationReport["summary"] {
-		const { bySeverity, byCategory, totalProblems } = statistics;
-
-		const status = determineGenerationStatus(bySeverity, byCategory);
-
-		const keyIssues: string[] = [];
-		const recommendations: string[] = [];
-
-		// Analyze key issues
-		if (byCategory[ProblemCategory.TYPE_RESOLUTION] > 0) {
-			keyIssues.push(
-				`${byCategory[ProblemCategory.TYPE_RESOLUTION]} type resolution warnings (produce 'never' type in output)`,
-			);
-			recommendations.push(
-				"Unresolved types produce 'never' in output — these are typically non-introspectable types or missing GIR dependencies",
-			);
-		}
-
-		if (byCategory[ProblemCategory.PARSING_FAILURE] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.PARSING_FAILURE]} parsing failures occurred`);
-			recommendations.push("Check GIR file syntax and ensure proper introspection data");
-		}
-
-		if (byCategory[ProblemCategory.GENERATION_FAILURE] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.GENERATION_FAILURE]} generation failures encountered`);
-			recommendations.push("Review template configuration and output settings");
-		}
-
-		if (byCategory[ProblemCategory.TYPE_CONFLICT] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.TYPE_CONFLICT]} type conflicts detected`);
-			recommendations.push(
-				"Type conflicts are handled automatically — conflicting members are omitted or use union types",
-			);
-		}
-
-		if (keyIssues.length === 0 && totalProblems > 0) {
-			keyIssues.push(`${totalProblems} minor issues detected`);
-		}
-
-		if (recommendations.length === 0 && totalProblems > 0) {
-			recommendations.push("Review detailed problem list for specific improvement opportunities");
-		}
-
-		return {
-			status,
-			keyIssues,
-			recommendations,
-		};
-	}
-
 	public generateReport(): GenerationReport {
-		const statistics = this.generateStatistics();
-		const summary = this.generateSummary(statistics);
-
-		const problemsByCategory = Object.values(ProblemCategory).reduce(
-			(acc, category) => {
-				acc[category] = [];
-				return acc;
-			},
-			{} as Record<ProblemCategory, ProblemEntry[]>,
-		);
-
-		for (const problem of this.problems) {
-			problemsByCategory[problem.category].push(problem);
-		}
+		const statistics = computeProblemStatistics(this.problems, this.startTime);
+		const summary = generateReportSummary(statistics);
 
 		return {
 			metadata: {
@@ -452,7 +271,7 @@ export class ConsoleReporter extends ReporterBase {
 			},
 			statistics,
 			problems: [...this.problems],
-			problemsByCategory,
+			problemsByCategory: groupProblemsByCategory(this.problems),
 			summary,
 		};
 	}

@@ -708,8 +708,9 @@ export default {
 		} else {
 			girParsingReporter
 				.get()
-				.reportTypeResolutionWarning(
+				.reportParsingFailure(
 					"add_action_entries",
+					"method",
 					"Gio",
 					"Could not find existing add_action_entries method to override in Gio.ActionMap",
 				);

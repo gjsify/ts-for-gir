@@ -4793,7 +4793,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gedit-3.0@workspace:types-dev/gedit-3.0"
   dependencies:
-    "@girs/amtk-5": "workspace:^"
     "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
@@ -4805,10 +4804,9 @@ __metadata:
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
-    "@girs/gtksource-300": "workspace:^"
+    "@girs/gtksource-4": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
-    "@girs/tepl-6": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
@@ -9588,6 +9586,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/ministream-1@workspace:types-dev/ministream-1":
+  version: 0.0.0-use.local
+  resolution: "@girs/ministream-1@workspace:types-dev/ministream-1"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/mirage-3.2@workspace:types-dev/mirage-3.2":
   version: 0.0.0-use.local
   resolution: "@girs/mirage-3.2@workspace:types-dev/mirage-3.2"
@@ -12101,7 +12110,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/tepl-6@workspace:^, @girs/tepl-6@workspace:types-dev/tepl-6":
+"@girs/tepl-6@workspace:types-dev/tepl-6":
   version: 0.0.0-use.local
   resolution: "@girs/tepl-6@workspace:types-dev/tepl-6"
   dependencies:

@@ -100,7 +100,26 @@ mapfile -t installed_pkgs < <(
 
 log_info "${#installed_pkgs[@]} of those already installed"
 
-# --- Step 3: Build missing list ---
+# --- Step 3: Build missing list, resolving file conflicts ---
+
+# Known conflicting package groups: packages that install the same non-GIR files.
+# Within each group, prefer the newer version (listed last).
+CONFLICT_GROUPS=(
+    "libgda5-ui-devel libgda-ui-devel"
+    "libgda5-devel libgda-devel"
+)
+
+# Build a map: package -> preferred replacement (or empty if it IS the preferred one)
+declare -A conflict_skip
+for group in "${CONFLICT_GROUPS[@]}"; do
+    read -ra pkgs <<< "$group"
+    preferred="${pkgs[-1]}"
+    for pkg in "${pkgs[@]}"; do
+        if [[ "$pkg" != "$preferred" ]]; then
+            conflict_skip["$pkg"]="$preferred"
+        fi
+    done
+done
 
 declare -A installed_set
 for pkg in "${installed_pkgs[@]}"; do
@@ -108,10 +127,16 @@ for pkg in "${installed_pkgs[@]}"; do
 done
 
 missing_pkgs=()
+skipped_conflicts=()
 for pkg in "${available_pkgs[@]}"; do
-    if [[ -z "${installed_set[$pkg]:-}" ]]; then
-        missing_pkgs+=("$pkg")
+    if [[ -n "${installed_set[$pkg]:-}" ]]; then
+        continue
     fi
+    if [[ -n "${conflict_skip[$pkg]:-}" ]]; then
+        skipped_conflicts+=("$pkg -> ${conflict_skip[$pkg]}")
+        continue
+    fi
+    missing_pkgs+=("$pkg")
 done
 
 # --- Step 4: Show installed packages and their .gir files ---
@@ -140,6 +165,14 @@ else
     for pkg in "${missing_pkgs[@]}"; do
         echo -e "  ${YELLOW}○${NC} $pkg"
     done
+
+    if [ ${#skipped_conflicts[@]} -gt 0 ]; then
+        echo ""
+        echo -e "${BOLD}Skipped due to file conflicts (older version → preferred):${NC}"
+        for entry in "${skipped_conflicts[@]}"; do
+            echo -e "  ${YELLOW}⚠${NC} $entry"
+        done
+    fi
 
     echo ""
     if $DO_INSTALL; then

@@ -2,7 +2,7 @@ import type { FormatGenerator, GenericDescriptor } from "../generators/generator
 import type { TypeExpression } from "../gir.ts";
 import type { GirAliasElement } from "../index.ts";
 import type { IntrospectedOptions, OptionsLoad } from "../types/index.ts";
-import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { girParsingReporter, parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
 import { isIntrospectable } from "../utils/girs.ts";
 import { sanitizeIdentifierName } from "../utils/naming.ts";
 import { getAliasType } from "../utils/types.ts";
@@ -52,7 +52,7 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
 
 	static fromXML(element: GirAliasElement, ns: IntrospectedNamespace, options: OptionsLoad): IntrospectedAlias | null {
 		if (!element.$.name) {
-			console.error(`Alias in ${ns.namespace} lacks name.`);
+			girParsingReporter.get().reportParsingFailure("alias", "alias", ns.namespace, "Alias lacks name attribute");
 			return null;
 		}
 

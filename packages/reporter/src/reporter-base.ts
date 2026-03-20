@@ -42,6 +42,8 @@ export abstract class ReporterBase {
 		typeName?: string,
 		location?: string,
 		metadata?: Record<string, unknown>,
+		/** Override the module field with the actual GIR namespace instead of the reporter name */
+		moduleOverride?: string,
 	): void {
 		if (!this.config.enabled) {
 			return;
@@ -51,7 +53,7 @@ export abstract class ReporterBase {
 			id: this.generateProblemId(),
 			severity,
 			category,
-			module: this.config.moduleName,
+			module: moduleOverride || this.config.moduleName,
 			message,
 			details,
 			typeName,
@@ -105,12 +107,14 @@ export abstract class ReporterBase {
 
 	/**
 	 * Report a type resolution warning (fallback cases)
+	 * @param sourceModule - The GIR module that references this type (e.g., "Shell 17")
 	 */
 	public abstract reportTypeResolutionWarning(
 		typeName: string,
 		namespace: string,
 		message: string,
 		details?: string,
+		sourceModule?: string,
 	): void;
 
 	/**

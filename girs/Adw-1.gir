@@ -208,12 +208,12 @@ style class `.about`.</doc>
                    version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2116">Creates a new `AdwAboutDialog`.</doc>
+             line="2094">Creates a new `AdwAboutDialog`.</doc>
         <source-position filename="src/adw-about-dialog.h" line="28"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2121">the newly created `AdwAboutDialog`</doc>
+               line="2099">the newly created `AdwAboutDialog`</doc>
           <type name="Dialog" c:type="AdwDialog*"/>
         </return-value>
       </constructor>
@@ -222,7 +222,7 @@ style class `.about`.</doc>
                    version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2131">Creates a new `AdwAboutDialog` using AppStream metadata.
+             line="2109">Creates a new `AdwAboutDialog` using AppStream metadata.
 
 This automatically sets the following properties with the following AppStream
 values:
@@ -247,14 +247,14 @@ description for that version.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2158">the newly created `AdwAboutDialog`</doc>
+               line="2136">the newly created `AdwAboutDialog`</doc>
           <type name="Dialog" c:type="AdwDialog*"/>
         </return-value>
         <parameters>
           <parameter name="resource_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2133">The resource to use</doc>
+                 line="2111">The resource to use</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="release_notes_version"
@@ -263,7 +263,7 @@ description for that version.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2134">The version to retrieve release notes for</doc>
+                 line="2112">The version to retrieve release notes for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -273,7 +273,7 @@ description for that version.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3168">Adds a section to the Acknowledgements page.
+             line="3146">Adds a section to the Acknowledgements page.
 
 This can be used to acknowledge additional people and organizations for their
 non-development contributions - for example, backers in a crowdfunded
@@ -298,7 +298,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3170">an about dialog</doc>
+                 line="3148">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="name"
@@ -307,13 +307,13 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3171">the section name</doc>
+                 line="3149">the section name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="people" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3172">the list of names</doc>
+                 line="3150">the list of names</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -325,7 +325,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3125">Adds an extra section to the Credits page.
+             line="3103">Adds an extra section to the Credits page.
 
 Extra sections are displayed below the standard categories.
 
@@ -348,7 +348,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3127">an about dialog</doc>
+                 line="3105">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="name"
@@ -357,13 +357,13 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3128">the section name</doc>
+                 line="3106">the section name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="people" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3129">the list of names</doc>
+                 line="3107">the list of names</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -375,7 +375,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3389">Adds an extra section to the Legal page.
+             line="3367">Adds an extra section to the Legal page.
 
 Extra sections will be displayed below the application's own information.
 
@@ -423,13 +423,13 @@ adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3391">an about dialog</doc>
+                 line="3369">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3392">the name of the section</doc>
+                 line="3370">the name of the section</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="copyright"
@@ -438,13 +438,13 @@ adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about),
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3393">a copyright string</doc>
+                 line="3371">a copyright string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="license_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3394">the type of license</doc>
+                 line="3372">the type of license</doc>
             <type name="Gtk.License" c:type="GtkLicense"/>
           </parameter>
           <parameter name="license"
@@ -453,7 +453,7 @@ adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about),
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3395">custom license information</doc>
+                 line="3373">custom license information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -463,7 +463,7 @@ adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2694">Adds an extra link to the Details page.
+             line="2672">Adds an extra link to the Details page.
 
 Extra links are displayed under the comment and website.
 
@@ -478,19 +478,19 @@ See [property@AboutDialog:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2696">an about dialog</doc>
+                 line="2674">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2697">the link title</doc>
+                 line="2675">the link title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2698">the link URL</doc>
+                 line="2676">the link URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -500,7 +500,7 @@ See [property@AboutDialog:website].</doc>
               version="1.7">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3465">Adds another application to @self.
+             line="3443">Adds another application to @self.
 
 The application will be displayed at the bottom of the main page, in a
 separate section. Each added application will be presented as a row with
@@ -525,25 +525,25 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3467">an about dialog</doc>
+                 line="3445">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="appid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3468">the application ID</doc>
+                 line="3446">the application ID</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3469">the application name</doc>
+                 line="3447">the application name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="summary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3470">the application summary</doc>
+                 line="3448">the application summary</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -554,19 +554,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.9">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2222">Gets the AppStream metadata resource path for @self.</doc>
+             line="2200">Gets the AppStream metadata resource path for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="35"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2228">the resource path</doc>
+               line="2206">the resource path</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2224">an about dialog</doc>
+                 line="2202">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -577,19 +577,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2177">Gets the name of the application icon for @self.</doc>
+             line="2155">Gets the name of the application icon for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2183">the application icon name</doc>
+               line="2161">the application icon name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2179">an about dialog</doc>
+                 line="2157">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -600,19 +600,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2240">Gets the application name for @self.</doc>
+             line="2218">Gets the application name for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2246">the application name</doc>
+               line="2224">the application name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2242">an about dialog</doc>
+                 line="2220">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -623,12 +623,12 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2949">Gets the list of artists of the application.</doc>
+             line="2927">Gets the list of artists of the application.</doc>
         <source-position filename="src/adw-about-dialog.h" line="127"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2955">The list of artists</doc>
+               line="2933">The list of artists</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -637,7 +637,7 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2951">an about dialog</doc>
+                 line="2929">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -648,19 +648,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2512">Gets the comments about the application.</doc>
+             line="2490">Gets the comments about the application.</doc>
         <source-position filename="src/adw-about-dialog.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2518">the comments</doc>
+               line="2496">the comments</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2514">an about dialog</doc>
+                 line="2492">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -671,19 +671,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3209">Gets the copyright information for @self.</doc>
+             line="3187">Gets the copyright information for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3215">the copyright information</doc>
+               line="3193">the copyright information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3211">an about dialog</doc>
+                 line="3189">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -694,19 +694,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2736">Gets the debug information for @self.</doc>
+             line="2714">Gets the debug information for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2742">the debug information</doc>
+               line="2720">the debug information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2738">an about dialog</doc>
+                 line="2716">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -717,19 +717,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2788">Gets the debug information filename for @self.</doc>
+             line="2766">Gets the debug information filename for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2794">the debug information filename</doc>
+               line="2772">the debug information filename</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2790">an about dialog</doc>
+                 line="2768">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -740,12 +740,12 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2891">Gets the list of designers of the application.</doc>
+             line="2869">Gets the list of designers of the application.</doc>
         <source-position filename="src/adw-about-dialog.h" line="121"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2897">The list of designers</doc>
+               line="2875">The list of designers</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -754,7 +754,7 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2893">an about dialog</doc>
+                 line="2871">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -765,19 +765,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2285">Gets the developer name for @self.</doc>
+             line="2263">Gets the developer name for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2291">the developer_name</doc>
+               line="2269">the developer_name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2287">an about dialog</doc>
+                 line="2265">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -788,12 +788,12 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2833">Gets the list of developers of the application.</doc>
+             line="2811">Gets the list of developers of the application.</doc>
         <source-position filename="src/adw-about-dialog.h" line="115"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2839">The list of developers</doc>
+               line="2817">The list of developers</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -802,7 +802,7 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2835">an about dialog</doc>
+                 line="2813">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -813,12 +813,12 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3007">Gets the list of documenters of the application.</doc>
+             line="2985">Gets the list of documenters of the application.</doc>
         <source-position filename="src/adw-about-dialog.h" line="133"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3013">The list of documenters</doc>
+               line="2991">The list of documenters</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -827,7 +827,7 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3009">an about dialog</doc>
+                 line="2987">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -838,19 +838,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2650">Gets the issue tracker URL for @self.</doc>
+             line="2628">Gets the issue tracker URL for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2656">the issue tracker URL</doc>
+               line="2634">the issue tracker URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2652">an about dialog</doc>
+                 line="2630">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -861,19 +861,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3325">Gets the license for @self.</doc>
+             line="3303">Gets the license for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="167"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3331">the license</doc>
+               line="3309">the license</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3327">an about dialog</doc>
+                 line="3305">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -884,19 +884,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3260">Gets the license type for @self.</doc>
+             line="3238">Gets the license type for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="161"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3266">the license type</doc>
+               line="3244">the license type</doc>
           <type name="Gtk.License" c:type="GtkLicense"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3262">an about dialog</doc>
+                 line="3240">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -907,19 +907,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2446">Gets the release notes for @self.</doc>
+             line="2424">Gets the release notes for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2452">the release notes</doc>
+               line="2430">the release notes</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2448">an about dialog</doc>
+                 line="2426">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -930,19 +930,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2392">Gets the version described by the application's release notes.</doc>
+             line="2370">Gets the version described by the application's release notes.</doc>
         <source-position filename="src/adw-about-dialog.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2398">the release notes version</doc>
+               line="2376">the release notes version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2394">an about dialog</doc>
+                 line="2372">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -953,19 +953,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2606">Gets the URL of the support page for @self.</doc>
+             line="2584">Gets the URL of the support page for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2612">the support page URL</doc>
+               line="2590">the support page URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2608">an about dialog</doc>
+                 line="2586">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -976,19 +976,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3065">Gets the translator credits string.</doc>
+             line="3043">Gets the translator credits string.</doc>
         <source-position filename="src/adw-about-dialog.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3071">The translator credits string</doc>
+               line="3049">The translator credits string</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3067">an about dialog</doc>
+                 line="3045">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -999,19 +999,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2345">Gets the version for @self.</doc>
+             line="2323">Gets the version for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2351">the version</doc>
+               line="2329">the version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2347">an about dialog</doc>
+                 line="2325">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -1022,19 +1022,19 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2559">Gets the application website URL for @self.</doc>
+             line="2537">Gets the application website URL for @self.</doc>
         <source-position filename="src/adw-about-dialog.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="2565">the website URL</doc>
+               line="2543">the website URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2561">an about dialog</doc>
+                 line="2539">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
         </parameters>
@@ -1045,7 +1045,7 @@ adw_about_dialog_add_other_app (ADW_ABOUT_DIALOG (about),
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2195">Sets the name of the application icon for @self.
+             line="2173">Sets the name of the application icon for @self.
 
 The icon is displayed at the top of the main page.</doc>
         <source-position filename="src/adw-about-dialog.h" line="46"/>
@@ -1056,13 +1056,13 @@ The icon is displayed at the top of the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2197">an about dialog</doc>
+                 line="2175">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="application_icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2198">the application icon name</doc>
+                 line="2176">the application icon name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1073,7 +1073,7 @@ The icon is displayed at the top of the main page.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2258">Sets the application name for @self.
+             line="2236">Sets the application name for @self.
 
 The name is displayed at the top of the main page.</doc>
         <source-position filename="src/adw-about-dialog.h" line="40"/>
@@ -1084,13 +1084,13 @@ The name is displayed at the top of the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2260">an about dialog</doc>
+                 line="2238">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="application_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2261">the application name</doc>
+                 line="2239">the application name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1101,7 +1101,7 @@ The name is displayed at the top of the main page.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2967">Sets the list of artists of the application.
+             line="2945">Sets the list of artists of the application.
 
 It will be displayed on the Credits page.
 
@@ -1124,7 +1124,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2969">an about dialog</doc>
+                 line="2947">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="artists"
@@ -1133,7 +1133,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2970">the list of artists</doc>
+                 line="2948">the list of artists</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1146,7 +1146,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2530">Sets the comments about the application.
+             line="2508">Sets the comments about the application.
 
 Comments will be shown on the Details page, above links.
 
@@ -1160,13 +1160,13 @@ detailed. It can also contain links and Pango markup.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2532">an about dialog</doc>
+                 line="2510">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="comments" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2533">the comments</doc>
+                 line="2511">the comments</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1177,7 +1177,7 @@ detailed. It can also contain links and Pango markup.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3227">Sets the copyright information for @self.
+             line="3205">Sets the copyright information for @self.
 
 This should be a short string of one or two lines, for example:
 `© 2022 Example`.
@@ -1195,13 +1195,13 @@ information for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3229">an about dialog</doc>
+                 line="3207">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="copyright" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3230">the copyright information</doc>
+                 line="3208">the copyright information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1212,7 +1212,7 @@ information for the application dependencies or other components.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2754">Sets the debug information for @self.
+             line="2732">Sets the debug information for @self.
 
 Debug information will be shown on the Troubleshooting page. It's intended
 to be attached to issue reports when reporting issues against the
@@ -1231,13 +1231,13 @@ Debug information cannot contain markup or links.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2756">an about dialog</doc>
+                 line="2734">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="debug_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2757">the debug information</doc>
+                 line="2735">the debug information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1248,7 +1248,7 @@ Debug information cannot contain markup or links.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2806">Sets the debug information filename for @self.
+             line="2784">Sets the debug information filename for @self.
 
 It will be used as the suggested filename when saving debug information to a
 file.
@@ -1262,13 +1262,13 @@ See [property@AboutDialog:debug-info].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2808">an about dialog</doc>
+                 line="2786">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2809">the debug info filename</doc>
+                 line="2787">the debug info filename</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1279,7 +1279,7 @@ See [property@AboutDialog:debug-info].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2909">Sets the list of designers of the application.
+             line="2887">Sets the list of designers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1302,7 +1302,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2911">an about dialog</doc>
+                 line="2889">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="designers"
@@ -1311,7 +1311,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2912">the list of designers</doc>
+                 line="2890">the list of designers</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1324,7 +1324,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2303">Sets the developer name for @self.
+             line="2281">Sets the developer name for @self.
 
 The developer name is displayed on the main page, under the application name.
 
@@ -1340,13 +1340,13 @@ Credits page, with [property@AboutDialog:developers] and related properties.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2305">an about dialog</doc>
+                 line="2283">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="developer_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2306">the developer name</doc>
+                 line="2284">the developer name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1357,7 +1357,7 @@ Credits page, with [property@AboutDialog:developers] and related properties.</do
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2851">Sets the list of developers of the application.
+             line="2829">Sets the list of developers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1380,7 +1380,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2853">an about dialog</doc>
+                 line="2831">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="developers"
@@ -1389,7 +1389,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2854">the list of developers</doc>
+                 line="2832">the list of developers</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1402,7 +1402,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3025">Sets the list of documenters of the application.
+             line="3003">Sets the list of documenters of the application.
 
 It will be displayed on the Credits page.
 
@@ -1425,7 +1425,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3027">an about dialog</doc>
+                 line="3005">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="documenters"
@@ -1434,7 +1434,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3028">the list of documenters</doc>
+                 line="3006">the list of documenters</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1447,7 +1447,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2668">Sets the issue tracker URL for @self.
+             line="2646">Sets the issue tracker URL for @self.
 
 The issue tracker link is displayed on the main page.</doc>
         <source-position filename="src/adw-about-dialog.h" line="94"/>
@@ -1458,13 +1458,13 @@ The issue tracker link is displayed on the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2670">an about dialog</doc>
+                 line="2648">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="issue_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2671">the issue tracker URL</doc>
+                 line="2649">the issue tracker URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1475,7 +1475,7 @@ The issue tracker link is displayed on the main page.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3343">Sets the license for @self.
+             line="3321">Sets the license for @self.
 
 This can be used to set a custom text for the license if it can't be set via
 [property@AboutDialog:license-type].
@@ -1498,13 +1498,13 @@ for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3345">an about dialog</doc>
+                 line="3323">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="license" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3346">the license</doc>
+                 line="3324">the license</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1515,7 +1515,7 @@ for the application dependencies or other components.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3278">Sets the license for @self from a list of known licenses.
+             line="3256">Sets the license for @self from a list of known licenses.
 
 If the application's license is not in the list,
 [property@AboutDialog:license] can be used instead. The license type will be
@@ -1540,13 +1540,13 @@ for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3280">an about dialog</doc>
+                 line="3258">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="license_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3281">the license type</doc>
+                 line="3259">the license type</doc>
             <type name="Gtk.License" c:type="GtkLicense"/>
           </parameter>
         </parameters>
@@ -1557,7 +1557,7 @@ for the application dependencies or other components.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2464">Sets the release notes for @self.
+             line="2442">Sets the release notes for @self.
 
 Release notes are displayed on the the What's New page.
 
@@ -1589,13 +1589,13 @@ as the version; otherwise, [property@AboutDialog:version] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2466">an about dialog</doc>
+                 line="2444">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="release_notes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2467">the release notes</doc>
+                 line="2445">the release notes</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1606,7 +1606,7 @@ as the version; otherwise, [property@AboutDialog:version] is used.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2410">Sets the version described by the application's release notes.
+             line="2388">Sets the version described by the application's release notes.
 
 The release notes version is displayed on the What's New page, above the
 release notes.
@@ -1626,13 +1626,13 @@ See [property@AboutDialog:release-notes].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2412">an about dialog</doc>
+                 line="2390">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2413">the release notes version</doc>
+                 line="2391">the release notes version</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1643,7 +1643,7 @@ See [property@AboutDialog:release-notes].</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2624">Sets the URL of the support page for @self.
+             line="2602">Sets the URL of the support page for @self.
 
 The support page link is displayed on the main page.</doc>
         <source-position filename="src/adw-about-dialog.h" line="88"/>
@@ -1654,13 +1654,13 @@ The support page link is displayed on the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2626">an about dialog</doc>
+                 line="2604">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="support_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2627">the support page URL</doc>
+                 line="2605">the support page URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1671,7 +1671,7 @@ The support page link is displayed on the main page.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="3083">Sets the translator credits string.
+             line="3061">Sets the translator credits string.
 
 It will be displayed on the Credits page.
 
@@ -1698,13 +1698,13 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3085">an about dialog</doc>
+                 line="3063">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="translator_credits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="3086">the translator credits</doc>
+                 line="3064">the translator credits</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1715,7 +1715,7 @@ See also:
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2363">Sets the version for @self.
+             line="2341">Sets the version for @self.
 
 The version is displayed on the main page.
 
@@ -1729,13 +1729,13 @@ also be displayed above the release notes on the What's New page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2365">an about dialog</doc>
+                 line="2343">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2366">the version</doc>
+                 line="2344">the version</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1746,7 +1746,7 @@ also be displayed above the release notes on the What's New page.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="2577">Sets the application website URL for @self.
+             line="2555">Sets the application website URL for @self.
 
 Website is displayed on the Details page, below comments, or on the main page
 if the Details page doesn't have any other content.
@@ -1760,13 +1760,13 @@ Applications can add other links below, see [method@AboutDialog.add_link].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2579">an about dialog</doc>
+                 line="2557">an about dialog</doc>
             <type name="AboutDialog" c:type="AdwAboutDialog*"/>
           </instance-parameter>
           <parameter name="website" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="2580">the website URL</doc>
+                 line="2558">the website URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1780,7 +1780,7 @@ Applications can add other links below, see [method@AboutDialog.add_link].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1527">The path to the Appstream metadata resource.
+             line="1505">The path to the Appstream metadata resource.
 
 If provided, the dialog will be constructed from it.
 
@@ -1798,7 +1798,7 @@ be set from the AppStream release description for that version.</doc>
                 getter="get_application_icon">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1546">The name of the application icon.
+             line="1524">The name of the application icon.
 
 The icon is displayed at the top of the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1811,7 +1811,7 @@ The icon is displayed at the top of the main page.</doc>
                 getter="get_application_name">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1560">The name of the application.
+             line="1538">The name of the application.
 
 The name is displayed at the top of the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1824,7 +1824,7 @@ The name is displayed at the top of the main page.</doc>
                 getter="get_artists">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1823">The list of artists of the application.
+             line="1801">The list of artists of the application.
 
 It will be displayed on the Credits page.
 
@@ -1851,7 +1851,7 @@ See also:
                 getter="get_comments">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1670">The comments about the application.
+             line="1648">The comments about the application.
 
 Comments will be shown on the Details page, above links.
 
@@ -1867,7 +1867,7 @@ detailed. It can also contain links and Pango markup.</doc>
                 getter="get_copyright">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1904">The copyright information.
+             line="1882">The copyright information.
 
 This should be a short string of one or two lines, for example:
 `© 2022 Example`.
@@ -1887,7 +1887,7 @@ information for the application dependencies or other components.</doc>
                 getter="get_debug_info">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1732">The debug information.
+             line="1710">The debug information.
 
 Debug information will be shown on the Troubleshooting page. It's intended
 to be attached to issue reports when reporting issues against the
@@ -1908,7 +1908,7 @@ Debug information cannot contain markup or links.</doc>
                 getter="get_debug_info_filename">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1754">The debug information filename.
+             line="1732">The debug information filename.
 
 It will be used as the suggested filename when saving debug information to
 a file.
@@ -1924,7 +1924,7 @@ See [property@AboutDialog:debug-info].</doc>
                 getter="get_designers">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1797">The list of designers of the application.
+             line="1775">The list of designers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1951,7 +1951,7 @@ See also:
                 getter="get_developer_name">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1574">The developer name.
+             line="1552">The developer name.
 
 The developer name is displayed on the main page, under the application
 name.
@@ -1971,7 +1971,7 @@ properties.</doc>
                 getter="get_developers">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1771">The list of developers of the application.
+             line="1749">The list of developers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1998,7 +1998,7 @@ See also:
                 getter="get_documenters">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1849">The list of documenters of the application.
+             line="1827">The list of documenters of the application.
 
 It will be displayed on the Credits page.
 
@@ -2025,7 +2025,7 @@ See also:
                 getter="get_issue_url">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1718">The URL for the application's issue tracker.
+             line="1696">The URL for the application's issue tracker.
 
 The issue tracker link is displayed on the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -2038,7 +2038,7 @@ The issue tracker link is displayed on the main page.</doc>
                 getter="get_license">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1955">The license text.
+             line="1933">The license text.
 
 This can be used to set a custom text for the license if it can't be set
 via [property@AboutDialog:license-type].
@@ -2064,7 +2064,7 @@ information for the application dependencies or other components.</doc>
                 default-value="GTK_LICENSE_UNKNOWN">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1925">The license type.
+             line="1903">The license type.
 
 Allows to set the application's license froma list of known licenses.
 
@@ -2092,7 +2092,7 @@ information for the application dependencies or other components.</doc>
                 getter="get_release_notes">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1635">The release notes of the application.
+             line="1613">The release notes of the application.
 
 Release notes are displayed on the the What's New page.
 
@@ -2127,7 +2127,7 @@ as the version; otherwise, [property@AboutDialog:version] is used.</doc>
                 getter="get_release_notes_version">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1612">The version described by the application's release notes.
+             line="1590">The version described by the application's release notes.
 
 The release notes version is displayed on the What's New page, above the
 release notes.
@@ -2149,7 +2149,7 @@ See [property@AboutDialog:release-notes].</doc>
                 getter="get_support_url">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1704">The URL of the application's support page.
+             line="1682">The URL of the application's support page.
 
 The support page link is displayed on the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -2162,7 +2162,7 @@ The support page link is displayed on the main page.</doc>
                 getter="get_translator_credits">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1875">The translator credits string.
+             line="1853">The translator credits string.
 
 It will be displayed on the Credits page.
 
@@ -2190,7 +2190,7 @@ See also:
                 getter="get_version">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1595">The version of the application.
+             line="1573">The version of the application.
 
 The version is displayed on the main page.
 
@@ -2206,7 +2206,7 @@ will also be displayed above the release notes on the What's New page.</doc>
                 getter="get_website">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1687">The URL of the application's website.
+             line="1665">The URL of the application's website.
 
 Website is displayed on the Details page, below comments, or on the main
 page if the Details page doesn't have any other content.
@@ -2217,21 +2217,21 @@ Applications can add other links below, see [method@AboutDialog.add_link].</doc>
       <glib:signal name="activate-link" when="last" version="1.5">
         <doc xml:space="preserve"
              filename="src/adw-about-dialog.c"
-             line="1983">Emitted when a URL is activated.
+             line="1961">Emitted when a URL is activated.
 
 Applications may connect to it to override the default behavior, which is
 to call [func@Gtk.show_uri].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="1993">`TRUE` if the link has been activated</doc>
+               line="1971">`TRUE` if the link has been activated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-dialog.c"
-                 line="1986">the URI to activate</doc>
+                 line="1964">the URI to activate</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2438,13 +2438,13 @@ style class `.about`.</doc>
                    deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1948">Creates a new `AdwAboutWindow`.</doc>
+             line="1941">Creates a new `AdwAboutWindow`.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="26"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="1953">the newly created `AdwAboutWindow`</doc>
+               line="1946">the newly created `AdwAboutWindow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -2455,7 +2455,7 @@ style class `.about`.</doc>
                    deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1964">Creates a new `AdwAboutWindow` using AppStream metadata.
+             line="1957">Creates a new `AdwAboutWindow` using AppStream metadata.
 
 This automatically sets the following properties with the following AppStream
 values:
@@ -2481,14 +2481,14 @@ description for that version.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="1991">the newly created `AdwAboutWindow`</doc>
+               line="1984">the newly created `AdwAboutWindow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="resource_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="1966">The resource to use</doc>
+                 line="1959">The resource to use</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="release_notes_version"
@@ -2497,7 +2497,7 @@ description for that version.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="1967">The version to retrieve release notes for</doc>
+                 line="1960">The version to retrieve release notes for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2509,7 +2509,7 @@ description for that version.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3146">Adds a section to the Acknowledgements page.
+             line="3120">Adds a section to the Acknowledgements page.
 
 This can be used to acknowledge additional people and organizations for their
 non-development contributions - for example, backers in a crowdfunded
@@ -2535,7 +2535,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3148">an about window</doc>
+                 line="3122">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="name"
@@ -2544,13 +2544,13 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3149">the section name</doc>
+                 line="3123">the section name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="people" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3150">the list of names</doc>
+                 line="3124">the list of names</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -2564,7 +2564,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3102">Adds an extra section to the Credits page.
+             line="3076">Adds an extra section to the Credits page.
 
 Extra sections are displayed below the standard categories.
 
@@ -2588,7 +2588,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3104">an about window</doc>
+                 line="3078">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="name"
@@ -2597,13 +2597,13 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3105">the section name</doc>
+                 line="3079">the section name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="people" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3106">the list of names</doc>
+                 line="3080">the list of names</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -2617,7 +2617,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3373">Adds an extra section to the Legal page.
+             line="3347">Adds an extra section to the Legal page.
 
 Extra sections will be displayed below the application's own information.
 
@@ -2666,13 +2666,13 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3375">an about window</doc>
+                 line="3349">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3376">the name of the section</doc>
+                 line="3350">the name of the section</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="copyright"
@@ -2681,13 +2681,13 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3377">a copyright string</doc>
+                 line="3351">a copyright string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="license_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3378">the type of license</doc>
+                 line="3352">the type of license</doc>
             <type name="Gtk.License" c:type="GtkLicense"/>
           </parameter>
           <parameter name="license"
@@ -2696,7 +2696,7 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3379">custom license information</doc>
+                 line="3353">custom license information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2708,7 +2708,7 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2656">Adds an extra link to the Details page.
+             line="2630">Adds an extra link to the Details page.
 
 Extra links are displayed under the comment and website.
 
@@ -2724,19 +2724,19 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2658">an about window</doc>
+                 line="2632">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2659">the link title</doc>
+                 line="2633">the link title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2660">the link URL</doc>
+                 line="2634">the link URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2749,20 +2749,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2147">Gets the name of the application icon for @self.</doc>
+             line="2121">Gets the name of the application icon for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2153">the application icon name</doc>
+               line="2127">the application icon name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2149">an about window</doc>
+                 line="2123">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2775,20 +2775,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2194">Gets the application name for @self.</doc>
+             line="2168">Gets the application name for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="33"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2200">the application name</doc>
+               line="2174">the application name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2196">an about window</doc>
+                 line="2170">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2801,13 +2801,13 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2920">Gets the list of artists of the application.</doc>
+             line="2894">Gets the list of artists of the application.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="122"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2926">The list of artists</doc>
+               line="2900">The list of artists</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -2816,7 +2816,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2922">an about window</doc>
+                 line="2896">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2829,20 +2829,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2466">Gets the comments about the application.</doc>
+             line="2440">Gets the comments about the application.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2472">the comments</doc>
+               line="2446">the comments</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2468">an about window</doc>
+                 line="2442">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2855,20 +2855,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3188">Gets the copyright information for @self.</doc>
+             line="3162">Gets the copyright information for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3194">the copyright information</doc>
+               line="3168">the copyright information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3190">an about window</doc>
+                 line="3164">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2881,20 +2881,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2699">Gets the debug information for @self.</doc>
+             line="2673">Gets the debug information for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2705">the debug information</doc>
+               line="2679">the debug information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2701">an about window</doc>
+                 line="2675">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2907,20 +2907,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2753">Gets the debug information filename for @self.</doc>
+             line="2727">Gets the debug information filename for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2759">the debug information filename</doc>
+               line="2733">the debug information filename</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2755">an about window</doc>
+                 line="2729">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2933,13 +2933,13 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2860">Gets the list of designers of the application.</doc>
+             line="2834">Gets the list of designers of the application.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="116"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2866">The list of designers</doc>
+               line="2840">The list of designers</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -2948,7 +2948,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2862">an about window</doc>
+                 line="2836">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2961,20 +2961,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2241">Gets the developer name for @self.</doc>
+             line="2215">Gets the developer name for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2247">the developer_name</doc>
+               line="2221">the developer_name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2243">an about window</doc>
+                 line="2217">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -2987,13 +2987,13 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2800">Gets the list of developers of the application.</doc>
+             line="2774">Gets the list of developers of the application.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="110"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2806">The list of developers</doc>
+               line="2780">The list of developers</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -3002,7 +3002,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2802">an about window</doc>
+                 line="2776">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3015,13 +3015,13 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2980">Gets the list of documenters of the application.</doc>
+             line="2954">Gets the list of documenters of the application.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="128"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2986">The list of documenters</doc>
+               line="2960">The list of documenters</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -3030,7 +3030,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2982">an about window</doc>
+                 line="2956">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3043,20 +3043,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2610">Gets the issue tracker URL for @self.</doc>
+             line="2584">Gets the issue tracker URL for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2616">the issue tracker URL</doc>
+               line="2590">the issue tracker URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2612">an about window</doc>
+                 line="2586">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3069,20 +3069,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3307">Gets the license for @self.</doc>
+             line="3281">Gets the license for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="162"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3313">the license</doc>
+               line="3287">the license</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3309">an about window</doc>
+                 line="3283">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3095,20 +3095,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3241">Gets the license type for @self.</doc>
+             line="3215">Gets the license type for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3247">the license type</doc>
+               line="3221">the license type</doc>
           <type name="Gtk.License" c:type="GtkLicense"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3243">an about window</doc>
+                 line="3217">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3121,20 +3121,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2398">Gets the release notes for @self.</doc>
+             line="2372">Gets the release notes for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2404">the release notes</doc>
+               line="2378">the release notes</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2400">an about window</doc>
+                 line="2374">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3147,20 +3147,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2342">Gets the version described by the application's release notes.</doc>
+             line="2316">Gets the version described by the application's release notes.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2348">the release notes version</doc>
+               line="2322">the release notes version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2344">an about window</doc>
+                 line="2318">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3173,20 +3173,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2564">Gets the URL of the support page for @self.</doc>
+             line="2538">Gets the URL of the support page for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2570">the support page URL</doc>
+               line="2544">the support page URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2566">an about window</doc>
+                 line="2540">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3199,20 +3199,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3040">Gets the translator credits string.</doc>
+             line="3014">Gets the translator credits string.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="134"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3046">The translator credits string</doc>
+               line="3020">The translator credits string</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3042">an about window</doc>
+                 line="3016">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3225,20 +3225,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2293">Gets the version for @self.</doc>
+             line="2267">Gets the version for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2299">the version</doc>
+               line="2273">the version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2295">an about window</doc>
+                 line="2269">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3251,20 +3251,20 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2515">Gets the application website URL for @self.</doc>
+             line="2489">Gets the application website URL for @self.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
         <source-position filename="src/adw-about-window.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2521">the website URL</doc>
+               line="2495">the website URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2517">an about window</doc>
+                 line="2491">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3277,7 +3277,7 @@ See [property@AboutWindow:website].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2166">Sets the name of the application icon for @self.
+             line="2140">Sets the name of the application icon for @self.
 
 The icon is displayed at the top of the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -3289,13 +3289,13 @@ The icon is displayed at the top of the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2168">an about window</doc>
+                 line="2142">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="application_icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2169">the application icon name</doc>
+                 line="2143">the application icon name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3308,7 +3308,7 @@ The icon is displayed at the top of the main page.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2213">Sets the application name for @self.
+             line="2187">Sets the application name for @self.
 
 The name is displayed at the top of the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -3320,13 +3320,13 @@ The name is displayed at the top of the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2215">an about window</doc>
+                 line="2189">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="application_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2216">the application name</doc>
+                 line="2190">the application name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3339,7 +3339,7 @@ The name is displayed at the top of the main page.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2939">Sets the list of artists of the application.
+             line="2913">Sets the list of artists of the application.
 
 It will be displayed on the Credits page.
 
@@ -3363,7 +3363,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2941">an about window</doc>
+                 line="2915">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="artists"
@@ -3372,7 +3372,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2942">the list of artists</doc>
+                 line="2916">the list of artists</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3387,7 +3387,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2485">Sets the comments about the application.
+             line="2459">Sets the comments about the application.
 
 Comments will be shown on the Details page, above links.
 
@@ -3402,13 +3402,13 @@ detailed. It can also contain links and Pango markup.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2487">an about window</doc>
+                 line="2461">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="comments" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2488">the comments</doc>
+                 line="2462">the comments</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3421,7 +3421,7 @@ detailed. It can also contain links and Pango markup.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3207">Sets the copyright information for @self.
+             line="3181">Sets the copyright information for @self.
 
 This should be a short string of one or two lines, for example:
 `© 2022 Example`.
@@ -3440,13 +3440,13 @@ information for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3209">an about window</doc>
+                 line="3183">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="copyright" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3210">the copyright information</doc>
+                 line="3184">the copyright information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3459,7 +3459,7 @@ information for the application dependencies or other components.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2718">Sets the debug information for @self.
+             line="2692">Sets the debug information for @self.
 
 Debug information will be shown on the Troubleshooting page. It's intended
 to be attached to issue reports when reporting issues against the
@@ -3479,13 +3479,13 @@ Debug information cannot contain markup or links.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2720">an about window</doc>
+                 line="2694">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="debug_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2721">the debug information</doc>
+                 line="2695">the debug information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3498,7 +3498,7 @@ Debug information cannot contain markup or links.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2772">Sets the debug information filename for @self.
+             line="2746">Sets the debug information filename for @self.
 
 It will be used as the suggested filename when saving debug information to a
 file.
@@ -3513,13 +3513,13 @@ See [property@AboutWindow:debug-info].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2774">an about window</doc>
+                 line="2748">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2775">the debug info filename</doc>
+                 line="2749">the debug info filename</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3532,7 +3532,7 @@ See [property@AboutWindow:debug-info].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2879">Sets the list of designers of the application.
+             line="2853">Sets the list of designers of the application.
 
 It will be displayed on the Credits page.
 
@@ -3556,7 +3556,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2881">an about window</doc>
+                 line="2855">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="designers"
@@ -3565,7 +3565,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2882">the list of designers</doc>
+                 line="2856">the list of designers</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3580,7 +3580,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2260">Sets the developer name for @self.
+             line="2234">Sets the developer name for @self.
 
 The developer name is displayed on the main page, under the application name.
 
@@ -3597,13 +3597,13 @@ Credits page, with [property@AboutWindow:developers] and related properties.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2262">an about window</doc>
+                 line="2236">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="developer_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2263">the developer name</doc>
+                 line="2237">the developer name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3616,7 +3616,7 @@ Credits page, with [property@AboutWindow:developers] and related properties.</do
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2819">Sets the list of developers of the application.
+             line="2793">Sets the list of developers of the application.
 
 It will be displayed on the Credits page.
 
@@ -3640,7 +3640,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2821">an about window</doc>
+                 line="2795">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="developers"
@@ -3649,7 +3649,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2822">the list of developers</doc>
+                 line="2796">the list of developers</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3664,7 +3664,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2999">Sets the list of documenters of the application.
+             line="2973">Sets the list of documenters of the application.
 
 It will be displayed on the Credits page.
 
@@ -3688,7 +3688,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3001">an about window</doc>
+                 line="2975">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="documenters"
@@ -3697,7 +3697,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3002">the list of documenters</doc>
+                 line="2976">the list of documenters</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -3712,7 +3712,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2629">Sets the issue tracker URL for @self.
+             line="2603">Sets the issue tracker URL for @self.
 
 The issue tracker link is displayed on the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -3724,13 +3724,13 @@ The issue tracker link is displayed on the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2631">an about window</doc>
+                 line="2605">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="issue_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2632">the issue tracker URL</doc>
+                 line="2606">the issue tracker URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3743,7 +3743,7 @@ The issue tracker link is displayed on the main page.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3326">Sets the license for @self.
+             line="3300">Sets the license for @self.
 
 This can be used to set a custom text for the license if it can't be set via
 [property@AboutWindow:license-type].
@@ -3767,13 +3767,13 @@ for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3328">an about window</doc>
+                 line="3302">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="license" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3329">the license</doc>
+                 line="3303">the license</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3786,7 +3786,7 @@ for the application dependencies or other components.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3260">Sets the license for @self from a list of known licenses.
+             line="3234">Sets the license for @self from a list of known licenses.
 
 If the application's license is not in the list,
 [property@AboutWindow:license] can be used instead. The license type will be
@@ -3811,13 +3811,13 @@ for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3262">an about window</doc>
+                 line="3236">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="license_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3263">the license type</doc>
+                 line="3237">the license type</doc>
             <type name="Gtk.License" c:type="GtkLicense"/>
           </parameter>
         </parameters>
@@ -3830,7 +3830,7 @@ for the application dependencies or other components.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2417">Sets the release notes for @self.
+             line="2391">Sets the release notes for @self.
 
 Release notes are displayed on the the What's New page.
 
@@ -3863,13 +3863,13 @@ as the version; otherwise, [property@AboutWindow:version] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2419">an about window</doc>
+                 line="2393">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="release_notes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2420">the release notes</doc>
+                 line="2394">the release notes</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3882,7 +3882,7 @@ as the version; otherwise, [property@AboutWindow:version] is used.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2361">Sets the version described by the application's release notes.
+             line="2335">Sets the version described by the application's release notes.
 
 The release notes version is displayed on the What's New page, above the
 release notes.
@@ -3903,13 +3903,13 @@ See [property@AboutWindow:release-notes].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2363">an about window</doc>
+                 line="2337">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2364">the release notes version</doc>
+                 line="2338">the release notes version</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3922,7 +3922,7 @@ See [property@AboutWindow:release-notes].</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2583">Sets the URL of the support page for @self.
+             line="2557">Sets the URL of the support page for @self.
 
 The support page link is displayed on the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -3934,13 +3934,13 @@ The support page link is displayed on the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2585">an about window</doc>
+                 line="2559">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="support_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2586">the support page URL</doc>
+                 line="2560">the support page URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3953,7 +3953,7 @@ The support page link is displayed on the main page.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3059">Sets the translator credits string.
+             line="3033">Sets the translator credits string.
 
 It will be displayed on the Credits page.
 
@@ -3981,13 +3981,13 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3061">an about window</doc>
+                 line="3035">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="translator_credits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3062">the translator credits</doc>
+                 line="3036">the translator credits</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4000,7 +4000,7 @@ See also:
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2312">Sets the version for @self.
+             line="2286">Sets the version for @self.
 
 The version is displayed on the main page.
 
@@ -4015,13 +4015,13 @@ also be displayed above the release notes on the What's New page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2314">an about window</doc>
+                 line="2288">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2315">the version</doc>
+                 line="2289">the version</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4034,7 +4034,7 @@ also be displayed above the release notes on the What's New page.</doc>
               deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2534">Sets the application website URL for @self.
+             line="2508">Sets the application website URL for @self.
 
 Website is displayed on the Details page, below comments, or on the main page
 if the Details page doesn't have any other content.
@@ -4049,13 +4049,13 @@ Applications can add other links below, see [method@AboutWindow.add_link].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2536">an about window</doc>
+                 line="2510">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="website" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2537">the website URL</doc>
+                 line="2511">the website URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4070,7 +4070,7 @@ Applications can add other links below, see [method@AboutWindow.add_link].</doc>
                 getter="get_application_icon">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1358">The name of the application icon.
+             line="1351">The name of the application icon.
 
 The icon is displayed at the top of the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -4086,7 +4086,7 @@ The icon is displayed at the top of the main page.</doc>
                 getter="get_application_name">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1373">The name of the application.
+             line="1366">The name of the application.
 
 The name is displayed at the top of the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -4102,7 +4102,7 @@ The name is displayed at the top of the main page.</doc>
                 getter="get_artists">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1649">The list of artists of the application.
+             line="1642">The list of artists of the application.
 
 It will be displayed on the Credits page.
 
@@ -4132,7 +4132,7 @@ See also:
                 getter="get_comments">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1488">The comments about the application.
+             line="1481">The comments about the application.
 
 Comments will be shown on the Details page, above links.
 
@@ -4151,7 +4151,7 @@ detailed. It can also contain links and Pango markup.</doc>
                 getter="get_copyright">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1733">The copyright information.
+             line="1726">The copyright information.
 
 This should be a short string of one or two lines, for example:
 `© 2022 Example`.
@@ -4174,7 +4174,7 @@ information for the application dependencies or other components.</doc>
                 getter="get_debug_info">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1554">The debug information.
+             line="1547">The debug information.
 
 Debug information will be shown on the Troubleshooting page. It's intended
 to be attached to issue reports when reporting issues against the
@@ -4198,7 +4198,7 @@ Debug information cannot contain markup or links.</doc>
                 getter="get_debug_info_filename">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1577">The debug information filename.
+             line="1570">The debug information filename.
 
 It will be used as the suggested filename when saving debug information to
 a file.
@@ -4217,7 +4217,7 @@ See [property@AboutWindow:debug-info].</doc>
                 getter="get_designers">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1622">The list of designers of the application.
+             line="1615">The list of designers of the application.
 
 It will be displayed on the Credits page.
 
@@ -4247,7 +4247,7 @@ See also:
                 getter="get_developer_name">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1388">The developer name.
+             line="1381">The developer name.
 
 The developer name is displayed on the main page, under the application
 name.
@@ -4270,7 +4270,7 @@ properties.</doc>
                 getter="get_developers">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1595">The list of developers of the application.
+             line="1588">The list of developers of the application.
 
 It will be displayed on the Credits page.
 
@@ -4300,7 +4300,7 @@ See also:
                 getter="get_documenters">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1676">The list of documenters of the application.
+             line="1669">The list of documenters of the application.
 
 It will be displayed on the Credits page.
 
@@ -4330,7 +4330,7 @@ See also:
                 getter="get_issue_url">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1539">The URL for the application's issue tracker.
+             line="1532">The URL for the application's issue tracker.
 
 The issue tracker link is displayed on the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -4346,7 +4346,7 @@ The issue tracker link is displayed on the main page.</doc>
                 getter="get_license">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1786">The license text.
+             line="1779">The license text.
 
 This can be used to set a custom text for the license if it can't be set
 via [property@AboutWindow:license-type].
@@ -4375,7 +4375,7 @@ information for the application dependencies or other components.</doc>
                 default-value="GTK_LICENSE_UNKNOWN">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1755">The license type.
+             line="1748">The license type.
 
 Allows to set the application's license froma list of known licenses.
 
@@ -4406,7 +4406,7 @@ information for the application dependencies or other components.</doc>
                 getter="get_release_notes">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1452">The release notes of the application.
+             line="1445">The release notes of the application.
 
 Release notes are displayed on the the What's New page.
 
@@ -4443,7 +4443,7 @@ as the version; otherwise, [property@AboutWindow:version] is used.</doc>
                 getter="get_release_notes_version">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1428">The version described by the application's release notes.
+             line="1421">The version described by the application's release notes.
 
 The release notes version is displayed on the What's New page, above the
 release notes.
@@ -4468,7 +4468,7 @@ See [property@AboutWindow:release-notes].</doc>
                 getter="get_support_url">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1524">The URL of the application's support page.
+             line="1517">The URL of the application's support page.
 
 The support page link is displayed on the main page.</doc>
         <doc-deprecated xml:space="preserve">Use [class@AboutDialog].</doc-deprecated>
@@ -4484,7 +4484,7 @@ The support page link is displayed on the main page.</doc>
                 getter="get_translator_credits">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1703">The translator credits string.
+             line="1696">The translator credits string.
 
 It will be displayed on the Credits page.
 
@@ -4515,7 +4515,7 @@ See also:
                 getter="get_version">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1410">The version of the application.
+             line="1403">The version of the application.
 
 The version is displayed on the main page.
 
@@ -4534,7 +4534,7 @@ will also be displayed above the release notes on the What's New page.</doc>
                 getter="get_website">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1506">The URL of the application's website.
+             line="1499">The URL of the application's website.
 
 Website is displayed on the Details page, below comments, or on the main
 page if the Details page doesn't have any other content.
@@ -4550,7 +4550,7 @@ Applications can add other links below, see [method@AboutWindow.add_link].</doc>
                    deprecated-version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1815">Emitted when a URL is activated.
+             line="1808">Emitted when a URL is activated.
 
 Applications may connect to it to override the default behavior, which is
 to call [func@Gtk.show_uri].</doc>
@@ -4558,14 +4558,14 @@ to call [func@Gtk.show_uri].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="1825">`TRUE` if the link has been activated</doc>
+               line="1818">`TRUE` if the link has been activated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="1818">the URI to activate</doc>
+                 line="1811">the URI to activate</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -21704,7 +21704,7 @@ New values may be added to this enumeration over time.</doc>
       <source-position filename="src/adw-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="9" c:type="ADW_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="10" c:type="ADW_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="24">Adwaita minor version component (e.g. 2 if the version is 1.2.3).</doc>
@@ -47527,7 +47527,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.9.0" c:type="ADW_VERSION_S">
+    <constant name="VERSION_S" value="1.10.alpha" c:type="ADW_VERSION_S">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="45">Adwaita version, encoded as a string, useful for printing and
@@ -53605,7 +53605,7 @@ background, ensuring contrast.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/adw-about-dialog.c"
-           line="3531">A convenience function for showing an application’s about dialog.</doc>
+           line="3509">A convenience function for showing an application’s about dialog.</doc>
       <source-position filename="src/adw-about-dialog.h" line="186"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -53614,19 +53614,19 @@ background, ensuring contrast.</doc>
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3533">the parent widget</doc>
+               line="3511">the parent widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
         <parameter name="first_property_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3534">the name of the first property</doc>
+               line="3512">the name of the first property</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3535">value of first property, followed by more pairs of property name and
+               line="3513">value of first property, followed by more pairs of property name and
   value, `NULL`-terminated</doc>
           <varargs/>
         </parameter>
@@ -53638,7 +53638,7 @@ background, ensuring contrast.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/adw-about-dialog.c"
-           line="3561">A convenience function for showing an application’s about dialog from
+           line="3539">A convenience function for showing an application’s about dialog from
 AppStream metadata.
 
 See [ctor@AboutDialog.new_from_appdata] for details.</doc>
@@ -53650,13 +53650,13 @@ See [ctor@AboutDialog.new_from_appdata] for details.</doc>
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3563">the parent widget</doc>
+               line="3541">the parent widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
         <parameter name="resource_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3564">The resource to use</doc>
+               line="3542">The resource to use</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="release_notes_version"
@@ -53665,19 +53665,19 @@ See [ctor@AboutDialog.new_from_appdata] for details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3565">The version to retrieve release notes for</doc>
+               line="3543">The version to retrieve release notes for</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="first_property_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3566">the name of the first property</doc>
+               line="3544">the name of the first property</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-dialog.c"
-               line="3567">value of first property, followed by more pairs of property name and
+               line="3545">value of first property, followed by more pairs of property name and
   value, `NULL`-terminated</doc>
           <varargs/>
         </parameter>
@@ -53691,7 +53691,7 @@ See [ctor@AboutDialog.new_from_appdata] for details.</doc>
               deprecated-version="1.6">
       <doc xml:space="preserve"
            filename="src/adw-about-window.c"
-           line="3450">A convenience function for showing an application’s about window.</doc>
+           line="3424">A convenience function for showing an application’s about window.</doc>
       <doc-deprecated xml:space="preserve">Use [func@show_about_dialog].</doc-deprecated>
       <source-position filename="src/adw-about-window.h" line="175"/>
       <return-value transfer-ownership="none">
@@ -53704,19 +53704,19 @@ See [ctor@AboutDialog.new_from_appdata] for details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3452">the parent top-level window</doc>
+               line="3426">the parent top-level window</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="first_property_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3453">the name of the first property</doc>
+               line="3427">the name of the first property</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3454">value of first property, followed by more pairs of property name and
+               line="3428">value of first property, followed by more pairs of property name and
   value, `NULL`-terminated</doc>
           <varargs/>
         </parameter>
@@ -53730,7 +53730,7 @@ See [ctor@AboutDialog.new_from_appdata] for details.</doc>
               deprecated-version="1.6">
       <doc xml:space="preserve"
            filename="src/adw-about-window.c"
-           line="3482">A convenience function for showing an application’s about window from
+           line="3456">A convenience function for showing an application’s about window from
 AppStream metadata.
 
 See [ctor@AboutWindow.new_from_appdata] for details.</doc>
@@ -53746,13 +53746,13 @@ See [ctor@AboutWindow.new_from_appdata] for details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3484">the parent top-level window</doc>
+               line="3458">the parent top-level window</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="resource_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3485">The resource to use</doc>
+               line="3459">The resource to use</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="release_notes_version"
@@ -53761,19 +53761,19 @@ See [ctor@AboutWindow.new_from_appdata] for details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3486">The version to retrieve release notes for</doc>
+               line="3460">The version to retrieve release notes for</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="first_property_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3487">the name of the first property</doc>
+               line="3461">the name of the first property</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3488">value of first property, followed by more pairs of property name and
+               line="3462">value of first property, followed by more pairs of property name and
   value, `NULL`-terminated</doc>
           <varargs/>
         </parameter>

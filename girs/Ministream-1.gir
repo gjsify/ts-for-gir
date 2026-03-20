@@ -1,0 +1,414 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <c:include name="ministream.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="Ministream"
+             version="1"
+             shared-library="libministream.so.1"
+             c:identifier-prefixes="Ms"
+             c:symbol-prefixes="ms">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="MS_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/ministream-version.h"
+           line="40">Compile-time version checking. Evaluates to `TRUE` if the version
+of Ministream is greater than the required one.</doc>
+      <source-position filename="src/ministream-version.h" line="48"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/ministream-version.h"
+               line="42">minimum required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/ministream-version.h"
+               line="43">minimum required minor version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Component"
+            c:type="MsComponent"
+            opaque="1"
+            glib:type-name="MsComponent"
+            glib:get-type="ms_component_get_type"
+            c:symbol-prefix="component">
+      <source-position filename="src/ministream.h" line="40"/>
+      <constructor name="new_from_xml_data"
+                   c:identifier="ms_component_new_from_xml_data"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/ms-xml.c"
+             line="579">Parse an "AppStream Upstream Metadata" document into a
+[struct@Ministream.Component].</doc>
+        <source-position filename="src/ministream.h" line="80"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/ms-xml.c"
+               line="588">the component specified in the document</doc>
+          <type name="Component" c:type="MsComponent*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ms-xml.c"
+                 line="581">the xml data</doc>
+            <array length="1" zero-terminated="0" c:type="const guchar*">
+              <type name="guint8" c:type="guchar"/>
+            </array>
+          </parameter>
+          <parameter name="len" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ms-xml.c"
+                 line="582">the length of @data</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_bugtracker_uri"
+              c:identifier="ms_component_get_bugtracker_uri">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="150">Get the bugtracker URI of this component.</doc>
+        <source-position filename="src/ministream.h" line="65"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="156">the bugtracker URI</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="152">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop_launchables"
+              c:identifier="ms_component_get_desktop_launchables">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="174">Gets the desktop launchables this component provides.</doc>
+        <source-position filename="src/ministream.h" line="69"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="180">the desktop launchables</doc>
+          <array c:type="const gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="176">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_developer_name"
+              c:identifier="ms_component_get_developer_name">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="222">Gets the name of the developer that has written this component in the
+best locale available.</doc>
+        <source-position filename="src/ministream.h" line="75"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="229">the localized developer name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="224">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_help_uri" c:identifier="ms_component_get_help_uri">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="162">Get the help URI of this component.</doc>
+        <source-position filename="src/ministream.h" line="67"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="168">the help URI</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="164">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_homepage_uri"
+              c:identifier="ms_component_get_homepage_uri">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="138">Get the homepage URI of this component.</doc>
+        <source-position filename="src/ministream.h" line="63"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="144">the hompage URI</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="140">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="ms_component_get_id">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="112">Get the application identifier of this component. This should be in
+the big-endian domain format.</doc>
+        <source-position filename="src/ministream.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="119">the application identifier</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="114">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ms_component_get_name">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="125">Get the application name of this component in the best locale
+available.</doc>
+        <source-position filename="src/ministream.h" line="61"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="132">the localized application name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="127">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_project_license"
+              c:identifier="ms_component_get_project_license">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="209">Get the license of the project this component is part of. This should
+be an identifier part of the SPDX license list.</doc>
+        <source-position filename="src/ministream.h" line="73"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="216">the project license identifier</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="211">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_releases" c:identifier="ms_component_get_releases">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="190">Gets the releases information of this component.</doc>
+        <source-position filename="src/ministream.h" line="71"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="197">the releases of this component</doc>
+          <array length="0" zero-terminated="0" c:type="const MsRelease**">
+            <type name="Release" c:type="MsRelease*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="192">the component</doc>
+            <type name="Component" c:type="const MsComponent*"/>
+          </instance-parameter>
+          <parameter name="len"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="193">the number of releases of this component</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ms_component_ref">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="64">Increment the reference count of the component.
+
+This is an atomic operation and as such, threadsafe.</doc>
+        <source-position filename="src/ministream.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="72">the new reference of @self</doc>
+          <type name="Component" c:type="MsComponent*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="66">the component</doc>
+            <type name="Component" c:type="MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ms_component_unref">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="79">Decrements the reference count of the component. Once the count
+reaches zero, @self will be freed.
+
+As such, do not use @self after calling this method.</doc>
+        <source-position filename="src/ministream.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="81">the component</doc>
+            <type name="Component" c:type="MsComponent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="Error"
+                 glib:type-name="MsError"
+                 glib:get-type="ms_error_get_type"
+                 c:type="MsError"
+                 glib:error-domain="ms-error-quark">
+      <member name="no_component"
+              value="0"
+              c:identifier="MS_ERROR_NO_COMPONENT"
+              glib:nick="no-component"
+              glib:name="MS_ERROR_NO_COMPONENT">
+      </member>
+      <member name="no_identifier"
+              value="1"
+              c:identifier="MS_ERROR_NO_IDENTIFIER"
+              glib:nick="no-identifier"
+              glib:name="MS_ERROR_NO_IDENTIFIER">
+      </member>
+      <function name="quark" c:identifier="ms_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <constant name="MAJOR_VERSION" value="0" c:type="MS_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/ministream-version.h"
+           line="26">Ministream major version component.</doc>
+      <source-position filename="src/ministream-version.h" line="31"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="99" c:type="MS_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/ministream-version.h"
+           line="33">Ministream minor version component.</doc>
+      <source-position filename="src/ministream-version.h" line="38"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="Release" c:type="MsRelease" disguised="1" opaque="1">
+      <source-position filename="src/ministream.h" line="39"/>
+      <method name="get_description" c:identifier="ms_release_get_description">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="49">Gets the description attached to the releease, or %NULL if not set.
+
+The description is encoded as markup, containg paragraphs, ordered
+and unordered lists, aswell as list items within them.</doc>
+        <source-position filename="src/ministream.h" line="45"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="58">the description of the release</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="51">the release</doc>
+            <type name="Release" c:type="const MsRelease*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_version" c:identifier="ms_release_get_version">
+        <doc xml:space="preserve"
+             filename="src/ministream.c"
+             line="37">Gets the version attached to the release, or %NULL if not set.</doc>
+        <source-position filename="src/ministream.h" line="43"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/ministream.c"
+               line="43">the version of the release</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/ministream.c"
+                 line="39">the release</doc>
+            <type name="Release" c:type="const MsRelease*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function name="error_quark"
+              c:identifier="ms_error_quark"
+              moved-to="Error.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

@@ -89,7 +89,7 @@ if (!creator)
 guint8 data[] = {255, 0, 0};
 gsize length = sizeof(data);
 GBytes *texture = g_bytes_new(data, length);
-GlyNewFrame *new_frame = gly_creator_add_frame(creator, 1, 1, GLY_MEMORY_R8G8B8, texture, NULL);
+GlyNewFrame *new_frame = gly_creator_add_frame(creator, 1, 1, GLY_MEMORY_R8G8B8, texture);
 
 // Create JPEG
 GlyEncodedImage *encoded_image = gly_creator_create(creator, NULL);
@@ -684,7 +684,7 @@ the respective size.
 
 ::: warning
     Most loaders will ignore this option. Currently, only the SVG
-    loader is known to obey it.</doc>
+    loader is known to obay it.</doc>
         <source-position filename="libglycin/include/glycin.h" line="378"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -940,7 +940,7 @@ The image orientation is given in Exif format. The function is
 guaranteed to only return values from 1 to 8.
 
 If [method@Loader.set_apply_transformations] is set to `FALSE`,
-the orientation has to be corrected manually to display the image
+the orientation has to be corrected manually to dispaly the image
 correctly.</doc>
         <source-position filename="libglycin/include/glycin.h" line="584"/>
         <return-value transfer-ownership="none">

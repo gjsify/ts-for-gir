@@ -13408,7 +13408,7 @@ context at the time of the function call.</doc>
       <method name="abort" c:identifier="soup_session_abort">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2048">Cancels all pending requests in @session and closes all idle
+             line="2047">Cancels all pending requests in @session and closes all idle
 persistent connections.</doc>
         <source-position filename="libsoup/soup-session.h" line="132"/>
         <return-value transfer-ownership="none">
@@ -13418,7 +13418,7 @@ persistent connections.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2050">the session</doc>
+                 line="2049">the session</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
         </parameters>
@@ -13426,7 +13426,7 @@ persistent connections.</doc>
       <method name="add_feature" c:identifier="soup_session_add_feature">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2085">Adds @feature's functionality to @session. You cannot add multiple
+             line="2084">Adds @feature's functionality to @session. You cannot add multiple
 features of the same [alias@GObject.Type] to a session.
 
 See the main [class@Session] documentation for information on what
@@ -13439,13 +13439,13 @@ features are present in sessions by default.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2087">a #SoupSession</doc>
+                 line="2086">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2088">an object that implements #SoupSessionFeature</doc>
+                 line="2087">an object that implements #SoupSessionFeature</doc>
             <type name="SessionFeature" c:type="SoupSessionFeature*"/>
           </parameter>
         </parameters>
@@ -13454,7 +13454,7 @@ features are present in sessions by default.</doc>
               c:identifier="soup_session_add_feature_by_type">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2113">If @feature_type is the type of a class that implements
+             line="2112">If @feature_type is the type of a class that implements
 [iface@SessionFeature], this creates a new feature of that type and
 adds it to @session as with [method@Session.add_feature]. You can use
 this when you don't need to customize the new feature in any way.
@@ -13474,13 +13474,13 @@ features are present in sessions by default.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2115">a #SoupSession</doc>
+                 line="2114">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2116">a #GType</doc>
+                 line="2115">a #GType</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -13539,14 +13539,14 @@ requests.</doc>
               c:identifier="soup_session_get_async_result_message">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3675">Gets the [class@Message] of the @result asynchronous operation This is useful
+             line="3674">Gets the [class@Message] of the @result asynchronous operation This is useful
 to get the [class@Message] of an asynchronous operation started by @session
 from its [callback@Gio.AsyncReadyCallback].</doc>
         <source-position filename="libsoup/soup-session.h" line="193"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3684">a #SoupMessage or
+               line="3683">a #SoupMessage or
   %NULL if @result is not a valid @session async operation result.</doc>
           <type name="Message" c:type="SoupMessage*"/>
         </return-value>
@@ -13554,13 +13554,13 @@ from its [callback@Gio.AsyncReadyCallback].</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3677">a #SoupSession</doc>
+                 line="3676">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3678">the #GAsyncResult passed to your callback</doc>
+                 line="3677">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -13568,12 +13568,12 @@ from its [callback@Gio.AsyncReadyCallback].</doc>
       <method name="get_feature" c:identifier="soup_session_get_feature">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2282">Gets the feature in @session of type @feature_type.</doc>
+             line="2281">Gets the feature in @session of type @feature_type.</doc>
         <source-position filename="libsoup/soup-session.h" line="212"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="2289">a #SoupSessionFeature, or %NULL. The
+               line="2288">a #SoupSessionFeature, or %NULL. The
   feature is owned by @session.</doc>
           <type name="SessionFeature" c:type="SoupSessionFeature*"/>
         </return-value>
@@ -13581,13 +13581,13 @@ from its [callback@Gio.AsyncReadyCallback].</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2284">a #SoupSession</doc>
+                 line="2283">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2285">the #GType of the feature to get</doc>
+                 line="2284">the #GType of the feature to get</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -13596,13 +13596,13 @@ from its [callback@Gio.AsyncReadyCallback].</doc>
               c:identifier="soup_session_get_feature_for_message">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2311">Gets the feature in @session of type @feature_type, provided
+             line="2310">Gets the feature in @session of type @feature_type, provided
 that it is not disabled for @msg.</doc>
         <source-position filename="libsoup/soup-session.h" line="215"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="2320">a #SoupSessionFeature. The feature is
+               line="2319">a #SoupSessionFeature. The feature is
   owned by @session.</doc>
           <type name="SessionFeature" c:type="SoupSessionFeature*"/>
         </return-value>
@@ -13610,19 +13610,19 @@ that it is not disabled for @msg.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2313">a #SoupSession</doc>
+                 line="2312">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2314">the #GType of the feature to get</doc>
+                 line="2313">the #GType of the feature to get</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2315">a #SoupMessage</doc>
+                 line="2314">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
         </parameters>
@@ -13867,27 +13867,27 @@ given host.</doc>
       <method name="has_feature" c:identifier="soup_session_has_feature">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2217">Tests if @session has at a feature of type @feature_type (which can
+             line="2216">Tests if @session has at a feature of type @feature_type (which can
 be the type of either a [iface@SessionFeature], or else a subtype of
 some class managed by another feature, such as [class@Auth]).</doc>
         <source-position filename="libsoup/soup-session.h" line="209"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="2226">%TRUE or %FALSE</doc>
+               line="2225">%TRUE or %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2219">a #SoupSession</doc>
+                 line="2218">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2220">the #GType of the class of features to check for</doc>
+                 line="2219">the #GType of the class of features to check for</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -13897,7 +13897,7 @@ some class managed by another feature, such as [class@Auth]).</doc>
               glib:finish-func="preconnect_finish">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3934">Start a preconnection to @msg.
+             line="3933">Start a preconnection to @msg.
 
 Once the connection is done, it will remain in idle state so that it can be
 reused by future requests. If there's already an idle connection for the
@@ -13916,19 +13916,19 @@ The operation finishes when the connection is done or an error occurred.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3936">a #SoupSession</doc>
+                 line="3935">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3937">a #SoupMessage</doc>
+                 line="3936">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3938">the I/O priority of the request</doc>
+                 line="3937">the I/O priority of the request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable"
@@ -13937,7 +13937,7 @@ The operation finishes when the connection is done or an error occurred.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3939">a #GCancellable</doc>
+                 line="3938">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -13948,7 +13948,7 @@ The operation finishes when the connection is done or an error occurred.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3940">the callback to invoke when the operation finishes</doc>
+                 line="3939">the callback to invoke when the operation finishes</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -13957,7 +13957,7 @@ The operation finishes when the connection is done or an error occurred.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3941">data for @progress_callback and @callback</doc>
+                 line="3940">data for @progress_callback and @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -13967,25 +13967,25 @@ The operation finishes when the connection is done or an error occurred.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3989">Complete a preconnect async operation started with [method@Session.preconnect_async].</doc>
+             line="3988">Complete a preconnect async operation started with [method@Session.preconnect_async].</doc>
         <source-position filename="libsoup/soup-session.h" line="243"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3997">%TRUE if the preconnect succeeded, or %FALSE in case of error.</doc>
+               line="3996">%TRUE if the preconnect succeeded, or %FALSE in case of error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3991">a #SoupSession</doc>
+                 line="3990">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3992">the #GAsyncResult passed to your callback</doc>
+                 line="3991">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -13993,7 +13993,7 @@ The operation finishes when the connection is done or an error occurred.</doc>
       <method name="remove_feature" c:identifier="soup_session_remove_feature">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2160">Removes @feature's functionality from @session.</doc>
+             line="2159">Removes @feature's functionality from @session.</doc>
         <source-position filename="libsoup/soup-session.h" line="203"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14002,13 +14002,13 @@ The operation finishes when the connection is done or an error occurred.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2162">a #SoupSession</doc>
+                 line="2161">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2163">a feature that has previously been added to @session</doc>
+                 line="2162">a feature that has previously been added to @session</doc>
             <type name="SessionFeature" c:type="SoupSessionFeature*"/>
           </parameter>
         </parameters>
@@ -14017,7 +14017,7 @@ The operation finishes when the connection is done or an error occurred.</doc>
               c:identifier="soup_session_remove_feature_by_type">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2182">Removes all features of type @feature_type (or any subclass of
+             line="2181">Removes all features of type @feature_type (or any subclass of
 @feature_type) from @session.</doc>
         <source-position filename="libsoup/soup-session.h" line="206"/>
         <return-value transfer-ownership="none">
@@ -14027,13 +14027,13 @@ The operation finishes when the connection is done or an error occurred.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2184">a #SoupSession</doc>
+                 line="2183">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="feature_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2185">a #GType</doc>
+                 line="2184">a #GType</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -14044,7 +14044,7 @@ The operation finishes when the connection is done or an error occurred.</doc>
               glib:async-func="send_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3224">Synchronously sends @msg and waits for the beginning of a response.
+             line="3223">Synchronously sends @msg and waits for the beginning of a response.
 
 On success, a [class@Gio.InputStream] will be returned which you can use to
 read the response body. ("Success" here means only that an HTTP
@@ -14069,7 +14069,7 @@ and [error@Gio.TlsError] which you may want to specifically handle.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3253">a #GInputStream for reading the
+               line="3252">a #GInputStream for reading the
   response body, or %NULL on error.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -14077,13 +14077,13 @@ and [error@Gio.TlsError] which you may want to specifically handle.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3226">a #SoupSession</doc>
+                 line="3225">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3227">a #SoupMessage</doc>
+                 line="3226">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -14092,7 +14092,7 @@ and [error@Gio.TlsError] which you may want to specifically handle.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3228">a #GCancellable</doc>
+                 line="3227">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -14103,7 +14103,7 @@ and [error@Gio.TlsError] which you may want to specifically handle.</doc>
               glib:async-func="send_and_read_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3464">Synchronously sends @msg and reads the response body.
+             line="3463">Synchronously sends @msg and reads the response body.
 
 On success, a [struct@GLib.Bytes] will be returned with the response body.
 This function should only be used when the resource to be retrieved
@@ -14114,20 +14114,20 @@ See [method@Session.send] for more details on the general semantics.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3479">a #GBytes, or %NULL on error.</doc>
+               line="3478">a #GBytes, or %NULL on error.</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3466">a #SoupSession</doc>
+                 line="3465">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3467">a #SoupMessage</doc>
+                 line="3466">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -14136,7 +14136,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3468">a #GCancellable</doc>
+                 line="3467">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -14147,7 +14147,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
               glib:sync-func="send_and_read">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3393">Asynchronously sends @msg and reads the response body.
+             line="3392">Asynchronously sends @msg and reads the response body.
 
 When @callback is called, then either @msg has been sent, and its response
 body read, or else an error has occurred. This function should only be used
@@ -14164,19 +14164,19 @@ See [method@Session.send] for more details on the general semantics.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3395">a #SoupSession</doc>
+                 line="3394">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3396">a #SoupMessage</doc>
+                 line="3395">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3397">the I/O priority of the request</doc>
+                 line="3396">the I/O priority of the request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable"
@@ -14185,7 +14185,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3398">a #GCancellable</doc>
+                 line="3397">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -14196,7 +14196,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3399">the callback to invoke</doc>
+                 line="3398">the callback to invoke</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -14205,7 +14205,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3400">data for @callback</doc>
+                 line="3399">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14215,27 +14215,27 @@ See [method@Session.send] for more details on the general semantics.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3441">Gets the response to a [method@Session.send_and_read_async].
+             line="3440">Gets the response to a [method@Session.send_and_read_async].
 
 If successful, returns a [struct@GLib.Bytes] with the response body.</doc>
         <source-position filename="libsoup/soup-session.h" line="159"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3451">a #GBytes, or %NULL on error.</doc>
+               line="3450">a #GBytes, or %NULL on error.</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3443">a #SoupSession</doc>
+                 line="3442">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3444">the #GAsyncResult passed to your callback</doc>
+                 line="3443">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -14247,39 +14247,39 @@ If successful, returns a [struct@GLib.Bytes] with the response body.</doc>
               glib:async-func="send_and_splice_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3635">Synchronously sends @msg and splices the response body stream into @out_stream.
+             line="3634">Synchronously sends @msg and splices the response body stream into @out_stream.
 
 See [method@Session.send] for more details on the general semantics.</doc>
         <source-position filename="libsoup/soup-session.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3648">a #gssize containing the size of the data spliced, or -1 if an error occurred.</doc>
+               line="3647">a #gssize containing the size of the data spliced, or -1 if an error occurred.</doc>
           <type name="gssize" c:type="gssize"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3637">a #SoupSession</doc>
+                 line="3636">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3638">a #SoupMessage</doc>
+                 line="3637">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="out_stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3639">a #GOutputStream</doc>
+                 line="3638">a #GOutputStream</doc>
             <type name="Gio.OutputStream" c:type="GOutputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3640">a set of #GOutputStreamSpliceFlags</doc>
+                 line="3639">a set of #GOutputStreamSpliceFlags</doc>
             <type name="Gio.OutputStreamSpliceFlags"
                   c:type="GOutputStreamSpliceFlags"/>
           </parameter>
@@ -14289,7 +14289,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3641">a #GCancellable</doc>
+                 line="3640">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -14301,7 +14301,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
               glib:sync-func="send_and_splice">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3563">Asynchronously sends @msg and splices the response body stream into @out_stream.
+             line="3562">Asynchronously sends @msg and splices the response body stream into @out_stream.
 When @callback is called, then either @msg has been sent and its response body
 spliced, or else an error has occurred.
 
@@ -14314,32 +14314,32 @@ See [method@Session.send] for more details on the general semantics.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3565">a #SoupSession</doc>
+                 line="3564">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3566">a #SoupMessage</doc>
+                 line="3565">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="out_stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3567">a #GOutputStream</doc>
+                 line="3566">a #GOutputStream</doc>
             <type name="Gio.OutputStream" c:type="GOutputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3568">a set of #GOutputStreamSpliceFlags</doc>
+                 line="3567">a set of #GOutputStreamSpliceFlags</doc>
             <type name="Gio.OutputStreamSpliceFlags"
                   c:type="GOutputStreamSpliceFlags"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3569">the I/O priority of the request</doc>
+                 line="3568">the I/O priority of the request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable"
@@ -14348,7 +14348,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3570">a #GCancellable</doc>
+                 line="3569">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -14359,7 +14359,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3571">the callback to invoke</doc>
+                 line="3570">the callback to invoke</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -14368,7 +14368,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3572">data for @callback</doc>
+                 line="3571">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14379,25 +14379,25 @@ See [method@Session.send] for more details on the general semantics.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3612">Gets the response to a [method@Session.send_and_splice_async].</doc>
+             line="3611">Gets the response to a [method@Session.send_and_splice_async].</doc>
         <source-position filename="libsoup/soup-session.h" line="180"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3620">a #gssize containing the size of the data spliced, or -1 if an error occurred.</doc>
+               line="3619">a #gssize containing the size of the data spliced, or -1 if an error occurred.</doc>
           <type name="gssize" c:type="gssize"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3614">a #SoupSession</doc>
+                 line="3613">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3615">the #GAsyncResult passed to your callback</doc>
+                 line="3614">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -14408,7 +14408,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
               glib:sync-func="send">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3132">Asynchronously sends @msg and waits for the beginning of a response.
+             line="3131">Asynchronously sends @msg and waits for the beginning of a response.
 
 When @callback is called, then either @msg has been sent, and its response
 headers received, or else an error has occurred. Call
@@ -14424,19 +14424,19 @@ See [method@Session.send] for more details on the general semantics.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3134">a #SoupSession</doc>
+                 line="3133">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3135">a #SoupMessage</doc>
+                 line="3134">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3136">the I/O priority of the request</doc>
+                 line="3135">the I/O priority of the request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable"
@@ -14445,7 +14445,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3137">a #GCancellable</doc>
+                 line="3136">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -14456,7 +14456,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3138">the callback to invoke</doc>
+                 line="3137">the callback to invoke</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -14465,7 +14465,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3139">data for @callback</doc>
+                 line="3138">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14475,7 +14475,7 @@ See [method@Session.send] for more details on the general semantics.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3182">Gets the response to a [method@Session.send_async] call.
+             line="3181">Gets the response to a [method@Session.send_async] call.
 
 If successful returns a [class@Gio.InputStream] that can be used to read the
 response body.</doc>
@@ -14483,7 +14483,7 @@ response body.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3193">a #GInputStream for reading the
+               line="3192">a #GInputStream for reading the
   response body, or %NULL on error.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -14491,13 +14491,13 @@ response body.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3184">a #SoupSession</doc>
+                 line="3183">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3185">the #GAsyncResult passed to your callback</doc>
+                 line="3184">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -14756,7 +14756,7 @@ is %NULL then no "User-Agent" will be included in requests. See
               glib:finish-func="websocket_connect_finish">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3797">Asynchronously creates a [class@WebsocketConnection] to communicate with a
+             line="3796">Asynchronously creates a [class@WebsocketConnection] to communicate with a
 remote server.
 
 All necessary WebSocket-related headers will be added to @msg, and
@@ -14781,13 +14781,13 @@ response, and [method@Session.websocket_connect_finish] will return
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3799">a #SoupSession</doc>
+                 line="3798">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3800">#SoupMessage indicating the WebSocket server to connect to</doc>
+                 line="3799">#SoupMessage indicating the WebSocket server to connect to</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="origin"
@@ -14796,7 +14796,7 @@ response, and [method@Session.websocket_connect_finish] will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3801">origin of the connection</doc>
+                 line="3800">origin of the connection</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="protocols"
@@ -14805,7 +14805,7 @@ response, and [method@Session.websocket_connect_finish] will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3802">a
+                 line="3801">a
   %NULL-terminated array of protocols supported</doc>
             <array c:type="char**">
               <type name="utf8" c:type="char*"/>
@@ -14814,7 +14814,7 @@ response, and [method@Session.websocket_connect_finish] will return
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3804">the I/O priority of the request</doc>
+                 line="3803">the I/O priority of the request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable"
@@ -14823,7 +14823,7 @@ response, and [method@Session.websocket_connect_finish] will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3805">a #GCancellable</doc>
+                 line="3804">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -14834,7 +14834,7 @@ response, and [method@Session.websocket_connect_finish] will return
                      closure="6">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3806">the callback to invoke</doc>
+                 line="3805">the callback to invoke</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -14843,7 +14843,7 @@ response, and [method@Session.websocket_connect_finish] will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3807">data for @callback</doc>
+                 line="3806">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14853,7 +14853,7 @@ response, and [method@Session.websocket_connect_finish] will return
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="3879">Gets the [class@WebsocketConnection] response to a
+             line="3878">Gets the [class@WebsocketConnection] response to a
 [method@Session.websocket_connect_async] call.
 
 If successful, returns a [class@WebsocketConnection] that can be used to
@@ -14862,7 +14862,7 @@ communicate with the server.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="3891">a new #SoupWebsocketConnection, or
+               line="3890">a new #SoupWebsocketConnection, or
   %NULL on error.</doc>
           <type name="WebsocketConnection" c:type="SoupWebsocketConnection*"/>
         </return-value>
@@ -14870,13 +14870,13 @@ communicate with the server.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3881">a #SoupSession</doc>
+                 line="3880">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="3882">the #GAsyncResult passed to your callback</doc>
+                 line="3881">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -14893,7 +14893,7 @@ communicate with the server.</doc>
                    value="soup_session_set_accept_language"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2612">If non-%NULL, the value to use for the "Accept-Language" header
+             line="2611">If non-%NULL, the value to use for the "Accept-Language" header
 on [class@Message]s sent from this session.
 
 Setting this will disable [property@Session:accept-language-auto].</doc>
@@ -14911,7 +14911,7 @@ Setting this will disable [property@Session:accept-language-auto].</doc>
                    value="soup_session_set_accept_language_auto"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2628">If %TRUE, [class@Session] will automatically set the string
+             line="2627">If %TRUE, [class@Session] will automatically set the string
 for the "Accept-Language" header on every [class@Message]
 sent, based on the return value of [func@GLib.get_language_names].
 
@@ -14931,7 +14931,7 @@ Setting this will override any previous value of
                    value="soup_session_set_idle_timeout"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2513">Connection lifetime (in seconds) when idle. Any connection
+             line="2512">Connection lifetime (in seconds) when idle. Any connection
 left idle longer than this will be closed.
 
 Although you can change this property at any time, it will
@@ -14950,7 +14950,7 @@ this timeout value.</doc>
                    value="soup_session_get_local_address"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2665">Sets the [class@Gio.InetSocketAddress] to use for the client side of
+             line="2664">Sets the [class@Gio.InetSocketAddress] to use for the client side of
 the connection.
 
 Use this property if you want for instance to bind the
@@ -14967,7 +14967,7 @@ local socket to a specific IP address.</doc>
                    value="soup_session_get_max_conns"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2481">The maximum number of connections that the session can open at once.</doc>
+             line="2480">The maximum number of connections that the session can open at once.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="max-conns-per-host"
@@ -14980,7 +14980,7 @@ local socket to a specific IP address.</doc>
                    value="soup_session_get_max_conns_per_host"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2497">The maximum number of connections that the session can open at once
+             line="2496">The maximum number of connections that the session can open at once
 to a given host.</doc>
         <type name="gint" c:type="gint"/>
       </property>
@@ -14995,7 +14995,7 @@ to a given host.</doc>
                    value="soup_session_set_proxy_resolver"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2463">A [iface@Gio.ProxyResolver] to use with this session.
+             line="2462">A [iface@Gio.ProxyResolver] to use with this session.
 
 If no proxy resolver is set, then the default proxy resolver
 will be used. See [func@Gio.ProxyResolver.get_default].
@@ -15013,7 +15013,7 @@ what proxies get used.</doc>
                    value="soup_session_get_remote_connectable"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2646">Sets a socket to make outgoing connections on. This will override the default
+             line="2645">Sets a socket to make outgoing connections on. This will override the default
 behaviour of opening TCP/IP sockets to the hosts specified in the URIs.
 
 This function is not required for common HTTP usage, but only when connecting
@@ -15034,7 +15034,7 @@ a [class@Gio.UnixSocketAddress] can be passed to this function.</doc>
                    value="soup_session_set_timeout"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2550">The timeout (in seconds) for socket I/O operations
+             line="2549">The timeout (in seconds) for socket I/O operations
 (including connecting to a server, and waiting for a reply
 to an HTTP request).
 
@@ -15060,7 +15060,7 @@ kept open).</doc>
                    value="soup_session_set_tls_database"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2533">Sets the [class@Gio.TlsDatabase] to use for validating SSL/TLS
+             line="2532">Sets the [class@Gio.TlsDatabase] to use for validating SSL/TLS
 certificates.
 
 If no certificate database is set, then the default database will be
@@ -15078,7 +15078,7 @@ used. See [method@Gio.TlsBackend.get_default_database].</doc>
                    value="soup_session_set_tls_interaction"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2682">A [class@Gio.TlsInteraction] object that will be passed on to any
+             line="2681">A [class@Gio.TlsInteraction] object that will be passed on to any
 [class@Gio.TlsConnection]s created by the session.
 
 This can be used to provide client-side certificates, for example.</doc>
@@ -15096,7 +15096,7 @@ This can be used to provide client-side certificates, for example.</doc>
                    value="soup_session_set_user_agent"/>
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2575">User-Agent string.
+             line="2574">User-Agent string.
 
 If non-%NULL, the value to use for the "User-Agent" header
 on [class@Message]s sent from this session.
@@ -15129,7 +15129,7 @@ header for you.</doc>
       <glib:signal name="request-queued" when="last">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2397">Emitted when a request is queued on @session.
+             line="2396">Emitted when a request is queued on @session.
 
 When sending a request, first [signal@Session::request-queued]
 is emitted, indicating that the session has become aware of
@@ -15164,7 +15164,7 @@ message.</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2400">the request that was queued</doc>
+                 line="2399">the request that was queued</doc>
             <type name="Message"/>
           </parameter>
         </parameters>
@@ -15172,7 +15172,7 @@ message.</doc>
       <glib:signal name="request-unqueued" when="last">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="2441">Emitted when a request is removed from @session's queue,
+             line="2440">Emitted when a request is removed from @session's queue,
 indicating that @session is done with it.
 
 See [signal@Session::request-queued] for a detailed description of
@@ -15184,7 +15184,7 @@ the message lifecycle within a session.</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="2444">the request that was unqueued</doc>
+                 line="2443">the request that was unqueued</doc>
             <type name="Message"/>
           </parameter>
         </parameters>

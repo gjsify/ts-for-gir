@@ -60,8 +60,9 @@ export async function runGenerationCommand(args: ConfigFlags, options: Generatio
 				);
 			}
 
-			service.printComprehensiveSummary();
-			await service.saveComprehensiveReport();
+			const report = service.generateComprehensiveReport();
+			service.printComprehensiveSummary(report);
+			await service.saveComprehensiveReport(undefined, report);
 		}
 
 		throw error;

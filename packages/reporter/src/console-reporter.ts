@@ -8,8 +8,9 @@ import { blue, gray, green, red, yellow, yellowBright } from "colorette";
 import { PACKAGE_VERSION } from "./constants.ts";
 import { analyzeError, analyzeWarning } from "./message-analyzer.ts";
 import { ReporterBase } from "./reporter-base.ts";
-import type { GenerationReport, ProblemEntry, ReporterConfig, ReportStatistics } from "./types/index.ts";
+import type { GenerationReport, ReporterConfig } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
+import { computeProblemStatistics, generateReportSummary, groupProblemsByCategory } from "./types/report.ts";
 
 /**
  * Console Reporter implementation with full logging capabilities
@@ -146,10 +147,16 @@ export class ConsoleReporter extends ReporterBase {
 	// === Problem-specific reporting methods ===
 
 	public reportTypeResolutionError(typeName: string, namespace: string, message: string, details?: string): void {
-		this.addProblem(ProblemSeverity.ERROR, ProblemCategory.TYPE_RESOLUTION, message, details, typeName, namespace, {
-			namespace,
+		this.addProblem(
+			ProblemSeverity.ERROR,
+			ProblemCategory.TYPE_RESOLUTION,
+			message,
+			details,
 			typeName,
-		});
+			namespace,
+			undefined,
+			namespace,
+		);
 
 		if (this.config.verbose) {
 			const txt = this.prependInfo(message, "ERROR:");
@@ -157,11 +164,23 @@ export class ConsoleReporter extends ReporterBase {
 		}
 	}
 
-	public reportTypeResolutionWarning(typeName: string, namespace: string, message: string, details?: string): void {
-		this.addProblem(ProblemSeverity.WARNING, ProblemCategory.TYPE_RESOLUTION, message, details, typeName, namespace, {
-			namespace,
+	public reportTypeResolutionWarning(
+		typeName: string,
+		namespace: string,
+		message: string,
+		details?: string,
+		sourceModule?: string,
+	): void {
+		this.addProblem(
+			ProblemSeverity.WARNING,
+			ProblemCategory.TYPE_RESOLUTION,
+			message,
+			details,
 			typeName,
-		});
+			namespace,
+			sourceModule ? { sourceModule } : undefined,
+			namespace,
+		);
 
 		if (this.config.verbose) {
 			const txt = this.prependInfo(message, "WARN:");
@@ -204,10 +223,16 @@ export class ConsoleReporter extends ReporterBase {
 	public reportTypeConflict(conflictType: string, elementName: string, namespace: string, details?: string): void {
 		const message = `Type conflict (${conflictType}): ${elementName}`;
 
-		this.addProblem(ProblemSeverity.WARNING, ProblemCategory.TYPE_CONFLICT, message, details, elementName, namespace, {
-			conflictType,
+		this.addProblem(
+			ProblemSeverity.WARNING,
+			ProblemCategory.TYPE_CONFLICT,
+			message,
+			details,
+			elementName,
 			namespace,
-		});
+			{ conflictType },
+			namespace,
+		);
 
 		if (this.config.verbose) {
 			const txt = this.prependInfo(message, "WARN:");
@@ -235,182 +260,9 @@ export class ConsoleReporter extends ReporterBase {
 
 	// === Report generation methods ===
 
-	private generateStatistics(): ReportStatistics {
-		const bySeverity = Object.values(ProblemSeverity).reduce(
-			(acc, severity) => {
-				acc[severity] = 0;
-				return acc;
-			},
-			{} as Record<ProblemSeverity, number>,
-		);
-
-		const byCategory = Object.values(ProblemCategory).reduce(
-			(acc, category) => {
-				acc[category] = 0;
-				return acc;
-			},
-			{} as Record<ProblemCategory, number>,
-		);
-
-		const byModule: Record<string, number> = {};
-
-		// Type-specific tracking
-		const unresolvedTypes: Record<string, { count: number; namespaces: Set<string> }> = {};
-		const typeConflicts: Record<string, { count: number; examples: Set<string> }> = {};
-		const namespaceProblems: Record<string, { count: number; types: Set<string> }> = {};
-
-		for (const problem of this.problems) {
-			bySeverity[problem.severity]++;
-			byCategory[problem.category]++;
-			byModule[problem.module] = (byModule[problem.module] || 0) + 1;
-
-			// Track type resolution problems
-			if (problem.category === ProblemCategory.TYPE_RESOLUTION && problem.typeName) {
-				if (!unresolvedTypes[problem.typeName]) {
-					unresolvedTypes[problem.typeName] = { count: 0, namespaces: new Set() };
-				}
-				unresolvedTypes[problem.typeName].count++;
-				if (problem.location) {
-					unresolvedTypes[problem.typeName].namespaces.add(problem.location);
-				}
-
-				// Track namespace problems
-				if (problem.location) {
-					if (!namespaceProblems[problem.location]) {
-						namespaceProblems[problem.location] = { count: 0, types: new Set() };
-					}
-					namespaceProblems[problem.location].count++;
-					namespaceProblems[problem.location].types.add(problem.typeName);
-				}
-			}
-
-			// Track type conflicts
-			if (problem.category === ProblemCategory.TYPE_CONFLICT && problem.metadata?.conflictType) {
-				const conflictType = problem.metadata.conflictType as string;
-				if (!typeConflicts[conflictType]) {
-					typeConflicts[conflictType] = { count: 0, examples: new Set() };
-				}
-				typeConflicts[conflictType].count++;
-				if (problem.typeName) {
-					typeConflicts[conflictType].examples.add(problem.typeName);
-				}
-			}
-		}
-
-		// Convert to arrays and sort
-		const commonUnresolvedTypes = Object.entries(unresolvedTypes)
-			.map(([type, data]) => ({
-				type,
-				count: data.count,
-				namespaces: Array.from(data.namespaces),
-			}))
-			.sort((a, b) => b.count - a.count)
-			.slice(0, 20);
-
-		const commonTypeConflicts = Object.entries(typeConflicts)
-			.map(([conflictType, data]) => ({
-				conflictType,
-				count: data.count,
-				examples: Array.from(data.examples).slice(0, 5),
-			}))
-			.sort((a, b) => b.count - a.count);
-
-		const problematicNamespaces = Object.entries(namespaceProblems)
-			.map(([namespace, data]) => ({
-				namespace,
-				problems: data.count,
-				types: Array.from(data.types).slice(0, 10),
-			}))
-			.sort((a, b) => b.problems - a.problems)
-			.slice(0, 10);
-
-		const mostProblematicModules = Object.entries(byModule)
-			.sort(([, a], [, b]) => b - a)
-			.slice(0, 10)
-			.map(([module, count]) => ({ module, count }));
-
-		const endTime = new Date();
-		const durationMs = endTime.getTime() - this.startTime.getTime();
-
-		return {
-			bySeverity,
-			byCategory,
-			byModule,
-			totalProblems: this.problems.length,
-			mostProblematicModules,
-			typeStatistics: {
-				commonUnresolvedTypes,
-				commonTypeConflicts,
-				problematicNamespaces,
-			},
-			startTime: this.startTime,
-			endTime,
-			durationMs,
-		};
-	}
-
-	private generateSummary(statistics: ReportStatistics): GenerationReport["summary"] {
-		const { bySeverity, byCategory, totalProblems } = statistics;
-
-		let status: "success" | "partial" = "success";
-		if (bySeverity[ProblemSeverity.ERROR] > 0 || bySeverity[ProblemSeverity.WARNING] > 20) {
-			status = "partial";
-		}
-
-		const keyIssues: string[] = [];
-		const recommendations: string[] = [];
-
-		// Analyze key issues
-		if (byCategory[ProblemCategory.TYPE_RESOLUTION] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.TYPE_RESOLUTION]} type resolution issues detected`);
-			recommendations.push("Review GIR files for missing or incorrect type definitions");
-		}
-
-		if (byCategory[ProblemCategory.PARSING_FAILURE] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.PARSING_FAILURE]} parsing failures occurred`);
-			recommendations.push("Check GIR file syntax and ensure proper introspection data");
-		}
-
-		if (byCategory[ProblemCategory.GENERATION_FAILURE] > 0) {
-			keyIssues.push(`${byCategory[ProblemCategory.GENERATION_FAILURE]} generation failures encountered`);
-			recommendations.push("Review template configuration and output settings");
-		}
-
-		if (byCategory[ProblemCategory.TYPE_CONFLICT] > 5) {
-			keyIssues.push(`High number of type conflicts (${byCategory[ProblemCategory.TYPE_CONFLICT]})`);
-			recommendations.push("Consider using ignore patterns or updating GIR files to resolve conflicts");
-		}
-
-		if (keyIssues.length === 0 && totalProblems > 0) {
-			keyIssues.push(`${totalProblems} minor issues detected`);
-		}
-
-		if (recommendations.length === 0 && totalProblems > 0) {
-			recommendations.push("Review detailed problem list for specific improvement opportunities");
-		}
-
-		return {
-			status,
-			keyIssues,
-			recommendations,
-		};
-	}
-
 	public generateReport(): GenerationReport {
-		const statistics = this.generateStatistics();
-		const summary = this.generateSummary(statistics);
-
-		const problemsByCategory = Object.values(ProblemCategory).reduce(
-			(acc, category) => {
-				acc[category] = [];
-				return acc;
-			},
-			{} as Record<ProblemCategory, ProblemEntry[]>,
-		);
-
-		for (const problem of this.problems) {
-			problemsByCategory[problem.category].push(problem);
-		}
+		const statistics = computeProblemStatistics(this.problems, this.startTime);
+		const summary = generateReportSummary(statistics);
 
 		return {
 			metadata: {
@@ -419,7 +271,7 @@ export class ConsoleReporter extends ReporterBase {
 			},
 			statistics,
 			problems: [...this.problems],
-			problemsByCategory,
+			problemsByCategory: groupProblemsByCategory(this.problems),
 			summary,
 		};
 	}
@@ -455,8 +307,11 @@ export class ConsoleReporter extends ReporterBase {
 		console.log("=".repeat(50));
 
 		// Status
-		const statusColor = summary.status === "success" ? green : summary.status === "partial" ? yellow : red;
+		const statusColor = summary.status === "partial" ? yellow : green;
 		console.log(`Status: ${statusColor(summary.status.toUpperCase())}`);
+		if (summary.status === "success_with_warnings") {
+			console.log(green("  All issues are non-blocking. Generated types are complete."));
+		}
 
 		// Statistics
 		console.log(`\n📈 Statistics:`);
@@ -481,13 +336,17 @@ export class ConsoleReporter extends ReporterBase {
 
 			// Type-specific statistics
 			if (statistics.typeStatistics.commonUnresolvedTypes.length > 0) {
-				console.log(`\n❌ Most Common Unresolved Types:`);
-				statistics.typeStatistics.commonUnresolvedTypes.slice(0, 10).forEach(({ type, count, namespaces }) => {
-					console.log(`  ${red(type)}: ${count} occurrences in ${namespaces.length} namespace(s)`);
-					if (namespaces.length <= 3) {
-						console.log(`    └─ ${gray(namespaces.join(", "))}`);
-					}
-				});
+				console.log(`\n⚠️  Most Common Unresolved Types (produce 'never' type):`);
+				statistics.typeStatistics.commonUnresolvedTypes
+					.slice(0, 10)
+					.forEach(({ type, count, namespaces, sourceModules }) => {
+						console.log(`  ${yellow(type)}: ${count} occurrences (origin: ${namespaces.join(", ") || "unknown"})`);
+						if (sourceModules.length > 0) {
+							const moduleList = sourceModules.slice(0, 5).join(", ");
+							const moreModules = sourceModules.length > 5 ? ` and ${sourceModules.length - 5} more` : "";
+							console.log(`    └─ Referenced from: ${gray(moduleList + moreModules)}`);
+						}
+					});
 			}
 
 			if (statistics.typeStatistics.commonTypeConflicts.length > 0) {
@@ -501,9 +360,9 @@ export class ConsoleReporter extends ReporterBase {
 			}
 
 			if (statistics.typeStatistics.problematicNamespaces.length > 0) {
-				console.log(`\n🚨 Most Problematic Namespaces:`);
+				console.log(`\n📂 Namespaces with Most Warnings:`);
 				statistics.typeStatistics.problematicNamespaces.slice(0, 5).forEach(({ namespace, problems, types }) => {
-					console.log(`  ${namespace}: ${problems} problems`);
+					console.log(`  ${namespace}: ${problems} warnings`);
 					if (types.length > 0) {
 						const typeList = types.slice(0, 5).join(", ");
 						const moreTypes = types.length > 5 ? ` and ${types.length - 5} more` : "";

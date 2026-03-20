@@ -18,6 +18,7 @@ import {
 	UnknownType,
 	VoidType,
 } from "../gir.ts";
+import { girParsingReporter } from "./gir-parsing.ts";
 
 /**
  * Get the type expression for an alias element
@@ -129,7 +130,7 @@ export function isPrimitiveType(name: string): boolean {
 export function resolvePrimitiveType(name: string): TypeExpression | null {
 	switch (name) {
 		case "":
-			console.error(`Resolving '' to any on ${name}`);
+			girParsingReporter.get().reportTypeResolutionWarning("", "unknown", "Resolving empty type name to 'any'");
 			return AnyType;
 		case "filename":
 			return StringType;

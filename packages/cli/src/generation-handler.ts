@@ -9,6 +9,7 @@ import {
 	FILE_PARSING_DONE,
 	GENERATING_TYPES_DONE,
 	type GirModule,
+	girParsingReporter,
 	type NSRegistry,
 	type OptionsGeneration,
 	Reporter,
@@ -34,9 +35,10 @@ export class GenerationHandler {
 		// Configure the reporter service
 		this.reporterService.configure(config.reporter, config.reporterOutput);
 
-		// Configure TypeIdentifier and ConflictsReporter globally
+		// Configure reporters globally
 		TypeIdentifier.configureReporter(config.reporter, config.reporterOutput);
 		conflictsReporter.configure(config.reporter, config.reporterOutput);
+		girParsingReporter.configure(config.reporter, config.reporterOutput);
 
 		// Register the main handler reporter
 		if (config.reporter) {
@@ -103,14 +105,12 @@ export class GenerationHandler {
 
 	private async generateComprehensiveReport(): Promise<void> {
 		try {
-			// Print comprehensive summary to console
-			this.reporterService.printComprehensiveSummary();
-
-			// Save comprehensive report to file
-			await this.reporterService.saveComprehensiveReport();
-
-			// Log final statistics
+			// Generate report once, pass to print and save
 			const report = this.reporterService.generateComprehensiveReport();
+
+			this.reporterService.printComprehensiveSummary(report);
+			await this.reporterService.saveComprehensiveReport(undefined, report);
+
 			const totalProblems = report.statistics.totalProblems;
 			const modulesProcessed = this.reporterService.getReporters().size;
 

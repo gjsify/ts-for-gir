@@ -33,6 +33,7 @@ import {
 	Uint8ArrayType,
 	VoidType,
 } from "../gir.ts";
+import { girParsingReporter } from "../utils/gir-parsing.ts";
 
 export default {
 	namespace: "Gio",
@@ -705,7 +706,13 @@ export default {
 		if (existingMethodIndex !== -1) {
 			ActionMap.members[existingMethodIndex] = newMethod;
 		} else {
-			console.warn("Could not find existing add_action_entries method to override");
+			girParsingReporter
+				.get()
+				.reportTypeResolutionWarning(
+					"add_action_entries",
+					"Gio",
+					"Could not find existing add_action_entries method to override in Gio.ActionMap",
+				);
 			ActionMap.members.push(newMethod);
 		}
 	},

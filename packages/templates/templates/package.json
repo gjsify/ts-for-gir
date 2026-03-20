@@ -49,6 +49,11 @@ _%>
         "import": "./console.js",
         "default": "./console.js"
       },
+      "./gi": {
+        "types": "./gi.d.ts",
+        "import": "./gi.js",
+        "default": "./gi.js"
+      },
       <%_ } else {_%>
       "./import": {
         "types": "./<%- entryPointName %>-import.d.ts",

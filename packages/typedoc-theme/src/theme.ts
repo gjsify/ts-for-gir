@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import type { NavigationElement, ProjectReflection, Renderer } from "typedoc";
 import { DefaultTheme, RendererEvent } from "typedoc";
 import { GiDocgenThemeRenderContext } from "./context.ts";
+import { splitSearchIndex } from "./search-splitter.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -78,5 +79,9 @@ export class GiDocgenTheme extends DefaultTheme {
 
 	override getNavigation(project: ProjectReflection): NavigationElement[] {
 		return buildShallowNavigation(super.getNavigation(project));
+	}
+
+	override async postRender(event: RendererEvent): Promise<void> {
+		await splitSearchIndex(event.outputDirectory);
 	}
 }

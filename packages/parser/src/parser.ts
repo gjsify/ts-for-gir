@@ -1,6 +1,19 @@
 import { XMLParser } from "fast-xml-parser";
 import type { GirXML } from "./gir-types.ts";
 
+/**
+ * fast-xml-parser v5.5.5+ blocks "constructor" as a tag name to prevent
+ * prototype pollution. GIR files legitimately use <constructor> elements,
+ * so we rename it during parsing and restore it in post-processing.
+ */
+const CRITICAL_TAG_REPLACEMENTS: Record<string, string> = {
+	constructor: "__gir_constructor__",
+};
+
+const CRITICAL_TAG_RESTORATIONS: Record<string, string> = Object.fromEntries(
+	Object.entries(CRITICAL_TAG_REPLACEMENTS).map(([k, v]) => [v, k]),
+);
+
 //  TODO: Treat properties that contain only one element like `repository`, 'namespace', 'package', ...  as an object instead of an array
 const isArrayProperty = [
 	"type",
@@ -11,7 +24,7 @@ const isArrayProperty = [
 	"parameters",
 	"return-value",
 	"class",
-	"constructor",
+	"__gir_constructor__",
 	"constructors",
 	"method",
 	"virtual-method",
@@ -64,6 +77,11 @@ const parser = new XMLParser({
 	parseTagValue: true,
 	parseAttributeValue: false,
 	trimValues: true,
+	processEntities: {
+		enabled: true,
+		maxTotalExpansions: 100_000,
+	},
+	transformTagName: (tagName: string) => CRITICAL_TAG_REPLACEMENTS[tagName] ?? tagName,
 	isArray: (name, _jpath, isLeafNode, _isAttribute) => {
 		// Restore previous behaviour...
 		if (isArrayProperty.includes(name)) {
@@ -74,17 +92,17 @@ const parser = new XMLParser({
 });
 
 /**
- * Recursively transforms numeric string attributes to actual numbers.
- * This ensures type safety while maintaining clean separation of concerns:
- * the parser handles data transformation, not the consuming lib.
+ * Recursively post-processes the parsed XML tree:
+ * - Converts numeric string attributes to actual numbers
+ * - Restores tag names that were renamed to bypass fast-xml-parser's security checks
  */
-function transformNumericAttributes(obj: unknown): unknown {
+function postProcessParsedXml(obj: unknown): unknown {
 	if (obj === null || typeof obj !== "object") {
 		return obj;
 	}
 
 	if (Array.isArray(obj)) {
-		return obj.map(transformNumericAttributes);
+		return obj.map(postProcessParsedXml);
 	}
 
 	const result = { ...obj } as Record<string, unknown>;
@@ -102,10 +120,15 @@ function transformNumericAttributes(obj: unknown): unknown {
 		}
 	}
 
-	// Recursively transform nested objects
+	// Recursively transform nested objects and restore renamed tag keys
 	for (const key in result) {
 		if (key !== "$" && result[key] !== null && typeof result[key] === "object") {
-			result[key] = transformNumericAttributes(result[key]);
+			result[key] = postProcessParsedXml(result[key]);
+		}
+		const restoredKey = CRITICAL_TAG_RESTORATIONS[key];
+		if (restoredKey) {
+			result[restoredKey] = result[key];
+			delete result[key];
 		}
 	}
 
@@ -114,5 +137,5 @@ function transformNumericAttributes(obj: unknown): unknown {
 
 export function parseGir(contents: string): GirXML {
 	const parsed = parser.parse(contents);
-	return transformNumericAttributes(parsed) as GirXML;
+	return postProcessParsedXml(parsed) as GirXML;
 }

@@ -64,17 +64,17 @@
 		"@types/inquirer": "^9.0.9",
 		"@types/node": "^24.12.0",
 		"@types/yargs": "^17.0.35",
-		"esbuild": "^0.27.3",
+		"esbuild": "^0.27.4",
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"@inquirer/prompts": "^8.3.0",
+		"@inquirer/prompts": "^8.3.2",
 		"@ts-for-gir/templates": "workspace:^",
 		"colorette": "^2.0.20",
 		"cosmiconfig": "^9.0.1",
 		"ejs": "^5.0.1",
 		"glob": "^13.0.6",
-		"inquirer": "^13.3.0",
+		"inquirer": "^13.3.2",
 		"prettier": "^3.8.1",
 		"typedoc": "^0.28.17",
 		"yargs": "^18.0.0"

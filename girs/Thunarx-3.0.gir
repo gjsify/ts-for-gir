@@ -5,9 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gtk" version="3.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Thunarx"
              version="3.0"
              shared-library="libthunarx-3.so.0"
@@ -102,13 +104,13 @@ and/or use gtk-doc annotations.  -->
     <constant name="FILESYSTEM_INFO_NAMESPACE"
               value="filesystem::*"
               c:type="THUNARX_FILESYSTEM_INFO_NAMESPACE">
-      <source-position filename="thunarx-file-info.h" line="45"/>
+      <source-position filename="thunarx-file-info.h" line="46"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="FILE_INFO"
                     c:identifier="THUNARX_FILE_INFO"
                     introspectable="0">
-      <source-position filename="thunarx-file-info.h" line="51"/>
+      <source-position filename="thunarx-file-info.h" line="52"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -117,14 +119,14 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="FILE_INFO_GET_IFACE"
                     c:identifier="THUNARX_FILE_INFO_GET_IFACE"
                     introspectable="0">
-      <source-position filename="thunarx-file-info.h" line="53"/>
+      <source-position filename="thunarx-file-info.h" line="54"/>
       <parameters>
         <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
     <constant name="FILE_INFO_NAMESPACE"
-              value="access::*,id::filesystem,mountable::can-mount,standard::target-uri,preview::*,standard::type,standard::is-hidden,standard::is-backup,standard::is-symlink,standard::name,standard::display-name,standard::size,standard::symlink-target,time::*,trash::*,recent::*,unix::gid,unix::uid,unix::mode,metadata::emblems,metadata::thunar-view-type,metadata::thunar-sort-column,metadata::thunar-sort-order,metadata::thunar-zoom-level,metadata::thunar-highlight-color-background,metadata::thunar-highlight-color-foreground"
+              value="access::*,id::filesystem,mountable::can-mount,standard::target-uri,preview::*,standard::type,standard::is-hidden,standard::is-backup,standard::is-symlink,standard::name,standard::display-name,standard::size,standard::allocated-size,standard::symlink-target,time::*,trash::*,recent::*,unix::gid,unix::uid,unix::mode,unix::is-mountpoint,metadata::emblems,metadata::thunar-view-type,metadata::thunar-sort-column,metadata::thunar-sort-order,metadata::thunar-zoom-level,metadata::thunar-zoom-level-ThunarDetailsView,metadata::thunar-zoom-level-ThunarIconView,metadata::thunar-zoom-level-ThunarCompactView,metadata::thunar-highlight-color-background,metadata::thunar-highlight-color-foreground"
               c:type="THUNARX_FILE_INFO_NAMESPACE">
       <source-position filename="thunarx-file-info.h" line="39"/>
       <type name="utf8" c:type="gchar*"/>
@@ -135,7 +137,7 @@ and/or use gtk-doc annotations.  -->
                glib:type-name="ThunarxFileInfo"
                glib:get-type="thunarx_file_info_get_type"
                glib:type-struct="FileInfoIface">
-      <source-position filename="thunarx-file-info.h" line="135"/>
+      <source-position filename="thunarx-file-info.h" line="137"/>
       <virtual-method name="changed" invoker="changed">
         <doc xml:space="preserve"
              filename="thunarx-file-info.c"
@@ -143,7 +145,7 @@ and/or use gtk-doc annotations.  -->
 be invoked by Thunar plugins, instead the file manager itself
 will use this method to emit ::changed whenever it notices a
 change on @file_info.</doc>
-        <source-position filename="thunarx-file-info.h" line="128"/>
+        <source-position filename="thunarx-file-info.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -164,7 +166,7 @@ which includes additional information about the @file_info
 as queried from GIO earlier. The caller is responsible to free the
 returned #GFileInfo object using g_object_unref() when
 no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="112"/>
+        <source-position filename="thunarx-file-info.h" line="114"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -188,7 +190,7 @@ no longer needed.</doc>
 the filesystem @file_info resides on. The caller is responsible to
 free the returned #GFileInfo object using g_object_unref() when
 no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="113"/>
+        <source-position filename="thunarx-file-info.h" line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -213,7 +215,7 @@ no longer needed.</doc>
 powerful tool than just the URI or the path. The caller
 is responsible to release the returned #GFile using g_object_unref()
 when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="114"/>
+        <source-position filename="thunarx-file-info.h" line="116"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -239,7 +241,7 @@ when no longer needed.</doc>
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="106"/>
+        <source-position filename="thunarx-file-info.h" line="108"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -268,7 +270,7 @@ interface.
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="100"/>
+        <source-position filename="thunarx-file-info.h" line="102"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -298,7 +300,7 @@ parent of "file:///" is "computer:///".
 The caller is responsible to free the
 returned string using g_free() when no
 longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="103"/>
+        <source-position filename="thunarx-file-info.h" line="105"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -325,7 +327,7 @@ functions to work with the returned URI.
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="102"/>
+        <source-position filename="thunarx-file-info.h" line="104"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -351,7 +353,7 @@ be "file".
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="104"/>
+        <source-position filename="thunarx-file-info.h" line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -387,7 +389,7 @@ to "text/plain" (e.g. this also includes "text/xml" and
 But you should be aware that this method may take some
 time to test whether @mime_type is valid for @file_info,
 so don't call it too often.</doc>
-        <source-position filename="thunarx-file-info.h" line="107"/>
+        <source-position filename="thunarx-file-info.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -414,7 +416,7 @@ so don't call it too often.</doc>
         <doc xml:space="preserve"
              filename="thunarx-file-info.c"
              line="281">Checks whether @file_info refers to a directory.</doc>
-        <source-position filename="thunarx-file-info.h" line="110"/>
+        <source-position filename="thunarx-file-info.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -440,7 +442,7 @@ will emit this signal whenever the user renamed the @file_info.
 The plugins should instead connect to the ::renamed signal
 and update it's internal state and it's user interface
 after the file manager renamed a file.</doc>
-        <source-position filename="thunarx-file-info.h" line="129"/>
+        <source-position filename="thunarx-file-info.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -460,7 +462,7 @@ after the file manager renamed a file.</doc>
 be invoked by Thunar plugins, instead the file manager itself
 will use this method to emit ::changed whenever it notices a
 change on @file_info.</doc>
-        <source-position filename="thunarx-file-info.h" line="154"/>
+        <source-position filename="thunarx-file-info.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -482,7 +484,7 @@ which includes additional information about the @file_info
 as queried from GIO earlier. The caller is responsible to free the
 returned #GFileInfo object using g_object_unref() when
 no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="150"/>
+        <source-position filename="thunarx-file-info.h" line="161"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -507,7 +509,7 @@ no longer needed.</doc>
 the filesystem @file_info resides on. The caller is responsible to
 free the returned #GFileInfo object using g_object_unref() when
 no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="151"/>
+        <source-position filename="thunarx-file-info.h" line="163"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -533,7 +535,7 @@ no longer needed.</doc>
 powerful tool than just the URI or the path. The caller
 is responsible to release the returned #GFile using g_object_unref()
 when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="152"/>
+        <source-position filename="thunarx-file-info.h" line="165"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -560,7 +562,7 @@ when no longer needed.</doc>
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="144"/>
+        <source-position filename="thunarx-file-info.h" line="152"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -589,7 +591,7 @@ interface.
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="139"/>
+        <source-position filename="thunarx-file-info.h" line="143"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -620,7 +622,7 @@ parent of "file:///" is "computer:///".
 The caller is responsible to free the
 returned string using g_free() when no
 longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="141"/>
+        <source-position filename="thunarx-file-info.h" line="147"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -647,7 +649,7 @@ functions to work with the returned URI.
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="140"/>
+        <source-position filename="thunarx-file-info.h" line="145"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -674,7 +676,7 @@ be "file".
 
 The caller is responsible to free the returned
 string using g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-file-info.h" line="142"/>
+        <source-position filename="thunarx-file-info.h" line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -711,7 +713,7 @@ to "text/plain" (e.g. this also includes "text/xml" and
 But you should be aware that this method may take some
 time to test whether @mime_type is valid for @file_info,
 so don't call it too often.</doc>
-        <source-position filename="thunarx-file-info.h" line="145"/>
+        <source-position filename="thunarx-file-info.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -739,7 +741,7 @@ so don't call it too often.</doc>
         <doc xml:space="preserve"
              filename="thunarx-file-info.c"
              line="281">Checks whether @file_info refers to a directory.</doc>
-        <source-position filename="thunarx-file-info.h" line="148"/>
+        <source-position filename="thunarx-file-info.h" line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -765,7 +767,7 @@ will emit this signal whenever the user renamed the @file_info.
 The plugins should instead connect to the ::renamed signal
 and update it's internal state and it's user interface
 after the file manager renamed a file.</doc>
-        <source-position filename="thunarx-file-info.h" line="155"/>
+        <source-position filename="thunarx-file-info.h" line="170"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -810,18 +812,18 @@ the corresponding file was renamed.</doc>
             glib:is-gtype-struct-for="FileInfo">
       <doc xml:space="preserve"
            filename="thunarx-file-info.h"
-           line="73">Interface with virtual methods implemented by the file manager and accessible
+           line="75">Interface with virtual methods implemented by the file manager and accessible
 from the extensions.</doc>
-      <source-position filename="thunarx-file-info.h" line="135"/>
+      <source-position filename="thunarx-file-info.h" line="137"/>
       <field name="__parent__" readable="0" private="1">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_name">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="75">See thunarx_file_info_get_name().</doc>
+             line="77">See thunarx_file_info_get_name().</doc>
         <callback name="get_name">
-          <source-position filename="thunarx-file-info.h" line="100"/>
+          <source-position filename="thunarx-file-info.h" line="102"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -842,9 +844,9 @@ from the extensions.</doc>
       <field name="get_uri">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="76">See thunarx_file_info_get_uri().</doc>
+             line="78">See thunarx_file_info_get_uri().</doc>
         <callback name="get_uri">
-          <source-position filename="thunarx-file-info.h" line="102"/>
+          <source-position filename="thunarx-file-info.h" line="104"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -864,9 +866,9 @@ from the extensions.</doc>
       <field name="get_parent_uri">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="77">See thunarx_file_info_get_parent_uri().</doc>
+             line="79">See thunarx_file_info_get_parent_uri().</doc>
         <callback name="get_parent_uri">
-          <source-position filename="thunarx-file-info.h" line="103"/>
+          <source-position filename="thunarx-file-info.h" line="105"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -887,9 +889,9 @@ from the extensions.</doc>
       <field name="get_uri_scheme">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="78">See thunarx_file_info_get_uri_scheme().</doc>
+             line="80">See thunarx_file_info_get_uri_scheme().</doc>
         <callback name="get_uri_scheme">
-          <source-position filename="thunarx-file-info.h" line="104"/>
+          <source-position filename="thunarx-file-info.h" line="106"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -909,9 +911,9 @@ from the extensions.</doc>
       <field name="get_mime_type">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="79">See thunarx_file_info_get_mime_type().</doc>
+             line="81">See thunarx_file_info_get_mime_type().</doc>
         <callback name="get_mime_type">
-          <source-position filename="thunarx-file-info.h" line="106"/>
+          <source-position filename="thunarx-file-info.h" line="108"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -932,9 +934,9 @@ from the extensions.</doc>
       <field name="has_mime_type">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="80">See thunarx_file_info_has_mime_type().</doc>
+             line="82">See thunarx_file_info_has_mime_type().</doc>
         <callback name="has_mime_type">
-          <source-position filename="thunarx-file-info.h" line="107"/>
+          <source-position filename="thunarx-file-info.h" line="109"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -961,9 +963,9 @@ from the extensions.</doc>
       <field name="is_directory">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="81">See thunarx_file_info_is_directory().</doc>
+             line="83">See thunarx_file_info_is_directory().</doc>
         <callback name="is_directory">
-          <source-position filename="thunarx-file-info.h" line="110"/>
+          <source-position filename="thunarx-file-info.h" line="112"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -983,9 +985,9 @@ from the extensions.</doc>
       <field name="get_file_info">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="82">See thunarx_file_info_get_file_info().</doc>
+             line="84">See thunarx_file_info_get_file_info().</doc>
         <callback name="get_file_info">
-          <source-position filename="thunarx-file-info.h" line="112"/>
+          <source-position filename="thunarx-file-info.h" line="114"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -1006,9 +1008,9 @@ from the extensions.</doc>
       <field name="get_filesystem_info">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="83">See thunarx_filesystem_info_get_filesystem_info().</doc>
+             line="85">See thunarx_filesystem_info_get_filesystem_info().</doc>
         <callback name="get_filesystem_info">
-          <source-position filename="thunarx-file-info.h" line="113"/>
+          <source-position filename="thunarx-file-info.h" line="115"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -1030,9 +1032,9 @@ from the extensions.</doc>
       <field name="get_location">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="84">See thunarx_location_get_location().</doc>
+             line="86">See thunarx_location_get_location().</doc>
         <callback name="get_location">
-          <source-position filename="thunarx-file-info.h" line="114"/>
+          <source-position filename="thunarx-file-info.h" line="116"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-file-info.c"
@@ -1052,7 +1054,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved0">
         <callback name="reserved0">
-          <source-position filename="thunarx-file-info.h" line="117"/>
+          <source-position filename="thunarx-file-info.h" line="119"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1060,7 +1062,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved1">
         <callback name="reserved1">
-          <source-position filename="thunarx-file-info.h" line="118"/>
+          <source-position filename="thunarx-file-info.h" line="120"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1068,7 +1070,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved2">
         <callback name="reserved2">
-          <source-position filename="thunarx-file-info.h" line="119"/>
+          <source-position filename="thunarx-file-info.h" line="121"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1076,7 +1078,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved3">
         <callback name="reserved3">
-          <source-position filename="thunarx-file-info.h" line="120"/>
+          <source-position filename="thunarx-file-info.h" line="122"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1084,7 +1086,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved4">
         <callback name="reserved4">
-          <source-position filename="thunarx-file-info.h" line="121"/>
+          <source-position filename="thunarx-file-info.h" line="123"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1092,7 +1094,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved5">
         <callback name="reserved5">
-          <source-position filename="thunarx-file-info.h" line="122"/>
+          <source-position filename="thunarx-file-info.h" line="124"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1100,7 +1102,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved6">
         <callback name="reserved6">
-          <source-position filename="thunarx-file-info.h" line="123"/>
+          <source-position filename="thunarx-file-info.h" line="125"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1109,9 +1111,9 @@ from the extensions.</doc>
       <field name="changed">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="85">See thunarx_file_info_changed().</doc>
+             line="87">See thunarx_file_info_changed().</doc>
         <callback name="changed">
-          <source-position filename="thunarx-file-info.h" line="128"/>
+          <source-position filename="thunarx-file-info.h" line="130"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1128,9 +1130,9 @@ from the extensions.</doc>
       <field name="renamed">
         <doc xml:space="preserve"
              filename="thunarx-file-info.h"
-             line="86">See thunarx_file_info_renamed().</doc>
+             line="88">See thunarx_file_info_renamed().</doc>
         <callback name="renamed">
-          <source-position filename="thunarx-file-info.h" line="129"/>
+          <source-position filename="thunarx-file-info.h" line="131"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1146,7 +1148,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved7">
         <callback name="reserved7">
-          <source-position filename="thunarx-file-info.h" line="132"/>
+          <source-position filename="thunarx-file-info.h" line="134"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1154,7 +1156,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved8">
         <callback name="reserved8">
-          <source-position filename="thunarx-file-info.h" line="133"/>
+          <source-position filename="thunarx-file-info.h" line="135"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1162,7 +1164,7 @@ from the extensions.</doc>
       </field>
       <field name="reserved9">
         <callback name="reserved9">
-          <source-position filename="thunarx-file-info.h" line="134"/>
+          <source-position filename="thunarx-file-info.h" line="136"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1178,7 +1180,7 @@ from the extensions.</doc>
              filename="thunarx-file-info.c"
              line="419">Does a deep copy of @file_infos and returns the
 new list.</doc>
-        <source-position filename="thunarx-file-info.h" line="162"/>
+        <source-position filename="thunarx-file-info.h" line="179"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-file-info.c"
@@ -1204,7 +1206,7 @@ new list.</doc>
              line="436">Frees the resources allocated for the @file_infos
 list and decreases the reference count on the
 #ThunarxFileInfo&lt;!----&gt;s contained within.</doc>
-        <source-position filename="thunarx-file-info.h" line="163"/>
+        <source-position filename="thunarx-file-info.h" line="181"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1223,7 +1225,7 @@ list and decreases the reference count on the
     <function-macro name="IMPLEMENT_INTERFACE"
                     c:identifier="THUNARX_IMPLEMENT_INTERFACE"
                     introspectable="0">
-      <source-position filename="thunarx.h" line="86"/>
+      <source-position filename="thunarx.h" line="87"/>
       <parameters>
         <parameter name="TYPE_IFACE">
         </parameter>
@@ -1234,7 +1236,7 @@ list and decreases the reference count on the
     <function-macro name="IS_FILE_INFO"
                     c:identifier="THUNARX_IS_FILE_INFO"
                     introspectable="0">
-      <source-position filename="thunarx-file-info.h" line="52"/>
+      <source-position filename="thunarx-file-info.h" line="53"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1243,7 +1245,7 @@ list and decreases the reference count on the
     <function-macro name="IS_MENU"
                     c:identifier="THUNARX_IS_MENU"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="47"/>
+      <source-position filename="thunarx-menu.h" line="46"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1252,7 +1254,7 @@ list and decreases the reference count on the
     <function-macro name="IS_MENU_CLASS"
                     c:identifier="THUNARX_IS_MENU_CLASS"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="48"/>
+      <source-position filename="thunarx-menu.h" line="47"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1261,7 +1263,7 @@ list and decreases the reference count on the
     <function-macro name="IS_MENU_ITEM"
                     c:identifier="THUNARX_IS_MENU_ITEM"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="55"/>
+      <source-position filename="thunarx-menu.h" line="54"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1270,7 +1272,7 @@ list and decreases the reference count on the
     <function-macro name="IS_MENU_ITEM_CLASS"
                     c:identifier="THUNARX_IS_MENU_ITEM_CLASS"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="56"/>
+      <source-position filename="thunarx-menu.h" line="55"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1398,7 +1400,7 @@ list and decreases the reference count on the
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="MENU" c:identifier="THUNARX_MENU" introspectable="0">
-      <source-position filename="thunarx-menu.h" line="45"/>
+      <source-position filename="thunarx-menu.h" line="44"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1407,7 +1409,7 @@ list and decreases the reference count on the
     <function-macro name="MENU_CLASS"
                     c:identifier="THUNARX_MENU_CLASS"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="46"/>
+      <source-position filename="thunarx-menu.h" line="45"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1416,7 +1418,7 @@ list and decreases the reference count on the
     <function-macro name="MENU_GET_CLASS"
                     c:identifier="THUNARX_MENU_GET_CLASS"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="49"/>
+      <source-position filename="thunarx-menu.h" line="48"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1425,7 +1427,7 @@ list and decreases the reference count on the
     <function-macro name="MENU_ITEM"
                     c:identifier="THUNARX_MENU_ITEM"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="53"/>
+      <source-position filename="thunarx-menu.h" line="52"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1434,7 +1436,7 @@ list and decreases the reference count on the
     <function-macro name="MENU_ITEM_CLASS"
                     c:identifier="THUNARX_MENU_ITEM_CLASS"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="54"/>
+      <source-position filename="thunarx-menu.h" line="53"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1443,7 +1445,7 @@ list and decreases the reference count on the
     <function-macro name="MENU_ITEM_GET_CLASS"
                     c:identifier="THUNARX_MENU_ITEM_GET_CLASS"
                     introspectable="0">
-      <source-position filename="thunarx-menu.h" line="57"/>
+      <source-position filename="thunarx-menu.h" line="56"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1467,11 +1469,11 @@ list and decreases the reference count on the
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="11" c:type="THUNARX_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="7" c:type="THUNARX_MICRO_VERSION">
       <source-position filename="thunarx-config.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="18" c:type="THUNARX_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="20" c:type="THUNARX_MINOR_VERSION">
       <source-position filename="thunarx-config.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -1486,17 +1488,17 @@ list and decreases the reference count on the
       <constructor name="new" c:identifier="thunarx_menu_new">
         <doc xml:space="preserve"
              filename="thunarx-menu.c"
-             line="91">Creates a new menu that can be added to the toolbar or to a contextual menu.</doc>
-        <source-position filename="thunarx-menu.h" line="87"/>
+             line="92">Creates a new menu that can be added to the toolbar or to a contextual menu.</doc>
+        <source-position filename="thunarx-menu.h" line="92"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-menu.c"
-               line="96">a newly created #ThunarxMenu</doc>
+               line="97">a newly created #ThunarxMenu</doc>
           <type name="Menu" c:type="ThunarxMenu*"/>
         </return-value>
       </constructor>
       <method name="append_item" c:identifier="thunarx_menu_append_item">
-        <source-position filename="thunarx-menu.h" line="89"/>
+        <source-position filename="thunarx-menu.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1504,23 +1506,23 @@ list and decreases the reference count on the
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu.c"
-                 line="108">a #ThunarxMenu</doc>
+                 line="109">a #ThunarxMenu</doc>
             <type name="Menu" c:type="ThunarxMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu.c"
-                 line="109">a #ThunarxMenuItem</doc>
+                 line="110">a #ThunarxMenuItem</doc>
             <type name="MenuItem" c:type="ThunarxMenuItem*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_items" c:identifier="thunarx_menu_get_items">
-        <source-position filename="thunarx-menu.h" line="95"/>
+        <source-position filename="thunarx-menu.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-menu.c"
-               line="142">the provided #ThunarxMenuItem list
+               line="143">the provided #ThunarxMenuItem list
 Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
@@ -1530,13 +1532,13 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu.c"
-                 line="140">a #ThunarxMenu</doc>
+                 line="141">a #ThunarxMenu</doc>
             <type name="Menu" c:type="ThunarxMenu*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="prepend_item" c:identifier="thunarx_menu_prepend_item">
-        <source-position filename="thunarx-menu.h" line="92"/>
+        <source-position filename="thunarx-menu.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1544,13 +1546,13 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu.c"
-                 line="124">a #ThunarxMenu</doc>
+                 line="125">a #ThunarxMenu</doc>
             <type name="Menu" c:type="ThunarxMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu.c"
-                 line="125">a #ThunarxMenuItem</doc>
+                 line="126">a #ThunarxMenuItem</doc>
             <type name="MenuItem" c:type="ThunarxMenuItem*"/>
           </parameter>
         </parameters>
@@ -1577,41 +1579,41 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
            glib:type-name="ThunarxMenuItem"
            glib:get-type="thunarx_menu_item_get_type"
            glib:type-struct="MenuItemClass">
-      <source-position filename="thunarx-menu.h" line="75"/>
+      <source-position filename="thunarx-menu.h" line="77"/>
       <constructor name="new" c:identifier="thunarx_menu_item_new">
         <doc xml:space="preserve"
              filename="thunarx-menu-item.c"
-             line="306">Creates a new menu item that can be added to the toolbar or to a contextual menu.</doc>
-        <source-position filename="thunarx-menu.h" line="100"/>
+             line="309">Creates a new menu item that can be added to the toolbar or to a contextual menu.</doc>
+        <source-position filename="thunarx-menu.h" line="110"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-menu-item.c"
-               line="317">a newly created #ThunarxMenuItem</doc>
+               line="320">a newly created #ThunarxMenuItem</doc>
           <type name="MenuItem" c:type="ThunarxMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="308">identifier for the menu item</doc>
+                 line="311">identifier for the menu item</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="309">user-visible label of the menu item</doc>
+                 line="312">user-visible label of the menu item</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="tooltip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="310">tooltip of the menu item</doc>
+                 line="313">tooltip of the menu item</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="311">textual representation of the icon to display in the menu
+                 line="314">textual representation of the icon to display in the menu
        item, as returned by g_icon_to_string(). A path or icon name
        are valid representations too.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -1619,7 +1621,7 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
         </parameters>
       </constructor>
       <function name="list_free" c:identifier="thunarx_menu_item_list_free">
-        <source-position filename="thunarx-menu.h" line="111"/>
+        <source-position filename="thunarx-menu.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1627,7 +1629,7 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <parameter name="items" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="406">a list of #ThunarxMenuItem</doc>
+                 line="409">a list of #ThunarxMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="MenuItem"/>
             </type>
@@ -1635,7 +1637,7 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
         </parameters>
       </function>
       <virtual-method name="activate">
-        <source-position filename="thunarx-menu.h" line="74"/>
+        <source-position filename="thunarx-menu.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1648,8 +1650,8 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
       <method name="activate" c:identifier="thunarx_menu_item_activate">
         <doc xml:space="preserve"
              filename="thunarx-menu-item.c"
-             line="338">Emits the activate signal.</doc>
-        <source-position filename="thunarx-menu.h" line="105"/>
+             line="341">Emits the activate signal.</doc>
+        <source-position filename="thunarx-menu.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1657,7 +1659,7 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="340">pointer to a #ThunarxMenuItem instance</doc>
+                 line="343">pointer to a #ThunarxMenuItem instance</doc>
             <type name="MenuItem" c:type="ThunarxMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1667,8 +1669,8 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
               glib:get-property="sensitive">
         <doc xml:space="preserve"
              filename="thunarx-menu-item.c"
-             line="353">Returns whether the menu item is sensitive.</doc>
-        <source-position filename="thunarx-menu.h" line="107"/>
+             line="356">Returns whether the menu item is sensitive.</doc>
+        <source-position filename="thunarx-menu.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1676,7 +1678,7 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="355">pointer to a #ThunarxMenuItem instance</doc>
+                 line="358">pointer to a #ThunarxMenuItem instance</doc>
             <type name="MenuItem" c:type="ThunarxMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1686,8 +1688,8 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
               glib:set-property="menu">
         <doc xml:space="preserve"
              filename="thunarx-menu-item.c"
-             line="385">Attaches @menu to menu item.</doc>
-        <source-position filename="thunarx-menu.h" line="113"/>
+             line="388">Attaches @menu to menu item.</doc>
+        <source-position filename="thunarx-menu.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1695,13 +1697,13 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="387">pointer to a #ThunarxMenuItem instance</doc>
+                 line="390">pointer to a #ThunarxMenuItem instance</doc>
             <type name="MenuItem" c:type="ThunarxMenuItem*"/>
           </instance-parameter>
           <parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="388">pointer to a #ThunarxMenu instance</doc>
+                 line="391">pointer to a #ThunarxMenu instance</doc>
             <type name="Menu" c:type="ThunarxMenu*"/>
           </parameter>
         </parameters>
@@ -1711,8 +1713,8 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
               glib:set-property="sensitive">
         <doc xml:space="preserve"
              filename="thunarx-menu-item.c"
-             line="368">Sets the ::sensitive property of the menu item to @sensitive.</doc>
-        <source-position filename="thunarx-menu.h" line="108"/>
+             line="371">Sets the ::sensitive property of the menu item to @sensitive.</doc>
+        <source-position filename="thunarx-menu.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1720,13 +1722,13 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="370">pointer to a #ThunarxMenuItem instance</doc>
+                 line="373">pointer to a #ThunarxMenuItem instance</doc>
             <type name="MenuItem" c:type="ThunarxMenuItem*"/>
           </instance-parameter>
           <parameter name="sensitive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-menu-item.c"
-                 line="371">%TRUE to make the menu item sensitive</doc>
+                 line="374">%TRUE to make the menu item sensitive</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1791,13 +1793,13 @@ Must be freed with thunarx_menu_item_list_free() after usage</doc>
     <record name="MenuItemClass"
             c:type="ThunarxMenuItemClass"
             glib:is-gtype-struct-for="MenuItem">
-      <source-position filename="thunarx-menu.h" line="75"/>
+      <source-position filename="thunarx-menu.h" line="77"/>
       <field name="__parent__">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="activate">
         <callback name="activate">
-          <source-position filename="thunarx-menu.h" line="74"/>
+          <source-position filename="thunarx-menu.h" line="76"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2023,7 +2025,7 @@ something like this when no longer needed:
 &lt;informalexample&gt;&lt;programlisting&gt;
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="thunarx-menu-provider.h" line="89"/>
+        <source-position filename="thunarx-menu-provider.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-menu-provider.c"
@@ -2084,7 +2086,7 @@ something like this when no longer needed:
 &lt;informalexample&gt;&lt;programlisting&gt;
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="thunarx-menu-provider.h" line="81"/>
+        <source-position filename="thunarx-menu-provider.h" line="83"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-menu-provider.c"
@@ -2139,7 +2141,7 @@ something like this when no longer needed:
 &lt;informalexample&gt;&lt;programlisting&gt;
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="thunarx-menu-provider.h" line="85"/>
+        <source-position filename="thunarx-menu-provider.h" line="88"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-menu-provider.c"
@@ -2543,7 +2545,7 @@ something like this when no longer needed:
 &lt;informalexample&gt;&lt;programlisting&gt;
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="thunarx-preferences-provider.h" line="69"/>
+        <source-position filename="thunarx-preferences-provider.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-preferences-provider.c"
@@ -2677,13 +2679,13 @@ in the interface.</doc>
       <constructor name="new" c:identifier="thunarx_property_page_new">
         <doc xml:space="preserve"
              filename="thunarx-property-page.c"
-             line="210">Allocates a new #ThunarxPropertyPage widget and sets its label to the
+             line="213">Allocates a new #ThunarxPropertyPage widget and sets its label to the
 specified @label. If @label is %NULL, the label is omitted.</doc>
-        <source-position filename="thunarx-property-page.h" line="64"/>
+        <source-position filename="thunarx-property-page.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-property-page.c"
-               line="217">the newly allocated #ThunarxPropertyPage
+               line="220">the newly allocated #ThunarxPropertyPage
               widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -2691,7 +2693,7 @@ specified @label. If @label is %NULL, the label is omitted.</doc>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="212">the text to use as the label of the page.</doc>
+                 line="215">the text to use as the label of the page.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2700,20 +2702,20 @@ specified @label. If @label is %NULL, the label is omitted.</doc>
                    c:identifier="thunarx_property_page_new_with_label_widget">
         <doc xml:space="preserve"
              filename="thunarx-property-page.c"
-             line="228">Allocates a new #ThunarxPropertyPage widget and sets its label to
+             line="231">Allocates a new #ThunarxPropertyPage widget and sets its label to
 the specified @label_widget.</doc>
-        <source-position filename="thunarx-property-page.h" line="65"/>
+        <source-position filename="thunarx-property-page.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-property-page.c"
-               line="235">the newly allocated #ThunarxPropertyPage widget.</doc>
+               line="238">the newly allocated #ThunarxPropertyPage widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="label_widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="230">a #GtkWidget, which should be used as label.</doc>
+                 line="233">a #GtkWidget, which should be used as label.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -2723,14 +2725,14 @@ the specified @label_widget.</doc>
               glib:get-property="label">
         <doc xml:space="preserve"
              filename="thunarx-property-page.c"
-             line="245">If the @property_page's label widget is a #GtkLabel, returns the text
+             line="248">If the @property_page's label widget is a #GtkLabel, returns the text
 in the label widget (the @property_page will have a #GtkLabel for the
 label widget if a non-%NULL argument was passed to thunarx_property_page_new()).</doc>
-        <source-position filename="thunarx-property-page.h" line="67"/>
+        <source-position filename="thunarx-property-page.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-property-page.c"
-               line="253">the text in the label or %NULL if there was no label widget or
+               line="256">the text in the label or %NULL if there was no label widget or
               the label widget was not a #GtkLabel. The returned string is
               owned by the @property_page and must not be modified or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -2739,7 +2741,7 @@ label widget if a non-%NULL argument was passed to thunarx_property_page_new()).
           <instance-parameter name="property_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="247">a #ThunarxPropertyPage.</doc>
+                 line="250">a #ThunarxPropertyPage.</doc>
             <type name="PropertyPage" c:type="ThunarxPropertyPage*"/>
           </instance-parameter>
         </parameters>
@@ -2749,20 +2751,20 @@ label widget if a non-%NULL argument was passed to thunarx_property_page_new()).
               glib:get-property="label-widget">
         <doc xml:space="preserve"
              filename="thunarx-property-page.c"
-             line="300">Returns the label widget for the @property_page. See
+             line="303">Returns the label widget for the @property_page. See
 thunarx_property_page_set_label_widget().</doc>
-        <source-position filename="thunarx-property-page.h" line="71"/>
+        <source-position filename="thunarx-property-page.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-property-page.c"
-               line="307">the label widget or %NULL if there is none.</doc>
+               line="310">the label widget or %NULL if there is none.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="property_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="302">a #ThunarxPropertyPage.</doc>
+                 line="305">a #ThunarxPropertyPage.</doc>
             <type name="PropertyPage" c:type="ThunarxPropertyPage*"/>
           </instance-parameter>
         </parameters>
@@ -2772,9 +2774,9 @@ thunarx_property_page_set_label_widget().</doc>
               glib:set-property="label">
         <doc xml:space="preserve"
              filename="thunarx-property-page.c"
-             line="270">Sets the text of the label. If @label is %NULL, the current label is
+             line="273">Sets the text of the label. If @label is %NULL, the current label is
 removed.</doc>
-        <source-position filename="thunarx-property-page.h" line="68"/>
+        <source-position filename="thunarx-property-page.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2782,13 +2784,13 @@ removed.</doc>
           <instance-parameter name="property_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="272">a #ThunarxPropertyPage.</doc>
+                 line="275">a #ThunarxPropertyPage.</doc>
             <type name="PropertyPage" c:type="ThunarxPropertyPage*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="273">the text to use as the label of the page.</doc>
+                 line="276">the text to use as the label of the page.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2798,9 +2800,9 @@ removed.</doc>
               glib:set-property="label-widget">
         <doc xml:space="preserve"
              filename="thunarx-property-page.c"
-             line="318">Sets the label widget for the @property_page. This is the widget
+             line="321">Sets the label widget for the @property_page. This is the widget
 that will appear in the notebook header for the @property_page.</doc>
-        <source-position filename="thunarx-property-page.h" line="72"/>
+        <source-position filename="thunarx-property-page.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2808,13 +2810,13 @@ that will appear in the notebook header for the @property_page.</doc>
           <instance-parameter name="property_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="320">a #ThunarxPropertyPage.</doc>
+                 line="323">a #ThunarxPropertyPage.</doc>
             <type name="PropertyPage" c:type="ThunarxPropertyPage*"/>
           </instance-parameter>
           <parameter name="label_widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-property-page.c"
-                 line="321">the new label widget.</doc>
+                 line="324">the new label widget.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -3009,7 +3011,7 @@ g_list_foreach (list, (GFunc) g_object_ref_sink, NULL);
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
         <source-position filename="thunarx-property-page-provider.h"
-                         line="66"/>
+                         line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-property-page-provider.c"
@@ -3144,16 +3146,16 @@ additional pages for the file properties dialog.</doc>
                 c:identifier="thunarx_provider_factory_get_default">
         <doc xml:space="preserve"
              filename="thunarx-provider-factory.c"
-             line="249">Returns a reference to the default #ThunarxProviderFactory
+             line="256">Returns a reference to the default #ThunarxProviderFactory
 instance.
 
 The caller is responsible to free the returned object
 using g_object_unref() when no longer needed.</doc>
-        <source-position filename="thunarx-provider-factory.h" line="44"/>
+        <source-position filename="thunarx-provider-factory.h" line="46"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-provider-factory.c"
-               line="258">a reference to the default #ThunarxProviderFactory
+               line="265">a reference to the default #ThunarxProviderFactory
          instance.</doc>
           <type name="ProviderFactory" c:type="ThunarxProviderFactory*"/>
         </return-value>
@@ -3162,18 +3164,18 @@ using g_object_unref() when no longer needed.</doc>
               c:identifier="thunarx_provider_factory_list_providers">
         <doc xml:space="preserve"
              filename="thunarx-provider-factory.c"
-             line="283">Returns all providers of the given @type.
+             line="290">Returns all providers of the given @type.
 
 The caller is responsible to release the returned
 list of providers using code like this:
 &lt;informalexample&gt;&lt;programlisting&gt;
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="thunarx-provider-factory.h" line="46"/>
+        <source-position filename="thunarx-provider-factory.h" line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-provider-factory.c"
-               line="296">the of providers for @type.</doc>
+               line="303">the of providers for @type.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="GObject.Object"/>
           </type>
@@ -3182,13 +3184,13 @@ g_list_free_full (list, g_object_unref);
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-provider-factory.c"
-                 line="285">a #ThunarxProviderFactory instance.</doc>
+                 line="292">a #ThunarxProviderFactory instance.</doc>
             <type name="ProviderFactory" c:type="ThunarxProviderFactory*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-provider-factory.c"
-                 line="286">the provider #GType.</doc>
+                 line="293">the provider #GType.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -3214,19 +3216,19 @@ g_list_free_full (list, g_object_unref);
       <constructor name="new" c:identifier="thunarx_provider_module_new">
         <doc xml:space="preserve"
              filename="thunarx-provider-module.c"
-             line="276">Allocates a new #ThunarxProviderModule for @filename.</doc>
-        <source-position filename="thunarx-provider-module.h" line="42"/>
+             line="282">Allocates a new #ThunarxProviderModule for @filename.</doc>
+        <source-position filename="thunarx-provider-module.h" line="44"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-provider-module.c"
-               line="282">the newly allocated #ThunarxProviderModule.</doc>
+               line="288">the newly allocated #ThunarxProviderModule.</doc>
           <type name="ProviderModule" c:type="ThunarxProviderModule*"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-provider-module.c"
-                 line="278">the name of the library file.</doc>
+                 line="284">the name of the library file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3235,9 +3237,9 @@ g_list_free_full (list, g_object_unref);
               c:identifier="thunarx_provider_module_list_types">
         <doc xml:space="preserve"
              filename="thunarx-provider-module.c"
-             line="300">Determines the #GType&lt;!----&gt;s provided by @module and returns
+             line="306">Determines the #GType&lt;!----&gt;s provided by @module and returns
 them in @types and @n_types.</doc>
-        <source-position filename="thunarx-provider-module.h" line="44"/>
+        <source-position filename="thunarx-provider-module.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3245,21 +3247,38 @@ them in @types and @n_types.</doc>
           <instance-parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-provider-module.c"
-                 line="302">a #ThunarxProviderModule.</doc>
+                 line="308">a #ThunarxProviderModule.</doc>
             <type name="ProviderModule" c:type="const ThunarxProviderModule*"/>
           </instance-parameter>
           <parameter name="types" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-provider-module.c"
-                 line="303">return location for the #GType array pointer.</doc>
+                 line="309">return location for the #GType array pointer.</doc>
             <type name="GType" c:type="const GType**"/>
           </parameter>
           <parameter name="n_types" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-provider-module.c"
-                 line="304">return location for the number of types.</doc>
+                 line="310">return location for the number of types.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="unuse" c:identifier="thunarx_provider_module_unuse">
+        <doc xml:space="preserve"
+             filename="thunarx-provider-module.c"
+             line="335">Wrapper for 'g_type_module_unuse' which first checks if the module is in use</doc>
+        <source-position filename="thunarx-provider-module.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="thunarx-provider-module.c"
+                 line="337">a #ThunarxProviderModule.</doc>
+            <type name="ProviderModule" c:type="ThunarxProviderModule*"/>
+          </instance-parameter>
         </parameters>
       </method>
     </class>
@@ -3501,7 +3520,7 @@ This method has no effect unless called from the
 If the interface was already registered for the type in this @plugin, nothing will be done.
 
 As long as any instances of the type exist, the type @plugin will not be unloaded.</doc>
-        <source-position filename="thunarx-provider-plugin.h" line="95"/>
+        <source-position filename="thunarx-provider-plugin.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3542,7 +3561,7 @@ from memory when no longer needed and reload it on demand. If
 %FALSE is returned, then the application may unload @plugin, else
 if %TRUE is returned the application will take care that @plugin
 is never unloaded from memory during the lifetime of the application.</doc>
-        <source-position filename="thunarx-provider-plugin.h" line="86"/>
+        <source-position filename="thunarx-provider-plugin.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-provider-plugin.c"
@@ -3568,7 +3587,7 @@ with name @name was previously registered, the #GType identifier for the type is
 otherwise the type is newly registered, and the resulting #GType identifier returned.
 
 As long as any instances of the type exist, the type @plugin will not be unloaded.</doc>
-        <source-position filename="thunarx-provider-plugin.h" line="99"/>
+        <source-position filename="thunarx-provider-plugin.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-provider-plugin.c"
@@ -3606,7 +3625,7 @@ qname was previously registered, the #GType identifier for the type is returned,
 registered, and the resulting #GType identifier returned.
 
 As long as any instances of the type exist, the type @plugin will not be unloaded.</doc>
-        <source-position filename="thunarx-provider-plugin.h" line="102"/>
+        <source-position filename="thunarx-provider-plugin.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-provider-plugin.c"
@@ -3645,7 +3664,7 @@ and the resulting #GType identifier returned.
 
 When reregistering a type (typically because a module is unloaded then reloaded, and reinitialized), module and
 @type_parent must be the same as they were previously.</doc>
-        <source-position filename="thunarx-provider-plugin.h" line="90"/>
+        <source-position filename="thunarx-provider-plugin.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-provider-plugin.c"
@@ -3698,7 +3717,7 @@ of %TRUE then the application will never try to unload @plugin.
 
 This method has no effect unless called from the
 %thunar_extension_initialize method of the @plugin.</doc>
-        <source-position filename="thunarx-provider-plugin.h" line="87"/>
+        <source-position filename="thunarx-provider-plugin.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4038,7 +4057,7 @@ accessible from the extensions.</doc>
       <virtual-method name="changed" invoker="changed">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="715">This method should be used by derived classes
+             line="730">This method should be used by derived classes
 to emit the "changed" signal for @renamer. See
 the documentation of the "changed" signal for
 details.</doc>
@@ -4050,7 +4069,7 @@ details.</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="717">a #ThunarxRenamer.</doc>
+                 line="732">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
         </parameters>
@@ -4058,7 +4077,7 @@ details.</doc>
       <virtual-method name="get_menu_items" invoker="get_menu_items">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="619">Returns the list of #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for
+             line="634">Returns the list of #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for
 the given list of @files. By default, this method returns %NULL
 (the empty list), but derived classes may override this method
 to provide additional items for files in the bulk renamer
@@ -4126,7 +4145,7 @@ of your menu item (which is likely to be the case in most situations).</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-renamer.c"
-               line="690">the list of
+               line="705">the list of
          #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for the given list of
          @files.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -4137,19 +4156,19 @@ of your menu item (which is likely to be the case in most situations).</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="621">a #ThunarxRenamer.</doc>
+                 line="636">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="622">a #GtkWindow or %NULL.</doc>
+                 line="637">a #GtkWindow or %NULL.</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="623">a #GList of #ThunarxFileInfo&lt;!----&gt;s.</doc>
+                 line="638">a #GList of #ThunarxFileInfo&lt;!----&gt;s.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FileInfo"/>
             </type>
@@ -4159,7 +4178,7 @@ of your menu item (which is likely to be the case in most situations).</doc>
       <virtual-method name="load" invoker="load">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="546">Tells @renamer to load its internal settings from the specified
+             line="561">Tells @renamer to load its internal settings from the specified
 @settings. The @settings hash table contains previously saved
 settings, see thunarx_renamer_save(), as key/value pairs of
 strings. That is, both the keys and the values are strings.
@@ -4183,13 +4202,13 @@ implementation, you should also override thunarx_renamer_save().</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="548">a #ThunarxRenamer.</doc>
+                 line="563">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="549">a #GHashTable which contains the previously saved
+                 line="564">a #GHashTable which contains the previously saved
             settings for @renamer as key/value pairs of strings.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
@@ -4201,7 +4220,7 @@ implementation, you should also override thunarx_renamer_save().</doc>
       <virtual-method name="process" invoker="process">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="512">Determines the replacement for @text (which is the relevant
+             line="527">Determines the replacement for @text (which is the relevant
 part of the full @file name, i.e. either the suffix, the name
 or the name and the suffix).
 
@@ -4211,20 +4230,20 @@ g_free() when no longer needed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-renamer.c"
-               line="530">the string with which to replace @text.</doc>
+               line="545">the string with which to replace @text.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="514">a #ThunarxRenamer.</doc>
+                 line="529">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="515">the #ThunarxFileInfo for the file whose new
+                 line="530">the #ThunarxFileInfo for the file whose new
            name - according to @renamer - should be
            determined.</doc>
             <type name="FileInfo" c:type="ThunarxFileInfo*"/>
@@ -4232,14 +4251,14 @@ g_free() when no longer needed.</doc>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="518">the part of the filename to which the
+                 line="533">the part of the filename to which the
            @renamer should be applied.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="520">the index of the file in the list, used
+                 line="535">the index of the file in the list, used
            for renamers that work on numbering.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -4248,7 +4267,7 @@ g_free() when no longer needed.</doc>
       <virtual-method name="save" invoker="save">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="580">Tells @renamer to save its internal settings to the specified
+             line="595">Tells @renamer to save its internal settings to the specified
 @settings, which can afterwards be loaded by thunarx_renamer_load().
 
 The strings saved to @settings must be allocated by g_strdup(),
@@ -4277,13 +4296,13 @@ implementation, you should also override thunarx_renamer_load().</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="582">a #ThunarxRenamer.</doc>
+                 line="597">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="583">a #GHashTable to which the current settings of @renamer
+                 line="598">a #GHashTable to which the current settings of @renamer
             should be stored as key/value pairs of strings.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
@@ -4295,11 +4314,11 @@ implementation, you should also override thunarx_renamer_load().</doc>
       <method name="changed" c:identifier="thunarx_renamer_changed">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="715">This method should be used by derived classes
+             line="730">This method should be used by derived classes
 to emit the "changed" signal for @renamer. See
 the documentation of the "changed" signal for
 details.</doc>
-        <source-position filename="thunarx-renamer.h" line="131"/>
+        <source-position filename="thunarx-renamer.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4307,7 +4326,7 @@ details.</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="717">a #ThunarxRenamer.</doc>
+                 line="732">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
         </parameters>
@@ -4317,22 +4336,22 @@ details.</doc>
               glib:get-property="help-url">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="414">Returns the URL of the documentation for @renamer
+             line="429">Returns the URL of the documentation for @renamer
 or %NULL if no specific documentation is available
 for @renamer and the general documentation of the
 Thunar renamers should be displayed instead.</doc>
-        <source-position filename="thunarx-renamer.h" line="109"/>
+        <source-position filename="thunarx-renamer.h" line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-renamer.c"
-               line="423">the URL of the documentation for @renamer.</doc>
+               line="438">the URL of the documentation for @renamer.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="416">a #ThunarxRenamer.</doc>
+                 line="431">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
         </parameters>
@@ -4341,7 +4360,7 @@ Thunar renamers should be displayed instead.</doc>
               c:identifier="thunarx_renamer_get_menu_items">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="619">Returns the list of #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for
+             line="634">Returns the list of #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for
 the given list of @files. By default, this method returns %NULL
 (the empty list), but derived classes may override this method
 to provide additional items for files in the bulk renamer
@@ -4405,11 +4424,11 @@ Instead, if @window is not %NULL, add a weak reference using the
 g_object_weak_ref() or g_object_add_weak_pointer() method. But don't
 forget to release the weak reference if @window survived the lifetime
 of your menu item (which is likely to be the case in most situations).</doc>
-        <source-position filename="thunarx-renamer.h" line="127"/>
+        <source-position filename="thunarx-renamer.h" line="136"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-renamer.c"
-               line="690">the list of
+               line="705">the list of
          #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for the given list of
          @files.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -4420,19 +4439,19 @@ of your menu item (which is likely to be the case in most situations).</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="621">a #ThunarxRenamer.</doc>
+                 line="636">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="622">a #GtkWindow or %NULL.</doc>
+                 line="637">a #GtkWindow or %NULL.</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="623">a #GList of #ThunarxFileInfo&lt;!----&gt;s.</doc>
+                 line="638">a #GList of #ThunarxFileInfo&lt;!----&gt;s.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FileInfo"/>
             </type>
@@ -4444,20 +4463,20 @@ of your menu item (which is likely to be the case in most situations).</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="467">Returns the user visible name for @renamer, previously
+             line="482">Returns the user visible name for @renamer, previously
 set with thunarx_renamer_set_name().</doc>
-        <source-position filename="thunarx-renamer.h" line="113"/>
+        <source-position filename="thunarx-renamer.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="thunarx-renamer.c"
-               line="474">the user visible name for @renamer.</doc>
+               line="489">the user visible name for @renamer.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="469">a #ThunarxRenamer.</doc>
+                 line="484">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
         </parameters>
@@ -4465,7 +4484,7 @@ set with thunarx_renamer_set_name().</doc>
       <method name="load" c:identifier="thunarx_renamer_load">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="546">Tells @renamer to load its internal settings from the specified
+             line="561">Tells @renamer to load its internal settings from the specified
 @settings. The @settings hash table contains previously saved
 settings, see thunarx_renamer_save(), as key/value pairs of
 strings. That is, both the keys and the values are strings.
@@ -4481,7 +4500,7 @@ from strings.
 
 If you decide to override this method for your #ThunarxRenamer
 implementation, you should also override thunarx_renamer_save().</doc>
-        <source-position filename="thunarx-renamer.h" line="122"/>
+        <source-position filename="thunarx-renamer.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4489,13 +4508,13 @@ implementation, you should also override thunarx_renamer_save().</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="548">a #ThunarxRenamer.</doc>
+                 line="563">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="549">a #GHashTable which contains the previously saved
+                 line="564">a #GHashTable which contains the previously saved
             settings for @renamer as key/value pairs of strings.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
@@ -4507,30 +4526,30 @@ implementation, you should also override thunarx_renamer_save().</doc>
       <method name="process" c:identifier="thunarx_renamer_process">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="512">Determines the replacement for @text (which is the relevant
+             line="527">Determines the replacement for @text (which is the relevant
 part of the full @file name, i.e. either the suffix, the name
 or the name and the suffix).
 
 The caller is responsible to free the returned string using
 g_free() when no longer needed.</doc>
-        <source-position filename="thunarx-renamer.h" line="117"/>
+        <source-position filename="thunarx-renamer.h" line="123"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-renamer.c"
-               line="530">the string with which to replace @text.</doc>
+               line="545">the string with which to replace @text.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="514">a #ThunarxRenamer.</doc>
+                 line="529">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="515">the #ThunarxFileInfo for the file whose new
+                 line="530">the #ThunarxFileInfo for the file whose new
            name - according to @renamer - should be
            determined.</doc>
             <type name="FileInfo" c:type="ThunarxFileInfo*"/>
@@ -4538,14 +4557,14 @@ g_free() when no longer needed.</doc>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="518">the part of the filename to which the
+                 line="533">the part of the filename to which the
            @renamer should be applied.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="520">the index of the file in the list, used
+                 line="535">the index of the file in the list, used
            for renamers that work on numbering.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -4554,7 +4573,7 @@ g_free() when no longer needed.</doc>
       <method name="save" c:identifier="thunarx_renamer_save">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="580">Tells @renamer to save its internal settings to the specified
+             line="595">Tells @renamer to save its internal settings to the specified
 @settings, which can afterwards be loaded by thunarx_renamer_load().
 
 The strings saved to @settings must be allocated by g_strdup(),
@@ -4575,7 +4594,7 @@ to strings.
 
 If you decide to override this method for your #ThunarxRenamer
 implementation, you should also override thunarx_renamer_load().</doc>
-        <source-position filename="thunarx-renamer.h" line="124"/>
+        <source-position filename="thunarx-renamer.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4583,13 +4602,13 @@ implementation, you should also override thunarx_renamer_load().</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="582">a #ThunarxRenamer.</doc>
+                 line="597">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="583">a #GHashTable to which the current settings of @renamer
+                 line="598">a #GHashTable to which the current settings of @renamer
             should be stored as key/value pairs of strings.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
@@ -4603,7 +4622,7 @@ implementation, you should also override thunarx_renamer_load().</doc>
               glib:set-property="help-url">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="434">The URL to the documentation of this #ThunarxRenamer.
+             line="449">The URL to the documentation of this #ThunarxRenamer.
 Derived classes can set this property to point to the
 documentation for the specific renamer. The documentation
 of the specific renamer in turn should contain a link to
@@ -4612,7 +4631,7 @@ the general Thunar renamer documentation.
 May also be unset, in which case the general Thunar renamer
 documentation will be shown when the user clicks the "Help"
 button.</doc>
-        <source-position filename="thunarx-renamer.h" line="110"/>
+        <source-position filename="thunarx-renamer.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4620,13 +4639,13 @@ button.</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="436">a #ThunarxRenamer.</doc>
+                 line="451">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="help_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="437">the new URL to the documentation of @renamer.</doc>
+                 line="452">the new URL to the documentation of @renamer.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4634,10 +4653,10 @@ button.</doc>
       <method name="set_name" c:identifier="thunarx_renamer_set_name">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="485">Sets the user visible name for @renamer to @name. This method should
+             line="500">Sets the user visible name for @renamer to @name. This method should
 only be called by derived classes and prior to returning the @renamer
 is returned from thunarx_renamer_provider_get_renamers().</doc>
-        <source-position filename="thunarx-renamer.h" line="114"/>
+        <source-position filename="thunarx-renamer.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4645,13 +4664,13 @@ is returned from thunarx_renamer_provider_get_renamers().</doc>
           <instance-parameter name="renamer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="487">a #ThunarxRenamer.</doc>
+                 line="502">a #ThunarxRenamer.</doc>
             <type name="Renamer" c:type="ThunarxRenamer*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="488">the new user visible name for @renamer.</doc>
+                 line="503">the new user visible name for @renamer.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4664,7 +4683,7 @@ is returned from thunarx_renamer_provider_get_renamers().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="135">The URL to the documentation of this #ThunarxRenamer.
+             line="142">The URL to the documentation of this #ThunarxRenamer.
 Derived classes can set this property to point to the
 documentation for the specific renamer. The documentation
 of the specific renamer in turn should contain a link to
@@ -4683,7 +4702,7 @@ button.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="156">The user visible name of the renamer, that is displayed
+             line="163">The user visible name of the renamer, that is displayed
 in the bulk rename dialog of the file manager. Derived
 classes should set a useful name.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -4697,7 +4716,7 @@ classes should set a useful name.</doc>
       <glib:signal name="changed" when="first">
         <doc xml:space="preserve"
              filename="thunarx-renamer.c"
-             line="171">Derived classes should emit this signal using the
+             line="178">Derived classes should emit this signal using the
 thunarx_renamer_changed() method whenever the user
 changed a setting in the @renamer GUI.
 
@@ -4729,20 +4748,20 @@ rename module in Thunar.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="530">the string with which to replace @text.</doc>
+                 line="545">the string with which to replace @text.</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="renamer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="514">a #ThunarxRenamer.</doc>
+                   line="529">a #ThunarxRenamer.</doc>
               <type name="Renamer" c:type="ThunarxRenamer*"/>
             </parameter>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="515">the #ThunarxFileInfo for the file whose new
+                   line="530">the #ThunarxFileInfo for the file whose new
            name - according to @renamer - should be
            determined.</doc>
               <type name="FileInfo" c:type="ThunarxFileInfo*"/>
@@ -4750,14 +4769,14 @@ rename module in Thunar.</doc>
             <parameter name="text" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="518">the part of the filename to which the
+                   line="533">the part of the filename to which the
            @renamer should be applied.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="index" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="520">the index of the file in the list, used
+                   line="535">the index of the file in the list, used
            for renamers that work on numbering.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
@@ -4777,13 +4796,13 @@ rename module in Thunar.</doc>
             <parameter name="renamer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="548">a #ThunarxRenamer.</doc>
+                   line="563">a #ThunarxRenamer.</doc>
               <type name="Renamer" c:type="ThunarxRenamer*"/>
             </parameter>
             <parameter name="settings" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="549">a #GHashTable which contains the previously saved
+                   line="564">a #GHashTable which contains the previously saved
             settings for @renamer as key/value pairs of strings.</doc>
               <type name="GLib.HashTable" c:type="GHashTable*">
                 <type name="gpointer" c:type="gpointer"/>
@@ -4806,13 +4825,13 @@ rename module in Thunar.</doc>
             <parameter name="renamer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="582">a #ThunarxRenamer.</doc>
+                   line="597">a #ThunarxRenamer.</doc>
               <type name="Renamer" c:type="ThunarxRenamer*"/>
             </parameter>
             <parameter name="settings" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="583">a #GHashTable to which the current settings of @renamer
+                   line="598">a #GHashTable to which the current settings of @renamer
             should be stored as key/value pairs of strings.</doc>
               <type name="GLib.HashTable" c:type="GHashTable*">
                 <type name="gpointer" c:type="gpointer"/>
@@ -4831,7 +4850,7 @@ rename module in Thunar.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="thunarx-renamer.c"
-                 line="690">the list of
+                 line="705">the list of
          #ThunarxMenuItem&lt;!----&gt;s provided by @renamer for the given list of
          @files.</doc>
             <type name="GLib.List" c:type="GList*">
@@ -4842,19 +4861,19 @@ rename module in Thunar.</doc>
             <parameter name="renamer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="621">a #ThunarxRenamer.</doc>
+                   line="636">a #ThunarxRenamer.</doc>
               <type name="Renamer" c:type="ThunarxRenamer*"/>
             </parameter>
             <parameter name="window" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="622">a #GtkWindow or %NULL.</doc>
+                   line="637">a #GtkWindow or %NULL.</doc>
               <type name="Gtk.Window" c:type="GtkWindow*"/>
             </parameter>
             <parameter name="files" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="623">a #GList of #ThunarxFileInfo&lt;!----&gt;s.</doc>
+                   line="638">a #GList of #ThunarxFileInfo&lt;!----&gt;s.</doc>
               <type name="GLib.List" c:type="GList*">
                 <type name="FileInfo"/>
               </type>
@@ -4915,7 +4934,7 @@ rename module in Thunar.</doc>
             <parameter name="renamer" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="thunarx-renamer.c"
-                   line="717">a #ThunarxRenamer.</doc>
+                   line="732">a #ThunarxRenamer.</doc>
               <type name="Renamer" c:type="ThunarxRenamer*"/>
             </parameter>
           </parameters>
@@ -5042,7 +5061,7 @@ something like this when no longer needed:
 &lt;informalexample&gt;&lt;programlisting&gt;
 g_list_free_full (list, g_object_unref);
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="thunarx-renamer-provider.h" line="66"/>
+        <source-position filename="thunarx-renamer-provider.h" line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="thunarx-renamer-provider.c"
@@ -5204,7 +5223,7 @@ if (G_UNLIKELY (mismatch != NULL))
            filename="thunarx-file-info.c"
            line="419">Does a deep copy of @file_infos and returns the
 new list.</doc>
-      <source-position filename="thunarx-file-info.h" line="162"/>
+      <source-position filename="thunarx-file-info.h" line="179"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="thunarx-file-info.c"
@@ -5232,7 +5251,7 @@ new list.</doc>
            line="436">Frees the resources allocated for the @file_infos
 list and decreases the reference count on the
 #ThunarxFileInfo&lt;!----&gt;s contained within.</doc>
-      <source-position filename="thunarx-file-info.h" line="163"/>
+      <source-position filename="thunarx-file-info.h" line="181"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -5344,7 +5363,7 @@ of &lt;link linkend="ThunarxPropertyPage"&gt;&lt;type&gt;ThunarxPropertyPage&lt;
     <docsection name="thunarx-provider-factory">
       <doc xml:space="preserve"
            filename="thunarx-provider-factory.c"
-           line="46">The #ThunarxProviderFactory class allows applications to use Thunar plugins. It handles
+           line="51">The #ThunarxProviderFactory class allows applications to use Thunar plugins. It handles
 the loading of the installed extensions and instantiates providers for the application.
 For example, Thunar uses this class to access the installed extensions.</doc>
     </docsection>
@@ -5358,7 +5377,7 @@ types and control certain aspects of the plugin (see thunarx_provider_plugin_set
     <docsection name="thunarx-renamer">
       <doc xml:space="preserve"
            filename="thunarx-renamer.c"
-           line="50">The abstract base class &lt;type&gt;ThunarxRenamer&lt;/type&gt; is implemented by
+           line="49">The abstract base class &lt;type&gt;ThunarxRenamer&lt;/type&gt; is implemented by
 extensions which provide additional bulk renamers that should be used in
 the bulk rename dialog.
 

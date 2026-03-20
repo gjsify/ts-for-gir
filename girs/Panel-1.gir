@@ -4089,7 +4089,7 @@ It is a programming error to call this with a key that does not exist.</doc>
       <source-position filename="src/panel-version.h" line="41"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="PANEL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="4" c:type="PANEL_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="50">libpanel micro version component (e.g. 3 if %PANEL_VERSION is 1.2.3)</doc>
@@ -7777,7 +7777,7 @@ It will automatically reveal or hide the specified area from
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.10.2" c:type="PANEL_VERSION_S">
+    <constant name="VERSION_S" value="1.10.4" c:type="PANEL_VERSION_S">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="64">libpanel version, encoded as a string, useful for printing and

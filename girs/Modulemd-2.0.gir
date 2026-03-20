@@ -5,8 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Modulemd"
              version="2.0"
              shared-library="libmodulemd.so.2"
@@ -10015,6 +10017,7 @@ untranslated string, they should pass `"C"` for the locale.</doc>
       </method>
       <method name="is_static_context"
               c:identifier="modulemd_module_stream_v2_is_static_context"
+              glib:get-property="static-context"
               version="2.11">
         <source-position filename="modulemd/include/modulemd-2.0/modulemd-module-stream-v2.h"
                          line="1009"/>
@@ -10636,6 +10639,7 @@ they must ignore the `context` attribute as a uniqueness element.</doc>
                 construct="1"
                 transfer-ownership="none"
                 setter="set_static_context"
+                getter="is_static_context"
                 default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>

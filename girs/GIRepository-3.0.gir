@@ -2005,6 +2005,15 @@ Free the value with [method@GIRepository.ConstantInfo.free_value].</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="DEPRECATED_ENUMERATOR_IN_2_88_FOR"
+                    c:identifier="GI_DEPRECATED_ENUMERATOR_IN_2_88_FOR"
+                    introspectable="0">
+      <source-position filename="girepository/gi-visibility.h" line="1096"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="DEPRECATED_FOR"
                     c:identifier="GI_DEPRECATED_FOR"
                     introspectable="0">
@@ -2293,6 +2302,15 @@ Free the value with [method@GIRepository.ConstantInfo.free_value].</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="DEPRECATED_IN_2_88_FOR"
+                    c:identifier="GI_DEPRECATED_IN_2_88_FOR"
+                    introspectable="0">
+      <source-position filename="girepository/gi-visibility.h" line="1092"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="DEPRECATED_MACRO_IN_2_26_FOR"
                     c:identifier="GI_DEPRECATED_MACRO_IN_2_26_FOR"
                     introspectable="0">
@@ -2572,6 +2590,15 @@ Free the value with [method@GIRepository.ConstantInfo.free_value].</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="DEPRECATED_MACRO_IN_2_88_FOR"
+                    c:identifier="GI_DEPRECATED_MACRO_IN_2_88_FOR"
+                    introspectable="0">
+      <source-position filename="girepository/gi-visibility.h" line="1094"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="DEPRECATED_TYPE_IN_2_26_FOR"
                     c:identifier="GI_DEPRECATED_TYPE_IN_2_26_FOR"
                     introspectable="0">
@@ -2846,6 +2873,15 @@ Free the value with [method@GIRepository.ConstantInfo.free_value].</doc>
                     c:identifier="GI_DEPRECATED_TYPE_IN_2_86_FOR"
                     introspectable="0">
       <source-position filename="girepository/gi-visibility.h" line="1064"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_TYPE_IN_2_88_FOR"
+                    c:identifier="GI_DEPRECATED_TYPE_IN_2_88_FOR"
+                    introspectable="0">
+      <source-position filename="girepository/gi-visibility.h" line="1098"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -5931,7 +5967,7 @@ dependent, rather than `Gio` itself.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="girepository/gdump.c"
-             line="588">Dump the introspection data from the types specified in @input_filename to
+             line="606">Dump the introspection data from the types specified in @input_filename to
 @output_filename.
 
 The input file should be a
@@ -5945,20 +5981,20 @@ This function will overwrite the contents of the output file.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/gdump.c"
-               line="605">true on success, false on error</doc>
+               line="623">true on success, false on error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="input_filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gdump.c"
-                 line="590">Input filename (for example `input.txt`)</doc>
+                 line="608">Input filename (for example `input.txt`)</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
           <parameter name="output_filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gdump.c"
-                 line="591">Output filename (for example `output.xml`)</doc>
+                 line="609">Output filename (for example `output.xml`)</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5968,7 +6004,7 @@ This function will overwrite the contents of the output file.</doc>
                 version="2.86">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2349">Gets the singleton process-global default `GIRepository`.
+             line="2351">Gets the singleton process-global default `GIRepository`.
 
 The singleton is needed for situations where you must coordinate between
 bindings and libraries which also need to interact with introspection which
@@ -5979,7 +6015,7 @@ Python.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2360">the global singleton repository</doc>
+               line="2362">the global singleton repository</doc>
           <type name="Repository" c:type="GIRepository*"/>
         </return-value>
       </function>
@@ -5993,7 +6029,7 @@ Python.</doc>
                 version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2183">Obtain the option group for girepository.
+             line="2185">Obtain the option group for girepository.
 
 It’s used by the dumper and for programs that want to provide introspection
 information</doc>
@@ -6001,7 +6037,7 @@ information</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2191">the option group</doc>
+               line="2193">the option group</doc>
           <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
         </return-value>
       </function>
@@ -6832,7 +6868,7 @@ See also: gi_repository_get_search_path().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2077">Force the namespace @namespace_ to be loaded if it isn’t already.
+             line="2079">Force the namespace @namespace_ to be loaded if it isn’t already.
 
 If @namespace_ is not loaded, this function will search for a
 `.typelib` file using the repository search path.  In addition, a
@@ -6842,7 +6878,7 @@ not specified, the latest will be used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2092">a pointer to the [type@GIRepository.Typelib] if
+               line="2094">a pointer to the [type@GIRepository.Typelib] if
   successful, `NULL` otherwise</doc>
           <type name="Typelib" c:type="GITypelib*"/>
         </return-value>
@@ -6850,13 +6886,13 @@ not specified, the latest will be used.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2079">A #GIRepository</doc>
+                 line="2081">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2080">GI namespace to use, e.g. `Gtk`</doc>
+                 line="2082">GI namespace to use, e.g. `Gtk`</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version"
@@ -6865,13 +6901,13 @@ not specified, the latest will be used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2081">Version of namespace, may be `NULL` for latest</doc>
+                 line="2083">Version of namespace, may be `NULL` for latest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2082">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
+                 line="2084">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
             <type name="RepositoryLoadFlags" c:type="GIRepositoryLoadFlags"/>
           </parameter>
         </parameters>
@@ -6882,7 +6918,7 @@ not specified, the latest will be used.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2117">Force the namespace @namespace_ to be loaded if it isn’t already.
+             line="2119">Force the namespace @namespace_ to be loaded if it isn’t already.
 
 If @namespace_ is not loaded, this function will search for a
 `.typelib` file within the private directory only. In addition, a
@@ -6892,7 +6928,7 @@ not specified, the latest will be used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2134">a pointer to the [type@GIRepository.Typelib] if
+               line="2136">a pointer to the [type@GIRepository.Typelib] if
   successful, `NULL` otherwise</doc>
           <type name="Typelib" c:type="GITypelib*"/>
         </return-value>
@@ -6900,20 +6936,20 @@ not specified, the latest will be used.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2119">A #GIRepository</doc>
+                 line="2121">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="typelib_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2120">Private directory where to find the requested
+                 line="2122">Private directory where to find the requested
   typelib</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2122">GI namespace to use, e.g. `Gtk`</doc>
+                 line="2124">GI namespace to use, e.g. `Gtk`</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version"
@@ -6922,13 +6958,13 @@ not specified, the latest will be used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2123">Version of namespace, may be `NULL` for latest</doc>
+                 line="2125">Version of namespace, may be `NULL` for latest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="2124">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
+                 line="2126">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
             <type name="RepositoryLoadFlags" c:type="GIRepositoryLoadFlags"/>
           </parameter>
         </parameters>
@@ -9209,19 +9245,19 @@ depending on @storage_type.</doc>
               version="2.80">
       <doc xml:space="preserve"
            filename="girepository/girepository.c"
-           line="2213">Obtain a string representation of @type</doc>
+           line="2215">Obtain a string representation of @type</doc>
       <source-position filename="girepository/gitypeinfo.h" line="94"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2219">the string</doc>
+             line="2221">the string</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2215">the type_tag</doc>
+               line="2217">the type_tag</doc>
           <type name="TypeTag" c:type="GITypeTag"/>
         </parameter>
       </parameters>

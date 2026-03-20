@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <package name="gtk-session-lock-0"/>
+  <c:include name="gtk-session-lock/gtk-session-lock.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="GtkSessionLock"
+             version="0.1"
+             shared-library="libgtk-session-lock.so.0"
+             c:identifier-prefixes="GtkSessionLock"
+             c:symbol-prefixes="gtk_session_lock">
+    <class name="Lock"
+           c:symbol-prefix="lock"
+           c:type="GtkSessionLockLock"
+           parent="GObject.Object"
+           glib:type-name="GtkSessionLockLock"
+           glib:get-type="gtk_session_lock_lock_get_type"
+           glib:type-struct="LockClass">
+      <source-position filename="include/gtk-session-lock.h" line="73"/>
+      <method name="destroy" c:identifier="gtk_session_lock_lock_destroy">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="96">Destory an inactive lock object. You should call this method only after
+receiving the finished signal.</doc>
+        <source-position filename="include/gtk-session-lock.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lock" transfer-ownership="none">
+            <type name="Lock" c:type="GtkSessionLockLock*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lock_lock" c:identifier="gtk_session_lock_lock_lock">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="85">Actually perform the locking operation. This should be run after connecting
+to this object's signals.
+
+The compositor will hide all surfaces except those created via the
+#gtk_session_lock_lock_new_surface method.</doc>
+        <source-position filename="include/gtk-session-lock.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lock" transfer-ownership="none">
+            <type name="Lock" c:type="GtkSessionLockLock*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="new_surface"
+              c:identifier="gtk_session_lock_lock_new_surface">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="113">This method must be called after gtk_session_lock_lock_lock. If the session
+is locked successfully, the specified window will be shown on the given
+monitor. You must only ever call this method once for a given lock and
+monitor. The window will automatically be stretched to cover the entire
+screen.</doc>
+        <source-position filename="include/gtk-session-lock.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lock" transfer-ownership="none">
+            <type name="Lock" c:type="GtkSessionLockLock*"/>
+          </instance-parameter>
+          <parameter name="gtk_window" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="monitor" transfer-ownership="none">
+            <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unlock_and_destroy"
+              c:identifier="gtk_session_lock_lock_unlock_and_destroy">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="104">Unlock an active session lock and dispose of it. It cannot be reused.
+You should generally call this method only after verifying a user's
+identity.</doc>
+        <source-position filename="include/gtk-session-lock.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lock" transfer-ownership="none">
+            <type name="Lock" c:type="GtkSessionLockLock*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="lock-manager"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="lock-obj" writable="1" transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <glib:signal name="finished" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="locked" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="LockClass"
+            c:type="GtkSessionLockLockClass"
+            glib:is-gtype-struct-for="Lock">
+      <source-position filename="include/gtk-session-lock.h" line="73"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function name="get_ext_session_lock_surface_v1"
+              c:identifier="gtk_session_lock_get_ext_session_lock_surface_v1">
+      <source-position filename="include/gtk-session-lock.h" line="70"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="68">The underlying lock surface Wayland object</doc>
+        <type name="gpointer" c:type="ext_session_lock_surface_v1*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/gtk-session-lock.h"
+               line="66">A lock surface.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_major_version"
+              c:identifier="gtk_session_lock_get_major_version">
+      <source-position filename="include/gtk-session-lock.h" line="20"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="18">the major version number of the GTK Session Lock library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_micro_version"
+              c:identifier="gtk_session_lock_get_micro_version">
+      <source-position filename="include/gtk-session-lock.h" line="34"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="32">the micro/patch version number of the GTK Session Lock library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_minor_version"
+              c:identifier="gtk_session_lock_get_minor_version">
+      <source-position filename="include/gtk-session-lock.h" line="27"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="25">the minor version number of the GTK Session Lock library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_protocol_version"
+              c:identifier="gtk_session_lock_get_protocol_version">
+      <doc xml:space="preserve"
+           filename="include/gtk-session-lock.h"
+           line="46">May block for a Wayland roundtrip the first time it's called.</doc>
+      <source-position filename="include/gtk-session-lock.h" line="54"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="51">version of the ext_session_lock_v1 protocol supported by the
+compositor or 0 if the protocol is not supported.</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="is_lock_window"
+              c:identifier="gtk_session_lock_is_lock_window">
+      <source-position filename="include/gtk-session-lock.h" line="62"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="60">if @window has been initialized as a lock surface.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/gtk-session-lock.h"
+               line="58">A #GtkWindow that may or may not have a lock surface.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="is_supported" c:identifier="gtk_session_lock_is_supported">
+      <doc xml:space="preserve"
+           filename="include/gtk-session-lock.h"
+           line="36">May block for a Wayland roundtrip the first time it's called.</doc>
+      <source-position filename="include/gtk-session-lock.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="41">%TRUE if the platform is Wayland and Wayland compositor supports the
+ext_session_lock_v1 protocol.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="prepare_lock" c:identifier="gtk_session_lock_prepare_lock">
+      <doc xml:space="preserve"
+           filename="include/gtk-session-lock.h"
+           line="75">Prepare a new #SessionLockLock. You should connect signals to it before
+calling its lock method.</doc>
+      <source-position filename="include/gtk-session-lock.h" line="83"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="include/gtk-session-lock.h"
+             line="81">A new #SessionLockLock.</doc>
+        <type name="Lock" c:type="GtkSessionLockLock*"/>
+      </return-value>
+    </function>
+    <function name="unmap_lock_window"
+              c:identifier="gtk_session_lock_unmap_lock_window"
+              version="0.2">
+      <doc xml:space="preserve"
+           filename="include/gtk-session-lock.h"
+           line="124">If the given window is a lock window, unmap the surface. This must be called
+before the window is unmapped (e.g. hidden).</doc>
+      <source-position filename="include/gtk-session-lock.h" line="132"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

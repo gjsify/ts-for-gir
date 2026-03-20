@@ -215,20 +215,20 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="1684">an array of characters.</doc>
+               line="1692">an array of characters.</doc>
           <type name="SearchResult" c:type="GcSearchResult*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/gc.c"
-                 line="1680">a #GcSearchContext.</doc>
+                 line="1688">a #GcSearchContext.</doc>
             <type name="SearchContext" c:type="GcSearchContext*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/gc.c"
-                 line="1681">a #GAsyncResult.</doc>
+                 line="1689">a #GAsyncResult.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -270,14 +270,14 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="1036">a new #GcSearchCriteria</doc>
+               line="1044">a new #GcSearchCriteria</doc>
           <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
         </return-value>
         <parameters>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/gc.c"
-                 line="1034">a #GcCategory</doc>
+                 line="1042">a #GcCategory</doc>
             <type name="Category" c:type="GcCategory"/>
           </parameter>
         </parameters>
@@ -288,14 +288,14 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="1051">a new #GcSearchCriteria</doc>
+               line="1059">a new #GcSearchCriteria</doc>
           <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
         </return-value>
         <parameters>
           <parameter name="keywords" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/gc.c"
-                 line="1049">an array of keywords</doc>
+                 line="1057">an array of keywords</doc>
             <array c:type="const gchar* const*">
               <type name="utf8"/>
             </array>
@@ -320,14 +320,14 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="1077">a new #GcSearchCriteria</doc>
+               line="1085">a new #GcSearchCriteria</doc>
           <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
         </return-value>
         <parameters>
           <parameter name="scripts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/gc.c"
-                 line="1074">an array of scripts</doc>
+                 line="1082">an array of scripts</doc>
             <array length="1"
                    zero-terminated="0"
                    c:type="const GUnicodeScript*">
@@ -337,7 +337,7 @@ and/or use gtk-doc annotations.  -->
           <parameter name="n_scripts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/gc.c"
-                 line="1075">the length of @scripts</doc>
+                 line="1083">the length of @scripts</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
         </parameters>
@@ -401,14 +401,14 @@ and/or use gtk-doc annotations.  -->
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/gc.c"
-             line="897">whether the character is composite</doc>
+             line="905">whether the character is composite</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="chars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="894">a string consisting of UCS-4 characters</doc>
+               line="902">a string consisting of UCS-4 characters</doc>
           <array length="1" zero-terminated="0" c:type="const gunichar*">
             <type name="gunichar" c:type="gunichar"/>
           </array>
@@ -416,7 +416,7 @@ and/or use gtk-doc annotations.  -->
         <parameter name="n_chars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="895">length of @chars</doc>
+               line="903">length of @chars</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -427,14 +427,14 @@ and/or use gtk-doc annotations.  -->
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/gc.c"
-             line="930">%TRUE if @chars consists of invisible characters, %FALSE otherwise.</doc>
+             line="938">%TRUE if @chars consists of invisible characters, %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="chars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="927">a string consisting of UCS-4 characters</doc>
+               line="935">a string consisting of UCS-4 characters</doc>
           <array length="1" zero-terminated="0" c:type="const gunichar*">
             <type name="gunichar" c:type="gunichar"/>
           </array>
@@ -442,7 +442,7 @@ and/or use gtk-doc annotations.  -->
         <parameter name="n_chars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="928">length of @chars</doc>
+               line="936">length of @chars</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -452,14 +452,14 @@ and/or use gtk-doc annotations.  -->
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="lib/gc.c"
-             line="911">a newly allocated character name of @uc.</doc>
+             line="919">a newly allocated character name of @uc.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="chars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="908">a string consisting of UCS-4 characters</doc>
+               line="916">a string consisting of UCS-4 characters</doc>
           <array length="1" zero-terminated="0" c:type="const gunichar*">
             <type name="gunichar" c:type="gunichar"/>
           </array>
@@ -467,7 +467,7 @@ and/or use gtk-doc annotations.  -->
         <parameter name="n_chars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="909">length of @chars</doc>
+               line="917">length of @chars</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -478,7 +478,7 @@ and/or use gtk-doc annotations.  -->
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/gc.c"
-             line="1705">an ISO639 two-letter language code</doc>
+             line="1713">an ISO639 two-letter language code</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
     </function>
@@ -488,7 +488,7 @@ and/or use gtk-doc annotations.  -->
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/gc.c"
-             line="1753">a list of script names.</doc>
+             line="1787">a list of script names.</doc>
         <array length="1" zero-terminated="0" c:type="GUnicodeScript*">
           <type name="GLib.UnicodeScript" c:type="GUnicodeScript"/>
         </array>
@@ -497,7 +497,7 @@ and/or use gtk-doc annotations.  -->
         <parameter name="language" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="1750">a language name</doc>
+               line="1784">a language name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="n_scripts"
@@ -506,7 +506,7 @@ and/or use gtk-doc annotations.  -->
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="1751">length of the returned value</doc>
+               line="1785">length of the returned value</doc>
           <type name="gsize" c:type="size_t*"/>
         </parameter>
       </parameters>
@@ -516,20 +516,20 @@ and/or use gtk-doc annotations.  -->
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/gc.c"
-             line="956">the character at @index</doc>
+             line="964">the character at @index</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="result" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="953">a #GcSearchResult</doc>
+               line="961">a #GcSearchResult</doc>
           <type name="SearchResult" c:type="GcSearchResult*"/>
         </parameter>
         <parameter name="index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/gc.c"
-               line="954">index of the character to get</doc>
+               line="962">index of the character to get</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>

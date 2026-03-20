@@ -5,7 +5,9 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <doc:format name="unknown"/>
   <namespace name="GTop"
              version="2.0"
              shared-library="libgtop-2.0.so.11"
@@ -2080,7 +2082,7 @@ and/or use gtk-doc annotations.  -->
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="LIBGTOP_MICRO_VERSION"
-              value="1"
+              value="3"
               c:type="LIBGTOP_MICRO_VERSION">
       <source-position filename="libgtopconfig.h" line="6"/>
       <type name="gint" c:type="gint"/>
@@ -2186,19 +2188,19 @@ and/or use gtk-doc annotations.  -->
         <type name="glibtop_sysdeps" c:type="glibtop_sysdeps"/>
       </field>
       <field name="pid" writable="1">
-        <type name="gint" c:type="pid_t"/>
+        <type name="pid_t" c:type="pid_t"/>
       </field>
       <field name="uid" writable="1">
-        <type name="guint" c:type="uid_t"/>
+        <type name="uid_t" c:type="uid_t"/>
       </field>
       <field name="euid" writable="1">
-        <type name="guint" c:type="uid_t"/>
+        <type name="uid_t" c:type="uid_t"/>
       </field>
       <field name="gid" writable="1">
-        <type name="guint" c:type="gid_t"/>
+        <type name="gid_t" c:type="gid_t"/>
       </field>
       <field name="egid" writable="1">
-        <type name="guint" c:type="gid_t"/>
+        <type name="gid_t" c:type="gid_t"/>
       </field>
       <field name="machine" writable="1">
         <type name="glibtop_machine" c:type="glibtop_machine*"/>
@@ -2682,7 +2684,7 @@ and/or use gtk-doc annotations.  -->
                   c:type="glibtop_proc_affinity*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2701,7 +2703,7 @@ and/or use gtk-doc annotations.  -->
                   c:type="glibtop_proc_affinity*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2718,7 +2720,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
           <parameter name="max_len" transfer-ownership="none">
             <type name="guint" c:type="unsigned"/>
@@ -2738,7 +2740,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
           <parameter name="max_len" transfer-ownership="none">
             <type name="guint" c:type="unsigned"/>
@@ -2762,7 +2764,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
           <parameter name="max_len" transfer-ownership="none">
             <type name="guint" c:type="unsigned"/>
@@ -2782,7 +2784,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_io" c:type="glibtop_proc_io*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2799,7 +2801,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_io" c:type="glibtop_proc_io*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2817,7 +2819,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_kernel" c:type="glibtop_proc_kernel*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2835,7 +2837,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_kernel" c:type="glibtop_proc_kernel*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2857,7 +2859,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_map" c:type="glibtop_proc_map*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2879,7 +2881,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_map" c:type="glibtop_proc_map*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2896,7 +2898,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_mem" c:type="glibtop_proc_mem*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2913,7 +2915,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_mem" c:type="glibtop_proc_mem*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2939,7 +2941,7 @@ and/or use gtk-doc annotations.  -->
                   c:type="glibtop_proc_open_files*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2960,7 +2962,7 @@ and/or use gtk-doc annotations.  -->
                   c:type="glibtop_proc_open_files*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2978,7 +2980,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_segment" c:type="glibtop_proc_segment*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2996,7 +2998,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_segment" c:type="glibtop_proc_segment*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3014,7 +3016,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_signal" c:type="glibtop_proc_signal*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3032,7 +3034,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_signal" c:type="glibtop_proc_signal*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3049,7 +3051,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_state" c:type="glibtop_proc_state*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3066,7 +3068,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_state" c:type="glibtop_proc_state*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3083,7 +3085,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_time" c:type="glibtop_proc_time*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3100,7 +3102,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_time" c:type="glibtop_proc_time*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3117,7 +3119,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_uid" c:type="glibtop_proc_uid*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3134,7 +3136,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_uid" c:type="glibtop_proc_uid*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3155,7 +3157,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_wd" c:type="glibtop_proc_wd*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3176,7 +3178,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_wd" c:type="glibtop_proc_wd*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3188,7 +3190,7 @@ and/or use gtk-doc annotations.  -->
                line="155">an array of process
     ids</doc>
           <array c:type="pid_t*">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </array>
         </return-value>
         <parameters>
@@ -3226,7 +3228,7 @@ and/or use gtk-doc annotations.  -->
                line="188">an array of process
     ids</doc>
           <array c:type="pid_t*">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </array>
         </return-value>
         <parameters>
@@ -3656,7 +3658,7 @@ and/or use gtk-doc annotations.  -->
                   c:type="glibtop_proc_affinity*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3670,7 +3672,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
           <parameter name="max_len" transfer-ownership="none">
             <type name="guint" c:type="unsigned"/>
@@ -3689,7 +3691,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
           <parameter name="max_len" transfer-ownership="none">
             <type name="guint" c:type="unsigned"/>
@@ -3706,7 +3708,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_io" c:type="glibtop_proc_io*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3720,7 +3722,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_kernel" c:type="glibtop_proc_kernel*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3736,7 +3738,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_map" c:type="glibtop_proc_map*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3750,7 +3752,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_mem" c:type="glibtop_proc_mem*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3770,7 +3772,7 @@ and/or use gtk-doc annotations.  -->
                   c:type="glibtop_proc_open_files*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3785,7 +3787,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_segment" c:type="glibtop_proc_segment*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3799,7 +3801,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_signal" c:type="glibtop_proc_signal*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3813,7 +3815,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_state" c:type="glibtop_proc_state*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3827,7 +3829,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_time" c:type="glibtop_proc_time*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3841,7 +3843,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_uid" c:type="glibtop_proc_uid*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3857,7 +3859,7 @@ and/or use gtk-doc annotations.  -->
             <type name="glibtop_proc_wd" c:type="glibtop_proc_wd*"/>
           </parameter>
           <parameter name="pid" transfer-ownership="none">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </parameter>
         </parameters>
       </function>
@@ -3869,7 +3871,7 @@ and/or use gtk-doc annotations.  -->
                line="136">an array of process
     ids</doc>
           <array c:type="pid_t*">
-            <type name="gint" c:type="pid_t"/>
+            <type name="pid_t" c:type="pid_t"/>
           </array>
         </return-value>
         <parameters>
@@ -4405,7 +4407,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_affinity" c:type="glibtop_proc_affinity*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4421,7 +4423,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
         <parameter name="max_len" transfer-ownership="none">
           <type name="guint" c:type="unsigned"/>
@@ -4442,7 +4444,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_args" c:type="glibtop_proc_args*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
         <parameter name="max_len" transfer-ownership="none">
           <type name="guint" c:type="unsigned"/>
@@ -4461,7 +4463,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_io" c:type="glibtop_proc_io*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4477,7 +4479,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_kernel" c:type="glibtop_proc_kernel*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4495,7 +4497,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_map" c:type="glibtop_proc_map*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4511,7 +4513,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_mem" c:type="glibtop_proc_mem*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4531,7 +4533,7 @@ and/or use gtk-doc annotations.  -->
                 c:type="glibtop_proc_open_files*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4547,7 +4549,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_segment" c:type="glibtop_proc_segment*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4563,7 +4565,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_signal" c:type="glibtop_proc_signal*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4579,7 +4581,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_state" c:type="glibtop_proc_state*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4595,7 +4597,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_time" c:type="glibtop_proc_time*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4611,7 +4613,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_uid" c:type="glibtop_proc_uid*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4629,7 +4631,7 @@ and/or use gtk-doc annotations.  -->
           <type name="glibtop_proc_wd" c:type="glibtop_proc_wd*"/>
         </parameter>
         <parameter name="pid" transfer-ownership="none">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </parameter>
       </parameters>
     </function>
@@ -4643,7 +4645,7 @@ and/or use gtk-doc annotations.  -->
              line="136">an array of process
     ids</doc>
         <array c:type="pid_t*">
-          <type name="gint" c:type="pid_t"/>
+          <type name="pid_t" c:type="pid_t"/>
         </array>
       </return-value>
       <parameters>

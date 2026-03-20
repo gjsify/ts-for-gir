@@ -5,23 +5,19 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <c:include name="cmb_private.h"/>
+  <doc:format name="unknown"/>
   <namespace name="CambalachePrivate"
              version="3.0"
              shared-library="libcambalacheprivate-3.so"
              c:identifier-prefixes="CmbPrivate"
              c:symbol-prefixes="cmb_private">
-    <function name="builder_init" c:identifier="cmb_private_builder_init">
-      <source-position filename="cambalache/private/cmb_private.h" line="45"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-    </function>
     <function name="container_child_set_property_from_string"
               c:identifier="cmb_private_container_child_set_property_from_string">
-      <source-position filename="cambalache/private/cmb_private.h" line="39"/>
+      <source-position filename="cambalache/private/cmb_private.h" line="36"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -45,7 +41,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="object_set_property_from_string"
               c:identifier="cmb_private_object_set_property_from_string">
-      <source-position filename="cambalache/private/cmb_private.h" line="50"/>
+      <source-position filename="cambalache/private/cmb_private.h" line="43"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -60,6 +56,21 @@ and/or use gtk-doc annotations.  -->
                    transfer-ownership="none"
                    nullable="1"
                    allow-none="1">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="widget_set_application_id"
+              c:identifier="cmb_private_widget_set_application_id">
+      <source-position filename="cambalache/private/cmb_private.h" line="48"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="app_id" transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

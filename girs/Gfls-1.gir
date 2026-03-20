@@ -1,0 +1,1050 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <package name="libgedit-gfls-1"/>
+  <c:include name="gfls/gfls.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="Gfls"
+             version="1"
+             shared-library="libgedit-gfls-1.so.0"
+             c:identifier-prefixes="Gfls"
+             c:symbol-prefixes="gfls">
+    <function-macro name="ATTRIBUTE_KEYS"
+                    c:identifier="GFLS_ATTRIBUTE_KEYS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ATTRIBUTE_KEYS_CLASS"
+                    c:identifier="GFLS_ATTRIBUTE_KEYS_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="19"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ATTRIBUTE_KEYS_GET_CLASS"
+                    c:identifier="GFLS_ATTRIBUTE_KEYS_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="AttributeKeys"
+           c:symbol-prefix="attribute_keys"
+           c:type="GflsAttributeKeys"
+           parent="GObject.Object"
+           glib:type-name="GflsAttributeKeys"
+           glib:get-type="gfls_attribute_keys_get_type"
+           glib:type-struct="AttributeKeysClass">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="40"/>
+      <constructor name="new"
+                   c:identifier="gfls_attribute_keys_new"
+                   version="0.2">
+        <source-position filename="gfls/gfls-attribute-keys.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-attribute-keys.c"
+               line="73">a new #GflsAttributeKeys object.</doc>
+          <type name="AttributeKeys" c:type="GflsAttributeKeys*"/>
+        </return-value>
+      </constructor>
+      <method name="add" c:identifier="gfls_attribute_keys_add" version="0.2">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-attribute-keys.c"
+             line="82">Adds @str to @keys.
+
+@str has the same semantics as the corresponding parameter of
+g_file_query_info().</doc>
+        <source-position filename="gfls/gfls-attribute-keys.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="keys" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-attribute-keys.c"
+                 line="84">a #GflsAttributeKeys.</doc>
+            <type name="AttributeKeys" c:type="GflsAttributeKeys*"/>
+          </instance-parameter>
+          <parameter name="str" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-attribute-keys.c"
+                 line="85">the value to add.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="gfls_attribute_keys_to_string"
+              version="0.2">
+        <source-position filename="gfls/gfls-attribute-keys.h" line="53"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-attribute-keys.c"
+               line="108">the complete string to pass to
+  g_file_query_info() (for example), or %NULL if the list is empty.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="keys" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-attribute-keys.c"
+                 line="106">a #GflsAttributeKeys.</doc>
+            <type name="AttributeKeys" c:type="GflsAttributeKeys*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="AttributeKeysPrivate" c:type="GflsAttributeKeysPrivate*"/>
+      </field>
+    </class>
+    <record name="AttributeKeysClass"
+            c:type="GflsAttributeKeysClass"
+            glib:is-gtype-struct-for="AttributeKeys">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="AttributeKeysPrivate"
+            c:type="GflsAttributeKeysPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="26"/>
+    </record>
+    <function-macro name="IS_ATTRIBUTE_KEYS"
+                    c:identifier="GFLS_IS_ATTRIBUTE_KEYS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ATTRIBUTE_KEYS_CLASS"
+                    c:identifier="GFLS_IS_ATTRIBUTE_KEYS_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-attribute-keys.h" line="21"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOADER_CONFIG"
+                    c:identifier="GFLS_IS_LOADER_CONFIG"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOADER_CONFIG_SIMPLE"
+                    c:identifier="GFLS_IS_LOADER_CONFIG_SIMPLE"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOADER_CONFIG_SIMPLE_CLASS"
+                    c:identifier="GFLS_IS_LOADER_CONFIG_SIMPLE_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_UNSAVED_DOCUMENT_TITLES"
+                    c:identifier="GFLS_IS_UNSAVED_DOCUMENT_TITLES"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_UNSAVED_DOCUMENT_TITLES_CLASS"
+                    c:identifier="GFLS_IS_UNSAVED_DOCUMENT_TITLES_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="21"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOADER_CONFIG"
+                    c:identifier="GFLS_LOADER_CONFIG"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config.h" line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOADER_CONFIG_GET_INTERFACE"
+                    c:identifier="GFLS_LOADER_CONFIG_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOADER_CONFIG_SIMPLE"
+                    c:identifier="GFLS_LOADER_CONFIG_SIMPLE"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="17"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOADER_CONFIG_SIMPLE_CLASS"
+                    c:identifier="GFLS_LOADER_CONFIG_SIMPLE_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="18"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOADER_CONFIG_SIMPLE_GET_CLASS"
+                    c:identifier="GFLS_LOADER_CONFIG_SIMPLE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="LoaderConfig"
+               c:symbol-prefix="loader_config"
+               c:type="GflsLoaderConfig"
+               glib:type-name="GflsLoaderConfig"
+               glib:get-type="gfls_loader_config_get_type"
+               glib:type-struct="LoaderConfigInterface">
+      <source-position filename="gfls/gfls-loader-config.h" line="34"/>
+    </interface>
+    <record name="LoaderConfigInterface"
+            c:type="GflsLoaderConfigInterface"
+            glib:is-gtype-struct-for="LoaderConfig"
+            version="0.2">
+      <source-position filename="gfls/gfls-loader-config.h" line="34"/>
+      <field name="parent_interface">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-loader-config.h"
+             line="27">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+    </record>
+    <class name="LoaderConfigSimple"
+           c:symbol-prefix="loader_config_simple"
+           c:type="GflsLoaderConfigSimple"
+           parent="GObject.Object"
+           glib:type-name="GflsLoaderConfigSimple"
+           glib:get-type="gfls_loader_config_simple_get_type"
+           glib:type-struct="LoaderConfigSimpleClass">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="39"/>
+      <constructor name="new_from_file"
+                   c:identifier="gfls_loader_config_simple_new_from_file"
+                   version="0.2">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-loader-config-simple.c"
+             line="46">Creates a new #GflsLoaderConfigSimple object with @file for the input
+content.</doc>
+        <source-position filename="gfls/gfls-loader-config-simple.h"
+                         line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-config-simple.c"
+               line="53">a new #GflsLoaderConfigSimple object.</doc>
+          <type name="LoaderConfigSimple" c:type="GflsLoaderConfigSimple*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-loader-config-simple.c"
+                 line="48">a #GFile.</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_stream"
+                   c:identifier="gfls_loader_config_simple_new_from_stream"
+                   version="0.2">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-loader-config-simple.c"
+             line="69">Creates a new #GflsLoaderConfigSimple object with @input_stream for the input
+content.
+
+To load from stdin, a useful function is
+g_application_command_line_get_stdin().</doc>
+        <source-position filename="gfls/gfls-loader-config-simple.h"
+                         line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-config-simple.c"
+               line="79">a new #GflsLoaderConfigSimple object.</doc>
+          <type name="LoaderConfigSimple" c:type="GflsLoaderConfigSimple*"/>
+        </return-value>
+        <parameters>
+          <parameter name="input_stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-loader-config-simple.c"
+                 line="71">a #GInputStream.</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_file"
+              c:identifier="gfls_loader_config_simple_get_file"
+              version="0.2">
+        <source-position filename="gfls/gfls-loader-config-simple.h"
+                         line="51"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-config-simple.c"
+               line="99">the #GFile of @config, or %NULL.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-loader-config-simple.c"
+                 line="97">a #GflsLoaderConfigSimple.</doc>
+            <type name="LoaderConfigSimple" c:type="GflsLoaderConfigSimple*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stream"
+              c:identifier="gfls_loader_config_simple_get_stream"
+              version="0.2">
+        <source-position filename="gfls/gfls-loader-config-simple.h"
+                         line="54"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-config-simple.c"
+               line="113">the #GInputStream of @config, or %NULL.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-loader-config-simple.c"
+                 line="111">a #GflsLoaderConfigSimple.</doc>
+            <type name="LoaderConfigSimple" c:type="GflsLoaderConfigSimple*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="LoaderConfigSimplePrivate"
+              c:type="GflsLoaderConfigSimplePrivate*"/>
+      </field>
+    </class>
+    <record name="LoaderConfigSimpleClass"
+            c:type="GflsLoaderConfigSimpleClass"
+            glib:is-gtype-struct-for="LoaderConfigSimple">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="39"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="LoaderConfigSimplePrivate"
+            c:type="GflsLoaderConfigSimplePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gfls/gfls-loader-config-simple.h" line="25"/>
+    </record>
+    <enumeration name="LoaderError"
+                 version="0.1"
+                 glib:type-name="GflsLoaderError"
+                 glib:get-type="gfls_loader_error_get_type"
+                 c:type="GflsLoaderError"
+                 glib:error-domain="gfls-loader-error">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-error.h"
+           line="19">An error code used with the %GFLS_LOADER_ERROR domain.</doc>
+      <member name="too_big"
+              value="0"
+              c:identifier="GFLS_LOADER_ERROR_TOO_BIG"
+              glib:nick="too-big"
+              glib:name="GFLS_LOADER_ERROR_TOO_BIG">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-error.h"
+             line="21">The content is too big.</doc>
+      </member>
+      <member name="not_utf8"
+              value="1"
+              c:identifier="GFLS_LOADER_ERROR_NOT_UTF8"
+              glib:nick="not-utf8"
+              glib:name="GFLS_LOADER_ERROR_NOT_UTF8">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-error.h"
+             line="22">The content is not a valid UTF-8 string. Used by
+  basic loaders that don't support charset conversion.</doc>
+      </member>
+      <member name="has_very_long_line"
+              value="2"
+              c:identifier="GFLS_LOADER_ERROR_HAS_VERY_LONG_LINE"
+              glib:nick="has-very-long-line"
+              glib:name="GFLS_LOADER_ERROR_HAS_VERY_LONG_LINE">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-error.h"
+             line="24">The content contains a very long line.</doc>
+      </member>
+      <function name="quark" c:identifier="gfls_loader_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <function-macro name="UNSAVED_DOCUMENT_TITLES"
+                    c:identifier="GFLS_UNSAVED_DOCUMENT_TITLES"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNSAVED_DOCUMENT_TITLES_CLASS"
+                    c:identifier="GFLS_UNSAVED_DOCUMENT_TITLES_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="19"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNSAVED_DOCUMENT_TITLES_GET_CLASS"
+                    c:identifier="GFLS_UNSAVED_DOCUMENT_TITLES_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <callback name="UnsavedDocumentTitleCallback"
+              c:type="GflsUnsavedDocumentTitleCallback"
+              version="0.1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-unsaved-document-titles.h"
+           line="42">Type definition for a function that will be called to create a string
+containing @num, to give a name to a document not yet present on disk.</doc>
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="52"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-unsaved-document-titles.h"
+             line="49">the created title.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="num" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-unsaved-document-titles.h"
+               line="44">the number.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="UnsavedDocumentTitles"
+           c:symbol-prefix="unsaved_document_titles"
+           c:type="GflsUnsavedDocumentTitles"
+           parent="GObject.Object"
+           glib:type-name="GflsUnsavedDocumentTitles"
+           glib:get-type="gfls_unsaved_document_titles_get_type"
+           glib:type-struct="UnsavedDocumentTitlesClass">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="40"/>
+      <constructor name="new"
+                   c:identifier="gfls_unsaved_document_titles_new"
+                   version="0.1">
+        <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                         line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-unsaved-document-titles.c"
+               line="98">a new #GflsUnsavedDocumentTitles object.</doc>
+          <type name="UnsavedDocumentTitles"
+                c:type="GflsUnsavedDocumentTitles*"/>
+        </return-value>
+      </constructor>
+      <function name="get_default"
+                c:identifier="gfls_unsaved_document_titles_get_default"
+                version="0.1">
+        <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-unsaved-document-titles.c"
+               line="110">the default instance of #GflsUnsavedDocumentTitles.</doc>
+          <type name="UnsavedDocumentTitles"
+                c:type="GflsUnsavedDocumentTitles*"/>
+        </return-value>
+      </function>
+      <method name="allocate_number"
+              c:identifier="gfls_unsaved_document_titles_allocate_number"
+              version="0.1">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-unsaved-document-titles.c"
+             line="138">Allocates a number for an unsaved document. When the document is saved on
+disk, you need to give back the number with
+gfls_unsaved_document_titles_release_number().
+
+The returned number is the lowest available value, starting at 1.</doc>
+        <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-unsaved-document-titles.c"
+               line="148">the allocated number.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titles" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="140">a #GflsUnsavedDocumentTitles.</doc>
+            <type name="UnsavedDocumentTitles"
+                  c:type="GflsUnsavedDocumentTitles*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="gfls_unsaved_document_titles_get_title"
+              version="0.1">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-unsaved-document-titles.c"
+             line="222">Generates the title of an unsaved document. To customize the returned string,
+you can use gfls_unsaved_document_titles_set_title_callback().</doc>
+        <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                         line="73"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-unsaved-document-titles.c"
+               line="230">a suitable title for the unsaved document with the
+  given @number.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titles" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="224">a #GflsUnsavedDocumentTitles.</doc>
+            <type name="UnsavedDocumentTitles"
+                  c:type="GflsUnsavedDocumentTitles*"/>
+          </instance-parameter>
+          <parameter name="number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="225">a number.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release_number"
+              c:identifier="gfls_unsaved_document_titles_release_number"
+              version="0.1">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-unsaved-document-titles.c"
+             line="185">Call this function to give back @number to @titles, so that it becomes
+available for a next unsaved document. This is usually done when the document
+is saved on disk.</doc>
+        <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titles" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="187">a #GflsUnsavedDocumentTitles.</doc>
+            <type name="UnsavedDocumentTitles"
+                  c:type="GflsUnsavedDocumentTitles*"/>
+          </instance-parameter>
+          <parameter name="number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="188">the number to release.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_title_callback"
+              c:identifier="gfls_unsaved_document_titles_set_title_callback"
+              version="0.1"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-unsaved-document-titles.c"
+             line="243">Sets a #GflsUnsavedDocumentTitleCallback function. To reset to the default
+setting, pass %NULL to @title_callback.
+
+The callback will be used by gfls_unsaved_document_titles_get_title().
+
+Examples:
+- "Unsaved Document N"
+- "Unsaved File N"
+- "Untitled Document N"
+- "New Document N"
+- Etc.</doc>
+        <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                         line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titles" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="245">a #GflsUnsavedDocumentTitles.</doc>
+            <type name="UnsavedDocumentTitles"
+                  c:type="GflsUnsavedDocumentTitles*"/>
+          </instance-parameter>
+          <parameter name="title_callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfls/gfls-unsaved-document-titles.c"
+                 line="246">a #GflsUnsavedDocumentTitleCallback.</doc>
+            <type name="UnsavedDocumentTitleCallback"
+                  c:type="GflsUnsavedDocumentTitleCallback"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="UnsavedDocumentTitlesPrivate"
+              c:type="GflsUnsavedDocumentTitlesPrivate*"/>
+      </field>
+    </class>
+    <record name="UnsavedDocumentTitlesClass"
+            c:type="GflsUnsavedDocumentTitlesClass"
+            glib:is-gtype-struct-for="UnsavedDocumentTitles">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="UnsavedDocumentTitlesPrivate"
+            c:type="GflsUnsavedDocumentTitlesPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gfls/gfls-unsaved-document-titles.h"
+                       line="26"/>
+    </record>
+    <function name="finalize" c:identifier="gfls_finalize" version="0.1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-init.c"
+           line="28">Free the resources allocated by Gfls. For example it unrefs the singleton
+objects.
+
+It is not mandatory to call this function, it's just to be friendlier to
+memory debugging tools. This function is meant to be called at the end of
+main(). It can be called several times.</doc>
+      <source-position filename="gfls/gfls-init.h" line="20"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <docsection name="gfls-attribute-keys">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-attribute-keys.c"
+           line="7">#GflsAttributeKeys is a small utility to build a list of #GFile attribute
+keys. The result is a single string to pass as an argument to a function like
+g_file_query_info().
+
+It is useful for doing only a single query with a list of keys coming from
+different parts of the program. To take an example, Gfls might have its own
+list of keys to query, but it is desirable to ask the application for
+additional keys.</doc>
+    </docsection>
+    <docsection name="gfls-input-stream">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-input-stream.c"
+           line="7">Additional functions for #GInputStream.</doc>
+    </docsection>
+    <docsection name="gfls-loader-basic">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-loader-basic.c"
+           line="10">Basic file loader that validates input for GtkTextView purposes:
+- Must not exceed a certain size (because all the content of a GtkTextBuffer
+  is stored in memory).
+- Must be valid UTF-8 already (GTK in general accepts only UTF-8 only
+  strings).
+- Must not contain very long lines (not well supported by the GtkTextView
+  widget, there can be performance problems and freezes).
+
+So:
+- No character encoding auto-detection and/or conversion.
+- No workarounds for problems found, just return an error without the
+  possibility to re-configure the loading.
+
+But this basic file loader offers a convenient API for the above: #GFile
+loading with the intention to put its content into a GtkTextBuffer.</doc>
+    </docsection>
+    <docsection name="gfls-loader-config">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-loader-config.c"
+           line="7">#GflsLoaderConfig is an interface that classes implement to store a loader
+configuration.
+
+Currently it is an empty interface, also called a “marker interface”.</doc>
+    </docsection>
+    <docsection name="gfls-unsaved-document-titles">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-unsaved-document-titles.c"
+           line="9">#GflsUnsavedDocumentTitles is used to give titles to unsaved documents, such
+as "Unsaved Document N" with 'N' replaced by a number.
+
+This is for new documents that have never been saved before and reside in
+memory only. These documents have not yet an associated #GFile.
+
+Do not confuse it with documents with unsaved &lt;emphasis&gt;changes&lt;/emphasis&gt;.</doc>
+    </docsection>
+    <docsection name="gfls-utf8">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-utf8.c"
+           line="7">Additional functions for UTF-8 strings, to complement what is provided by
+GLib.</doc>
+    </docsection>
+    <function name="init" c:identifier="gfls_init" version="0.1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-init.c"
+           line="13">Initializes the Gfls library (e.g. for the internationalization).
+
+This function can be called several times, but is meant to be called at the
+beginning of main(), before any other Gfls function call.</doc>
+      <source-position filename="gfls/gfls-init.h" line="17"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="input_stream_read_async"
+              c:identifier="gfls_input_stream_read_async"
+              version="0.1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-input-stream.c"
+           line="261">This function starts a read operation on @input_stream. It is meant to be
+used as the only read operation on @input_stream, to get a #GBytes as a
+result, with @max_size as the provided maximum number of bytes to read.
+
+@expected_size is typically a #GFile size as returned by
+g_file_info_get_size(). But note that in that case, the returned #GBytes may
+contain a different number of bytes than what was expected (the
+TOC/TOU problem: time of check to time of use). @expected_size is used as an
+indication to how much memory to allocate initially.
+
+See the #GAsyncResult documentation to know how to use this function.</doc>
+      <source-position filename="gfls/gfls-input-stream.h" line="17"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="input_stream" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="263">a #GInputStream.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </parameter>
+        <parameter name="expected_size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="264">the expected number of bytes contained in @input_stream.</doc>
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+        <parameter name="max_size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="265">the maximum number of bytes to read.</doc>
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+        <parameter name="io_priority" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="266">the I/O priority of the request. E.g. %G_PRIORITY_LOW,
+  %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="268">optional #GCancellable object, %NULL to ignore.</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async"
+                   closure="6">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="269">a #GAsyncReadyCallback to call when the operation
+  is finished.</doc>
+          <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="271">user data to pass to @callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="input_stream_read_finish"
+              c:identifier="gfls_input_stream_read_finish"
+              version="0.1"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-input-stream.c"
+           line="311">Finishes an operation started with gfls_input_stream_read_async().
+
+If @is_truncated is set to %TRUE, it is not an error (@error is not set), and
+a #GBytes is returned. However, since gfls_input_stream_read_async() is meant
+to be used as the only read operation on @input_stream, it is an undefined
+behavior if you try to read more content from @input_stream.
+
+The data contained in the resulting #GBytes is always zero-terminated, but
+this is not included in the #GBytes length. The resulting #GBytes should be
+freed with g_bytes_unref() when no longer in use.</doc>
+      <source-position filename="gfls/gfls-input-stream.h" line="26"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-input-stream.c"
+             line="330">a #GBytes, or %NULL on error.</doc>
+        <type name="GLib.Bytes" c:type="GBytes*"/>
+      </return-value>
+      <parameters>
+        <parameter name="input_stream" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="313">a #GInputStream.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="314">a #GAsyncResult.</doc>
+          <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+        </parameter>
+        <parameter name="is_truncated" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-input-stream.c"
+               line="315">will be set to %TRUE if the @input_stream contains more data
+  to be read, but the maximum number of bytes to read has been reached.</doc>
+          <type name="gboolean" c:type="gboolean*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="loader_basic_load_async"
+              c:identifier="gfls_loader_basic_load_async"
+              version="0.1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-loader-basic.c"
+           line="263">Starts a basic file loading operation.
+
+If the @file content is not a valid UTF-8 string, or if the @max_size or
+@max_n_bytes_per_line conditions are not satisfied, an error will be returned
+without the file content.
+
+See the #GAsyncResult documentation to know how to use this function.</doc>
+      <source-position filename="gfls/gfls-loader-basic.h" line="17"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="265">a #GFile.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="max_size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="266">the maximum allowed number of bytes in total.</doc>
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+        <parameter name="max_n_bytes_per_line" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="267">the maximum allowed number of bytes per line, as per
+  gfls_utf8_find_very_long_line().</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="io_priority" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="269">the I/O priority of the request. E.g. %G_PRIORITY_LOW,
+  %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="271">optional #GCancellable object, %NULL to ignore.</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async"
+                   closure="6">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="272">a #GAsyncReadyCallback to call when the operation
+  is finished.</doc>
+          <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="274">user data to pass to @callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="loader_basic_load_finish"
+              c:identifier="gfls_loader_basic_load_finish"
+              version="0.1"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-loader-basic.c"
+           line="310">Finishes an operation started with gfls_loader_basic_load_async().
+
+If everything went well, a #GBytes with the #GFile content (unmodified) is
+returned. It is guaranteed to be a valid UTF-8 string.
+
+Otherwise an error is returned. The %GFLS_LOADER_ERROR domain is used, among
+others.
+
+The data contained in the resulting #GBytes is always zero-terminated, but
+this is not included in the #GBytes length. The resulting #GBytes should be
+freed with g_bytes_unref() when no longer in use.</doc>
+      <source-position filename="gfls/gfls-loader-basic.h" line="26"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-loader-basic.c"
+             line="328">a #GBytes, or %NULL on error.</doc>
+        <type name="GLib.Bytes" c:type="GBytes*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="312">a #GFile.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-loader-basic.c"
+               line="313">a #GAsyncResult.</doc>
+          <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="loader_error_quark"
+              c:identifier="gfls_loader_error_quark"
+              moved-to="LoaderError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="utf8_find_very_long_line"
+              c:identifier="gfls_utf8_find_very_long_line"
+              version="0.3">
+      <doc xml:space="preserve"
+           filename="gfls/gfls-utf8.c"
+           line="16">Finds if a line in @str exceeds @max_n_bytes_per_line.
+
+For performance reasons, @str is not checked whether it is a valid UTF-8
+string. So you must call for example g_utf8_validate() beforehand.</doc>
+      <source-position filename="gfls/gfls-utf8.h" line="17"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfls/gfls-utf8.c"
+             line="27">a pointer to the beginning of the first very long line found, or
+  %NULL if not found.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-utf8.c"
+               line="18">a UTF-8 nul-terminated string.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="max_n_bytes_per_line" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfls/gfls-utf8.c"
+               line="19">the maximum number of bytes per line, without counting
+  the newline character(s).</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -111,7 +111,7 @@ class CustomPaintable extends GObject.Object implements Gdk.Paintable.Interface 
 	}
 
 	vfunc_get_flags(): Gdk.PaintableFlags {
-		return Gdk.PaintableFlags.SIZE | Gdk.PaintableFlags.CONTENTS;
+		return Gdk.PaintableFlags.STATIC_SIZE | Gdk.PaintableFlags.STATIC_CONTENTS;
 	}
 
 	vfunc_get_intrinsic_aspect_ratio(): number {

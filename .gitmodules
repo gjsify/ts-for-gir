@@ -16,7 +16,7 @@
 [submodule "devdocsgjs"]
 	path = refs/devdocsgjs
 	url = https://gitlab.gnome.org/GNOME/devdocsgjs.git
-	branch = main
+	branch = gnome
 [submodule "refs/gjs-guide"]
 	path = refs/gjs-guide
 	url = https://gitlab.gnome.org/World/javascript/gjs-guide.git

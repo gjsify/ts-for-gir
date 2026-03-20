@@ -2617,14 +2617,14 @@ but is good enough for most purposes.</doc>
       <source-position filename="shumate/shumate-location.h" line="57"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="SHUMATE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="SHUMATE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
            line="48">The micro version of libshumate (3, if %SHUMATE_VERSION is 1.2.3)</doc>
       <source-position filename="shumate/shumate-version.h" line="53"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="5" c:type="SHUMATE_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="6" c:type="SHUMATE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
            line="41">The minor version of libshumate (2, if %SHUMATE_VERSION is 1.2.3)</doc>
@@ -3300,7 +3300,7 @@ only for go-to animation, you should connect to
            glib:type-struct="MapLayerClass">
       <doc xml:space="preserve"
            filename="shumate/shumate-map-layer.c"
-           line="33">A [class@Shumate.Layer] implementation that fetches tiles from a [class@Shumate.MapSource]
+           line="30">A [class@Shumate.Layer] implementation that fetches tiles from a [class@Shumate.MapSource]
 and draws them as a grid.
 
 ## CSS nodes
@@ -3333,7 +3333,7 @@ and draws them as a grid.
       <glib:signal name="map-loaded" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="850">Emitted when all the tiles in the map view are finished loading.
+             line="830">Emitted when all the tiles in the map view are finished loading.
 
 As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
         <return-value transfer-ownership="none">
@@ -3343,7 +3343,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
           <parameter name="errors" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="853">`TRUE` if any visible tiles failed to load</doc>
+                 line="833">`TRUE` if any visible tiles failed to load</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3351,7 +3351,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
       <glib:signal name="symbol-clicked" when="last" version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="831">Emitted when a symbol in the map layer is clicked.</doc>
+             line="811">Emitted when a symbol in the map layer is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3359,7 +3359,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="834">a [class@SymbolEvent] with details about the clicked symbol.</doc>
+                 line="814">a [class@SymbolEvent] with details about the clicked symbol.</doc>
             <type name="SymbolEvent"/>
           </parameter>
         </parameters>
@@ -3367,7 +3367,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
       <glib:signal name="tile-error" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="871">Emitted when a tile fails to load.</doc>
+             line="851">Emitted when a tile fails to load.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3375,13 +3375,13 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
           <parameter name="tile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="874">the [class@Tile] that failed to load</doc>
+                 line="854">the [class@Tile] that failed to load</doc>
             <type name="Tile"/>
           </parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="875">the error that occurred</doc>
+                 line="855">the error that occurred</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -6987,7 +6987,7 @@ clicked.</doc>
                  glib:error-domain="shumate-style-error-quark">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-renderer.h"
-           line="61">Error codes that occurs while parsing the style in [class@VectorRenderer].</doc>
+           line="70">Error codes that occurs while parsing the style in [class@VectorRenderer].</doc>
       <member name="failed"
               value="0"
               c:identifier="SHUMATE_STYLE_ERROR_FAILED"
@@ -6995,7 +6995,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_FAILED">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="63">An unspecified error occurred during the operation.</doc>
+             line="72">An unspecified error occurred during the operation.</doc>
       </member>
       <member name="malformed_style"
               value="1"
@@ -7004,7 +7004,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_MALFORMED_STYLE">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="64">A JSON node in the style has the wrong type (e.g. an object where there should be an array).</doc>
+             line="73">A JSON node in the style has the wrong type (e.g. an object where there should be an array).</doc>
       </member>
       <member name="unsupported_layer"
               value="2"
@@ -7013,7 +7013,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_UNSUPPORTED_LAYER">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="65">An unsupported layer type was encountered.</doc>
+             line="74">An unsupported layer type was encountered.</doc>
       </member>
       <member name="invalid_expression"
               value="3"
@@ -7022,7 +7022,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_INVALID_EXPRESSION">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="66">An invalid or unrecognized expression was encountered.</doc>
+             line="75">An invalid or unrecognized expression was encountered.</doc>
       </member>
       <member name="support_omitted"
               value="4"
@@ -7031,7 +7031,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_SUPPORT_OMITTED">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="67">Libshumate was compiled without vector tile support.</doc>
+             line="76">Libshumate was compiled without vector tile support. As of 1.6, vector tile support is always enabled and this error never occurs.</doc>
       </member>
       <member name="unsupported"
               value="5"
@@ -7040,13 +7040,13 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_UNSUPPORTED">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="68">An unsupported style spec feature was encountered.</doc>
+             line="77">An unsupported style spec feature was encountered.</doc>
       </member>
       <function name="quark" c:identifier="shumate_style_error_quark">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="1008">a #GQuark</doc>
+               line="1161">a #GQuark</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -7993,7 +7993,7 @@ the bottom, rather than top, of the map)</doc>
            glib:type-struct="VectorReaderClass">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-reader.c"
-           line="23">Provides low-level access to the contents of a vector tile.
+           line="21">Provides low-level access to the contents of a vector tile.
 
 To create a new [class@VectorReader], use [ctor@VectorReader.new] and pass
 the bytes of a vector tile, which you might get from a [class@DataSource].
@@ -8006,19 +8006,19 @@ and iterate over the features in the tile. You can create multiple
                    version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader.c"
-             line="65">Creates a new [class@VectorReader] from @bytes.</doc>
+             line="61">Creates a new [class@VectorReader] from @bytes.</doc>
         <source-position filename="shumate/shumate-vector-reader.h" line="27"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader.c"
-               line="71">A new [class@VectorReader]</doc>
+               line="67">A new [class@VectorReader]</doc>
           <type name="VectorReader" c:type="ShumateVectorReader*"/>
         </return-value>
         <parameters>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader.c"
-                 line="67">A tile in Mapbox Vector Tile format</doc>
+                 line="63">A tile in Mapbox Vector Tile format</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -8028,19 +8028,19 @@ and iterate over the features in the tile. You can create multiple
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader.c"
-             line="96">Creates a new [class@VectorReaderIter] for @self.</doc>
+             line="87">Creates a new [class@VectorReaderIter] for @self.</doc>
         <source-position filename="shumate/shumate-vector-reader.h" line="28"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader.c"
-               line="102">A new [class@VectorReaderIter]</doc>
+               line="93">A new [class@VectorReaderIter]</doc>
           <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader.c"
-                 line="98">A [class@VectorReader]</doc>
+                 line="89">A [class@VectorReader]</doc>
             <type name="VectorReader" c:type="ShumateVectorReader*"/>
           </instance-parameter>
         </parameters>
@@ -8064,7 +8064,7 @@ and iterate over the features in the tile. You can create multiple
            glib:type-struct="VectorReaderIterClass">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-reader-iter.c"
-           line="25">Reads the layers and features of a vector tile.
+           line="22">Reads the layers and features of a vector tile.
 
 To create a new [class@VectorReaderIter], use [method@VectorReader.iterate].
 
@@ -8093,7 +8093,7 @@ for more information about the vector tile format.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="731">Determines whether the current feature contains the given point.
+             line="676">Determines whether the current feature contains the given point.
 
 The point must be specified in tile space. See
 [method@VectorReaderIter.get_layer_extent] to get the range of the
@@ -8109,14 +8109,14 @@ either %TRUE or %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="747">%TRUE if the feature contains the point, %FALSE otherwise.</doc>
+               line="692">%TRUE if the feature contains the point, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="733">A [class@VectorReaderIter].</doc>
+                 line="678">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
@@ -8132,20 +8132,20 @@ either %TRUE or %FALSE.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="589">Gets the geometry type of the current feature.</doc>
+             line="542">Gets the geometry type of the current feature.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="595">The geometry type of the current feature.</doc>
+               line="548">The geometry type of the current feature.</doc>
           <type name="GeometryType" c:type="ShumateGeometryType"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="591">A [class@VectorReaderIter].</doc>
+                 line="544">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8155,20 +8155,20 @@ either %TRUE or %FALSE.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="456">Gets the ID of the current feature.</doc>
+             line="419">Gets the ID of the current feature.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="462">The ID of the current feature.</doc>
+               line="425">The ID of the current feature.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="458">A [class@VectorReaderIter].</doc>
+                 line="421">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8178,13 +8178,13 @@ either %TRUE or %FALSE.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="556">Gets the keys of the tags of the current feature.</doc>
+             line="513">Gets the keys of the tags of the current feature.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="65"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="562">The keys of the tags of the current feature.</doc>
+               line="519">The keys of the tags of the current feature.</doc>
           <array c:type="const char**">
             <type name="utf8"/>
           </array>
@@ -8193,7 +8193,7 @@ either %TRUE or %FALSE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="558">A [class@VectorReaderIter].</doc>
+                 line="515">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8203,7 +8203,7 @@ either %TRUE or %FALSE.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="688">Gets the coordinates of the current feature in tile space, if the
+             line="637">Gets the coordinates of the current feature in tile space, if the
 feature is a single point.
 
 See [method@VectorReaderIter.get_layer_extent] to get the range
@@ -8217,14 +8217,14 @@ the feature's geometry type.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="704">%TRUE if the feature is a point, %FALSE otherwise.</doc>
+               line="653">%TRUE if the feature is a point, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="690">A [class@VectorReaderIter].</doc>
+                 line="639">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
           <parameter name="x"
@@ -8235,7 +8235,7 @@ the feature's geometry type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="691">The x coordinate of the point.</doc>
+                 line="640">The x coordinate of the point.</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="y"
@@ -8246,7 +8246,7 @@ the feature's geometry type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="692">The y coordinate of the point.</doc>
+                 line="641">The y coordinate of the point.</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -8256,26 +8256,26 @@ the feature's geometry type.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="479">Gets the value of the tag with the given key.</doc>
+             line="438">Gets the value of the tag with the given key.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="487">%TRUE if the tag was found, %FALSE otherwise.</doc>
+               line="446">%TRUE if the tag was found, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="481">A [class@VectorReaderIter].</doc>
+                 line="440">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="482">The key of the tag to get.</doc>
+                 line="441">The key of the tag to get.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value"
@@ -8284,7 +8284,7 @@ the feature's geometry type.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="483">The value of the tag.</doc>
+                 line="442">The value of the tag.</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
         </parameters>
@@ -8294,20 +8294,20 @@ the feature's geometry type.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="171">Gets the number of layers in the vector tile.</doc>
+             line="166">Gets the number of layers in the vector tile.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="177">The number of layers.</doc>
+               line="172">The number of layers.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="173">A #ShumateVectorReader.</doc>
+                 line="168">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8317,7 +8317,7 @@ the feature's geometry type.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="337">Gets the extent for coordinates in the current layer.
+             line="314">Gets the extent for coordinates in the current layer.
 
 0 represents the top and left edges of the tile, and this value
 represents the bottom and right edges. Feature geometries may extend
@@ -8331,14 +8331,14 @@ and convert latitude/longitude to tile-space coordinates.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="351">The layer's extent</doc>
+               line="328">The layer's extent</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="339">A [class@VectorReaderIter].</doc>
+                 line="316">A [class@VectorReaderIter].</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8348,7 +8348,7 @@ and convert latitude/longitude to tile-space coordinates.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="309">Gets the number of features in the current layer.
+             line="290">Gets the number of features in the current layer.
 
 You can loop over all features in the current layer by calling
 [method@VectorReaderIter.read_feature] with each index from 0 to
@@ -8359,14 +8359,14 @@ the feature count, but it might be easier to use
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="320">The number of features in the current layer.</doc>
+               line="301">The number of features in the current layer.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="311">A #ShumateVectorReader.</doc>
+                 line="292">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8376,20 +8376,20 @@ the feature count, but it might be easier to use
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="286">Gets the name of the current layer.</doc>
+             line="271">Gets the name of the current layer.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="292">The name of the current layer.</doc>
+               line="277">The name of the current layer.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="288">A #ShumateVectorReader.</doc>
+                 line="273">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8400,19 +8400,19 @@ the feature count, but it might be easier to use
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="154">Gets the reader that the iterator is iterating over.</doc>
+             line="149">Gets the reader that the iterator is iterating over.</doc>
         <source-position filename="shumate/shumate-vector-reader.h" line="30"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="160">The reader that the iterator is iterating over.</doc>
+               line="155">The reader that the iterator is iterating over.</doc>
           <type name="VectorReader" c:type="ShumateVectorReader*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="156">A [class@VectorReaderIter]</doc>
+                 line="151">A [class@VectorReaderIter]</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8422,20 +8422,20 @@ the feature count, but it might be easier to use
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="396">Advances the iterator to the next feature in the current layer.</doc>
+             line="367">Advances the iterator to the next feature in the current layer.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="402">%TRUE if there is a next feature, %FALSE otherwise.</doc>
+               line="373">%TRUE if there is a next feature, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="398">A #ShumateVectorReader.</doc>
+                 line="369">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
         </parameters>
@@ -8445,7 +8445,7 @@ the feature count, but it might be easier to use
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="368">Moves the iterator to the feature at the given index in the current layer.
+             line="341">Moves the iterator to the feature at the given index in the current layer.
 
 You can get the number of features in the current layer with
 [method@VectorReaderIter.get_layer_feature_count].</doc>
@@ -8458,13 +8458,13 @@ You can get the number of features in the current layer with
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="370">A #ShumateVectorReader.</doc>
+                 line="343">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="371">The index of the feature to read.</doc>
+                 line="344">The index of the feature to read.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -8474,7 +8474,7 @@ You can get the number of features in the current layer with
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="193">Sets the current layer of the reader to the layer at the given index.</doc>
+             line="184">Sets the current layer of the reader to the layer at the given index.</doc>
         <source-position filename="shumate/shumate-vector-reader-iter.h"
                          line="52"/>
         <return-value transfer-ownership="none">
@@ -8484,13 +8484,13 @@ You can get the number of features in the current layer with
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="195">A #ShumateVectorReader.</doc>
+                 line="186">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="196">The index of the layer to read.</doc>
+                 line="187">The index of the layer to read.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -8500,7 +8500,7 @@ You can get the number of features in the current layer with
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-reader-iter.c"
-             line="216">Moves the iterator to the layer with the given name, if present.
+             line="205">Moves the iterator to the layer with the given name, if present.
 
 If the layer is not found, the current layer will be set to %NULL and the
 function will return %FALSE. Layers are typically omitted if they are empty,
@@ -8514,14 +8514,14 @@ in the layer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-reader-iter.c"
-               line="230">%TRUE if the layer was found, %FALSE otherwise.</doc>
+               line="219">%TRUE if the layer was found, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-reader-iter.c"
-                 line="218">A #ShumateVectorReader.</doc>
+                 line="207">A #ShumateVectorReader.</doc>
             <type name="VectorReaderIter" c:type="ShumateVectorReaderIter*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
@@ -8555,15 +8555,15 @@ in the layer.</doc>
            glib:type-struct="VectorRendererClass">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-renderer.c"
-           line="25">A [class@MapSource] that renders tiles from a given vector data source.</doc>
-      <source-position filename="shumate/shumate-vector-renderer.h" line="29"/>
+           line="26">A [class@MapSource] that renders tiles from a given vector data source.</doc>
+      <source-position filename="shumate/shumate-vector-renderer.h" line="30"/>
       <implements name="Gio.Initable"/>
       <constructor name="new"
                    c:identifier="shumate_vector_renderer_new"
                    throws="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="84">Creates a new [class@VectorRenderer] from the given JSON style.
+             line="85">Creates a new [class@VectorRenderer] from the given JSON style.
 
 The stylesheet should contain a list of tile sources. Tiles will be
 downloaded using [class@TileDownloader]s.
@@ -8572,24 +8572,24 @@ See the [MapLibre Style Specification](https://maplibre.org/maplibre-gl-js-docs/
 for details on @style_json, but be aware that libshumate does not support
 every feature of the specification.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="35"/>
+                         line="36"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="99">a newly constructed [class@VectorRenderer], or %NULL if @error is set</doc>
+               line="100">a newly constructed [class@VectorRenderer], or %NULL if @error is set</doc>
           <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="86">an ID for the map source</doc>
+                 line="87">an ID for the map source</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="style_json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="87">a vector style</doc>
+                 line="88">a vector style</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -8598,40 +8598,101 @@ every feature of the specification.</doc>
                 c:identifier="shumate_vector_renderer_is_supported">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="116">Checks whether libshumate was compiled with vector tile support. If it was
-not, vector renderers cannot be created or used.</doc>
+             line="117">Checks whether libshumate was compiled with vector tile support. Previous
+versions of libshumate had a build-time option to disable vector tiles,
+but as of 1.6 they are always enabled.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="32"/>
+                         line="33"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="122">%TRUE if libshumate was compiled with `-Dvector_renderer=true` or
-%FALSE if it was not</doc>
+               line="124">%TRUE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
+      <method name="get_global_state"
+              c:identifier="shumate_vector_renderer_get_global_state"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-renderer.c"
+             line="710">Gets a global state value.
+
+If the value has not been set with [method@VectorRenderer.set_global_state], the default
+defined in the style will be returned, or %NULL if no default is defined. Note that an
+explicitly set null value will return a [struct@VectorValue] of type null, while an
+undefined value will return %NULL.</doc>
+        <source-position filename="shumate/shumate-vector-renderer.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-renderer.c"
+               line="722">the state value, or %NULL if none is set</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="712">a [class@VectorRenderer]</doc>
+            <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="713">the state key</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_sprite_sheet"
               c:identifier="shumate_vector_renderer_get_sprite_sheet"
               glib:get-property="sprite-sheet"
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="565">Gets the sprite sheet used to render icons and textures.</doc>
+             line="591">Gets the sprite sheet used to render icons and textures.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="44"/>
+                         line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="571">the [class@VectorSpriteSheet]</doc>
+               line="597">the [class@VectorSpriteSheet]</doc>
           <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="567">a [class@VectorRenderer]</doc>
+                 line="593">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reset_global_state"
+              c:identifier="shumate_vector_renderer_reset_global_state"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-renderer.c"
+             line="751">Resets a global state value to the default defined in the style, or to null
+if no default is defined.</doc>
+        <source-position filename="shumate/shumate-vector-renderer.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="753">a [class@VectorRenderer]</doc>
+            <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="754">the state key</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
         </parameters>
       </method>
       <method name="set_data_source"
@@ -8639,7 +8700,7 @@ not, vector renderers cannot be created or used.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="616">Adds a data source to the renderer.
+             line="642">Adds a data source to the renderer.
 
 Currently, [class@VectorRenderer] only supports one data source
 and throws an error if the style does not contain exactly one
@@ -8648,7 +8709,7 @@ in the future, so this method accepts a name parameter. If the
 name does not match the one expected by the style, this method
 will have no effect.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="48"/>
+                         line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8656,20 +8717,57 @@ will have no effect.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="618">a [class@VectorRenderer]</doc>
+                 line="644">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="619">the name of the data source</doc>
+                 line="645">the name of the data source</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="data_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="620">a [class@DataSource]</doc>
+                 line="646">a [class@DataSource]</doc>
             <type name="DataSource" c:type="ShumateDataSource*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_global_state"
+              c:identifier="shumate_vector_renderer_set_global_state"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-renderer.c"
+             line="673">Sets a global state value.
+
+Global state can be accessed in the stylesheet through the "global-state" expression operator.
+This allows styles to provide options that can be configured without changing the style JSON.
+
+Previously rendered tiles are not affected by changes to global state and must be re-rendered.</doc>
+        <source-position filename="shumate/shumate-vector-renderer.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="675">a [class@VectorRenderer]</doc>
+            <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="676">the state key</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="677">the state value</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -8679,9 +8777,9 @@ will have no effect.</doc>
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="591">Sets the sprite sheet used to render icons and textures.</doc>
+             line="617">Sets the sprite sheet used to render icons and textures.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="45"/>
+                         line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8689,13 +8787,13 @@ will have no effect.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="593">a [class@VectorRenderer]</doc>
+                 line="619">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="sprites" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="594">a [class@VectorSpriteSheet]</doc>
+                 line="620">a [class@VectorSpriteSheet]</doc>
             <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
           </parameter>
         </parameters>
@@ -8707,36 +8805,36 @@ will have no effect.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="525">Sets the sprite sheet used by the style JSON to render icons and textures.
+             line="551">Sets the sprite sheet used by the style JSON to render icons and textures.
 
 The existing [property@VectorRenderer:sprite-sheet] property will be replaced
 with a new instance of [class@VectorSpriteSheet].</doc>
         <doc-deprecated xml:space="preserve">Use the methods of [property@VectorRenderer:sprite-sheet] instead.</doc-deprecated>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="39"/>
+                         line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="537">whether the sprite sheet was loaded successfully</doc>
+               line="563">whether the sprite sheet was loaded successfully</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="527">a [class@VectorRenderer]</doc>
+                 line="553">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="sprites_pixbuf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="528">a [class@GdkPixbuf.Pixbuf]</doc>
+                 line="554">a [class@GdkPixbuf.Pixbuf]</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="sprites_json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="529">a JSON string</doc>
+                 line="555">a JSON string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -8749,7 +8847,7 @@ with a new instance of [class@VectorSpriteSheet].</doc>
                 getter="get_sprite_sheet">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="240">The sprite sheet used to render icons and textures.</doc>
+             line="239">The sprite sheet used to render icons and textures.</doc>
         <type name="VectorSpriteSheet"/>
       </property>
       <property name="style-json"
@@ -8759,7 +8857,7 @@ with a new instance of [class@VectorSpriteSheet].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="225">A map style, in [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
+             line="224">A map style, in [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
 format.
 
 Note that not all features of the specification are supported.</doc>
@@ -8769,7 +8867,7 @@ Note that not all features of the specification are supported.</doc>
     <record name="VectorRendererClass"
             c:type="ShumateVectorRendererClass"
             glib:is-gtype-struct-for="VectorRenderer">
-      <source-position filename="shumate/shumate-vector-renderer.h" line="29"/>
+      <source-position filename="shumate/shumate-vector-renderer.h" line="30"/>
       <field name="parent_class">
         <type name="MapSourceClass" c:type="ShumateMapSourceClass"/>
       </field>
@@ -9051,7 +9149,7 @@ In most cases, you should draw the sprite rather than the original paintable.</d
               version="1.1">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-sprite-sheet.c"
-           line="63">A function to generate sprites for a [class@VectorSpriteSheet].
+           line="60">A function to generate sprites for a [class@VectorSpriteSheet].
 
 See [method@VectorSpriteSheet.set_fallback].</doc>
       <source-position filename="shumate/shumate-vector-sprite-sheet.h"
@@ -9059,26 +9157,26 @@ See [method@VectorSpriteSheet.set_fallback].</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-sprite-sheet.c"
-             line="74">a [class@VectorSprite] or %NULL</doc>
+             line="71">a [class@VectorSprite] or %NULL</doc>
         <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
       </return-value>
       <parameters>
         <parameter name="sprite_sheet" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="65">the [class@VectorSpriteSheet]</doc>
+               line="62">the [class@VectorSpriteSheet]</doc>
           <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="66">the name of the sprite to generate</doc>
+               line="63">the name of the sprite to generate</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="scale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="67">the scale factor of the sprite</doc>
+               line="64">the scale factor of the sprite</doc>
           <type name="gdouble" c:type="double"/>
         </parameter>
         <parameter name="user_data"
@@ -9088,7 +9186,7 @@ See [method@VectorSpriteSheet.set_fallback].</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="68">user data passed to [method@VectorSpriteSheet.set_fallback]</doc>
+               line="65">user data passed to [method@VectorSpriteSheet.set_fallback]</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -9104,7 +9202,7 @@ See [method@VectorSpriteSheet.set_fallback].</doc>
            glib:type-struct="VectorSpriteSheetClass">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-sprite-sheet.c"
-           line="26">A collection of [class@VectorSprite]s.
+           line="23">A collection of [class@VectorSprite]s.
 
 Sprites are used as icons in symbols or as the pattern for a fill layer.
 
@@ -9141,13 +9239,13 @@ For example, if the scale factor is 2, the image should be twice as large
                    version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-sprite-sheet.c"
-             line="99">Creates a new, empty [class@VectorSpriteSheet].</doc>
+             line="96">Creates a new, empty [class@VectorSpriteSheet].</doc>
         <source-position filename="shumate/shumate-vector-sprite-sheet.h"
                          line="28"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="104">a new [class@VectorSpriteSheet]</doc>
+               line="101">a new [class@VectorSpriteSheet]</doc>
           <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
         </return-value>
       </constructor>
@@ -9157,7 +9255,7 @@ For example, if the scale factor is 2, the image should be twice as large
               throws="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-sprite-sheet.c"
-             line="181">Adds a page to the spritesheet.
+             line="178">Adds a page to the spritesheet.
 
 See &lt;https://maplibre.org/maplibre-gl-js-docs/style-spec/sprite/&gt; for
 details about the spritesheet format. Most stylesheets provide these files
@@ -9171,32 +9269,32 @@ displays. That spritesheet should be added as its own page, with a
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="199">%TRUE if the page was added successfully, %FALSE otherwise</doc>
+               line="196">%TRUE if the page was added successfully, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="183">a [class@VectorSpriteSheet]</doc>
+                 line="180">a [class@VectorSpriteSheet]</doc>
             <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
           </instance-parameter>
           <parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="184">a [class@Gdk.Texture]</doc>
+                 line="181">a [class@Gdk.Texture]</doc>
             <type name="Gdk.Texture" c:type="GdkTexture*"/>
           </parameter>
           <parameter name="json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="185">a JSON string</doc>
+                 line="182">a JSON string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="default_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="186">the default scale factor of the page</doc>
+                 line="183">the default scale factor of the page</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -9206,7 +9304,7 @@ displays. That spritesheet should be added as its own page, with a
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-sprite-sheet.c"
-             line="147">Adds a sprite to the spritesheet.</doc>
+             line="144">Adds a sprite to the spritesheet.</doc>
         <source-position filename="shumate/shumate-vector-sprite-sheet.h"
                          line="30"/>
         <return-value transfer-ownership="none">
@@ -9216,19 +9314,19 @@ displays. That spritesheet should be added as its own page, with a
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="149">a [class@VectorSpriteSheet]</doc>
+                 line="146">a [class@VectorSpriteSheet]</doc>
             <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="150">the name of the sprite</doc>
+                 line="147">the name of the sprite</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="sprite" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="151">a [class@VectorSprite]</doc>
+                 line="148">a [class@VectorSprite]</doc>
             <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
           </parameter>
         </parameters>
@@ -9238,7 +9336,7 @@ displays. That spritesheet should be added as its own page, with a
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-sprite-sheet.c"
-             line="322">Gets a sprite from the spritesheet.
+             line="311">Gets a sprite from the spritesheet.
 
 The returned sprite might not be at the requested scale factor if an exact
 match is not found.</doc>
@@ -9247,7 +9345,7 @@ match is not found.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-sprite-sheet.c"
-               line="333">a [class@VectorSprite], or %NULL if the
+               line="322">a [class@VectorSprite], or %NULL if the
 icon does not exist.</doc>
           <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
         </return-value>
@@ -9255,19 +9353,19 @@ icon does not exist.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="324">a [class@VectorSpriteSheet]</doc>
+                 line="313">a [class@VectorSpriteSheet]</doc>
             <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="325">an icon name</doc>
+                 line="314">an icon name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="326">the scale factor of the icon</doc>
+                 line="315">the scale factor of the icon</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -9277,7 +9375,7 @@ icon does not exist.</doc>
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-sprite-sheet.c"
-             line="400">Sets a fallback function to generate sprites.
+             line="389">Sets a fallback function to generate sprites.
 
 The fallback function is called when a texture is not found in the sprite
 sheet. It receives the icon name and scale factor, and should return a
@@ -9298,7 +9396,7 @@ it generated will be cleared.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="402">a [class@VectorSpriteSheet]</doc>
+                 line="391">a [class@VectorSpriteSheet]</doc>
             <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
           </instance-parameter>
           <parameter name="fallback"
@@ -9310,7 +9408,7 @@ it generated will be cleared.
                      destroy="2">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="403">a [callback@ShumateVectorSpriteFallbackFunc] or %NULL</doc>
+                 line="392">a [callback@ShumateVectorSpriteFallbackFunc] or %NULL</doc>
             <type name="VectorSpriteFallbackFunc"
                   c:type="ShumateVectorSpriteFallbackFunc"/>
           </parameter>
@@ -9320,13 +9418,13 @@ it generated will be cleared.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="404">user data to pass to @fallback</doc>
+                 line="393">user data to pass to @fallback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-sprite-sheet.c"
-                 line="405">a [callback@GLib.DestroyNotify] for @user_data</doc>
+                 line="394">a [callback@GLib.DestroyNotify] for @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -9341,6 +9439,657 @@ it generated will be cleared.
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
+    <record name="VectorValue"
+            c:type="ShumateVectorValue"
+            opaque="1"
+            copy-function="shumate_vector_value_dup"
+            free-function="shumate_vector_value_free"
+            version="1.6"
+            glib:type-name="ShumateVectorValue"
+            glib:get-type="shumate_vector_value_get_type"
+            c:symbol-prefix="vector_value">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-vector-value.c"
+           line="21">A mutable value used in the vector style specification.</doc>
+      <source-position filename="shumate/shumate-vector-value.h" line="53"/>
+      <constructor name="new"
+                   c:identifier="shumate_vector_value_new"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="38">Creates a new [struct@VectorValue] with a null value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="43">a new [struct@VectorValue] with a null value</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_boolean"
+                   c:identifier="shumate_vector_value_new_boolean"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="104">Creates a new [struct@VectorValue] with a boolean value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="63"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="110">a new [struct@VectorValue] with the given boolean value</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="boolean" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="106">a boolean value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_color"
+                   c:identifier="shumate_vector_value_new_color"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="121">Creates a new [struct@VectorValue] with a color value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="127">a new [struct@VectorValue] with the given color value</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="123">a [struct@Gdk.RGBA]</doc>
+            <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_value"
+                   c:identifier="shumate_vector_value_new_from_value"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="53">Creates a new [struct@VectorValue] from a [struct@GObject.Value].</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="59">a new [struct@VectorValue] with the value from @value</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="55">a [struct@GObject.Value]</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_number"
+                   c:identifier="shumate_vector_value_new_number"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="70">Creates a new [struct@VectorValue] with a number value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="62"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="76">a new [struct@VectorValue] with the given number value</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="72">a number value</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_string"
+                   c:identifier="shumate_vector_value_new_string"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="87">Creates a new [struct@VectorValue] with a string value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="93">a new [struct@VectorValue] with the given string value</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="string" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="89">a string value</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="array_append"
+              c:identifier="shumate_vector_value_array_append"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="564">Appends @element to the array value of @self. The value of @element is copied.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="566">an array [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="element" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="567">a [struct@VectorValue] to append to the array</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup" c:identifier="shumate_vector_value_dup" version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="335">Creates a duplicate of @self.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="341">a new [struct@VectorValue] which is a duplicate of @self</doc>
+          <type name="VectorValue" c:type="ShumateVectorValue*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="337">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="equal"
+              c:identifier="shumate_vector_value_equal"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="713">Compares two [struct@VectorValue]s for equality.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="720">%TRUE if @a and @b are equal, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="715">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="716">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free"
+              c:identifier="shumate_vector_value_free"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="226">Frees a [struct@VectorValue].</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="228">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_boolean"
+              c:identifier="shumate_vector_value_get_boolean"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="426">Gets the boolean value of @self.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="433">%TRUE if @self is a boolean value and @boolean was set, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="428">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="boolean"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="429">a location to store the boolean value</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_color"
+              c:identifier="shumate_vector_value_get_color"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="505">Gets the color value of @self.
+
+If @self is a string value, it will attempt to parse the string as a color.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="514">%TRUE if @self is a color value and @color was set, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="507">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="color"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="508">a location to store the color value</doc>
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_number"
+              c:identifier="shumate_vector_value_get_number"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="387">Gets the number value of @self.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="394">%TRUE if @self is a number value and @number was set, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="389">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="number"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="390">a location to store the number value</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_string"
+              c:identifier="shumate_vector_value_get_string"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="466">Gets the string value of @self.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="473">%TRUE if @self is a string value and @string was set, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="468">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="string"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="469">a location to store the string value</doc>
+            <type name="utf8" c:type="const char**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_type"
+              c:identifier="shumate_vector_value_get_value_type"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="353">Gets the type of value stored in @self.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="359">the type of @self</doc>
+          <type name="VectorValueType" c:type="ShumateVectorValueType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="355">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="hash"
+              c:identifier="shumate_vector_value_hash"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="668">Calculates a hash value for @self.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="674">a hash value for @self</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="670">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_null"
+              c:identifier="shumate_vector_value_is_null"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="280">Checks if @self is a null value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-value.c"
+               line="286">%TRUE if @self is a null value, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="282">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_boolean"
+              c:identifier="shumate_vector_value_set_boolean"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="408">Sets @self to a boolean value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="410">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="boolean" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="411">a boolean value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_color"
+              c:identifier="shumate_vector_value_set_color"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="487">Sets @self to a color value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="489">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="490">a [struct@Gdk.RGBA]</doc>
+            <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_number"
+              c:identifier="shumate_vector_value_set_number"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="369">Sets @self to a number value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="371">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="372">a number value</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string"
+              c:identifier="shumate_vector_value_set_string"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="447">Sets @self to a string value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="449">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+          <parameter name="string" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="450">a string value</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_array"
+              c:identifier="shumate_vector_value_start_array"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="547">Sets @self to an empty array value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="549">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unset"
+              c:identifier="shumate_vector_value_unset"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.c"
+             line="242">Sets @self to a null value.</doc>
+        <source-position filename="shumate/shumate-vector-value.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-value.c"
+                 line="244">a [struct@VectorValue]</doc>
+            <type name="VectorValue" c:type="ShumateVectorValue*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="VectorValueType"
+                 version="1.6"
+                 glib:type-name="ShumateVectorValueType"
+                 glib:get-type="shumate_vector_value_type_get_type"
+                 c:type="ShumateVectorValueType">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-vector-value.h"
+           line="25">Type of a [struct@VectorValue].</doc>
+      <member name="null"
+              value="0"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_NULL"
+              glib:nick="null"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_NULL">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="27">Null value</doc>
+      </member>
+      <member name="number"
+              value="1"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_NUMBER"
+              glib:nick="number"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_NUMBER">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="28">Number value</doc>
+      </member>
+      <member name="boolean"
+              value="2"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_BOOLEAN"
+              glib:nick="boolean"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_BOOLEAN">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="29">Boolean value</doc>
+      </member>
+      <member name="string"
+              value="3"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_STRING"
+              glib:nick="string"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_STRING">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="30">String value</doc>
+      </member>
+      <member name="color"
+              value="4"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_COLOR"
+              glib:nick="color"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_COLOR">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="31">Color value</doc>
+      </member>
+      <member name="array"
+              value="5"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_ARRAY"
+              glib:nick="array"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_ARRAY">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="32">Array value</doc>
+      </member>
+      <member name="resolved_image"
+              value="6"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_RESOLVED_IMAGE"
+              glib:nick="resolved-image"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_RESOLVED_IMAGE">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="33">Resolved image value</doc>
+      </member>
+      <member name="formatted_string"
+              value="7"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_FORMATTED_STRING"
+              glib:nick="formatted-string"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_FORMATTED_STRING">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="34">Formatted string value</doc>
+      </member>
+      <member name="collator"
+              value="8"
+              c:identifier="SHUMATE_VECTOR_VALUE_TYPE_COLLATOR"
+              glib:nick="collator"
+              glib:name="SHUMATE_VECTOR_VALUE_TYPE_COLLATOR">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-value.h"
+             line="35">Collator value</doc>
+      </member>
+    </enumeration>
     <class name="Viewport"
            c:symbol-prefix="viewport"
            c:type="ShumateViewport"
@@ -9359,12 +10108,12 @@ accessible via the interface methods.</doc>
       <constructor name="new" c:identifier="shumate_viewport_new">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="312">Creates a new #ShumateViewport</doc>
+             line="339">Creates a new #ShumateViewport</doc>
         <source-position filename="shumate/shumate-viewport.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="317">A new #ShumateViewport</doc>
+               line="344">A new #ShumateViewport</doc>
           <type name="Viewport" c:type="ShumateViewport*"/>
         </return-value>
       </constructor>
@@ -9373,19 +10122,19 @@ accessible via the interface methods.</doc>
               glib:get-property="max-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="387">Get the maximal zoom level</doc>
+             line="415">Get the maximal zoom level</doc>
         <source-position filename="shumate/shumate-viewport.h" line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="393">the maximal zoom level</doc>
+               line="421">the maximal zoom level</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="389">a #ShumateViewport</doc>
+                 line="417">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -9395,19 +10144,19 @@ accessible via the interface methods.</doc>
               glib:get-property="min-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="427">Get the minimal zoom level</doc>
+             line="455">Get the minimal zoom level</doc>
         <source-position filename="shumate/shumate-viewport.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="433">the minimal zoom level</doc>
+               line="461">the minimal zoom level</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="429">a #ShumateViewport</doc>
+                 line="457">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -9417,12 +10166,12 @@ accessible via the interface methods.</doc>
               glib:get-property="reference-map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="470">Get the reference map source</doc>
+             line="498">Get the reference map source</doc>
         <source-position filename="shumate/shumate-viewport.h" line="54"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="476">the reference #ShumateMapSource or %NULL
+               line="504">the reference #ShumateMapSource or %NULL
 when none has been set.</doc>
           <type name="MapSource" c:type="ShumateMapSource*"/>
         </return-value>
@@ -9430,7 +10179,7 @@ when none has been set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="472">a #ShumateViewport</doc>
+                 line="500">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -9440,19 +10189,19 @@ when none has been set.</doc>
               glib:get-property="rotation">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="511">Gets the current rotation</doc>
+             line="540">Gets the current rotation</doc>
         <source-position filename="shumate/shumate-viewport.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="517">the current rotation</doc>
+               line="546">the current rotation</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="513">a #ShumateViewport</doc>
+                 line="542">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -9462,19 +10211,19 @@ when none has been set.</doc>
               glib:get-property="zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="347">Get the current zoom level</doc>
+             line="375">Get the current zoom level</doc>
         <source-position filename="shumate/shumate-viewport.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="353">the current zoom level</doc>
+               line="381">the current zoom level</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="349">a #ShumateViewport</doc>
+                 line="377">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -9483,7 +10232,7 @@ when none has been set.</doc>
               c:identifier="shumate_viewport_location_to_widget_coords">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="600">Gets the position on @widget that correspond to the given latitude and
+             line="629">Gets the position on @widget that correspond to the given latitude and
 longitude.</doc>
         <source-position filename="shumate/shumate-viewport.h" line="66"/>
         <return-value transfer-ownership="none">
@@ -9493,25 +10242,25 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="602">a #ShumateViewport</doc>
+                 line="631">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="603">a #GtkWidget that uses @self as viewport</doc>
+                 line="632">a #GtkWidget that uses @self as viewport</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="604">the latitude</doc>
+                 line="633">the latitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="605">the longitude</doc>
+                 line="634">the longitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="x"
@@ -9520,7 +10269,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="606">return value for the x coordinate</doc>
+                 line="635">return value for the x coordinate</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="y"
@@ -9529,7 +10278,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="607">return value for the y coordinate</doc>
+                 line="636">return value for the y coordinate</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -9539,7 +10288,7 @@ longitude.</doc>
               glib:set-property="max-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="363">Set the maximal zoom level</doc>
+             line="391">Set the maximal zoom level</doc>
         <source-position filename="shumate/shumate-viewport.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9548,13 +10297,13 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="365">a #ShumateViewport</doc>
+                 line="393">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="max_zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="366">the maximal zoom level</doc>
+                 line="394">the maximal zoom level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9564,7 +10313,7 @@ longitude.</doc>
               glib:set-property="min-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="403">Set the minimal zoom level</doc>
+             line="431">Set the minimal zoom level</doc>
         <source-position filename="shumate/shumate-viewport.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9573,13 +10322,13 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="405">a #ShumateViewport</doc>
+                 line="433">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="min_zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="406">the minimal zoom level</doc>
+                 line="434">the minimal zoom level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9589,7 +10338,7 @@ longitude.</doc>
               glib:set-property="reference-map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="443">Set the reference map source</doc>
+             line="471">Set the reference map source</doc>
         <source-position filename="shumate/shumate-viewport.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9598,7 +10347,7 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="445">a #ShumateViewport</doc>
+                 line="473">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="map_source"
@@ -9607,7 +10356,7 @@ longitude.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="446">a #ShumateMapSource or %NULL to set none.</doc>
+                 line="474">a #ShumateMapSource or %NULL to set none.</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </parameter>
         </parameters>
@@ -9617,7 +10366,7 @@ longitude.</doc>
               glib:set-property="rotation">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="487">Sets the rotation</doc>
+             line="515">Sets the rotation</doc>
         <source-position filename="shumate/shumate-viewport.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9626,13 +10375,13 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="489">a #ShumateViewport</doc>
+                 line="517">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="rotation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="490">the rotation</doc>
+                 line="518">the rotation</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -9642,7 +10391,7 @@ longitude.</doc>
               glib:set-property="zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="325">Set the zoom level</doc>
+             line="352">Set the zoom level</doc>
         <source-position filename="shumate/shumate-viewport.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9651,13 +10400,13 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="327">a #ShumateViewport</doc>
+                 line="354">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="328">the zoom level</doc>
+                 line="355">the zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -9666,7 +10415,7 @@ longitude.</doc>
               c:identifier="shumate_viewport_widget_coords_to_location">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="547">Gets the latitude and longitude corresponding to a position on @widget.</doc>
+             line="576">Gets the latitude and longitude corresponding to a position on @widget.</doc>
         <source-position filename="shumate/shumate-viewport.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9675,25 +10424,25 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="549">a #ShumateViewport</doc>
+                 line="578">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="550">a #GtkWidget that uses @self as viewport</doc>
+                 line="579">a #GtkWidget that uses @self as viewport</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="551">the x coordinate</doc>
+                 line="580">the x coordinate</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="552">the y coordinate</doc>
+                 line="581">the y coordinate</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="latitude"
@@ -9702,7 +10451,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="553">return location for the latitude</doc>
+                 line="582">return location for the latitude</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="longitude"
@@ -9711,7 +10460,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="554">return location for the longitude</doc>
+                 line="583">return location for the longitude</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -9724,7 +10473,7 @@ longitude.</doc>
                 default-value="20">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="246">The highest allowed level of zoom of the content.</doc>
+             line="254">The highest allowed level of zoom of the content.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="min-zoom-level"
@@ -9735,7 +10484,7 @@ longitude.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="234">The lowest allowed level of zoom of the content.</doc>
+             line="242">The lowest allowed level of zoom of the content.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="reference-map-source"
@@ -9745,7 +10494,7 @@ longitude.</doc>
                 getter="get_reference_map_source">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="258">The reference #ShumateMapSource being displayed</doc>
+             line="266">The reference #ShumateMapSource being displayed</doc>
         <type name="MapSource"/>
       </property>
       <property name="rotation"
@@ -9756,7 +10505,7 @@ longitude.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="270">The rotation of the map view, in radians clockwise from up being due north</doc>
+             line="278">The rotation of the map view, in radians clockwise from up being due north</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="zoom-level"
@@ -9767,9 +10516,18 @@ longitude.</doc>
                 default-value="3.000000">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="222">The level of zoom of the content.</doc>
+             line="230">The level of zoom of the content.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
+      <glib:signal name="changed" when="last" version="1.6">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-viewport.c"
+             line="302">Emitted when the viewport position (location, zoom, rotation, etc.) changes. Changes to multiple properties at once
+may be combined into a single signal emission.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
     </class>
     <record name="ViewportClass"
             c:type="ShumateViewportClass"
@@ -9840,7 +10598,7 @@ an application was linked to.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="1008">a #GQuark</doc>
+             line="1161">a #GQuark</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

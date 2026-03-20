@@ -5,8 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
+  <doc:format name="unknown"/>
   <namespace name="Gamerzilla"
              version="0.1"
              shared-library="libgamerzillagobj.so.0"
@@ -50,12 +52,12 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="gamerzilla_gamerzillagobj_new">
         <doc xml:space="preserve"
              filename="gamerzillagobj.c"
-             line="171">Allocates a new #GamerzillaGamerzillaGobj.</doc>
+             line="173">Allocates a new #GamerzillaGamerzillaGobj.</doc>
         <source-position filename="gamerzillagobj.h" line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gamerzillagobj.c"
-               line="176">a new #GamerzillaGamerzillaGobj.</doc>
+               line="178">a new #GamerzillaGamerzillaGobj.</doc>
           <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
         </return-value>
       </constructor>
@@ -74,7 +76,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gamerzilla_gamerzillagobj_serverstart">
         <doc xml:space="preserve"
              filename="gamerzillagobj.c"
-             line="187">Runs the server.</doc>
+             line="189">Runs the server.</doc>
         <source-position filename="gamerzillagobj.h" line="42"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -83,7 +85,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="gamerzillagobj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gamerzillagobj.c"
-                 line="189">a #GamerzillaGamerzillaGobj</doc>
+                 line="191">a #GamerzillaGamerzillaGobj</doc>
             <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
           </instance-parameter>
         </parameters>
@@ -92,7 +94,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gamerzilla_gamerzillagobj_serverstop">
         <doc xml:space="preserve"
              filename="gamerzillagobj.c"
-             line="212">Stops the server.</doc>
+             line="214">Stops the server.</doc>
         <source-position filename="gamerzillagobj.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -101,7 +103,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="gamerzillagobj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gamerzillagobj.c"
-                 line="214">a #GamerzillaGamerzillaGobj</doc>
+                 line="216">a #GamerzillaGamerzillaGobj</doc>
             <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
           </instance-parameter>
         </parameters>
@@ -163,7 +165,7 @@ and/or use gtk-doc annotations.  -->
     <docsection name="gamerzilla-gamerzillagobj">
       <doc xml:space="preserve"
            filename="gamerzillagobj.c"
-           line="18">The #GamerzillaGamerzillaGobj is a class to display friendly greetings.</doc>
+           line="20">The #GamerzillaGamerzillaGobj is a class to display friendly greetings.</doc>
     </docsection>
   </namespace>
 </repository>

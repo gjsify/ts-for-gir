@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <include name="Pango" version="1.0"/>
   <package name="gucharmap-2.90"/>
   <c:include name="gucharmap/gucharmap.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Gucharmap"
              version="2.90"
              shared-library="libgucharmap_2_90.so.7"
@@ -838,7 +840,7 @@ and/or use gtk-doc annotations.  -->
       <method name="get_active_page"
               c:identifier="gucharmap_charmap_get_active_page"
               glib:get-property="active-page">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="146"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -902,7 +904,7 @@ and/or use gtk-doc annotations.  -->
       <method name="get_chartable"
               c:identifier="gucharmap_charmap_get_chartable"
               introspectable="0">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="156"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="161"/>
         <return-value>
           <type name="Chartable" c:type="GucharmapChartable*"/>
         </return-value>
@@ -940,7 +942,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_page_visible"
               c:identifier="gucharmap_charmap_get_page_visible">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="138"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -955,7 +957,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_snap_pow2"
               c:identifier="gucharmap_charmap_get_snap_pow2">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="152"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1024,7 +1026,7 @@ and/or use gtk-doc annotations.  -->
       <method name="set_active_page"
               c:identifier="gucharmap_charmap_set_active_page"
               glib:set-property="active-page">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="142"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1102,7 +1104,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_page_visible"
               c:identifier="gucharmap_charmap_set_page_visible">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="133"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1120,7 +1122,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_snap_pow2"
               c:identifier="gucharmap_charmap_set_snap_pow2">
-        <source-position filename="gucharmap/gucharmap-charmap.h" line="149"/>
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="154"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1305,12 +1307,18 @@ and/or use gtk-doc annotations.  -->
               c:identifier="GUCHARMAP_CHARMAP_PAGE_CHARTABLE"
               glib:nick="chartable"
               glib:name="GUCHARMAP_CHARMAP_PAGE_CHARTABLE">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-charmap.h"
+             line="129">Character table page</doc>
       </member>
       <member name="details"
               value="1"
               c:identifier="GUCHARMAP_CHARMAP_PAGE_DETAILS"
               glib:nick="details"
               glib:name="GUCHARMAP_CHARMAP_PAGE_DETAILS">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-charmap.h"
+             line="130">Character detail page</doc>
       </member>
     </enumeration>
     <record name="CharmapPrivate"
@@ -2390,173 +2398,275 @@ and/or use gtk-doc annotations.  -->
               c:identifier="GUCHARMAP_UNICODE_VERSION_UNASSIGNED"
               glib:nick="unassigned"
               glib:name="GUCHARMAP_UNICODE_VERSION_UNASSIGNED">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="35">Unassigned Unicode version</doc>
       </member>
       <member name="1_1"
               value="1"
               c:identifier="GUCHARMAP_UNICODE_VERSION_1_1"
               glib:nick="1-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_1_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="36">Unicode version 1.1</doc>
       </member>
       <member name="2_0"
               value="2"
               c:identifier="GUCHARMAP_UNICODE_VERSION_2_0"
               glib:nick="2-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_2_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="37">Unicode version 2.0</doc>
       </member>
       <member name="2_1"
               value="3"
               c:identifier="GUCHARMAP_UNICODE_VERSION_2_1"
               glib:nick="2-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_2_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="38">Unicode version 2.1</doc>
       </member>
       <member name="3_0"
               value="4"
               c:identifier="GUCHARMAP_UNICODE_VERSION_3_0"
               glib:nick="3-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_3_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="39">Unicode version 3.0</doc>
       </member>
       <member name="3_1"
               value="5"
               c:identifier="GUCHARMAP_UNICODE_VERSION_3_1"
               glib:nick="3-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_3_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="40">Unicode version 3.1</doc>
       </member>
       <member name="3_2"
               value="6"
               c:identifier="GUCHARMAP_UNICODE_VERSION_3_2"
               glib:nick="3-2"
               glib:name="GUCHARMAP_UNICODE_VERSION_3_2">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="41">Unicode version 3.2</doc>
       </member>
       <member name="4_0"
               value="7"
               c:identifier="GUCHARMAP_UNICODE_VERSION_4_0"
               glib:nick="4-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_4_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="42">Unicode version 4.0</doc>
       </member>
       <member name="4_1"
               value="8"
               c:identifier="GUCHARMAP_UNICODE_VERSION_4_1"
               glib:nick="4-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_4_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="43">Unicode version 4.1</doc>
       </member>
       <member name="5_0"
               value="9"
               c:identifier="GUCHARMAP_UNICODE_VERSION_5_0"
               glib:nick="5-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_5_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="44">Unicode version 5.0</doc>
       </member>
       <member name="5_1"
               value="10"
               c:identifier="GUCHARMAP_UNICODE_VERSION_5_1"
               glib:nick="5-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_5_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="45">Unicode version 5.1</doc>
       </member>
       <member name="5_2"
               value="11"
               c:identifier="GUCHARMAP_UNICODE_VERSION_5_2"
               glib:nick="5-2"
               glib:name="GUCHARMAP_UNICODE_VERSION_5_2">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="46">Unicode version 5.2</doc>
       </member>
       <member name="6_0"
               value="12"
               c:identifier="GUCHARMAP_UNICODE_VERSION_6_0"
               glib:nick="6-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_6_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="47">Unicode version 6.0</doc>
       </member>
       <member name="6_1"
               value="13"
               c:identifier="GUCHARMAP_UNICODE_VERSION_6_1"
               glib:nick="6-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_6_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="48">Unicode version 6.1</doc>
       </member>
       <member name="6_2"
               value="14"
               c:identifier="GUCHARMAP_UNICODE_VERSION_6_2"
               glib:nick="6-2"
               glib:name="GUCHARMAP_UNICODE_VERSION_6_2">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="49">Unicode version 6.2</doc>
       </member>
       <member name="6_3"
               value="15"
               c:identifier="GUCHARMAP_UNICODE_VERSION_6_3"
               glib:nick="6-3"
               glib:name="GUCHARMAP_UNICODE_VERSION_6_3">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="50">Unicode version 6.3</doc>
       </member>
       <member name="7_0"
               value="16"
               c:identifier="GUCHARMAP_UNICODE_VERSION_7_0"
               glib:nick="7-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_7_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="51">Unicode version 7.0</doc>
       </member>
       <member name="8_0"
               value="17"
               c:identifier="GUCHARMAP_UNICODE_VERSION_8_0"
               glib:nick="8-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_8_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="52">Unicode version 8.0</doc>
       </member>
       <member name="9_0"
               value="18"
               c:identifier="GUCHARMAP_UNICODE_VERSION_9_0"
               glib:nick="9-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_9_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="53">Unicode version 9.0</doc>
       </member>
       <member name="10_0"
               value="19"
               c:identifier="GUCHARMAP_UNICODE_VERSION_10_0"
               glib:nick="10-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_10_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="54">Unicode version 10.0</doc>
       </member>
       <member name="11_0"
               value="20"
               c:identifier="GUCHARMAP_UNICODE_VERSION_11_0"
               glib:nick="11-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_11_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="55">Unicode version 11.0</doc>
       </member>
       <member name="12_0"
               value="21"
               c:identifier="GUCHARMAP_UNICODE_VERSION_12_0"
               glib:nick="12-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_12_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="56">Unicode version 12.0</doc>
       </member>
       <member name="12_1"
               value="22"
               c:identifier="GUCHARMAP_UNICODE_VERSION_12_1"
               glib:nick="12-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_12_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="57">Unicode version 12.1</doc>
       </member>
       <member name="13_0"
               value="23"
               c:identifier="GUCHARMAP_UNICODE_VERSION_13_0"
               glib:nick="13-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_13_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="58">Unicode version 13.0</doc>
       </member>
       <member name="14_0"
               value="24"
               c:identifier="GUCHARMAP_UNICODE_VERSION_14_0"
               glib:nick="14-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_14_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="59">Unicode version 14.0</doc>
       </member>
       <member name="15_0"
               value="25"
               c:identifier="GUCHARMAP_UNICODE_VERSION_15_0"
               glib:nick="15-0"
               glib:name="GUCHARMAP_UNICODE_VERSION_15_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="60">Unicode version 15.0</doc>
       </member>
       <member name="15_1"
               value="26"
               c:identifier="GUCHARMAP_UNICODE_VERSION_15_1"
               glib:nick="15-1"
               glib:name="GUCHARMAP_UNICODE_VERSION_15_1">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="61">Unicode version 15.1</doc>
+      </member>
+      <member name="16_0"
+              value="27"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_16_0"
+              glib:nick="16-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_16_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="62">Unicode version 16.0</doc>
+      </member>
+      <member name="17_0"
+              value="28"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_17_0"
+              glib:nick="17-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_17_0">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="63">Unicode version 17.0</doc>
       </member>
       <member name="latest"
-              value="26"
+              value="28"
               c:identifier="GUCHARMAP_UNICODE_VERSION_LATEST"
               glib:nick="latest"
               glib:name="GUCHARMAP_UNICODE_VERSION_LATEST">
+        <doc xml:space="preserve"
+             filename="gucharmap/gucharmap-unicode-info.h"
+             line="64">Latest Unicode version</doc>
       </member>
       <function name="to_string"
                 c:identifier="gucharmap_unicode_version_to_string">
         <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                         line="126"/>
+                         line="161"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2567,15 +2677,15 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </function>
     </enumeration>
-    <constant name="VERSION_MAJOR" value="15" c:type="GUCHARMAP_VERSION_MAJOR">
+    <constant name="VERSION_MAJOR" value="17" c:type="GUCHARMAP_VERSION_MAJOR">
       <source-position filename="gucharmap/gucharmap-version.h" line="27"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="5" c:type="GUCHARMAP_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="2" c:type="GUCHARMAP_VERSION_MICRO">
       <source-position filename="gucharmap/gucharmap-version.h" line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MINOR" value="1" c:type="GUCHARMAP_VERSION_MINOR">
+    <constant name="VERSION_MINOR" value="0" c:type="GUCHARMAP_VERSION_MINOR">
       <source-position filename="gucharmap/gucharmap-version.h" line="28"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -2583,7 +2693,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gucharmap_get_nameslist_colons"
               introspectable="0">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="106"/>
+                       line="141"/>
       <return-value>
         <array c:type="const gchar**">
           <type name="utf8"/>
@@ -2599,7 +2709,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gucharmap_get_nameslist_equals"
               introspectable="0">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="100"/>
+                       line="135"/>
       <return-value>
         <array c:type="const gchar**">
           <type name="utf8"/>
@@ -2614,7 +2724,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_nameslist_exes"
               c:identifier="gucharmap_get_nameslist_exes">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="102"/>
+                       line="137"/>
       <return-value transfer-ownership="none">
         <type name="gunichar" c:type="gunichar*"/>
       </return-value>
@@ -2628,7 +2738,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gucharmap_get_nameslist_pounds"
               introspectable="0">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="104"/>
+                       line="139"/>
       <return-value>
         <array c:type="const gchar**">
           <type name="utf8"/>
@@ -2644,7 +2754,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gucharmap_get_nameslist_stars"
               introspectable="0">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="98"/>
+                       line="133"/>
       <return-value>
         <array c:type="const gchar**">
           <type name="utf8"/>
@@ -2659,7 +2769,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_category_name"
               c:identifier="gucharmap_get_unicode_category_name">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="74"/>
+                       line="109"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2672,7 +2782,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_data_name"
               c:identifier="gucharmap_get_unicode_data_name">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="68"/>
+                       line="103"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2685,7 +2795,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_data_name_count"
               c:identifier="gucharmap_get_unicode_data_name_count">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="70"/>
+                       line="105"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -2693,7 +2803,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kCantonese"
               c:identifier="gucharmap_get_unicode_kCantonese">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="80"/>
+                       line="115"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2706,7 +2816,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kDefinition"
               c:identifier="gucharmap_get_unicode_kDefinition">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="78"/>
+                       line="113"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2719,7 +2829,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kHangul"
               c:identifier="gucharmap_get_unicode_kHangul">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="92"/>
+                       line="127"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2732,7 +2842,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kJapaneseKun"
               c:identifier="gucharmap_get_unicode_kJapaneseKun">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="88"/>
+                       line="123"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2745,7 +2855,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kJapaneseOn"
               c:identifier="gucharmap_get_unicode_kJapaneseOn">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="90"/>
+                       line="125"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2758,7 +2868,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kKorean"
               c:identifier="gucharmap_get_unicode_kKorean">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="86"/>
+                       line="121"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2771,7 +2881,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kMandarin"
               c:identifier="gucharmap_get_unicode_kMandarin">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="82"/>
+                       line="117"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2784,7 +2894,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kTang"
               c:identifier="gucharmap_get_unicode_kTang">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="84"/>
+                       line="119"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2797,7 +2907,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_kVietnamese"
               c:identifier="gucharmap_get_unicode_kVietnamese">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="94"/>
+                       line="129"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2810,7 +2920,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_name"
               c:identifier="gucharmap_get_unicode_name">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="66"/>
+                       line="101"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2823,7 +2933,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unicode_version"
               c:identifier="gucharmap_get_unicode_version">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="72"/>
+                       line="107"/>
       <return-value transfer-ownership="none">
         <type name="UnicodeVersion" c:type="GucharmapUnicodeVersion"/>
       </return-value>
@@ -2836,7 +2946,7 @@ and/or use gtk-doc annotations.  -->
     <function name="get_unihan_count"
               c:identifier="gucharmap_get_unihan_count">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="76"/>
+                       line="111"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -2844,7 +2954,7 @@ and/or use gtk-doc annotations.  -->
     <function name="unichar_isdefined"
               c:identifier="gucharmap_unichar_isdefined">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="115"/>
+                       line="150"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -2856,7 +2966,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="unichar_isgraph" c:identifier="gucharmap_unichar_isgraph">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="117"/>
+                       line="152"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -2869,7 +2979,7 @@ and/or use gtk-doc annotations.  -->
     <function name="unichar_to_printable_utf8"
               c:identifier="gucharmap_unichar_to_printable_utf8">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="110"/>
+                       line="145"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -2884,7 +2994,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="unichar_type" c:identifier="gucharmap_unichar_type">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="113"/>
+                       line="148"/>
       <return-value transfer-ownership="none">
         <type name="GLib.UnicodeType" c:type="GUnicodeType"/>
       </return-value>
@@ -2897,7 +3007,7 @@ and/or use gtk-doc annotations.  -->
     <function name="unichar_validate"
               c:identifier="gucharmap_unichar_validate">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="108"/>
+                       line="143"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -2910,7 +3020,7 @@ and/or use gtk-doc annotations.  -->
     <function name="unicode_get_locale_character"
               c:identifier="gucharmap_unicode_get_locale_character">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="130"/>
+                       line="165"/>
       <return-value transfer-ownership="none">
         <type name="gunichar" c:type="gunichar"/>
       </return-value>
@@ -2918,7 +3028,7 @@ and/or use gtk-doc annotations.  -->
     <function name="unicode_get_script_for_char"
               c:identifier="gucharmap_unicode_get_script_for_char">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="123"/>
+                       line="158"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -2932,7 +3042,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gucharmap_unicode_list_scripts"
               introspectable="0">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="121"/>
+                       line="156"/>
       <return-value>
         <array c:type="const gchar**">
           <type name="utf8"/>
@@ -2943,7 +3053,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gucharmap_unicode_version_to_string"
               moved-to="UnicodeVersion.to_string">
       <source-position filename="gucharmap/gucharmap-unicode-info.h"
-                       line="126"/>
+                       line="161"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>

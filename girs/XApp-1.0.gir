@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <package name="xapp"/>
+  <doc:format name="unknown"/>
   <namespace name="XApp"
              version="1.0"
              shared-library="libxapp.so.1"
@@ -248,13 +250,13 @@ a menu item has been activated, and will include the uri of the respective item.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-favorites.c"
-                 line="1279">The data to pass to the callback</doc>
+                 line="1279">The data to pass to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="func" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-favorites.c"
-                 line="1280">Destroy function for user_data</doc>
+                 line="1280">Destroy function for user_data.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -568,7 +570,7 @@ Since 2.6</doc>
                 version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="507">Creates a new #XAppGpuOffloadHelper instance.
+             line="519">Creates a new #XAppGpuOffloadHelper instance.
 
 The #XAppGpuOffloadHelper::ready signal will be emitted when the helper is initialized (successfully or not).</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
@@ -576,7 +578,7 @@ The #XAppGpuOffloadHelper::ready signal will be emitted when the helper is initi
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="514">a new #XAppGpuOffloadHelper.</doc>
+               line="526">a new #XAppGpuOffloadHelper.</doc>
           <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
         </return-value>
       </function>
@@ -585,7 +587,7 @@ The #XAppGpuOffloadHelper::ready signal will be emitted when the helper is initi
                 version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="524">Creates a new #XAppGpuOffloadHelper instance. This performs initialization synchronously,
+             line="536">Creates a new #XAppGpuOffloadHelper instance. This performs initialization synchronously,
 and can potentially block.
 
 Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized successfully.</doc>
@@ -594,7 +596,7 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="532">a new #XAppGpuOffloadHelper, fully initialized.</doc>
+               line="544">a new #XAppGpuOffloadHelper, fully initialized.</doc>
           <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
         </return-value>
       </function>
@@ -603,20 +605,20 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="641">Returns an #XAppGpuInfo for the default GPU.</doc>
+             line="680">Returns an #XAppGpuInfo for the default GPU.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="647">the default #XAppGpuInfo. Do not free</doc>
+               line="686">the default #XAppGpuInfo. Do not free</doc>
           <type name="GpuInfo" c:type="XAppGpuInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="643">The #XAppGpuOffloadHelper.</doc>
+                 line="682">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -626,26 +628,26 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="670">Returns an #XAppGpuInfo with the given ID.</doc>
+             line="709">Returns an #XAppGpuInfo with the given ID.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="677">the appropriate #XAppGpuInfo, or %NULL if @id was invalid.</doc>
+               line="716">the appropriate #XAppGpuInfo, or %NULL if @id was invalid.</doc>
           <type name="GpuInfo" c:type="XAppGpuInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="672">The #XAppGpuOffloadHelper.</doc>
+                 line="711">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="673">The ID of the info to retrieve.</doc>
+                 line="712">The ID of the info to retrieve.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -655,13 +657,13 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="588">Gets the number of GPUs noticed by Switcheroo.</doc>
+             line="600">Gets the number of GPUs noticed by Switcheroo.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="594">the total number of GPUs. A return value larger than
+               line="606">the total number of GPUs. A return value larger than
 1 implies there are offloadable GPUs available.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -669,7 +671,7 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="590">The #XAppGpuOffloadHelper.</doc>
+                 line="602">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -679,13 +681,13 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="608">Generates a list of #XAppGpuInfos that can be offloaded to, if there are any.</doc>
+             line="620">Generates a list of #XAppGpuInfos that can be offloaded to, if there are any.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="38"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="614">a list of #XAppGpuInfos or %NULL if there is only
+               line="626">a list of #XAppGpuInfos or %NULL if there is only
 a single GPU. The elements are owned by @helper but the container itself should be freed.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="GpuInfo"/>
@@ -695,7 +697,7 @@ a single GPU. The elements are owned by @helper but the container itself should 
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="610">The #XAppGpuOffloadHelper.</doc>
+                 line="622">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -705,20 +707,20 @@ a single GPU. The elements are owned by @helper but the container itself should 
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="570">Checks if there is a non-default GPU available for offloading.</doc>
+             line="582">Checks if there is a non-default GPU available for offloading.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="576">%TRUE if there is an extra GPU available.</doc>
+               line="588">%TRUE if there is an extra GPU available.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="572">The #XAppGpuOffloadHelper.</doc>
+                 line="584">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -728,21 +730,21 @@ a single GPU. The elements are owned by @helper but the container itself should 
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="551">Checks if the helper is ready and valid. This does not mean
+             line="563">Checks if the helper is ready and valid. This does not mean
 offload support exists.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="35"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="558">%TRUE if the helper has been successfully initialized.</doc>
+               line="570">%TRUE if the helper has been successfully initialized.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="553">The #XAppGpuOffloadHelper.</doc>
+                 line="565">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -750,7 +752,7 @@ offload support exists.</doc>
       <glib:signal name="ready" when="last" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="453">This signal is emitted by the helper when it has completed
+             line="465">This signal is emitted by the helper when it has completed
 gathering GPU information. It will only be sent once.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -759,7 +761,7 @@ gathering GPU information. It will only be sent once.</doc>
           <parameter name="success" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="456">Whether or not the helper initialize successfully.</doc>
+                 line="468">Whether or not the helper initialize successfully.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1155,13 +1157,13 @@ Setting an explicit progress value will unset this flag.</doc>
       <constructor name="new" c:identifier="xapp_icon_chooser_button_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="242">Creates a new #XAppIconChooserButton and sets its icon to @icon.</doc>
+             line="246">Creates a new #XAppIconChooserButton and sets its icon to @icon.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
                          line="15"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
-               line="247">a newly created #XAppIconChooserButton</doc>
+               line="251">a newly created #XAppIconChooserButton</doc>
           <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
         </return-value>
       </constructor>
@@ -1169,7 +1171,7 @@ Setting an explicit progress value will unset this flag.</doc>
                    c:identifier="xapp_icon_chooser_button_new_with_size">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="255">Creates a new #XAppIconChooserButton, and sets the sizes of the button image and the icons in
+             line="259">Creates a new #XAppIconChooserButton, and sets the sizes of the button image and the icons in
 the dialog. Note that xapp_icon_chooser_button_new_with_size (NULL, NULL) is the same as calling
 xapp_icon_chooser_button_new ().</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
@@ -1177,14 +1179,14 @@ xapp_icon_chooser_button_new ().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
-               line="263">a newly created #XAppIconChooserButton</doc>
+               line="267">a newly created #XAppIconChooserButton</doc>
           <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
         </return-value>
         <parameters>
           <parameter name="icon_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="257">the size of icon to use in the button, or NULL to use the default value.</doc>
+                 line="261">the size of icon to use in the button, or NULL to use the default value.</doc>
             <type name="Gtk.IconSize" c:type="GtkIconSize"/>
           </parameter>
         </parameters>
@@ -1193,21 +1195,21 @@ xapp_icon_chooser_button_new ().</doc>
               c:identifier="xapp_icon_chooser_button_get_dialog">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="409">Gets a reference to the icon chooser dialog for the #XAppIconChooserButton.
+             line="413">Gets a reference to the icon chooser dialog for the #XAppIconChooserButton.
 This is useful for setting properties on the dialog.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
                          line="29"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
-               line="416">the #XAppIconChooserDialog</doc>
+               line="420">the #XAppIconChooserDialog</doc>
           <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
         </return-value>
         <parameters>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="411">a #XAppIconChooserButton</doc>
+                 line="415">a #XAppIconChooserButton</doc>
             <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
           </instance-parameter>
         </parameters>
@@ -1217,20 +1219,20 @@ This is useful for setting properties on the dialog.</doc>
               glib:get-property="icon">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="317">Gets the icon from the #XAppIconChooserButton.</doc>
+             line="321">Gets the icon from the #XAppIconChooserButton.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
                          line="28"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
-               line="323">a string representing the icon. This may be an icon name or a file path.</doc>
+               line="327">a string representing the icon. This may be an icon name or a file path.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="319">a #XAppIconChooserButton</doc>
+                 line="323">a #XAppIconChooserButton</doc>
             <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
           </instance-parameter>
         </parameters>
@@ -1239,7 +1241,7 @@ This is useful for setting properties on the dialog.</doc>
               c:identifier="xapp_icon_chooser_button_set_default_category">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="386">Sets the icon on the #XAppIconChooserButton.</doc>
+             line="390">Sets the icon on the #XAppIconChooserButton.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
                          line="25"/>
         <return-value transfer-ownership="none">
@@ -1249,7 +1251,7 @@ This is useful for setting properties on the dialog.</doc>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="388">a #XAppIconChooserButton</doc>
+                 line="392">a #XAppIconChooserButton</doc>
             <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
           </instance-parameter>
           <parameter name="category"
@@ -1258,7 +1260,7 @@ This is useful for setting properties on the dialog.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="389">a string representing the category selected by default.</doc>
+                 line="393">a string representing the category selected by default.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1268,7 +1270,7 @@ This is useful for setting properties on the dialog.</doc>
               glib:set-property="icon">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="335">Sets the icon on the #XAppIconChooserButton.</doc>
+             line="339">Sets the icon on the #XAppIconChooserButton.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
                          line="22"/>
         <return-value transfer-ownership="none">
@@ -1278,7 +1280,7 @@ This is useful for setting properties on the dialog.</doc>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="337">a #XAppIconChooserButton</doc>
+                 line="341">a #XAppIconChooserButton</doc>
             <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
           </instance-parameter>
           <parameter name="icon"
@@ -1287,7 +1289,7 @@ This is useful for setting properties on the dialog.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="338">a string representing the icon to be set. This may be an icon name or a file path.</doc>
+                 line="342">a string representing the icon to be set. This may be an icon name or a file path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1297,7 +1299,7 @@ This is useful for setting properties on the dialog.</doc>
               glib:set-property="icon-size">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="277">Sets the icon size used in the button.</doc>
+             line="281">Sets the icon size used in the button.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
                          line="19"/>
         <return-value transfer-ownership="none">
@@ -1307,13 +1309,13 @@ This is useful for setting properties on the dialog.</doc>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="279">a #XAppIconChooserButton</doc>
+                 line="283">a #XAppIconChooserButton</doc>
             <type name="IconChooserButton" c:type="XAppIconChooserButton*"/>
           </instance-parameter>
           <parameter name="icon_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-button.c"
-                 line="280">the size of icon to use in the button, or -1 to use the default value.</doc>
+                 line="284">the size of icon to use in the button, or -1 to use the default value.</doc>
             <type name="Gtk.IconSize" c:type="GtkIconSize"/>
           </parameter>
         </parameters>
@@ -1321,7 +1323,7 @@ This is useful for setting properties on the dialog.</doc>
       <property name="category" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="227">The category selected by default.</doc>
+             line="231">The category selected by default.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon"
@@ -1331,7 +1333,7 @@ This is useful for setting properties on the dialog.</doc>
                 getter="get_icon">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="213">The preferred size to use when looking up icons. This only works with icon names.
+             line="217">The preferred size to use when looking up icons. This only works with icon names.
 Additionally, there is no guarantee that a selected icon name will exist in a
 particular size.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1343,7 +1345,7 @@ particular size.</doc>
                 default-value="GTK_ICON_SIZE_DND">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-button.c"
-             line="200">The size to use when displaying the icon.</doc>
+             line="204">The size to use when displaying the icon.</doc>
         <type name="Gtk.IconSize"/>
       </property>
     </class>
@@ -2421,7 +2423,7 @@ xapp_monitor_blanker_blank_other_monitors();</doc>
                glib:type-struct="ObjectIface">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="2893">The #XAppObject type is a specialized container of interfaces.</doc>
+           line="2908">The #XAppObject type is a specialized container of interfaces.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="333"/>
       <prerequisite name="Gio.DBusObject"/>
@@ -2430,20 +2432,20 @@ xapp_monitor_blanker_blank_other_monitors();</doc>
               glib:get-property="status-icon-interface">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="2923">Gets the #XAppStatusIconInterface instance for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt; on @object, if any.</doc>
+             line="2938">Gets the #XAppStatusIconInterface instance for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt; on @object, if any.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="341"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="2929">A #XAppStatusIconInterface that must be freed with g_object_unref() or %NULL if @object does not implement the interface.</doc>
+               line="2944">A #XAppStatusIconInterface that must be freed with g_object_unref() or %NULL if @object does not implement the interface.</doc>
           <type name="StatusIconInterface" c:type="XAppStatusIconInterface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="2925">A #XAppObject.</doc>
+                 line="2940">A #XAppObject.</doc>
             <type name="Object" c:type="XAppObject*"/>
           </instance-parameter>
         </parameters>
@@ -2453,7 +2455,7 @@ xapp_monitor_blanker_blank_other_monitors();</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="2941">Like xapp_object_get_status_icon_interface() but doesn't increase the reference count on the returned object.
+             line="2956">Like xapp_object_get_status_icon_interface() but doesn't increase the reference count on the returned object.
 
 It is not safe to use the returned object if you are on another thread than the one where the #GDBusObjectManagerClient or #GDBusObjectManagerServer for @object is running.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
@@ -2461,14 +2463,14 @@ It is not safe to use the returned object if you are on another thread than the 
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="2949">A #XAppStatusIconInterface or %NULL if @object does not implement the interface. Do not free the returned object, it is owned by @object.</doc>
+               line="2964">A #XAppStatusIconInterface or %NULL if @object does not implement the interface. Do not free the returned object, it is owned by @object.</doc>
           <type name="StatusIconInterface" c:type="XAppStatusIconInterface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="2943">A #XAppObject.</doc>
+                 line="2958">A #XAppObject.</doc>
             <type name="Object" c:type="XAppObject*"/>
           </instance-parameter>
         </parameters>
@@ -2479,7 +2481,7 @@ It is not safe to use the returned object if you are on another thread than the 
                 getter="get_status_icon_interface">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="2912">The #XAppStatusIconInterface instance corresponding to the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt;, if any.
+             line="2927">The #XAppStatusIconInterface instance corresponding to the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt;, if any.
 
 Connect to the #GObject::notify signal to get informed of property changes.</doc>
         <type name="StatusIconInterface"/>
@@ -2490,13 +2492,13 @@ Connect to the #GObject::notify signal to get informed of property changes.</doc
             glib:is-gtype-struct-for="Object">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="2899">Virtual table for the #XAppObject interface.</doc>
+           line="2914">Virtual table for the #XAppObject interface.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="333"/>
       <field name="parent_iface">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="2901">The parent interface.</doc>
+             line="2916">The parent interface.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
     </record>
@@ -2509,7 +2511,7 @@ Connect to the #GObject::notify signal to get informed of property changes.</doc
            glib:type-struct="ObjectManagerClientClass">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="3207">The #XAppObjectManagerClient structure contains only private data and should only be accessed using the provided API.</doc>
+           line="3222">The #XAppObjectManagerClient structure contains only private data and should only be accessed using the provided API.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="430"/>
       <implements name="Gio.AsyncInitable"/>
@@ -2520,20 +2522,20 @@ Connect to the #GObject::notify signal to get informed of property changes.</doc
                    throws="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3294">Finishes an operation started with xapp_object_manager_client_new().</doc>
+             line="3309">Finishes an operation started with xapp_object_manager_client_new().</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="448"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3301">The constructed object manager client or %NULL if @error is set.</doc>
+               line="3316">The constructed object manager client or %NULL if @error is set.</doc>
           <type name="ObjectManagerClient" c:type="GDBusObjectManager*"/>
         </return-value>
         <parameters>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3296">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to xapp_object_manager_client_new().</doc>
+                 line="3311">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to xapp_object_manager_client_new().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2543,20 +2545,20 @@ Connect to the #GObject::notify signal to get informed of property changes.</doc
                    throws="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3384">Finishes an operation started with xapp_object_manager_client_new_for_bus().</doc>
+             line="3399">Finishes an operation started with xapp_object_manager_client_new_for_bus().</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="467"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3391">The constructed object manager client or %NULL if @error is set.</doc>
+               line="3406">The constructed object manager client or %NULL if @error is set.</doc>
           <type name="ObjectManagerClient" c:type="GDBusObjectManager*"/>
         </return-value>
         <parameters>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3386">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to xapp_object_manager_client_new_for_bus().</doc>
+                 line="3401">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to xapp_object_manager_client_new_for_bus().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2566,7 +2568,7 @@ Connect to the #GObject::notify signal to get informed of property changes.</doc
                    throws="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3409">Like xapp_object_manager_client_new_sync() but takes a #GBusType instead of a #GDBusConnection.
+             line="3424">Like xapp_object_manager_client_new_sync() but takes a #GBusType instead of a #GDBusConnection.
 
 The calling thread is blocked until a reply is received.
 
@@ -2576,33 +2578,33 @@ See xapp_object_manager_client_new_for_bus() for the asynchronous version of thi
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3424">The constructed object manager client or %NULL if @error is set.</doc>
+               line="3439">The constructed object manager client or %NULL if @error is set.</doc>
           <type name="ObjectManagerClient" c:type="GDBusObjectManager*"/>
         </return-value>
         <parameters>
           <parameter name="bus_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3411">A #GBusType.</doc>
+                 line="3426">A #GBusType.</doc>
             <type name="Gio.BusType" c:type="GBusType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3412">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
+                 line="3427">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
             <type name="Gio.DBusObjectManagerClientFlags"
                   c:type="GDBusObjectManagerClientFlags"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3413">A bus name (well-known or unique).</doc>
+                 line="3428">A bus name (well-known or unique).</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3414">An object path.</doc>
+                 line="3429">An object path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2611,7 +2613,7 @@ See xapp_object_manager_client_new_for_bus() for the asynchronous version of thi
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3415">A #GCancellable or %NULL.</doc>
+                 line="3430">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2621,7 +2623,7 @@ See xapp_object_manager_client_new_for_bus() for the asynchronous version of thi
                    throws="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3319">Synchronously creates #GDBusObjectManagerClient using xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new_sync() for more details.
+             line="3334">Synchronously creates #GDBusObjectManagerClient using xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new_sync() for more details.
 
 The calling thread is blocked until a reply is received.
 
@@ -2631,20 +2633,20 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3334">The constructed object manager client or %NULL if @error is set.</doc>
+               line="3349">The constructed object manager client or %NULL if @error is set.</doc>
           <type name="ObjectManagerClient" c:type="GDBusObjectManager*"/>
         </return-value>
         <parameters>
           <parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3321">A #GDBusConnection.</doc>
+                 line="3336">A #GDBusConnection.</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3322">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
+                 line="3337">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
             <type name="Gio.DBusObjectManagerClientFlags"
                   c:type="GDBusObjectManagerClientFlags"/>
           </parameter>
@@ -2654,13 +2656,13 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3323">A bus name (well-known or unique) or %NULL if @connection is not a message bus connection.</doc>
+                 line="3338">A bus name (well-known or unique) or %NULL if @connection is not a message bus connection.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3324">An object path.</doc>
+                 line="3339">An object path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2669,7 +2671,7 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3325">A #GCancellable or %NULL.</doc>
+                 line="3340">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2678,27 +2680,27 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
                 c:identifier="xapp_object_manager_client_get_proxy_type">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3232">A #GDBusProxyTypeFunc that maps @interface_name to the generated #GDBusObjectProxy derived and #GDBusProxy derived types.</doc>
+             line="3247">A #GDBusProxyTypeFunc that maps @interface_name to the generated #GDBusObjectProxy derived and #GDBusProxy derived types.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="438"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3241">A #GDBusProxy derived #GType if @interface_name is not %NULL, otherwise the #GType for #XAppObjectProxy.</doc>
+               line="3256">A #GDBusProxy derived #GType if @interface_name is not %NULL, otherwise the #GType for #XAppObjectProxy.</doc>
           <type name="GType" c:type="GType"/>
         </return-value>
         <parameters>
           <parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3234">A #GDBusObjectManagerClient.</doc>
+                 line="3249">A #GDBusObjectManagerClient.</doc>
             <type name="Gio.DBusObjectManagerClient"
                   c:type="GDBusObjectManagerClient*"/>
           </parameter>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3235">The object path of the remote object (unused).</doc>
+                 line="3250">The object path of the remote object (unused).</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="interface_name"
@@ -2707,7 +2709,7 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3236">Interface name of the remote object or %NULL to get the object proxy #GType.</doc>
+                 line="3251">Interface name of the remote object or %NULL to get the object proxy #GType.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="user_data"
@@ -2716,7 +2718,7 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3237">User data (unused).</doc>
+                 line="3252">User data (unused).</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2726,7 +2728,7 @@ See xapp_object_manager_client_new() for the asynchronous version of this constr
                 glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3264">Asynchronously creates #GDBusObjectManagerClient using xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new() for more details.
+             line="3279">Asynchronously creates #GDBusObjectManagerClient using xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new() for more details.
 
 When the operation is finished, @callback will be invoked in the thread-default main loop of the thread you are calling this method from (see g_main_context_push_thread_default()).
 You can then call xapp_object_manager_client_new_finish() to get the result of the operation.
@@ -2741,13 +2743,13 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
           <parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3266">A #GDBusConnection.</doc>
+                 line="3281">A #GDBusConnection.</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3267">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
+                 line="3282">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
             <type name="Gio.DBusObjectManagerClientFlags"
                   c:type="GDBusObjectManagerClientFlags"/>
           </parameter>
@@ -2757,13 +2759,13 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3268">A bus name (well-known or unique) or %NULL if @connection is not a message bus connection.</doc>
+                 line="3283">A bus name (well-known or unique) or %NULL if @connection is not a message bus connection.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3269">An object path.</doc>
+                 line="3284">An object path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2772,7 +2774,7 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3270">A #GCancellable or %NULL.</doc>
+                 line="3285">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2783,7 +2785,7 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
                      closure="6">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3271">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+                 line="3286">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2792,7 +2794,7 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3272">User data to pass to @callback.</doc>
+                 line="3287">User data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2802,7 +2804,7 @@ See xapp_object_manager_client_new_sync() for the synchronous, blocking version 
                 glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3354">Like xapp_object_manager_client_new() but takes a #GBusType instead of a #GDBusConnection.
+             line="3369">Like xapp_object_manager_client_new() but takes a #GBusType instead of a #GDBusConnection.
 
 When the operation is finished, @callback will be invoked in the thread-default main loop of the thread you are calling this method from (see g_main_context_push_thread_default()).
 You can then call xapp_object_manager_client_new_for_bus_finish() to get the result of the operation.
@@ -2817,26 +2819,26 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
           <parameter name="bus_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3356">A #GBusType.</doc>
+                 line="3371">A #GBusType.</doc>
             <type name="Gio.BusType" c:type="GBusType"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3357">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
+                 line="3372">Flags from the #GDBusObjectManagerClientFlags enumeration.</doc>
             <type name="Gio.DBusObjectManagerClientFlags"
                   c:type="GDBusObjectManagerClientFlags"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3358">A bus name (well-known or unique).</doc>
+                 line="3373">A bus name (well-known or unique).</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3359">An object path.</doc>
+                 line="3374">An object path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2845,7 +2847,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3360">A #GCancellable or %NULL.</doc>
+                 line="3375">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2856,7 +2858,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
                      closure="6">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3361">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+                 line="3376">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2865,7 +2867,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3362">User data to pass to @callback.</doc>
+                 line="3377">User data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2884,13 +2886,13 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
             glib:is-gtype-struct-for="ObjectManagerClient">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="3213">Class structure for #XAppObjectManagerClient.</doc>
+           line="3228">Class structure for #XAppObjectManagerClient.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="430"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3215">The parent class.</doc>
+             line="3230">The parent class.</doc>
         <type name="Gio.DBusObjectManagerClientClass"
               c:type="GDBusObjectManagerClientClass"/>
       </field>
@@ -2911,7 +2913,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
            glib:type-struct="ObjectProxyClass">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="2973">The #XAppObjectProxy structure contains only private data and should only be accessed using the provided API.</doc>
+           line="2988">The #XAppObjectProxy structure contains only private data and should only be accessed using the provided API.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="365"/>
       <implements name="Gio.DBusObject"/>
@@ -2919,26 +2921,26 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
       <constructor name="new" c:identifier="xapp_object_proxy_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3050">Creates a new proxy object.</doc>
+             line="3065">Creates a new proxy object.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="373"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3057">The proxy object.</doc>
+               line="3072">The proxy object.</doc>
           <type name="ObjectProxy" c:type="XAppObjectProxy*"/>
         </return-value>
         <parameters>
           <parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3052">A #GDBusConnection.</doc>
+                 line="3067">A #GDBusConnection.</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3053">An object path.</doc>
+                 line="3068">An object path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2955,13 +2957,13 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
             glib:is-gtype-struct-for="ObjectProxy">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="2979">Class structure for #XAppObjectProxy.</doc>
+           line="2994">Class structure for #XAppObjectProxy.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="365"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="2981">The parent class.</doc>
+             line="2996">The parent class.</doc>
         <type name="Gio.DBusObjectProxyClass" c:type="GDBusObjectProxyClass"/>
       </field>
     </record>
@@ -2981,7 +2983,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
            glib:type-struct="ObjectSkeletonClass">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="3068">The #XAppObjectSkeleton structure contains only private data and should only be accessed using the provided API.</doc>
+           line="3083">The #XAppObjectSkeleton structure contains only private data and should only be accessed using the provided API.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="396"/>
       <implements name="Gio.DBusObject"/>
@@ -2989,20 +2991,20 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
       <constructor name="new" c:identifier="xapp_object_skeleton_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3166">Creates a new skeleton object.</doc>
+             line="3181">Creates a new skeleton object.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="404"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="3172">The skeleton object.</doc>
+               line="3187">The skeleton object.</doc>
           <type name="ObjectSkeleton" c:type="XAppObjectSkeleton*"/>
         </return-value>
         <parameters>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3168">An object path.</doc>
+                 line="3183">An object path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3011,7 +3013,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
               c:identifier="xapp_object_skeleton_set_status_icon_interface">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3181">Sets the #XAppStatusIconInterface instance for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt; on @object.</doc>
+             line="3196">Sets the #XAppStatusIconInterface instance for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt; on @object.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="405"/>
         <return-value transfer-ownership="none">
@@ -3021,7 +3023,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3183">A #XAppObjectSkeleton.</doc>
+                 line="3198">A #XAppObjectSkeleton.</doc>
             <type name="ObjectSkeleton" c:type="XAppObjectSkeleton*"/>
           </instance-parameter>
           <parameter name="interface_"
@@ -3030,7 +3032,7 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-statusicon-interface.c"
-                 line="3184">A #XAppStatusIconInterface or %NULL to clear the interface.</doc>
+                 line="3199">A #XAppStatusIconInterface or %NULL to clear the interface.</doc>
             <type name="StatusIconInterface"
                   c:type="XAppStatusIconInterface*"/>
           </parameter>
@@ -3049,13 +3051,13 @@ See xapp_object_manager_client_new_for_bus_sync() for the synchronous, blocking 
             glib:is-gtype-struct-for="ObjectSkeleton">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="3074">Class structure for #XAppObjectSkeleton.</doc>
+           line="3089">Class structure for #XAppObjectSkeleton.</doc>
       <source-position filename="libxapp/xapp-statusicon-interface.h"
                        line="396"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="3076">The parent class.</doc>
+             line="3091">The parent class.</doc>
         <type name="Gio.DBusObjectSkeletonClass"
               c:type="GDBusObjectSkeletonClass"/>
       </field>
@@ -6809,13 +6811,13 @@ See xapp_status_icon_interface_proxy_new_for_bus_sync() for the synchronous, blo
                    c:identifier="xapp_status_icon_interface_skeleton_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-statusicon-interface.c"
-             line="2867">Creates a skeleton object for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt;.</doc>
+             line="2882">Creates a skeleton object for the D-Bus interface &lt;link linkend="gdbus-interface-org-x-StatusIcon.top_of_page"&gt;org.x.StatusIcon&lt;/link&gt;.</doc>
         <source-position filename="libxapp/xapp-statusicon-interface.h"
                          line="316"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-statusicon-interface.c"
-               line="2872">The skeleton object.</doc>
+               line="2887">The skeleton object.</doc>
           <type name="StatusIconInterfaceSkeleton"
                 c:type="XAppStatusIconInterface*"/>
         </return-value>
@@ -7965,13 +7967,13 @@ See xapp_switcheroo_control_proxy_new_for_bus_sync() for the synchronous, blocki
                    c:identifier="xapp_switcheroo_control_skeleton_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-switcheroo-interface.c"
-             line="1407">Creates a skeleton object for the D-Bus interface &lt;link linkend="gdbus-interface-net-hadess-SwitcherooControl.top_of_page"&gt;net.hadess.SwitcherooControl&lt;/link&gt;.</doc>
+             line="1422">Creates a skeleton object for the D-Bus interface &lt;link linkend="gdbus-interface-net-hadess-SwitcherooControl.top_of_page"&gt;net.hadess.SwitcherooControl&lt;/link&gt;.</doc>
         <source-position filename="libxapp/xapp-switcheroo-interface.h"
                          line="164"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-switcheroo-interface.c"
-               line="1412">The skeleton object.</doc>
+               line="1427">The skeleton object.</doc>
           <type name="SwitcherooControlSkeleton"
                 c:type="XAppSwitcherooControl*"/>
         </return-value>
@@ -8345,12 +8347,12 @@ The list is owned by XApp, do not free.</doc>
     <docsection name="XAppObject">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="2885">This section contains the #XAppObject, #XAppObjectProxy, and #XAppObjectSkeleton types which make it easier to work with objects implementing generated types for D-Bus interfaces.</doc>
+           line="2900">This section contains the #XAppObject, #XAppObjectProxy, and #XAppObjectSkeleton types which make it easier to work with objects implementing generated types for D-Bus interfaces.</doc>
     </docsection>
     <docsection name="XAppObjectManagerClient">
       <doc xml:space="preserve"
            filename="libxapp/xapp-statusicon-interface.c"
-           line="3199">This section contains a #GDBusObjectManagerClient that uses xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc.</doc>
+           line="3214">This section contains a #GDBusObjectManagerClient that uses xapp_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc.</doc>
     </docsection>
     <docsection name="XAppStatusIconInterface">
       <doc xml:space="preserve"

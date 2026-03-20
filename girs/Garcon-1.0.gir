@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Libxfce4util" version="1.0"/>
   <package name="garcon-1"/>
   <c:include name="garcon/garcon.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Garcon"
              version="1.0"
              shared-library="libgarcon-1.so.0"
@@ -128,7 +130,7 @@ to set the Xfce Desktop Environment.</doc>
     <function-macro name="IS_MENU_ITEM_CACHE"
                     c:identifier="GARCON_IS_MENU_ITEM_CACHE"
                     introspectable="0">
-      <source-position filename="garcon-menu-item-cache.h" line="40"/>
+      <source-position filename="garcon-menu-item-cache.h" line="41"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -137,7 +139,7 @@ to set the Xfce Desktop Environment.</doc>
     <function-macro name="IS_MENU_ITEM_CACHE_CLASS"
                     c:identifier="GARCON_IS_MENU_ITEM_CACHE_CLASS"
                     introspectable="0">
-      <source-position filename="garcon-menu-item-cache.h" line="41"/>
+      <source-position filename="garcon-menu-item-cache.h" line="42"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -370,7 +372,7 @@ linked against at application run time.</doc>
     <function-macro name="MENU_ITEM_CACHE"
                     c:identifier="GARCON_MENU_ITEM_CACHE"
                     introspectable="0">
-      <source-position filename="garcon-menu-item-cache.h" line="38"/>
+      <source-position filename="garcon-menu-item-cache.h" line="39"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -379,7 +381,7 @@ linked against at application run time.</doc>
     <function-macro name="MENU_ITEM_CACHE_CLASS"
                     c:identifier="GARCON_MENU_ITEM_CACHE_CLASS"
                     introspectable="0">
-      <source-position filename="garcon-menu-item-cache.h" line="39"/>
+      <source-position filename="garcon-menu-item-cache.h" line="40"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -388,7 +390,7 @@ linked against at application run time.</doc>
     <function-macro name="MENU_ITEM_CACHE_GET_CLASS"
                     c:identifier="GARCON_MENU_ITEM_CACHE_GET_CLASS"
                     introspectable="0">
-      <source-position filename="garcon-menu-item-cache.h" line="42"/>
+      <source-position filename="garcon-menu-item-cache.h" line="43"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -565,7 +567,7 @@ linked against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="2" c:type="GARCON_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="GARCON_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="garcon-config.h"
            line="52">The micro version number of the garcon library.
@@ -575,7 +577,7 @@ linked against at application run time.</doc>
       <source-position filename="garcon-config.h" line="60"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="18" c:type="GARCON_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="20" c:type="GARCON_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="garcon-config.h"
            line="42">The minor version number of the garcon library.
@@ -592,12 +594,12 @@ linked against at application run time.</doc>
            glib:type-name="GarconMenu"
            glib:get-type="garcon_menu_get_type"
            glib:type-struct="MenuClass">
-      <source-position filename="garcon-menu.h" line="67"/>
+      <source-position filename="garcon-menu.h" line="81"/>
       <implements name="MenuElement"/>
       <constructor name="new" c:identifier="garcon_menu_new">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="472">Creates a new #GarconMenu for the .menu file referred to by @file.
+             line="507">Creates a new #GarconMenu for the .menu file referred to by @file.
 This operation only fails if @file is invalid. To load the menu
 tree from the file, you need to call garcon_menu_load() with the
 returned #GarconMenu.
@@ -617,18 +619,18 @@ The caller is responsible to destroy the returned #GarconMenu
 using g_object_unref().
 
 For more information about the usage @see garcon_menu_new().</doc>
-        <source-position filename="garcon-menu.h" line="46"/>
+        <source-position filename="garcon-menu.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="497">a new #GarconMenu.</doc>
+               line="532">a new #GarconMenu.</doc>
           <type name="Menu" c:type="GarconMenu*"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="474">#GFile for the .menu file you want to load.</doc>
+                 line="509">#GFile for the .menu file you want to load.</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -637,15 +639,15 @@ For more information about the usage @see garcon_menu_new().</doc>
                    c:identifier="garcon_menu_new_applications">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="541">Creates a new #GarconMenu for the applications.menu file
+             line="576">Creates a new #GarconMenu for the applications.menu file
 which is being used to display installed applications.
 
 For more information about the usage @see garcon_menu_new().</doc>
-        <source-position filename="garcon-menu.h" line="48"/>
+        <source-position filename="garcon-menu.h" line="52"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="549">a new #GarconMenu
+               line="584">a new #GarconMenu
 for applications.menu.</doc>
           <type name="Menu" c:type="GarconMenu*"/>
         </return-value>
@@ -653,18 +655,18 @@ for applications.menu.</doc>
       <constructor name="new_for_path" c:identifier="garcon_menu_new_for_path">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="508">Creates a new #GarconMenu for the .menu file referred to by @filename.
+             line="543">Creates a new #GarconMenu for the .menu file referred to by @filename.
 This operation only fails if the filename is %NULL. To load the menu
 tree from the file, you need to call garcon_menu_load() with the
 returned #GarconMenu.
 
 The caller is responsible to destroy the returned #GarconMenu
 using g_object_unref().</doc>
-        <source-position filename="garcon-menu.h" line="47"/>
+        <source-position filename="garcon-menu.h" line="50"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="520">a new #GarconMenu
+               line="555">a new #GarconMenu
 for @filename.</doc>
           <type name="Menu" c:type="GarconMenu*"/>
         </return-value>
@@ -672,7 +674,7 @@ for @filename.</doc>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="510">Path/URI of the .menu file you want to load.</doc>
+                 line="545">Path/URI of the .menu file you want to load.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -680,8 +682,8 @@ for @filename.</doc>
       <method name="add_menu" c:identifier="garcon_menu_add_menu">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="823">Adds @submenu as a sub menu to @menu.</doc>
-        <source-position filename="garcon-menu.h" line="55"/>
+             line="856">Adds @submenu as a sub menu to @menu.</doc>
+        <source-position filename="garcon-menu.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -689,13 +691,13 @@ for @filename.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="825">a #GarconMenu</doc>
+                 line="858">a #GarconMenu</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
           <parameter name="submenu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="826">a #GarconMenu</doc>
+                 line="859">a #GarconMenu</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </parameter>
         </parameters>
@@ -705,24 +707,24 @@ for @filename.</doc>
               glib:get-property="directory">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="597">Returns the #GarconMenuDirectory of @menu or %NULL if @menu has
+             line="631">Returns the #GarconMenuDirectory of @menu or %NULL if @menu has
 no valid directory element.
 
 The menu directory may contain a lot of useful information about
 the menu like the display and icon name, desktop environments it
 should show up in etc.</doc>
-        <source-position filename="garcon-menu.h" line="53"/>
+        <source-position filename="garcon-menu.h" line="60"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="608">a #GarconMenuDirectory</doc>
+               line="642">a #GarconMenuDirectory</doc>
           <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="599">a #GarconMenu.</doc>
+                 line="633">a #GarconMenu.</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -730,12 +732,12 @@ should show up in etc.</doc>
       <method name="get_elements" c:identifier="garcon_menu_get_elements">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="1536">Get all the menu element in @menu. This contains sub menus, menu items
+             line="1568">Get all the menu element in @menu. This contains sub menus, menu items
 and separators.
 
 Returns a list of #GarconMenuItem or %NULL. Free the list with
 g_list_free().</doc>
-        <source-position filename="garcon-menu.h" line="62"/>
+        <source-position filename="garcon-menu.h" line="76"/>
         <return-value transfer-ownership="container" nullable="1">
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
@@ -745,7 +747,7 @@ g_list_free().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="1538">a #GarconMenu.</doc>
+                 line="1570">a #GarconMenu.</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -755,23 +757,23 @@ g_list_free().</doc>
               glib:get-property="file">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="565">Get the file for @menu. It refers to the .menu file from which
+             line="600">Get the file for @menu. It refers to the .menu file from which
 @menu was or will be loaded.
 
 The returned object should be unreffed with g_object_unref()
 when no longer needed.</doc>
-        <source-position filename="garcon-menu.h" line="52"/>
+        <source-position filename="garcon-menu.h" line="58"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="575">a #GFile.</doc>
+               line="610">a #GFile.</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="567">a #GarconMenu.</doc>
+                 line="602">a #GarconMenu.</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -779,20 +781,20 @@ when no longer needed.</doc>
       <method name="get_item_pool" c:identifier="garcon_menu_get_item_pool">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="1378">Get the item pool of the menu. This pool contains all items in this
+             line="1410">Get the item pool of the menu. This pool contains all items in this
 menu (for that of its submenus).</doc>
-        <source-position filename="garcon-menu.h" line="60"/>
+        <source-position filename="garcon-menu.h" line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="1385">a #GarconMenuItemPool.</doc>
+               line="1417">a #GarconMenuItemPool.</doc>
           <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="1380">a #GarconMenu.</doc>
+                 line="1412">a #GarconMenu.</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -800,16 +802,16 @@ menu (for that of its submenus).</doc>
       <method name="get_items" c:identifier="garcon_menu_get_items">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="1407">Returns all #GarconMenuItem included in @menu. The items are
+             line="1439">Returns all #GarconMenuItem included in @menu. The items are
 sorted by their display names in ascending order.
 
 The caller is responsible to free the returned list using
 g_list_free() when no longer needed.</doc>
-        <source-position filename="garcon-menu.h" line="61"/>
+        <source-position filename="garcon-menu.h" line="74"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="1417">list
+               line="1449">list
 of #GarconMenuItem included in @menu.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
@@ -819,7 +821,7 @@ of #GarconMenuItem included in @menu.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="1409">a #GarconMenu.</doc>
+                 line="1441">a #GarconMenu.</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -828,25 +830,25 @@ of #GarconMenuItem included in @menu.</doc>
               c:identifier="garcon_menu_get_menu_with_name">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="849">Looks in @menu for a submenu with @name as name.</doc>
-        <source-position filename="garcon-menu.h" line="57"/>
+             line="882">Looks in @menu for a submenu with @name as name.</doc>
+        <source-position filename="garcon-menu.h" line="67"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="856">a #GarconMenu or %NULL.</doc>
+               line="889">a #GarconMenu or %NULL.</doc>
           <type name="Menu" c:type="GarconMenu*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="851">a #GarconMenu</doc>
+                 line="884">a #GarconMenu</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="852">a sub menu name</doc>
+                 line="885">a sub menu name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -854,13 +856,13 @@ of #GarconMenuItem included in @menu.</doc>
       <method name="get_menus" c:identifier="garcon_menu_get_menus">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="795">Returns a sorted list of #GarconMenu submenus of @menu. The list
+             line="828">Returns a sorted list of #GarconMenu submenus of @menu. The list
 should be freed with g_list_free().</doc>
-        <source-position filename="garcon-menu.h" line="54"/>
+        <source-position filename="garcon-menu.h" line="62"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="802">a sorted list
+               line="835">a sorted list
 of #GarconMenu.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Menu"/>
@@ -870,7 +872,7 @@ of #GarconMenu.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="797">a #GarconMenu</doc>
+                 line="830">a #GarconMenu</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -878,12 +880,12 @@ of #GarconMenu.</doc>
       <method name="get_parent" c:identifier="garcon_menu_get_parent">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="881">Returns the parent #GarconMenu or @menu.</doc>
-        <source-position filename="garcon-menu.h" line="59"/>
+             line="914">Returns the parent #GarconMenu or @menu.</doc>
+        <source-position filename="garcon-menu.h" line="70"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="887">a #GarconMenu or %NULL
+               line="920">a #GarconMenu or %NULL
 if @menu is the root menu.</doc>
           <type name="Menu" c:type="GarconMenu*"/>
         </return-value>
@@ -891,7 +893,7 @@ if @menu is the root menu.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="883">a #GarconMenu</doc>
+                 line="916">a #GarconMenu</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
         </parameters>
@@ -899,7 +901,7 @@ if @menu is the root menu.</doc>
       <method name="load" c:identifier="garcon_menu_load" throws="1">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="646">This function loads the entire menu tree from the file referred to
+             line="680">This function loads the entire menu tree from the file referred to
 by @menu. It resolves merges, moves and everything else defined
 in the menu specification. The resulting tree information is
 stored within @menu and can be accessed using the public #GarconMenu
@@ -910,11 +912,11 @@ from files during the loading process.
 
 @error should either be NULL or point to a #GError return location
 where errors should be stored in.</doc>
-        <source-position filename="garcon-menu.h" line="49"/>
+        <source-position filename="garcon-menu.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu.c"
-               line="664">%TRUE if the menu was loaded successfully or
+               line="698">%TRUE if the menu was loaded successfully or
          %FALSE if there was an error or the process was
          cancelled.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -923,7 +925,7 @@ where errors should be stored in.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="648">a #GarconMenu</doc>
+                 line="682">a #GarconMenu</doc>
             <type name="Menu" c:type="GarconMenu*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -932,7 +934,7 @@ where errors should be stored in.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="garcon-menu.c"
-                 line="649">a #GCancellable</doc>
+                 line="683">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -943,7 +945,7 @@ where errors should be stored in.</doc>
                 getter="get_directory">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="262">The directory entry associated with this menu.</doc>
+             line="297">The directory entry associated with this menu.</doc>
         <type name="MenuDirectory"/>
       </property>
       <property name="file"
@@ -953,7 +955,7 @@ where errors should be stored in.</doc>
                 getter="get_file">
         <doc xml:space="preserve"
              filename="garcon-menu.c"
-             line="247">The #GFile from which the %GarconMenu was loaded.</doc>
+             line="282">The #GFile from which the %GarconMenu was loaded.</doc>
         <type name="Gio.File"/>
       </property>
       <field name="__parent__">
@@ -984,7 +986,7 @@ where errors should be stored in.</doc>
     <record name="MenuClass"
             c:type="GarconMenuClass"
             glib:is-gtype-struct-for="Menu">
-      <source-position filename="garcon-menu.h" line="67"/>
+      <source-position filename="garcon-menu.h" line="81"/>
       <field name="__parent__">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1000,20 +1002,20 @@ where errors should be stored in.</doc>
       <constructor name="new" c:identifier="garcon_menu_directory_new">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="328">Create a new #GarconMenuDirectory for @file. You most likely never
+             line="330">Create a new #GarconMenuDirectory for @file. You most likely never
 use this, but retrieve the info from garcon_menu_get_directory().</doc>
-        <source-position filename="garcon-menu-directory.h" line="60"/>
+        <source-position filename="garcon-menu-directory.h" line="62"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="335">a #GarconMenuDirectory.</doc>
+               line="337">a #GarconMenuDirectory.</doc>
           <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="330">a #GFile</doc>
+                 line="332">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -1021,25 +1023,25 @@ use this, but retrieve the info from garcon_menu_get_directory().</doc>
       <method name="equal" c:identifier="garcon_menu_directory_equal">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="685">Checks if both directories point to the same file.</doc>
-        <source-position filename="garcon-menu-directory.h" line="78"/>
+             line="687">Checks if both directories point to the same file.</doc>
+        <source-position filename="garcon-menu-directory.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="692">if files are equal %TRUE, else %FALSE.</doc>
+               line="694">if files are equal %TRUE, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="687">a #GarconMenuDirectory</doc>
+                 line="689">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="688">a #GarconMenuDirectory</doc>
+                 line="690">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </parameter>
         </parameters>
@@ -1049,19 +1051,19 @@ use this, but retrieve the info from garcon_menu_get_directory().</doc>
               glib:get-property="comment">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="457">Get the comment of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="66"/>
+             line="459">Get the comment of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="463">a the description for @directory.</doc>
+               line="465">a the description for @directory.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="459">a #GarconMenuDirectory</doc>
+                 line="461">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1071,20 +1073,20 @@ use this, but retrieve the info from garcon_menu_get_directory().</doc>
               glib:get-property="file">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="393">Get the #GFile for @directory. The returned object should be
+             line="395">Get the #GFile for @directory. The returned object should be
 unreffed with g_object_unref() when no longer needed.</doc>
-        <source-position filename="garcon-menu-directory.h" line="62"/>
+        <source-position filename="garcon-menu-directory.h" line="65"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="400">a #GFile</doc>
+               line="402">a #GFile</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="395">a #GarconMenuDirectory</doc>
+                 line="397">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1093,20 +1095,20 @@ unreffed with g_object_unref() when no longer needed.</doc>
               c:identifier="garcon_menu_directory_get_hidden">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="592">Whether @directory should be hidden.
+             line="594">Whether @directory should be hidden.
 For applications you want to call garcon_menu_directory_get_visible().</doc>
-        <source-position filename="garcon-menu-directory.h" line="75"/>
+        <source-position filename="garcon-menu-directory.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="599">a the hidden key for @directory.</doc>
+               line="601">a the hidden key for @directory.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="594">a #GarconMenuDirectory</doc>
+                 line="596">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1116,19 +1118,19 @@ For applications you want to call garcon_menu_directory_get_visible().</doc>
               glib:get-property="icon-name">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="503">Get the icon name of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="69"/>
+             line="505">Get the icon name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="509">a the icon-name key for @directory.</doc>
+               line="511">a the icon-name key for @directory.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="505">a #GarconMenuDirectory</doc>
+                 line="507">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1138,19 +1140,19 @@ For applications you want to call garcon_menu_directory_get_visible().</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="411">Get the name of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="63"/>
+             line="413">Get the name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="417">a the name for @directory.</doc>
+               line="419">a the name for @directory.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="413">a #GarconMenuDirectory</doc>
+                 line="415">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1160,20 +1162,20 @@ For applications you want to call garcon_menu_directory_get_visible().</doc>
               glib:get-property="no-display">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="548">Whether @directory should be displayed.
+             line="550">Whether @directory should be displayed.
 For applications you want to call garcon_menu_directory_get_visible().</doc>
-        <source-position filename="garcon-menu-directory.h" line="72"/>
+        <source-position filename="garcon-menu-directory.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="555">a the no-display key for @directory.</doc>
+               line="557">a the no-display key for @directory.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="550">a #GarconMenuDirectory</doc>
+                 line="552">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1182,21 +1184,21 @@ For applications you want to call garcon_menu_directory_get_visible().</doc>
               c:identifier="garcon_menu_directory_get_show_in_environment">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="610">Whether @directory is visible in the current environment
+             line="612">Whether @directory is visible in the current environment
 which has been set by garcon_set_environment().
 For applications you want to call garcon_menu_directory_get_visible().</doc>
-        <source-position filename="garcon-menu-directory.h" line="76"/>
+        <source-position filename="garcon-menu-directory.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="618">%TRUE is visible in environment, else %FALSE.</doc>
+               line="620">%TRUE is visible in environment, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="612">a #GarconMenuDirectory</doc>
+                 line="614">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1205,22 +1207,22 @@ For applications you want to call garcon_menu_directory_get_visible().</doc>
               c:identifier="garcon_menu_directory_get_visible">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="658">Check which runs the following checks:
+             line="660">Check which runs the following checks:
 garcon_menu_directory_get_show_in_environment(),
 garcon_menu_directory_get_hidden() and
 garcon_menu_directory_get_no_display().</doc>
-        <source-position filename="garcon-menu-directory.h" line="77"/>
+        <source-position filename="garcon-menu-directory.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-directory.c"
-               line="667">if visible %TRUE, else %FALSE.</doc>
+               line="669">if visible %TRUE, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="660">a #GarconMenuDirectory</doc>
+                 line="662">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -1230,8 +1232,8 @@ garcon_menu_directory_get_no_display().</doc>
               glib:set-property="comment">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="474">Set the comment of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="67"/>
+             line="476">Set the comment of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1239,13 +1241,13 @@ garcon_menu_directory_get_no_display().</doc>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="476">a #GarconMenuDirectory</doc>
+                 line="478">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
           <parameter name="comment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="477">the new description for @directory.</doc>
+                 line="479">the new description for @directory.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1255,8 +1257,8 @@ garcon_menu_directory_get_no_display().</doc>
               glib:set-property="icon-name">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="520">Set the icon name of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="70"/>
+             line="522">Set the icon name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1264,13 +1266,13 @@ garcon_menu_directory_get_no_display().</doc>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="522">a #GarconMenuDirectory</doc>
+                 line="524">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="523">the new icon name for @directory.</doc>
+                 line="525">the new icon name for @directory.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1280,8 +1282,8 @@ garcon_menu_directory_get_no_display().</doc>
               glib:set-property="name">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="428">Set the name of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="64"/>
+             line="430">Set the name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1289,13 +1291,13 @@ garcon_menu_directory_get_no_display().</doc>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="430">a #GarconMenuDirectory</doc>
+                 line="432">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="431">the new name for @directory.</doc>
+                 line="433">the new name for @directory.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1305,8 +1307,8 @@ garcon_menu_directory_get_no_display().</doc>
               glib:set-property="no-display">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="566">Set the NoDisplay key of @directory.</doc>
-        <source-position filename="garcon-menu-directory.h" line="73"/>
+             line="568">Set the NoDisplay key of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1314,13 +1316,13 @@ garcon_menu_directory_get_no_display().</doc>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="568">a #GarconMenuDirectory</doc>
+                 line="570">a #GarconMenuDirectory</doc>
             <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
           </instance-parameter>
           <parameter name="no_display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-directory.c"
-                 line="569">whether @directory should be displayed.</doc>
+                 line="571">whether @directory should be displayed.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1333,7 +1335,7 @@ garcon_menu_directory_get_no_display().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="164">Directory description (comment).</doc>
+             line="167">Directory description (comment).</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="file"
@@ -1351,7 +1353,7 @@ garcon_menu_directory_get_no_display().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="178">Icon associated with this directory.</doc>
+             line="181">Icon associated with this directory.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="name"
@@ -1362,7 +1364,7 @@ garcon_menu_directory_get_no_display().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="150">Name of the directory.</doc>
+             line="153">Name of the directory.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="no-display"
@@ -1373,7 +1375,7 @@ garcon_menu_directory_get_no_display().</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="garcon-menu-directory.c"
-             line="192">Whether this menu item is hidden in menus.</doc>
+             line="195">Whether this menu item is hidden in menus.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="__parent__">
@@ -1487,7 +1489,7 @@ garcon_menu_directory_get_no_display().</doc>
         </parameters>
       </virtual-method>
       <method name="equal" c:identifier="garcon_menu_element_equal">
-        <source-position filename="garcon-menu-element.h" line="63"/>
+        <source-position filename="garcon-menu-element.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1502,7 +1504,7 @@ garcon_menu_directory_get_no_display().</doc>
       </method>
       <method name="get_comment"
               c:identifier="garcon_menu_element_get_comment">
-        <source-position filename="garcon-menu-element.h" line="58"/>
+        <source-position filename="garcon-menu-element.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1514,7 +1516,7 @@ garcon_menu_directory_get_no_display().</doc>
       </method>
       <method name="get_icon_name"
               c:identifier="garcon_menu_element_get_icon_name">
-        <source-position filename="garcon-menu-element.h" line="59"/>
+        <source-position filename="garcon-menu-element.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1525,7 +1527,7 @@ garcon_menu_directory_get_no_display().</doc>
         </parameters>
       </method>
       <method name="get_name" c:identifier="garcon_menu_element_get_name">
-        <source-position filename="garcon-menu-element.h" line="57"/>
+        <source-position filename="garcon-menu-element.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1537,7 +1539,7 @@ garcon_menu_directory_get_no_display().</doc>
       </method>
       <method name="get_no_display"
               c:identifier="garcon_menu_element_get_no_display">
-        <source-position filename="garcon-menu-element.h" line="62"/>
+        <source-position filename="garcon-menu-element.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1549,7 +1551,7 @@ garcon_menu_directory_get_no_display().</doc>
       </method>
       <method name="get_show_in_environment"
               c:identifier="garcon_menu_element_get_show_in_environment">
-        <source-position filename="garcon-menu-element.h" line="61"/>
+        <source-position filename="garcon-menu-element.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1561,7 +1563,7 @@ garcon_menu_directory_get_no_display().</doc>
       </method>
       <method name="get_visible"
               c:identifier="garcon_menu_element_get_visible">
-        <source-position filename="garcon-menu-element.h" line="60"/>
+        <source-position filename="garcon-menu-element.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1686,8 +1688,8 @@ garcon_menu_directory_get_no_display().</doc>
       <constructor name="new" c:identifier="garcon_menu_item_new">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="768">Returns (transfer full): a new #GarconMenuItem</doc>
-        <source-position filename="garcon-menu-item.h" line="68"/>
+             line="800">Returns (transfer full): a new #GarconMenuItem</doc>
+        <source-position filename="garcon-menu-item.h" line="70"/>
         <return-value transfer-ownership="full">
           <type name="MenuItem" c:type="GarconMenuItem*"/>
         </return-value>
@@ -1695,43 +1697,43 @@ garcon_menu_directory_get_no_display().</doc>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="770">a #GFile</doc>
+                 line="802">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
       </constructor>
       <constructor name="new_for_path"
                    c:identifier="garcon_menu_item_new_for_path">
-        <source-position filename="garcon-menu-item.h" line="69"/>
+        <source-position filename="garcon-menu-item.h" line="72"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-item.c"
-               line="1001">a new #GarconMenuItem</doc>
+               line="1033">a new #GarconMenuItem</doc>
           <type name="MenuItem" c:type="GarconMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="999">name of a file</doc>
+                 line="1031">name of a file</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </constructor>
       <constructor name="new_for_uri"
                    c:identifier="garcon_menu_item_new_for_uri">
-        <source-position filename="garcon-menu-item.h" line="70"/>
+        <source-position filename="garcon-menu-item.h" line="74"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-item.c"
-               line="1023">a new #GarconMenuItem</doc>
+               line="1055">a new #GarconMenuItem</doc>
           <type name="MenuItem" c:type="GarconMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1021">a given URI</doc>
+                 line="1053">a given URI</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1749,7 +1751,7 @@ garcon_menu_directory_get_no_display().</doc>
       </virtual-method>
       <method name="decrement_allocated"
               c:identifier="garcon_menu_item_decrement_allocated">
-        <source-position filename="garcon-menu-item.h" line="149"/>
+        <source-position filename="garcon-menu-item.h" line="200"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1760,18 +1762,18 @@ garcon_menu_directory_get_no_display().</doc>
         </parameters>
       </method>
       <method name="get_action" c:identifier="garcon_menu_item_get_action">
-        <source-position filename="garcon-menu-item.h" line="136"/>
+        <source-position filename="garcon-menu-item.h" line="178"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="garcon-menu-item.c"
-               line="1890">a #GarconMenuItemAction</doc>
+               line="1876">a #GarconMenuItemAction</doc>
           <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1887">a #GarconMenuItem</doc>
+                 line="1873">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
@@ -1780,24 +1782,27 @@ garcon_menu_directory_get_no_display().</doc>
         </parameters>
       </method>
       <method name="get_actions" c:identifier="garcon_menu_item_get_actions">
-        <source-position filename="garcon-menu-item.h" line="135"/>
+        <source-position filename="garcon-menu-item.h" line="176"/>
         <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item.c"
+               line="1849">list of action name</doc>
           <type name="GLib.List" c:type="GList*">
-            <type name="MenuItemAction"/>
+            <type name="utf8"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1861">a #GarconMenuItem</doc>
+                 line="1847">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_allocated"
               c:identifier="garcon_menu_item_get_allocated">
-        <source-position filename="garcon-menu-item.h" line="147"/>
+        <source-position filename="garcon-menu-item.h" line="196"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -1811,8 +1816,8 @@ garcon_menu_directory_get_no_display().</doc>
               c:identifier="garcon_menu_item_get_categories">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="1400">Returns list of categories</doc>
-        <source-position filename="garcon-menu-item.h" line="125"/>
+             line="1451">Returns list of categories</doc>
+        <source-position filename="garcon-menu-item.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="GLib.List" c:type="GList*">
             <type name="utf8"/>
@@ -1822,7 +1827,7 @@ garcon_menu_directory_get_no_display().</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1402">a #GarconMenuItem</doc>
+                 line="1453">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1830,7 +1835,7 @@ garcon_menu_directory_get_no_display().</doc>
       <method name="get_command"
               c:identifier="garcon_menu_item_get_command"
               glib:get-property="command">
-        <source-position filename="garcon-menu-item.h" line="89"/>
+        <source-position filename="garcon-menu-item.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1843,7 +1848,7 @@ garcon_menu_directory_get_no_display().</doc>
       <method name="get_comment"
               c:identifier="garcon_menu_item_get_comment"
               glib:get-property="comment">
-        <source-position filename="garcon-menu-item.h" line="101"/>
+        <source-position filename="garcon-menu-item.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1856,7 +1861,7 @@ garcon_menu_directory_get_no_display().</doc>
       <method name="get_desktop_id"
               c:identifier="garcon_menu_item_get_desktop_id"
               glib:get-property="desktop-id">
-        <source-position filename="garcon-menu-item.h" line="85"/>
+        <source-position filename="garcon-menu-item.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1871,20 +1876,20 @@ garcon_menu_directory_get_no_display().</doc>
               glib:get-property="file">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="1345">Get the #GFile for @item. The returned object should be
+             line="1377">Get the #GFile for @item. The returned object should be
 unreffed with g_object_unref() when no longer needed.</doc>
-        <source-position filename="garcon-menu-item.h" line="81"/>
+        <source-position filename="garcon-menu-item.h" line="88"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-item.c"
-               line="1352">a #GFile.</doc>
+               line="1384">a #GFile.</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1347">A #GarconMenuItem</doc>
+                 line="1379">A #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1892,7 +1897,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_generic_name"
               c:identifier="garcon_menu_item_get_generic_name"
               glib:get-property="generic-name">
-        <source-position filename="garcon-menu-item.h" line="98"/>
+        <source-position filename="garcon-menu-item.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1905,7 +1910,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_hidden"
               c:identifier="garcon_menu_item_get_hidden"
               glib:get-property="hidden">
-        <source-position filename="garcon-menu-item.h" line="110"/>
+        <source-position filename="garcon-menu-item.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1918,7 +1923,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_icon_name"
               c:identifier="garcon_menu_item_get_icon_name"
               glib:get-property="icon-name">
-        <source-position filename="garcon-menu-item.h" line="104"/>
+        <source-position filename="garcon-menu-item.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1929,7 +1934,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="get_keywords" c:identifier="garcon_menu_item_get_keywords">
-        <source-position filename="garcon-menu-item.h" line="130"/>
+        <source-position filename="garcon-menu-item.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="GLib.List" c:type="GList*">
             <type name="utf8"/>
@@ -1939,7 +1944,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1441">a #GarconMenuItem</doc>
+                 line="1492">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1947,7 +1952,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_name"
               c:identifier="garcon_menu_item_get_name"
               glib:get-property="name">
-        <source-position filename="garcon-menu-item.h" line="95"/>
+        <source-position filename="garcon-menu-item.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1960,7 +1965,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_no_display"
               c:identifier="garcon_menu_item_get_no_display"
               glib:get-property="no-display">
-        <source-position filename="garcon-menu-item.h" line="119"/>
+        <source-position filename="garcon-menu-item.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1973,7 +1978,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_path"
               c:identifier="garcon_menu_item_get_path"
               glib:get-property="path">
-        <source-position filename="garcon-menu-item.h" line="107"/>
+        <source-position filename="garcon-menu-item.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1986,7 +1991,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_prefers_non_default_gpu"
               c:identifier="garcon_menu_item_get_prefers_non_default_gpu"
               glib:get-property="prefers-non-default-gpu">
-        <source-position filename="garcon-menu-item.h" line="113"/>
+        <source-position filename="garcon-menu-item.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1998,7 +2003,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="get_show_in_environment"
               c:identifier="garcon_menu_item_get_show_in_environment">
-        <source-position filename="garcon-menu-item.h" line="143"/>
+        <source-position filename="garcon-menu-item.h" line="188"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2011,7 +2016,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_try_exec"
               c:identifier="garcon_menu_item_get_try_exec"
               glib:get-property="try-exec">
-        <source-position filename="garcon-menu-item.h" line="92"/>
+        <source-position filename="garcon-menu-item.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2022,7 +2027,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="get_uri" c:identifier="garcon_menu_item_get_uri">
-        <source-position filename="garcon-menu-item.h" line="83"/>
+        <source-position filename="garcon-menu-item.h" line="91"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2033,7 +2038,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="has_action" c:identifier="garcon_menu_item_has_action">
-        <source-position filename="garcon-menu-item.h" line="141"/>
+        <source-position filename="garcon-menu-item.h" line="185"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2047,7 +2052,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="has_category" c:identifier="garcon_menu_item_has_category">
-        <source-position filename="garcon-menu-item.h" line="128"/>
+        <source-position filename="garcon-menu-item.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2061,7 +2066,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="has_keyword" c:identifier="garcon_menu_item_has_keyword">
-        <source-position filename="garcon-menu-item.h" line="133"/>
+        <source-position filename="garcon-menu-item.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2076,7 +2081,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="increment_allocated"
               c:identifier="garcon_menu_item_increment_allocated">
-        <source-position filename="garcon-menu-item.h" line="148"/>
+        <source-position filename="garcon-menu-item.h" line="198"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2088,7 +2093,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="only_show_in_environment"
               c:identifier="garcon_menu_item_only_show_in_environment">
-        <source-position filename="garcon-menu-item.h" line="144"/>
+        <source-position filename="garcon-menu-item.h" line="190"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2099,7 +2104,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="ref" c:identifier="garcon_menu_item_ref">
-        <source-position filename="garcon-menu-item.h" line="145"/>
+        <source-position filename="garcon-menu-item.h" line="192"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2110,7 +2115,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="reload" c:identifier="garcon_menu_item_reload" throws="1">
-        <source-position filename="garcon-menu-item.h" line="72"/>
+        <source-position filename="garcon-menu-item.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2126,7 +2131,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="reload_from_file"
               c:identifier="garcon_menu_item_reload_from_file"
               throws="1">
-        <source-position filename="garcon-menu-item.h" line="76"/>
+        <source-position filename="garcon-menu-item.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2144,7 +2149,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="requires_terminal"
               c:identifier="garcon_menu_item_requires_terminal">
-        <source-position filename="garcon-menu-item.h" line="116"/>
+        <source-position filename="garcon-menu-item.h" line="145"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2155,7 +2160,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="set_action" c:identifier="garcon_menu_item_set_action">
-        <source-position filename="garcon-menu-item.h" line="138"/>
+        <source-position filename="garcon-menu-item.h" line="181"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2173,7 +2178,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="set_categories"
               c:identifier="garcon_menu_item_set_categories">
-        <source-position filename="garcon-menu-item.h" line="126"/>
+        <source-position filename="garcon-menu-item.h" line="162"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2181,13 +2186,13 @@ unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1418">a #GarconMenuItem</doc>
+                 line="1469">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
           <parameter name="categories" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1419">list of categories</doc>
+                 line="1470">list of categories</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
             </type>
@@ -2197,7 +2202,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_command"
               c:identifier="garcon_menu_item_set_command"
               glib:set-property="command">
-        <source-position filename="garcon-menu-item.h" line="90"/>
+        <source-position filename="garcon-menu-item.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2213,7 +2218,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_comment"
               c:identifier="garcon_menu_item_set_comment"
               glib:set-property="comment">
-        <source-position filename="garcon-menu-item.h" line="102"/>
+        <source-position filename="garcon-menu-item.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2229,7 +2234,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_desktop_id"
               c:identifier="garcon_menu_item_set_desktop_id"
               glib:set-property="desktop-id">
-        <source-position filename="garcon-menu-item.h" line="86"/>
+        <source-position filename="garcon-menu-item.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2245,7 +2250,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_generic_name"
               c:identifier="garcon_menu_item_set_generic_name"
               glib:set-property="generic-name">
-        <source-position filename="garcon-menu-item.h" line="99"/>
+        <source-position filename="garcon-menu-item.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2261,7 +2266,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_hidden"
               c:identifier="garcon_menu_item_set_hidden"
               glib:set-property="hidden">
-        <source-position filename="garcon-menu-item.h" line="111"/>
+        <source-position filename="garcon-menu-item.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2277,7 +2282,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_icon_name"
               c:identifier="garcon_menu_item_set_icon_name"
               glib:set-property="icon-name">
-        <source-position filename="garcon-menu-item.h" line="105"/>
+        <source-position filename="garcon-menu-item.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2291,7 +2296,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="set_keywords" c:identifier="garcon_menu_item_set_keywords">
-        <source-position filename="garcon-menu-item.h" line="131"/>
+        <source-position filename="garcon-menu-item.h" line="170"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2299,13 +2304,13 @@ unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1455">a #GarconMenuItem</doc>
+                 line="1506">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </instance-parameter>
           <parameter name="keywords" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item.c"
-                 line="1456">list of keywords</doc>
+                 line="1507">list of keywords</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
             </type>
@@ -2315,7 +2320,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_name"
               c:identifier="garcon_menu_item_set_name"
               glib:set-property="name">
-        <source-position filename="garcon-menu-item.h" line="96"/>
+        <source-position filename="garcon-menu-item.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2331,7 +2336,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_no_display"
               c:identifier="garcon_menu_item_set_no_display"
               glib:set-property="no-display">
-        <source-position filename="garcon-menu-item.h" line="120"/>
+        <source-position filename="garcon-menu-item.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2347,7 +2352,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_path"
               c:identifier="garcon_menu_item_set_path"
               glib:set-property="path">
-        <source-position filename="garcon-menu-item.h" line="108"/>
+        <source-position filename="garcon-menu-item.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2363,7 +2368,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_prefers_non_default_gpu"
               c:identifier="garcon_menu_item_set_prefers_non_default_gpu"
               glib:set-property="prefers-non-default-gpu">
-        <source-position filename="garcon-menu-item.h" line="114"/>
+        <source-position filename="garcon-menu-item.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2379,7 +2384,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_requires_terminal"
               c:identifier="garcon_menu_item_set_requires_terminal"
               glib:set-property="requires-terminal">
-        <source-position filename="garcon-menu-item.h" line="117"/>
+        <source-position filename="garcon-menu-item.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2395,7 +2400,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_supports_startup_notification"
               c:identifier="garcon_menu_item_set_supports_startup_notification"
               glib:set-property="supports-startup-notification">
-        <source-position filename="garcon-menu-item.h" line="123"/>
+        <source-position filename="garcon-menu-item.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2412,7 +2417,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       <method name="set_try_exec"
               c:identifier="garcon_menu_item_set_try_exec"
               glib:set-property="try-exec">
-        <source-position filename="garcon-menu-item.h" line="93"/>
+        <source-position filename="garcon-menu-item.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2427,7 +2432,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="supports_startup_notification"
               c:identifier="garcon_menu_item_supports_startup_notification">
-        <source-position filename="garcon-menu-item.h" line="122"/>
+        <source-position filename="garcon-menu-item.h" line="155"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2438,7 +2443,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="garcon_menu_item_unref">
-        <source-position filename="garcon-menu-item.h" line="146"/>
+        <source-position filename="garcon-menu-item.h" line="194"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2456,7 +2461,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="306">Command to be executed when the menu item is clicked.</doc>
+             line="318">Command to be executed when the menu item is clicked.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="comment"
@@ -2467,7 +2472,7 @@ unreffed with g_object_unref() when no longer needed.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="291">Comment/description for the application. To be displayed e.g. in tooltips of
+             line="303">Comment/description for the application. To be displayed e.g. in tooltips of
 GtkMenuItems.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -2479,7 +2484,7 @@ GtkMenuItems.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="207">The desktop-file id of this application.</doc>
+             line="219">The desktop-file id of this application.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="file"
@@ -2489,7 +2494,7 @@ GtkMenuItems.</doc>
                 getter="get_file">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="192">The #GFile from which the %GarconMenuItem was loaded.</doc>
+             line="204">The #GFile from which the %GarconMenuItem was loaded.</doc>
         <type name="Gio.File"/>
       </property>
       <property name="generic-name"
@@ -2500,7 +2505,7 @@ GtkMenuItems.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="277">GenericName of the application (will be displayed in menus etc.).</doc>
+             line="289">GenericName of the application (will be displayed in menus etc.).</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="hidden"
@@ -2511,7 +2516,7 @@ GtkMenuItems.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="352">It means the user deleted (at his level) something that was present
+             line="364">It means the user deleted (at his level) something that was present
 (at an upper level, e.g. in the system dirs). It's strictly equivalent
 to the .desktop file not existing at all, as far as that user is concerned.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -2524,7 +2529,7 @@ to the .desktop file not existing at all, as far as that user is concerned.</doc
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="338">Name of the icon to be displayed for this menu item.</doc>
+             line="350">Name of the icon to be displayed for this menu item.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="name"
@@ -2535,7 +2540,7 @@ to the .desktop file not existing at all, as far as that user is concerned.</doc
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="263">Name of the application (will be displayed in menus etc.).</doc>
+             line="275">Name of the application (will be displayed in menus etc.).</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="no-display"
@@ -2546,7 +2551,7 @@ to the .desktop file not existing at all, as far as that user is concerned.</doc
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="235">Whether this menu item is hidden in menus.</doc>
+             line="247">Whether this menu item is hidden in menus.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="path"
@@ -2557,7 +2562,7 @@ to the .desktop file not existing at all, as far as that user is concerned.</doc
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="383">Working directory the application should be started in.</doc>
+             line="395">Working directory the application should be started in.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="prefers-non-default-gpu"
@@ -2568,7 +2573,7 @@ to the .desktop file not existing at all, as far as that user is concerned.</doc
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="368">If true, the application prefers to be run on a more powerful discrete GPU
+             line="380">If true, the application prefers to be run on a more powerful discrete GPU
 if available.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -2579,7 +2584,7 @@ if available.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="221">Whether this application requires a terinal to be started in.</doc>
+             line="233">Whether this application requires a terinal to be started in.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="supports-startup-notification"
@@ -2597,7 +2602,7 @@ if available.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="320">Path to an executable file on disk used to determine if the program
+             line="332">Path to an executable file on disk used to determine if the program
 is actually installed. If the path is not an absolute path, the file
 is looked up in the $PATH environment variable. If the file is not
 present or if it is not executable, the entry may be ignored (not be
@@ -2613,7 +2618,7 @@ used in menus, for example).</doc>
       <glib:signal name="changed" when="first">
         <doc xml:space="preserve"
              filename="garcon-menu-item.c"
-             line="397">Emitted when #GarconMenuItem has been reloaded.</doc>
+             line="409">Emitted when #GarconMenuItem has been reloaded.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2628,7 +2633,7 @@ used in menus, for example).</doc>
            glib:type-struct="MenuItemActionClass">
       <source-position filename="garcon-menu-item-action.h" line="50"/>
       <constructor name="new" c:identifier="garcon_menu_item_action_new">
-        <source-position filename="garcon-menu-item-action.h" line="61"/>
+        <source-position filename="garcon-menu-item-action.h" line="63"/>
         <return-value transfer-ownership="full">
           <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
         </return-value>
@@ -2647,7 +2652,7 @@ used in menus, for example).</doc>
       <method name="get_command"
               c:identifier="garcon_menu_item_action_get_command"
               glib:get-property="command">
-        <source-position filename="garcon-menu-item-action.h" line="63"/>
+        <source-position filename="garcon-menu-item-action.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2660,7 +2665,7 @@ used in menus, for example).</doc>
       <method name="get_icon_name"
               c:identifier="garcon_menu_item_action_get_icon_name"
               glib:get-property="icon-name">
-        <source-position filename="garcon-menu-item-action.h" line="69"/>
+        <source-position filename="garcon-menu-item-action.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2673,7 +2678,7 @@ used in menus, for example).</doc>
       <method name="get_name"
               c:identifier="garcon_menu_item_action_get_name"
               glib:get-property="name">
-        <source-position filename="garcon-menu-item-action.h" line="66"/>
+        <source-position filename="garcon-menu-item-action.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2684,7 +2689,7 @@ used in menus, for example).</doc>
         </parameters>
       </method>
       <method name="ref" c:identifier="garcon_menu_item_action_ref">
-        <source-position filename="garcon-menu-item-action.h" line="72"/>
+        <source-position filename="garcon-menu-item-action.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2697,7 +2702,7 @@ used in menus, for example).</doc>
       <method name="set_command"
               c:identifier="garcon_menu_item_action_set_command"
               glib:set-property="command">
-        <source-position filename="garcon-menu-item-action.h" line="64"/>
+        <source-position filename="garcon-menu-item-action.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2713,7 +2718,7 @@ used in menus, for example).</doc>
       <method name="set_icon_name"
               c:identifier="garcon_menu_item_action_set_icon_name"
               glib:set-property="icon-name">
-        <source-position filename="garcon-menu-item-action.h" line="70"/>
+        <source-position filename="garcon-menu-item-action.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2729,7 +2734,7 @@ used in menus, for example).</doc>
       <method name="set_name"
               c:identifier="garcon_menu_item_action_set_name"
               glib:set-property="name">
-        <source-position filename="garcon-menu-item-action.h" line="67"/>
+        <source-position filename="garcon-menu-item-action.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2743,7 +2748,7 @@ used in menus, for example).</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="garcon_menu_item_action_unref">
-        <source-position filename="garcon-menu-item-action.h" line="73"/>
+        <source-position filename="garcon-menu-item-action.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2761,7 +2766,7 @@ used in menus, for example).</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item-action.c"
-             line="89">Command to be executed when the application action is clicked.</doc>
+             line="92">Command to be executed when the application action is clicked.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-name"
@@ -2772,7 +2777,7 @@ used in menus, for example).</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item-action.c"
-             line="103">Name of the custom icon associated with this action.</doc>
+             line="106">Name of the custom icon associated with this action.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="name"
@@ -2783,7 +2788,7 @@ used in menus, for example).</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="garcon-menu-item-action.c"
-             line="75">Name of the application action (will be displayed in menus etc.).</doc>
+             line="78">Name of the application action (will be displayed in menus etc.).</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="__parent__">
@@ -2828,23 +2833,23 @@ used in menus, for example).</doc>
            glib:type-name="GarconMenuItemCache"
            glib:get-type="garcon_menu_item_cache_get_type"
            glib:type-struct="MenuItemCacheClass">
-      <source-position filename="garcon-menu-item-cache.h" line="47"/>
+      <source-position filename="garcon-menu-item-cache.h" line="48"/>
       <constructor name="get_default"
                    c:identifier="garcon_menu_item_cache_get_default">
         <doc xml:space="preserve"
              filename="garcon-menu-item-cache.c"
-             line="96">Returns the default #GarconMenuItemCache. the returned object
+             line="97">Returns the default #GarconMenuItemCache. the returned object
 should be unreffed with g_object_unref() when no longer needed.</doc>
-        <source-position filename="garcon-menu-item-cache.h" line="61"/>
+        <source-position filename="garcon-menu-item-cache.h" line="64"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-item-cache.c"
-               line="102">a new #GarconMenuItemCache.</doc>
+               line="103">a new #GarconMenuItemCache.</doc>
           <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
         </return-value>
       </constructor>
       <method name="foreach" c:identifier="garcon_menu_item_cache_foreach">
-        <source-position filename="garcon-menu-item-cache.h" line="66"/>
+        <source-position filename="garcon-menu-item-cache.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2852,7 +2857,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-cache.c"
-                 line="201">a #GarconMenuItemCache</doc>
+                 line="202">a #GarconMenuItemCache</doc>
             <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
           </instance-parameter>
           <parameter name="func"
@@ -2867,14 +2872,14 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-cache.c"
-                 line="203">parameter passed to @func callback</doc>
+                 line="204">parameter passed to @func callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="invalidate"
               c:identifier="garcon_menu_item_cache_invalidate">
-        <source-position filename="garcon-menu-item-cache.h" line="69"/>
+        <source-position filename="garcon-menu-item-cache.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2886,7 +2891,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="invalidate_file"
               c:identifier="garcon_menu_item_cache_invalidate_file">
-        <source-position filename="garcon-menu-item-cache.h" line="70"/>
+        <source-position filename="garcon-menu-item-cache.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2900,30 +2905,30 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="lookup" c:identifier="garcon_menu_item_cache_lookup">
-        <source-position filename="garcon-menu-item-cache.h" line="63"/>
+        <source-position filename="garcon-menu-item-cache.h" line="67"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="garcon-menu-item-cache.c"
-               line="147">a #GarconMenuItem</doc>
+               line="148">a #GarconMenuItem</doc>
           <type name="MenuItem" c:type="GarconMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-cache.c"
-                 line="143">a #GarconMenuItemCache</doc>
+                 line="144">a #GarconMenuItemCache</doc>
             <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-cache.c"
-                 line="144">URI to look for</doc>
+                 line="145">URI to look for</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="desktop_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-cache.c"
-                 line="145">desktop id to update</doc>
+                 line="146">desktop id to update</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2939,7 +2944,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
     <record name="MenuItemCacheClass"
             c:type="GarconMenuItemCacheClass"
             glib:is-gtype-struct-for="MenuItemCache">
-      <source-position filename="garcon-menu-item-cache.h" line="47"/>
+      <source-position filename="garcon-menu-item-cache.h" line="48"/>
       <field name="__parent__">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2948,7 +2953,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
             c:type="GarconMenuItemCachePrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="garcon-menu-item-cache.h" line="33"/>
+      <source-position filename="garcon-menu-item-cache.h" line="34"/>
     </record>
     <record name="MenuItemClass"
             c:type="GarconMenuItemClass"
@@ -2980,17 +2985,17 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
            glib:type-struct="MenuItemPoolClass">
       <source-position filename="garcon-menu-item-pool.h" line="41"/>
       <constructor name="new" c:identifier="garcon_menu_item_pool_new">
-        <source-position filename="garcon-menu-item-pool.h" line="46"/>
+        <source-position filename="garcon-menu-item-pool.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-item-pool.c"
-               line="98">a #GarconMenuItemPool</doc>
+               line="100">a #GarconMenuItemPool</doc>
           <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
         </return-value>
       </constructor>
       <method name="apply_exclude_rule"
               c:identifier="garcon_menu_item_pool_apply_exclude_rule">
-        <source-position filename="garcon-menu-item-pool.h" line="57"/>
+        <source-position filename="garcon-menu-item-pool.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3004,7 +3009,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="clear" c:identifier="garcon_menu_item_pool_clear">
-        <source-position filename="garcon-menu-item-pool.h" line="60"/>
+        <source-position filename="garcon-menu-item-pool.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3015,7 +3020,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="foreach" c:identifier="garcon_menu_item_pool_foreach">
-        <source-position filename="garcon-menu-item-pool.h" line="54"/>
+        <source-position filename="garcon-menu-item-pool.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3023,7 +3028,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="181">a #GarconMenuItemPool</doc>
+                 line="183">a #GarconMenuItemPool</doc>
             <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
           </instance-parameter>
           <parameter name="func"
@@ -3038,13 +3043,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="183">user data passed to @func callback</doc>
+                 line="185">user data passed to @func callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_empty" c:identifier="garcon_menu_item_pool_get_empty">
-        <source-position filename="garcon-menu-item-pool.h" line="59"/>
+        <source-position filename="garcon-menu-item-pool.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3055,7 +3060,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="insert" c:identifier="garcon_menu_item_pool_insert">
-        <source-position filename="garcon-menu-item-pool.h" line="48"/>
+        <source-position filename="garcon-menu-item-pool.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3063,60 +3068,60 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="109">a #GarconMenuItemPool</doc>
+                 line="111">a #GarconMenuItemPool</doc>
             <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="110">a #GarconMenuItem</doc>
+                 line="112">a #GarconMenuItem</doc>
             <type name="MenuItem" c:type="GarconMenuItem*"/>
           </parameter>
         </parameters>
       </method>
       <method name="lookup" c:identifier="garcon_menu_item_pool_lookup">
-        <source-position filename="garcon-menu-item-pool.h" line="50"/>
+        <source-position filename="garcon-menu-item-pool.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-item-pool.c"
-               line="132">a #GarconMenuItem object</doc>
+               line="134">a #GarconMenuItem object</doc>
           <type name="MenuItem" c:type="GarconMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="129">a #GarconMenuItemPool</doc>
+                 line="131">a #GarconMenuItemPool</doc>
             <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
           </instance-parameter>
           <parameter name="desktop_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="130">.desktop file</doc>
+                 line="132">.desktop file</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="lookup_file"
               c:identifier="garcon_menu_item_pool_lookup_file">
-        <source-position filename="garcon-menu-item-pool.h" line="52"/>
+        <source-position filename="garcon-menu-item-pool.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-menu-item-pool.c"
-               line="150">a #GarconMenuItem object</doc>
+               line="152">a #GarconMenuItem object</doc>
           <type name="MenuItem" c:type="GarconMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="147">a #GarconMenuItemPool</doc>
+                 line="149">a #GarconMenuItemPool</doc>
             <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-item-pool.c"
-                 line="148">a GFile instance</doc>
+                 line="150">a GFile instance</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -3170,10 +3175,10 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
            glib:type-name="GarconMenuMerger"
            glib:get-type="garcon_menu_merger_get_type"
            glib:type-struct="MenuMergerClass">
-      <source-position filename="garcon-menu-merger.h" line="58"/>
+      <source-position filename="garcon-menu-merger.h" line="61"/>
       <implements name="MenuTreeProvider"/>
       <constructor name="new" c:identifier="garcon_menu_merger_new">
-        <source-position filename="garcon-menu-merger.h" line="46"/>
+        <source-position filename="garcon-menu-merger.h" line="48"/>
         <return-value transfer-ownership="full">
           <type name="MenuMerger" c:type="GarconMenuMerger*"/>
         </return-value>
@@ -3184,7 +3189,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </constructor>
       <method name="run" c:identifier="garcon_menu_merger_run" throws="1">
-        <source-position filename="garcon-menu-merger.h" line="47"/>
+        <source-position filename="garcon-menu-merger.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3192,13 +3197,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="merger" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-merger.c"
-                 line="267">a #GarconMenuMerger</doc>
+                 line="283">a #GarconMenuMerger</doc>
             <type name="MenuMerger" c:type="GarconMenuMerger*"/>
           </instance-parameter>
           <parameter name="merge_files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-merger.c"
-                 line="268">list of files to merge</doc>
+                 line="284">list of files to merge</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="utf8"/>
             </type>
@@ -3206,7 +3211,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <parameter name="merge_dirs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-merger.c"
-                 line="269">list of menu directories to merge</doc>
+                 line="285">list of menu directories to merge</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="utf8"/>
             </type>
@@ -3235,7 +3240,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
     <record name="MenuMergerClass"
             c:type="GarconMenuMergerClass"
             glib:is-gtype-struct-for="MenuMerger">
-      <source-position filename="garcon-menu-merger.h" line="58"/>
+      <source-position filename="garcon-menu-merger.h" line="61"/>
       <field name="__parent__">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -3255,7 +3260,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
            glib:type-struct="MenuNodeClass">
       <source-position filename="garcon-menu-node.h" line="86"/>
       <constructor name="new" c:identifier="garcon_menu_node_new">
-        <source-position filename="garcon-menu-node.h" line="99"/>
+        <source-position filename="garcon-menu-node.h" line="102"/>
         <return-value transfer-ownership="full">
           <type name="MenuNode" c:type="GarconMenuNode*"/>
         </return-value>
@@ -3268,18 +3273,18 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       <function name="create"
                 c:identifier="garcon_menu_node_create"
                 introspectable="0">
-        <source-position filename="garcon-menu-node.h" line="101"/>
+        <source-position filename="garcon-menu-node.h" line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-node.c"
-               line="241">a #GarconMenuNode</doc>
+               line="245">a #GarconMenuNode</doc>
           <type name="MenuNode" c:type="GarconMenuNode*"/>
         </return-value>
         <parameters>
           <parameter name="node_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="237">a #GarconMenuNodeType</doc>
+                 line="241">a #GarconMenuNodeType</doc>
             <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
           </parameter>
           <parameter name="first_value"
@@ -3295,7 +3300,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_compare"
                 c:identifier="garcon_menu_node_tree_compare">
-        <source-position filename="garcon-menu-node.h" line="140"/>
+        <source-position filename="garcon-menu-node.h" line="166"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -3313,8 +3318,8 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="garcon-menu-node.c"
-             line="836">Recursively copies a #GNode.</doc>
-        <source-position filename="garcon-menu-node.h" line="142"/>
+             line="837">Recursively copies a #GNode.</doc>
+        <source-position filename="garcon-menu-node.h" line="169"/>
         <return-value>
           <type name="GLib.Node" c:type="GNode*"/>
         </return-value>
@@ -3322,13 +3327,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="838">a #GNode</doc>
+                 line="839">a #GNode</doc>
             <type name="GLib.Node" c:type="GNode*"/>
           </parameter>
         </parameters>
       </function>
       <function name="tree_free" c:identifier="garcon_menu_node_tree_free">
-        <source-position filename="garcon-menu-node.h" line="143"/>
+        <source-position filename="garcon-menu-node.h" line="171"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3340,7 +3345,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_free_data"
                 c:identifier="garcon_menu_node_tree_free_data">
-        <source-position filename="garcon-menu-node.h" line="144"/>
+        <source-position filename="garcon-menu-node.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3352,7 +3357,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_boolean_child"
                 c:identifier="garcon_menu_node_tree_get_boolean_child">
-        <source-position filename="garcon-menu-node.h" line="125"/>
+        <source-position filename="garcon-menu-node.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3368,24 +3373,24 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       <function name="tree_get_child_node"
                 c:identifier="garcon_menu_node_tree_get_child_node"
                 introspectable="0">
-        <source-position filename="garcon-menu-node.h" line="116"/>
+        <source-position filename="garcon-menu-node.h" line="129"/>
         <return-value>
           <doc xml:space="preserve"
                filename="garcon-menu-node.c"
-               line="462">a #GNode if @type is valid menu nodes type.</doc>
+               line="466">a #GNode if @type is valid menu nodes type.</doc>
           <type name="GLib.Node" c:type="GNode*"/>
         </return-value>
         <parameters>
           <parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="458">#GNode instance</doc>
+                 line="462">#GNode instance</doc>
             <type name="GLib.Node" c:type="GNode*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="459">type for the menu nodes</doc>
+                 line="463">type for the menu nodes</doc>
             <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
           </parameter>
           <parameter name="reverse" transfer-ownership="none">
@@ -3395,11 +3400,11 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_child_nodes"
                 c:identifier="garcon_menu_node_tree_get_child_nodes">
-        <source-position filename="garcon-menu-node.h" line="119"/>
+        <source-position filename="garcon-menu-node.h" line="133"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-node.c"
-               line="502">list of #GNode</doc>
+               line="506">list of #GNode</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="GLib.Node"/>
           </type>
@@ -3408,13 +3413,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="498">a GNode</doc>
+                 line="502">a GNode</doc>
             <type name="GLib.Node" c:type="GNode*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="499">type for the menu nodes</doc>
+                 line="503">type for the menu nodes</doc>
             <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
           </parameter>
           <parameter name="reverse" transfer-ownership="none">
@@ -3424,7 +3429,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_layout_merge_type"
                 c:identifier="garcon_menu_node_tree_get_layout_merge_type">
-        <source-position filename="garcon-menu-node.h" line="135"/>
+        <source-position filename="garcon-menu-node.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="MenuLayoutMergeType" c:type="GarconMenuLayoutMergeType"/>
         </return-value>
@@ -3436,7 +3441,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_merge_file_filename"
                 c:identifier="garcon_menu_node_tree_get_merge_file_filename">
-        <source-position filename="garcon-menu-node.h" line="137"/>
+        <source-position filename="garcon-menu-node.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3448,7 +3453,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_merge_file_type"
                 c:identifier="garcon_menu_node_tree_get_merge_file_type">
-        <source-position filename="garcon-menu-node.h" line="136"/>
+        <source-position filename="garcon-menu-node.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="MenuMergeFileType" c:type="GarconMenuMergeFileType"/>
         </return-value>
@@ -3460,7 +3465,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_node_type"
                 c:identifier="garcon_menu_node_tree_get_node_type">
-        <source-position filename="garcon-menu-node.h" line="131"/>
+        <source-position filename="garcon-menu-node.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
         </return-value>
@@ -3472,7 +3477,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_string"
                 c:identifier="garcon_menu_node_tree_get_string">
-        <source-position filename="garcon-menu-node.h" line="132"/>
+        <source-position filename="garcon-menu-node.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3484,7 +3489,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_string_child"
                 c:identifier="garcon_menu_node_tree_get_string_child">
-        <source-position filename="garcon-menu-node.h" line="127"/>
+        <source-position filename="garcon-menu-node.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3499,11 +3504,11 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_get_string_children"
                 c:identifier="garcon_menu_node_tree_get_string_children">
-        <source-position filename="garcon-menu-node.h" line="122"/>
+        <source-position filename="garcon-menu-node.h" line="137"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="garcon-menu-node.c"
-               line="552">list of #GNode</doc>
+               line="556">list of #GNode</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="GLib.Node"/>
           </type>
@@ -3512,13 +3517,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           <parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="548">a #GNode instance</doc>
+                 line="552">a #GNode instance</doc>
             <type name="GLib.Node" c:type="GNode*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="549">type for the menu nodes</doc>
+                 line="553">type for the menu nodes</doc>
             <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
           </parameter>
           <parameter name="reverse" transfer-ownership="none">
@@ -3528,7 +3533,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_rule_matches"
                 c:identifier="garcon_menu_node_tree_rule_matches">
-        <source-position filename="garcon-menu-node.h" line="129"/>
+        <source-position filename="garcon-menu-node.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3543,7 +3548,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_set_merge_file_filename"
                 c:identifier="garcon_menu_node_tree_set_merge_file_filename">
-        <source-position filename="garcon-menu-node.h" line="138"/>
+        <source-position filename="garcon-menu-node.h" line="163"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3558,7 +3563,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </function>
       <function name="tree_set_string"
                 c:identifier="garcon_menu_node_tree_set_string">
-        <source-position filename="garcon-menu-node.h" line="133"/>
+        <source-position filename="garcon-menu-node.h" line="154"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3572,18 +3577,18 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </function>
       <method name="copy" c:identifier="garcon_menu_node_copy">
-        <source-position filename="garcon-menu-node.h" line="104"/>
+        <source-position filename="garcon-menu-node.h" line="110"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-node.c"
-               line="289">a #GarconMenuNode</doc>
+               line="293">a #GarconMenuNode</doc>
           <type name="MenuNode" c:type="GarconMenuNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="garcon-menu-node.c"
-                 line="286">a #GarconMenuNode</doc>
+                 line="290">a #GarconMenuNode</doc>
             <type name="MenuNode" c:type="GarconMenuNode*"/>
           </instance-parameter>
           <parameter name="data"
@@ -3596,7 +3601,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="get_merge_file_filename"
               c:identifier="garcon_menu_node_get_merge_file_filename">
-        <source-position filename="garcon-menu-node.h" line="112"/>
+        <source-position filename="garcon-menu-node.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3608,7 +3613,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="get_merge_file_type"
               c:identifier="garcon_menu_node_get_merge_file_type">
-        <source-position filename="garcon-menu-node.h" line="109"/>
+        <source-position filename="garcon-menu-node.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="MenuMergeFileType" c:type="GarconMenuMergeFileType"/>
         </return-value>
@@ -3621,7 +3626,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_node_type"
               c:identifier="garcon_menu_node_get_node_type"
               glib:get-property="node-type">
-        <source-position filename="garcon-menu-node.h" line="100"/>
+        <source-position filename="garcon-menu-node.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
         </return-value>
@@ -3632,7 +3637,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="get_string" c:identifier="garcon_menu_node_get_string">
-        <source-position filename="garcon-menu-node.h" line="106"/>
+        <source-position filename="garcon-menu-node.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3644,7 +3649,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="set_merge_file_filename"
               c:identifier="garcon_menu_node_set_merge_file_filename">
-        <source-position filename="garcon-menu-node.h" line="113"/>
+        <source-position filename="garcon-menu-node.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3659,7 +3664,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="set_merge_file_type"
               c:identifier="garcon_menu_node_set_merge_file_type">
-        <source-position filename="garcon-menu-node.h" line="110"/>
+        <source-position filename="garcon-menu-node.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3673,7 +3678,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="set_string" c:identifier="garcon_menu_node_set_string">
-        <source-position filename="garcon-menu-node.h" line="107"/>
+        <source-position filename="garcon-menu-node.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3902,10 +3907,10 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
            glib:type-name="GarconMenuParser"
            glib:get-type="garcon_menu_parser_get_type"
            glib:type-struct="MenuParserClass">
-      <source-position filename="garcon-menu-parser.h" line="55"/>
+      <source-position filename="garcon-menu-parser.h" line="58"/>
       <implements name="MenuTreeProvider"/>
       <constructor name="new" c:identifier="garcon_menu_parser_new">
-        <source-position filename="garcon-menu-parser.h" line="45"/>
+        <source-position filename="garcon-menu-parser.h" line="47"/>
         <return-value transfer-ownership="full">
           <type name="MenuParser" c:type="GarconMenuParser*"/>
         </return-value>
@@ -3916,7 +3921,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </constructor>
       <method name="run" c:identifier="garcon_menu_parser_run" throws="1">
-        <source-position filename="garcon-menu-parser.h" line="46"/>
+        <source-position filename="garcon-menu-parser.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3948,7 +3953,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
     <record name="MenuParserClass"
             c:type="GarconMenuParserClass"
             glib:is-gtype-struct-for="MenuParser">
-      <source-position filename="garcon-menu-parser.h" line="55"/>
+      <source-position filename="garcon-menu-parser.h" line="58"/>
       <field name="__parent__">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -3978,13 +3983,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
                    c:identifier="garcon_menu_separator_get_default">
         <doc xml:space="preserve"
              filename="garcon-menu-separator.c"
-             line="89">Returns the default #GarconMenuSeparator. The returned object
+             line="98">Returns the default #GarconMenuSeparator. The returned object
 should be unreffed with g_object_unref() when no longer needed.</doc>
-        <source-position filename="garcon-menu-separator.h" line="56"/>
+        <source-position filename="garcon-menu-separator.h" line="58"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="garcon-menu-separator.c"
-               line="95">the default #GarconMenuSeparator.</doc>
+               line="104">the default #GarconMenuSeparator.</doc>
           <type name="MenuSeparator" c:type="GarconMenuSeparator*"/>
         </return-value>
       </constructor>
@@ -4006,9 +4011,9 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
                glib:type-name="GarconMenuTreeProvider"
                glib:get-type="garcon_menu_tree_provider_get_type"
                glib:type-struct="MenuTreeProviderIface">
-      <source-position filename="garcon-menu-tree-provider.h" line="52"/>
+      <source-position filename="garcon-menu-tree-provider.h" line="55"/>
       <virtual-method name="get_file" invoker="get_file">
-        <source-position filename="garcon-menu-tree-provider.h" line="51"/>
+        <source-position filename="garcon-menu-tree-provider.h" line="54"/>
         <return-value transfer-ownership="full">
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -4022,7 +4027,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_tree" invoker="get_tree" introspectable="0">
-        <source-position filename="garcon-menu-tree-provider.h" line="50"/>
+        <source-position filename="garcon-menu-tree-provider.h" line="53"/>
         <return-value>
           <doc xml:space="preserve"
                filename="garcon-menu-tree-provider.c"
@@ -4040,7 +4045,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </virtual-method>
       <method name="get_file"
               c:identifier="garcon_menu_tree_provider_get_file">
-        <source-position filename="garcon-menu-tree-provider.h" line="43"/>
+        <source-position filename="garcon-menu-tree-provider.h" line="46"/>
         <return-value transfer-ownership="full">
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -4056,7 +4061,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       <method name="get_tree"
               c:identifier="garcon_menu_tree_provider_get_tree"
               introspectable="0">
-        <source-position filename="garcon-menu-tree-provider.h" line="42"/>
+        <source-position filename="garcon-menu-tree-provider.h" line="44"/>
         <return-value>
           <doc xml:space="preserve"
                filename="garcon-menu-tree-provider.c"
@@ -4076,13 +4081,13 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
     <record name="MenuTreeProviderIface"
             c:type="GarconMenuTreeProviderIface"
             glib:is-gtype-struct-for="MenuTreeProvider">
-      <source-position filename="garcon-menu-tree-provider.h" line="52"/>
+      <source-position filename="garcon-menu-tree-provider.h" line="55"/>
       <field name="__parent__">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_tree" introspectable="0">
         <callback name="get_tree" introspectable="0">
-          <source-position filename="garcon-menu-tree-provider.h" line="50"/>
+          <source-position filename="garcon-menu-tree-provider.h" line="53"/>
           <return-value>
             <doc xml:space="preserve"
                  filename="garcon-menu-tree-provider.c"
@@ -4101,7 +4106,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
       </field>
       <field name="get_file">
         <callback name="get_file">
-          <source-position filename="garcon-menu-tree-provider.h" line="51"/>
+          <source-position filename="garcon-menu-tree-provider.h" line="54"/>
           <return-value transfer-ownership="full">
             <type name="Gio.File" c:type="GFile*"/>
           </return-value>
@@ -4119,7 +4124,7 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
     <function name="check_version" c:identifier="garcon_check_version">
       <doc xml:space="preserve"
            filename="garcon-config.c"
-           line="83">Checks that the &lt;systemitem class="library"&gt;garcon&lt;/systemitem&gt;
+           line="82">Checks that the &lt;systemitem class="library"&gt;garcon&lt;/systemitem&gt;
 library in use is compatible with the given version. Generally you
 would pass in the constants #GARCON_MAJOR_VERSION,
 #GARCON_MINOR_VERSION and #GARCON_MICRO_VERSION as the three
@@ -4139,11 +4144,11 @@ if (G_UNLIKELY (mismatch != NULL))
   g_error ("Version mismatch: %&lt;!----&gt;s", mismatch);
 &lt;/programlisting&gt;
 &lt;/example&gt;</doc>
-      <source-position filename="garcon-config.h" line="85"/>
+      <source-position filename="garcon-config.h" line="86"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="garcon-config.c"
-             line="110">%NULL if the library is compatible with the given version,
+             line="109">%NULL if the library is compatible with the given version,
          or a string describing the version mismatch. The returned
          string is owned by the library and must not be freed or
          modified by the caller.</doc>
@@ -4153,26 +4158,26 @@ if (G_UNLIKELY (mismatch != NULL))
         <parameter name="required_major" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-config.c"
-               line="85">the required major version.</doc>
+               line="84">the required major version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="required_minor" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-config.c"
-               line="86">the required minor version.</doc>
+               line="85">the required minor version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="required_micro" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-config.c"
-               line="87">the required micro version.</doc>
+               line="86">the required micro version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
     </function>
     <function name="config_build_paths"
               c:identifier="garcon_config_build_paths">
-      <source-position filename="garcon-config.h" line="90"/>
+      <source-position filename="garcon-config.h" line="93"/>
       <return-value transfer-ownership="full">
         <array c:type="gchar**">
           <type name="utf8"/>
@@ -4182,7 +4187,7 @@ if (G_UNLIKELY (mismatch != NULL))
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-config.c"
-               line="127">name of .desktop file</doc>
+               line="126">name of .desktop file</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4190,13 +4195,13 @@ if (G_UNLIKELY (mismatch != NULL))
     <function name="config_lookup" c:identifier="garcon_config_lookup">
       <doc xml:space="preserve"
            filename="garcon-config.c"
-           line="154">Looks for the filename in the users' config directory and then
+           line="153">Looks for the filename in the users' config directory and then
 the system config directories.</doc>
-      <source-position filename="garcon-config.h" line="89"/>
+      <source-position filename="garcon-config.h" line="91"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="garcon-config.c"
-             line="161">the absolute path to the first file in the search path,
+             line="160">the absolute path to the first file in the search path,
          that matches @filename or %NULL if no such
          file or directory could be found.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -4205,7 +4210,7 @@ the system config directories.</doc>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="garcon-config.c"
-               line="156">relative filename of the config resource.</doc>
+               line="155">relative filename of the config resource.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4244,7 +4249,7 @@ and #GarconMenu.</doc>
       <doc xml:space="preserve"
            filename="garcon-environment.c"
            line="65">Get the environment set with garcon_set_environment().</doc>
-      <source-position filename="garcon-environment.h" line="44"/>
+      <source-position filename="garcon-environment.h" line="46"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="garcon-environment.c"
@@ -4292,7 +4297,7 @@ and #GarconMenu.</doc>
            line="45">Sets (or unsets) the desktop environment for which menus will generated.
 Menus and menu items belonging to other desktop environments will be
 ignored. If set to %NULL, all menu items are used.</doc>
-      <source-position filename="garcon-environment.h" line="42"/>
+      <source-position filename="garcon-environment.h" line="43"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -4315,7 +4320,7 @@ ignored. If set to %NULL, all menu items are used.</doc>
 If this variables is not set, it falls back to @default_env.
 
 For @fallback_env you can use for example #GARCON_ENVIRONMENT_XFCE.</doc>
-      <source-position filename="garcon-environment.h" line="46"/>
+      <source-position filename="garcon-environment.h" line="49"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>

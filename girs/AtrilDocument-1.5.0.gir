@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="Gdk" version="3.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <package name="atril-document-1.5.0"/>
+  <doc:format name="unknown"/>
   <namespace name="AtrilDocument"
              version="1.5.0"
              shared-library="libatrildocument.so.3"
@@ -8989,7 +8991,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="ev-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="EV_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="EV_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="ev-version.h"
            line="46">The micro version number of the EV library

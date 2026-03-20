@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstBase" version="1.0"/>
   <package name="gstreamer-tag-1.0"/>
   <c:include name="gst/tag/tag.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstTag"
              version="1.0"
              shared-library="libgsttag-1.0.so.0"
@@ -85,13 +87,13 @@ and/or use gtk-doc annotations.  -->
               c:type="GST_TAG_CAPTURING_CONTRAST">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="299">Direction of contrast processing applied when capturing an image. (string)
+           line="332">Direction of contrast processing applied when capturing an image. (string)
 
 The allowed values are:
  "normal"
  "soft"
  "hard"</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="309"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="342"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_DIGITAL_ZOOM_RATIO"
@@ -151,11 +153,11 @@ The allowed values are:
               c:type="GST_TAG_CAPTURING_FLASH_FIRED">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="335">If flash was fired during the capture of an image. (boolean)
+           line="368">If flash was fired during the capture of an image. (boolean)
 
 Note that if this tag isn't present, it should not be assumed that
 the flash did not fire. It should be treated as unknown.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="343"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="376"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_FLASH_MODE"
@@ -163,13 +165,13 @@ the flash did not fire. It should be treated as unknown.</doc>
               c:type="GST_TAG_CAPTURING_FLASH_MODE">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="345">The flash mode selected during the capture of an image. (string)
+           line="378">The flash mode selected during the capture of an image. (string)
 
 The allowed values are:
  "auto"
  "always"
  "never"</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="355"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="388"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_FOCAL_LENGTH"
@@ -228,12 +230,46 @@ The allowed values are:
       <source-position filename="gst-libs/gst/tag/tag.h" line="216"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
+    <constant name="TAG_CAPTURING_LIGHT_SOURCE"
+              value="capturing-light-source"
+              c:type="GST_TAG_CAPTURING_LIGHT_SOURCE"
+              version="1.26">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/tag/tag.h"
+           line="299">Light source used when capturing an image. (string)
+
+The allowed values are:
+  "unknown"
+  "daylight"
+  "fluorescent"
+  "tungsten"
+  "flash"
+  "fine-weather"
+  "cloudy-weather"
+  "shade"
+  "daylight-fluorescent"
+  "day-white-fluorescent"
+  "cool-white-fluorescent"
+  "white-fluorescent"
+  "warm-white-fluorescent"
+  "standard-light-A"
+  "standard-light-B"
+  "standard-light-C"
+  "D55"
+  "D65"
+  "D75"
+  "D50"
+  "iso-studio-tungsten"
+  "other"</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="330"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
     <constant name="TAG_CAPTURING_METERING_MODE"
               value="capturing-metering-mode"
               c:type="GST_TAG_CAPTURING_METERING_MODE">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="357">Defines the way a camera determines the exposure. (string)
+           line="390">Defines the way a camera determines the exposure. (string)
 
 The allowed values are:
   "unknown"
@@ -244,7 +280,7 @@ The allowed values are:
   "pattern"
   "partial"
   "other"</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="372"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="405"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_SATURATION"
@@ -252,13 +288,13 @@ The allowed values are:
               c:type="GST_TAG_CAPTURING_SATURATION">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="311">Direction of saturation processing applied when capturing an image. (string)
+           line="344">Direction of saturation processing applied when capturing an image. (string)
 
 The allowed values are:
  "normal"
  "low-saturation"
  "high-saturation"</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="321"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="354"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_SCENE_CAPTURE_TYPE"
@@ -281,13 +317,13 @@ The allowed values are:
               c:type="GST_TAG_CAPTURING_SHARPNESS">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="323">Direction of sharpness processing applied when capturing an image. (string)
+           line="356">Direction of sharpness processing applied when capturing an image. (string)
 
 The allowed values are:
  "normal"
  "soft"
  "hard"</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="333"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="366"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_SHUTTER_SPEED"
@@ -304,7 +340,7 @@ The allowed values are:
               c:type="GST_TAG_CAPTURING_SOURCE">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="374">Indicates the source of capture. The device/medium used to do the
+           line="407">Indicates the source of capture. The device/medium used to do the
 capture. (string)
 
 Allowed values are:
@@ -312,7 +348,7 @@ Allowed values are:
   "transparent-scanner"
   "reflex-scanner"
   "other"</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="386"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="419"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_CAPTURING_WHITE_BALANCE"
@@ -420,9 +456,9 @@ The allowed values are:
               c:type="GST_TAG_ID3V2_HEADER_SIZE">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="456">ID3V2 header size considered minimum input for some functions such as
+           line="489">ID3V2 header size considered minimum input for some functions such as
 gst_tag_list_from_id3v2_tag() and gst_tag_get_id3v2_tag_size() for example.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="462"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="495"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="TAG_IMAGE_HORIZONTAL_PPI"
@@ -430,8 +466,8 @@ gst_tag_list_from_id3v2_tag() and gst_tag_get_id3v2_tag_size() for example.</doc
               c:type="GST_TAG_IMAGE_HORIZONTAL_PPI">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="388">Media (image/video) intended horizontal pixel density in ppi. (double)</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="393"/>
+           line="421">Media (image/video) intended horizontal pixel density in ppi. (double)</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="426"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_IMAGE_VERTICAL_PPI"
@@ -439,8 +475,8 @@ gst_tag_list_from_id3v2_tag() and gst_tag_get_id3v2_tag_size() for example.</doc
               c:type="GST_TAG_IMAGE_VERTICAL_PPI">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="394">Media (image/video) intended vertical pixel density in ppi. (double)</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="399"/>
+           line="427">Media (image/video) intended vertical pixel density in ppi. (double)</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="432"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="TAG_MUSICAL_KEY"
@@ -601,6 +637,11 @@ Subclasses have to do four things:
  128 bytes.</doc>
       <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="129"/>
       <virtual-method name="identify_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="78">identify tag and determine the size required to parse the
+tag. Buffer may be larger than the specified minimum size.
+Subclassed MUST override this vfunc in their class_init function.</doc>
         <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -621,6 +662,12 @@ Subclasses have to do four things:
         </parameters>
       </virtual-method>
       <virtual-method name="merge_tags">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="87">merge start and end tags. Subclasses may want to override this
+vfunc to allow prioritising of start or end tag according to user
+preference.  Note that both start_tags and end_tags may be NULL. By default
+start tags are preferred over end tags.</doc>
         <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="123"/>
         <return-value transfer-ownership="full">
           <type name="Gst.TagList" c:type="GstTagList*"/>
@@ -638,6 +685,14 @@ Subclasses have to do four things:
         </parameters>
       </virtual-method>
       <virtual-method name="parse_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="81">parse the tag. Buffer will be exactly of the size determined by
+the identify_tag vfunc before. The parse_tag vfunc may change the size
+stored in *tag_size and return GST_TAG_DEMUX_RESULT_AGAIN to request a
+larger or smaller buffer. It is also permitted to adjust the tag_size to a
+smaller value and then return GST_TAG_DEMUX_RESULT_OK in one go.
+Subclassed MUST override the parse_tag vfunc in their class_init function.</doc>
         <source-position filename="gst-libs/gst/tag/gsttagdemux.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="TagDemuxResult" c:type="GstTagDemuxResult"/>
@@ -706,6 +761,11 @@ Subclasses should set this in their class_init function.</doc>
         <type name="guint" c:type="guint"/>
       </field>
       <field name="identify_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="78">identify tag and determine the size required to parse the
+tag. Buffer may be larger than the specified minimum size.
+Subclassed MUST override this vfunc in their class_init function.</doc>
         <callback name="identify_tag">
           <source-position filename="gst-libs/gst/tag/gsttagdemux.h"
                            line="110"/>
@@ -729,6 +789,14 @@ Subclasses should set this in their class_init function.</doc>
         </callback>
       </field>
       <field name="parse_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="81">parse the tag. Buffer will be exactly of the size determined by
+the identify_tag vfunc before. The parse_tag vfunc may change the size
+stored in *tag_size and return GST_TAG_DEMUX_RESULT_AGAIN to request a
+larger or smaller buffer. It is also permitted to adjust the tag_size to a
+smaller value and then return GST_TAG_DEMUX_RESULT_OK in one go.
+Subclassed MUST override the parse_tag vfunc in their class_init function.</doc>
         <callback name="parse_tag">
           <source-position filename="gst-libs/gst/tag/gsttagdemux.h"
                            line="116"/>
@@ -755,6 +823,12 @@ Subclasses should set this in their class_init function.</doc>
         </callback>
       </field>
       <field name="merge_tags">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagdemux.h"
+             line="87">merge start and end tags. Subclasses may want to override this
+vfunc to allow prioritising of start or end tag according to user
+preference.  Note that both start_tags and end_tags may be NULL. By default
+start tags are preferred over end tags.</doc>
         <callback name="merge_tags">
           <source-position filename="gst-libs/gst/tag/gsttagdemux.h"
                            line="123"/>
@@ -827,7 +901,7 @@ Subclasses should set this in their class_init function.</doc>
                  c:type="GstTagImageType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="404">Type of image contained in an image tag (specified as "image-type" field in
+           line="437">Type of image contained in an image tag (specified as "image-type" field in
 the info structure in the image's #GstSample)</doc>
       <member name="none"
               value="-1"
@@ -836,7 +910,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="406">No image type. Can be used to
+             line="439">No image type. Can be used to
      tell functions such as gst_tag_image_data_to_image_sample() that no
      image type should be set.</doc>
       </member>
@@ -847,7 +921,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_UNDEFINED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="409">Undefined/other image type</doc>
+             line="442">Undefined/other image type</doc>
       </member>
       <member name="front_cover"
               value="1"
@@ -856,7 +930,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_FRONT_COVER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="410">Cover (front)</doc>
+             line="443">Cover (front)</doc>
       </member>
       <member name="back_cover"
               value="2"
@@ -865,7 +939,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_BACK_COVER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="411">Cover (back)</doc>
+             line="444">Cover (back)</doc>
       </member>
       <member name="leaflet_page"
               value="3"
@@ -874,7 +948,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_LEAFLET_PAGE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="412">Leaflet page</doc>
+             line="445">Leaflet page</doc>
       </member>
       <member name="medium"
               value="4"
@@ -883,7 +957,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_MEDIUM">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="413">Medium (e.g. label side of CD)</doc>
+             line="446">Medium (e.g. label side of CD)</doc>
       </member>
       <member name="lead_artist"
               value="5"
@@ -892,7 +966,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_LEAD_ARTIST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="414">Lead artist/lead performer/soloist</doc>
+             line="447">Lead artist/lead performer/soloist</doc>
       </member>
       <member name="artist"
               value="6"
@@ -901,7 +975,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_ARTIST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="415">Artist/performer</doc>
+             line="448">Artist/performer</doc>
       </member>
       <member name="conductor"
               value="7"
@@ -910,7 +984,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_CONDUCTOR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="416">Conductor</doc>
+             line="449">Conductor</doc>
       </member>
       <member name="band_orchestra"
               value="8"
@@ -919,7 +993,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_BAND_ORCHESTRA">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="417">Band/orchestra</doc>
+             line="450">Band/orchestra</doc>
       </member>
       <member name="composer"
               value="9"
@@ -928,7 +1002,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_COMPOSER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="418">Composer</doc>
+             line="451">Composer</doc>
       </member>
       <member name="lyricist"
               value="10"
@@ -937,7 +1011,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_LYRICIST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="419">Lyricist/text writer</doc>
+             line="452">Lyricist/text writer</doc>
       </member>
       <member name="recording_location"
               value="11"
@@ -946,7 +1020,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_RECORDING_LOCATION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="420">Recording location</doc>
+             line="453">Recording location</doc>
       </member>
       <member name="during_recording"
               value="12"
@@ -955,7 +1029,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_DURING_RECORDING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="421">During recording</doc>
+             line="454">During recording</doc>
       </member>
       <member name="during_performance"
               value="13"
@@ -964,7 +1038,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_DURING_PERFORMANCE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="422">During performance</doc>
+             line="455">During performance</doc>
       </member>
       <member name="video_capture"
               value="14"
@@ -973,7 +1047,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_VIDEO_CAPTURE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="423">Movie/video screen capture</doc>
+             line="456">Movie/video screen capture</doc>
       </member>
       <member name="fish"
               value="15"
@@ -982,7 +1056,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_FISH">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="424">A fish as funny as the ID3v2 spec</doc>
+             line="457">A fish as funny as the ID3v2 spec</doc>
       </member>
       <member name="illustration"
               value="16"
@@ -991,7 +1065,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_ILLUSTRATION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="425">Illustration</doc>
+             line="458">Illustration</doc>
       </member>
       <member name="band_artist_logo"
               value="17"
@@ -1000,7 +1074,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_BAND_ARTIST_LOGO">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="426">Band/artist logotype</doc>
+             line="459">Band/artist logotype</doc>
       </member>
       <member name="publisher_studio_logo"
               value="18"
@@ -1009,7 +1083,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_IMAGE_TYPE_PUBLISHER_STUDIO_LOGO">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="427">Publisher/studio logotype</doc>
+             line="460">Publisher/studio logotype</doc>
       </member>
     </enumeration>
     <bitfield name="TagLicenseFlags"
@@ -1018,7 +1092,7 @@ the info structure in the image's #GstSample)</doc>
               c:type="GstTagLicenseFlags">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="628">See http://creativecommons.org/ns for more information.</doc>
+           line="661">See http://creativecommons.org/ns for more information.</doc>
       <member name="permits_reproduction"
               value="1"
               c:identifier="GST_TAG_LICENSE_PERMITS_REPRODUCTION"
@@ -1026,7 +1100,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_PERMITS_REPRODUCTION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="630">making multiple copies
+             line="663">making multiple copies
     is allowed</doc>
       </member>
       <member name="permits_distribution"
@@ -1036,7 +1110,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_PERMITS_DISTRIBUTION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="632">distribution, public display
+             line="665">distribution, public display
     and public performance are allowed</doc>
       </member>
       <member name="permits_derivative_works"
@@ -1046,7 +1120,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_PERMITS_DERIVATIVE_WORKS">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="634">distribution of derivative
+             line="667">distribution of derivative
     works is allowed</doc>
       </member>
       <member name="permits_sharing"
@@ -1056,7 +1130,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_PERMITS_SHARING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="636">commercial derivatives are allowed,
+             line="669">commercial derivatives are allowed,
     but only non-commercial distribution is allowed</doc>
       </member>
       <member name="requires_notice"
@@ -1066,7 +1140,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_REQUIRES_NOTICE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="638">copyright and license notices
+             line="671">copyright and license notices
     must be kept intact</doc>
       </member>
       <member name="requires_attribution"
@@ -1076,7 +1150,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_REQUIRES_ATTRIBUTION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="640">credit must be given to
+             line="673">credit must be given to
     copyright holder and/or author</doc>
       </member>
       <member name="requires_share_alike"
@@ -1086,7 +1160,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_REQUIRES_SHARE_ALIKE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="642">derivative works must be
+             line="675">derivative works must be
     licensed under the same terms or compatible terms as the original work</doc>
       </member>
       <member name="requires_source_code"
@@ -1096,7 +1170,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_REQUIRES_SOURCE_CODE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="644">source code (the preferred
+             line="677">source code (the preferred
     form for making modifications) must be provided when exercising some
     rights granted by the license</doc>
       </member>
@@ -1107,7 +1181,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_REQUIRES_COPYLEFT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="647">derivative and combined works
+             line="680">derivative and combined works
     must be licensed under specified terms, similar to those of the original
     work</doc>
       </member>
@@ -1118,7 +1192,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_REQUIRES_LESSER_COPYLEFT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="650">derivative works must be
+             line="683">derivative works must be
     licensed under specified terms, with at least the same conditions as
     the original work; combinations with the work may be licensed under
     different terms</doc>
@@ -1130,7 +1204,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_PROHIBITS_COMMERCIAL_USE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="654">exercising rights for
+             line="687">exercising rights for
     commercial purposes is prohibited</doc>
       </member>
       <member name="prohibits_high_income_nation_use"
@@ -1140,7 +1214,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_PROHIBITS_HIGH_INCOME_NATION_USE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="656">use in a
+             line="689">use in a
     non-developing country is prohibited</doc>
       </member>
       <member name="creative_commons_license"
@@ -1150,7 +1224,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_CREATIVE_COMMONS_LICENSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="658">this license was created
+             line="691">this license was created
     by the Creative Commons project</doc>
       </member>
       <member name="free_software_foundation_license"
@@ -1160,7 +1234,7 @@ the info structure in the image's #GstSample)</doc>
               glib:name="GST_TAG_LICENSE_FREE_SOFTWARE_FOUNDATION_LICENSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tag.h"
-             line="660">this license was
+             line="693">this license was
     created by the Free Software Foundation (FSF)</doc>
       </member>
     </bitfield>
@@ -1191,6 +1265,10 @@ Subclasses have to do the following things:
       <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="80"/>
       <implements name="Gst.TagSetter"/>
       <virtual-method name="render_end_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="65">create a tag buffer to add to the end of the
+    input stream given a tag list, or NULL</doc>
         <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="76"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
@@ -1205,6 +1283,10 @@ Subclasses have to do the following things:
         </parameters>
       </virtual-method>
       <virtual-method name="render_start_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="63">create a tag buffer to add to the beginning of the
+    input stream given a tag list, or NULL</doc>
         <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="75"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
@@ -1248,6 +1330,10 @@ of the two render vfuncs.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="render_start_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="63">create a tag buffer to add to the beginning of the
+    input stream given a tag list, or NULL</doc>
         <callback name="render_start_tag">
           <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="75"/>
           <return-value transfer-ownership="full">
@@ -1264,6 +1350,10 @@ of the two render vfuncs.</doc>
         </callback>
       </field>
       <field name="render_end_tag">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/tag/gsttagmux.h"
+             line="65">create a tag buffer to add to the end of the
+    input stream given a tag list, or NULL</doc>
         <callback name="render_end_tag">
           <source-position filename="gst-libs/gst/tag/gsttagmux.h" line="76"/>
           <return-value transfer-ownership="full">
@@ -1505,7 +1595,7 @@ This is useful in situations where it's not clear whether a given
 string is a language code (which should be put into a #GST_TAG_LANGUAGE_CODE
 tag) or a free-form language name descriptor (which should be put into a
 #GST_TAG_LANGUAGE_NAME tag instead).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="614"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="647"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/lang.c"
@@ -1526,7 +1616,7 @@ tag) or a free-form language name descriptor (which should be put into a
               c:identifier="gst_tag_freeform_string_to_utf8">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tags.c"
-           line="317">Convenience function to read a string with unknown character encoding. If
+           line="324">Convenience function to read a string with unknown character encoding. If
 the string is already in UTF-8 encoding, it will be returned right away.
 If not it tries to detect byte-order-mark for UTF-16/32 cases and use that.
 Otherwise, the environment will be searched for a number of environment
@@ -1534,18 +1624,18 @@ variables (whose names are specified in the NULL-terminated string array
 @env_vars) containing a list of character encodings to try/use. If none
 are specified, the current locale will be tried. If that also doesn't work,
 WINDOWS-1252/ISO-8859-1 is assumed (which will almost always succeed).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="581"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="614"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tags.c"
-             line="333">a newly-allocated string in UTF-8 encoding, or NULL</doc>
+             line="340">a newly-allocated string in UTF-8 encoding, or NULL</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="319">string data</doc>
+               line="326">string data</doc>
           <array length="1" zero-terminated="0" c:type="const gchar*">
             <type name="gchar"/>
           </array>
@@ -1553,13 +1643,13 @@ WINDOWS-1252/ISO-8859-1 is assumed (which will almost always succeed).</doc>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="320">length of string data, or -1 if the string is NUL-terminated</doc>
+               line="327">length of string data, or -1 if the string is NUL-terminated</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="env_vars" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="321">
+               line="328">
    a NULL-terminated string array of environment variable names, or NULL</doc>
           <array c:type="const gchar**">
             <type name="utf8" c:type="gchar*"/>
@@ -1571,7 +1661,7 @@ WINDOWS-1252/ISO-8859-1 is assumed (which will almost always succeed).</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstid3tag.c"
            line="119">Looks up the GStreamer tag for a ID3v2 tag.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="518"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="551"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -1593,7 +1683,7 @@ WINDOWS-1252/ISO-8859-1 is assumed (which will almost always succeed).</doc>
            filename="gst-libs/gst/tag/gstid3tag.c"
            line="185">Looks up the GStreamer tag for an ID3v2 user tag (e.g. description in
 TXXX frame or owner in UFID frame).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="521"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="554"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -1619,19 +1709,19 @@ TXXX frame or owner in UFID frame).</doc>
               c:identifier="gst_tag_from_vorbis_tag">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="114">Looks up the GStreamer tag for a vorbiscomment tag.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="467"/>
+           line="117">Looks up the GStreamer tag for a vorbiscomment tag.</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="500"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstvorbistag.c"
-             line="120">The corresponding GStreamer tag or NULL if none exists.</doc>
+             line="123">The corresponding GStreamer tag or NULL if none exists.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="vorbis_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="116">vorbiscomment tag to convert to GStreamer tag</doc>
+               line="119">vorbiscomment tag to convert to GStreamer tag</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -1642,7 +1732,7 @@ TXXX frame or owner in UFID frame).</doc>
            filename="gst-libs/gst/tag/id3v2.c"
            line="85">Determines size of an ID3v2 tag on buffer containing at least ID3v2 header,
 i.e. at least #GST_TAG_ID3V2_HEADER_SIZE (10) bytes;</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="537"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="570"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/id3v2.c"
@@ -1663,13 +1753,13 @@ i.e. at least #GST_TAG_ID3V2_HEADER_SIZE (10) bytes;</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tag.h"
-           line="616">Convenience macro wrapping gst_tag_get_language_code_iso_639_1().</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="622"/>
+           line="649">Convenience macro wrapping gst_tag_get_language_code_iso_639_1().</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="655"/>
       <parameters>
         <parameter name="lang_code">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tag.h"
-               line="618">ISO-639 language code (e.g. "deu" or "ger" or "de")</doc>
+               line="651">ISO-639 language code (e.g. "deu" or "ger" or "de")</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -1682,7 +1772,7 @@ language code or two-letter ISO-639-1 language code (both are accepted for
 convenience).
 
 Language codes are case-sensitive and expected to be lower case.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="605"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="638"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/lang.c"
@@ -1713,7 +1803,7 @@ The "bibliographic" code is derived from the English name of the language
 "terminological" codes are preferred.
 
 Language codes are case-sensitive and expected to be lower case.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="608"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="641"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/lang.c"
@@ -1744,7 +1834,7 @@ The "terminological" code is derived from the local name of the language
 "terminological" codes are preferred over the "bibliographic" ones.
 
 Language codes are case-sensitive and expected to be lower case.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="611"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="644"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/lang.c"
@@ -1770,7 +1860,7 @@ Language codes are case-sensitive and expected to be lower case.</doc>
 codes). This is useful for UIs to build a list of available languages for
 tagging purposes (e.g. to tag an audio track appropriately in a video or
 audio editor).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="599"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="632"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/lang.c"
@@ -1791,7 +1881,7 @@ according to the current locale (if the library was built against the
 iso-codes package, otherwise the English name will be returned).
 
 Language codes are case-sensitive and expected to be lower case.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="602"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="635"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/lang.c"
@@ -1816,7 +1906,7 @@ Language codes are case-sensitive and expected to be lower case.</doc>
            filename="gst-libs/gst/tag/licenses.c"
            line="412">Get the description of a license, which is a translated description
 of the license's main features.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="701"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="734"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1840,7 +1930,7 @@ of the license's main features.</doc>
            filename="gst-libs/gst/tag/licenses.c"
            line="320">Get the flags of a license, which describe most of the features of
 a license in their most general form.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="689"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="722"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1868,7 +1958,7 @@ for which no code exists and which is thus represented as "scotland".
 Known jurisdictions: ar, at, au, be, bg, br, ca, ch, cl, cn, co, de,
 dk, es, fi, fr, hr, hu, il, in, it, jp, kr, mk, mt, mx, my, nl, pe, pl,
 pt, scotland, se, si, tw, uk, us, za.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="704"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="737"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1892,7 +1982,7 @@ pt, scotland, se, si, tw, uk, us, za.</doc>
            filename="gst-libs/gst/tag/licenses.c"
            line="341">Get the nick name of a license, which is a short (untranslated) string
 such as e.g. "CC BY-NC-ND 2.0 UK".</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="692"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="725"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1915,7 +2005,7 @@ such as e.g. "CC BY-NC-ND 2.0 UK".</doc>
            filename="gst-libs/gst/tag/licenses.c"
            line="386">Get the title of a license, which is a short translated description
 of the license's features (generally not very pretty though).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="695"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="728"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1938,7 +2028,7 @@ of the license's features (generally not very pretty though).</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/licenses.c"
            line="466">Get the version of a license.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="698"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="731"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1963,7 +2053,7 @@ of the license's features (generally not very pretty though).</doc>
 useful for UIs to build a list of available licenses for tagging purposes
 (e.g. to tag an audio track appropriately in a video or audio editor, or
 an image in a camera application).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="686"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="719"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/licenses.c"
@@ -1980,7 +2070,7 @@ an image in a camera application).</doc>
            filename="gst-libs/gst/tag/gstid3tag.c"
            line="311">Gets the number of ID3v1 genres that can be identified. Winamp genres are
 included.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="509"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="542"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -1992,7 +2082,7 @@ included.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstid3tag.c"
            line="325">Gets the ID3v1 genre name for a given ID.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="512"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="545"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -2012,7 +2102,7 @@ included.</doc>
               c:identifier="gst_tag_image_data_to_image_sample">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tags.c"
-           line="488">Helper function for tag-reading plugins to create a #GstSample suitable to
+           line="495">Helper function for tag-reading plugins to create a #GstSample suitable to
 add to a #GstTagList as an image tag (such as #GST_TAG_IMAGE or
 #GST_TAG_PREVIEW_IMAGE) from the encoded image data and an (optional) image
 type.
@@ -2034,18 +2124,18 @@ the special tag name.
 
 This function will do various checks and typefind the encoded image
 data (we can't trust the declared mime type).</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="586"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="619"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tags.c"
-             line="519">a newly-allocated image sample for use in tag lists, or NULL</doc>
+             line="526">a newly-allocated image sample for use in tag lists, or NULL</doc>
         <type name="Gst.Sample" c:type="GstSample*"/>
       </return-value>
       <parameters>
         <parameter name="image_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="490">the (encoded) image</doc>
+               line="497">the (encoded) image</doc>
           <array length="1" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -2053,13 +2143,13 @@ data (we can't trust the declared mime type).</doc>
         <parameter name="image_data_len" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="491">the length of the encoded image data at @image_data</doc>
+               line="498">the length of the encoded image data at @image_data</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="image_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="492">type of the image, or #GST_TAG_IMAGE_TYPE_UNDEFINED. Pass
+               line="499">type of the image, or #GST_TAG_IMAGE_TYPE_UNDEFINED. Pass
     #GST_TAG_IMAGE_TYPE_NONE if no image type should be set at all (e.g.
     for preview images)</doc>
           <type name="TagImageType" c:type="GstTagImageType"/>
@@ -2073,7 +2163,7 @@ data (we can't trust the declared mime type).</doc>
            line="345">Adds an image from an ID3 APIC frame (or similar, such as used in FLAC)
 to the given tag list. Also see gst_tag_image_data_to_image_sample() for
 more information on image tags in GStreamer.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="528"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="561"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -2114,34 +2204,34 @@ more information on image tags in GStreamer.</doc>
               c:identifier="gst_tag_list_from_exif_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1941">Parses the IFD and IFD tags data contained in the buffer and puts it
+           line="1983">Parses the IFD and IFD tags data contained in the buffer and puts it
 on a taglist. The base_offset is used to subtract from the offset in
 the tag entries and be able to get the offset relative to the buffer
 start</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="563"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="596"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1952">The parsed taglist</doc>
+             line="1994">The parsed taglist</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1943">The exif buffer</doc>
+               line="1985">The exif buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1944">byte order of the data</doc>
+               line="1986">byte order of the data</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="base_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1945">Offset from the tiff header to this buffer</doc>
+               line="1987">Offset from the tiff header to this buffer</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -2150,19 +2240,19 @@ start</doc>
               c:identifier="gst_tag_list_from_exif_buffer_with_tiff_header">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1977">Parses the exif tags starting with a tiff header structure.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="568"/>
+           line="2019">Parses the exif tags starting with a tiff header structure.</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="601"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1983">The taglist</doc>
+             line="2025">The taglist</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1979">The exif buffer</doc>
+               line="2021">The exif buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -2173,7 +2263,7 @@ start</doc>
            filename="gst-libs/gst/tag/id3v2.c"
            line="179">Creates a new tag list that contains the information parsed out of a
 ID3 tag.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="534"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="567"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/id3v2.c"
@@ -2194,13 +2284,13 @@ ID3 tag.</doc>
               c:identifier="gst_tag_list_from_vorbiscomment">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="408">Creates a new tag list that contains the information parsed out of a
+           line="426">Creates a new tag list that contains the information parsed out of a
 vorbiscomment packet.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="484"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="517"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstvorbistag.c"
-             line="420">A new #GstTagList with all tags that could be extracted from the
+             line="438">A new #GstTagList with all tags that could be extracted from the
          given vorbiscomment buffer or NULL on error.</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
@@ -2208,7 +2298,7 @@ vorbiscomment packet.</doc>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="410">data to convert</doc>
+               line="428">data to convert</doc>
           <array length="1" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -2216,13 +2306,13 @@ vorbiscomment packet.</doc>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="411">size of @data</doc>
+               line="429">size of @data</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="id_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="412">identification data at start of stream</doc>
+               line="430">identification data at start of stream</doc>
           <array length="3" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -2230,7 +2320,7 @@ vorbiscomment packet.</doc>
         <parameter name="id_data_length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="413">length of identification data</doc>
+               line="431">length of identification data</doc>
           <type name="guint" c:type="const guint"/>
         </parameter>
         <parameter name="vendor_string"
@@ -2241,7 +2331,7 @@ vorbiscomment packet.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="414">pointer to a string that should take the
+               line="432">pointer to a string that should take the
     vendor string of this vorbis comment or NULL if you don't need it.</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
@@ -2251,13 +2341,13 @@ vorbiscomment packet.</doc>
               c:identifier="gst_tag_list_from_vorbiscomment_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="505">Creates a new tag list that contains the information parsed out of a
+           line="523">Creates a new tag list that contains the information parsed out of a
 vorbiscomment packet.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="491"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="524"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstvorbistag.c"
-             line="516">A new #GstTagList with all tags that could be extracted from the
+             line="534">A new #GstTagList with all tags that could be extracted from the
          given vorbiscomment buffer or NULL on error.</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
@@ -2265,13 +2355,13 @@ vorbiscomment packet.</doc>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="507">buffer to convert</doc>
+               line="525">buffer to convert</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="id_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="508">identification data at start of stream</doc>
+               line="526">identification data at start of stream</doc>
           <array length="2" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -2279,7 +2369,7 @@ vorbiscomment packet.</doc>
         <parameter name="id_data_length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="509">length of identification data</doc>
+               line="527">length of identification data</doc>
           <type name="guint" c:type="const guint"/>
         </parameter>
         <parameter name="vendor_string"
@@ -2290,7 +2380,7 @@ vorbiscomment packet.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="510">pointer to a string that should take the
+               line="528">pointer to a string that should take the
     vendor string of this vorbis comment or NULL if you don't need it.</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
@@ -2301,7 +2391,7 @@ vorbiscomment packet.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstxmptag.c"
            line="1172">Parse a xmp packet into a taglist.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="542"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="575"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstxmptag.c"
@@ -2323,7 +2413,7 @@ vorbiscomment packet.</doc>
            filename="gst-libs/gst/tag/gstid3tag.c"
            line="261">Parses the data containing an ID3v1 tag and returns a #GstTagList from the
 parsed data.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="515"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="548"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -2345,32 +2435,32 @@ parsed data.</doc>
               c:identifier="gst_tag_list_to_exif_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1858">Formats the tags in taglist on exif format. The resulting buffer contains
+           line="1900">Formats the tags in taglist on exif format. The resulting buffer contains
 the tags IFD and is followed by the data pointed by the tag entries.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="555"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="588"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1867">A GstBuffer containing the tag entries followed by the tag data</doc>
+             line="1909">A GstBuffer containing the tag entries followed by the tag data</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
       <parameters>
         <parameter name="taglist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1860">The taglist</doc>
+               line="1902">The taglist</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1861">byte order used in writing (G_LITTLE_ENDIAN or G_BIG_ENDIAN)</doc>
+               line="1903">byte order used in writing (G_LITTLE_ENDIAN or G_BIG_ENDIAN)</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="base_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1862">Offset from the tiff header first byte</doc>
+               line="1904">Offset from the tiff header first byte</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -2379,20 +2469,20 @@ the tags IFD and is followed by the data pointed by the tag entries.</doc>
               c:identifier="gst_tag_list_to_exif_buffer_with_tiff_header">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1876">Formats the tags in taglist into exif structure, a tiff header
+           line="1918">Formats the tags in taglist into exif structure, a tiff header
 is put in the beginning of the buffer.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="560"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="593"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1883">A GstBuffer containing the data</doc>
+             line="1925">A GstBuffer containing the data</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
       <parameters>
         <parameter name="taglist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1878">The taglist</doc>
+               line="1920">The taglist</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
       </parameters>
@@ -2401,12 +2491,12 @@ is put in the beginning of the buffer.</doc>
               c:identifier="gst_tag_list_to_vorbiscomment_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="781">Creates a new vorbiscomment buffer from a tag list.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="497"/>
+           line="804">Creates a new vorbiscomment buffer from a tag list.</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="530"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstvorbistag.c"
-             line="790">A new #GstBuffer containing a vorbiscomment buffer with all tags
+             line="813">A new #GstBuffer containing a vorbiscomment buffer with all tags
          that could be converted from the given tag list.</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
@@ -2414,13 +2504,13 @@ is put in the beginning of the buffer.</doc>
         <parameter name="list" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="783">tag list to convert</doc>
+               line="806">tag list to convert</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
         <parameter name="id_data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="784">identification data at start of stream</doc>
+               line="807">identification data at start of stream</doc>
           <array length="2" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -2428,7 +2518,7 @@ is put in the beginning of the buffer.</doc>
         <parameter name="id_data_length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="785">length of identification data, may be 0 if @id_data is NULL</doc>
+               line="808">length of identification data, may be 0 if @id_data is NULL</doc>
           <type name="guint" c:type="const guint"/>
         </parameter>
         <parameter name="vendor_string"
@@ -2437,7 +2527,7 @@ is put in the beginning of the buffer.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="786">string that describes the vendor string or NULL</doc>
+               line="809">string that describes the vendor string or NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2449,7 +2539,7 @@ is put in the beginning of the buffer.</doc>
            line="1699">Formats a taglist as a xmp packet using only the selected
 schemas. An empty list (%NULL) means that all schemas should
 be used</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="545"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="578"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstxmptag.c"
@@ -2484,25 +2574,25 @@ be used</doc>
               c:identifier="gst_tag_parse_extended_comment">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tags.c"
-           line="253">Convenience function to parse a GST_TAG_EXTENDED_COMMENT string and
+           line="260">Convenience function to parse a GST_TAG_EXTENDED_COMMENT string and
 separate it into its components.
 
 If successful, @key, @lang and/or @value will be set to newly allocated
 strings that you need to free with g_free() when done. @key and @lang
 may also be set to NULL by this function if there is no key or no language
 code in the extended comment string.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="574"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="607"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/tags.c"
-             line="271">TRUE if the string could be parsed, otherwise FALSE</doc>
+             line="278">TRUE if the string could be parsed, otherwise FALSE</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="ext_comment" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="255">an extended comment string, see #GST_TAG_EXTENDED_COMMENT</doc>
+               line="262">an extended comment string, see #GST_TAG_EXTENDED_COMMENT</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="key"
@@ -2512,7 +2602,7 @@ code in the extended comment string.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="256">
+               line="263">
     return location for the comment description key, or NULL</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
@@ -2523,7 +2613,7 @@ code in the extended comment string.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="258">
+               line="265">
     return location for the comment ISO-639 language code, or NULL</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
@@ -2533,13 +2623,13 @@ code in the extended comment string.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="260">return location for the actual comment string, or NULL</doc>
+               line="267">return location for the actual comment string, or NULL</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
         <parameter name="fail_if_no_key" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/tags.c"
-               line="261">whether to fail if strings are not in key=value form</doc>
+               line="268">whether to fail if strings are not in key=value form</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -2548,10 +2638,10 @@ code in the extended comment string.</doc>
               c:identifier="gst_tag_register_musicbrainz_tags">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/tags.c"
-           line="224">Registers additional musicbrainz-specific tags with the GStreamer tag
+           line="229">Registers additional musicbrainz-specific tags with the GStreamer tag
 system. Plugins and applications that use these tags should call this
 function before using them. Can be called multiple times.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="593"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="626"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2560,7 +2650,7 @@ function before using them. Can be called multiple times.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstid3tag.c"
            line="219">Looks up the ID3v2 tag for a GStreamer tag.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="525"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="558"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstid3tag.c"
@@ -2580,13 +2670,13 @@ function before using them. Can be called multiple times.</doc>
               c:identifier="gst_tag_to_vorbis_comments">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="644">Creates a new tag list that contains the information parsed out of a
+           line="662">Creates a new tag list that contains the information parsed out of a
 vorbiscomment packet.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="478"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="511"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstvorbistag.c"
-             line="652">A #GList of newly-allocated
+             line="670">A #GList of newly-allocated
     key=value strings. Free with g_list_foreach (list, (GFunc) g_free, NULL)
     plus g_list_free (list)</doc>
         <type name="GLib.List" c:type="GList*">
@@ -2597,13 +2687,13 @@ vorbiscomment packet.</doc>
         <parameter name="list" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="646">a #GstTagList</doc>
+               line="664">a #GstTagList</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
         <parameter name="tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="647">a GStreamer tag identifier, such as #GST_TAG_ARTIST</doc>
+               line="665">a GStreamer tag identifier, such as #GST_TAG_ARTIST</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2611,19 +2701,19 @@ vorbiscomment packet.</doc>
     <function name="tag_to_vorbis_tag" c:identifier="gst_tag_to_vorbis_tag">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="143">Looks up the vorbiscomment tag for a GStreamer tag.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="470"/>
+           line="146">Looks up the vorbiscomment tag for a GStreamer tag.</doc>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="503"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstvorbistag.c"
-             line="149">The corresponding vorbiscomment tag or NULL if none exists.</doc>
+             line="152">The corresponding vorbiscomment tag or NULL if none exists.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="gst_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="145">GStreamer tag to convert to vorbiscomment tag</doc>
+               line="148">GStreamer tag to convert to vorbiscomment tag</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2633,7 +2723,7 @@ vorbiscomment packet.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstxmptag.c"
            line="77">Gets the list of supported schemas in the xmp lib</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="550"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="583"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstxmptag.c"
@@ -2647,13 +2737,13 @@ vorbiscomment packet.</doc>
     <function name="vorbis_tag_add" c:identifier="gst_vorbis_tag_add">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstvorbistag.c"
-           line="170">Convenience function using gst_tag_from_vorbis_tag(), parsing
+           line="173">Convenience function using gst_tag_from_vorbis_tag(), parsing
 a vorbis comment string into the right type and adding it to the
 given taglist @list.
 
 Unknown vorbiscomment tags will be added to the tag list in form
 of a #GST_TAG_EXTENDED_COMMENT.</doc>
-      <source-position filename="gst-libs/gst/tag/tag.h" line="473"/>
+      <source-position filename="gst-libs/gst/tag/tag.h" line="506"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2661,19 +2751,19 @@ of a #GST_TAG_EXTENDED_COMMENT.</doc>
         <parameter name="list" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="172">a #GstTagList</doc>
+               line="175">a #GstTagList</doc>
           <type name="Gst.TagList" c:type="GstTagList*"/>
         </parameter>
         <parameter name="tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="173">a vorbiscomment tag string (key in key=value), must be valid UTF-8</doc>
+               line="176">a vorbiscomment tag string (key in key=value), must be valid UTF-8</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstvorbistag.c"
-               line="174">a vorbiscomment value string (value in key=value), must be valid UTF-8</doc>
+               line="177">a vorbiscomment value string (value in key=value), must be valid UTF-8</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

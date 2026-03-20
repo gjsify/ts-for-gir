@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="gmime-3.0"/>
   <c:include name="gmime/gmime.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GMime"
              version="3.0"
              shared-library="libgmime-3.0.so.0"
@@ -1051,7 +1053,7 @@ full input buffer of length @x.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="BINARY_AGE" value="214" c:type="GMIME_BINARY_AGE">
+    <constant name="BINARY_AGE" value="215" c:type="GMIME_BINARY_AGE">
       <doc xml:space="preserve"
            filename="gmime-version.h"
            line="46">GMime's binary age.</doc>
@@ -9216,26 +9218,26 @@ Note: #GMIME_PARAM_ENCODING_METHOD_DEFAULT is not allowed.</doc>
            glib:type-struct="HeaderClass">
       <doc xml:space="preserve"
            filename="gmime-header.h"
-           line="76">A message or mime-part header.</doc>
-      <source-position filename="gmime-header.h" line="103"/>
+           line="77">A message or mime-part header.</doc>
+      <source-position filename="gmime-header.h" line="104"/>
       <method name="format_addrlist"
               c:identifier="g_mime_header_format_addrlist">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="583">Parses the @value and then re-formats it to conform to the formatting options,
+             line="584">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
         <source-position filename="gmime-header.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="593">a newly allocated string containing the reformatted value.</doc>
+               line="594">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="585">a #GMimeHeader</doc>
+                 line="586">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9244,19 +9246,19 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="586">a #GMimeFormatOptions or %NULL</doc>
+                 line="587">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="587">a Sender, From, Reply-To, To, Cc, or Bcc header value</doc>
+                 line="588">a Sender, From, Reply-To, To, Cc, or Bcc header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="588">a charset (note: unused)</doc>
+                 line="589">a charset (note: unused)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9265,20 +9267,20 @@ folding the value if necessary.</doc>
               c:identifier="g_mime_header_format_content_disposition">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="425">Parses the @value and then re-formats it to conform to the formatting options,
+             line="426">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
         <source-position filename="gmime-header.h" line="67"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="435">a newly allocated string containing the reformatted value.</doc>
+               line="436">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="427">a #GMimeHeader</doc>
+                 line="428">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9287,19 +9289,19 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="428">a #GMimeFormatOptions or %NULL</doc>
+                 line="429">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="429">a Content-Disposition header value</doc>
+                 line="430">a Content-Disposition header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="430">a charset (note: unused)</doc>
+                 line="431">a charset (note: unused)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9308,20 +9310,20 @@ folding the value if necessary.</doc>
               c:identifier="g_mime_header_format_content_type">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="462">Parses the @value and then re-formats it to conform to the formatting options,
+             line="463">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
         <source-position filename="gmime-header.h" line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="472">a newly allocated string containing the reformatted value.</doc>
+               line="473">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="464">a #GMimeHeader</doc>
+                 line="465">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9330,19 +9332,19 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="465">a #GMimeFormatOptions or %NULL</doc>
+                 line="466">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="466">a Content-Type header value</doc>
+                 line="467">a Content-Type header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="467">a charset (note: unused)</doc>
+                 line="468">a charset (note: unused)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9351,20 +9353,20 @@ folding the value if necessary.</doc>
               c:identifier="g_mime_header_format_default">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="908">Parses the @value and then re-formats it to conform to the formatting options,
+             line="953">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
-        <source-position filename="gmime-header.h" line="73"/>
+        <source-position filename="gmime-header.h" line="74"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="918">a newly allocated string containing the reformatted value.</doc>
+               line="963">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="910">a #GMimeHeader</doc>
+                 line="955">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9373,19 +9375,19 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="911">a #GMimeFormatOptions or %NULL</doc>
+                 line="956">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="912">a header value</doc>
+                 line="957">a header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="913">a charset to use when encoding the @value</doc>
+                 line="958">a charset to use when encoding the @value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9394,20 +9396,20 @@ folding the value if necessary.</doc>
               c:identifier="g_mime_header_format_message_id">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="501">Parses the @value and then re-formats it to conform to the formatting options,
+             line="502">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
         <source-position filename="gmime-header.h" line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="511">a newly allocated string containing the reformatted value.</doc>
+               line="512">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="503">a #GMimeHeader</doc>
+                 line="504">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9416,19 +9418,62 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="504">a #GMimeFormatOptions or %NULL</doc>
+                 line="505">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="505">a Message-Id or Content-Id header value</doc>
+                 line="506">a Message-Id or Content-Id header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="506">a charset (note: unused)</doc>
+                 line="507">a charset (note: unused)</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="format_newsgroups"
+              c:identifier="g_mime_header_format_newsgroups">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="909">Parses the @value and then re-formats it to conform to the formatting options,
+folding the value if necessary.</doc>
+        <source-position filename="gmime-header.h" line="73"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="919">a newly allocated string containing the reformatted value.</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="header" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="911">a #GMimeHeader</doc>
+            <type name="Header" c:type="GMimeHeader*"/>
+          </instance-parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="912">a #GMimeFormatOptions or %NULL</doc>
+            <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="913">a Newsgroups header value</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="charset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="914">a charset (note: unused)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9437,20 +9482,20 @@ folding the value if necessary.</doc>
               c:identifier="g_mime_header_format_received">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="778">Parses the @value and then re-formats it to conform to the formatting options,
+             line="779">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
         <source-position filename="gmime-header.h" line="72"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="788">a newly allocated string containing the reformatted value.</doc>
+               line="789">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="780">a #GMimeHeader</doc>
+                 line="781">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9459,19 +9504,19 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="781">a #GMimeFormatOptions or %NULL</doc>
+                 line="782">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="782">a Received header value</doc>
+                 line="783">a Received header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="783">a charset (note: unused)</doc>
+                 line="784">a charset (note: unused)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9480,20 +9525,20 @@ folding the value if necessary.</doc>
               c:identifier="g_mime_header_format_references">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="522">Parses the @value and then re-formats it to conform to the formatting options,
+             line="523">Parses the @value and then re-formats it to conform to the formatting options,
 folding the value if necessary.</doc>
         <source-position filename="gmime-header.h" line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="532">a newly allocated string containing the reformatted value.</doc>
+               line="533">a newly allocated string containing the reformatted value.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="524">a #GMimeHeader</doc>
+                 line="525">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9502,19 +9547,19 @@ folding the value if necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="525">a #GMimeFormatOptions or %NULL</doc>
+                 line="526">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="526">a References or In-Reply-To header value</doc>
+                 line="527">a References or In-Reply-To header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="527">a charset (note: unused)</doc>
+                 line="528">a charset (note: unused)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9522,19 +9567,19 @@ folding the value if necessary.</doc>
       <method name="get_name" c:identifier="g_mime_header_get_name">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="200">Gets the header's name.</doc>
-        <source-position filename="gmime-header.h" line="108"/>
+             line="201">Gets the header's name.</doc>
+        <source-position filename="gmime-header.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="206">the header name or %NULL if invalid.</doc>
+               line="207">the header name or %NULL if invalid.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="202">a #GMimeHeader</doc>
+                 line="203">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -9542,19 +9587,19 @@ folding the value if necessary.</doc>
       <method name="get_offset" c:identifier="g_mime_header_get_offset">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="355">Gets the header's stream offset if known.</doc>
-        <source-position filename="gmime-header.h" line="117"/>
+             line="356">Gets the header's stream offset if known.</doc>
+        <source-position filename="gmime-header.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="361">the header offset or %-1 if unknown.</doc>
+               line="362">the header offset or %-1 if unknown.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="357">a #GMimeHeader</doc>
+                 line="358">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -9562,23 +9607,23 @@ folding the value if necessary.</doc>
       <method name="get_raw_name" c:identifier="g_mime_header_get_raw_name">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="275">Gets the header's raw name. The raw header name is the complete string up to
+             line="276">Gets the header's raw name. The raw header name is the complete string up to
 (but not including) the ':' separating the header's name from its value. This
 string may be different from the value returned by g_mime_header_get_name()
 if the parsed message's header contained trailing whitespace after the header
 name, such as: "Subject : this is the subject\r\n".</doc>
-        <source-position filename="gmime-header.h" line="109"/>
+        <source-position filename="gmime-header.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="285">the raw header name.</doc>
+               line="286">the raw header name.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="277">a #GMimeHeader</doc>
+                 line="278">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -9586,19 +9631,19 @@ name, such as: "Subject : this is the subject\r\n".</doc>
       <method name="get_raw_value" c:identifier="g_mime_header_get_raw_value">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="296">Gets the header's raw (folded) value.</doc>
-        <source-position filename="gmime-header.h" line="114"/>
+             line="297">Gets the header's raw (folded) value.</doc>
+        <source-position filename="gmime-header.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="302">the header value or %NULL if invalid.</doc>
+               line="303">the header value or %NULL if invalid.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="298">a #GMimeHeader</doc>
+                 line="299">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -9606,19 +9651,19 @@ name, such as: "Subject : this is the subject\r\n".</doc>
       <method name="get_value" c:identifier="g_mime_header_get_value">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="217">Gets the header's unfolded value.</doc>
-        <source-position filename="gmime-header.h" line="111"/>
+             line="218">Gets the header's unfolded value.</doc>
+        <source-position filename="gmime-header.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="223">the header's decoded value or %NULL if invalid.</doc>
+               line="224">the header's decoded value or %NULL if invalid.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="219">a #GMimeHeader</doc>
+                 line="220">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -9626,8 +9671,8 @@ name, such as: "Subject : this is the subject\r\n".</doc>
       <method name="set_raw_value" c:identifier="g_mime_header_set_raw_value">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="328">Sets the header's raw value.</doc>
-        <source-position filename="gmime-header.h" line="115"/>
+             line="329">Sets the header's raw value.</doc>
+        <source-position filename="gmime-header.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -9635,13 +9680,13 @@ name, such as: "Subject : this is the subject\r\n".</doc>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="330">a #GMimeHeader</doc>
+                 line="331">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="raw_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="331">the raw value</doc>
+                 line="332">the raw value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9649,8 +9694,8 @@ name, such as: "Subject : this is the subject\r\n".</doc>
       <method name="set_value" c:identifier="g_mime_header_set_value">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="242">Sets the header's decoded value.</doc>
-        <source-position filename="gmime-header.h" line="112"/>
+             line="243">Sets the header's decoded value.</doc>
+        <source-position filename="gmime-header.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -9658,7 +9703,7 @@ name, such as: "Subject : this is the subject\r\n".</doc>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="244">a #GMimeHeader</doc>
+                 line="245">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9667,13 +9712,13 @@ name, such as: "Subject : this is the subject\r\n".</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="245">a #GMimeFormatOptions or %NULL</doc>
+                 line="246">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="246">the new header value</doc>
+                 line="247">the new header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset"
@@ -9682,7 +9727,7 @@ name, such as: "Subject : this is the subject\r\n".</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="247">a charset</doc>
+                 line="248">a charset</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9691,19 +9736,19 @@ name, such as: "Subject : this is the subject\r\n".</doc>
               c:identifier="g_mime_header_write_to_stream">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="379">Write the header to the specified stream.</doc>
-        <source-position filename="gmime-header.h" line="119"/>
+             line="380">Write the header to the specified stream.</doc>
+        <source-position filename="gmime-header.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="387">the number of bytes written, or %-1 on fail.</doc>
+               line="388">the number of bytes written, or %-1 on fail.</doc>
           <type name="gssize" c:type="ssize_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="381">a #GMimeHeader</doc>
+                 line="382">a #GMimeHeader</doc>
             <type name="Header" c:type="GMimeHeader*"/>
           </instance-parameter>
           <parameter name="options"
@@ -9712,13 +9757,13 @@ name, such as: "Subject : this is the subject\r\n".</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="382">a #GMimeFormatOptions or %NULL</doc>
+                 line="383">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="383">a #GMimeStream</doc>
+                 line="384">a #GMimeStream</doc>
             <type name="Stream" c:type="GMimeStream*"/>
           </parameter>
         </parameters>
@@ -9729,13 +9774,13 @@ name, such as: "Subject : this is the subject\r\n".</doc>
       <field name="name" readable="0" private="1">
         <doc xml:space="preserve"
              filename="gmime-header.h"
-             line="78">the name of the header</doc>
+             line="79">the name of the header</doc>
         <type name="utf8" c:type="char*"/>
       </field>
       <field name="value" readable="0" private="1">
         <doc xml:space="preserve"
              filename="gmime-header.h"
-             line="79">the unfolded value of the header</doc>
+             line="80">the unfolded value of the header</doc>
         <type name="utf8" c:type="char*"/>
       </field>
       <field name="formatter" readable="0" private="1">
@@ -9767,7 +9812,7 @@ name, such as: "Subject : this is the subject\r\n".</doc>
     <record name="HeaderClass"
             c:type="GMimeHeaderClass"
             glib:is-gtype-struct-for="Header">
-      <source-position filename="gmime-header.h" line="103"/>
+      <source-position filename="gmime-header.h" line="104"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -9781,17 +9826,17 @@ name, such as: "Subject : this is the subject\r\n".</doc>
            glib:type-struct="HeaderListClass">
       <doc xml:space="preserve"
            filename="gmime-header.h"
-           line="122">A list of message or mime-part headers.</doc>
-      <source-position filename="gmime-header.h" line="140"/>
+           line="123">A list of message or mime-part headers.</doc>
+      <source-position filename="gmime-header.h" line="141"/>
       <constructor name="new" c:identifier="g_mime_header_list_new">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="1020">Creates a new #GMimeHeaderList object.</doc>
-        <source-position filename="gmime-header.h" line="145"/>
+             line="1065">Creates a new #GMimeHeaderList object.</doc>
+        <source-position filename="gmime-header.h" line="146"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="1026">a new header list object.</doc>
+               line="1071">a new header list object.</doc>
           <type name="HeaderList" c:type="GMimeHeaderList*"/>
         </return-value>
         <parameters>
@@ -9801,7 +9846,7 @@ name, such as: "Subject : this is the subject\r\n".</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="1022">a #GMimeParserOptions or %NULL</doc>
+                 line="1067">a #GMimeParserOptions or %NULL</doc>
             <type name="ParserOptions" c:type="GMimeParserOptions*"/>
           </parameter>
         </parameters>
@@ -9809,260 +9854,9 @@ name, such as: "Subject : this is the subject\r\n".</doc>
       <method name="append" c:identifier="g_mime_header_list_append">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="1195">Appends a header. If @value is %NULL, a space will be set aside for it
+             line="1240">Appends a header. If @value is %NULL, a space will be set aside for it
 (useful for setting the order of headers before values can be
 obtained for them) otherwise the header will be unset.</doc>
-        <source-position filename="gmime-header.h" line="151"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1197">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1198">header name</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1199">header value</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="charset"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1200">a charset</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="clear" c:identifier="g_mime_header_list_clear">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1040">Removes all of the headers from the #GMimeHeaderList.</doc>
-        <source-position filename="gmime-header.h" line="147"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1042">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="contains" c:identifier="g_mime_header_list_contains">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1103">Checks whether or not a header exists.</doc>
-        <source-position filename="gmime-header.h" line="149"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gmime-header.c"
-               line="1110">%TRUE if the specified header exists or %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1105">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1106">header name</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_count" c:identifier="g_mime_header_list_get_count">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1086">Gets the number of headers contained within the header list.</doc>
-        <source-position filename="gmime-header.h" line="148"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gmime-header.c"
-               line="1092">the number of headers in the header list.</doc>
-          <type name="gint" c:type="int"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1088">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_header" c:identifier="g_mime_header_list_get_header">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1229">Gets the first header with the specified name.</doc>
-        <source-position filename="gmime-header.h" line="153"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gmime-header.c"
-               line="1236">a #GMimeHeader for the specified @name.</doc>
-          <type name="Header" c:type="GMimeHeader*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1231">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1232">header name</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_header_at"
-              c:identifier="g_mime_header_list_get_header_at">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1338">Gets the header at the specified @index within the list.</doc>
-        <source-position filename="gmime-header.h" line="154"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gmime-header.c"
-               line="1345">the header at position @index.</doc>
-          <type name="Header" c:type="GMimeHeader*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1340">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="index" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1341">the 0-based index of the header</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="prepend" c:identifier="g_mime_header_list_prepend">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1127">Prepends a header. If @value is %NULL, a space will be set aside
-for it (useful for setting the order of headers before values can
-be obtained for them) otherwise the header will be unset.</doc>
-        <source-position filename="gmime-header.h" line="150"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1129">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1130">header name</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1131">header value</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="charset"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1132">a charset</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="remove" c:identifier="g_mime_header_list_remove">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1360">Remove the first instance of the specified header.</doc>
-        <source-position filename="gmime-header.h" line="155"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gmime-header.c"
-               line="1367">%TRUE if the header was successfully removed or %FALSE if
-the specified header could not be found.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1362">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1363">header name</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="remove_at" c:identifier="g_mime_header_list_remove_at">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1416">Removes the header at the specified @index from @headers.</doc>
-        <source-position filename="gmime-header.h" line="156"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1418">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="index" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1419">the 0-based index of the header to remove</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set" c:identifier="g_mime_header_list_set">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1285">Set the value of the specified header. If @value is %NULL and the
-header, @name, had not been previously set, a space will be set
-aside for it (useful for setting the order of headers before values
-can be obtained for them) otherwise the header will be unset.
-
-Note: If there are multiple headers with the specified field name,
-the first instance of the header will be replaced and further
-instances will be removed.</doc>
         <source-position filename="gmime-header.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10071,19 +9865,19 @@ instances will be removed.</doc>
           <instance-parameter name="headers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="1287">a #GMimeHeaderList</doc>
+                 line="1242">a #GMimeHeaderList</doc>
             <type name="HeaderList" c:type="GMimeHeaderList*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="1288">header name</doc>
+                 line="1243">header name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="1289">header value</doc>
+                 line="1244">header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="charset"
@@ -10092,7 +9886,258 @@ instances will be removed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="1290">a charset</doc>
+                 line="1245">a charset</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear" c:identifier="g_mime_header_list_clear">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1085">Removes all of the headers from the #GMimeHeaderList.</doc>
+        <source-position filename="gmime-header.h" line="148"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1087">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="contains" c:identifier="g_mime_header_list_contains">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1148">Checks whether or not a header exists.</doc>
+        <source-position filename="gmime-header.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="1155">%TRUE if the specified header exists or %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1150">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1151">header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_count" c:identifier="g_mime_header_list_get_count">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1131">Gets the number of headers contained within the header list.</doc>
+        <source-position filename="gmime-header.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="1137">the number of headers in the header list.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1133">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_header" c:identifier="g_mime_header_list_get_header">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1274">Gets the first header with the specified name.</doc>
+        <source-position filename="gmime-header.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="1281">a #GMimeHeader for the specified @name.</doc>
+          <type name="Header" c:type="GMimeHeader*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1276">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1277">header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_header_at"
+              c:identifier="g_mime_header_list_get_header_at">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1383">Gets the header at the specified @index within the list.</doc>
+        <source-position filename="gmime-header.h" line="155"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="1390">the header at position @index.</doc>
+          <type name="Header" c:type="GMimeHeader*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1385">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1386">the 0-based index of the header</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="prepend" c:identifier="g_mime_header_list_prepend">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1172">Prepends a header. If @value is %NULL, a space will be set aside
+for it (useful for setting the order of headers before values can
+be obtained for them) otherwise the header will be unset.</doc>
+        <source-position filename="gmime-header.h" line="151"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1174">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1175">header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1176">header value</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="charset"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1177">a charset</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="g_mime_header_list_remove">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1405">Remove the first instance of the specified header.</doc>
+        <source-position filename="gmime-header.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="1412">%TRUE if the header was successfully removed or %FALSE if
+the specified header could not be found.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1407">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1408">header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_at" c:identifier="g_mime_header_list_remove_at">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1461">Removes the header at the specified @index from @headers.</doc>
+        <source-position filename="gmime-header.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1463">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1464">the 0-based index of the header to remove</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set" c:identifier="g_mime_header_list_set">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1330">Set the value of the specified header. If @value is %NULL and the
+header, @name, had not been previously set, a space will be set
+aside for it (useful for setting the order of headers before values
+can be obtained for them) otherwise the header will be unset.
+
+Note: If there are multiple headers with the specified field name,
+the first instance of the header will be replaced and further
+instances will be removed.</doc>
+        <source-position filename="gmime-header.h" line="153"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1332">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1333">header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1334">header value</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="charset"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1335">a charset</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -10100,14 +10145,44 @@ instances will be removed.</doc>
       <method name="to_string" c:identifier="g_mime_header_list_to_string">
         <doc xml:space="preserve"
              filename="gmime-header.c"
-             line="1508">Allocates a string buffer containing the raw rfc822 headers
+             line="1553">Allocates a string buffer containing the raw rfc822 headers
 contained in @headers.</doc>
-        <source-position filename="gmime-header.h" line="159"/>
+        <source-position filename="gmime-header.h" line="160"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gmime-header.c"
-               line="1516">a string containing the header block.</doc>
+               line="1561">a string containing the header block.</doc>
           <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1555">a #GMimeHeaderList</doc>
+            <type name="HeaderList" c:type="GMimeHeaderList*"/>
+          </instance-parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gmime-header.c"
+                 line="1556">a #GMimeFormatOptions or %NULL</doc>
+            <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_to_stream"
+              c:identifier="g_mime_header_list_write_to_stream">
+        <doc xml:space="preserve"
+             filename="gmime-header.c"
+             line="1508">Write the headers to a stream.</doc>
+        <source-position filename="gmime-header.h" line="159"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gmime-header.c"
+               line="1516">the number of bytes written or %-1 on fail.</doc>
+          <type name="gssize" c:type="ssize_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="headers" transfer-ownership="none">
@@ -10125,40 +10200,10 @@ contained in @headers.</doc>
                  line="1511">a #GMimeFormatOptions or %NULL</doc>
             <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
           </parameter>
-        </parameters>
-      </method>
-      <method name="write_to_stream"
-              c:identifier="g_mime_header_list_write_to_stream">
-        <doc xml:space="preserve"
-             filename="gmime-header.c"
-             line="1463">Write the headers to a stream.</doc>
-        <source-position filename="gmime-header.h" line="158"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gmime-header.c"
-               line="1471">the number of bytes written or %-1 on fail.</doc>
-          <type name="gssize" c:type="ssize_t"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="headers" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1465">a #GMimeHeaderList</doc>
-            <type name="HeaderList" c:type="GMimeHeaderList*"/>
-          </instance-parameter>
-          <parameter name="options"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gmime-header.c"
-                 line="1466">a #GMimeFormatOptions or %NULL</doc>
-            <type name="FormatOptions" c:type="GMimeFormatOptions*"/>
-          </parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gmime-header.c"
-                 line="1467">output stream</doc>
+                 line="1512">output stream</doc>
             <type name="Stream" c:type="GMimeStream*"/>
           </parameter>
         </parameters>
@@ -10187,7 +10232,7 @@ contained in @headers.</doc>
     <record name="HeaderListClass"
             c:type="GMimeHeaderListClass"
             glib:is-gtype-struct-for="HeaderList">
-      <source-position filename="gmime-header.h" line="140"/>
+      <source-position filename="gmime-header.h" line="141"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -10231,7 +10276,7 @@ contained in @headers.</doc>
         </parameter>
       </parameters>
     </callback>
-    <constant name="INTERFACE_AGE" value="0" c:type="GMIME_INTERFACE_AGE">
+    <constant name="INTERFACE_AGE" value="1" c:type="GMIME_INTERFACE_AGE">
       <doc xml:space="preserve"
            filename="gmime-version.h"
            line="53">GMime's interface age.</doc>
@@ -11757,12 +11802,12 @@ members of @group.</doc>
       <function name="parse" c:identifier="internet_address_list_parse">
         <doc xml:space="preserve"
              filename="internet-address.c"
-             line="2130">Construct a list of internet addresses from the given string.</doc>
+             line="2142">Construct a list of internet addresses from the given string.</doc>
         <source-position filename="internet-address.h" line="216"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="internet-address.c"
-               line="2137">a #InternetAddressList or %NULL if the
+               line="2149">a #InternetAddressList or %NULL if the
 input string does not contain any addresses.</doc>
           <type name="InternetAddressList" c:type="InternetAddressList*"/>
         </return-value>
@@ -11773,13 +11818,13 @@ input string does not contain any addresses.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="internet-address.c"
-                 line="2132">a #GMimeParserOptions or %NULL</doc>
+                 line="2144">a #GMimeParserOptions or %NULL</doc>
             <type name="ParserOptions" c:type="GMimeParserOptions*"/>
           </parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="internet-address.c"
-                 line="2133">a string containing internet addresses</doc>
+                 line="2145">a string containing internet addresses</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -11837,7 +11882,7 @@ input string does not contain any addresses.</doc>
               c:identifier="internet_address_list_append_parse">
         <doc xml:space="preserve"
              filename="internet-address.c"
-             line="2177">Adds all of the addresses in @str to @list.</doc>
+             line="2189">Adds all of the addresses in @str to @list.</doc>
         <source-position filename="internet-address.h" line="217"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11846,7 +11891,7 @@ input string does not contain any addresses.</doc>
           <instance-parameter name="list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="internet-address.c"
-                 line="2179">a #InternetAddressList</doc>
+                 line="2191">a #InternetAddressList</doc>
             <type name="InternetAddressList" c:type="InternetAddressList*"/>
           </instance-parameter>
           <parameter name="options"
@@ -11855,13 +11900,13 @@ input string does not contain any addresses.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="internet-address.c"
-                 line="2180">a #GMimeParserOptions or %NULL</doc>
+                 line="2192">a #GMimeParserOptions or %NULL</doc>
             <type name="ParserOptions" c:type="GMimeParserOptions*"/>
           </parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="internet-address.c"
-                 line="2181">a string containing internet addresses</doc>
+                 line="2193">a string containing internet addresses</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -12450,7 +12495,7 @@ Note: The @name string should be in UTF-8.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="14" c:type="GMIME_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="15" c:type="GMIME_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gmime-version.h"
            line="39">GMime's micro version.</doc>
@@ -15581,7 +15626,7 @@ will be in UTF-8.</doc>
              filename="gmime-object.c"
              line="896">Gets the value of the first header with the specified name.</doc>
         <source-position filename="gmime-object.h" line="129"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gmime-object.c"
                line="903">the value of the requested header if it

@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Clutter" version="1.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gst" version="1.0"/>
   <package name="cheese"/>
+  <doc:format name="unknown"/>
   <namespace name="Cheese"
              version="3.0"
              shared-library="libcheese.so.8"
@@ -125,6 +127,9 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </constructor>
       <virtual-method name="photo_saved">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="48">invoked when a photo was saved to disk</doc>
         <source-position filename="libcheese/cheese-camera.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -136,6 +141,9 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="photo_taken">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="49">invoked when a photo was taken</doc>
         <source-position filename="libcheese/cheese-camera.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -150,6 +158,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="state_flags_changed">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="51">invoked when the state of the camera #GstElement
+changed</doc>
         <source-position filename="libcheese/cheese-camera.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -164,6 +176,9 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="video_saved">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="50">invoked when a video was saved to disk</doc>
         <source-position filename="libcheese/cheese-camera.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -767,6 +782,9 @@ NULL.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="photo_saved">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="48">invoked when a photo was saved to disk</doc>
         <callback name="photo_saved">
           <source-position filename="libcheese/cheese-camera.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -780,6 +798,9 @@ NULL.</doc>
         </callback>
       </field>
       <field name="photo_taken">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="49">invoked when a photo was taken</doc>
         <callback name="photo_taken">
           <source-position filename="libcheese/cheese-camera.h" line="63"/>
           <return-value transfer-ownership="none">
@@ -796,6 +817,9 @@ NULL.</doc>
         </callback>
       </field>
       <field name="video_saved">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="50">invoked when a video was saved to disk</doc>
         <callback name="video_saved">
           <source-position filename="libcheese/cheese-camera.h" line="64"/>
           <return-value transfer-ownership="none">
@@ -809,6 +833,10 @@ NULL.</doc>
         </callback>
       </field>
       <field name="state_flags_changed">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="51">invoked when the state of the camera #GstElement
+changed</doc>
         <callback name="state_flags_changed">
           <source-position filename="libcheese/cheese-camera.h" line="65"/>
           <return-value transfer-ownership="none">
@@ -1121,7 +1149,8 @@ See cheese_camera_device_monitor_new_async() for the asynchronous version.</doc>
         </parameters>
       </constructor>
       <function name="new_async"
-                c:identifier="cheese_camera_device_monitor_new_async">
+                c:identifier="cheese_camera_device_monitor_new_async"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libcheese/cheese-camera-device-monitor.c"
              line="349">Creates a new #CheeseCameraDeviceMonitor object asynchronously. Callback
@@ -1167,6 +1196,9 @@ See cheese_camera_device_monitor_new() for the synchronous version.</doc>
         </parameters>
       </function>
       <virtual-method name="added">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.h"
+             line="60">invoked when a new video capture device is connected</doc>
         <source-position filename="libcheese/cheese-camera-device-monitor.h"
                          line="71"/>
         <return-value transfer-ownership="none">
@@ -1183,6 +1215,9 @@ See cheese_camera_device_monitor_new() for the synchronous version.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="removed">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.h"
+             line="61">invoked when a video capture device is removed</doc>
         <source-position filename="libcheese/cheese-camera-device-monitor.h"
                          line="73"/>
         <return-value transfer-ownership="none">
@@ -1273,6 +1308,9 @@ the system.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="added">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.h"
+             line="60">invoked when a new video capture device is connected</doc>
         <callback name="added">
           <source-position filename="libcheese/cheese-camera-device-monitor.h"
                            line="71"/>
@@ -1291,6 +1329,9 @@ the system.</doc>
         </callback>
       </field>
       <field name="removed">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.h"
+             line="61">invoked when a video capture device is removed</doc>
         <callback name="removed">
           <source-position filename="libcheese/cheese-camera-device-monitor.h"
                            line="73"/>

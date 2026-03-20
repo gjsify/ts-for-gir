@@ -9,7 +9,6 @@ and/or use gtk-doc annotations.  -->
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="AppStream" version="1.0"/>
   <include name="GObject" version="2.0"/>
-  <include name="GdkPixbuf" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="appstream-compose"/>
   <c:include name="appstream-compose.h"/>
@@ -19,178 +18,6 @@ and/or use gtk-doc annotations.  -->
              shared-library="libappstream-compose.so.0"
              c:identifier-prefixes="Asc"
              c:symbol-prefixes="asc">
-    <class name="Canvas"
-           c:symbol-prefix="canvas"
-           c:type="AscCanvas"
-           parent="GObject.Object"
-           glib:type-name="AscCanvas"
-           glib:get-type="asc_canvas_get_type"
-           glib:type-struct="CanvasClass">
-      <source-position filename="compose/asc-canvas.h" line="34"/>
-      <constructor name="new" c:identifier="asc_canvas_new">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="95">Creates a new #AscFont.</doc>
-        <source-position filename="compose/asc-canvas.h" line="57"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="compose/asc-canvas.c"
-               line="100">an #AscCanvas</doc>
-          <type name="Canvas" c:type="AscCanvas*"/>
-        </return-value>
-        <parameters>
-          <parameter name="width" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="height" transfer-ownership="none">
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <method name="get_height" c:identifier="asc_canvas_get_height">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="131">Gets the canvas height.</doc>
-        <source-position filename="compose/asc-canvas.h" line="60"/>
-        <return-value transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="canvas" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="133">an #AscCanvas instance.</doc>
-            <type name="Canvas" c:type="AscCanvas*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_width" c:identifier="asc_canvas_get_width">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="118">Gets the canvas width.</doc>
-        <source-position filename="compose/asc-canvas.h" line="59"/>
-        <return-value transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="canvas" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="120">an #AscCanvas instance.</doc>
-            <type name="Canvas" c:type="AscCanvas*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="render_svg"
-              c:identifier="asc_canvas_render_svg"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="144">Render an SVG graphic from the SVG data provided.</doc>
-        <source-position filename="compose/asc-canvas.h" line="62"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="canvas" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="146">an #AscCanvas instance.</doc>
-            <type name="Canvas" c:type="AscCanvas*"/>
-          </instance-parameter>
-          <parameter name="stream" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="147">SVG data input stream.</doc>
-            <type name="Gio.InputStream" c:type="GInputStream*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="save_png" c:identifier="asc_canvas_save_png" throws="1">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="419">Save canvas to PNG file.</doc>
-        <source-position filename="compose/asc-canvas.h" line="64"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="canvas" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="421">an #AscCanvas instance.</doc>
-            <type name="Canvas" c:type="AscCanvas*"/>
-          </instance-parameter>
-          <parameter name="fname" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="422">Filename to save to.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </method>
-    </class>
-    <record name="CanvasClass"
-            c:type="AscCanvasClass"
-            glib:is-gtype-struct-for="Canvas">
-      <source-position filename="compose/asc-canvas.h" line="34"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <enumeration name="CanvasError"
-                 glib:type-name="AscCanvasError"
-                 glib:get-type="asc_canvas_error_get_type"
-                 c:type="AscCanvasError"
-                 glib:error-domain="AscCanvasError">
-      <doc xml:space="preserve"
-           filename="compose/asc-canvas.h"
-           line="36">A drawing error.</doc>
-      <member name="failed"
-              value="0"
-              c:identifier="ASC_CANVAS_ERROR_FAILED"
-              glib:nick="failed"
-              glib:name="ASC_CANVAS_ERROR_FAILED">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.h"
-             line="38">Generic failure.</doc>
-      </member>
-      <member name="drawing"
-              value="1"
-              c:identifier="ASC_CANVAS_ERROR_DRAWING"
-              glib:nick="drawing"
-              glib:name="ASC_CANVAS_ERROR_DRAWING">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.h"
-             line="39">Drawing operation failed.</doc>
-      </member>
-      <member name="font"
-              value="2"
-              c:identifier="ASC_CANVAS_ERROR_FONT"
-              glib:nick="font"
-              glib:name="ASC_CANVAS_ERROR_FONT">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.h"
-             line="40">Issue with font or font selection.</doc>
-      </member>
-      <member name="unsupported"
-              value="3"
-              c:identifier="ASC_CANVAS_ERROR_UNSUPPORTED"
-              glib:nick="unsupported"
-              glib:name="ASC_CANVAS_ERROR_UNSUPPORTED">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.h"
-             line="41">The requested action was not supported.</doc>
-      </member>
-      <function name="quark" c:identifier="asc_canvas_error_quark">
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="compose/asc-canvas.c"
-               line="58">An error quark.</doc>
-          <type name="GLib.Quark" c:type="GQuark"/>
-        </return-value>
-      </function>
-    </enumeration>
     <callback name="CheckMetadataEarlyFn" c:type="AscCheckMetadataEarlyFn">
       <doc xml:space="preserve"
            filename="compose/asc-compose.h"
@@ -245,7 +72,7 @@ to be taked care off by the callee.</doc>
       <constructor name="new" c:identifier="asc_compose_new">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2306">Creates a new #AscCompose.</doc>
+             line="2323">Creates a new #AscCompose.</doc>
         <source-position filename="compose/asc-compose.h" line="121"/>
         <return-value transfer-ownership="full">
           <type name="Compose" c:type="AscCompose*"/>
@@ -373,7 +200,7 @@ components in the list will be added to the metadata output.</doc>
               c:identifier="asc_compose_finalize_result">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2131">Perform final validation of generated data for the specified
+             line="2148">Perform final validation of generated data for the specified
 result container.</doc>
         <source-position filename="compose/asc-compose.h" line="186"/>
         <return-value transfer-ownership="none">
@@ -383,13 +210,13 @@ result container.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2133">an #AscCompose instance.</doc>
+                 line="2150">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2134">the #AscResult to finalize</doc>
+                 line="2151">the #AscResult to finalize</doc>
             <type name="Result" c:type="AscResult*"/>
           </parameter>
         </parameters>
@@ -398,7 +225,7 @@ result container.</doc>
               c:identifier="asc_compose_finalize_results">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2112">Perform final validation of generated data.
+             line="2129">Perform final validation of generated data.
 Calling this function is not necessary, unless the final check was explicitly
 disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
         <source-position filename="compose/asc-compose.h" line="185"/>
@@ -409,7 +236,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2114">an #AscCompose instance.</doc>
+                 line="2131">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -763,13 +590,13 @@ instance can be reused for another metadata generation run.</doc>
       <method name="run" c:identifier="asc_compose_run" throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2145">Process the registered units and generate catalog metadata from
+             line="2162">Process the registered units and generate catalog metadata from
 found components.</doc>
         <source-position filename="compose/asc-compose.h" line="183"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="2154">The results, or %NULL on error</doc>
+               line="2171">The results, or %NULL on error</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Result"/>
           </array>
@@ -778,7 +605,7 @@ found components.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2147">an #AscCompose instance.</doc>
+                 line="2164">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -787,7 +614,7 @@ found components.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2148">a #GCancellable.</doc>
+                 line="2165">a #GCancellable.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1366,7 +1193,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <constructor name="new" c:identifier="asc_directory_unit_new">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="270">Creates a new #AscDirectoryUnit.</doc>
+             line="273">Creates a new #AscDirectoryUnit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="44"/>
         <return-value transfer-ownership="full">
           <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
@@ -1380,7 +1207,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="get_root" c:identifier="asc_directory_unit_get_root">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="241">Get the root directory path for this unit.</doc>
+             line="244">Get the root directory path for this unit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -1389,7 +1216,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="dirunit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="243">an #AscDirectoryUnit instance.</doc>
+                 line="246">an #AscDirectoryUnit instance.</doc>
             <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
           </instance-parameter>
         </parameters>
@@ -1397,7 +1224,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="set_root" c:identifier="asc_directory_unit_set_root">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="254">Sets the root directory path for this unit.</doc>
+             line="257">Sets the root directory path for this unit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1406,13 +1233,13 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="dirunit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="256">an #AscDirectoryUnit instance.</doc>
+                 line="259">an #AscDirectoryUnit instance.</doc>
             <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
           </instance-parameter>
           <parameter name="root_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="257">Absolute directory path</doc>
+                 line="260">Absolute directory path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2120,11 +1947,11 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
            glib:type-name="AscImage"
            glib:get-type="asc_image_get_type"
            glib:type-struct="ImageClass">
-      <source-position filename="compose/asc-image.h" line="33"/>
+      <source-position filename="compose/asc-image.h" line="32"/>
       <constructor name="new" c:identifier="asc_image_new">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="179">Creates a new #AscImage.</doc>
+             line="190">Creates a new #AscImage.</doc>
         <source-position filename="compose/asc-image.h" line="125"/>
         <return-value transfer-ownership="full">
           <type name="Image" c:type="AscImage*"/>
@@ -2135,8 +1962,8 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
                    throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="421">Creates a new #AscImage from data in memory.</doc>
-        <source-position filename="compose/asc-image.h" line="130"/>
+             line="427">Creates a new #AscImage from data in memory.</doc>
+        <source-position filename="compose/asc-image.h" line="131"/>
         <return-value transfer-ownership="full">
           <type name="Image" c:type="AscImage*"/>
         </return-value>
@@ -2147,32 +1974,38 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="423">Data to load.</doc>
+                 line="429">Data to load.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="424">Length of the data to load.</doc>
+                 line="430">Length of the data to load.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
-          <parameter name="dest_size" transfer-ownership="none">
+          <parameter name="dest_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="425">The size of the constructed pixbuf, or 0 for the native size</doc>
-            <type name="guint" c:type="guint"/>
+                 line="431">The suggested width of the constructed pixbuf, or 0 for the native size</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
-          <parameter name="compressed" transfer-ownership="none">
+          <parameter name="dest_height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="427">%TRUE if passed data is gzip-compressed</doc>
-            <type name="gboolean" c:type="gboolean"/>
+                 line="432">The suggested height of the constructed pixbuf, or 0 for the native size</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="426">a #AscImageLoadFlags, e.g. %ASC_IMAGE_LOAD_FLAG_NONE</doc>
+                 line="433">a #AscImageLoadFlags, e.g. %ASC_IMAGE_LOAD_FLAG_NONE</doc>
             <type name="ImageLoadFlags" c:type="AscImageLoadFlags"/>
+          </parameter>
+          <parameter name="format_hint" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-image.c"
+                 line="434">Assume the specified image format for data, use %ASC_IMAGE_FORMAT_UNKNOWN to guess.</doc>
+            <type name="ImageFormat" c:type="AscImageFormat"/>
           </parameter>
         </parameters>
       </constructor>
@@ -2181,7 +2014,7 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
                    throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="397">Creates a new #AscImage from a file on the filesystem.</doc>
+             line="401">Creates a new #AscImage from a file on the filesystem.</doc>
         <source-position filename="compose/asc-image.h" line="126"/>
         <return-value transfer-ownership="full">
           <type name="Image" c:type="AscImage*"/>
@@ -2190,19 +2023,25 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
           <parameter name="fname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="399">Name of the file to load.</doc>
+                 line="403">Name of the file to load.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter name="dest_size" transfer-ownership="none">
+          <parameter name="dest_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="400">The size of the constructed pixbuf, or 0 for the native size</doc>
-            <type name="guint" c:type="guint"/>
+                 line="404">The suggested width of the constructed pixbuf, or 0 for the native size</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="dest_height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-image.c"
+                 line="405">The suggested height of the constructed pixbuf, or 0 for the native size</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="401">a #AscImageLoadFlags, e.g. %ASC_IMAGE_LOAD_FLAG_NONE</doc>
+                 line="406">a #AscImageLoadFlags, e.g. %ASC_IMAGE_LOAD_FLAG_NONE</doc>
             <type name="ImageLoadFlags" c:type="AscImageLoadFlags"/>
           </parameter>
         </parameters>
@@ -2211,13 +2050,13 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
                 c:identifier="asc_image_supported_format_names">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="255">Get a set of image format names we can currently read
+             line="266">Get a set of image format names we can currently read
 (via GdkPixbuf).</doc>
         <source-position filename="compose/asc-image.h" line="123"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="261">A hash set of format names.</doc>
+               line="272">A hash set of format names.</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
             <type name="gpointer" c:type="gpointer"/>
@@ -2227,36 +2066,16 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
       <method name="get_height" c:identifier="asc_image_get_height">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="684">Gets the image height.</doc>
-        <source-position filename="compose/asc-image.h" line="159"/>
-        <return-value transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="686">an #AscImage instance.</doc>
-            <type name="Image" c:type="AscImage*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_pixbuf" c:identifier="asc_image_get_pixbuf">
-        <doc xml:space="preserve"
-             filename="compose/asc-image.c"
-             line="635">Gets the image pixbuf if set.</doc>
+             line="700">Gets the image height.</doc>
         <source-position filename="compose/asc-image.h" line="155"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="compose/asc-image.c"
-               line="641">the #GdkPixbuf, or %NULL</doc>
-          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="637">a #AscImage instance.</doc>
+                 line="702">an #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
         </parameters>
@@ -2264,16 +2083,16 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
       <method name="get_width" c:identifier="asc_image_get_width">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="671">Gets the image width.</doc>
-        <source-position filename="compose/asc-image.h" line="158"/>
+             line="687">Gets the image width.</doc>
+        <source-position filename="compose/asc-image.h" line="154"/>
         <return-value transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
+          <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="673">an #AscImage instance.</doc>
+                 line="689">an #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
         </parameters>
@@ -2283,43 +2102,49 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
               throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="545">Reads an image from a file.</doc>
-        <source-position filename="compose/asc-image.h" line="137"/>
+             line="553">Reads an image from a file.</doc>
+        <source-position filename="compose/asc-image.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="556">%TRUE for success</doc>
+               line="565">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="547">a #AscImage instance.</doc>
+                 line="555">a #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="548">filename to read from</doc>
+                 line="556">filename to read from</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter name="dest_size" transfer-ownership="none">
+          <parameter name="dest_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="549">The size of the constructed pixbuf, or 0 for the native size</doc>
-            <type name="guint" c:type="guint"/>
+                 line="557">The suggested width of the constructed pixbuf, or 0 for the native size</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="dest_height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-image.c"
+                 line="558">The suggested height of the constructed pixbuf, or 0 for the native size</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="src_size_min" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="550">The smallest source size allowed, or 0 for none</doc>
-            <type name="guint" c:type="guint"/>
+                 line="559">The smallest source size (width or height) allowed, or 0 for no limit</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="551">a #AscImageLoadFlags, e.g. %ASC_IMAGE_LOAD_FLAG_NONE</doc>
+                 line="560">a #AscImageLoadFlags, e.g. %ASC_IMAGE_LOAD_FLAG_NONE</doc>
             <type name="ImageLoadFlags" c:type="AscImageLoadFlags"/>
           </parameter>
         </parameters>
@@ -2329,81 +2154,43 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
               throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="860">Saves the image to a file.</doc>
-        <source-position filename="compose/asc-image.h" line="148"/>
+             line="933">Saves the image to a file.</doc>
+        <source-position filename="compose/asc-image.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="871">%TRUE for success</doc>
+               line="944">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="862">a #AscImage instance.</doc>
+                 line="935">a #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="863">filename to write to</doc>
+                 line="936">filename to write to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="864">target width, or 0 for default</doc>
-            <type name="guint" c:type="guint"/>
+                 line="937">target width, or 0 for default</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="865">target height, or 0 for default</doc>
-            <type name="guint" c:type="guint"/>
+                 line="938">target height, or 0 for default</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="866">some #AscImageSaveFlags values, e.g. %ASC_IMAGE_SAVE_FLAG_PAD_16_9</doc>
-            <type name="ImageSaveFlags" c:type="AscImageSaveFlags"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="save_pixbuf" c:identifier="asc_image_save_pixbuf">
-        <doc xml:space="preserve"
-             filename="compose/asc-image.c"
-             line="776">Resamples a pixbuf to a specific size.</doc>
-        <source-position filename="compose/asc-image.h" line="144"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="compose/asc-image.c"
-               line="785">A #GdkPixbuf of the specified size</doc>
-          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="778">a #AscImage instance.</doc>
-            <type name="Image" c:type="AscImage*"/>
-          </instance-parameter>
-          <parameter name="width" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="779">target width, or 0 for default</doc>
-            <type name="guint" c:type="guint"/>
-          </parameter>
-          <parameter name="height" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="780">target height, or 0 for default</doc>
-            <type name="guint" c:type="guint"/>
-          </parameter>
-          <parameter name="flags" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="781">some #AscImageSaveFlags values, e.g. %ASC_IMAGE_SAVE_FLAG_PAD_16_9</doc>
+                 line="939">some #AscImageSaveFlags values, e.g. %ASC_IMAGE_SAVE_FLAG_PAD_16_9</doc>
             <type name="ImageSaveFlags" c:type="AscImageSaveFlags"/>
           </parameter>
         </parameters>
@@ -2411,7 +2198,37 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
       <method name="scale" c:identifier="asc_image_scale">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="697">Scale the image to the given size.</doc>
+             line="713">Scale the image to the given size.</doc>
+        <source-position filename="compose/asc-image.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-image.c"
+                 line="715">an #AscImage instance.</doc>
+            <type name="Image" c:type="AscImage*"/>
+          </instance-parameter>
+          <parameter name="new_width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-image.c"
+                 line="716">The new width.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="new_height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-image.c"
+                 line="717">the new height.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="scale_to_fit" c:identifier="asc_image_scale_to_fit">
+        <doc xml:space="preserve"
+             filename="compose/asc-image.c"
+             line="782">Scale the image to fir in a square with the given edge length,
+and keep its aspect ratio.</doc>
         <source-position filename="compose/asc-image.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2420,53 +2237,23 @@ while (asc_icon_policy_iter_next (&amp;iter, &amp;icon_size, &amp;icon_scale, &a
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="699">an #AscImage instance.</doc>
-            <type name="Image" c:type="AscImage*"/>
-          </instance-parameter>
-          <parameter name="new_width" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="700">The new width.</doc>
-            <type name="guint" c:type="guint"/>
-          </parameter>
-          <parameter name="new_height" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="701">the new height.</doc>
-            <type name="guint" c:type="guint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="scale_to_fit" c:identifier="asc_image_scale_to_fit">
-        <doc xml:space="preserve"
-             filename="compose/asc-image.c"
-             line="759">Scale the image to fir in a square with the given edge length,
-and keep its aspect ratio.</doc>
-        <source-position filename="compose/asc-image.h" line="165"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="761">an #AscImage instance.</doc>
+                 line="784">an #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="762">the maximum edge length.</doc>
-            <type name="guint" c:type="guint"/>
+                 line="785">the maximum edge length.</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="scale_to_height" c:identifier="asc_image_scale_to_height">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="740">Scale the image to the given height, preserving
+             line="760">Scale the image to the given height, preserving
 its aspect ratio.</doc>
-        <source-position filename="compose/asc-image.h" line="164"/>
+        <source-position filename="compose/asc-image.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2474,23 +2261,23 @@ its aspect ratio.</doc>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="742">an #AscImage instance.</doc>
+                 line="762">an #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
           <parameter name="new_height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="743">the new height.</doc>
-            <type name="guint" c:type="guint"/>
+                 line="763">the new height.</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="scale_to_width" c:identifier="asc_image_scale_to_width">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="721">Scale the image to the given width, preserving
+             line="738">Scale the image to the given width, preserving
 its aspect ratio.</doc>
-        <source-position filename="compose/asc-image.h" line="163"/>
+        <source-position filename="compose/asc-image.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2498,37 +2285,14 @@ its aspect ratio.</doc>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="723">an #AscImage instance.</doc>
+                 line="740">an #AscImage instance.</doc>
             <type name="Image" c:type="AscImage*"/>
           </instance-parameter>
           <parameter name="new_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="724">The new width.</doc>
-            <type name="guint" c:type="guint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_pixbuf" c:identifier="asc_image_set_pixbuf">
-        <doc xml:space="preserve"
-             filename="compose/asc-image.c"
-             line="651">Sets the image pixbuf.</doc>
-        <source-position filename="compose/asc-image.h" line="156"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="653">a #AscImage instance.</doc>
-            <type name="Image" c:type="AscImage*"/>
-          </instance-parameter>
-          <parameter name="pixbuf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-image.c"
-                 line="654">the #GdkPixbuf, or %NULL</doc>
-            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+                 line="741">The new width.</doc>
+            <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
@@ -2536,7 +2300,7 @@ its aspect ratio.</doc>
     <record name="ImageClass"
             c:type="AscImageClass"
             glib:is-gtype-struct-for="Image">
-      <source-position filename="compose/asc-image.h" line="33"/>
+      <source-position filename="compose/asc-image.h" line="32"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2548,7 +2312,7 @@ its aspect ratio.</doc>
                  glib:error-domain="AscImageError">
       <doc xml:space="preserve"
            filename="compose/asc-image.h"
-           line="101">An image processing error.</doc>
+           line="102">An image processing error.</doc>
       <member name="failed"
               value="0"
               c:identifier="ASC_IMAGE_ERROR_FAILED"
@@ -2556,7 +2320,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_ERROR_FAILED">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="103">Generic failure.</doc>
+             line="104">Generic failure.</doc>
       </member>
       <member name="unsupported"
               value="1"
@@ -2565,13 +2329,13 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_ERROR_UNSUPPORTED">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="104">The graphic type is not supported.</doc>
+             line="105">The graphic type is not supported.</doc>
       </member>
       <function name="quark" c:identifier="asc_image_error_quark">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="52">An error quark.</doc>
+               line="53">An error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -2582,7 +2346,7 @@ its aspect ratio.</doc>
                  c:type="AscImageFormat">
       <doc xml:space="preserve"
            filename="compose/asc-image.h"
-           line="73">File format of an image.</doc>
+           line="72">File format of an image.</doc>
       <member name="unknown"
               value="0"
               c:identifier="ASC_IMAGE_FORMAT_UNKNOWN"
@@ -2590,7 +2354,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_FORMAT_UNKNOWN">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="75">Unknown image format.</doc>
+             line="74">Unknown image format.</doc>
       </member>
       <member name="png"
               value="1"
@@ -2599,28 +2363,37 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_FORMAT_PNG">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="76">PNG format</doc>
+             line="75">PNG format</doc>
       </member>
-      <member name="jpeg"
+      <member name="jxl"
               value="2"
-              c:identifier="ASC_IMAGE_FORMAT_JPEG"
-              glib:nick="jpeg"
-              glib:name="ASC_IMAGE_FORMAT_JPEG">
+              c:identifier="ASC_IMAGE_FORMAT_JXL"
+              glib:nick="jxl"
+              glib:name="ASC_IMAGE_FORMAT_JXL">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="77">JPEG format</doc>
+             line="76">JPEG-XL format</doc>
       </member>
-      <member name="gif"
+      <member name="avif"
               value="3"
-              c:identifier="ASC_IMAGE_FORMAT_GIF"
-              glib:nick="gif"
-              glib:name="ASC_IMAGE_FORMAT_GIF">
+              c:identifier="ASC_IMAGE_FORMAT_AVIF"
+              glib:nick="avif"
+              glib:name="ASC_IMAGE_FORMAT_AVIF">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="78">GIF format</doc>
+             line="77">AVIF format</doc>
+      </member>
+      <member name="webp"
+              value="4"
+              c:identifier="ASC_IMAGE_FORMAT_WEBP"
+              glib:nick="webp"
+              glib:name="ASC_IMAGE_FORMAT_WEBP">
+        <doc xml:space="preserve"
+             filename="compose/asc-image.h"
+             line="78">WebP format</doc>
       </member>
       <member name="svg"
-              value="4"
+              value="5"
               c:identifier="ASC_IMAGE_FORMAT_SVG"
               glib:nick="svg"
               glib:name="ASC_IMAGE_FORMAT_SVG">
@@ -2629,7 +2402,7 @@ its aspect ratio.</doc>
              line="79">SVG format</doc>
       </member>
       <member name="svgz"
-              value="5"
+              value="6"
               c:identifier="ASC_IMAGE_FORMAT_SVGZ"
               glib:nick="svgz"
               glib:name="ASC_IMAGE_FORMAT_SVGZ">
@@ -2637,26 +2410,26 @@ its aspect ratio.</doc>
              filename="compose/asc-image.h"
              line="80">Compressed SVG format</doc>
       </member>
-      <member name="webp"
-              value="6"
-              c:identifier="ASC_IMAGE_FORMAT_WEBP"
-              glib:nick="webp"
-              glib:name="ASC_IMAGE_FORMAT_WEBP">
-        <doc xml:space="preserve"
-             filename="compose/asc-image.h"
-             line="81">WebP format</doc>
-      </member>
-      <member name="avif"
+      <member name="jpeg"
               value="7"
-              c:identifier="ASC_IMAGE_FORMAT_AVIF"
-              glib:nick="avif"
-              glib:name="ASC_IMAGE_FORMAT_AVIF">
+              c:identifier="ASC_IMAGE_FORMAT_JPEG"
+              glib:nick="jpeg"
+              glib:name="ASC_IMAGE_FORMAT_JPEG">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="82">AVIF format</doc>
+             line="81">JPEG format</doc>
+      </member>
+      <member name="gif"
+              value="8"
+              c:identifier="ASC_IMAGE_FORMAT_GIF"
+              glib:nick="gif"
+              glib:name="ASC_IMAGE_FORMAT_GIF">
+        <doc xml:space="preserve"
+             filename="compose/asc-image.h"
+             line="82">GIF format</doc>
       </member>
       <member name="xpm"
-              value="8"
+              value="9"
               c:identifier="ASC_IMAGE_FORMAT_XPM"
               glib:nick="xpm"
               glib:name="ASC_IMAGE_FORMAT_XPM">
@@ -2668,19 +2441,19 @@ its aspect ratio.</doc>
                 c:identifier="asc_image_format_from_filename">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="123">Returns the image format type based on the given file's filename.</doc>
-        <source-position filename="compose/asc-image.h" line="120"/>
+             line="131">Returns the image format type based on the given file's filename.</doc>
+        <source-position filename="compose/asc-image.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="129">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
+               line="137">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
           <type name="ImageFormat" c:type="AscImageFormat"/>
         </return-value>
         <parameters>
           <parameter name="fname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="125">the filename.</doc>
+                 line="133">the filename.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2688,19 +2461,19 @@ its aspect ratio.</doc>
       <function name="from_string" c:identifier="asc_image_format_from_string">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="93">Converts the text representation to an enumerated value.</doc>
-        <source-position filename="compose/asc-image.h" line="119"/>
+             line="98">Converts the text representation to an enumerated value.</doc>
+        <source-position filename="compose/asc-image.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="99">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
+               line="104">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
           <type name="ImageFormat" c:type="AscImageFormat"/>
         </return-value>
         <parameters>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="95">the string.</doc>
+                 line="100">the string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2708,19 +2481,19 @@ its aspect ratio.</doc>
       <function name="to_string" c:identifier="asc_image_format_to_string">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="63">Converts the enumerated value to an text representation.</doc>
-        <source-position filename="compose/asc-image.h" line="118"/>
+             line="64">Converts the enumerated value to an text representation.</doc>
+        <source-position filename="compose/asc-image.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="69">string version of @format</doc>
+               line="70">string version of @format</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-image.c"
-                 line="65">the %AscImageFormat.</doc>
+                 line="66">the %AscImageFormat.</doc>
             <type name="ImageFormat" c:type="AscImageFormat"/>
           </parameter>
         </parameters>
@@ -2732,7 +2505,7 @@ its aspect ratio.</doc>
               c:type="AscImageLoadFlags">
       <doc xml:space="preserve"
            filename="compose/asc-image.h"
-           line="55">The flags used for loading images.</doc>
+           line="54">The flags used for loading images.</doc>
       <member name="none"
               value="0"
               c:identifier="ASC_IMAGE_LOAD_FLAG_NONE"
@@ -2740,7 +2513,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_LOAD_FLAG_NONE">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="57">No special flags set</doc>
+             line="56">No special flags set</doc>
       </member>
       <member name="sharpen"
               value="1"
@@ -2749,7 +2522,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_LOAD_FLAG_SHARPEN">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="58">Sharpen the resulting image</doc>
+             line="57">Sharpen the resulting image</doc>
       </member>
       <member name="allow_unsupported"
               value="2"
@@ -2758,7 +2531,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_LOAD_FLAG_ALLOW_UNSUPPORTED">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="59">Allow loading of unsupported image types.</doc>
+             line="58">Allow loading of unsupported image types.</doc>
       </member>
       <member name="always_resize"
               value="4"
@@ -2767,7 +2540,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_LOAD_FLAG_ALWAYS_RESIZE">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="60">Always resize the source image to the perfect size</doc>
+             line="59">Always resize the source image to the perfect size</doc>
       </member>
     </bitfield>
     <bitfield name="ImageSaveFlags"
@@ -2776,7 +2549,7 @@ its aspect ratio.</doc>
               c:type="AscImageSaveFlags">
       <doc xml:space="preserve"
            filename="compose/asc-image.h"
-           line="35">The flags used for saving images.</doc>
+           line="34">The flags used for saving images.</doc>
       <member name="none"
               value="0"
               c:identifier="ASC_IMAGE_SAVE_FLAG_NONE"
@@ -2784,7 +2557,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_SAVE_FLAG_NONE">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="37">No special flags set</doc>
+             line="36">No special flags set</doc>
       </member>
       <member name="optimize"
               value="1"
@@ -2793,7 +2566,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_SAVE_FLAG_OPTIMIZE">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="38">Optimize generated PNG for size</doc>
+             line="37">Optimize generated PNG for size</doc>
       </member>
       <member name="pad_16_9"
               value="2"
@@ -2802,7 +2575,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_SAVE_FLAG_PAD_16_9">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="39">Pad with alpha to 16:9 aspect</doc>
+             line="38">Pad with alpha to 16:9 aspect</doc>
       </member>
       <member name="sharpen"
               value="4"
@@ -2811,7 +2584,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_SAVE_FLAG_SHARPEN">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="40">Sharpen the image to clarify detail</doc>
+             line="39">Sharpen the image to clarify detail</doc>
       </member>
       <member name="blur"
               value="8"
@@ -2820,7 +2593,7 @@ its aspect ratio.</doc>
               glib:name="ASC_IMAGE_SAVE_FLAG_BLUR">
         <doc xml:space="preserve"
              filename="compose/asc-image.h"
-             line="41">Blur the image to clear detail</doc>
+             line="40">Blur the image to clear detail</doc>
       </member>
     </bitfield>
     <class name="Result"
@@ -3743,7 +3516,7 @@ and the text translated to the preceding locale in the following odd indices.</d
           <doc xml:space="preserve"
                filename="compose/asc-compose.h"
                line="105">A pointer to the desktop-entry data we are reading.</doc>
-          <type name="GLib.KeyFile" c:type="const GKeyFile*"/>
+          <type name="GLib.KeyFile" c:type="GKeyFile*"/>
         </parameter>
         <parameter name="text" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -4398,16 +4171,6 @@ associated with this component.</doc>
         </parameter>
       </parameters>
     </function>
-    <function name="canvas_error_quark"
-              c:identifier="asc_canvas_error_quark"
-              moved-to="CanvasError.quark">
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="58">An error quark.</doc>
-        <type name="GLib.Quark" c:type="GQuark"/>
-      </return-value>
-    </function>
     <function name="compose_error_quark"
               c:identifier="asc_compose_error_quark"
               moved-to="ComposeError.quark">
@@ -4440,7 +4203,7 @@ file on disk after download.</doc>
               c:identifier="asc_globals_add_hint_tag">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="408">Register a new hint tag. If a previous tag with the given name
+           line="405">Register a new hint tag. If a previous tag with the given name
 already existed, the existing tag will not be replaced unless
 @overrideExisting is set to %TRUE.
 Please be careful when overriding tags! Tag severities can not
@@ -4449,32 +4212,32 @@ be lowered by overriding a tag.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="421">%TRUE if the tag was registered and did not exist previously.</doc>
+             line="418">%TRUE if the tag was registered and did not exist previously.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="410">the tag-ID to add</doc>
+               line="407">the tag-ID to add</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="severity" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="411">the tag severity as #AsIssueSeverity</doc>
+               line="408">the tag severity as #AsIssueSeverity</doc>
           <type name="AppStream.IssueSeverity" c:type="AsIssueSeverity"/>
         </parameter>
         <parameter name="explanation" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="412">the tag explanatory message</doc>
+               line="409">the tag explanatory message</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="overrideExisting" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-globals.c"
-               line="413">whether an existing tag should be replaced</doc>
+               line="410">whether an existing tag should be replaced</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -4502,12 +4265,12 @@ be lowered by overriding a tag.</doc>
               c:identifier="asc_globals_get_hint_tags">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="474">Retrieve all hint tags that we know.</doc>
+           line="471">Retrieve all hint tags that we know.</doc>
       <source-position filename="compose/asc-globals.h" line="65"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="479">A list of valid hint tags. Free with %g_strfreev</doc>
+             line="476">A list of valid hint tags. Free with %g_strfreev</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
         </array>
@@ -4558,12 +4321,12 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_hint_tag_explanation">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="520">Retrieve the explanation template of the given hint tag.</doc>
+           line="517">Retrieve the explanation template of the given hint tag.</doc>
       <source-position filename="compose/asc-globals.h" line="67"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="525">An explanation template, or %NULL if the tag was not found.</doc>
+             line="522">An explanation template, or %NULL if the tag was not found.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
@@ -4576,12 +4339,12 @@ and try to create it if it does not exist.</doc>
               c:identifier="asc_globals_hint_tag_severity">
       <doc xml:space="preserve"
            filename="compose/asc-globals.c"
-           line="503">Retrieve the severity of the given hint tag.</doc>
+           line="500">Retrieve the severity of the given hint tag.</doc>
       <source-position filename="compose/asc-globals.h" line="66"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-globals.c"
-             line="508">An #AsIssueSeverity or %AS_ISSUE_SEVERITY_UNKNOWN if the tag did not exist
+             line="505">An #AsIssueSeverity or %AS_ISSUE_SEVERITY_UNKNOWN if the tag did not exist
          or has an unknown severity.</doc>
         <type name="AppStream.IssueSeverity" c:type="AsIssueSeverity"/>
       </return-value>
@@ -4701,7 +4464,7 @@ and try to create it if it does not exist.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="52">An error quark.</doc>
+             line="53">An error quark.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
@@ -4710,19 +4473,19 @@ and try to create it if it does not exist.</doc>
               moved-to="ImageFormat.from_filename">
       <doc xml:space="preserve"
            filename="compose/asc-image.c"
-           line="123">Returns the image format type based on the given file's filename.</doc>
-      <source-position filename="compose/asc-image.h" line="120"/>
+           line="131">Returns the image format type based on the given file's filename.</doc>
+      <source-position filename="compose/asc-image.h" line="121"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="129">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
+             line="137">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
         <type name="ImageFormat" c:type="AscImageFormat"/>
       </return-value>
       <parameters>
         <parameter name="fname" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="125">the filename.</doc>
+               line="133">the filename.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4732,19 +4495,19 @@ and try to create it if it does not exist.</doc>
               moved-to="ImageFormat.from_string">
       <doc xml:space="preserve"
            filename="compose/asc-image.c"
-           line="93">Converts the text representation to an enumerated value.</doc>
-      <source-position filename="compose/asc-image.h" line="119"/>
+           line="98">Converts the text representation to an enumerated value.</doc>
+      <source-position filename="compose/asc-image.h" line="120"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="99">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
+             line="104">a #AscImageFormat or %ASC_IMAGE_FORMAT_UNKNOWN for unknown</doc>
         <type name="ImageFormat" c:type="AscImageFormat"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="95">the string.</doc>
+               line="100">the string.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4754,72 +4517,66 @@ and try to create it if it does not exist.</doc>
               moved-to="ImageFormat.to_string">
       <doc xml:space="preserve"
            filename="compose/asc-image.c"
-           line="63">Converts the enumerated value to an text representation.</doc>
-      <source-position filename="compose/asc-image.h" line="118"/>
+           line="64">Converts the enumerated value to an text representation.</doc>
+      <source-position filename="compose/asc-image.h" line="119"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-image.c"
-             line="69">string version of @format</doc>
+             line="70">string version of @format</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="65">the %AscImageFormat.</doc>
+               line="66">the %AscImageFormat.</doc>
           <type name="ImageFormat" c:type="AscImageFormat"/>
         </parameter>
       </parameters>
     </function>
-    <function name="optimize_png" c:identifier="asc_optimize_png" throws="1">
+    <function name="render_svg_to_file"
+              c:identifier="asc_render_svg_to_file"
+              throws="1">
       <doc xml:space="preserve"
            filename="compose/asc-image.c"
-           line="192">Optimizes a PNG graphic for size with optipng, if its binary
-is available and this feature is enabled.</doc>
-      <source-position filename="compose/asc-image.h" line="122"/>
+           line="800">Renders SVG data from a stream to a file in a specific format.</doc>
+      <source-position filename="compose/asc-image.h" line="163"/>
       <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="compose/asc-image.c"
+             line="811">%TRUE for success</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
-        <parameter name="fname" transfer-ownership="none">
+        <parameter name="stream" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-image.c"
-               line="194">Filename of the PNG image to optimize.</doc>
+               line="802">Input stream with SVG data.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </parameter>
+        <parameter name="width" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="compose/asc-image.c"
+               line="803">Target width.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="height" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="compose/asc-image.c"
+               line="804">Target height.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="compose/asc-image.c"
+               line="805">Target image format, e.g. %ASC_IMAGE_FORMAT_PNG</doc>
+          <type name="ImageFormat" c:type="AscImageFormat"/>
+        </parameter>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="compose/asc-image.c"
+               line="806">Filename to write to.</doc>
           <type name="utf8" c:type="const gchar*"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="pixbuf_blur" c:identifier="asc_pixbuf_blur">
-      <source-position filename="compose/asc-image.h" line="167"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-      <parameters>
-        <parameter name="src" transfer-ownership="none">
-          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-        </parameter>
-        <parameter name="radius" transfer-ownership="none">
-          <type name="gint" c:type="gint"/>
-        </parameter>
-        <parameter name="iterations" transfer-ownership="none">
-          <type name="gint" c:type="gint"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="pixbuf_sharpen" c:identifier="asc_pixbuf_sharpen">
-      <source-position filename="compose/asc-image.h" line="168"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-      <parameters>
-        <parameter name="src" transfer-ownership="none">
-          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-        </parameter>
-        <parameter name="radius" transfer-ownership="none">
-          <type name="gint" c:type="gint"/>
-        </parameter>
-        <parameter name="amount" transfer-ownership="none">
-          <type name="gdouble" c:type="gdouble"/>
         </parameter>
       </parameters>
     </function>

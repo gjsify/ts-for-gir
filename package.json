@@ -62,7 +62,7 @@
 		"type definitions"
 	],
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.6",
+		"@biomejs/biome": "^2.4.8",
 		"@ts-for-gir/cli": "workspace:^",
 		"concurrently": "^9.2.1",
 		"rimraf": "^6.1.3",

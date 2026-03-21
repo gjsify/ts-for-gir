@@ -14,6 +14,7 @@ import {
 	normalizePath,
 	type OptionsReader,
 	type ProjectReflection,
+	ReferenceReflection,
 	ReflectionCategory,
 	Serializer,
 	TSConfigReader,
@@ -199,7 +200,7 @@ export class TypeDocPipeline {
 	 * converts each package separately, then merges them into one ProjectReflection.
 	 */
 	async createCombinedTypeDocApp(): Promise<TypeDocAppResult> {
-		return this.bootstrapAndConvert(
+		const result = await this.bootstrapAndConvert(
 			{
 				entryPoints: [join(this.tempDir, "*")],
 				entryPointStrategy: "packages",
@@ -213,6 +214,8 @@ export class TypeDocPipeline {
 			},
 			[new TSConfigReader()],
 		);
+		this.fixExportImportReferences(result.project);
+		return result;
 	}
 
 	/**
@@ -235,7 +238,9 @@ export class TypeDocPipeline {
 		// Register deserializer for merge mode — restores GIR metadata from JSON
 		app.deserializer.addDeserializer(new GirMetadataDeserializer());
 
-		return this.convertApp(app, "merged documentation");
+		const result = await this.convertApp(app, "merged documentation");
+		this.fixExportImportReferences(result.project);
+		return result;
 	}
 
 	async cleanup(): Promise<void> {
@@ -486,6 +491,48 @@ export class TypeDocPipeline {
 		const name = child.inheritedFrom.name;
 		const dotIdx = name.indexOf(".");
 		return dotIdx > 0 ? name.slice(0, dotIdx) : name;
+	}
+
+	/**
+	 * Fix ReferenceReflection targets broken by TypeDoc's handling of
+	 * `export import X = Y.Z` statements.
+	 *
+	 * TypeDoc may resolve all such re-exports within a namespace to the same
+	 * target reflection (e.g. every Cairo enum points to Status). This method
+	 * detects the mismatch and corrects each reference's internal target ID.
+	 */
+	private fixExportImportReferences(project: ProjectReflection): void {
+		// Collect all non-reference reflections by name for quick lookup.
+		// These are the "real" declarations that broken references should point to.
+		const nonRefByName = new Map<string, Array<{ id: number; kind: number }>>();
+		for (const refl of Object.values(project.reflections)) {
+			if (refl.isReference()) continue;
+			let list = nonRefByName.get(refl.name);
+			if (!list) {
+				list = [];
+				nonRefByName.set(refl.name, list);
+			}
+			list.push({ id: refl.id, kind: refl.kind });
+		}
+
+		for (const r of Object.values(project.reflections)) {
+			if (!(r instanceof ReferenceReflection)) continue;
+
+			const target = r.tryGetTargetReflectionDeep();
+			if (!target || target.name === r.name) continue;
+
+			const candidates = nonRefByName.get(r.name);
+			if (!candidates?.length) continue;
+
+			// Prefer a candidate with the same kind as the (wrong) target.
+			// Fall back to the first candidate if kinds don't match
+			// (can happen when the wrong target itself has an unusual kind).
+			const correctTarget = candidates.find((c) => c.kind === target.kind) ?? candidates[0];
+
+			// ReferenceReflection._target is private; direct assignment
+			// is the only way to fix the resolved ID after conversion.
+			(r as unknown as { _target: number })._target = correctTarget.id;
+		}
 	}
 
 	/** Register GIR metadata serializer and namespace-level metadata on a TypeDoc app. */

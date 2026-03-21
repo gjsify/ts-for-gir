@@ -1,7 +1,17 @@
 import type { PageEvent, Reflection, RenderTemplate } from "typedoc";
 import { JSX } from "typedoc";
 import type { GiDocgenThemeRenderContext } from "../context.ts";
-import { getDisplayName, getHierarchyRoots } from "../utils.ts";
+import { sanitizeModuleName } from "../search-splitter.ts";
+import { findOwningModule, getDisplayName, getHierarchyRoots } from "../utils.ts";
+
+/** Determine which search chunk file to load for this page. */
+function getSearchScript(props: PageEvent<Reflection>): string {
+	const owningModule = findOwningModule(props.model);
+	if (owningModule) {
+		return `assets/search-${sanitizeModuleName(owningModule.name)}.js`;
+	}
+	return "assets/search-modules.js";
+}
 
 export const giDocgenLayout = (
 	context: GiDocgenThemeRenderContext,
@@ -64,7 +74,7 @@ export const giDocgenLayout = (
 			}),
 			JSX.createElement("script", {
 				async: true,
-				src: context.relativeURL("assets/search.js", true),
+				src: context.relativeURL(getSearchScript(props), true),
 				id: "tsd-search-script",
 			}),
 			JSX.createElement("script", {

@@ -16343,7 +16343,9 @@ __metadata:
   resolution: "@ts-for-gir/typedoc-theme@workspace:packages/typedoc-theme"
   dependencies:
     "@ts-for-gir/tsconfig": "workspace:^"
+    "@types/lunr": "npm:^2.3.7"
     "@types/node": "npm:^24.12.0"
+    lunr: "npm:^2.3.9"
     typedoc: "npm:^0.28.17"
     typescript: "npm:^5.9.3"
   languageName: unknown
@@ -16445,6 +16447,13 @@ __metadata:
   version: 4.17.24
   resolution: "@types/lodash@npm:4.17.24"
   checksum: 10/0f2082565f60f9787eefc046edc38458054512be5a8b3584ef0bad5fd9e85d0ab55ec5a1fbfae1ed6ba015cf1f9e837d5fb4da1f99fc60b8f74b2a46146fb00f
+  languageName: node
+  linkType: hard
+
+"@types/lunr@npm:^2.3.7":
+  version: 2.3.7
+  resolution: "@types/lunr@npm:2.3.7"
+  checksum: 10/262a09c908271bb6b3fb1a9f4d312ddea3436022ea7d17cbf4a04215ca8a909c2af8a03af89b931f7cd0d5389f75c606582a050f900c1837f6527544de5ae014
   languageName: node
   linkType: hard
 

@@ -556,8 +556,7 @@ export class TypeDocPipeline {
 
 			// Prefer a candidate with the same kind as the (wrong) target.
 			// Fall back to the first candidate if kinds don't match.
-			const correctTarget =
-				candidates.find((c) => c.kind === target.kind) ?? candidates[0];
+			const correctTarget = candidates.find((c) => c.kind === target.kind) ?? candidates[0];
 
 			// ReferenceReflection._target is private; direct assignment
 			// is the only way to fix the resolved ID after conversion.

@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/generator-html-doc",
-	"version": "4.0.0-beta.41",
+	"version": "4.0.0-beta.42",
 	"description": "HTML Documentation generator for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

@@ -11,9 +11,17 @@ import {
 	isCompanionNamespace,
 } from "../utils.ts";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const TSFOR_GIR_VERSION = JSON.parse(readFileSync(join(__dirname, "..", "..", "package.json"), "utf8"))
-	.version as string;
+declare const __TS_FOR_GIR_VERSION__: string;
+
+function getTsForGirVersion(): string {
+	if (typeof __TS_FOR_GIR_VERSION__ !== "undefined") {
+		return __TS_FOR_GIR_VERSION__;
+	}
+	const __dirname = dirname(fileURLToPath(import.meta.url));
+	return JSON.parse(readFileSync(join(__dirname, "..", "..", "package.json"), "utf8")).version as string;
+}
+
+const TSFOR_GIR_VERSION = getTsForGirVersion();
 
 /** Render the module info section (namespace name, versions, dependencies). */
 function giDocgenModuleInfo(

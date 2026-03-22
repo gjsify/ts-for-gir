@@ -8,61 +8,27 @@ export const PARAM_REG_EXP = /[0-9a-zA-Z_]*:/g;
 export const OPT_PARAM_REG_EXP = /[0-9a-zA-Z_]*\?:/g;
 export const NEW_LINE_REG_EXP = /[\n\r]+/g;
 
-/**
- * Package information interface for package.json
- */
-interface Package {
-	name: string;
-	version: string;
-	description: string;
-	license: string;
-	homepage: string;
-	author: string;
-}
+declare const __TS_FOR_GIR_VERSION__: string;
 
 /**
- * Resolves the current package's package.json path
- * Uses import.meta.url for ES Module compatibility
- * Works both in workspace and after publishing
+ * Reads the package version, using the build-time injected value when bundled
+ * or falling back to reading package.json in development mode.
  */
-function resolvePackageJson(): string {
-	try {
-		// Get the directory of the current module
-		const currentModulePath = fileURLToPath(import.meta.url);
-		const currentDir = dirname(currentModulePath);
-
-		// Go up to the package root (src/ -> package root)
-		const packageRoot = join(currentDir, "..");
-		const packageJsonPath = join(packageRoot, "package.json");
-
-		return packageJsonPath;
-	} catch (error) {
-		throw new Error(`Unable to resolve package.json path: ${error instanceof Error ? error.message : "Unknown error"}`);
+function getPackageVersion(): string {
+	if (typeof __TS_FOR_GIR_VERSION__ !== "undefined") {
+		return __TS_FOR_GIR_VERSION__;
 	}
+	const currentModulePath = fileURLToPath(import.meta.url);
+	const currentDir = dirname(currentModulePath);
+	const packageJsonPath = join(currentDir, "..", "package.json");
+	const content = readFileSync(packageJsonPath, "utf-8");
+	return (JSON.parse(content) as { version: string }).version;
 }
-
-/**
- * Reads and parses the current package's package.json file synchronously
- * Contains version and metadata for this specific package
- */
-function readPackageSync(): Package {
-	try {
-		const packagePath = resolvePackageJson();
-		const content = readFileSync(packagePath, "utf-8");
-		return JSON.parse(content) as Package;
-	} catch (error) {
-		const message = error instanceof Error ? error.message : "Unknown error";
-		throw new Error(`Failed to read package.json: ${message}`);
-	}
-}
-
-// Read package information once at module load
-export const PACKAGE = readPackageSync();
 
 export const APP_NAME = "ts-for-gir";
 export const APP_USAGE = "TypeScript type definition generator for GObject introspection GIR files";
 export const APP_SOURCE = "https://github.com/gjsify/ts-for-gir";
-export const APP_VERSION = PACKAGE.version;
+export const APP_VERSION = getPackageVersion();
 
 export const PACKAGE_DESC = (packageName: string, libraryVersion?: LibraryVersion) => {
 	if (libraryVersion) {

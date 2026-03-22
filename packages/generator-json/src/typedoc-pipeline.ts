@@ -502,8 +502,36 @@ export class TypeDocPipeline {
 	 * detects the mismatch and corrects each reference's internal target ID.
 	 */
 	private fixExportImportReferences(project: ProjectReflection): void {
-		// Collect all non-reference reflections by name for quick lookup.
-		// These are the "real" declarations that broken references should point to.
+		// Step 1: Identify targets that are shared by multiple references with
+		// different names — the specific bug pattern where TypeDoc resolves all
+		// `export import X = Y.Z` statements to the same target.
+		const refsByTargetId = new Map<number, ReferenceReflection[]>();
+		for (const r of Object.values(project.reflections)) {
+			if (!(r instanceof ReferenceReflection)) continue;
+			const target = r.tryGetTargetReflectionDeep();
+			if (!target) continue;
+			let list = refsByTargetId.get(target.id);
+			if (!list) {
+				list = [];
+				refsByTargetId.set(target.id, list);
+			}
+			list.push(r);
+		}
+
+		// Only consider targets where multiple differently-named references
+		// point to the same reflection — a single reference with a different
+		// name (e.g. `default → Gio`) is intentional, not a bug.
+		const brokenTargetIds = new Set<number>();
+		for (const [targetId, refs] of refsByTargetId) {
+			const distinctNames = new Set(refs.map((r) => r.name));
+			if (distinctNames.size > 1) {
+				brokenTargetIds.add(targetId);
+			}
+		}
+
+		if (brokenTargetIds.size === 0) return;
+
+		// Step 2: Build a lookup of non-reference reflections by name.
 		const nonRefByName = new Map<string, Array<{ id: number; kind: number }>>();
 		for (const refl of Object.values(project.reflections)) {
 			if (refl.isReference()) continue;
@@ -515,19 +543,21 @@ export class TypeDocPipeline {
 			list.push({ id: refl.id, kind: refl.kind });
 		}
 
+		// Step 3: Fix only the references pointing to broken (shared) targets.
 		for (const r of Object.values(project.reflections)) {
 			if (!(r instanceof ReferenceReflection)) continue;
 
 			const target = r.tryGetTargetReflectionDeep();
 			if (!target || target.name === r.name) continue;
+			if (!brokenTargetIds.has(target.id)) continue;
 
 			const candidates = nonRefByName.get(r.name);
 			if (!candidates?.length) continue;
 
 			// Prefer a candidate with the same kind as the (wrong) target.
-			// Fall back to the first candidate if kinds don't match
-			// (can happen when the wrong target itself has an unusual kind).
-			const correctTarget = candidates.find((c) => c.kind === target.kind) ?? candidates[0];
+			// Fall back to the first candidate if kinds don't match.
+			const correctTarget =
+				candidates.find((c) => c.kind === target.kind) ?? candidates[0];
 
 			// ReferenceReflection._target is private; direct assignment
 			// is the only way to fix the resolved ID after conversion.

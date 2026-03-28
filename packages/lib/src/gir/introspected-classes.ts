@@ -665,15 +665,18 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 			});
 		});
 
-		// Add template literal catch-all for arbitrary property names
-		allSignals.push({
-			name: `notify::\${string}`,
-			isNotifySignal: true,
-			isDetailSignal: false,
-			isTemplateLiteral: true,
-			parameterTypes: ["GObject.ParamSpec"],
-			returnType: "void",
-		});
+		// Add template literal catch-all for arbitrary property names.
+		// Only on GObject.Object itself — children inherit it via SignalSignatures extends.
+		if (this.isGObjectObject()) {
+			allSignals.push({
+				name: `notify::\${string}`,
+				isNotifySignal: true,
+				isDetailSignal: false,
+				isTemplateLiteral: true,
+				parameterTypes: ["GObject.ParamSpec"],
+				returnType: "void",
+			});
+		}
 	}
 
 	private addDetailedSignals(allSignals: SignalDescriptor[]): void {

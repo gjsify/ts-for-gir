@@ -7742,6 +7742,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/gwebgl-0.1@workspace:types-dev/gwebgl-0.1":
+  version: 0.0.0-use.local
+  resolution: "@girs/gwebgl-0.1@workspace:types-dev/gwebgl-0.1"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/gxml-0.14@workspace:types-dev/gxml-0.14":
   version: 0.0.0-use.local
   resolution: "@girs/gxml-0.14@workspace:types-dev/gxml-0.14"

@@ -90,6 +90,9 @@ export default {
         'XdpGtk4-1.0',
         'GUPnP-1.6',
         'GSSDP-1.6',
+
+        // === Gjsify ===
+        'Gwebgl-*',
     ],
     girDirectories: [
         './girs',

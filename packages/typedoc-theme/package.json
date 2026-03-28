@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/typedoc-theme",
-	"version": "4.0.0-beta.42",
+	"version": "4.0.0-beta.43",
 	"description": "Custom TypeDoc theme inspired by gi-docgen for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

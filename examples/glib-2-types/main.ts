@@ -266,8 +266,10 @@ function testGErrorGType() {
 }
 
 function testEnumGType() {
-	// @ts-expect-error
-	if (GLib.ChecksumType.$gtype) throw new Error("Unregistered enum should not have a $gtype property");
+	// @ts-expect-error - ChecksumType has $gtype but it returns the void GType (unregistered)
+	const checksumGtype = GLib.ChecksumType.$gtype;
+	if (checksumGtype?.name !== undefined && checksumGtype.name !== "void")
+		throw new Error("Unregistered enum should have void $gtype");
 	if (GLib.NormalizeMode.$gtype === undefined) throw new Error("Registered enum should have a $gtype property");
 }
 

@@ -61,7 +61,22 @@ Use `node.assertClass("ClassName").noEmit()` to disable auto-generation; templat
 
 ### Output Dirs
 
-`/types/*` (submodule): official published, may be cached | Custom `--outdir=./test-types-*`: fresh generation for dev/testing
+`/types/*` (submodule, branch `main`): official published types, may be cached
+`/types-dev/*` (submodule, branch `dev`): development types, used by examples and workspace `@girs/*` packages
+Custom `--outdir=./test-types-*`: fresh generation for dev/testing
+
+### Validation After Changing Type Generation
+
+When modifying generators, templates, injections, or lib code that affects generated output:
+
+1. `yarn build:types` — regenerates all types into `/types-dev/`
+2. `cd types-dev && git diff` — inspect generated changes, verify correctness
+3. `yarn build:examples` — rebuild examples (they depend on `/types-dev/`)
+4. `yarn check` — full type check including examples and generated types
+
+`yarn build` chains all steps: `build:app → build:types → build:examples → build:json → build:doc`
+
+**Important:** Examples import from `@girs/*` packages which resolve to `/types-dev/`. Generator changes will NOT be reflected in examples or `yarn check` until `yarn build:types` has been run.
 
 ### GIR → TS Mapping
 
@@ -88,7 +103,7 @@ Key attrs: `introspectable="0|1"` | `direction="in|out|inout"` | `transfer-owner
 
 Applies to GLib.Variant typing in `packages/templates/templates/glib-2.0.d.ts`. Uses `$ParseShallowVariant`, `$ParseDeepVariant`, `$ParseRecursiveVariant`.
 
-Scalars: `b`→bool | `s|o|g`→str | numeric→number | `h|?`→unknown | `v`→Variant(deep)/any(recursive)
+Scalars: `b`→bool | `s|o|g`→str | numeric→number | `h|?`→unknown | `v`→Variant(deep)/unknown(recursive)
 `ay`→Uint8Array | Arrays: unpack→Variant[], deep→native[], recursive→fully native
 Tuples `(…)`: unpack→Variant[], deep→native (v stays Variant), recursive→fully native
 Dicts `a{kv}`: `a{sv}` deep→`{[k:string]:Variant}` | `a{ss}` deep→`{[k:string]:string}`

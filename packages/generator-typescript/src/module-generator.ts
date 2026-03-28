@@ -402,14 +402,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		clazz.superType = GLibError.getType();
 
-		// Manually construct a GLib.Error constructor.
+		// GJS GError constructor expects one object: { message: string, code: number }
+		// The domain is automatically derived from the error enum type.
+		// See: gjs/gi/gerror.cpp ErrorInstance::constructor_impl
 		clazz.mainConstructor = new IntrospectedConstructor({
 			name: "new",
 			parent: clazz,
 			parameters: [
 				new IntrospectedFunctionParameter({
 					name: "options",
-					type: NativeType.of("{ message: string, code: number}"),
+					type: NativeType.of("{ message: string, code: number }"),
 					direction: GirDirection.In,
 				}),
 			],
@@ -1272,6 +1274,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		else if (girClass.mainConstructor instanceof IntrospectedConstructor)
 			def.push(...this.generateConstructor(girClass.mainConstructor));
 		else if (
+			(girClass.namespace.namespace === "GObject" && girClass.name === "Object") ||
 			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object")
 		)
 			def.push(`\nconstructor(properties?: Partial<${girClass.name}.ConstructorProps>, ...args: any[]);\n`);

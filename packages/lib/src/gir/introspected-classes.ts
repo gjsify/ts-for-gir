@@ -55,6 +55,7 @@ export interface SignalDescriptor {
 	signal?: IntrospectedSignal;
 	isNotifySignal?: boolean;
 	isDetailSignal?: boolean;
+	isTemplateLiteral?: boolean;
 	parameterTypes?: string[];
 	returnType?: string;
 }
@@ -663,6 +664,19 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 				returnType: "void",
 			});
 		});
+
+		// Add template literal catch-all for arbitrary property names.
+		// Only on GObject.Object itself — children inherit it via SignalSignatures extends.
+		if (this.isGObjectObject()) {
+			allSignals.push({
+				name: `notify::\${string}`,
+				isNotifySignal: true,
+				isDetailSignal: false,
+				isTemplateLiteral: true,
+				parameterTypes: ["GObject.ParamSpec"],
+				returnType: "void",
+			});
+		}
 	}
 
 	private addDetailedSignals(allSignals: SignalDescriptor[]): void {
@@ -670,6 +684,9 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
 		this.signals.forEach((signal) => {
 			if (signal.detailed) {
+				// Skip "notify" signal — already handled by addNotifySignals
+				if (signal.name === "notify") return;
+
 				propertyNames.forEach((propertyName) => {
 					allSignals.push({
 						name: `${signal.name}::${propertyName}`,
@@ -679,6 +696,17 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 						parameterTypes: signal.parameters.map((p) => this.getPropertyTypeString(p.type)),
 						returnType: this.getPropertyTypeString(signal.return_type),
 					});
+				});
+
+				// Add template literal catch-all for arbitrary detail strings
+				allSignals.push({
+					name: `${signal.name}::\${string}`,
+					signal: signal,
+					isNotifySignal: false,
+					isDetailSignal: true,
+					isTemplateLiteral: true,
+					parameterTypes: signal.parameters.map((p) => this.getPropertyTypeString(p.type)),
+					returnType: this.getPropertyTypeString(signal.return_type),
 				});
 			}
 		});

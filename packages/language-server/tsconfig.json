@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"rootDir": "src",
 		"outDir": "lib",
-		"types": ["vitest/globals"]
+		"types": ["node", "vitest/globals"]
 	},
 	"include": ["src/**/*.ts"],
 	"exclude": ["lib", "node_modules", "**/*.spec.ts"]

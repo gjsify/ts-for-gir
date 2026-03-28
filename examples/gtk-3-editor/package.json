@@ -29,7 +29,7 @@
 		"@parcel/resolver-default": "^2.16.4",
 		"parcel": "^2.16.4",
 		"parcel-plugin-externals": "^0.5.2",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^",

@@ -13,7 +13,7 @@
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	},
 	"dependencies": {
 		"@girs/gio-2.0": "workspace:^",

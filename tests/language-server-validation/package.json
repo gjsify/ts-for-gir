@@ -25,10 +25,10 @@
 	"dependencies": {
 		"@ts-for-gir/cli": "workspace:^",
 		"@ts-for-gir/language-server": "workspace:*",
-		"vitest": "^4.1.0"
+		"vitest": "^4.1.2"
 	},
 	"devDependencies": {
 		"@types/node": "^24.12.0",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	}
 }

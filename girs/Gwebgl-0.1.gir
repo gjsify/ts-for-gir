@@ -2477,7 +2477,7 @@
 					<type name="gint" c:type="gint"/>
 				</parameter>
 				<parameter name="internalFormat" transfer-ownership="none">
-					<type name="GL.GLenum" c:type="GLenum"/>
+					<type name="gint" c:type="gint"/>
 				</parameter>
 				<parameter name="width" transfer-ownership="none">
 					<type name="gint" c:type="gint"/>

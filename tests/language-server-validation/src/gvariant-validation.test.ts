@@ -130,7 +130,7 @@ describe('GVariant Type Validation', () => {
         
         const dictShallow = dictVariant.unpack();     // Should be {[key: string]: Variant}
         const dictDeep = dictVariant.deepUnpack();    // Should be {[key: string]: Variant} (GJS preserves variants!)
-        const dictRecursive = dictVariant.recursiveUnpack(); // Should be {[key: string]: any} (GJS unpacks all)
+        const dictRecursive = dictVariant.recursiveUnpack(); // Should be {[key: string]: unknown} (GJS unpacks all)
       `;
 
       expectCompilation(testCode);
@@ -141,7 +141,7 @@ describe('GVariant Type Validation', () => {
       // Dictionary types - preserve index signature expectation
       expectType(testCode, 'dictShallow', /\{\s*\[.*\]:\s*Variant/);
       expectType(testCode, 'dictDeep', /\{\s*\[.*\]:\s*Variant/);
-      const dictRecursiveType = expectType(testCode, 'dictRecursive', /\{\s*\[.*\]:\s*any/);
+      const dictRecursiveType = expectType(testCode, 'dictRecursive', /\{\s*\[.*\]:\s*unknown/);
       // recursiveUnpack should not contain Variant types (GJS test confirms this)
       expect(String(dictRecursiveType.actualType)).not.toMatch(/Variant(?!.*Error)/);
     });
@@ -168,7 +168,7 @@ describe('GVariant Type Validation', () => {
       expectCompilation(testCode);
       expectType(testCode, 'level1', /\{\s*\[.*\]:\s*Variant/);
       expectType(testCode, 'level2', /\{\s*\[.*\]:\s*Variant/);
-      const fullType = expectType(testCode, 'fullUnpack', /\{\s*\[.*\]:\s*any/);
+      const fullType = expectType(testCode, 'fullUnpack', /\{\s*\[.*\]:\s*unknown/);
       // recursiveUnpack should not contain Variant types (fully unpacked)
       expect(String(fullType.actualType)).not.toMatch(/Variant(?!.*Error)/);
     });
@@ -255,7 +255,7 @@ describe('GVariant Type Validation', () => {
       // Dictionaries
       expectType(testCode, 'dictUnpackVal', /\{\s*\[.*\]:\s*Variant/);
       expectType(testCode, 'dictDeepVal', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 'dictRecursiveVal', /\{\s*\[.*\]:\s*any/);
+      expectType(testCode, 'dictRecursiveVal', /\{\s*\[.*\]:\s*unknown/);
       // Simple
       expectType(testCode, 'booleanUnpackVal', /boolean/);
       expectType(testCode, 'stringDeepVal', /string/);
@@ -478,11 +478,11 @@ describe('GVariant Type Validation', () => {
       // scalar v
       expectType(testCode, 'vu', /Variant/);
       expectType(testCode, 'vd', /Variant/);
-      expectType(testCode, 'vr', /\bany\b/);
+      expectType(testCode, 'vr', /\bunknown\b/);
       // array of variants
       expectType(testCode, 'avu', /Variant.*\[\]/);
       expectType(testCode, 'avd', /Variant.*\[\]/);
-      expectType(testCode, 'avr', /(any\[\])|Array<\s*any\s*>/);
+      expectType(testCode, 'avr', /(unknown\[\])|Array<\s*unknown\s*>/);
     });
 
     it('treats handle and unknown types as unknown (h, ?)', () => {
@@ -508,6 +508,57 @@ describe('GVariant Type Validation', () => {
       expectType(testCode, 'qu', /(unknown)/);
       expectType(testCode, 'qd', /(unknown)/);
       expectType(testCode, 'qr', /(unknown)/);
+    });
+  });
+
+  describe('new_tuple accepts Variant[] (Issue #296)', () => {
+    it('should accept Variant instances, not VariantType', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+
+        const tuple = GLib.Variant.new_tuple([
+          GLib.Variant.new_string('hello'),
+          GLib.Variant.new_int32(42),
+        ]);
+      `;
+      expectCompilation(testCode);
+      expectType(testCode, 'tuple', /Variant<"\(si\)">/);
+    });
+
+    it('should infer correct tuple type for multiple elements', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+
+        const tuple = GLib.Variant.new_tuple([
+          GLib.Variant.new_boolean(true),
+          GLib.Variant.new_string('test'),
+          GLib.Variant.new_int32(1),
+        ]);
+      `;
+      expectCompilation(testCode);
+      expectType(testCode, 'tuple', /Variant<"\(bsi\)">/);
+    });
+  });
+
+  describe('Nested dictionary parsing (Issue #286)', () => {
+    it('should parse nested dictionaries for recursiveUnpack', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+
+        type NestedDict = GLib.$ParseRecursiveVariant<"a{sa{sv}}">;
+      `;
+      expectCompilation(testCode);
+      expectType(testCode, 'NestedDict', /\{ \[key: string\]/);
+    });
+
+    it('should parse nested dictionaries for deepUnpack', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+
+        type NestedDictDeep = GLib.$ParseDeepVariant<"a{sa{sv}}">;
+      `;
+      expectCompilation(testCode);
+      expectType(testCode, 'NestedDictDeep', /\{ \[key: string\]/);
     });
   });
 });

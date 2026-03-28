@@ -292,7 +292,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 			const override = new IntrospectedClassFunction({
 				parent: ParamSpec,
 				name: "override",
-				return_type: VoidType,
+				return_type: ParamSpec.getType(),
 				parameters: [
 					new IntrospectedFunctionParameter({
 						direction: GirDirection.In,

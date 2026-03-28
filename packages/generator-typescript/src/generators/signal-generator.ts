@@ -107,8 +107,6 @@ export class SignalGenerator {
 		const allSignals = girClass.getAllSignals();
 
 		allSignals.forEach((signalInfo) => {
-			const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signalInfo.name) ? signalInfo.name : `"${signalInfo.name}"`;
-
 			let cbType: string;
 
 			if (signalInfo.isNotifySignal) {
@@ -131,6 +129,14 @@ export class SignalGenerator {
 				const returnTypeStr = signalInfo.returnType || "void";
 				cbType = `(${paramTypes.join(", ")}) => ${returnTypeStr}`;
 			}
+
+			// Template literal catch-all signals use index signature syntax
+			if (signalInfo.isTemplateLiteral) {
+				def.push(`${indent}    [key: \`${signalInfo.name}\`]: ${cbType};`);
+				return;
+			}
+
+			const signalKey = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(signalInfo.name) ? signalInfo.name : `"${signalInfo.name}"`;
 
 			// Add signal doc comment with @signal tag and signal-specific modifier tags
 			if (!signalInfo.isNotifySignal && signalInfo.signal) {

@@ -402,25 +402,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		clazz.superType = GLibError.getType();
 
-		// Manually construct a GLib.Error constructor with positional arguments.
-		// GJS: new GLib.Error(domain, code, message)
+		// GJS GError constructor expects one object: { message: string, code: number }
+		// The domain is automatically derived from the error enum type.
+		// See: gjs/gi/gerror.cpp ErrorInstance::constructor_impl
 		clazz.mainConstructor = new IntrospectedConstructor({
 			name: "new",
 			parent: clazz,
 			parameters: [
 				new IntrospectedFunctionParameter({
-					name: "domain",
-					type: NativeType.of("GLib.Quark"),
-					direction: GirDirection.In,
-				}),
-				new IntrospectedFunctionParameter({
-					name: "code",
-					type: NativeType.of("number"),
-					direction: GirDirection.In,
-				}),
-				new IntrospectedFunctionParameter({
-					name: "message",
-					type: NativeType.of("string"),
+					name: "options",
+					type: NativeType.of("{ message: string, code: number }"),
 					direction: GirDirection.In,
 				}),
 			],

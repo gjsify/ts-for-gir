@@ -242,7 +242,7 @@ function testPrecisionTimeAndTimeouts(): void {
 }
 
 function testUnderscoreInit() {
-	const errorEnum = new GLib.BookmarkFileError(GLib.bookmark_file_error_quark(), GLib.BookmarkFileError.WRITE, "foo");
+	const errorEnum = new GLib.BookmarkFileError({ message: "foo", code: GLib.BookmarkFileError.WRITE });
 	try {
 		// @ts-expect-error
 		errorEnum._init();

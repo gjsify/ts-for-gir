@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"@ts-for-gir/lib": "workspace:^",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	},
 	"scripts": {
 		"test": "vitest run",
@@ -38,6 +38,6 @@
 	"devDependencies": {
 		"@ts-for-gir/tsconfig": "workspace:^",
 		"@types/node": "^24.12.0",
-		"vitest": "^4.1.0"
+		"vitest": "^4.1.2"
 	}
 }

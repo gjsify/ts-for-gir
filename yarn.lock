@@ -15707,7 +15707,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gdkpixbuf-2-ref-unref-example@workspace:examples/gdkpixbuf-2-ref-unref"
   dependencies:
-    "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     esbuild: "npm:^0.27.4"

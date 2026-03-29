@@ -7,12 +7,19 @@ import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";
 
+// ref/unref methods are often marked introspectable="0" in GIR because the C signatures
+// involve gpointer types, but GJS exposes them at runtime regardless. Their signatures are
+// always trivial (no params, return self or void) so they are safe to keep.
+const INTROSPECTABLE_EXEMPT_METHODS = new Set(["ref", "unref"]);
+
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
 	node.fields = node.fields.filter((field) => field.isIntrospectable);
 	node.props = node.props.filter((prop) => prop.isIntrospectable);
 	node.callbacks = node.callbacks.filter((prop) => prop.isIntrospectable);
 	node.constructors = node.constructors.filter((prop) => prop.isIntrospectable);
-	node.members = node.members.filter((prop) => prop.isIntrospectable);
+	node.members = node.members.filter(
+		(member) => member.isIntrospectable || INTROSPECTABLE_EXEMPT_METHODS.has(member.name),
+	);
 
 	return node;
 };

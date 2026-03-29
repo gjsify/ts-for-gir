@@ -1,0 +1,24 @@
+{
+	"name": "@ts-for-gir-example/gdkpixbuf-2-ref-unref-example",
+	"description": "Validates that ref/unref methods are available on types where GIR marks them introspectable=0",
+	"main": "index.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
+		"clear": "rm -rf dist"
+	},
+	"author": "Pascal Garber <pascal@mailfreun.de>",
+	"license": "MIT",
+	"devDependencies": {
+		"esbuild": "^0.27.4",
+		"typescript": "^6.0.2"
+	},
+	"dependencies": {
+		"@girs/gdkpixbuf-2.0": "workspace:^",
+		"@girs/gjs": "workspace:^",
+		"@girs/glib-2.0": "workspace:^"
+	}
+}

@@ -10,6 +10,8 @@ import { GirVisitor } from "../visitor.ts";
 // ref/unref methods are often marked introspectable="0" in GIR because the C signatures
 // involve gpointer types, but GJS exposes them at runtime regardless. Their signatures are
 // always trivial (no params, return self or void) so they are safe to keep.
+// Only exempt on records — classes have deep inheritance hierarchies where ref/unref
+// return types at different levels conflict (e.g. GObject.Object.ref() vs Gtk.Widget.ref()).
 const INTROSPECTABLE_EXEMPT_METHODS = new Set(["ref", "unref"]);
 
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
@@ -17,8 +19,10 @@ const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node:
 	node.props = node.props.filter((prop) => prop.isIntrospectable);
 	node.callbacks = node.callbacks.filter((prop) => prop.isIntrospectable);
 	node.constructors = node.constructors.filter((prop) => prop.isIntrospectable);
+
+	const isRecord = node instanceof IntrospectedRecord;
 	node.members = node.members.filter(
-		(member) => member.isIntrospectable || INTROSPECTABLE_EXEMPT_METHODS.has(member.name),
+		(member) => member.isIntrospectable || (isRecord && INTROSPECTABLE_EXEMPT_METHODS.has(member.name)),
 	);
 
 	return node;

@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir-example/gdkpixbuf-2-ref-unref-example",
-	"description": "Validates that ref/unref methods are available on types where GIR marks them introspectable=0",
+	"description": "Validates that ref/unref methods are available on records where GIR marks them introspectable=0",
 	"main": "index.js",
 	"type": "module",
 	"private": true,
@@ -17,7 +17,6 @@
 		"typescript": "^6.0.2"
 	},
 	"dependencies": {
-		"@girs/gdkpixbuf-2.0": "workspace:^",
 		"@girs/gjs": "workspace:^",
 		"@girs/glib-2.0": "workspace:^"
 	}

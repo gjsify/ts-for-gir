@@ -20,10 +20,10 @@ class MyItem extends GObject.Object {
 const store = new Gio.ListStore({ item_type: MyItem });
 
 // Also validate passing $gtype directly (should still work)
-const store2 = new Gio.ListStore({ item_type: MyItem.$gtype });
+new Gio.ListStore({ item_type: MyItem.$gtype });
 
 // Also validate using GObject.TYPE_* constants (should still work)
-const store3 = new Gio.ListStore({ item_type: GObject.TYPE_OBJECT });
+new Gio.ListStore({ item_type: GObject.TYPE_OBJECT });
 
 // Runtime validation
 const item = new MyItem();

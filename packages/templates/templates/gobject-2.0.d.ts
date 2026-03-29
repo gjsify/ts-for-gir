@@ -12,13 +12,17 @@ export type GType<T = unknown> = {
     name: string
 }
 
+// Accepts either a raw GType or a class constructor with $gtype property.
+// Used in input positions where GJS automatically extracts $gtype from class constructors.
+export type GTypeInput<T = unknown> = GType<T> | { $gtype: GType<T> }
+
 // Extra interfaces used to help define GObject classes in js; these
 // aren't part of gi.
 export interface SignalDefinition {
     flags?: SignalFlags
     accumulator: number
-    return_type?: GType
-    param_types?: GType[]
+    return_type?: GTypeInput
+    param_types?: GTypeInput[]
 }
 
 export interface MetaInfo<Props, Interfaces, Sigs> {
@@ -104,7 +108,7 @@ export type RegisteredClass<
     : never
 
 export type SignalDefinitionType = {
-    param_types?: readonly GType[]
+    param_types?: readonly GTypeInput[]
     [key: string]: any
 }
 <% } %>
@@ -326,7 +330,7 @@ export function registerClass<
     Interfaces extends { $gtype: GType }[],
     Sigs extends {
         [key: string]: {
-            param_types?: readonly GType[]
+            param_types?: readonly GTypeInput[]
             [key: string]: any
         }
     },
@@ -345,7 +349,7 @@ export function registerClass<
     Interfaces extends { $gtype: GType }[],
     Sigs extends {
         [key: string]: {
-            param_types?: readonly GType[]
+            param_types?: readonly GTypeInput[]
             [key: string]: any
         }
     },

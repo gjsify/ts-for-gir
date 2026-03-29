@@ -55,6 +55,7 @@ import {
 	type TsDocTag,
 	TypeConflict,
 	type TypeExpression,
+	TypeIdentifier,
 	transformGirDocTagTextWithContext,
 	transformGirDocText,
 } from "@ts-for-gir/lib";
@@ -517,6 +518,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const Type = type.resolve(this.namespace, this.options).rootPrint(this.namespace, this.options) || "any";
 
 		if (construct) {
+			// If the property type is GType, use GTypeInput to also accept class constructors
+			// with $gtype (e.g., passing a class to Gio.ListStore's item_type property)
+			const unwrapped = type.deepUnwrap();
+			if (unwrapped instanceof TypeIdentifier && unwrapped.is("GObject", "GType")) {
+				const gtypeNamespace = this.namespace.namespace === "GObject" ? "" : "GObject.";
+				return [`${name}: ${gtypeNamespace}GTypeInput;`];
+			}
 			return [`${name}: ${Type};`];
 		}
 

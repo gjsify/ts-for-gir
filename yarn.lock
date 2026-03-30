@@ -15703,6 +15703,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/gdkpixbuf-2-ref-unref-example@workspace:examples/gdkpixbuf-2-ref-unref":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gdkpixbuf-2-ref-unref-example@workspace:examples/gdkpixbuf-2-ref-unref"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    esbuild: "npm:^0.27.4"
+    typescript: "npm:^6.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gio-2-action-entries@workspace:examples/gio-2-action-entries":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gio-2-action-entries@workspace:examples/gio-2-action-entries"
@@ -15766,6 +15777,19 @@ __metadata:
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    esbuild: "npm:^0.27.4"
+    typescript: "npm:^6.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir-example/gio-2-liststore-item-type-example@workspace:examples/gio-2-liststore-item-type":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gio-2-liststore-item-type-example@workspace:examples/gio-2-liststore-item-type"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
     esbuild: "npm:^0.27.4"
     typescript: "npm:^6.0.2"
   languageName: unknown

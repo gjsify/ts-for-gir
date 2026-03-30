@@ -7,12 +7,23 @@ import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";
 
+// These methods are often marked introspectable="0" in GIR because the C signatures
+// involve gpointer types, but GJS exposes them at runtime regardless. Their signatures are
+// always trivial (no params, return self or void) so they are safe to keep.
+// Only exempt on records — classes have deep inheritance hierarchies where return types
+// at different levels conflict (e.g. GObject.Object.ref() vs Gtk.Widget.ref()).
+const INTROSPECTABLE_EXEMPT_METHODS = new Set(["ref", "unref", "copy", "free", "destroy"]);
+
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
 	node.fields = node.fields.filter((field) => field.isIntrospectable);
 	node.props = node.props.filter((prop) => prop.isIntrospectable);
 	node.callbacks = node.callbacks.filter((prop) => prop.isIntrospectable);
 	node.constructors = node.constructors.filter((prop) => prop.isIntrospectable);
-	node.members = node.members.filter((prop) => prop.isIntrospectable);
+
+	const isRecord = node instanceof IntrospectedRecord;
+	node.members = node.members.filter(
+		(member) => member.isIntrospectable || (isRecord && INTROSPECTABLE_EXEMPT_METHODS.has(member.name)),
+	);
 
 	return node;
 };

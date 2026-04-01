@@ -192,7 +192,7 @@ function updatePropertyType(
 export const st1 = createStTemplate("1.0");
 export const st12 = createStTemplate("12");
 export const st13 = createStTemplate("13");
-/** St-14 was introduced with GNOME 45 */
+/** St-14 was introduced with GNOME 46 */
 export const st14 = createStTemplate("14");
 /** St-15 was introduced with GNOME 47 */
 export const st15 = createStTemplate("15");
@@ -200,7 +200,8 @@ export const st15 = createStTemplate("15");
 export const st16 = createStTemplate("16");
 /** St-17 was introduced with GNOME 49 */
 export const st17 = createStTemplate("17");
-// Possibly future versions, adjust if necessary
+/** St-18 was introduced with GNOME 50 */
 export const st18 = createStTemplate("18");
+// Possibly future versions, adjust if necessary
 export const st19 = createStTemplate("19");
 export const st20 = createStTemplate("20");

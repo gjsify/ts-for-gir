@@ -36,7 +36,7 @@ export const meta10 = createMetaTemplate("10");
 export const meta11 = createMetaTemplate("11");
 export const meta12 = createMetaTemplate("12");
 export const meta13 = createMetaTemplate("13");
-/** Meta-14 was introduced with GNOME 45 */
+/** Meta-14 was introduced with GNOME 46 */
 export const meta14 = createMetaTemplate("14");
 /** Meta-15 was introduced with GNOME 47 */
 export const meta15 = createMetaTemplate("15");
@@ -44,7 +44,8 @@ export const meta15 = createMetaTemplate("15");
 export const meta16 = createMetaTemplate("16");
 /** Meta-17 was introduced with GNOME 49 */
 export const meta17 = createMetaTemplate("17");
-// Possibly future versions, adjust if necessary
+/** Meta-18 was introduced with GNOME 50 */
 export const meta18 = createMetaTemplate("18");
+// Possibly future versions, adjust if necessary
 export const meta19 = createMetaTemplate("19");
 export const meta20 = createMetaTemplate("20");

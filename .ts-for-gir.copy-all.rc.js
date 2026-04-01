@@ -22,6 +22,7 @@ export default {
         // Submodules
         './refs/vala-girs/gir-1.0/',
         `./refs/devdocsgjs/lib/docs/scrapers/gnome/girs/`,
+        './refs/gtk-rs-gir-files/',
         './girs/',
     ],
 }

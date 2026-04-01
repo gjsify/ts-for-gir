@@ -70,6 +70,16 @@ export default {
         'GWeather-4.0',
         'Rest-1.0',
 
+        // === GNOME Shell ===
+        'Meta-18',
+        'Clutter-18',
+        'Cogl-18',
+        'Mtk-18',
+        'St-18',
+        'Shell-18',
+        'Gvc-1.0',
+        'Shew-0',
+
         // === System & GNOME ===
         'GUdev-1.0',
         'Notify-0.7',

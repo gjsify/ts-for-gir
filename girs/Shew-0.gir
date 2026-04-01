@@ -22,10 +22,10 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="ShewExternalWindow"
            glib:get-type="shew_external_window_get_type"
            glib:type-struct="ExternalWindowClass">
-      <source-position filename="src/shew-external-window.h" line="36"/>
+      <source-position filename="src/shew-external-window.h" line="37"/>
       <constructor name="new_from_handle"
                    c:identifier="shew_external_window_new_from_handle">
-        <source-position filename="src/shew-external-window.h" line="38"/>
+        <source-position filename="src/shew-external-window.h" line="39"/>
         <return-value transfer-ownership="full">
           <type name="ExternalWindow" c:type="ShewExternalWindow*"/>
         </return-value>
@@ -36,7 +36,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </constructor>
       <virtual-method name="set_parent_of" invoker="set_parent_of">
-        <source-position filename="src/shew-external-window.h" line="34"/>
+        <source-position filename="src/shew-external-window.h" line="35"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52,7 +52,7 @@ and/or use gtk-doc annotations.  -->
       <method name="get_display"
               c:identifier="shew_external_window_get_display"
               glib:get-property="display">
-        <source-position filename="src/shew-external-window.h" line="43"/>
+        <source-position filename="src/shew-external-window.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="Gdk.Display" c:type="GdkDisplay*"/>
         </return-value>
@@ -64,7 +64,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="set_parent_of"
               c:identifier="shew_external_window_set_parent_of">
-        <source-position filename="src/shew-external-window.h" line="40"/>
+        <source-position filename="src/shew-external-window.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -91,13 +91,13 @@ and/or use gtk-doc annotations.  -->
     <record name="ExternalWindowClass"
             c:type="ShewExternalWindowClass"
             glib:is-gtype-struct-for="ExternalWindow">
-      <source-position filename="src/shew-external-window.h" line="36"/>
+      <source-position filename="src/shew-external-window.h" line="37"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="set_parent_of">
         <callback name="set_parent_of">
-          <source-position filename="src/shew-external-window.h" line="34"/>
+          <source-position filename="src/shew-external-window.h" line="35"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -119,9 +119,9 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="ShewWindowExporter"
            glib:get-type="shew_window_exporter_get_type"
            glib:type-struct="WindowExporterClass">
-      <source-position filename="src/shew-window-exporter.h" line="26"/>
+      <source-position filename="src/shew-window-exporter.h" line="27"/>
       <constructor name="new" c:identifier="shew_window_exporter_new">
-        <source-position filename="src/shew-window-exporter.h" line="28"/>
+        <source-position filename="src/shew-window-exporter.h" line="29"/>
         <return-value transfer-ownership="full">
           <type name="WindowExporter" c:type="ShewWindowExporter*"/>
         </return-value>
@@ -134,7 +134,7 @@ and/or use gtk-doc annotations.  -->
       <method name="export"
               c:identifier="shew_window_exporter_export"
               glib:finish-func="export_finish">
-        <source-position filename="src/shew-window-exporter.h" line="30"/>
+        <source-position filename="src/shew-window-exporter.h" line="31"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -161,7 +161,7 @@ and/or use gtk-doc annotations.  -->
       <method name="export_finish"
               c:identifier="shew_window_exporter_export_finish"
               throws="1">
-        <source-position filename="src/shew-window-exporter.h" line="34"/>
+        <source-position filename="src/shew-window-exporter.h" line="35"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -175,7 +175,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="unexport" c:identifier="shew_window_exporter_unexport">
-        <source-position filename="src/shew-window-exporter.h" line="38"/>
+        <source-position filename="src/shew-window-exporter.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -198,7 +198,7 @@ and/or use gtk-doc annotations.  -->
     <record name="WindowExporterClass"
             c:type="ShewWindowExporterClass"
             glib:is-gtype-struct-for="WindowExporter">
-      <source-position filename="src/shew-window-exporter.h" line="26"/>
+      <source-position filename="src/shew-window-exporter.h" line="27"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>

@@ -106,8 +106,7 @@ export const printGirDocComment = (tsDoc: TsDoc, config: { noComments: boolean }
 	return desc.join("\n");
 };
 
-export const isIntrospectable = (e: { $?: GirInfoAttrs }) =>
-	!e || !e.$ || !e.$.introspectable || e.$.introspectable === "1";
+export const isIntrospectable = (e: { $?: GirInfoAttrs }) => !e?.$?.introspectable || e.$.introspectable === "1";
 export const isDeprecated = (e: { $: GirInfoAttrs }) => e?.$ && e.$.deprecated === "1";
 export const deprecatedVersion = (e: { $: GirInfoAttrs }) => e?.$?.["deprecated-version"];
 export const introducedVersion = (e: { $: GirInfoAttrs }) => e?.$?.version;

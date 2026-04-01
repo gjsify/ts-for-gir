@@ -36,3 +36,6 @@
 [submodule "refs/gtk-doc"]
 	path = refs/gtk-doc
 	url = https://gitlab.gnome.org/GNOME/gtk-doc.git
+[submodule "refs/gnome-shell"]
+	path = refs/gnome-shell
+	url = https://gitlab.gnome.org/GNOME/gnome-shell.git

@@ -5,13 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <include name="WebKit2" version="4.1"/>
   <package name="libdevhelp-3.0"/>
   <c:include name="devhelp/devhelp.h"/>
-  <doc:format name="unknown"/>
   <namespace name="Devhelp"
              version="3.0"
              shared-library="libdevhelp-3.so.6"
@@ -982,9 +980,6 @@ with dh_book_list_builder_create_object().</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="add_book">
-        <doc xml:space="preserve"
-             filename="devhelp/dh-book-list.h"
-             line="34">Virtual function pointer for the #DhBookList::add-book signal.</doc>
         <callback name="add_book">
           <source-position filename="devhelp/dh-book-list.h" line="45"/>
           <return-value transfer-ownership="none">
@@ -1007,10 +1002,6 @@ with dh_book_list_builder_create_object().</doc>
         </callback>
       </field>
       <field name="remove_book">
-        <doc xml:space="preserve"
-             filename="devhelp/dh-book-list.h"
-             line="35">Virtual function pointer for the #DhBookList::remove-book
-  signal.</doc>
         <callback name="remove_book">
           <source-position filename="devhelp/dh-book-list.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -1033,11 +1024,6 @@ with dh_book_list_builder_create_object().</doc>
         </callback>
       </field>
       <field name="get_books">
-        <doc xml:space="preserve"
-             filename="devhelp/dh-book-list.h"
-             line="37">Virtual function pointer for dh_book_list_get_books(). Returns
-  the #DhBookList internal #GList by default. If you override this vfunc
-  ensure that each book ID is unique in the returned list.</doc>
         <callback name="get_books">
           <source-position filename="devhelp/dh-book-list.h" line="52"/>
           <return-value transfer-ownership="none">

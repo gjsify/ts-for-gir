@@ -104,7 +104,7 @@ file or the `GioUnix-2.0` GIR namespace when using it.</doc>
       <constructor name="new" c:identifier="g_desktop_app_info_new">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2166">Creates a new [class@GioUnix.DesktopAppInfo] based on a desktop file ID.
+             line="2134">Creates a new [class@GioUnix.DesktopAppInfo] based on a desktop file ID.
 
 A desktop file ID is the basename of the desktop file, including the
 `.desktop` extension. GIO is looking for a desktop file with this name
@@ -119,7 +119,7 @@ prefix-to-subdirectory mapping that is described in the
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2182">a new [class@GioUnix.DesktopAppInfo], or `NULL` if no
+               line="2150">a new [class@GioUnix.DesktopAppInfo], or `NULL` if no
    desktop file with that ID exists.</doc>
           <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
         </return-value>
@@ -127,7 +127,7 @@ prefix-to-subdirectory mapping that is described in the
           <parameter name="desktop_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2168">the desktop file ID</doc>
+                 line="2136">the desktop file ID</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -136,19 +136,19 @@ prefix-to-subdirectory mapping that is described in the
                    c:identifier="g_desktop_app_info_new_from_filename">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2143">Creates a new [class@GioUnix.DesktopAppInfo].</doc>
+             line="2111">Creates a new [class@GioUnix.DesktopAppInfo].</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="52"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2150">a new [class@GioUnix.DesktopAppInfo] or `NULL` on error.</doc>
+               line="2118">a new [class@GioUnix.DesktopAppInfo] or `NULL` on error.</doc>
           <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2145">the path of a desktop file, in the GLib
+                 line="2113">the path of a desktop file, in the GLib
      filename encoding</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
@@ -159,19 +159,19 @@ prefix-to-subdirectory mapping that is described in the
                    version="2.18">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2115">Creates a new [class@GioUnix.DesktopAppInfo].</doc>
+             line="2083">Creates a new [class@GioUnix.DesktopAppInfo].</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="54"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2121">a new [class@GioUnix.DesktopAppInfo] or `NULL` on error.</doc>
+               line="2089">a new [class@GioUnix.DesktopAppInfo] or `NULL` on error.</doc>
           <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
         </return-value>
         <parameters>
           <parameter name="key_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2117">an opened [type@GLib.KeyFile]</doc>
+                 line="2085">an opened [type@GLib.KeyFile]</doc>
             <type name="GLib.KeyFile" c:type="GKeyFile*"/>
           </parameter>
         </parameters>
@@ -181,7 +181,7 @@ prefix-to-subdirectory mapping that is described in the
                 version="2.42">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="4777">Gets all applications that implement @interface.
+             line="4695">Gets all applications that implement @interface.
 
 An application implements an interface if that interface is listed in
 the `Implements` line of the desktop file of the application.</doc>
@@ -189,7 +189,7 @@ the `Implements` line of the desktop file of the application.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="4786">a list of
+               line="4704">a list of
   [class@GioUnix.DesktopAppInfo] objects.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="DesktopAppInfo"/>
@@ -199,7 +199,7 @@ the `Implements` line of the desktop file of the application.</doc>
           <parameter name="interface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="4779">the name of the interface</doc>
+                 line="4697">the name of the interface</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -207,7 +207,7 @@ the `Implements` line of the desktop file of the application.</doc>
       <function name="search" c:identifier="g_desktop_app_info_search">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="4826">Searches desktop files for ones that match @search_string.
+             line="4744">Searches desktop files for ones that match @search_string.
 
 The return value is an array of strvs.  Each strv contains a list of
 applications that matched @search_string with an equal score.  The
@@ -227,7 +227,7 @@ each result.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="4847">a
+               line="4765">a
   list of strvs.  Free each item with [func@GLib.strfreev] and free the outer
   list with [func@GLib.free].</doc>
           <array c:type="gchar***">
@@ -240,7 +240,7 @@ each result.</doc>
           <parameter name="search_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="4828">the search string to use</doc>
+                 line="4746">the search string to use</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -251,7 +251,7 @@ each result.</doc>
                 deprecated-version="2.42">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="3758">Sets the name of the desktop that the application is running in.
+             line="3685">Sets the name of the desktop that the application is running in.
 
 This is used by [method@Gio.AppInfo.should_show] and
 [method@GioUnix.DesktopAppInfo.get_show_in] to evaluate the
@@ -270,7 +270,7 @@ Should be called only once; subsequent calls are ignored.</doc>
           <parameter name="desktop_env" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3760">a string specifying what desktop this is</doc>
+                 line="3687">a string specifying what desktop this is</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -280,7 +280,7 @@ Should be called only once; subsequent calls are ignored.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5209">Gets the user-visible display name of the
+             line="5127">Gets the user-visible display name of the
 [‘additional application actions’](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s11.html)
 specified by @action_name.
 
@@ -290,20 +290,20 @@ action.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5222">the locale-specific action name</doc>
+               line="5140">the locale-specific action name</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5211">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="5129">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5212">the name of the action as from
+                 line="5130">the name of the action as from
   [method@GioUnix.DesktopAppInfo.list_actions]</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -314,27 +314,27 @@ action.</doc>
               version="2.36">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5097">Looks up a boolean value in the keyfile backing @info.
+             line="5015">Looks up a boolean value in the keyfile backing @info.
 
 The @key is looked up in the `Desktop Entry` group.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5106">the boolean value, or `FALSE` if the key is not found</doc>
+               line="5024">the boolean value, or `FALSE` if the key is not found</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5099">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="5017">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5100">the key to look up</doc>
+                 line="5018">the key to look up</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -343,12 +343,12 @@ The @key is looked up in the `Desktop Entry` group.</doc>
               c:identifier="g_desktop_app_info_get_categories">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2367">Gets the categories from the desktop file.</doc>
+             line="2335">Gets the categories from the desktop file.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="62"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2373">The unparsed
+               line="2341">The unparsed
   [`Categories` key](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-categories)
   from the desktop file;
   i.e. no attempt is made to split it by `;` or validate it.</doc>
@@ -358,7 +358,7 @@ The @key is looked up in the `Desktop Entry` group.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2369">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="2337">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
         </parameters>
@@ -369,7 +369,7 @@ The @key is looked up in the `Desktop Entry` group.</doc>
               version="2.24">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2315">When @info was created from a known filename, return it.
+             line="2283">When @info was created from a known filename, return it.
 
 In some situations such as a [class@GioUnix.DesktopAppInfo] returned
 from [ctor@GioUnix.DesktopAppInfo.new_from_keyfile], this function
@@ -378,7 +378,7 @@ will return `NULL`.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2325">The full path to the file for @info,
+               line="2293">The full path to the file for @info,
   or `NULL` if not known.</doc>
           <type name="filename" c:type="const char*"/>
         </return-value>
@@ -386,7 +386,7 @@ will return `NULL`.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2317">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="2285">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
         </parameters>
@@ -395,12 +395,12 @@ will return `NULL`.</doc>
               c:identifier="g_desktop_app_info_get_generic_name">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2401">Gets the generic name from the desktop file.</doc>
+             line="2369">Gets the generic name from the desktop file.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="60"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2407">The value of the
+               line="2375">The value of the
   [`GenericName` key](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-genericname)</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -408,7 +408,7 @@ will return `NULL`.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2403">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="2371">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
         </parameters>
@@ -417,21 +417,21 @@ will return `NULL`.</doc>
               c:identifier="g_desktop_app_info_get_is_hidden">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2299">A desktop file is hidden if the
+             line="2267">A desktop file is hidden if the
 [`Hidden` key](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-hidden)
 in it is set to `True`.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2307">`TRUE` if hidden, `FALSE` otherwise.</doc>
+               line="2275">`TRUE` if hidden, `FALSE` otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2301">a [class@GioUnix.DesktopAppInfo].</doc>
+                 line="2269">a [class@GioUnix.DesktopAppInfo].</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
         </parameters>
@@ -441,16 +441,73 @@ in it is set to `True`.</doc>
               version="2.32">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2384">Gets the keywords from the desktop file.</doc>
+             line="2352">Gets the keywords from the desktop file.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="64"/>
-        <return-value transfer-ownership="none" nullable="1">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2390">The value of the
+               line="2358">The value of the
   [`Keywords` key](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-keywords)</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gdesktopappinfo.c"
+                 line="2354">a [class@GioUnix.DesktopAppInfo]</doc>
+            <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_locale_string"
+              c:identifier="g_desktop_app_info_get_locale_string"
+              version="2.56">
+        <doc xml:space="preserve"
+             filename="gio/gdesktopappinfo.c"
+             line="4988">Looks up a localized string value in the keyfile backing @info
+translated to the current locale.
+
+The @key is looked up in the `Desktop Entry` group.</doc>
+        <source-position filename="gio/gdesktopappinfo.h" line="88"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gio/gdesktopappinfo.c"
+               line="4998">a newly allocated string, or `NULL` if the key is not
+  found</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gdesktopappinfo.c"
+                 line="4990">a [class@GioUnix.DesktopAppInfo]</doc>
+            <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gdesktopappinfo.c"
+                 line="4991">the key to look up</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_nodisplay"
+              c:identifier="g_desktop_app_info_get_nodisplay"
+              version="2.30">
+        <doc xml:space="preserve"
+             filename="gio/gdesktopappinfo.c"
+             line="2384">Gets the value of the
+[`NoDisplay` key](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-nodisplay)
+ which helps determine if the application info should be shown in menus. See
+`G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY` and [method@Gio.AppInfo.should_show].</doc>
+        <source-position filename="gio/gdesktopappinfo.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gio/gdesktopappinfo.c"
+               line="2393">The value of the `NoDisplay` key</doc>
+          <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
@@ -461,69 +518,12 @@ in it is set to `True`.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_locale_string"
-              c:identifier="g_desktop_app_info_get_locale_string"
-              version="2.56">
-        <doc xml:space="preserve"
-             filename="gio/gdesktopappinfo.c"
-             line="5070">Looks up a localized string value in the keyfile backing @info
-translated to the current locale.
-
-The @key is looked up in the `Desktop Entry` group.</doc>
-        <source-position filename="gio/gdesktopappinfo.h" line="88"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="gio/gdesktopappinfo.c"
-               line="5080">a newly allocated string, or `NULL` if the key is not
-  found</doc>
-          <type name="utf8" c:type="char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="info" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gdesktopappinfo.c"
-                 line="5072">a [class@GioUnix.DesktopAppInfo]</doc>
-            <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
-          </instance-parameter>
-          <parameter name="key" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gdesktopappinfo.c"
-                 line="5073">the key to look up</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_nodisplay"
-              c:identifier="g_desktop_app_info_get_nodisplay"
-              version="2.30">
-        <doc xml:space="preserve"
-             filename="gio/gdesktopappinfo.c"
-             line="2416">Gets the value of the
-[`NoDisplay` key](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-nodisplay)
- which helps determine if the application info should be shown in menus. See
-`G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY` and [method@Gio.AppInfo.should_show].</doc>
-        <source-position filename="gio/gdesktopappinfo.h" line="66"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gio/gdesktopappinfo.c"
-               line="2425">The value of the `NoDisplay` key</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="info" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gdesktopappinfo.c"
-                 line="2418">a [class@GioUnix.DesktopAppInfo]</doc>
-            <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="get_show_in"
               c:identifier="g_desktop_app_info_get_show_in"
               version="2.30">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="2435">Checks if the application info should be shown in menus that list available
+             line="2403">Checks if the application info should be shown in menus that list available
 applications for a specific name of the desktop, based on the
 [`OnlyShowIn`](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-onlyshowin)
 and [`NotShowIn`](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s06.html#key-notshowin)
@@ -540,7 +540,7 @@ Note that [method@Gio.AppInfo.should_show] for @info will include this check
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="2454">`TRUE` if the @info should be shown in @desktop_env according to the
+               line="2422">`TRUE` if the @info should be shown in @desktop_env according to the
 `OnlyShowIn` and `NotShowIn` keys, `FALSE` otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -548,7 +548,7 @@ Note that [method@Gio.AppInfo.should_show] for @info will include this check
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2437">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="2405">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="desktop_env"
@@ -557,7 +557,7 @@ Note that [method@Gio.AppInfo.should_show] for @info will include this check
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="2438">a string specifying a desktop name</doc>
+                 line="2406">a string specifying a desktop name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -567,14 +567,14 @@ Note that [method@Gio.AppInfo.should_show] for @info will include this check
               version="2.34">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5025">Retrieves the `StartupWMClass` field from @info. This represents the
+             line="4943">Retrieves the `StartupWMClass` field from @info. This represents the
 `WM_CLASS` property of the main window of the application, if launched
 through @info.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="71"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5033">the startup WM class, or `NULL` if none
+               line="4951">the startup WM class, or `NULL` if none
   is set in the desktop file.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -582,7 +582,7 @@ through @info.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5027">a [class@GioUnix.DesktopAppInfo] that supports startup notify</doc>
+                 line="4945">a [class@GioUnix.DesktopAppInfo] that supports startup notify</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
         </parameters>
@@ -592,14 +592,14 @@ through @info.</doc>
               version="2.36">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5046">Looks up a string value in the keyfile backing @info.
+             line="4964">Looks up a string value in the keyfile backing @info.
 
 The @key is looked up in the `Desktop Entry` group.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="85"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5055">a newly allocated string, or `NULL` if the key is not
+               line="4973">a newly allocated string, or `NULL` if the key is not
   found</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -607,13 +607,13 @@ The @key is looked up in the `Desktop Entry` group.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5048">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="4966">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5049">the key to look up</doc>
+                 line="4967">the key to look up</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -623,14 +623,14 @@ The @key is looked up in the `Desktop Entry` group.</doc>
               version="2.60">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5120">Looks up a string list value in the keyfile backing @info.
+             line="5038">Looks up a string list value in the keyfile backing @info.
 
 The @key is looked up in the `Desktop Entry` group.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="95"/>
-        <return-value transfer-ownership="full" nullable="1">
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5131">
+               line="5049">
   a `NULL`-terminated string array or `NULL` if the specified
   key cannot be found. The array should be freed with [func@GLib.strfreev].</doc>
           <array length="1" zero-terminated="1" c:type="gchar**">
@@ -641,13 +641,13 @@ The @key is looked up in the `Desktop Entry` group.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5122">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="5040">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5123">the key to look up</doc>
+                 line="5041">the key to look up</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="length"
@@ -658,7 +658,7 @@ The @key is looked up in the `Desktop Entry` group.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5124">return location for the number of returned
+                 line="5042">return location for the number of returned
   strings, or `NULL`</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
@@ -669,26 +669,26 @@ The @key is looked up in the `Desktop Entry` group.</doc>
               version="2.36">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5148">Returns whether @key exists in the `Desktop Entry` group
+             line="5066">Returns whether @key exists in the `Desktop Entry` group
 of the keyfile backing @info.</doc>
         <source-position filename="gio/gdesktopappinfo.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5156">`TRUE` if the @key exists</doc>
+               line="5074">`TRUE` if the @key exists</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5150">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="5068">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5151">the key to look up</doc>
+                 line="5069">the key to look up</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -698,7 +698,7 @@ of the keyfile backing @info.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5252">Activates the named application action.
+             line="5170">Activates the named application action.
 
 You may only call this function on action names that were
 returned from [method@GioUnix.DesktopAppInfo.list_actions].
@@ -722,13 +722,13 @@ occur while using this function.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5254">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="5172">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5255">the name of the action as from
+                 line="5173">the name of the action as from
   [method@GioUnix.DesktopAppInfo.list_actions]</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -738,7 +738,7 @@ occur while using this function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5257">a [class@Gio.AppLaunchContext]</doc>
+                 line="5175">a [class@Gio.AppLaunchContext]</doc>
             <type name="Gio.AppLaunchContext" c:type="GAppLaunchContext*"/>
           </parameter>
         </parameters>
@@ -748,7 +748,7 @@ occur while using this function.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="3701">This function performs the equivalent of [method@Gio.AppInfo.launch_uris],
+             line="3628">This function performs the equivalent of [method@Gio.AppInfo.launch_uris],
 but is intended primarily for operating system components that
 launch applications.  Ordinary applications should use
 [method@Gio.AppInfo.launch_uris].
@@ -768,20 +768,20 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="3731">`TRUE` on successful launch, `FALSE` otherwise.</doc>
+               line="3658">`TRUE` on successful launch, `FALSE` otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="appinfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3703">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="3630">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="uris" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3704">List of URIs</doc>
+                 line="3631">List of URIs</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
             </type>
@@ -792,13 +792,13 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3705">a [class@Gio.AppLaunchContext]</doc>
+                 line="3632">a [class@Gio.AppLaunchContext]</doc>
             <type name="Gio.AppLaunchContext" c:type="GAppLaunchContext*"/>
           </parameter>
           <parameter name="spawn_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3706">[flags@GLib.SpawnFlags], used for each process</doc>
+                 line="3633">[flags@GLib.SpawnFlags], used for each process</doc>
             <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
           </parameter>
           <parameter name="user_setup"
@@ -809,7 +809,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
                      closure="4">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3707">a [callback@GLib.SpawnChildSetupFunc],
+                 line="3634">a [callback@GLib.SpawnChildSetupFunc],
   used once  for each process.</doc>
             <type name="GLib.SpawnChildSetupFunc"
                   c:type="GSpawnChildSetupFunc"/>
@@ -820,7 +820,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3709">User data for @user_setup</doc>
+                 line="3636">User data for @user_setup</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="pid_callback"
@@ -831,7 +831,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
                      closure="6">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3710">Callback for child processes</doc>
+                 line="3637">Callback for child processes</doc>
             <type name="DesktopAppLaunchCallback"
                   c:type="GDesktopAppLaunchCallback"/>
           </parameter>
@@ -841,7 +841,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3711">User data for @callback</doc>
+                 line="3638">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -852,7 +852,7 @@ activation) then @spawn_flags, @user_setup, @user_setup_data,
               throws="1">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="3646">Equivalent to [method@GioUnix.DesktopAppInfo.launch_uris_as_manager] but
+             line="3573">Equivalent to [method@GioUnix.DesktopAppInfo.launch_uris_as_manager] but
 allows you to pass in file descriptors for the stdin, stdout and stderr
 streams of the launched process.
 
@@ -862,20 +862,20 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="3669">`TRUE` on successful launch, `FALSE` otherwise.</doc>
+               line="3596">`TRUE` on successful launch, `FALSE` otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="appinfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3648">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="3575">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
           <parameter name="uris" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3649">List of URIs</doc>
+                 line="3576">List of URIs</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
             </type>
@@ -886,13 +886,13 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3650">a [class@Gio.AppLaunchContext]</doc>
+                 line="3577">a [class@Gio.AppLaunchContext]</doc>
             <type name="Gio.AppLaunchContext" c:type="GAppLaunchContext*"/>
           </parameter>
           <parameter name="spawn_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3651">[flags@GLib.SpawnFlags], used for each process</doc>
+                 line="3578">[flags@GLib.SpawnFlags], used for each process</doc>
             <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
           </parameter>
           <parameter name="user_setup"
@@ -903,7 +903,7 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3652">a
+                 line="3579">a
   [callback@GLib.SpawnChildSetupFunc], used once for each process.</doc>
             <type name="GLib.SpawnChildSetupFunc"
                   c:type="GSpawnChildSetupFunc"/>
@@ -914,7 +914,7 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3654">User data for @user_setup</doc>
+                 line="3581">User data for @user_setup</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="pid_callback"
@@ -925,7 +925,7 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3655">Callback for child processes</doc>
+                 line="3582">Callback for child processes</doc>
             <type name="DesktopAppLaunchCallback"
                   c:type="GDesktopAppLaunchCallback"/>
           </parameter>
@@ -935,25 +935,25 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3656">User data for @callback</doc>
+                 line="3583">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="stdin_fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3657">file descriptor to use for child’s stdin, or `-1`</doc>
+                 line="3584">file descriptor to use for child’s stdin, or `-1`</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="stdout_fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3658">file descriptor to use for child’s stdout, or `-1`</doc>
+                 line="3585">file descriptor to use for child’s stdout, or `-1`</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="stderr_fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="3659">file descriptor to use for child’s stderr, or `-1`</doc>
+                 line="3586">file descriptor to use for child’s stderr, or `-1`</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -963,7 +963,7 @@ activation) then @stdin_fd, @stdout_fd and @stderr_fd are ignored.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="5172">Returns the list of
+             line="5090">Returns the list of
 [‘additional application actions’](https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s11.html)
 supported on the desktop file, as per the desktop file specification.
 
@@ -973,7 +973,7 @@ explicitly listed in the `Actions` key of the `Desktop Entry` group.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5183">a
+               line="5101">a
   list of strings, always non-`NULL`</doc>
           <array c:type="const gchar* const*">
             <type name="utf8"/>
@@ -983,7 +983,7 @@ explicitly listed in the `Actions` key of the `Desktop Entry` group.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5174">a [class@GioUnix.DesktopAppInfo]</doc>
+                 line="5092">a [class@GioUnix.DesktopAppInfo]</doc>
             <type name="DesktopAppInfo" c:type="GDesktopAppInfo*"/>
           </instance-parameter>
         </parameters>
@@ -996,7 +996,7 @@ explicitly listed in the `Actions` key of the `Desktop Entry` group.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="1794">The origin filename of this [class@GioUnix.DesktopAppInfo]</doc>
+             line="1795">The origin filename of this [class@GioUnix.DesktopAppInfo]</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
     </class>
@@ -1018,7 +1018,7 @@ explicitly listed in the `Actions` key of the `Desktop Entry` group.</doc>
                glib:type-struct="DesktopAppInfoLookupIface">
       <doc xml:space="preserve"
            filename="gio/gdesktopappinfo.c"
-           line="4965">#GDesktopAppInfoLookup is an opaque data structure and can only be accessed
+           line="4883">#GDesktopAppInfoLookup is an opaque data structure and can only be accessed
 using the following functions.</doc>
       <doc-deprecated xml:space="preserve">The [iface@GioUnix.DesktopAppInfoLookup] interface is
   deprecated and unused by GIO.</doc-deprecated>
@@ -1029,7 +1029,7 @@ using the following functions.</doc>
                       deprecated-version="2.28">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="4987">Gets the default application for launching applications
+             line="4905">Gets the default application for launching applications
 using this URI scheme for a particular [iface@GioUnix.DesktopAppInfoLookup]
 implementation.
 
@@ -1044,7 +1044,7 @@ directly. Applications should use
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5002">[iface@Gio.AppInfo] for given
+               line="4920">[iface@Gio.AppInfo] for given
   @uri_scheme or `NULL` on error.</doc>
           <type name="Gio.AppInfo" c:type="GAppInfo*"/>
         </return-value>
@@ -1052,13 +1052,13 @@ directly. Applications should use
           <instance-parameter name="lookup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="4989">a [iface@GioUnix.DesktopAppInfoLookup]</doc>
+                 line="4907">a [iface@GioUnix.DesktopAppInfoLookup]</doc>
             <type name="DesktopAppInfoLookup" c:type="GDesktopAppInfoLookup*"/>
           </instance-parameter>
           <parameter name="uri_scheme" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="4990">a string containing a URI scheme.</doc>
+                 line="4908">a string containing a URI scheme.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1069,7 +1069,7 @@ directly. Applications should use
               deprecated-version="2.28">
         <doc xml:space="preserve"
              filename="gio/gdesktopappinfo.c"
-             line="4987">Gets the default application for launching applications
+             line="4905">Gets the default application for launching applications
 using this URI scheme for a particular [iface@GioUnix.DesktopAppInfoLookup]
 implementation.
 
@@ -1084,7 +1084,7 @@ directly. Applications should use
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gdesktopappinfo.c"
-               line="5002">[iface@Gio.AppInfo] for given
+               line="4920">[iface@Gio.AppInfo] for given
   @uri_scheme or `NULL` on error.</doc>
           <type name="Gio.AppInfo" c:type="GAppInfo*"/>
         </return-value>
@@ -1092,13 +1092,13 @@ directly. Applications should use
           <instance-parameter name="lookup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="4989">a [iface@GioUnix.DesktopAppInfoLookup]</doc>
+                 line="4907">a [iface@GioUnix.DesktopAppInfoLookup]</doc>
             <type name="DesktopAppInfoLookup" c:type="GDesktopAppInfoLookup*"/>
           </instance-parameter>
           <parameter name="uri_scheme" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="4990">a string containing a URI scheme.</doc>
+                 line="4908">a string containing a URI scheme.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1125,7 +1125,7 @@ handlers with URI schemes.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="gio/gdesktopappinfo.c"
-                 line="5002">[iface@Gio.AppInfo] for given
+                 line="4920">[iface@Gio.AppInfo] for given
   @uri_scheme or `NULL` on error.</doc>
             <type name="Gio.AppInfo" c:type="GAppInfo*"/>
           </return-value>
@@ -1133,14 +1133,14 @@ handlers with URI schemes.</doc>
             <parameter name="lookup" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gio/gdesktopappinfo.c"
-                   line="4989">a [iface@GioUnix.DesktopAppInfoLookup]</doc>
+                   line="4907">a [iface@GioUnix.DesktopAppInfoLookup]</doc>
               <type name="DesktopAppInfoLookup"
                     c:type="GDesktopAppInfoLookup*"/>
             </parameter>
             <parameter name="uri_scheme" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gio/gdesktopappinfo.c"
-                   line="4990">a string containing a URI scheme.</doc>
+                   line="4908">a string containing a URI scheme.</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
           </parameters>
@@ -1928,12 +1928,12 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2824">Compares two Unix mounts.</doc>
+             line="2862">Compares two Unix mounts.</doc>
         <source-position filename="gio/gunixmounts.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2831">`1`, `0` or `-1` if @mount1 is greater than, equal to,
+               line="2869">`1`, `0` or `-1` if @mount1 is greater than, equal to,
    or less than @mount2, respectively</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -1941,13 +1941,13 @@ This corresponds roughly to a mtab entry.</doc>
           <instance-parameter name="mount1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2826">first [struct@GioUnix.MountEntry] to compare</doc>
+                 line="2864">first [struct@GioUnix.MountEntry] to compare</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
           <parameter name="mount2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2827">second [struct@GioUnix.MountEntry] to compare</doc>
+                 line="2865">second [struct@GioUnix.MountEntry] to compare</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </parameter>
         </parameters>
@@ -1957,19 +1957,19 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2732">Makes a copy of @mount_entry.</doc>
+             line="2770">Makes a copy of @mount_entry.</doc>
         <source-position filename="gio/gunixmounts.h" line="85"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2738">a new [struct@GioUnix.MountEntry]</doc>
+               line="2776">a new [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2734">a [struct@GioUnix.MountEntry]</doc>
+                 line="2772">a [struct@GioUnix.MountEntry]</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
         </parameters>
@@ -1979,7 +1979,7 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2695">Frees a Unix mount.</doc>
+             line="2733">Frees a Unix mount.</doc>
         <source-position filename="gio/gunixmounts.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1988,7 +1988,7 @@ This corresponds roughly to a mtab entry.</doc>
           <instance-parameter name="mount_entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2697">a [struct@GioUnix.MountEntry]</doc>
+                 line="2735">a [struct@GioUnix.MountEntry]</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
         </parameters>
@@ -1998,19 +1998,19 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2917">Gets the device path for a Unix mount.</doc>
+             line="2955">Gets the device path for a Unix mount.</doc>
         <source-position filename="gio/gunixmounts.h" line="107"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2923">a string containing the device path</doc>
+               line="2961">a string containing the device path</doc>
           <type name="filename" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2919">a [struct@GioUnix.MountEntry]</doc>
+                 line="2957">a [struct@GioUnix.MountEntry]</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2020,19 +2020,19 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2993">Gets the filesystem type for the Unix mount.</doc>
+             line="3031">Gets the filesystem type for the Unix mount.</doc>
         <source-position filename="gio/gunixmounts.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2999">a string containing the file system type</doc>
+               line="3037">a string containing the file system type</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2995">a [struct@GioUnix.MountEntry]</doc>
+                 line="3033">a [struct@GioUnix.MountEntry]</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2042,19 +2042,19 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2885">Gets the mount path for a Unix mount.</doc>
+             line="2923">Gets the mount path for a Unix mount.</doc>
         <source-position filename="gio/gunixmounts.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2891">the mount path for @mount_entry</doc>
+               line="2929">the mount path for @mount_entry</doc>
           <type name="filename" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2887">a [struct@GioUnix.MountEntry] to get the mount path for</doc>
+                 line="2925">a [struct@GioUnix.MountEntry] to get the mount path for</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2064,7 +2064,7 @@ This corresponds roughly to a mtab entry.</doc>
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3032">Gets a comma separated list of mount options for the Unix mount.
+             line="3070">Gets a comma separated list of mount options for the Unix mount.
 
 For example: `rw,relatime,seclabel,data=ordered`.
 
@@ -2074,170 +2074,9 @@ a [struct@GioUnix.MountEntry] as an argument.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3043">a string containing the options, or `NULL` if not
+               line="3081">a string containing the options, or `NULL` if not
    available.</doc>
           <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="3034">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_root_path"
-              c:identifier="g_unix_mount_entry_get_root_path"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="2956">Gets the root of the mount within the filesystem. This is useful e.g. for
-mounts created by bind operation, or btrfs subvolumes.
-
-For example, the root path is equal to `/` for a mount created by
-`mount /dev/sda1 /mnt/foo` and `/bar` for
-`mount --bind /mnt/foo/bar /mnt/bar`.</doc>
-        <source-position filename="gio/gunixmounts.h" line="112"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="2967">a string containing the root, or `NULL` if not supported</doc>
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="2958">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="guess_can_eject"
-              c:identifier="g_unix_mount_entry_guess_can_eject"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="3653">Guesses whether a Unix mount entry can be ejected.</doc>
-        <source-position filename="gio/gunixmounts.h" line="137"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="3659">true if @mount_entry is deemed to be ejectable; false otherwise</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="3655">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="guess_icon"
-              c:identifier="g_unix_mount_entry_guess_icon"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="3540">Guesses the icon of a Unix mount entry.</doc>
-        <source-position filename="gio/gunixmounts.h" line="152"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="3546">a [iface@Gio.Icon]</doc>
-          <type name="Gio.Icon" c:type="GIcon*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="3542">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="guess_name"
-              c:identifier="g_unix_mount_entry_guess_name"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="3501">Guesses the name of a Unix mount entry.
-
-The result is a translated string.</doc>
-        <source-position filename="gio/gunixmounts.h" line="147"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="3509">a newly allocated translated string</doc>
-          <type name="utf8" c:type="char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="3503">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="guess_should_display"
-              c:identifier="g_unix_mount_entry_guess_should_display"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="3690">Guesses whether a Unix mount entry should be displayed in the UI.</doc>
-        <source-position filename="gio/gunixmounts.h" line="142"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="3696">true if @mount_entry is deemed to be displayable; false otherwise</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="3692">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="guess_symbolic_icon"
-              c:identifier="g_unix_mount_entry_guess_symbolic_icon"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="3571">Guesses the symbolic icon of a Unix mount entry.</doc>
-        <source-position filename="gio/gunixmounts.h" line="157"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="3577">a [iface@Gio.Icon]</doc>
-          <type name="Gio.Icon" c:type="GIcon*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mount_entry" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gio/gunixmounts.c"
-                 line="3573">a [struct@GioUnix.MountEntry]</doc>
-            <type name="MountEntry" c:type="GUnixMountEntry*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="is_readonly"
-              c:identifier="g_unix_mount_entry_is_readonly"
-              version="2.84">
-        <doc xml:space="preserve"
-             filename="gio/gunixmounts.c"
-             line="3070">Checks if a Unix mount is mounted read only.</doc>
-        <source-position filename="gio/gunixmounts.h" line="127"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gio/gunixmounts.c"
-               line="3076">true if @mount_entry is read only; false otherwise</doc>
-          <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_entry" transfer-ownership="none">
@@ -2248,12 +2087,173 @@ The result is a translated string.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="get_root_path"
+              c:identifier="g_unix_mount_entry_get_root_path"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="2994">Gets the root of the mount within the filesystem. This is useful e.g. for
+mounts created by bind operation, or btrfs subvolumes.
+
+For example, the root path is equal to `/` for a mount created by
+`mount /dev/sda1 /mnt/foo` and `/bar` for
+`mount --bind /mnt/foo/bar /mnt/bar`.</doc>
+        <source-position filename="gio/gunixmounts.h" line="112"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3005">a string containing the root, or `NULL` if not supported</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="2996">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="guess_can_eject"
+              c:identifier="g_unix_mount_entry_guess_can_eject"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="3691">Guesses whether a Unix mount entry can be ejected.</doc>
+        <source-position filename="gio/gunixmounts.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3697">true if @mount_entry is deemed to be ejectable; false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="3693">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="guess_icon"
+              c:identifier="g_unix_mount_entry_guess_icon"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="3578">Guesses the icon of a Unix mount entry.</doc>
+        <source-position filename="gio/gunixmounts.h" line="152"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3584">a [iface@Gio.Icon]</doc>
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="3580">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="guess_name"
+              c:identifier="g_unix_mount_entry_guess_name"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="3539">Guesses the name of a Unix mount entry.
+
+The result is a translated string.</doc>
+        <source-position filename="gio/gunixmounts.h" line="147"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3547">a newly allocated translated string</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="3541">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="guess_should_display"
+              c:identifier="g_unix_mount_entry_guess_should_display"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="3728">Guesses whether a Unix mount entry should be displayed in the UI.</doc>
+        <source-position filename="gio/gunixmounts.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3734">true if @mount_entry is deemed to be displayable; false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="3730">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="guess_symbolic_icon"
+              c:identifier="g_unix_mount_entry_guess_symbolic_icon"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="3609">Guesses the symbolic icon of a Unix mount entry.</doc>
+        <source-position filename="gio/gunixmounts.h" line="157"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3615">a [iface@Gio.Icon]</doc>
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="3611">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_readonly"
+              c:identifier="g_unix_mount_entry_is_readonly"
+              version="2.84">
+        <doc xml:space="preserve"
+             filename="gio/gunixmounts.c"
+             line="3108">Checks if a Unix mount is mounted read only.</doc>
+        <source-position filename="gio/gunixmounts.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gio/gunixmounts.c"
+               line="3114">true if @mount_entry is read only; false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mount_entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gio/gunixmounts.c"
+                 line="3110">a [struct@GioUnix.MountEntry]</doc>
+            <type name="MountEntry" c:type="GUnixMountEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="is_system_internal"
               c:identifier="g_unix_mount_entry_is_system_internal"
               version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3109">Checks if a Unix mount is a system mount.
+             line="3147">Checks if a Unix mount is a system mount.
 
 This is the Boolean OR of
 [func@GioUnix.is_system_fs_type], [func@GioUnix.is_system_device_path] and
@@ -2265,14 +2265,14 @@ file system types and device paths are ignored.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3122">true if the Unix mount is for a system path; false otherwise</doc>
+               line="3160">true if the Unix mount is for a system path; false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3111">a [struct@GioUnix.MountEntry]</doc>
+                 line="3149">a [struct@GioUnix.MountEntry]</doc>
             <type name="MountEntry" c:type="GUnixMountEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2280,7 +2280,7 @@ file system types and device paths are ignored.</doc>
       <function name="at" c:identifier="g_unix_mount_entry_at" version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1913">Gets a [struct@GioUnix.MountEntry] for a given mount path.
+             line="1951">Gets a [struct@GioUnix.MountEntry] for a given mount path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking
 if the mounts have changed since with
@@ -2294,14 +2294,14 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1929">a [struct@GioUnix.MountEntry]</doc>
+               line="1967">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </return-value>
         <parameters>
           <parameter name="mount_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="1915">path for a possible Unix mount</doc>
+                 line="1953">path for a possible Unix mount</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
           <parameter name="time_read"
@@ -2312,7 +2312,7 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="1916">return location for a timestamp</doc>
+                 line="1954">return location for a timestamp</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
         </parameters>
@@ -2322,7 +2322,7 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
                 version="2.84">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1989">Gets a [struct@GioUnix.MountEntry] for a given file path.
+             line="2027">Gets a [struct@GioUnix.MountEntry] for a given file path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking
 if the mounts have changed since with
@@ -2337,14 +2337,14 @@ This will return `NULL` if looking up the mount entry fails, if
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2006">a [struct@GioUnix.MountEntry]</doc>
+               line="2044">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </return-value>
         <parameters>
           <parameter name="file_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="1991">file path on some Unix mount</doc>
+                 line="2029">file path on some Unix mount</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
           <parameter name="time_read"
@@ -2355,7 +2355,7 @@ This will return `NULL` if looking up the mount entry fails, if
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="1992">return location for a timestamp</doc>
+                 line="2030">return location for a timestamp</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
         </parameters>
@@ -2385,7 +2385,7 @@ be notified of changes to the [struct@GioUnix.MountPoint] list.</doc>
                    deprecated-version="2.44">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2663">Deprecated alias for [func@GioUnix.MountMonitor.get].
+             line="2701">Deprecated alias for [func@GioUnix.MountMonitor.get].
 
 This function was never a true constructor, which is why it was
 renamed.</doc>
@@ -2394,7 +2394,7 @@ renamed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2671">a [class@GioUnix.MountMonitor]</doc>
+               line="2709">a [class@GioUnix.MountMonitor]</doc>
           <type name="MountMonitor" c:type="GUnixMountMonitor*"/>
         </return-value>
       </constructor>
@@ -2403,7 +2403,7 @@ renamed.</doc>
                 version="2.44">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2638">Gets the [class@GioUnix.MountMonitor] for the current thread-default main
+             line="2676">Gets the [class@GioUnix.MountMonitor] for the current thread-default main
 context.
 
 The mount monitor can be used to monitor for changes to the list of
@@ -2416,7 +2416,7 @@ under the same main context as you called this function.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2651">the [class@GioUnix.MountMonitor]</doc>
+               line="2689">the [class@GioUnix.MountMonitor]</doc>
           <type name="MountMonitor" c:type="GUnixMountMonitor*"/>
         </return-value>
       </function>
@@ -2427,7 +2427,7 @@ under the same main context as you called this function.</doc>
               deprecated-version="2.44">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2616">This function does nothing.
+             line="2654">This function does nothing.
 
 Before 2.44, this was a partially-effective way of controlling the
 rate at which events would be reported under some uncommon
@@ -2443,13 +2443,13 @@ the monitor.</doc>
           <instance-parameter name="mount_monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2618">a [class@GioUnix.MountMonitor]</doc>
+                 line="2656">a [class@GioUnix.MountMonitor]</doc>
             <type name="MountMonitor" c:type="GUnixMountMonitor*"/>
           </instance-parameter>
           <parameter name="limit_msec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2619">a integer with the limit (in milliseconds) to poll for changes</doc>
+                 line="2657">a integer with the limit (in milliseconds) to poll for changes</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -2457,7 +2457,7 @@ the monitor.</doc>
       <glib:signal name="mountpoints-changed" when="last">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2595">Emitted when the Unix mount points have changed.</doc>
+             line="2633">Emitted when the Unix mount points have changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2465,7 +2465,7 @@ the monitor.</doc>
       <glib:signal name="mounts-changed" when="last">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2580">Emitted when the Unix mount entries have changed.</doc>
+             line="2618">Emitted when the Unix mount entries have changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2492,12 +2492,12 @@ This corresponds roughly to a fstab entry.</doc>
       <method name="compare" c:identifier="g_unix_mount_point_compare">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3134">Compares two Unix mount points.</doc>
+             line="3172">Compares two Unix mount points.</doc>
         <source-position filename="gio/gunixmounts.h" line="163"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3141">`1`, `0` or `-1` if @mount1 is greater than, equal to,
+               line="3179">`1`, `0` or `-1` if @mount1 is greater than, equal to,
    or less than @mount2, respectively</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -2505,13 +2505,13 @@ This corresponds roughly to a fstab entry.</doc>
           <instance-parameter name="mount1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3136">a [struct@GioUnix.MountPoint]</doc>
+                 line="3174">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
           <parameter name="mount2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3137">a [struct@GioUnix.MountPoint]</doc>
+                 line="3175">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </parameter>
         </parameters>
@@ -2521,19 +2521,19 @@ This corresponds roughly to a fstab entry.</doc>
               version="2.54">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2778">Makes a copy of @mount_point.</doc>
+             line="2816">Makes a copy of @mount_point.</doc>
         <source-position filename="gio/gunixmounts.h" line="90"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2784">a new [struct@GioUnix.MountPoint]</doc>
+               line="2822">a new [struct@GioUnix.MountPoint]</doc>
           <type name="MountPoint" c:type="GUnixMountPoint*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2780">a [struct@GioUnix.MountPoint]</doc>
+                 line="2818">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2541,7 +2541,7 @@ This corresponds roughly to a fstab entry.</doc>
       <method name="free" c:identifier="g_unix_mount_point_free">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2760">Frees a Unix mount point.</doc>
+             line="2798">Frees a Unix mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2550,7 +2550,7 @@ This corresponds roughly to a fstab entry.</doc>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2762">Unix mount point to free.</doc>
+                 line="2800">Unix mount point to free.</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2559,19 +2559,19 @@ This corresponds roughly to a fstab entry.</doc>
               c:identifier="g_unix_mount_point_get_device_path">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3199">Gets the device path for a Unix mount point.</doc>
+             line="3237">Gets the device path for a Unix mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="168"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3205">a string containing the device path</doc>
+               line="3243">a string containing the device path</doc>
           <type name="filename" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3201">a [struct@GioUnix.MountPoint]</doc>
+                 line="3239">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2579,19 +2579,19 @@ This corresponds roughly to a fstab entry.</doc>
       <method name="get_fs_type" c:identifier="g_unix_mount_point_get_fs_type">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3215">Gets the file system type for the mount point.</doc>
+             line="3253">Gets the file system type for the mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="170"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3221">a string containing the file system type</doc>
+               line="3259">a string containing the file system type</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3217">a [struct@GioUnix.MountPoint]</doc>
+                 line="3255">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2600,19 +2600,19 @@ This corresponds roughly to a fstab entry.</doc>
               c:identifier="g_unix_mount_point_get_mount_path">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3183">Gets the mount path for a Unix mount point.</doc>
+             line="3221">Gets the mount path for a Unix mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="166"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3189">a string containing the mount path</doc>
+               line="3227">a string containing the mount path</doc>
           <type name="filename" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3185">a [struct@GioUnix.MountPoint]</doc>
+                 line="3223">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2622,19 +2622,19 @@ This corresponds roughly to a fstab entry.</doc>
               version="2.32">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3231">Gets the options for the mount point.</doc>
+             line="3269">Gets the options for the mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="172"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3237">a string containing the options</doc>
+               line="3275">a string containing the options</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3233">a [struct@GioUnix.MountPoint]</doc>
+                 line="3271">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2643,19 +2643,19 @@ This corresponds roughly to a fstab entry.</doc>
               c:identifier="g_unix_mount_point_guess_can_eject">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3778">Guesses whether a Unix mount point can be ejected.</doc>
+             line="3816">Guesses whether a Unix mount point can be ejected.</doc>
         <source-position filename="gio/gunixmounts.h" line="180"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3784">true if @mount_point is deemed to be ejectable; false otherwise</doc>
+               line="3822">true if @mount_point is deemed to be ejectable; false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3780">a [struct@GioUnix.MountPoint]</doc>
+                 line="3818">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2663,19 +2663,19 @@ This corresponds roughly to a fstab entry.</doc>
       <method name="guess_icon" c:identifier="g_unix_mount_point_guess_icon">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3609">Guesses the icon of a Unix mount point.</doc>
+             line="3647">Guesses the icon of a Unix mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="184"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3615">a [iface@Gio.Icon]</doc>
+               line="3653">a [iface@Gio.Icon]</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3611">a [struct@GioUnix.MountPoint]</doc>
+                 line="3649">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2683,21 +2683,21 @@ This corresponds roughly to a fstab entry.</doc>
       <method name="guess_name" c:identifier="g_unix_mount_point_guess_name">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3586">Guesses the name of a Unix mount point.
+             line="3624">Guesses the name of a Unix mount point.
 
 The result is a translated string.</doc>
         <source-position filename="gio/gunixmounts.h" line="182"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3594">a newly allocated translated string</doc>
+               line="3632">a newly allocated translated string</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3588">a [struct@GioUnix.MountPoint]</doc>
+                 line="3626">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2707,19 +2707,19 @@ The result is a translated string.</doc>
               version="2.34">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3623">Guesses the symbolic icon of a Unix mount point.</doc>
+             line="3661">Guesses the symbolic icon of a Unix mount point.</doc>
         <source-position filename="gio/gunixmounts.h" line="186"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3629">a [iface@Gio.Icon]</doc>
+               line="3667">a [iface@Gio.Icon]</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3625">a [struct@GioUnix.MountPoint]</doc>
+                 line="3663">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2727,19 +2727,19 @@ The result is a translated string.</doc>
       <method name="is_loopback" c:identifier="g_unix_mount_point_is_loopback">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3280">Checks if a Unix mount point is a loopback device.</doc>
+             line="3318">Checks if a Unix mount point is a loopback device.</doc>
         <source-position filename="gio/gunixmounts.h" line="178"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3286">true if the mount point is a loopback device; false otherwise</doc>
+               line="3324">true if the mount point is a loopback device; false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3282">a [struct@GioUnix.MountPoint]</doc>
+                 line="3320">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2747,19 +2747,19 @@ The result is a translated string.</doc>
       <method name="is_readonly" c:identifier="g_unix_mount_point_is_readonly">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3248">Checks if a Unix mount point is read only.</doc>
+             line="3286">Checks if a Unix mount point is read only.</doc>
         <source-position filename="gio/gunixmounts.h" line="174"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3254">true if a mount point is read only; false otherwise</doc>
+               line="3292">true if a mount point is read only; false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3250">a [struct@GioUnix.MountPoint]</doc>
+                 line="3288">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2768,19 +2768,19 @@ The result is a translated string.</doc>
               c:identifier="g_unix_mount_point_is_user_mountable">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3264">Checks if a Unix mount point is mountable by the user.</doc>
+             line="3302">Checks if a Unix mount point is mountable by the user.</doc>
         <source-position filename="gio/gunixmounts.h" line="176"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3270">true if the mount point is user mountable; false otherwise</doc>
+               line="3308">true if the mount point is user mountable; false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="mount_point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="3266">a [struct@GioUnix.MountPoint]</doc>
+                 line="3304">a [struct@GioUnix.MountPoint]</doc>
             <type name="MountPoint" c:type="GUnixMountPoint*"/>
           </instance-parameter>
         </parameters>
@@ -2788,7 +2788,7 @@ The result is a translated string.</doc>
       <function name="at" c:identifier="g_unix_mount_point_at" version="2.66">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2114">Gets a [struct@GioUnix.MountPoint] for a given mount path.
+             line="2152">Gets a [struct@GioUnix.MountPoint] for a given mount path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking if
 the mount points have changed since with
@@ -2800,7 +2800,7 @@ is returned.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2128">a [struct@GioUnix.MountPoint], or `NULL`
+               line="2166">a [struct@GioUnix.MountPoint], or `NULL`
    if no match is found</doc>
           <type name="MountPoint" c:type="GUnixMountPoint*"/>
         </return-value>
@@ -2808,7 +2808,7 @@ is returned.</doc>
           <parameter name="mount_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2116">path for a possible Unix mount point</doc>
+                 line="2154">path for a possible Unix mount point</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
           <parameter name="time_read"
@@ -2819,7 +2819,7 @@ is returned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gio/gunixmounts.c"
-                 line="2117">return location for a timestamp</doc>
+                 line="2155">return location for a timestamp</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
         </parameters>
@@ -3065,7 +3065,7 @@ when the stream is closed.</doc>
               c:identifier="g_unix_is_mount_path_system_internal">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="274">Determines if @mount_path is considered an implementation of the
+           line="271">Determines if @mount_path is considered an implementation of the
 OS.
 
 This is primarily used for hiding mountable and mounted volumes
@@ -3075,7 +3075,7 @@ casual user.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="285">true if @mount_path is considered an implementation detail
+             line="282">true if @mount_path is considered an implementation detail
    of the OS; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -3083,7 +3083,7 @@ casual user.</doc>
         <parameter name="mount_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="276">a mount path, e.g. `/media/disk` or `/usr`</doc>
+               line="273">a mount path, e.g. `/media/disk` or `/usr`</doc>
           <type name="filename" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -3093,7 +3093,7 @@ casual user.</doc>
               version="2.56">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="385">Determines if @device_path is considered a block device path which is only
+           line="423">Determines if @device_path is considered a block device path which is only
 used in implementation of the OS.
 
 This is primarily used for hiding mounted volumes that are intended as APIs
@@ -3106,7 +3106,7 @@ The list of device paths considered ‘system’ ones may change over time.</doc
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="399">true if @device_path is considered an implementation detail of
+             line="437">true if @device_path is considered an implementation detail of
    the OS; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -3114,7 +3114,7 @@ The list of device paths considered ‘system’ ones may change over time.</doc
         <parameter name="device_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="387">a device path, e.g. `/dev/loop0` or `nfsd`</doc>
+               line="425">a device path, e.g. `/dev/loop0` or `nfsd`</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -3124,7 +3124,7 @@ The list of device paths considered ‘system’ ones may change over time.</doc
               version="2.56">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="310">Determines if @fs_type is considered a type of file system which is only
+           line="351">Determines if @fs_type is considered a type of file system which is only
 used in implementation of the OS.
 
 This is primarily used for hiding mounted volumes that are intended as APIs
@@ -3137,7 +3137,7 @@ The list of file system types considered ‘system’ ones may change over time.
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="324">true if @fs_type is considered an implementation detail of the OS;
+             line="365">true if @fs_type is considered an implementation detail of the OS;
    false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -3145,7 +3145,7 @@ The list of file system types considered ‘system’ ones may change over time.
         <parameter name="fs_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="312">a file system type, e.g. `procfs` or `tmpfs`</doc>
+               line="353">a file system type, e.g. `procfs` or `tmpfs`</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -3156,7 +3156,7 @@ The list of file system types considered ‘system’ ones may change over time.
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1887">Gets a [struct@GioUnix.MountEntry] for a given mount path.
+           line="1925">Gets a [struct@GioUnix.MountEntry] for a given mount path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking
 if the mounts have changed since with
@@ -3171,14 +3171,14 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1903">a [struct@GioUnix.MountEntry]</doc>
+             line="1941">a [struct@GioUnix.MountEntry]</doc>
         <type name="MountEntry" c:type="GUnixMountEntry*"/>
       </return-value>
       <parameters>
         <parameter name="mount_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1889">path for a possible Unix mount</doc>
+               line="1927">path for a possible Unix mount</doc>
           <type name="filename" c:type="const char*"/>
         </parameter>
         <parameter name="time_read"
@@ -3189,7 +3189,7 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1890">return location for a timestamp</doc>
+               line="1928">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3200,13 +3200,13 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2806">Compares two Unix mounts.</doc>
+           line="2844">Compares two Unix mounts.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.compare] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="93"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2813">`1`, `0` or `-1` if @mount1 is greater than, equal to,
+             line="2851">`1`, `0` or `-1` if @mount1 is greater than, equal to,
    or less than @mount2, respectively</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -3214,13 +3214,13 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
         <parameter name="mount1" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2808">first [struct@GioUnix.MountEntry] to compare</doc>
+               line="2846">first [struct@GioUnix.MountEntry] to compare</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
         <parameter name="mount2" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2809">second [struct@GioUnix.MountEntry] to compare</doc>
+               line="2847">second [struct@GioUnix.MountEntry] to compare</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3232,20 +3232,20 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2716">Makes a copy of @mount_entry.</doc>
+           line="2754">Makes a copy of @mount_entry.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.copy] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="83"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2722">a new [struct@GioUnix.MountEntry]</doc>
+             line="2760">a new [struct@GioUnix.MountEntry]</doc>
         <type name="MountEntry" c:type="GUnixMountEntry*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2718">a [struct@GioUnix.MountEntry]</doc>
+               line="2756">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3254,7 +3254,7 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
               c:identifier="g_unix_mount_entries_changed_since">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2176">Checks if the Unix mounts have changed since a given Unix time.
+           line="2214">Checks if the Unix mounts have changed since a given Unix time.
 
 This can only work reliably if a [class@GioUnix.MountMonitor] is running in
 the process, otherwise changes in the mount entries file (such as
@@ -3269,7 +3269,7 @@ cache validity.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2192">true if the mounts have changed since @time; false otherwise
+             line="2230">true if the mounts have changed since @time; false otherwise
 Since 2.84</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -3277,7 +3277,7 @@ Since 2.84</doc>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2178">a timestamp</doc>
+               line="2216">a timestamp</doc>
           <type name="guint64" c:type="guint64"/>
         </parameter>
       </parameters>
@@ -3287,7 +3287,7 @@ Since 2.84</doc>
               version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1800">Gets a list of [struct@GioUnix.MountEntry] instances representing the Unix
+           line="1838">Gets a list of [struct@GioUnix.MountEntry] instances representing the Unix
 mounts.
 
 If @time_read is set, it will be filled with the mount timestamp, allowing
@@ -3297,7 +3297,7 @@ for checking if the mounts have changed with
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1811">a list of the
+             line="1849">a list of the
    Unix mounts</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="MountEntry"/>
@@ -3312,7 +3312,7 @@ for checking if the mounts have changed with
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1802">return location for a timestamp</doc>
+               line="1840">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3322,7 +3322,7 @@ for checking if the mounts have changed with
               version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1856">Gets an array of [struct@GioUnix.MountEntry]s containing the Unix mounts
+           line="1894">Gets an array of [struct@GioUnix.MountEntry]s containing the Unix mounts
 listed in @table_path.
 
 This is a generalized version of [func@GioUnix.mount_entries_get], mainly
@@ -3336,7 +3336,7 @@ and both out parameters will be set to `0`.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1875">mount
+             line="1913">mount
   entries, or `NULL` if there was an error loading them</doc>
         <array length="2" zero-terminated="0" c:type="GUnixMountEntry**">
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
@@ -3346,7 +3346,7 @@ and both out parameters will be set to `0`.</doc>
         <parameter name="table_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1858">path to the mounts table file (for example `/proc/self/mountinfo`)</doc>
+               line="1896">path to the mounts table file (for example `/proc/self/mountinfo`)</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="time_read_out"
@@ -3357,7 +3357,7 @@ and both out parameters will be set to `0`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1859">return location for the
+               line="1897">return location for the
   modification time of @table_path</doc>
           <type name="guint64" c:type="uint64_t*"/>
         </parameter>
@@ -3369,7 +3369,7 @@ and both out parameters will be set to `0`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1861">return location for the
+               line="1899">return location for the
   number of mount entries returned</doc>
           <type name="gsize" c:type="size_t*"/>
         </parameter>
@@ -3381,7 +3381,7 @@ and both out parameters will be set to `0`.</doc>
               version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1913">Gets a [struct@GioUnix.MountEntry] for a given mount path.
+           line="1951">Gets a [struct@GioUnix.MountEntry] for a given mount path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking
 if the mounts have changed since with
@@ -3395,14 +3395,14 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1929">a [struct@GioUnix.MountEntry]</doc>
+             line="1967">a [struct@GioUnix.MountEntry]</doc>
         <type name="MountEntry" c:type="GUnixMountEntry*"/>
       </return-value>
       <parameters>
         <parameter name="mount_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1915">path for a possible Unix mount</doc>
+               line="1953">path for a possible Unix mount</doc>
           <type name="filename" c:type="const char*"/>
         </parameter>
         <parameter name="time_read"
@@ -3413,7 +3413,7 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1916">return location for a timestamp</doc>
+               line="1954">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3424,7 +3424,7 @@ This will return `NULL` if there is no mount point at @mount_path.</doc>
               version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1989">Gets a [struct@GioUnix.MountEntry] for a given file path.
+           line="2027">Gets a [struct@GioUnix.MountEntry] for a given file path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking
 if the mounts have changed since with
@@ -3439,14 +3439,14 @@ This will return `NULL` if looking up the mount entry fails, if
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2006">a [struct@GioUnix.MountEntry]</doc>
+             line="2044">a [struct@GioUnix.MountEntry]</doc>
         <type name="MountEntry" c:type="GUnixMountEntry*"/>
       </return-value>
       <parameters>
         <parameter name="file_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1991">file path on some Unix mount</doc>
+               line="2029">file path on some Unix mount</doc>
           <type name="filename" c:type="const char*"/>
         </parameter>
         <parameter name="time_read"
@@ -3457,7 +3457,7 @@ This will return `NULL` if looking up the mount entry fails, if
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1992">return location for a timestamp</doc>
+               line="2030">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3469,7 +3469,7 @@ This will return `NULL` if looking up the mount entry fails, if
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1961">Gets a [struct@GioUnix.MountEntry] for a given file path.
+           line="1999">Gets a [struct@GioUnix.MountEntry] for a given file path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking
 if the mounts have changed since with
@@ -3485,14 +3485,14 @@ This will return `NULL` if looking up the mount entry fails, if
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1978">a [struct@GioUnix.MountEntry]</doc>
+             line="2016">a [struct@GioUnix.MountEntry]</doc>
         <type name="MountEntry" c:type="GUnixMountEntry*"/>
       </return-value>
       <parameters>
         <parameter name="file_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1963">file path on some Unix mount</doc>
+               line="2001">file path on some Unix mount</doc>
           <type name="filename" c:type="const char*"/>
         </parameter>
         <parameter name="time_read"
@@ -3503,7 +3503,7 @@ This will return `NULL` if looking up the mount entry fails, if
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1964">return location for a timestamp</doc>
+               line="2002">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3514,7 +3514,7 @@ This will return `NULL` if looking up the mount entry fails, if
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2681">Frees a Unix mount.</doc>
+           line="2719">Frees a Unix mount.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.free] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="78"/>
       <return-value transfer-ownership="none">
@@ -3524,7 +3524,7 @@ This will return `NULL` if looking up the mount entry fails, if
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2683">a [struct@GioUnix.MountEntry]</doc>
+               line="2721">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3535,20 +3535,20 @@ This will return `NULL` if looking up the mount entry fails, if
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2902">Gets the device path for a Unix mount.</doc>
+           line="2940">Gets the device path for a Unix mount.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.get_device_path] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="105"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2908">a string containing the device path</doc>
+             line="2946">a string containing the device path</doc>
         <type name="filename" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2904">a [struct@GioUnix.MountEntry]</doc>
+               line="2942">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3559,20 +3559,20 @@ This will return `NULL` if looking up the mount entry fails, if
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2978">Gets the filesystem type for the Unix mount.</doc>
+           line="3016">Gets the filesystem type for the Unix mount.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.get_fs_type] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="115"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2984">a string containing the file system type</doc>
+             line="3022">a string containing the file system type</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2980">a [struct@GioUnix.MountEntry]</doc>
+               line="3018">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3583,20 +3583,20 @@ This will return `NULL` if looking up the mount entry fails, if
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2870">Gets the mount path for a Unix mount.</doc>
+           line="2908">Gets the mount path for a Unix mount.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.get_mount_path] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="100"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2876">the mount path for @mount_entry</doc>
+             line="2914">the mount path for @mount_entry</doc>
         <type name="filename" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2872">a [struct@GioUnix.MountEntry] to get the mount path for</doc>
+               line="2910">a [struct@GioUnix.MountEntry] to get the mount path for</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3608,7 +3608,7 @@ This will return `NULL` if looking up the mount entry fails, if
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3010">Gets a comma separated list of mount options for the Unix mount.
+           line="3048">Gets a comma separated list of mount options for the Unix mount.
 
 For example: `rw,relatime,seclabel,data=ordered`.
 
@@ -3619,7 +3619,7 @@ a [struct@GioUnix.MountEntry] as an argument.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3021">a string containing the options, or `NULL` if not
+             line="3059">a string containing the options, or `NULL` if not
    available.</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -3627,7 +3627,7 @@ a [struct@GioUnix.MountEntry] as an argument.</doc>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3012">a [struct@GioUnix.MountEntry]</doc>
+               line="3050">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3639,7 +3639,7 @@ a [struct@GioUnix.MountEntry] as an argument.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2934">Gets the root of the mount within the filesystem.
+           line="2972">Gets the root of the mount within the filesystem.
 
 This is useful e.g. for mounts created by bind operation, or btrfs subvolumes.
 
@@ -3651,14 +3651,14 @@ For example, the root path is equal to `/` for a mount created by
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2946">a string containing the root, or `NULL` if not supported</doc>
+             line="2984">a string containing the root, or `NULL` if not supported</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2936">a [struct@GioUnix.MountEntry]</doc>
+               line="2974">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3669,20 +3669,20 @@ For example, the root path is equal to `/` for a mount created by
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3638">Guesses whether a Unix mount entry can be ejected.</doc>
+           line="3676">Guesses whether a Unix mount entry can be ejected.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.guess_can_eject] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="135"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3644">true if @mount_entry is deemed to be ejectable; false otherwise</doc>
+             line="3682">true if @mount_entry is deemed to be ejectable; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3640">a [struct@GioUnix.MountEntry]</doc>
+               line="3678">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3693,20 +3693,20 @@ For example, the root path is equal to `/` for a mount created by
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3525">Guesses the icon of a Unix mount entry.</doc>
+           line="3563">Guesses the icon of a Unix mount entry.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.guess_icon] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="150"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3531">a [iface@Gio.Icon]</doc>
+             line="3569">a [iface@Gio.Icon]</doc>
         <type name="Gio.Icon" c:type="GIcon*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3527">a [struct@GioUnix.MountEntry]</doc>
+               line="3565">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3717,7 +3717,7 @@ For example, the root path is equal to `/` for a mount created by
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3484">Guesses the name of a Unix mount entry.
+           line="3522">Guesses the name of a Unix mount entry.
 
 The result is a translated string.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.guess_name] instead.</doc-deprecated>
@@ -3725,14 +3725,14 @@ The result is a translated string.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3492">a newly allocated translated string</doc>
+             line="3530">a newly allocated translated string</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3486">a [struct@GioUnix.MountEntry]</doc>
+               line="3524">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3743,20 +3743,20 @@ The result is a translated string.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3675">Guesses whether a Unix mount entry should be displayed in the UI.</doc>
+           line="3713">Guesses whether a Unix mount entry should be displayed in the UI.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.guess_should_display] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="140"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3681">true if @mount_entry is deemed to be displayable; false otherwise</doc>
+             line="3719">true if @mount_entry is deemed to be displayable; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3677">a [struct@GioUnix.MountEntry]</doc>
+               line="3715">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3768,20 +3768,20 @@ The result is a translated string.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3555">Guesses the symbolic icon of a Unix mount entry.</doc>
+           line="3593">Guesses the symbolic icon of a Unix mount entry.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.guess_symbolic_icon] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="155"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3561">a [iface@Gio.Icon]</doc>
+             line="3599">a [iface@Gio.Icon]</doc>
         <type name="Gio.Icon" c:type="GIcon*"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3557">a [struct@GioUnix.MountEntry]</doc>
+               line="3595">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3792,20 +3792,20 @@ The result is a translated string.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3055">Checks if a Unix mount is mounted read only.</doc>
+           line="3093">Checks if a Unix mount is mounted read only.</doc>
       <doc-deprecated xml:space="preserve">Use [method@GioUnix.MountEntry.is_readonly] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="125"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3061">true if @mount_entry is read only; false otherwise</doc>
+             line="3099">true if @mount_entry is read only; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3057">a [struct@GioUnix.MountEntry]</doc>
+               line="3095">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3816,7 +3816,7 @@ The result is a translated string.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="3087">Checks if a Unix mount is a system mount.
+           line="3125">Checks if a Unix mount is a system mount.
 
 This is the Boolean OR of
 [func@GioUnix.is_system_fs_type], [func@GioUnix.is_system_device_path] and
@@ -3829,14 +3829,14 @@ file system types and device paths are ignored.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="3100">true if the Unix mount is for a system path; false otherwise</doc>
+             line="3138">true if the Unix mount is for a system path; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="mount_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="3089">a [struct@GioUnix.MountEntry]</doc>
+               line="3127">a [struct@GioUnix.MountEntry]</doc>
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
         </parameter>
       </parameters>
@@ -3847,7 +3847,7 @@ file system types and device paths are ignored.</doc>
               version="2.66">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2114">Gets a [struct@GioUnix.MountPoint] for a given mount path.
+           line="2152">Gets a [struct@GioUnix.MountPoint] for a given mount path.
 
 If @time_read is set, it will be filled with a Unix timestamp for checking if
 the mount points have changed since with
@@ -3859,7 +3859,7 @@ is returned.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2128">a [struct@GioUnix.MountPoint], or `NULL`
+             line="2166">a [struct@GioUnix.MountPoint], or `NULL`
    if no match is found</doc>
         <type name="MountPoint" c:type="GUnixMountPoint*"/>
       </return-value>
@@ -3867,7 +3867,7 @@ is returned.</doc>
         <parameter name="mount_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2116">path for a possible Unix mount point</doc>
+               line="2154">path for a possible Unix mount point</doc>
           <type name="filename" c:type="const char*"/>
         </parameter>
         <parameter name="time_read"
@@ -3878,7 +3878,7 @@ is returned.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2117">return location for a timestamp</doc>
+               line="2155">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3887,7 +3887,7 @@ is returned.</doc>
               c:identifier="g_unix_mount_points_changed_since">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2201">Checks if the Unix mount points have changed since a given Unix time.
+           line="2239">Checks if the Unix mount points have changed since a given Unix time.
 
 Unlike [func@GioUnix.mount_entries_changed_since], this function can work
 reliably without a [class@GioUnix.MountMonitor] running, as it accesses the
@@ -3902,14 +3902,14 @@ cache validity.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2217">true if the mount points have changed since @time; false otherwise</doc>
+             line="2255">true if the mount points have changed since @time; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2203">a timestamp</doc>
+               line="2241">a timestamp</doc>
           <type name="guint64" c:type="guint64"/>
         </parameter>
       </parameters>
@@ -3917,7 +3917,7 @@ cache validity.</doc>
     <function name="mount_points_get" c:identifier="g_unix_mount_points_get">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2041">Gets a list of [struct@GioUnix.MountPoint] instances representing the Unix
+           line="2079">Gets a list of [struct@GioUnix.MountPoint] instances representing the Unix
 mount points.
 
 If @time_read is set, it will be filled with the mount timestamp, allowing
@@ -3927,7 +3927,7 @@ for checking if the mounts have changed with
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2052">a list of the Unix
+             line="2090">a list of the Unix
    mount points</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="MountPoint"/>
@@ -3942,7 +3942,7 @@ for checking if the mounts have changed with
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2043">return location for a timestamp</doc>
+               line="2081">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -3952,7 +3952,7 @@ for checking if the mounts have changed with
               version="2.82">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2083">Gets an array of [struct@GioUnix.MountPoint]s containing the Unix mount
+           line="2121">Gets an array of [struct@GioUnix.MountPoint]s containing the Unix mount
 points listed in @table_path.
 
 This is a generalized version of [func@GioUnix.mount_points_get], mainly
@@ -3966,7 +3966,7 @@ and both out parameters will be set to `0`.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2102">mount
+             line="2140">mount
   points, or `NULL` if there was an error loading them</doc>
         <array length="2" zero-terminated="0" c:type="GUnixMountPoint**">
           <type name="MountPoint" c:type="GUnixMountPoint*"/>
@@ -3976,7 +3976,7 @@ and both out parameters will be set to `0`.</doc>
         <parameter name="table_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2085">path to the mount points table file (for example `/etc/fstab`)</doc>
+               line="2123">path to the mount points table file (for example `/etc/fstab`)</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="time_read_out"
@@ -3987,7 +3987,7 @@ and both out parameters will be set to `0`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2086">return location for the
+               line="2124">return location for the
   modification time of @table_path</doc>
           <type name="guint64" c:type="uint64_t*"/>
         </parameter>
@@ -3999,7 +3999,7 @@ and both out parameters will be set to `0`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2088">return location for the
+               line="2126">return location for the
   number of mount points returned</doc>
           <type name="gsize" c:type="size_t*"/>
         </parameter>
@@ -4011,20 +4011,20 @@ and both out parameters will be set to `0`.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="2161">Checks if the Unix mounts have changed since a given Unix time.</doc>
+           line="2199">Checks if the Unix mounts have changed since a given Unix time.</doc>
       <doc-deprecated xml:space="preserve">Use [func@GioUnix.mount_entries_changed_since] instead.</doc-deprecated>
       <source-position filename="gio/gunixmounts.h" line="227"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="2167">true if the mounts have changed since @time; false otherwise</doc>
+             line="2205">true if the mounts have changed since @time; false otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="2163">a timestamp</doc>
+               line="2201">a timestamp</doc>
           <type name="guint64" c:type="guint64"/>
         </parameter>
       </parameters>
@@ -4035,7 +4035,7 @@ and both out parameters will be set to `0`.</doc>
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1779">Gets a list of [struct@GioUnix.MountEntry] instances representing the Unix
+           line="1817">Gets a list of [struct@GioUnix.MountEntry] instances representing the Unix
 mounts.
 
 If @time_read is set, it will be filled with the mount timestamp, allowing
@@ -4046,7 +4046,7 @@ for checking if the mounts have changed with
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1790">a list of the
+             line="1828">a list of the
    Unix mounts</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="MountEntry"/>
@@ -4061,7 +4061,7 @@ for checking if the mounts have changed with
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1781">return location for a timestamp</doc>
+               line="1819">return location for a timestamp</doc>
           <type name="guint64" c:type="guint64*"/>
         </parameter>
       </parameters>
@@ -4073,7 +4073,7 @@ for checking if the mounts have changed with
               deprecated-version="2.84">
       <doc xml:space="preserve"
            filename="gio/gunixmounts.c"
-           line="1824">Gets an array of [struct@GioUnix.MountEntry]s containing the Unix mounts
+           line="1862">Gets an array of [struct@GioUnix.MountEntry]s containing the Unix mounts
 listed in @table_path.
 
 This is a generalized version of [func@GioUnix.mount_entries_get], mainly
@@ -4088,7 +4088,7 @@ and both out parameters will be set to `0`.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gio/gunixmounts.c"
-             line="1843">mount
+             line="1881">mount
   entries, or `NULL` if there was an error loading them</doc>
         <array length="2" zero-terminated="0" c:type="GUnixMountEntry**">
           <type name="MountEntry" c:type="GUnixMountEntry*"/>
@@ -4098,7 +4098,7 @@ and both out parameters will be set to `0`.</doc>
         <parameter name="table_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1826">path to the mounts table file (for example `/proc/self/mountinfo`)</doc>
+               line="1864">path to the mounts table file (for example `/proc/self/mountinfo`)</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="time_read_out"
@@ -4109,7 +4109,7 @@ and both out parameters will be set to `0`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1827">return location for the
+               line="1865">return location for the
   modification time of @table_path</doc>
           <type name="guint64" c:type="uint64_t*"/>
         </parameter>
@@ -4121,7 +4121,7 @@ and both out parameters will be set to `0`.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gio/gunixmounts.c"
-               line="1829">return location for the
+               line="1867">return location for the
   number of mount entries returned</doc>
           <type name="gsize" c:type="size_t*"/>
         </parameter>

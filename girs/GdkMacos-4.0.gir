@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0" version="1.2">
+  <include name="Gdk" version="4.0"/>
+  <package name="gtk4-macos"/>
+  <c:include name="gdk/macos/gdkmacos.h"/>
+  <namespace name="GdkMacos" version="4.0" shared-library="libgtk-4.1.dylib" c:identifier-prefixes="Gdk" c:symbol-prefixes="gdk">
+    <function-macro name="IS_MACOS_DEVICE" c:identifier="GDK_IS_MACOS_DEVICE" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MACOS_DISPLAY" c:identifier="GDK_IS_MACOS_DISPLAY" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MACOS_GL_CONTEXT" c:identifier="GDK_IS_MACOS_GL_CONTEXT" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MACOS_KEYMAP" c:identifier="GDK_IS_MACOS_KEYMAP" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MACOS_MONITOR" c:identifier="GDK_IS_MACOS_MONITOR" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MACOS_SEAT" c:identifier="GDK_IS_MACOS_SEAT" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MACOS_SURFACE" c:identifier="GDK_IS_MACOS_SURFACE" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_DEVICE" c:identifier="GDK_MACOS_DEVICE" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_DISPLAY" c:identifier="GDK_MACOS_DISPLAY" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_GL_CONTEXT" c:identifier="GDK_MACOS_GL_CONTEXT" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_KEYMAP" c:identifier="GDK_MACOS_KEYMAP" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_MONITOR" c:identifier="GDK_MACOS_MONITOR" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_SEAT" c:identifier="GDK_MACOS_SEAT" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MACOS_SURFACE" c:identifier="GDK_MACOS_SURFACE" introspectable="0">
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="MacosDevice" c:symbol-prefix="macos_device" c:type="GdkMacosDevice" parent="Gdk.Device" glib:type-name="GdkMacosDevice" glib:get-type="gdk_macos_device_get_type" glib:type-struct="MacosDeviceClass"/>
+    <record name="MacosDeviceClass" c:type="GdkMacosDeviceClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosDevice"/>
+    <class name="MacosDisplay" c:symbol-prefix="macos_display" c:type="GdkMacosDisplay" parent="Gdk.Display" glib:type-name="GdkMacosDisplay" glib:get-type="gdk_macos_display_get_type" glib:type-struct="MacosDisplayClass"/>
+    <record name="MacosDisplayClass" c:type="GdkMacosDisplayClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosDisplay"/>
+    <class name="MacosGLContext" c:symbol-prefix="macos_gl_context" c:type="GdkMacosGLContext" parent="Gdk.GLContext" glib:type-name="GdkMacosGLContext" glib:get-type="gdk_macos_gl_context_get_type" glib:type-struct="MacosGLContextClass"/>
+    <record name="MacosGLContextClass" c:type="GdkMacosGLContextClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosGLContext"/>
+    <class name="MacosKeymap" c:symbol-prefix="macos_keymap" c:type="GdkMacosKeymap" parent="GObject.Object" glib:type-name="GdkMacosKeymap" glib:get-type="gdk_macos_keymap_get_type" glib:type-struct="MacosKeymapClass"/>
+    <record name="MacosKeymapClass" c:type="GdkMacosKeymapClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosKeymap"/>
+    <class name="MacosMonitor" c:symbol-prefix="macos_monitor" c:type="GdkMacosMonitor" parent="Gdk.Monitor" glib:type-name="GdkMacosMonitor" glib:get-type="gdk_macos_monitor_get_type" glib:type-struct="MacosMonitorClass">
+      <function name="get_geometry" c:identifier="gdk_macos_monitor_get_geometry">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="self" transfer-ownership="none">
+            <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
+          </parameter>
+          <parameter name="geometry" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_workarea" c:identifier="gdk_macos_monitor_get_workarea">
+        <doc xml:space="preserve">Retrieves the size and position of the &#x201C;work area&#x201D; on a monitor
+within the display coordinate space.
+
+The returned geometry is in &#x201D;application pixels&#x201D;, not in &#x201D;device pixels&#x201D;
+(see [method@Gdk.Monitor.get_scale_factor]).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="monitor" transfer-ownership="none">
+            <doc xml:space="preserve">a `GdkMonitor`</doc>
+            <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
+          </parameter>
+          <parameter name="geometry" direction="out" caller-allocates="1" transfer-ownership="none">
+            <doc xml:space="preserve">a `GdkRectangle` to be filled with the monitor geometry</doc>
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </class>
+    <record name="MacosMonitorClass" c:type="GdkMacosMonitorClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosMonitor"/>
+    <class name="MacosSeat" c:symbol-prefix="macos_seat" c:type="GdkMacosSeat" parent="Gdk.Seat" glib:type-name="GdkMacosSeat" glib:get-type="gdk_macos_seat_get_type" glib:type-struct="MacosSeatClass"/>
+    <record name="MacosSeatClass" c:type="GdkMacosSeatClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosSeat"/>
+    <class name="MacosSurface" c:symbol-prefix="macos_surface" c:type="GdkMacosSurface" parent="Gdk.Surface" abstract="1" glib:type-name="GdkMacosSurface" glib:get-type="gdk_macos_surface_get_type" glib:type-struct="MacosSurfaceClass">
+      <method name="get_native_window" c:identifier="gdk_macos_surface_get_native_window" version="4.8">
+        <doc xml:space="preserve">Gets the underlying NSWindow used by the surface.
+
+The NSWindow's contentView is an implementation detail and may change
+between releases of GTK.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">a #NSWindow or %NULL</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GdkMacosSurface</doc>
+            <type name="MacosSurface" c:type="GdkMacosSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="native" transfer-ownership="none">
+        <doc xml:space="preserve">The "native" property contains the underlying NSWindow.</doc>
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+    </class>
+    <record name="MacosSurfaceClass" c:type="GdkMacosSurfaceClass" disguised="1" opaque="1" glib:is-gtype-struct-for="MacosSurface"/>
+  </namespace>
+</repository>

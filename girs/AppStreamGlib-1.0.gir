@@ -5,13 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="appstream-glib"/>
-  <doc:format name="unknown"/>
   <namespace name="AppStreamGlib"
              version="1.0"
              shared-library="libappstream-glib.so.8"
@@ -14368,8 +14366,7 @@ taken place.</doc>
       <method name="load"
               c:identifier="as_store_load"
               version="0.1.2"
-              throws="1"
-              glib:async-func="load_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3534">Loads the store from the default locations.</doc>
@@ -14406,9 +14403,7 @@ taken place.</doc>
       </method>
       <method name="load_async"
               c:identifier="as_store_load_async"
-              version="0.7.11"
-              glib:finish-func="load_finish"
-              glib:sync-func="load">
+              version="0.7.11">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3601">Asynchronously loads the store from the default locations.</doc>
@@ -14492,8 +14487,7 @@ taken place.</doc>
       <method name="load_path"
               c:identifier="as_store_load_path"
               version="0.2.2"
-              throws="1"
-              glib:async-func="load_path_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3216">Loads the store from a specific path.</doc>
@@ -14530,9 +14524,7 @@ taken place.</doc>
       </method>
       <method name="load_path_async"
               c:identifier="as_store_load_path_async"
-              version="0.7.11"
-              glib:finish-func="load_path_finish"
-              glib:sync-func="load_path">
+              version="0.7.11">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3257">Asynchronously loads the store from a specific path.</doc>

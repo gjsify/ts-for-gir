@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Camel" version="1.2"/>
   <include name="ECal" version="2.0"/>
@@ -15,16 +16,17 @@ and/or use gtk-doc annotations.  -->
   <include name="Soup" version="3.0"/>
   <package name="libedataserverui4-1.0"/>
   <c:include name="libedataserverui4/libedataserverui4.h"/>
+  <doc:format name="unknown"/>
   <namespace name="EDataServerUI4"
              version="1.0"
-             shared-library="libcamel-1.2.so.64,libecal-2.0.so.2,libedataserver-1.2.so.27,libedataserverui4-1.0.so.0"
+             shared-library="libcamel-1.2.so.66,libecal-2.0.so.3,libedataserver-1.2.so.27,libedataserverui4-1.0.so.0"
              c:identifier-prefixes="E"
              c:symbol-prefixes="e">
     <function-macro name="CELL_RENDERER_COLOR"
                     c:identifier="E_CELL_RENDERER_COLOR"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="34"/>
+                       line="33"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -34,7 +36,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="E_CELL_RENDERER_COLOR_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="37"/>
+                       line="36"/>
       <parameters>
         <parameter name="cls">
         </parameter>
@@ -44,7 +46,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="E_CELL_RENDERER_COLOR_GET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="45"/>
+                       line="44"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -54,7 +56,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="E_CERTIFICATE_WIDGET"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="22"/>
+                       line="21"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -64,7 +66,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="E_CERTIFICATE_WIDGET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="25"/>
+                       line="24"/>
       <parameters>
         <parameter name="cls">
         </parameter>
@@ -74,7 +76,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="E_CERTIFICATE_WIDGET_GET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="33"/>
+                       line="32"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -209,17 +211,20 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="e_cell_renderer_color_get_type"
            glib:type-struct="CellRendererColorClass">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="74"/>
+                       line="73"/>
       <constructor name="new"
                    c:identifier="e_cell_renderer_color_new"
                    version="2.22">
         <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                         line="77"/>
+                         line="76"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.CellRenderer" c:type="GtkCellRenderer*"/>
         </return-value>
       </constructor>
       <property name="rgba" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.c"
+             line="276">The GdkRGBA color to render</doc>
         <type name="Gdk.RGBA"/>
       </property>
       <field name="parent">
@@ -234,14 +239,14 @@ and/or use gtk-doc annotations.  -->
             c:type="ECellRendererColorClass"
             glib:is-gtype-struct-for="CellRendererColor">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="74"/>
+                       line="73"/>
       <field name="parent_class">
         <type name="Gtk.CellRendererClass" c:type="GtkCellRendererClass"/>
       </field>
       <field name="_gtk_reserved1" introspectable="0">
         <callback name="_gtk_reserved1">
           <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                           line="70"/>
+                           line="69"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -250,7 +255,7 @@ and/or use gtk-doc annotations.  -->
       <field name="_gtk_reserved2" introspectable="0">
         <callback name="_gtk_reserved2">
           <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                           line="71"/>
+                           line="70"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -259,7 +264,7 @@ and/or use gtk-doc annotations.  -->
       <field name="_gtk_reserved3" introspectable="0">
         <callback name="_gtk_reserved3">
           <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                           line="72"/>
+                           line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -268,7 +273,7 @@ and/or use gtk-doc annotations.  -->
       <field name="_gtk_reserved4" introspectable="0">
         <callback name="_gtk_reserved4">
           <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                           line="73"/>
+                           line="72"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -280,7 +285,7 @@ and/or use gtk-doc annotations.  -->
             disguised="1"
             opaque="1">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="54"/>
+                       line="53"/>
     </record>
     <class name="CertificateWidget"
            c:symbol-prefix="certificate_widget"
@@ -291,7 +296,7 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="e_certificate_widget_get_type"
            glib:type-struct="CertificateWidgetClass">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="64"/>
+                       line="63"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -301,13 +306,13 @@ and/or use gtk-doc annotations.  -->
                    version="3.46">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-             line="537">Creates a new #ECertificateWidget</doc>
+             line="542">Creates a new #ECertificateWidget</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                         line="67"/>
+                         line="66"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-               line="542">a new #ECertificateWidget</doc>
+               line="547">a new #ECertificateWidget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -316,13 +321,13 @@ and/or use gtk-doc annotations.  -->
               version="3.46">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-             line="552">Updates the content of the @self with the certificate information
+             line="557">Updates the content of the @self with the certificate information
 described by the @der_data of the length @der_data_len in the DER
 format.
 
 The content of the @self is cleared when the @der_data is %NULL.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                         line="68"/>
+                         line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -330,7 +335,7 @@ The content of the @self is cleared when the @der_data is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-                 line="554">an #ECertificateWidget</doc>
+                 line="559">an #ECertificateWidget</doc>
             <type name="CertificateWidget" c:type="ECertificateWidget*"/>
           </instance-parameter>
           <parameter name="der_data"
@@ -339,13 +344,13 @@ The content of the @self is cleared when the @der_data is %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-                 line="555">certificate data in DER format, or %NULL</doc>
+                 line="560">certificate data in DER format, or %NULL</doc>
             <type name="gpointer" c:type="gconstpointer"/>
           </parameter>
           <parameter name="der_data_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-                 line="556">length of the @der_data</doc>
+                 line="561">length of the @der_data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -355,12 +360,12 @@ The content of the @self is cleared when the @der_data is %NULL.</doc>
               version="3.46">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-             line="703">Updates the content of the @self with the certificate information
+             line="708">Updates the content of the @self with the certificate information
 described by the @pem_data in the PEM format.
 
 The content of the @self is cleared when the @pem_data is %NULL.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                         line="71"/>
+                         line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -368,7 +373,7 @@ The content of the @self is cleared when the @pem_data is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-                 line="705">an #ECertificateWidget</doc>
+                 line="710">an #ECertificateWidget</doc>
             <type name="CertificateWidget" c:type="ECertificateWidget*"/>
           </instance-parameter>
           <parameter name="pem_data"
@@ -377,7 +382,7 @@ The content of the @self is cleared when the @pem_data is %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-                 line="706">certificate data in PEM format, or %NULL</doc>
+                 line="711">certificate data in PEM format, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -394,7 +399,7 @@ The content of the @self is cleared when the @pem_data is %NULL.</doc>
             c:type="ECertificateWidgetClass"
             glib:is-gtype-struct-for="CertificateWidget">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="64"/>
+                       line="63"/>
       <field name="parent_class">
         <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
       </field>
@@ -404,7 +409,7 @@ The content of the @self is cleared when the @pem_data is %NULL.</doc>
             disguised="1"
             opaque="1">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="42"/>
+                       line="41"/>
     </record>
     <class name="CredentialsPrompter"
            c:symbol-prefix="credentials_prompter"
@@ -426,21 +431,21 @@ functions below.</doc>
                    version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1207">Creates a new #ECredentialsPrompter, which listens for credential requests
+             line="1187">Creates a new #ECredentialsPrompter, which listens for credential requests
 from @registry.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
                          line="137"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1214">a new #ECredentialsPrompter</doc>
+               line="1194">a new #ECredentialsPrompter</doc>
           <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
         </return-value>
         <parameters>
           <parameter name="registry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1209">an #ESourceRegistry to have the prompter listen to</doc>
+                 line="1189">an #ESourceRegistry to have the prompter listen to</doc>
             <type name="EDataServer.SourceRegistry" c:type="ESourceRegistry*"/>
           </parameter>
         </parameters>
@@ -450,7 +455,7 @@ from @registry.</doc>
                       version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1395">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
+             line="1375">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
 by an ECredentialsPrompter::get-dialog-parent signal emission. If there is no callback
 registered or the current callbacks don't have any suitable window, then there's
 chosen the last active window from the default GApplication, if any available.</doc>
@@ -459,7 +464,7 @@ chosen the last active window from the default GApplication, if any available.</
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1404">a #GtkWindow, to be used as a dialog parent,
+               line="1384">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -467,73 +472,18 @@ chosen the last active window from the default GApplication, if any available.</
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1397">an #ECredentialsPrompter</doc>
+                 line="1377">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <method name="complete_prompt_call"
-              c:identifier="e_credentials_prompter_complete_prompt_call"
-              version="3.16">
-        <doc xml:space="preserve"
-             filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1763">Completes an ongoing credentials prompt on idle, by finishing the @async_result.
-This function is meant to be used by an #ECredentialsPrompterImpl implementation.
-To actually finish the credentials prompt previously started with
-e_credentials_prompter_prompt(), the e_credentials_prompter_prompt_finish() should
-be called from the provided callback.
-
-Using %NULL @credentials will result in a G_IO_ERROR_CANCELLED error, if
-no other @error is provided.</doc>
-        <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
-                         line="186"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="prompter" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1765">an #ECredentialsPrompter</doc>
-            <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
-          </instance-parameter>
-          <parameter name="async_result" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1766">a #GSimpleAsyncResult</doc>
-            <type name="Gio.SimpleAsyncResult" c:type="GSimpleAsyncResult*"/>
-          </parameter>
-          <parameter name="source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1767">an #ESource, on which the prompt was started</doc>
-            <type name="EDataServer.Source" c:type="ESource*"/>
-          </parameter>
-          <parameter name="credentials"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1768">credentials, as provided by a user, on %NULL, when the prompt was cancelled</doc>
-            <type name="EDataServer.NamedParameters"
-                  c:type="const ENamedParameters*"/>
-          </parameter>
-          <parameter name="error" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1769">a resulting #GError, or %NULL</doc>
-            <type name="GLib.Error" c:type="const GError*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="get_auto_prompt"
               c:identifier="e_credentials_prompter_get_auto_prompt"
               glib:get-property="auto-prompt"
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1263">Returns, whether can respond to credential prompts automatically.
+             line="1243">Returns, whether can respond to credential prompts automatically.
 Default value is %TRUE.
 
 This property does not influence direct calls of e_credentials_prompter_prompt().</doc>
@@ -542,14 +492,14 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1272">Whether can respond to credential prompts automatically.</doc>
+               line="1252">Whether can respond to credential prompts automatically.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1265">an #ECredentialsPrompter</doc>
+                 line="1245">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -559,7 +509,7 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1346">Returns whether the auto-prompt is disabled for the given @source.
+             line="1326">Returns whether the auto-prompt is disabled for the given @source.
 All sources can be auto-prompted by default. This is a complementary
 value for the ECredentialsPrompter::auto-prompt property.
 
@@ -569,20 +519,20 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1357">Whether the auto-prompt is disabled for the given @source</doc>
+               line="1337">Whether the auto-prompt is disabled for the given @source</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1348">an #ECredentialsPrompter</doc>
+                 line="1328">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1349">an #ESource</doc>
+                 line="1329">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
         </parameters>
@@ -592,7 +542,7 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1395">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
+             line="1375">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
 by an ECredentialsPrompter::get-dialog-parent signal emission. If there is no callback
 registered or the current callbacks don't have any suitable window, then there's
 chosen the last active window from the default GApplication, if any available.</doc>
@@ -601,7 +551,7 @@ chosen the last active window from the default GApplication, if any available.</
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1404">a #GtkWindow, to be used as a dialog parent,
+               line="1384">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -609,7 +559,7 @@ chosen the last active window from the default GApplication, if any available.</
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1397">an #ECredentialsPrompter</doc>
+                 line="1377">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -619,7 +569,7 @@ chosen the last active window from the default GApplication, if any available.</
               version="3.42">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1424">Returns a #GtkWindow, which should be used as a dialog parent for the @auth_source.
+             line="1404">Returns a #GtkWindow, which should be used as a dialog parent for the @auth_source.
 
 This is determined by an ECredentialsPrompter::get-dialog-parent-full signal emission
 and an ECredentialsPrompter::get-dialog-parent when the first doesn't return anything.
@@ -631,7 +581,7 @@ if any available.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1437">a #GtkWindow, to be used as a dialog parent,
+               line="1417">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -639,7 +589,7 @@ if any available.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1426">an #ECredentialsPrompter</doc>
+                 line="1406">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="auth_source"
@@ -648,7 +598,7 @@ if any available.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1427">an #ESource</doc>
+                 line="1407">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
         </parameters>
@@ -659,13 +609,13 @@ if any available.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1244">Returns an #ESourceCredentialsProvider, which the @prompter uses.</doc>
+             line="1224">Returns an #ESourceCredentialsProvider, which the @prompter uses.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
                          line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1250">an #ESourceCredentialsProvider, which the @prompter uses.</doc>
+               line="1230">an #ESourceCredentialsProvider, which the @prompter uses.</doc>
           <type name="EDataServer.SourceCredentialsProvider"
                 c:type="ESourceCredentialsProvider*"/>
         </return-value>
@@ -673,7 +623,7 @@ if any available.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1246">an #ECredentialsPrompter</doc>
+                 line="1226">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -684,20 +634,20 @@ if any available.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1226">Returns an #ESourceRegistry, to which the @prompter listens.</doc>
+             line="1206">Returns an #ESourceRegistry, to which the @prompter listens.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
                          line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1232">an #ESourceRegistry, to which the @prompter listens.</doc>
+               line="1212">an #ESourceRegistry, to which the @prompter listens.</doc>
           <type name="EDataServer.SourceRegistry" c:type="ESourceRegistry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1228">an #ECredentialsPrompter</doc>
+                 line="1208">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -708,7 +658,7 @@ if any available.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1885">Runs a credentials prompt loop for @source, as long as the @func doesn't
+             line="1816">Runs a credentials prompt loop for @source, as long as the @func doesn't
 indicate that the provided credentials can be used to successfully
 authenticate against @source&lt;!-- --&gt;'s server, or that the @func
 returns %FALSE. The loop is also teminated when a used cancels
@@ -719,11 +669,11 @@ Note: The function doesn't return until the loop is terminated, either
    successfully or unsuccessfully. The function can be called from any
    thread, though a dedicated thread is preferred.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
-                         line="192"/>
+                         line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1906">%TRUE, when the credentials were provided successfully and they
+               line="1837">%TRUE, when the credentials were provided successfully and they
   can be used to authenticate the @source; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -731,19 +681,19 @@ Note: The function doesn't return until the loop is terminated, either
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1887">an #ECredentialsPrompter</doc>
+                 line="1818">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1888">an #ESource to be prompted credentials for</doc>
+                 line="1819">an #ESource to be prompted credentials for</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1889">a bit-or of #ECredentialsPrompterPromptFlags initial flags</doc>
+                 line="1820">a bit-or of #ECredentialsPrompterPromptFlags initial flags</doc>
             <type name="CredentialsPrompterPromptFlags"
                   c:type="ECredentialsPrompterPromptFlags"/>
           </parameter>
@@ -753,7 +703,7 @@ Note: The function doesn't return until the loop is terminated, either
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1890">an #ECredentialsPrompterLoopPromptFunc user function to call to check provided credentials</doc>
+                 line="1821">an #ECredentialsPrompterLoopPromptFunc user function to call to check provided credentials</doc>
             <type name="CredentialsPrompterLoopPromptFunc"
                   c:type="ECredentialsPrompterLoopPromptFunc"/>
           </parameter>
@@ -763,7 +713,7 @@ Note: The function doesn't return until the loop is terminated, either
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1891">user data to pass to @func</doc>
+                 line="1822">user data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="cancellable"
@@ -772,7 +722,7 @@ Note: The function doesn't return until the loop is terminated, either
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1892">an optional #GCancellable, or %NULL</doc>
+                 line="1823">an optional #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -782,7 +732,7 @@ Note: The function doesn't return until the loop is terminated, either
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1602">Process all enabled sources with connection state #E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS,
+             line="1582">Process all enabled sources with connection state #E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS,
 like if they just asked for its credentials for the first time.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
                          line="169"/>
@@ -793,7 +743,7 @@ like if they just asked for its credentials for the first time.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1604">an #ECredentialsPrompter</doc>
+                 line="1584">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -803,7 +753,7 @@ like if they just asked for its credentials for the first time.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1634">Continues a credential prompt for @source. Returns, whether anything will be done.
+             line="1614">Continues a credential prompt for @source. Returns, whether anything will be done.
 The %FALSE either means that the @source&lt;!-- --&gt;'s connection status is not
 the %E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS or it is disabled.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
@@ -811,30 +761,31 @@ the %E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS or it is disabled.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1643">Whether continues with the credentials prompt.</doc>
+               line="1623">Whether continues with the credentials prompt.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1636">an #ECredentialsPrompter</doc>
+                 line="1616">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1637">an #ESource</doc>
+                 line="1617">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
         </parameters>
       </method>
       <method name="prompt"
               c:identifier="e_credentials_prompter_prompt"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="prompt_finish">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1664">Asks the @prompter to prompt for credentials, which are returned
+             line="1644">Asks the @prompter to prompt for credentials, which are returned
 to the caller through @callback, when available.The @flags are ignored,
 when the @callback is %NULL; the credentials are passed to the @source
 with e_source_invoke_authenticate() directly, in this case.
@@ -849,13 +800,13 @@ the provided credentials.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1666">an #ECredentialsPrompter</doc>
+                 line="1646">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1667">an #ESource, which prompt the credentials for</doc>
+                 line="1647">an #ESource, which prompt the credentials for</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="error_text"
@@ -864,13 +815,13 @@ the provided credentials.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1668">Additional error text to show to a user, or %NULL</doc>
+                 line="1648">Additional error text to show to a user, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1669">a bit-or of #ECredentialsPrompterPromptFlags</doc>
+                 line="1649">a bit-or of #ECredentialsPrompterPromptFlags</doc>
             <type name="CredentialsPrompterPromptFlags"
                   c:type="ECredentialsPrompterPromptFlags"/>
           </parameter>
@@ -882,7 +833,7 @@ the provided credentials.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1670">a callback to call when the credentials are ready, or %NULL</doc>
+                 line="1650">a callback to call when the credentials are ready, or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -891,7 +842,7 @@ the provided credentials.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1671">user data passed into @callback</doc>
+                 line="1651">user data passed into @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -902,7 +853,7 @@ the provided credentials.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1707">Finishes a credentials prompt previously started with e_credentials_prompter_prompt().
+             line="1689">Finishes a credentials prompt previously started with e_credentials_prompter_prompt().
 The @out_source will have set a referenced #ESource, for which the prompt
 was started. Unref it, when  no longer needed. Similarly the @out_credentials
 will have set a newly allocated #ENamedParameters structure with provided credentials,
@@ -913,20 +864,20 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1722">%TRUE on success, %FALSE otherwise.</doc>
+               line="1704">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1709">an #ECredentialsPrompter</doc>
+                 line="1691">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1710">a #GAsyncResult</doc>
+                 line="1692">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="out_source"
@@ -938,7 +889,7 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1711">optionally set to an #ESource, on which the prompt was started; can be %NULL</doc>
+                 line="1693">optionally set to an #ESource, on which the prompt was started; can be %NULL</doc>
             <type name="EDataServer.Source" c:type="ESource**"/>
           </parameter>
           <parameter name="out_credentials"
@@ -948,7 +899,7 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1712">set to an #ENamedParameters with provied credentials</doc>
+                 line="1694">set to an #ENamedParameters with provided credentials</doc>
             <type name="EDataServer.NamedParameters"
                   c:type="ENamedParameters**"/>
           </parameter>
@@ -959,7 +910,7 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1463">Registers a prompter implementation for a given authentication method. If there is
+             line="1443">Registers a prompter implementation for a given authentication method. If there is
 registered a prompter for the same @authentication_method, then the function does
 nothing, otherwise it adds its own reference on the @prompter_impl, and uses it
 for that authentication method. One @prompter_impl can be registered for multiple
@@ -973,7 +924,7 @@ registered for the exact authentication method.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1479">%TRUE on success, %FALSE on failure or when there was another prompter
+               line="1459">%TRUE on success, %FALSE on failure or when there was another prompter
 implementation registered for the given authentication method.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -981,7 +932,7 @@ implementation registered for the given authentication method.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1465">an #ECredentialsPrompter</doc>
+                 line="1445">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="authentication_method"
@@ -990,13 +941,13 @@ implementation registered for the given authentication method.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1466">an authentication method to registr @prompter_impl for; or %NULL</doc>
+                 line="1446">an authentication method to registr @prompter_impl for; or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="prompter_impl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1467">an #ECredentialsPrompterImpl</doc>
+                 line="1447">an #ECredentialsPrompterImpl</doc>
             <type name="CredentialsPrompterImpl"
                   c:type="ECredentialsPrompterImpl*"/>
           </parameter>
@@ -1008,7 +959,7 @@ implementation registered for the given authentication method.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1284">Sets whether can respond to credential prompts automatically. That means that
+             line="1264">Sets whether can respond to credential prompts automatically. That means that
 whenever any ESource will ask for credentials, it'll try to provide them.
 
 Use e_credentials_prompter_set_auto_prompt_disabled_for() to influence
@@ -1024,13 +975,13 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1286">an #ECredentialsPrompter</doc>
+                 line="1266">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="auto_prompt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1287">new value of the auto-prompt property</doc>
+                 line="1267">new value of the auto-prompt property</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1040,7 +991,7 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1313">Sets whether the auto-prompt should be disabled for the given @source.
+             line="1293">Sets whether the auto-prompt should be disabled for the given @source.
 All sources can be auto-prompted by default. This is a complementary
 value for the ECredentialsPrompter::auto-prompt property.
 
@@ -1054,19 +1005,19 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1315">an #ECredentialsPrompter</doc>
+                 line="1295">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1316">an #ESource</doc>
+                 line="1296">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="is_disabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1317">whether the auto-prompt should be disabled for this @source</doc>
+                 line="1297">whether the auto-prompt should be disabled for this @source</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1076,7 +1027,7 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1517">Unregisters previously registered @prompter_impl for the given @autnetication_method with
+             line="1497">Unregisters previously registered @prompter_impl for the given @autnetication_method with
 e_credentials_prompter_register_impl(). Function does nothing, if no such authentication
 method is registered or if it has set a different prompter implementation.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.h"
@@ -1088,7 +1039,7 @@ method is registered or if it has set a different prompter implementation.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1519">an #ECredentialsPrompter</doc>
+                 line="1499">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="authentication_method"
@@ -1097,13 +1048,13 @@ method is registered or if it has set a different prompter implementation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1520">an authentication method to registr @prompter_impl for; or %NULL</doc>
+                 line="1500">an authentication method to registr @prompter_impl for; or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="prompter_impl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1521">an #ECredentialsPrompterImpl</doc>
+                 line="1501">an #ECredentialsPrompterImpl</doc>
             <type name="CredentialsPrompterImpl"
                   c:type="ECredentialsPrompterImpl*"/>
           </parameter>
@@ -1119,7 +1070,7 @@ method is registered or if it has set a different prompter implementation.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1082">Whether the #ECredentialsPrompter can response to credential
+             line="1069">Whether the #ECredentialsPrompter can response to credential
 requests automatically.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -1129,7 +1080,7 @@ requests automatically.</doc>
                 getter="get_provider">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1122">The #ESourceCredentialsProvider object, which the prompter uses.</doc>
+             line="1103">The #ESourceCredentialsProvider object, which the prompter uses.</doc>
         <type name="EDataServer.SourceCredentialsProvider"/>
       </property>
       <property name="registry"
@@ -1140,7 +1091,7 @@ requests automatically.</doc>
                 getter="get_registry">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1103">The #ESourceRegistry object, to whose credential requests the prompter listens.</doc>
+             line="1087">The #ESourceRegistry object, to whose credential requests the prompter listens.</doc>
         <type name="EDataServer.SourceRegistry"/>
       </property>
       <field name="parent">
@@ -1153,13 +1104,13 @@ requests automatically.</doc>
       <glib:signal name="get-dialog-parent" when="last" version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1140">Emitted when a new dialog will be shown, to get the right parent
+             line="1120">Emitted when a new dialog will be shown, to get the right parent
 window for it. If the result of the call is %NULL, then it tries
 to get the window from the default GtkApplication.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1148">a #GtkWindow, to be used as a
+               line="1128">a #GtkWindow, to be used as a
 dialog parent, or %NULL.</doc>
           <type name="Gtk.Window"/>
         </return-value>
@@ -1167,13 +1118,13 @@ dialog parent, or %NULL.</doc>
       <glib:signal name="get-dialog-parent-full" when="last" version="3.42">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-             line="1161">Emitted when a new dialog will be shown, to get the right parent
+             line="1141">Emitted when a new dialog will be shown, to get the right parent
 window for it. If the result of the call is %NULL, then it tries
 to get the window from the default GtkApplication.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-               line="1170">a #GtkWindow, to be used as a
+               line="1150">a #GtkWindow, to be used as a
 dialog parent, or %NULL.</doc>
           <type name="Gtk.Window"/>
         </return-value>
@@ -1184,7 +1135,7 @@ dialog parent, or %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1164">an #ESource, for which to show the credentials prompt</doc>
+                 line="1144">an #ESource, for which to show the credentials prompt</doc>
             <type name="EDataServer.Source"/>
           </parameter>
         </parameters>
@@ -1205,7 +1156,7 @@ dialog parent, or %NULL.</doc>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                 line="1404">a #GtkWindow, to be used as a dialog parent,
+                 line="1384">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </return-value>
@@ -1213,7 +1164,7 @@ dialog parent, or %NULL.</doc>
             <parameter name="prompter" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/libedataserverui/libedataserverui4/e-credentials-prompter.c"
-                   line="1397">an #ECredentialsPrompter</doc>
+                   line="1377">an #ECredentialsPrompter</doc>
               <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
             </parameter>
           </parameters>
@@ -1643,13 +1594,13 @@ functions below.</doc>
                    version="3.28">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-credentials-prompter-impl-oauth2.c"
-             line="1588">Creates a new instance of an #ECredentialsPrompterImplOAuth2.</doc>
+             line="1995">Creates a new instance of an #ECredentialsPrompterImplOAuth2.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-credentials-prompter-impl-oauth2.h"
                          line="84"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-credentials-prompter-impl-oauth2.c"
-               line="1593">a newly created #ECredentialsPrompterImplOAuth2,
+               line="2000">a newly created #ECredentialsPrompterImplOAuth2,
    which should be freed with g_object_unref() when no longer needed.</doc>
           <type name="CredentialsPrompterImpl"
                 c:type="ECredentialsPrompterImpl*"/>
@@ -1854,7 +1805,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_IS_CELL_RENDERER_COLOR"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="40"/>
+                       line="39"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1864,7 +1815,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_IS_CELL_RENDERER_COLOR_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-cell-renderer-color.h"
-                       line="43"/>
+                       line="42"/>
       <parameters>
         <parameter name="cls">
         </parameter>
@@ -1874,7 +1825,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_IS_CERTIFICATE_WIDGET"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="28"/>
+                       line="27"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1884,7 +1835,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_IS_CERTIFICATE_WIDGET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-certificate-widget.h"
-                       line="31"/>
+                       line="30"/>
       <parameters>
         <parameter name="cls">
         </parameter>
@@ -1974,7 +1925,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_IS_REMINDERS_WIDGET"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="41"/>
+                       line="40"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1984,7 +1935,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_IS_REMINDERS_WIDGET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="44"/>
+                       line="43"/>
       <parameters>
         <parameter name="cls">
         </parameter>
@@ -1994,7 +1945,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_REMINDERS_WIDGET"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="35"/>
+                       line="34"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -2004,7 +1955,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_REMINDERS_WIDGET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="38"/>
+                       line="37"/>
       <parameters>
         <parameter name="cls">
         </parameter>
@@ -2014,7 +1965,7 @@ of the e_credentials_prompter_prompt().</doc>
                     c:identifier="E_REMINDERS_WIDGET_GET_CLASS"
                     introspectable="0">
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="47"/>
+                       line="46"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -2030,10 +1981,10 @@ of the e_credentials_prompter_prompt().</doc>
            glib:type-struct="RemindersWidgetClass">
       <doc xml:space="preserve"
            filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-           line="65">Contains only private data that should be read and manipulated using
+           line="64">Contains only private data that should be read and manipulated using
 the functions below.</doc>
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="97"/>
+                       line="96"/>
       <implements name="EDataServer.Extensible"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
@@ -2044,28 +1995,28 @@ the functions below.</doc>
                    version="3.30">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-             line="1995">Creates a new instance of #ERemindersWidget. It adds its own reference
+             line="2142">Creates a new instance of #ERemindersWidget. It adds its own reference
 on the @watcher.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="102"/>
+                         line="101"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-               line="2002">a new instance of #ERemindersWidget.</doc>
+               line="2149">a new instance of #ERemindersWidget.</doc>
           <type name="RemindersWidget" c:type="ERemindersWidget*"/>
         </return-value>
         <parameters>
           <parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="1997">an #EReminderWatcher</doc>
+                 line="2144">an #EReminderWatcher</doc>
             <type name="ECal.ReminderWatcher" c:type="EReminderWatcher*"/>
           </parameter>
         </parameters>
       </constructor>
       <virtual-method name="activated">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="92"/>
+                         line="91"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2080,7 +2031,7 @@ on the @watcher.</doc>
       </virtual-method>
       <virtual-method name="changed">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="91"/>
+                         line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2094,11 +2045,11 @@ on the @watcher.</doc>
               c:identifier="e_reminders_widget_get_paned"
               version="3.38">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="108"/>
+                         line="107"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-               line="2087">a #GtkPaned used to split list of events and
+               line="2234">a #GtkPaned used to split list of events and
    the description of the reminders. It's owned by the @reminders widget.</doc>
           <type name="Gtk.Paned" c:type="GtkPaned*"/>
         </return-value>
@@ -2106,7 +2057,7 @@ on the @watcher.</doc>
           <instance-parameter name="reminders" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2085">an #ERemindersWidget</doc>
+                 line="2232">an #ERemindersWidget</doc>
             <type name="RemindersWidget" c:type="ERemindersWidget*"/>
           </instance-parameter>
         </parameters>
@@ -2115,11 +2066,11 @@ on the @watcher.</doc>
               c:identifier="e_reminders_widget_get_settings"
               version="3.30">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="105"/>
+                         line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-               line="2037">a #GSettings pointing to org.gnome.evolution-data-server.calendar
+               line="2184">a #GSettings pointing to org.gnome.evolution-data-server.calendar
    used by the @reminders widget.</doc>
           <type name="Gio.Settings" c:type="GSettings*"/>
         </return-value>
@@ -2127,7 +2078,7 @@ on the @watcher.</doc>
           <instance-parameter name="reminders" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2035">an #ERemindersWidget</doc>
+                 line="2182">an #ERemindersWidget</doc>
             <type name="RemindersWidget" c:type="ERemindersWidget*"/>
           </instance-parameter>
         </parameters>
@@ -2136,11 +2087,11 @@ on the @watcher.</doc>
               c:identifier="e_reminders_widget_get_tree_view"
               version="3.30">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="107"/>
+                         line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-               line="2070">a #GtkTreeView with past reminders. It's owned
+               line="2217">a #GtkTreeView with past reminders. It's owned
    by the @reminders widget.</doc>
           <type name="Gtk.TreeView" c:type="GtkTreeView*"/>
         </return-value>
@@ -2148,7 +2099,7 @@ on the @watcher.</doc>
           <instance-parameter name="reminders" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2068">an #ERemindersWidget</doc>
+                 line="2215">an #ERemindersWidget</doc>
             <type name="RemindersWidget" c:type="ERemindersWidget*"/>
           </instance-parameter>
         </parameters>
@@ -2158,11 +2109,11 @@ on the @watcher.</doc>
               glib:get-property="watcher"
               version="3.30">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="104"/>
+                         line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-               line="2020">an #EReminderWatcher with which the @reminders had
+               line="2167">an #EReminderWatcher with which the @reminders had
    been created. Do on unref it, it's owned by the @reminders.</doc>
           <type name="ECal.ReminderWatcher" c:type="EReminderWatcher*"/>
         </return-value>
@@ -2170,27 +2121,28 @@ on the @watcher.</doc>
           <instance-parameter name="reminders" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2018">an #ERemindersWidget</doc>
+                 line="2165">an #ERemindersWidget</doc>
             <type name="RemindersWidget" c:type="ERemindersWidget*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_empty"
               c:identifier="e_reminders_widget_is_empty"
+              glib:get-property="empty"
               version="3.30">
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="106"/>
+                         line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-               line="2054">%TRUE, when there is no past reminder left, %FALSE otherwise.</doc>
+               line="2201">%TRUE, when there is no past reminder left, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="reminders" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2052">an #ERemindersWidget</doc>
+                 line="2199">an #ERemindersWidget</doc>
             <type name="RemindersWidget" c:type="ERemindersWidget*"/>
           </instance-parameter>
         </parameters>
@@ -2200,11 +2152,11 @@ on the @watcher.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-             line="2115">Shows a warning in the GUI with the @error message, optionally prefixed
+             line="2262">Shows a warning in the GUI with the @error message, optionally prefixed
 with @prefix. When @error is %NULL, an "Unknown error" message is shown
 instead.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                         line="109"/>
+                         line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2212,7 +2164,7 @@ instead.</doc>
           <instance-parameter name="reminders" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2117">an #ERemindersWidget</doc>
+                 line="2264">an #ERemindersWidget</doc>
             <type name="RemindersWidget" c:type="ERemindersWidget*"/>
           </instance-parameter>
           <parameter name="prefix"
@@ -2221,7 +2173,7 @@ instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2118">an optional prefix to show before the error message, or %NULL for none</doc>
+                 line="2265">an optional prefix to show before the error message, or %NULL for none</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="error"
@@ -2230,12 +2182,15 @@ instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-                 line="2119">a #GError to show the message from in the UI, or %NULL for unknown error</doc>
+                 line="2266">a #GError to show the message from in the UI, or %NULL for unknown error</doc>
             <type name="GLib.Error" c:type="const GError*"/>
           </parameter>
         </parameters>
       </method>
-      <property name="empty" transfer-ownership="none" default-value="TRUE">
+      <property name="empty"
+                transfer-ownership="none"
+                getter="is_empty"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="watcher"
@@ -2273,16 +2228,16 @@ instead.</doc>
             version="3.30">
       <doc xml:space="preserve"
            filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-           line="79">Class structure for the #ERemindersWidget class.</doc>
+           line="78">Class structure for the #ERemindersWidget class.</doc>
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="97"/>
+                       line="96"/>
       <field name="parent_class" readable="0" private="1">
         <type name="Gtk.GridClass" c:type="GtkGridClass"/>
       </field>
       <field name="changed">
         <callback name="changed">
           <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                           line="91"/>
+                           line="90"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2296,7 +2251,7 @@ instead.</doc>
       <field name="activated">
         <callback name="activated">
           <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                           line="92"/>
+                           line="91"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -2321,7 +2276,7 @@ instead.</doc>
             disguised="1"
             opaque="1">
       <source-position filename="src/libedataserverui/libedataserverui4/e-reminders-widget.h"
-                       line="63"/>
+                       line="62"/>
     </record>
     <class name="WebDAVDiscoverContent"
            c:symbol-prefix="webdav_discover_content"
@@ -2567,10 +2522,11 @@ This value has meaning only with calendar sources.</doc>
       </method>
       <method name="refresh"
               c:identifier="e_webdav_discover_content_refresh"
-              version="3.18">
+              version="3.18"
+              glib:finish-func="refresh_finish">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-             line="842">Asynchronously starts refresh of the @content. This means to access the server
+             line="843">Asynchronously starts refresh of the @content. This means to access the server
 and search it for available sources. The @content shows a feedback and a Cancel
 button during the operation.
 
@@ -2588,7 +2544,7 @@ call e_webdav_discover_content_refresh_finish() to get the result of the operati
           <instance-parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="844">an #EWebDAVDiscoverContent</doc>
+                 line="845">an #EWebDAVDiscoverContent</doc>
             <type name="WebDAVDiscoverContent" c:type="GtkWidget*"/>
           </instance-parameter>
           <parameter name="display_name"
@@ -2597,7 +2553,7 @@ call e_webdav_discover_content_refresh_finish() to get the result of the operati
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="845">optional display name to use for scratch sources</doc>
+                 line="846">optional display name to use for scratch sources</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2606,7 +2562,7 @@ call e_webdav_discover_content_refresh_finish() to get the result of the operati
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="846">optional #GCancellable object, or %NULL</doc>
+                 line="847">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2617,7 +2573,7 @@ call e_webdav_discover_content_refresh_finish() to get the result of the operati
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="847">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+                 line="848">a #GAsyncReadyCallback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2626,7 +2582,7 @@ call e_webdav_discover_content_refresh_finish() to get the result of the operati
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="848">data to pass to the callback function</doc>
+                 line="849">data to pass to the callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2637,7 +2593,7 @@ call e_webdav_discover_content_refresh_finish() to get the result of the operati
               throws="1">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-             line="969">Finishes the operation started with e_webdav_discover_content_refresh(). If an
+             line="970">Finishes the operation started with e_webdav_discover_content_refresh(). If an
 error occurred, the function will set @error and return %FALSE. There is
 available e_webdav_discover_content_show_error() for convenience, which
 shows the error within @content and takes care of it when refreshing
@@ -2647,20 +2603,20 @@ the content.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-               line="981">%TRUE on success, %FALSE on failure</doc>
+               line="982">%TRUE on success, %FALSE on failure</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="971">an #EWebDAVDiscoverContent</doc>
+                 line="972">an #EWebDAVDiscoverContent</doc>
             <type name="WebDAVDiscoverContent" c:type="GtkWidget*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="972">a #GAsyncResult</doc>
+                 line="973">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2724,7 +2680,7 @@ or even a %NULL.</doc>
               version="3.18">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-             line="1016">Shows the @error within @content, unless it's a #G_IO_ERROR_CANCELLED, or %NULL,
+             line="1017">Shows the @error within @content, unless it's a #G_IO_ERROR_CANCELLED, or %NULL,
 which are safely ignored. The advantage of this function is that the error
 message is removed when the refresh operation is started.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.h"
@@ -2736,13 +2692,13 @@ message is removed when the refresh operation is started.</doc>
           <instance-parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1018">an #EWebDAVDiscoverContent</doc>
+                 line="1019">an #EWebDAVDiscoverContent</doc>
             <type name="WebDAVDiscoverContent" c:type="GtkWidget*"/>
           </instance-parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1019">a #GError to show in the UI, or %NULL</doc>
+                 line="1020">a #GError to show in the UI, or %NULL</doc>
             <type name="GLib.Error" c:type="const GError*"/>
           </parameter>
         </parameters>
@@ -2777,7 +2733,7 @@ message is removed when the refresh operation is started.</doc>
                    version="3.18">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-             line="1107">Creates a new #GtkDialog which has as its content a WebDAV discovery widget,
+             line="1108">Creates a new #GtkDialog which has as its content a WebDAV discovery widget,
 created with e_webdav_discover_content_new(). This dialog can be shown to a user
 and when its final response is %GTK_RESPONSE_ACCEPT, then the inner content
 can be asked for currently selected source(s).</doc>
@@ -2786,7 +2742,7 @@ can be asked for currently selected source(s).</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-               line="1123">a newly created #GtkDialog, which should be freed
+               line="1124">a newly created #GtkDialog, which should be freed
 with g_object_unref(), when no longer needed.</doc>
           <type name="Gtk.Dialog" c:type="GtkDialog*"/>
         </return-value>
@@ -2794,25 +2750,25 @@ with g_object_unref(), when no longer needed.</doc>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1109">a #GtkWindow parent for the dialog</doc>
+                 line="1110">a #GtkWindow parent for the dialog</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1110">title of the window</doc>
+                 line="1111">title of the window</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="credentials_prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1111">an #ECredentialsPrompter to use to ask for credentials</doc>
+                 line="1112">an #ECredentialsPrompter to use to ask for credentials</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1112">an #ESource to use for authentication</doc>
+                 line="1113">an #ESource to use for authentication</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="base_url"
@@ -2821,13 +2777,13 @@ with g_object_unref(), when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1113">optional base URL to use for discovery, or %NULL</doc>
+                 line="1114">optional base URL to use for discovery, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="supports_filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1114">a bit-or of #EWebDAVDiscoverSupports, a filter to limit what source
+                 line="1115">a bit-or of #EWebDAVDiscoverSupports, a filter to limit what source
    types will be shown in the dialog content; use %E_WEBDAV_DISCOVER_SUPPORTS_NONE
    to show all</doc>
             <type name="guint" c:type="guint"/>
@@ -2839,20 +2795,20 @@ with g_object_unref(), when no longer needed.</doc>
               version="3.18">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-             line="1178">Returns inner WebDAV discovery content, which can be further manipulated.</doc>
+             line="1179">Returns inner WebDAV discovery content, which can be further manipulated.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-               line="1184">inner WebDAV discovery content</doc>
+               line="1185">inner WebDAV discovery content</doc>
           <type name="WebDAVDiscoverContent" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1180">an #EWebDAVDiscoverDialog</doc>
+                 line="1181">an #EWebDAVDiscoverDialog</doc>
             <type name="WebDAVDiscoverDialog" c:type="GtkDialog*"/>
           </instance-parameter>
         </parameters>
@@ -2862,7 +2818,7 @@ with g_object_unref(), when no longer needed.</doc>
               version="3.18">
         <doc xml:space="preserve"
              filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-             line="1201">Invokes refresh of the inner content of the WebDAV discovery dialog.</doc>
+             line="1202">Invokes refresh of the inner content of the WebDAV discovery dialog.</doc>
         <source-position filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.h"
                          line="91"/>
         <return-value transfer-ownership="none">
@@ -2872,7 +2828,7 @@ with g_object_unref(), when no longer needed.</doc>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/libedataserverui4/e-webdav-discover-widget.c"
-                 line="1203">an #EWebDAVDiscoverDialog</doc>
+                 line="1204">an #EWebDAVDiscoverDialog</doc>
             <type name="WebDAVDiscoverDialog" c:type="GtkDialog*"/>
           </instance-parameter>
         </parameters>
@@ -2929,12 +2885,12 @@ with g_object_unref(), when no longer needed.</doc>
     <docsection name="e-certificate-widget">
       <doc xml:space="preserve"
            filename="src/libedataserverui/libedataserverui4/e-certificate-widget.c"
-           line="7">The #ECertificateWidget shows information about the provided certificate.</doc>
+           line="6">The #ECertificateWidget shows information about the provided certificate.</doc>
     </docsection>
     <docsection name="e-reminders-widget">
       <doc xml:space="preserve"
            filename="src/libedataserverui/libedataserverui4/e-reminders-widget.c"
-           line="18">The #ERemindersWidget is a widget which does common tasks on past reminders
+           line="17">The #ERemindersWidget is a widget which does common tasks on past reminders
 provided by #EReminderWatcher. The owner should connect to the "changed" signal
 to be notified on any changes, including when the list of past reminders
 is either expanded or shrunk, which usually causes the dialog with this

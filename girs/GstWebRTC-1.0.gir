@@ -5,13 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstSdp" version="1.0"/>
   <package name="gstreamer-webrtc-1.0"/>
   <c:include name="gst/webrtc/webrtc.h"/>
-  <doc:format name="unknown"/>
   <namespace name="GstWebRTC"
              version="1.0"
              shared-library="libgstwebrtc-1.0.so.0"
@@ -218,7 +216,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GST_WEBRTC_DEPRECATED_FOR"
                     introspectable="0">
       <attribute name="doc.skip" value="true"/>
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="53"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="51"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -260,136 +258,6 @@ and/or use gtk-doc annotations.  -->
       <source-position filename="gst-libs/gst/webrtc/ice.h" line="30"/>
       <parameters>
         <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_ADDRESS"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_ADDRESS"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="160"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_FOUNDATION"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_FOUNDATION"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="209"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_PORT"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_PORT"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="166"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_PRIORITY"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_PRIORITY"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="196"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_PROTOCOL"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_PROTOCOL"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="184"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_RELATED_ADDRESS"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_RELATED_ADDRESS"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="215"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_RELATED_PORT"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_RELATED_PORT"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="221"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_RELAY_PROTOCOL"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_RELAY_PROTOCOL"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="190"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_STREAM_ID"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_STREAM_ID"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="172"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_TCP_TYPE"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_TCP_TYPE"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="233"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_TYPE"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_TYPE"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="178"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_URL"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_URL"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="202"/>
-      <parameters>
-        <parameter name="c">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WEBRTC_ICE_CANDIDATE_STATS_USERNAME_FRAGMENT"
-                    c:identifier="GST_WEBRTC_ICE_CANDIDATE_STATS_USERNAME_FRAGMENT"
-                    version="1.28"
-                    introspectable="0">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="227"/>
-      <parameters>
-        <parameter name="c">
         </parameter>
       </parameters>
     </function-macro>
@@ -589,7 +457,7 @@ and/or use gtk-doc annotations.  -->
                  c:type="GstWebRTCBundlePolicy">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="490">See https://tools.ietf.org/html/draft-ietf-rtcweb-jsep-24#section-4.1.1
+           line="410">See https://tools.ietf.org/html/draft-ietf-rtcweb-jsep-24#section-4.1.1
 for more information.</doc>
       <member name="none"
               value="0"
@@ -598,7 +466,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_BUNDLE_POLICY_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="492">none</doc>
+             line="412">none</doc>
       </member>
       <member name="balanced"
               value="1"
@@ -607,7 +475,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_BUNDLE_POLICY_BALANCED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="493">balanced</doc>
+             line="413">balanced</doc>
       </member>
       <member name="max_compat"
               value="2"
@@ -616,7 +484,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_BUNDLE_POLICY_MAX_COMPAT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="494">max-compat</doc>
+             line="414">max-compat</doc>
       </member>
       <member name="max_bundle"
               value="3"
@@ -625,40 +493,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_BUNDLE_POLICY_MAX_BUNDLE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="495">max-bundle</doc>
-      </member>
-    </enumeration>
-    <enumeration name="WebRTCDTLSRole"
-                 version="1.28"
-                 glib:type-name="GstWebRTCDTLSRole"
-                 glib:get-type="gst_webrtc_dtls_role_get_type"
-                 c:type="GstWebRTCDTLSRole">
-      <member name="client"
-              value="0"
-              c:identifier="GST_WEBRTC_DTLS_ROLE_CLIENT"
-              glib:nick="client"
-              glib:name="GST_WEBRTC_DTLS_ROLE_CLIENT">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="219">client</doc>
-      </member>
-      <member name="server"
-              value="1"
-              c:identifier="GST_WEBRTC_DTLS_ROLE_SERVER"
-              glib:nick="server"
-              glib:name="GST_WEBRTC_DTLS_ROLE_SERVER">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="220">server</doc>
-      </member>
-      <member name="unknown"
-              value="2"
-              c:identifier="GST_WEBRTC_DTLS_ROLE_UNKNOWN"
-              glib:nick="unknown"
-              glib:name="GST_WEBRTC_DTLS_ROLE_UNKNOWN">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="221">unknown</doc>
+             line="415">max-bundle</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCDTLSSetup"
@@ -672,7 +507,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_SETUP_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="370">none</doc>
+             line="290">none</doc>
       </member>
       <member name="actpass"
               value="1"
@@ -681,7 +516,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_SETUP_ACTPASS">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="371">actpass</doc>
+             line="291">actpass</doc>
       </member>
       <member name="active"
               value="2"
@@ -690,7 +525,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_SETUP_ACTIVE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="372">sendonly</doc>
+             line="292">sendonly</doc>
       </member>
       <member name="passive"
               value="3"
@@ -699,7 +534,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_SETUP_PASSIVE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="373">recvonly</doc>
+             line="293">recvonly</doc>
       </member>
     </enumeration>
     <class name="WebRTCDTLSTransport"
@@ -761,7 +596,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_TRANSPORT_STATE_NEW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="202">new</doc>
+             line="137">new</doc>
       </member>
       <member name="closed"
               value="1"
@@ -770,7 +605,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_TRANSPORT_STATE_CLOSED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="203">closed</doc>
+             line="138">closed</doc>
       </member>
       <member name="failed"
               value="2"
@@ -779,7 +614,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_TRANSPORT_STATE_FAILED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="204">failed</doc>
+             line="139">failed</doc>
       </member>
       <member name="connecting"
               value="3"
@@ -788,7 +623,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_TRANSPORT_STATE_CONNECTING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="205">connecting</doc>
+             line="140">connecting</doc>
       </member>
       <member name="connected"
               value="4"
@@ -797,7 +632,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DTLS_TRANSPORT_STATE_CONNECTED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="206">connected</doc>
+             line="141">connected</doc>
       </member>
     </enumeration>
     <class name="WebRTCDataChannel"
@@ -809,11 +644,11 @@ for more information.</doc>
            glib:type-name="GstWebRTCDataChannel"
            glib:get-type="gst_webrtc_data_channel_get_type"
            glib:type-struct="WebRTCDataChannelClass">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="195"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="130"/>
       <method name="close" c:identifier="gst_webrtc_data_channel_close">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/datachannel.c"
-             line="610">Close the @channel.</doc>
+             line="596">Close the @channel.</doc>
         <source-position filename="gst-libs/gst/webrtc/datachannel.h"
                          line="46"/>
         <return-value transfer-ownership="none">
@@ -823,19 +658,16 @@ for more information.</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="612">a #GstWebRTCDataChannel</doc>
+                 line="598">a #GstWebRTCDataChannel</doc>
             <type name="WebRTCDataChannel" c:type="GstWebRTCDataChannel*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="send_data"
-              c:identifier="gst_webrtc_data_channel_send_data"
-              deprecated="1"
-              deprecated-version="1.22">
+              c:identifier="gst_webrtc_data_channel_send_data">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/datachannel.c"
-             line="518">Send @data as a data message over @channel.</doc>
-        <doc-deprecated xml:space="preserve">Use gst_webrtc_data_channel_send_data_full() instead</doc-deprecated>
+             line="511">Send @data as a data message over @channel.</doc>
         <source-position filename="gst-libs/gst/webrtc/datachannel.h"
                          line="50"/>
         <return-value transfer-ownership="none">
@@ -845,7 +677,7 @@ for more information.</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="520">a #GstWebRTCDataChannel</doc>
+                 line="513">a #GstWebRTCDataChannel</doc>
             <type name="WebRTCDataChannel" c:type="GstWebRTCDataChannel*"/>
           </instance-parameter>
           <parameter name="data"
@@ -854,7 +686,7 @@ for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="521">a #GBytes or %NULL</doc>
+                 line="514">a #GBytes or %NULL</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -865,20 +697,20 @@ for more information.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/datachannel.c"
-             line="540">Send @data as a data message over @channel.</doc>
+             line="530">Send @data as a data message over @channel.</doc>
         <source-position filename="gst-libs/gst/webrtc/datachannel.h"
                          line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/datachannel.c"
-               line="548">TRUE if @channel is open and data could be queued</doc>
+               line="538">TRUE if @channel is open and data could be queued</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="542">a #GstWebRTCDataChannel</doc>
+                 line="532">a #GstWebRTCDataChannel</doc>
             <type name="WebRTCDataChannel" c:type="GstWebRTCDataChannel*"/>
           </instance-parameter>
           <parameter name="data"
@@ -887,19 +719,16 @@ for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="543">a #GBytes or %NULL</doc>
+                 line="533">a #GBytes or %NULL</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
       </method>
       <method name="send_string"
-              c:identifier="gst_webrtc_data_channel_send_string"
-              deprecated="1"
-              deprecated-version="1.22">
+              c:identifier="gst_webrtc_data_channel_send_string">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/datachannel.c"
-             line="565">Send @str as a string message over @channel.</doc>
-        <doc-deprecated xml:space="preserve">Use gst_webrtc_data_channel_send_string_full() instead</doc-deprecated>
+             line="554">Send @str as a string message over @channel.</doc>
         <source-position filename="gst-libs/gst/webrtc/datachannel.h"
                          line="53"/>
         <return-value transfer-ownership="none">
@@ -909,7 +738,7 @@ for more information.</doc>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="567">a #GstWebRTCDataChannel</doc>
+                 line="556">a #GstWebRTCDataChannel</doc>
             <type name="WebRTCDataChannel" c:type="GstWebRTCDataChannel*"/>
           </instance-parameter>
           <parameter name="str"
@@ -918,7 +747,7 @@ for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="568">a string or %NULL</doc>
+                 line="557">a string or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -929,20 +758,20 @@ for more information.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/datachannel.c"
-             line="587">Send @str as a string message over @channel.</doc>
+             line="573">Send @str as a string message over @channel.</doc>
         <source-position filename="gst-libs/gst/webrtc/datachannel.h"
                          line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/datachannel.c"
-               line="594">TRUE if @channel is open and data could be queued</doc>
+               line="580">TRUE if @channel is open and data could be queued</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="589">a #GstWebRTCDataChannel</doc>
+                 line="575">a #GstWebRTCDataChannel</doc>
             <type name="WebRTCDataChannel" c:type="GstWebRTCDataChannel*"/>
           </instance-parameter>
           <parameter name="str"
@@ -951,7 +780,7 @@ for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="590">a string or %NULL</doc>
+                 line="576">a string or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1030,7 +859,7 @@ for more information.</doc>
       <glib:signal name="close" when="last" action="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/datachannel.c"
-             line="363">Close the data channel</doc>
+             line="357">Close the data channel</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1095,12 +924,7 @@ for more information.</doc>
           <type name="none" c:type="void"/>
         </return-value>
       </glib:signal>
-      <glib:signal name="send-data"
-                   when="last"
-                   action="1"
-                   deprecated="1"
-                   deprecated-version="1.22">
-        <doc-deprecated xml:space="preserve">Use gst_webrtc_data_channel_send_data_full() instead</doc-deprecated>
+      <glib:signal name="send-data" when="last" action="1">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1111,17 +935,12 @@ for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="339">a #GBytes with the data</doc>
+                 line="338">a #GBytes with the data</doc>
             <type name="GLib.Bytes"/>
           </parameter>
         </parameters>
       </glib:signal>
-      <glib:signal name="send-string"
-                   when="last"
-                   action="1"
-                   deprecated="1"
-                   deprecated-version="1.22">
-        <doc-deprecated xml:space="preserve">Use gst_webrtc_data_channel_send_string_full() instead</doc-deprecated>
+      <glib:signal name="send-string" when="last" action="1">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1132,7 +951,7 @@ for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/datachannel.c"
-                 line="352">the data to send as a string</doc>
+                 line="349">the data to send as a string</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -1143,7 +962,7 @@ for more information.</doc>
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WebRTCDataChannel">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="195"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="130"/>
     </record>
     <enumeration name="WebRTCDataChannelState"
                  version="1.16"
@@ -1152,7 +971,7 @@ for more information.</doc>
                  c:type="GstWebRTCDataChannelState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="471">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcdatachannelstate&gt;</doc>
+           line="391">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcdatachannelstate&gt;</doc>
       <member name="connecting"
               value="1"
               c:identifier="GST_WEBRTC_DATA_CHANNEL_STATE_CONNECTING"
@@ -1160,7 +979,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DATA_CHANNEL_STATE_CONNECTING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="473">connecting</doc>
+             line="393">connecting</doc>
       </member>
       <member name="open"
               value="2"
@@ -1169,7 +988,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DATA_CHANNEL_STATE_OPEN">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="474">open</doc>
+             line="394">open</doc>
       </member>
       <member name="closing"
               value="3"
@@ -1178,7 +997,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DATA_CHANNEL_STATE_CLOSING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="475">closing</doc>
+             line="395">closing</doc>
       </member>
       <member name="closed"
               value="4"
@@ -1187,7 +1006,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_DATA_CHANNEL_STATE_CLOSED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="476">closed</doc>
+             line="396">closed</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCError"
@@ -1198,7 +1017,7 @@ for more information.</doc>
                  glib:error-domain="gst-webrtc-error-quark">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="554">See &lt;https://www.w3.org/TR/webrtc/#dom-rtcerrordetailtype&gt; for more information.</doc>
+           line="474">See &lt;https://www.w3.org/TR/webrtc/#dom-rtcerrordetailtype&gt; for more information.</doc>
       <member name="data_channel_failure"
               value="0"
               c:identifier="GST_WEBRTC_ERROR_DATA_CHANNEL_FAILURE"
@@ -1206,7 +1025,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_DATA_CHANNEL_FAILURE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="556">data-channel-failure</doc>
+             line="476">data-channel-failure</doc>
       </member>
       <member name="dtls_failure"
               value="1"
@@ -1215,7 +1034,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_DTLS_FAILURE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="557">dtls-failure</doc>
+             line="477">dtls-failure</doc>
       </member>
       <member name="fingerprint_failure"
               value="2"
@@ -1224,7 +1043,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_FINGERPRINT_FAILURE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="558">fingerprint-failure</doc>
+             line="478">fingerprint-failure</doc>
       </member>
       <member name="sctp_failure"
               value="3"
@@ -1233,7 +1052,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_SCTP_FAILURE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="559">sctp-failure</doc>
+             line="479">sctp-failure</doc>
       </member>
       <member name="sdp_syntax_error"
               value="4"
@@ -1242,7 +1061,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_SDP_SYNTAX_ERROR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="560">sdp-syntax-error</doc>
+             line="480">sdp-syntax-error</doc>
       </member>
       <member name="hardware_encoder_not_available"
               value="5"
@@ -1251,7 +1070,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_HARDWARE_ENCODER_NOT_AVAILABLE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="561">hardware-encoder-not-available</doc>
+             line="481">hardware-encoder-not-available</doc>
       </member>
       <member name="encoder_error"
               value="6"
@@ -1260,7 +1079,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_ENCODER_ERROR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="562">encoder-error</doc>
+             line="482">encoder-error</doc>
       </member>
       <member name="invalid_state"
               value="7"
@@ -1269,7 +1088,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_INVALID_STATE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="563">invalid-state (part of WebIDL specification)</doc>
+             line="483">invalid-state (part of WebIDL specification)</doc>
       </member>
       <member name="internal_failure"
               value="8"
@@ -1278,7 +1097,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_INTERNAL_FAILURE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="564">GStreamer-specific failure, not matching any other value from the specification</doc>
+             line="484">GStreamer-specific failure, not matching any other value from the specification</doc>
       </member>
       <member name="invalid_modification"
               value="9"
@@ -1288,7 +1107,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_INVALID_MODIFICATION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="570">invalid-modification (part of WebIDL specification)</doc>
+             line="490">invalid-modification (part of WebIDL specification)</doc>
       </member>
       <member name="type_error"
               value="10"
@@ -1298,7 +1117,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ERROR_TYPE_ERROR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="577">type-error (maps to JavaScript TypeError)</doc>
+             line="497">type-error (maps to JavaScript TypeError)</doc>
       </member>
       <function name="quark"
                 c:identifier="gst_webrtc_error_quark"
@@ -1320,7 +1139,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_FEC_TYPE_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="422">none</doc>
+             line="342">none</doc>
       </member>
       <member name="ulp_red"
               value="1"
@@ -1329,7 +1148,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_FEC_TYPE_ULP_RED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="423">ulpfec + red</doc>
+             line="343">ulpfec + red</doc>
       </member>
     </enumeration>
     <class name="WebRTCICE"
@@ -1341,11 +1160,11 @@ for more information.</doc>
            glib:type-name="GstWebRTCICE"
            glib:get-type="gst_webrtc_ice_get_type"
            glib:type-struct="WebRTCICEClass">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="368"/>
+      <source-position filename="gst-libs/gst/webrtc/ice.h" line="153"/>
       <virtual-method name="add_candidate"
                       invoker="add_candidate"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="285"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1380,7 +1199,7 @@ for more information.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="add_stream" invoker="add_stream" version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="278"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="78"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -1405,7 +1224,7 @@ for more information.</doc>
       <virtual-method name="add_turn_server"
                       invoker="add_turn_server"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="297"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -1427,38 +1246,10 @@ for more information.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="close" invoker="close" version="1.28">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.c"
-             line="508">Invoke the close procedure as specified in
-https://www.w3.org/TR/webrtc/#dom-rtcpeerconnection-close.</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="364"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="ice" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="510">The #GstWebRTCICE</doc>
-            <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
-          </instance-parameter>
-          <parameter name="promise"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="511">a #GstPromise to be notified when the task is
-complete.</doc>
-            <type name="Gst.Promise" c:type="GstPromise*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
       <virtual-method name="find_transport"
                       invoker="find_transport"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="280"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="80"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -1489,11 +1280,11 @@ complete.</doc>
       <virtual-method name="gather_candidates"
                       invoker="gather_candidates"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="283"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="186">FALSE on error, TRUE otherwise</doc>
+               line="185">FALSE on error, TRUE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1516,13 +1307,13 @@ complete.</doc>
                       version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.h"
-             line="324">Get HTTP Proxy to be used when connecting to TURN server.</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="335"/>
+             line="124">Get HTTP Proxy to be used when connecting to TURN server.</doc>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="135"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="492">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]
+               line="480">URI of the HTTP proxy of the form
+  http://[username:password@]hostname[:port]
 
 Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -1531,7 +1322,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="490">The #GstWebRTCICE</doc>
+                 line="478">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -1539,24 +1330,24 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="get_is_controller"
                       invoker="get_is_controller"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="301"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="220">TRUE if set as controller, FALSE otherwise</doc>
+               line="218">TRUE if set as controller, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="218">The #GstWebRTCICE</doc>
+                 line="217">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_local_candidates">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="344"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="144"/>
         <return-value transfer-ownership="full">
           <type name="WebRTCICECandidateStats"
                 c:type="GstWebRTCICECandidateStats**"/>
@@ -1571,7 +1362,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_remote_candidates">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="346"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="146"/>
         <return-value transfer-ownership="full">
           <type name="WebRTCICECandidateStats"
                 c:type="GstWebRTCICECandidateStats**"/>
@@ -1587,28 +1378,25 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       </virtual-method>
       <virtual-method name="get_selected_pair"
                       invoker="get_selected_pair"
-                      version="1.22"
-                      deprecated="1"
-                      deprecated-version="1.28">
-        <doc-deprecated xml:space="preserve">Use gst_webrtc_ice_transport_get_selected_candidate_pair().</doc-deprecated>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="348"/>
+                      version="1.22">
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="148"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="314">FALSE on failure, otherwise @local_stats @remote_stats will be set</doc>
+               line="310">FALSE on failure, otherwise @local_stats @remote_stats will be set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="309">The #GstWebRTCICE</doc>
+                 line="305">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="310">The #GstWebRTCICEStream</doc>
+                 line="306">The #GstWebRTCICEStream</doc>
             <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
           </parameter>
           <parameter name="local_stats"
@@ -1617,7 +1405,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="311">A pointer to #GstWebRTCICECandidateStats for local candidate</doc>
+                 line="307">A pointer to #GstWebRTCICECandidateStats for local candidate</doc>
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats**"/>
           </parameter>
@@ -1627,7 +1415,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="312">pointer to #GstWebRTCICECandidateStats for remote candidate</doc>
+                 line="308">pointer to #GstWebRTCICECandidateStats for remote candidate</doc>
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats**"/>
           </parameter>
@@ -1636,18 +1424,18 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="get_stun_server"
                       invoker="get_stun_server"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="306"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="106"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="423">URI of the STUN sever</doc>
+               line="411">URI of the STUN sever</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="421">The #GstWebRTCICE</doc>
+                 line="409">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -1655,18 +1443,18 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="get_turn_server"
                       invoker="get_turn_server"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="309"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="109"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="456">URI of the TURN sever</doc>
+               line="444">URI of the TURN sever</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="454">The #GstWebRTCICE</doc>
+                 line="442">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -1674,7 +1462,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_force_relay"
                       invoker="set_force_relay"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="302"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1682,13 +1470,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="235">The #GstWebRTCICE</doc>
+                 line="233">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="force_relay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="236">TRUE to enable force relay</doc>
+                 line="234">TRUE to enable force relay</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1698,8 +1486,8 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                       version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.c"
-             line="469">Set HTTP Proxy to be used when connecting to TURN server.</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="321"/>
+             line="457">Set HTTP Proxy to be used when connecting to TURN server.</doc>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1707,14 +1495,14 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="471">The #GstWebRTCICE</doc>
+                 line="459">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="472">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]</doc>
+                 line="460">URI of the HTTP proxy of the form
+  http://[username:password@]hostname[:port]</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1722,7 +1510,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_is_controller"
                       invoker="set_is_controller"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="299"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1730,13 +1518,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="202">The #GstWebRTCICE</doc>
+                 line="201">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="controller" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="203">TRUE to set as controller</doc>
+                 line="202">TRUE to set as controller</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1744,7 +1532,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_local_credentials"
                       invoker="set_local_credentials"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="289"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -1781,7 +1569,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_on_ice_candidate"
                       invoker="set_on_ice_candidate"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="340"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1789,7 +1577,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="385">The #GstWebRTCICE</doc>
+                 line="373">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="func"
@@ -1799,7 +1587,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="386">The #GstWebRTCICEOnCandidateFunc callback function</doc>
+                 line="374">The #GstWebRTCICEOnCandidateFunc callback function</doc>
             <type name="WebRTCICEOnCandidateFunc"
                   c:type="GstWebRTCICEOnCandidateFunc"/>
           </parameter>
@@ -1810,13 +1598,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="387">User data passed to the callback function</doc>
+                 line="375">User data passed to the callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="388">a #GDestroyNotify when the candidate is no longer needed</doc>
+                 line="376">a #GDestroyNotify when the candidate is no longer needed</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -1824,7 +1612,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_remote_credentials"
                       invoker="set_remote_credentials"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="293"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -1861,7 +1649,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_stun_server"
                       invoker="set_stun_server"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="304"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1869,7 +1657,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="405">The #GstWebRTCICE</doc>
+                 line="393">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="uri"
@@ -1878,13 +1666,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="406">URI of the STUN server</doc>
+                 line="394">URI of the STUN server</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="set_tos" invoker="set_tos" version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="337"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1892,19 +1680,19 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="251">The #GstWebRTCICE</doc>
+                 line="249">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="252">The #GstWebRTCICEStream</doc>
+                 line="250">The #GstWebRTCICEStream</doc>
             <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
           </parameter>
           <parameter name="tos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="253">ToS to be set</doc>
+                 line="251">ToS to be set</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1912,7 +1700,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <virtual-method name="set_turn_server"
                       invoker="set_turn_server"
                       version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="307"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1920,7 +1708,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="438">The #GstWebRTCICE</doc>
+                 line="426">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="uri"
@@ -1929,7 +1717,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="439">URI of the TURN sever</doc>
+                 line="427">URI of the TURN sever</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1937,7 +1725,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="add_candidate"
               c:identifier="gst_webrtc_ice_add_candidate"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="386"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="171"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1974,7 +1762,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="add_stream"
               c:identifier="gst_webrtc_ice_add_stream"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="371"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="156"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -1999,7 +1787,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="add_turn_server"
               c:identifier="gst_webrtc_ice_add_turn_server"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="404"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -2021,38 +1809,10 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close" c:identifier="gst_webrtc_ice_close" version="1.28">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.c"
-             line="508">Invoke the close procedure as specified in
-https://www.w3.org/TR/webrtc/#dom-rtcpeerconnection-close.</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="479"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="ice" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="510">The #GstWebRTCICE</doc>
-            <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
-          </instance-parameter>
-          <parameter name="promise"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="511">a #GstPromise to be notified when the task is
-complete.</doc>
-            <type name="Gst.Promise" c:type="GstPromise*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="find_transport"
               c:identifier="gst_webrtc_ice_find_transport"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="375"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="160"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -2083,11 +1843,11 @@ complete.</doc>
       <method name="gather_candidates"
               c:identifier="gst_webrtc_ice_gather_candidates"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="381"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="166"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="186">FALSE on error, TRUE otherwise</doc>
+               line="185">FALSE on error, TRUE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -2108,12 +1868,12 @@ complete.</doc>
       <method name="get_http_proxy"
               c:identifier="gst_webrtc_ice_get_http_proxy"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="438"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="223"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="492">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]
+               line="480">URI of the HTTP proxy of the form
+  http://[username:password@]hostname[:port]
 
 Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -2122,7 +1882,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="490">The #GstWebRTCICE</doc>
+                 line="478">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -2130,18 +1890,18 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="get_is_controller"
               c:identifier="gst_webrtc_ice_get_is_controller"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="413"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="198"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="220">TRUE if set as controller, FALSE otherwise</doc>
+               line="218">TRUE if set as controller, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="218">The #GstWebRTCICE</doc>
+                 line="217">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -2149,11 +1909,11 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="get_local_candidates"
               c:identifier="gst_webrtc_ice_get_local_candidates"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="452"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="237"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="273">List of local candidates</doc>
+               line="270">List of local candidates</doc>
           <array c:type="GstWebRTCICECandidateStats**">
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats*"/>
@@ -2163,13 +1923,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="270">The #GstWebRTCICE</doc>
+                 line="268">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="271">The #GstWebRTCICEStream</doc>
+                 line="269">The #GstWebRTCICEStream</doc>
             <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
           </parameter>
         </parameters>
@@ -2177,11 +1937,11 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="get_remote_candidates"
               c:identifier="gst_webrtc_ice_get_remote_candidates"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="456"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="241"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="293">List of remote candidates</doc>
+               line="289">List of remote candidates</doc>
           <array c:type="GstWebRTCICECandidateStats**">
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats*"/>
@@ -2191,41 +1951,38 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="290">The #GstWebRTCICE</doc>
+                 line="287">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="291">The #GstWebRTCICEStream</doc>
+                 line="288">The #GstWebRTCICEStream</doc>
             <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_selected_pair"
               c:identifier="gst_webrtc_ice_get_selected_pair"
-              version="1.22"
-              deprecated="1"
-              deprecated-version="1.28">
-        <doc-deprecated xml:space="preserve">Use gst_webrtc_ice_transport_get_selected_candidate_pair().</doc-deprecated>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="461"/>
+              version="1.22">
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="245"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="314">FALSE on failure, otherwise @local_stats @remote_stats will be set</doc>
+               line="310">FALSE on failure, otherwise @local_stats @remote_stats will be set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="309">The #GstWebRTCICE</doc>
+                 line="305">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="310">The #GstWebRTCICEStream</doc>
+                 line="306">The #GstWebRTCICEStream</doc>
             <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
           </parameter>
           <parameter name="local_stats"
@@ -2234,7 +1991,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="311">A pointer to #GstWebRTCICECandidateStats for local candidate</doc>
+                 line="307">A pointer to #GstWebRTCICECandidateStats for local candidate</doc>
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats**"/>
           </parameter>
@@ -2244,7 +2001,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="312">pointer to #GstWebRTCICECandidateStats for remote candidate</doc>
+                 line="308">pointer to #GstWebRTCICECandidateStats for remote candidate</doc>
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats**"/>
           </parameter>
@@ -2253,18 +2010,18 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="get_stun_server"
               c:identifier="gst_webrtc_ice_get_stun_server"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="424"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="209"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="423">URI of the STUN sever</doc>
+               line="411">URI of the STUN sever</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="421">The #GstWebRTCICE</doc>
+                 line="409">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -2272,18 +2029,18 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="get_turn_server"
               c:identifier="gst_webrtc_ice_get_turn_server"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="431"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="216"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="456">URI of the TURN sever</doc>
+               line="444">URI of the TURN sever</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="454">The #GstWebRTCICE</doc>
+                 line="442">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
         </parameters>
@@ -2291,7 +2048,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_force_relay"
               c:identifier="gst_webrtc_ice_set_force_relay"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="416"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="201"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2299,13 +2056,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="235">The #GstWebRTCICE</doc>
+                 line="233">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="force_relay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="236">TRUE to enable force relay</doc>
+                 line="234">TRUE to enable force relay</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2315,8 +2072,8 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.c"
-             line="469">Set HTTP Proxy to be used when connecting to TURN server.</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="434"/>
+             line="457">Set HTTP Proxy to be used when connecting to TURN server.</doc>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="219"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2324,14 +2081,14 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="471">The #GstWebRTCICE</doc>
+                 line="459">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="472">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]</doc>
+                 line="460">URI of the HTTP proxy of the form
+  http://[username:password@]hostname[:port]</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2339,7 +2096,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_is_controller"
               c:identifier="gst_webrtc_ice_set_is_controller"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="409"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="194"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2347,13 +2104,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="202">The #GstWebRTCICE</doc>
+                 line="201">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="controller" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="203">TRUE to set as controller</doc>
+                 line="202">TRUE to set as controller</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2361,7 +2118,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_local_credentials"
               c:identifier="gst_webrtc_ice_set_local_credentials"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="392"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="177"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -2398,7 +2155,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_on_ice_candidate"
               c:identifier="gst_webrtc_ice_set_on_ice_candidate"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="441"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="226"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2406,7 +2163,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="385">The #GstWebRTCICE</doc>
+                 line="373">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="func"
@@ -2416,7 +2173,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="386">The #GstWebRTCICEOnCandidateFunc callback function</doc>
+                 line="374">The #GstWebRTCICEOnCandidateFunc callback function</doc>
             <type name="WebRTCICEOnCandidateFunc"
                   c:type="GstWebRTCICEOnCandidateFunc"/>
           </parameter>
@@ -2426,13 +2183,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="387">User data passed to the callback function</doc>
+                 line="375">User data passed to the callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="388">a #GDestroyNotify when the candidate is no longer needed</doc>
+                 line="376">a #GDestroyNotify when the candidate is no longer needed</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -2440,7 +2197,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_remote_credentials"
               c:identifier="gst_webrtc_ice_set_remote_credentials"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="398"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="183"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
@@ -2477,7 +2234,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_stun_server"
               c:identifier="gst_webrtc_ice_set_stun_server"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="420"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="205"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2485,7 +2242,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="405">The #GstWebRTCICE</doc>
+                 line="393">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="uri"
@@ -2494,7 +2251,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="406">URI of the STUN server</doc>
+                 line="394">URI of the STUN server</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2502,7 +2259,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_tos"
               c:identifier="gst_webrtc_ice_set_tos"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="447"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="232"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2510,19 +2267,19 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="251">The #GstWebRTCICE</doc>
+                 line="249">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="252">The #GstWebRTCICEStream</doc>
+                 line="250">The #GstWebRTCICEStream</doc>
             <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
           </parameter>
           <parameter name="tos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="253">ToS to be set</doc>
+                 line="251">ToS to be set</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2530,7 +2287,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       <method name="set_turn_server"
               c:identifier="gst_webrtc_ice_set_turn_server"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="427"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="212"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2538,7 +2295,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <instance-parameter name="ice" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="438">The #GstWebRTCICE</doc>
+                 line="426">The #GstWebRTCICE</doc>
             <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
           </instance-parameter>
           <parameter name="uri"
@@ -2547,7 +2304,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="439">URI of the TURN sever</doc>
+                 line="427">URI of the TURN sever</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2560,7 +2317,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                 default-value="65535">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.c"
-             line="709">Maximum port for local rtp port range.
+             line="587">Maximum port for local rtp port range.
 min-rtp-port must be &lt;= max-rtp-port</doc>
         <type name="guint" c:type="guint"/>
       </property>
@@ -2572,7 +2329,7 @@ min-rtp-port must be &lt;= max-rtp-port</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.c"
-             line="693">Minimum port for local rtp port range.
+             line="571">Minimum port for local rtp port range.
 min-rtp-port must be &lt;= max-rtp-port</doc>
         <type name="guint" c:type="guint"/>
       </property>
@@ -2601,66 +2358,55 @@ min-rtp-port must be &lt;= max-rtp-port</doc>
       <glib:signal name="add-local-ip-address" when="last" action="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.c"
-             line="725">Add a local IP address to use for ICE candidate gathering.  If none
+             line="603">Add a local IP address to use for ICE candidate gathering.  If none
 are supplied, they will be discovered automatically. Calling this signal
 stops automatic ICE gathering.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="734">whether the address could be added.</doc>
+               line="612">whether the address could be added.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="728">The local IP address</doc>
+                 line="606">The local IP address</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
       </glib:signal>
     </class>
-    <record name="WebRTCICECandidate"
-            c:type="GstWebRTCICECandidate"
-            version="1.28"
-            glib:type-name="GstWebRTCICECandidate"
-            glib:get-type="gst_webrtc_ice_candidate_get_type"
-            c:symbol-prefix="webrtc_ice_candidate">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="257"/>
-      <field name="candidate" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="237">String carrying the candidate-attribute as defined in
-  section 15.1 of RFC5245</doc>
+    <record name="WebRTCICECandidateStats"
+            c:type="GstWebRTCICECandidateStats"
+            version="1.22"
+            glib:type-name="GstWebRTCICECandidateStats"
+            glib:get-type="gst_webrtc_ice_candidate_stats_get_type"
+            c:symbol-prefix="webrtc_ice_candidate_stats">
+      <source-position filename="gst-libs/gst/webrtc/ice.h" line="62"/>
+      <field name="ipaddr" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
-      <field name="component" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="239">The assigned network component of the candidate (1 for RTP
-  2 for RTCP).</doc>
-        <type name="gint" c:type="gint"/>
+      <field name="port" writable="1">
+        <type name="guint" c:type="guint"/>
       </field>
-      <field name="sdp_mid" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="241">The media stream "identification-tag" defined in [RFC5888] for the
-  media component this candidate is associated with.</doc>
+      <field name="stream_id" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="proto" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="relay_proto" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="prio" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="url" writable="1">
         <type name="utf8" c:type="gchar*"/>
-      </field>
-      <field name="sdp_mline_index" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="243">The index (starting at zero) of the media description in
-  the SDP this candidate is associated with.</doc>
-        <type name="gint" c:type="gint"/>
-      </field>
-      <field name="stats" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="245">The #GstWebRTCICECandidateStats associated to this candidate.</doc>
-        <type name="WebRTCICECandidateStats"
-              c:type="GstWebRTCICECandidateStats*"/>
       </field>
       <field name="_gst_reserved" writable="1">
         <array zero-terminated="0" fixed-size="20">
@@ -2668,208 +2414,13 @@ stops automatic ICE gathering.</doc>
         </array>
       </field>
       <method name="copy"
-              c:identifier="gst_webrtc_ice_candidate_copy"
-              version="1.28">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="489"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/webrtc/ice.c"
-               line="552">A copy of @candidate</doc>
-          <type name="WebRTCICECandidate" c:type="GstWebRTCICECandidate*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="candidate" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="550">The #GstWebRTCICECandidate to be copied</doc>
-            <type name="WebRTCICECandidate" c:type="GstWebRTCICECandidate*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="free"
-              c:identifier="gst_webrtc_ice_candidate_free"
-              version="1.28">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.c"
-             line="528">Helper function to free #GstWebRTCICECandidate</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="483"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="candidate" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="530">The #GstWebRTCICECandidate to be free'd</doc>
-            <type name="WebRTCICECandidate" c:type="GstWebRTCICECandidate*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-    </record>
-    <record name="WebRTCICECandidatePair"
-            c:type="GstWebRTCICECandidatePair"
-            version="1.28"
-            glib:type-name="GstWebRTCICECandidatePair"
-            glib:get-type="gst_webrtc_ice_candidate_pair_get_type"
-            c:symbol-prefix="webrtc_ice_candidate_pair">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="262"/>
-      <field name="local" writable="1">
-        <type name="WebRTCICECandidate" c:type="GstWebRTCICECandidate*"/>
-      </field>
-      <field name="remote" writable="1">
-        <type name="WebRTCICECandidate" c:type="GstWebRTCICECandidate*"/>
-      </field>
-      <method name="copy"
-              c:identifier="gst_webrtc_ice_candidate_pair_copy"
-              version="1.28">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="498"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/webrtc/ice.c"
-               line="598">A copy of @pair</doc>
-          <type name="WebRTCICECandidatePair"
-                c:type="GstWebRTCICECandidatePair*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="pair" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="596">The #GstWebRTCICE</doc>
-            <type name="WebRTCICECandidatePair"
-                  c:type="GstWebRTCICECandidatePair*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="free"
-              c:identifier="gst_webrtc_ice_candidate_pair_free"
-              version="1.28">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.c"
-             line="575">Helper function to free #GstWebRTCICECandidatePair</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="492"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="pair" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/ice.c"
-                 line="577">The #GstWebRTCICECandidatePair to be free'd</doc>
-            <type name="WebRTCICECandidatePair"
-                  c:type="GstWebRTCICECandidatePair*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-    </record>
-    <enumeration name="WebRTCICECandidateProtocolType"
-                 version="1.28"
-                 glib:type-name="GstWebRTCICECandidateProtocolType"
-                 glib:get-type="gst_webrtc_ice_candidate_protocol_type_get_type"
-                 c:type="GstWebRTCICECandidateProtocolType">
-      <member name="tcp"
-              value="0"
-              c:identifier="GST_WEBRTC_ICE_CANDIDATE_PROTOCOL_TYPE_TCP"
-              glib:nick="tcp"
-              glib:name="GST_WEBRTC_ICE_CANDIDATE_PROTOCOL_TYPE_TCP">
-      </member>
-      <member name="udp"
-              value="1"
-              c:identifier="GST_WEBRTC_ICE_CANDIDATE_PROTOCOL_TYPE_UDP"
-              glib:nick="udp"
-              glib:name="GST_WEBRTC_ICE_CANDIDATE_PROTOCOL_TYPE_UDP">
-      </member>
-    </enumeration>
-    <record name="WebRTCICECandidateStats"
-            c:type="GstWebRTCICECandidateStats"
-            version="1.22"
-            glib:type-name="GstWebRTCICECandidateStats"
-            glib:get-type="gst_webrtc_ice_candidate_stats_get_type"
-            c:symbol-prefix="webrtc_ice_candidate_stats">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="153"/>
-      <field name="ipaddr" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="52">A string containing the address of the candidate. This value may be
-         an IPv4 address, an IPv6 address, or a fully-qualified domain name</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </field>
-      <field name="port" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="54">The network port number used by the candidate</doc>
-        <type name="guint" c:type="guint"/>
-      </field>
-      <field name="stream_id" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="55">A string that uniquely identifies the object that is being
-            monitored to produce this set of statistics</doc>
-        <type name="guint" c:type="guint"/>
-      </field>
-      <field name="type" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="57">The candidate type</doc>
-        <type name="utf8" c:type="const gchar*"/>
-      </field>
-      <field name="proto" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="58">A string specifying the protocol (tcp or udp) used to transmit data
-        on the @port</doc>
-        <type name="utf8" c:type="const gchar*"/>
-      </field>
-      <field name="relay_proto" writable="1">
-        <type name="utf8" c:type="const gchar*"/>
-      </field>
-      <field name="prio" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="62">The candidate's priority, corresponding to RTCIceCandidate.priority</doc>
-        <type name="guint" c:type="guint"/>
-      </field>
-      <field name="url" writable="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/ice.h"
-             line="63">For local candidates, the url property is the URL of the ICE server
-      from which the candidate was received</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </field>
-      <union name="ABI" c:type="ABI">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="152"/>
-        <record name="abi" c:type="abi">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="149"/>
-          <field name="foundation" writable="1">
-            <type name="utf8" c:type="gchar*"/>
-          </field>
-          <field name="related_address" writable="1">
-            <type name="utf8" c:type="gchar*"/>
-          </field>
-          <field name="related_port" writable="1">
-            <type name="guint" c:type="guint"/>
-          </field>
-          <field name="username_fragment" writable="1">
-            <type name="utf8" c:type="gchar*"/>
-          </field>
-          <field name="tcp_type" writable="1">
-            <type name="WebRTCICETcpCandidateType"
-                  c:type="GstWebRTCICETcpCandidateType"/>
-          </field>
-        </record>
-        <field name="_gst_reserved" readable="0" private="1">
-          <array zero-terminated="0" fixed-size="20">
-            <type name="gpointer" c:type="gpointer"/>
-          </array>
-        </field>
-      </union>
-      <method name="copy"
               c:identifier="gst_webrtc_ice_candidate_stats_copy"
               version="1.22">
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="476"/>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="259"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
-               line="358">A copy of @stats</doc>
+               line="349">A copy of @stats</doc>
           <type name="WebRTCICECandidateStats"
                 c:type="GstWebRTCICECandidateStats*"/>
         </return-value>
@@ -2877,7 +2428,7 @@ stops automatic ICE gathering.</doc>
           <instance-parameter name="stats" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="356">The #GstWebRTCICE</doc>
+                 line="347">The #GstWebRTCICE</doc>
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats*"/>
           </instance-parameter>
@@ -2888,8 +2439,8 @@ stops automatic ICE gathering.</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/ice.c"
-             line="332">Helper function to free #GstWebRTCICECandidateStats</doc>
-        <source-position filename="gst-libs/gst/webrtc/ice.h" line="468"/>
+             line="326">Helper function to free #GstWebRTCICECandidateStats</doc>
+        <source-position filename="gst-libs/gst/webrtc/ice.h" line="251"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2897,74 +2448,23 @@ stops automatic ICE gathering.</doc>
           <instance-parameter name="stats" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="334">The #GstWebRTCICECandidateStats to be free'd</doc>
+                 line="328">The #GstWebRTCICECandidateStats to be free'd</doc>
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats*"/>
           </instance-parameter>
         </parameters>
       </method>
     </record>
-    <enumeration name="WebRTCICECandidateType"
-                 version="1.28"
-                 glib:type-name="GstWebRTCICECandidateType"
-                 glib:get-type="gst_webrtc_ice_candidate_type_get_type"
-                 c:type="GstWebRTCICECandidateType">
-      <member name="host"
-              value="0"
-              c:identifier="GST_WEBRTC_ICE_CANDIDATE_TYPE_HOST"
-              glib:nick="host"
-              glib:name="GST_WEBRTC_ICE_CANDIDATE_TYPE_HOST">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="121">The candidate is a host candidate, whose
-  IP address as specified in the RTCIceCandidate.address property is in fact the
-  true address of the remote peer.</doc>
-      </member>
-      <member name="server_reflexive"
-              value="1"
-              c:identifier="GST_WEBRTC_ICE_CANDIDATE_TYPE_SERVER_REFLEXIVE"
-              glib:nick="server-reflexive"
-              glib:name="GST_WEBRTC_ICE_CANDIDATE_TYPE_SERVER_REFLEXIVE">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="124">The candidate is a server
-  reflexive candidate; the ip and port are a binding allocated by a NAT for an
-  agent when it sent a packet through the NAT to a server. They can be learned by
-  the STUN server and TURN server to represent the candidate's peer anonymously.</doc>
-      </member>
-      <member name="peer_reflexive"
-              value="2"
-              c:identifier="GST_WEBRTC_ICE_CANDIDATE_TYPE_PEER_REFLEXIVE"
-              glib:nick="peer-reflexive"
-              glib:name="GST_WEBRTC_ICE_CANDIDATE_TYPE_PEER_REFLEXIVE">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="128">The candidate is a peer
-  reflexive candidate; the ip and port are a binding allocated by a NAT when it
-  sent a STUN request to represent the candidate's peer anonymously.</doc>
-      </member>
-      <member name="relayed"
-              value="3"
-              c:identifier="GST_WEBRTC_ICE_CANDIDATE_TYPE_RELAYED"
-              glib:nick="relayed"
-              glib:name="GST_WEBRTC_ICE_CANDIDATE_TYPE_RELAYED">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="131">The candidate is a relay candidate,
-  obtained from a TURN server. The relay candidate's IP address is an address the
-  TURN server uses to forward the media between the two peers.</doc>
-      </member>
-    </enumeration>
     <record name="WebRTCICEClass"
             c:type="GstWebRTCICEClass"
             glib:is-gtype-struct-for="WebRTCICE">
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="368"/>
+      <source-position filename="gst-libs/gst/webrtc/ice.h" line="153"/>
       <field name="parent_class">
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
       <field name="add_stream">
         <callback name="add_stream">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="278"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="78"/>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
@@ -2989,7 +2489,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="find_transport">
         <callback name="find_transport">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="280"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="80"/>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
@@ -3020,11 +2520,11 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="gather_candidates">
         <callback name="gather_candidates">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="283"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="83"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="186">FALSE on error, TRUE otherwise</doc>
+                 line="185">FALSE on error, TRUE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
@@ -3045,7 +2545,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="add_candidate">
         <callback name="add_candidate">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="285"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="85"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3082,7 +2582,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_local_credentials">
         <callback name="set_local_credentials">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="289"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="89"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
@@ -3119,7 +2619,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_remote_credentials">
         <callback name="set_remote_credentials">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="293"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="93"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
@@ -3156,7 +2656,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="add_turn_server">
         <callback name="add_turn_server">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="297"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="97"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
@@ -3181,7 +2681,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_is_controller">
         <callback name="set_is_controller">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="299"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="99"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3189,13 +2689,13 @@ stops automatic ICE gathering.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="202">The #GstWebRTCICE</doc>
+                   line="201">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="controller" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="203">TRUE to set as controller</doc>
+                   line="202">TRUE to set as controller</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
           </parameters>
@@ -3203,18 +2703,18 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="get_is_controller">
         <callback name="get_is_controller">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="301"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="101"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="220">TRUE if set as controller, FALSE otherwise</doc>
+                 line="218">TRUE if set as controller, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="218">The #GstWebRTCICE</doc>
+                   line="217">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
           </parameters>
@@ -3222,7 +2722,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_force_relay">
         <callback name="set_force_relay">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="302"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="102"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3230,13 +2730,13 @@ stops automatic ICE gathering.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="235">The #GstWebRTCICE</doc>
+                   line="233">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="force_relay" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="236">TRUE to enable force relay</doc>
+                   line="234">TRUE to enable force relay</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
           </parameters>
@@ -3244,7 +2744,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_stun_server">
         <callback name="set_stun_server">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="304"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="104"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3252,7 +2752,7 @@ stops automatic ICE gathering.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="405">The #GstWebRTCICE</doc>
+                   line="393">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="uri"
@@ -3261,7 +2761,7 @@ stops automatic ICE gathering.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="406">URI of the STUN server</doc>
+                   line="394">URI of the STUN server</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -3269,18 +2769,18 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="get_stun_server">
         <callback name="get_stun_server">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="306"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="106"/>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="423">URI of the STUN sever</doc>
+                 line="411">URI of the STUN sever</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="421">The #GstWebRTCICE</doc>
+                   line="409">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
           </parameters>
@@ -3288,7 +2788,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_turn_server">
         <callback name="set_turn_server">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="307"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="107"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3296,7 +2796,7 @@ stops automatic ICE gathering.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="438">The #GstWebRTCICE</doc>
+                   line="426">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="uri"
@@ -3305,7 +2805,7 @@ stops automatic ICE gathering.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="439">URI of the TURN sever</doc>
+                   line="427">URI of the TURN sever</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -3313,18 +2813,18 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="get_turn_server">
         <callback name="get_turn_server">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="309"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="109"/>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="456">URI of the TURN sever</doc>
+                 line="444">URI of the TURN sever</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="454">The #GstWebRTCICE</doc>
+                   line="442">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
           </parameters>
@@ -3332,7 +2832,7 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="set_http_proxy">
         <callback name="set_http_proxy">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="321"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="121"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3340,14 +2840,14 @@ stops automatic ICE gathering.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="471">The #GstWebRTCICE</doc>
+                   line="459">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="uri" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="472">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]</doc>
+                   line="460">URI of the HTTP proxy of the form
+  http://[username:password@]hostname[:port]</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -3355,12 +2855,12 @@ stops automatic ICE gathering.</doc>
       </field>
       <field name="get_http_proxy">
         <callback name="get_http_proxy">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="335"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="135"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="492">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]
+                 line="480">URI of the HTTP proxy of the form
+  http://[username:password@]hostname[:port]
 
 Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <type name="utf8" c:type="gchar*"/>
@@ -3369,7 +2869,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="490">The #GstWebRTCICE</doc>
+                   line="478">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
           </parameters>
@@ -3377,7 +2877,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       </field>
       <field name="set_tos">
         <callback name="set_tos">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="337"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="137"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3385,19 +2885,19 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="251">The #GstWebRTCICE</doc>
+                   line="249">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="stream" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="252">The #GstWebRTCICEStream</doc>
+                   line="250">The #GstWebRTCICEStream</doc>
               <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
             </parameter>
             <parameter name="tos" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="253">ToS to be set</doc>
+                   line="251">ToS to be set</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -3405,7 +2905,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       </field>
       <field name="set_on_ice_candidate">
         <callback name="set_on_ice_candidate">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="340"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="140"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3413,7 +2913,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="385">The #GstWebRTCICE</doc>
+                   line="373">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="func"
@@ -3423,7 +2923,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                        destroy="3">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="386">The #GstWebRTCICEOnCandidateFunc callback function</doc>
+                   line="374">The #GstWebRTCICEOnCandidateFunc callback function</doc>
               <type name="WebRTCICEOnCandidateFunc"
                     c:type="GstWebRTCICEOnCandidateFunc"/>
             </parameter>
@@ -3434,13 +2934,13 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                        closure="2">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="387">User data passed to the callback function</doc>
+                   line="375">User data passed to the callback function</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
             <parameter name="notify" transfer-ownership="none" scope="async">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="388">a #GDestroyNotify when the candidate is no longer needed</doc>
+                   line="376">a #GDestroyNotify when the candidate is no longer needed</doc>
               <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
             </parameter>
           </parameters>
@@ -3448,7 +2948,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       </field>
       <field name="get_local_candidates">
         <callback name="get_local_candidates">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="344"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="144"/>
           <return-value transfer-ownership="full">
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats**"/>
@@ -3465,7 +2965,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       </field>
       <field name="get_remote_candidates">
         <callback name="get_remote_candidates">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="346"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="146"/>
           <return-value transfer-ownership="full">
             <type name="WebRTCICECandidateStats"
                   c:type="GstWebRTCICECandidateStats**"/>
@@ -3482,24 +2982,24 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
       </field>
       <field name="get_selected_pair">
         <callback name="get_selected_pair">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="348"/>
+          <source-position filename="gst-libs/gst/webrtc/ice.h" line="148"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
-                 line="314">FALSE on failure, otherwise @local_stats @remote_stats will be set</doc>
+                 line="310">FALSE on failure, otherwise @local_stats @remote_stats will be set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="ice" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="309">The #GstWebRTCICE</doc>
+                   line="305">The #GstWebRTCICE</doc>
               <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
             </parameter>
             <parameter name="stream" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="310">The #GstWebRTCICEStream</doc>
+                   line="306">The #GstWebRTCICEStream</doc>
               <type name="WebRTCICEStream" c:type="GstWebRTCICEStream*"/>
             </parameter>
             <parameter name="local_stats"
@@ -3508,7 +3008,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="311">A pointer to #GstWebRTCICECandidateStats for local candidate</doc>
+                   line="307">A pointer to #GstWebRTCICECandidateStats for local candidate</doc>
               <type name="WebRTCICECandidateStats"
                     c:type="GstWebRTCICECandidateStats**"/>
             </parameter>
@@ -3518,41 +3018,15 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
-                   line="312">pointer to #GstWebRTCICECandidateStats for remote candidate</doc>
+                   line="308">pointer to #GstWebRTCICECandidateStats for remote candidate</doc>
               <type name="WebRTCICECandidateStats"
                     c:type="GstWebRTCICECandidateStats**"/>
             </parameter>
           </parameters>
         </callback>
       </field>
-      <field name="close">
-        <callback name="close">
-          <source-position filename="gst-libs/gst/webrtc/ice.h" line="364"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="ice" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="gst-libs/gst/webrtc/ice.c"
-                   line="510">The #GstWebRTCICE</doc>
-              <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
-            </parameter>
-            <parameter name="promise"
-                       transfer-ownership="none"
-                       nullable="1"
-                       allow-none="1">
-              <doc xml:space="preserve"
-                   filename="gst-libs/gst/webrtc/ice.c"
-                   line="511">a #GstPromise to be notified when the task is
-complete.</doc>
-              <type name="Gst.Promise" c:type="GstPromise*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
       <field name="_gst_reserved">
-        <array zero-terminated="0" fixed-size="3">
+        <array zero-terminated="0" fixed-size="4">
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
@@ -3568,7 +3042,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_COMPONENT_RTP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="325">RTP component</doc>
+             line="245">RTP component</doc>
       </member>
       <member name="rtcp"
               value="1"
@@ -3577,7 +3051,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_COMPONENT_RTCP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="326">RTCP component</doc>
+             line="246">RTCP component</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCICEConnectionState"
@@ -3586,7 +3060,7 @@ complete.</doc>
                  c:type="GstWebRTCICEConnectionState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="247">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtciceconnectionstate&gt;</doc>
+           line="167">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtciceconnectionstate&gt;</doc>
       <member name="new"
               value="0"
               c:identifier="GST_WEBRTC_ICE_CONNECTION_STATE_NEW"
@@ -3594,7 +3068,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_NEW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="249">new</doc>
+             line="169">new</doc>
       </member>
       <member name="checking"
               value="1"
@@ -3603,7 +3077,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_CHECKING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="250">checking</doc>
+             line="170">checking</doc>
       </member>
       <member name="connected"
               value="2"
@@ -3612,7 +3086,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_CONNECTED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="251">connected</doc>
+             line="171">connected</doc>
       </member>
       <member name="completed"
               value="3"
@@ -3621,7 +3095,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_COMPLETED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="252">completed</doc>
+             line="172">completed</doc>
       </member>
       <member name="failed"
               value="4"
@@ -3630,7 +3104,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_FAILED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="253">failed</doc>
+             line="173">failed</doc>
       </member>
       <member name="disconnected"
               value="5"
@@ -3639,7 +3113,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_DISCONNECTED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="254">disconnected</doc>
+             line="174">disconnected</doc>
       </member>
       <member name="closed"
               value="6"
@@ -3648,7 +3122,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_CONNECTION_STATE_CLOSED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="255">closed</doc>
+             line="175">closed</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCICEGatheringState"
@@ -3657,7 +3131,7 @@ complete.</doc>
                  c:type="GstWebRTCICEGatheringState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="232">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcicegatheringstate&gt;</doc>
+           line="152">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcicegatheringstate&gt;</doc>
       <member name="new"
               value="0"
               c:identifier="GST_WEBRTC_ICE_GATHERING_STATE_NEW"
@@ -3665,7 +3139,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_GATHERING_STATE_NEW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="234">new</doc>
+             line="154">new</doc>
       </member>
       <member name="gathering"
               value="1"
@@ -3674,7 +3148,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_GATHERING_STATE_GATHERING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="235">gathering</doc>
+             line="155">gathering</doc>
       </member>
       <member name="complete"
               value="2"
@@ -3683,7 +3157,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_GATHERING_STATE_COMPLETE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="236">complete</doc>
+             line="156">complete</doc>
       </member>
     </enumeration>
     <callback name="WebRTCICEOnCandidateFunc"
@@ -3691,8 +3165,8 @@ complete.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/ice.h"
-           line="264">Callback function to be triggered on discovery of a new candidate</doc>
-      <source-position filename="gst-libs/gst/webrtc/ice.h" line="274"/>
+           line="64">Callback function to be triggered on discovery of a new candidate</doc>
+      <source-position filename="gst-libs/gst/webrtc/ice.h" line="74"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3700,19 +3174,19 @@ complete.</doc>
         <parameter name="ice" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.h"
-               line="266">The #GstWebRTCICE</doc>
+               line="66">The #GstWebRTCICE</doc>
           <type name="WebRTCICE" c:type="GstWebRTCICE*"/>
         </parameter>
         <parameter name="stream_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.h"
-               line="267">The stream id</doc>
+               line="67">The stream id</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="candidate" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.h"
-               line="268">The discovered candidate</doc>
+               line="68">The discovered candidate</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="user_data"
@@ -3722,7 +3196,7 @@ complete.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.h"
-               line="269">User data that was set by #gst_webrtc_ice_set_on_ice_candidate</doc>
+               line="69">User data that was set by #gst_webrtc_ice_set_on_ice_candidate</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -3738,7 +3212,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_ROLE_CONTROLLED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="314">controlled</doc>
+             line="234">controlled</doc>
       </member>
       <member name="controlling"
               value="1"
@@ -3747,7 +3221,7 @@ complete.</doc>
               glib:name="GST_WEBRTC_ICE_ROLE_CONTROLLING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="315">controlling</doc>
+             line="235">controlling</doc>
       </member>
     </enumeration>
     <class name="WebRTCICEStream"
@@ -3916,53 +3390,6 @@ complete.</doc>
         </callback>
       </field>
     </record>
-    <enumeration name="WebRTCICETcpCandidateType"
-                 version="1.28"
-                 glib:type-name="GstWebRTCICETcpCandidateType"
-                 glib:get-type="gst_webrtc_ice_tcp_candidate_type_get_type"
-                 c:type="GstWebRTCICETcpCandidateType">
-      <member name="active"
-              value="0"
-              c:identifier="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_ACTIVE"
-              glib:nick="active"
-              glib:name="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_ACTIVE">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="86">An "active" TCP candidate is one for which the transport
-                                           will attempt to open an outbound connection but will not
-                                           receive incoming connection requests.</doc>
-      </member>
-      <member name="passive"
-              value="1"
-              c:identifier="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_PASSIVE"
-              glib:nick="passive"
-              glib:name="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_PASSIVE">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="89">A "passive" TCP candidate is one for which the transport
-                                            will receive incoming connection attempts but not attempt
-                                            a connection.</doc>
-      </member>
-      <member name="so"
-              value="2"
-              c:identifier="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_SO"
-              glib:nick="so"
-              glib:name="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_SO">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="92">An "so" candidate is one for which the transport will attempt
-                                       to open a connection simultaneously with its peer.</doc>
-      </member>
-      <member name="none"
-              value="3"
-              c:identifier="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_NONE"
-              glib:nick="none"
-              glib:name="GST_WEBRTC_ICE_TCP_CANDIDATE_TYPE_NONE">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="94">Value used for non-TCP candidate type.</doc>
-      </member>
-    </enumeration>
     <class name="WebRTCICETransport"
            c:symbol-prefix="webrtc_ice_transport"
            c:type="GstWebRTCICETransport"
@@ -3972,7 +3399,7 @@ complete.</doc>
            glib:get-type="gst_webrtc_ice_transport_get_type"
            glib:type-struct="WebRTCICETransportClass">
       <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                       line="72"/>
+                       line="59"/>
       <virtual-method name="gather_candidates">
         <source-position filename="gst-libs/gst/webrtc/icetransport.h"
                          line="56"/>
@@ -3985,35 +3412,10 @@ complete.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="get_selected_candidate_pair"
-                      invoker="get_selected_candidate_pair"
-                      version="1.28">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/icetransport.c"
-             line="105">See also
-https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</doc>
-        <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                         line="69"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/webrtc/icetransport.c"
-               line="112">A #GstWebRTCICECandidatePair</doc>
-          <type name="WebRTCICECandidatePair"
-                c:type="GstWebRTCICECandidatePair*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="transport" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/icetransport.c"
-                 line="107">ICE Transport</doc>
-            <type name="WebRTCICETransport" c:type="GstWebRTCICETransport*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
       <method name="connection_state_change"
               c:identifier="gst_webrtc_ice_transport_connection_state_change">
         <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                         line="75"/>
+                         line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4030,7 +3432,7 @@ https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</d
       <method name="gathering_state_change"
               c:identifier="gst_webrtc_ice_transport_gathering_state_change">
         <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                         line="78"/>
+                         line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4044,35 +3446,10 @@ https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</d
           </parameter>
         </parameters>
       </method>
-      <method name="get_selected_candidate_pair"
-              c:identifier="gst_webrtc_ice_transport_get_selected_candidate_pair"
-              version="1.28">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/webrtc/icetransport.c"
-             line="105">See also
-https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</doc>
-        <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                         line="86"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/webrtc/icetransport.c"
-               line="112">A #GstWebRTCICECandidatePair</doc>
-          <type name="WebRTCICECandidatePair"
-                c:type="GstWebRTCICECandidatePair*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="transport" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/icetransport.c"
-                 line="107">ICE Transport</doc>
-            <type name="WebRTCICETransport" c:type="GstWebRTCICETransport*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="new_candidate"
               c:identifier="gst_webrtc_ice_transport_new_candidate">
         <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                         line="83"/>
+                         line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4094,7 +3471,7 @@ https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</d
       <method name="selected_pair_change"
               c:identifier="gst_webrtc_ice_transport_selected_pair_change">
         <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                         line="81"/>
+                         line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4169,7 +3546,7 @@ https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</d
             c:type="GstWebRTCICETransportClass"
             glib:is-gtype-struct-for="WebRTCICETransport">
       <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                       line="72"/>
+                       line="59"/>
       <field name="parent_class">
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
@@ -4187,29 +3564,8 @@ https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</d
           </parameters>
         </callback>
       </field>
-      <field name="get_selected_candidate_pair">
-        <callback name="get_selected_candidate_pair">
-          <source-position filename="gst-libs/gst/webrtc/icetransport.h"
-                           line="69"/>
-          <return-value transfer-ownership="full" nullable="1">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/webrtc/icetransport.c"
-                 line="112">A #GstWebRTCICECandidatePair</doc>
-            <type name="WebRTCICECandidatePair"
-                  c:type="GstWebRTCICECandidatePair*"/>
-          </return-value>
-          <parameters>
-            <parameter name="transport" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="gst-libs/gst/webrtc/icetransport.c"
-                   line="107">ICE Transport</doc>
-              <type name="WebRTCICETransport" c:type="GstWebRTCICETransport*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
       <field name="_padding">
-        <array zero-terminated="0" fixed-size="3">
+        <array zero-terminated="0" fixed-size="4">
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
@@ -4221,7 +3577,7 @@ https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair</d
                  c:type="GstWebRTCICETransportPolicy">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="510">See https://tools.ietf.org/html/draft-ietf-rtcweb-jsep-24#section-4.1.1
+           line="430">See https://tools.ietf.org/html/draft-ietf-rtcweb-jsep-24#section-4.1.1
 for more information.</doc>
       <member name="all"
               value="0"
@@ -4230,7 +3586,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ICE_TRANSPORT_POLICY_ALL">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="512">all</doc>
+             line="432">all</doc>
       </member>
       <member name="relay"
               value="1"
@@ -4239,7 +3595,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_ICE_TRANSPORT_POLICY_RELAY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="513">relay</doc>
+             line="433">relay</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCKind"
@@ -4249,7 +3605,7 @@ for more information.</doc>
                  c:type="GstWebRTCKind">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="526">https://w3c.github.io/mediacapture-main/#dom-mediastreamtrack-kind</doc>
+           line="446">https://w3c.github.io/mediacapture-main/#dom-mediastreamtrack-kind</doc>
       <member name="unknown"
               value="0"
               c:identifier="GST_WEBRTC_KIND_UNKNOWN"
@@ -4257,7 +3613,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_KIND_UNKNOWN">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="528">Kind has not yet been set</doc>
+             line="448">Kind has not yet been set</doc>
       </member>
       <member name="audio"
               value="1"
@@ -4266,7 +3622,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_KIND_AUDIO">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="529">Kind is audio</doc>
+             line="449">Kind is audio</doc>
       </member>
       <member name="video"
               value="2"
@@ -4275,7 +3631,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_KIND_VIDEO">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="530">Kind is video</doc>
+             line="450">Kind is audio</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCPeerConnectionState"
@@ -4284,7 +3640,7 @@ for more information.</doc>
                  c:type="GstWebRTCPeerConnectionState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="291">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcpeerconnectionstate&gt;</doc>
+           line="211">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcpeerconnectionstate&gt;</doc>
       <member name="new"
               value="0"
               c:identifier="GST_WEBRTC_PEER_CONNECTION_STATE_NEW"
@@ -4292,7 +3648,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PEER_CONNECTION_STATE_NEW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="293">new</doc>
+             line="213">new</doc>
       </member>
       <member name="connecting"
               value="1"
@@ -4301,7 +3657,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PEER_CONNECTION_STATE_CONNECTING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="294">connecting</doc>
+             line="214">connecting</doc>
       </member>
       <member name="connected"
               value="2"
@@ -4310,7 +3666,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PEER_CONNECTION_STATE_CONNECTED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="295">connected</doc>
+             line="215">connected</doc>
       </member>
       <member name="disconnected"
               value="3"
@@ -4319,7 +3675,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PEER_CONNECTION_STATE_DISCONNECTED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="296">disconnected</doc>
+             line="216">disconnected</doc>
       </member>
       <member name="failed"
               value="4"
@@ -4328,7 +3684,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PEER_CONNECTION_STATE_FAILED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="297">failed</doc>
+             line="217">failed</doc>
       </member>
       <member name="closed"
               value="5"
@@ -4337,7 +3693,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PEER_CONNECTION_STATE_CLOSED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="298">closed</doc>
+             line="218">closed</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCPriorityType"
@@ -4347,7 +3703,7 @@ for more information.</doc>
                  c:type="GstWebRTCPriorityType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="452">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcprioritytype&gt;</doc>
+           line="372">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcprioritytype&gt;</doc>
       <member name="very_low"
               value="1"
               c:identifier="GST_WEBRTC_PRIORITY_TYPE_VERY_LOW"
@@ -4355,7 +3711,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PRIORITY_TYPE_VERY_LOW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="454">very-low</doc>
+             line="374">very-low</doc>
       </member>
       <member name="low"
               value="2"
@@ -4364,7 +3720,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PRIORITY_TYPE_LOW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="455">low</doc>
+             line="375">low</doc>
       </member>
       <member name="medium"
               value="3"
@@ -4373,7 +3729,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PRIORITY_TYPE_MEDIUM">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="456">medium</doc>
+             line="376">medium</doc>
       </member>
       <member name="high"
               value="4"
@@ -4382,7 +3738,7 @@ for more information.</doc>
               glib:name="GST_WEBRTC_PRIORITY_TYPE_HIGH">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="457">high</doc>
+             line="377">high</doc>
       </member>
     </enumeration>
     <class name="WebRTCRTPReceiver"
@@ -4394,10 +3750,10 @@ for more information.</doc>
            glib:type-struct="WebRTCRTPReceiverClass">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="159">An object to track the receiving aspect of the stream
+           line="94">An object to track the receiving aspect of the stream
 
 Mostly matches the WebRTC RTCRtpReceiver interface.</doc>
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="167"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="102"/>
       <property name="transport" version="1.20" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtpreceiver.c"
@@ -4410,7 +3766,7 @@ Mostly matches the WebRTC RTCRtpReceiver interface.</doc>
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WebRTCRTPReceiver">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="167"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="102"/>
     </record>
     <class name="WebRTCRTPSender"
            c:symbol-prefix="webrtc_rtp_sender"
@@ -4421,10 +3777,10 @@ Mostly matches the WebRTC RTCRtpReceiver interface.</doc>
            glib:type-struct="WebRTCRTPSenderClass">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="169">An object to track the sending aspect of the stream
+           line="104">An object to track the sending aspect of the stream
 
 Mostly matches the WebRTC RTCRtpSender interface.</doc>
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="177"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="112"/>
       <method name="set_priority"
               c:identifier="gst_webrtc_rtp_sender_set_priority"
               glib:set-property="priority"
@@ -4476,7 +3832,7 @@ This also sets the Traffic Class field of IPv6.</doc>
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WebRTCRTPSender">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="177"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="112"/>
     </record>
     <class name="WebRTCRTPTransceiver"
            c:symbol-prefix="webrtc_rtp_transceiver"
@@ -4488,15 +3844,15 @@ This also sets the Traffic Class field of IPv6.</doc>
            glib:type-struct="WebRTCRTPTransceiverClass">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="181">Mostly matches the WebRTC RTCRtpTransceiver interface.</doc>
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="187"/>
+           line="116">Mostly matches the WebRTC RTCRtpTransceiver interface.</doc>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="122"/>
       <property name="codec-preferences"
                 version="1.20"
                 writable="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtptransceiver.c"
-             line="289">Caps representing the codec preferences.</doc>
+             line="287">Caps representing the codec preferences.</doc>
         <type name="Gst.Caps"/>
       </property>
       <property name="current-direction"
@@ -4505,7 +3861,7 @@ This also sets the Traffic Class field of IPv6.</doc>
                 default-value="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtptransceiver.c"
-             line="257">The transceiver's current directionality, or none if the
+             line="255">The transceiver's current directionality, or none if the
 transceiver is stopped or has never participated in an exchange
 of offers and answers. To change the transceiver's
 directionality, set the value of the direction property.</doc>
@@ -4518,7 +3874,7 @@ directionality, set the value of the direction property.</doc>
                 default-value="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtptransceiver.c"
-             line="220">Direction of the transceiver.</doc>
+             line="218">Direction of the transceiver.</doc>
         <type name="WebRTCRTPTransceiverDirection"/>
       </property>
       <property name="kind"
@@ -4527,7 +3883,7 @@ directionality, set the value of the direction property.</doc>
                 default-value="GST_WEBRTC_KIND_UNKNOWN">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtptransceiver.c"
-             line="275">The kind of media this transceiver transports</doc>
+             line="273">The kind of media this transceiver transports</doc>
         <type name="WebRTCKind"/>
       </property>
       <property name="mid"
@@ -4536,7 +3892,7 @@ directionality, set the value of the direction property.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtptransceiver.c"
-             line="235">The media ID of the m-line associated with this transceiver. This
+             line="233">The media ID of the m-line associated with this transceiver. This
 association is established, when possible, whenever either a
 local or remote description is applied. This field is null if
 neither a local or remote description has been applied, or if its
@@ -4569,7 +3925,7 @@ answer.</doc>
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WebRTCRTPTransceiver">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="187"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="122"/>
     </record>
     <enumeration name="WebRTCRTPTransceiverDirection"
                  glib:type-name="GstWebRTCRTPTransceiverDirection"
@@ -4582,7 +3938,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="353">none</doc>
+             line="273">none</doc>
       </member>
       <member name="inactive"
               value="1"
@@ -4591,7 +3947,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_INACTIVE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="354">inactive</doc>
+             line="274">inactive</doc>
       </member>
       <member name="sendonly"
               value="2"
@@ -4600,7 +3956,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_SENDONLY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="355">sendonly</doc>
+             line="275">sendonly</doc>
       </member>
       <member name="recvonly"
               value="3"
@@ -4609,7 +3965,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_RECVONLY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="356">recvonly</doc>
+             line="276">recvonly</doc>
       </member>
       <member name="sendrecv"
               value="4"
@@ -4618,7 +3974,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_SENDRECV">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="357">sendrecv</doc>
+             line="277">sendrecv</doc>
       </member>
     </enumeration>
     <class name="WebRTCSCTPTransport"
@@ -4629,7 +3985,7 @@ answer.</doc>
            glib:type-name="GstWebRTCSCTPTransport"
            glib:get-type="gst_webrtc_sctp_transport_get_type"
            glib:type-struct="WebRTCSCTPTransportClass">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="198"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="133"/>
       <property name="max-channels"
                 transfer-ownership="none"
                 default-value="0">
@@ -4654,7 +4010,7 @@ answer.</doc>
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WebRTCSCTPTransport">
-      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="198"/>
+      <source-position filename="gst-libs/gst/webrtc/webrtc_fwd.h" line="133"/>
     </record>
     <enumeration name="WebRTCSCTPTransportState"
                  version="1.16"
@@ -4663,7 +4019,7 @@ answer.</doc>
                  c:type="GstWebRTCSCTPTransportState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="433">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcsctptransportstate&gt;</doc>
+           line="353">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcsctptransportstate&gt;</doc>
       <member name="new"
               value="0"
               c:identifier="GST_WEBRTC_SCTP_TRANSPORT_STATE_NEW"
@@ -4671,7 +4027,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SCTP_TRANSPORT_STATE_NEW">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="435">new</doc>
+             line="355">new</doc>
       </member>
       <member name="connecting"
               value="1"
@@ -4680,7 +4036,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SCTP_TRANSPORT_STATE_CONNECTING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="436">connecting</doc>
+             line="356">connecting</doc>
       </member>
       <member name="connected"
               value="2"
@@ -4689,7 +4045,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SCTP_TRANSPORT_STATE_CONNECTED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="437">connected</doc>
+             line="357">connected</doc>
       </member>
       <member name="closed"
               value="3"
@@ -4698,7 +4054,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SCTP_TRANSPORT_STATE_CLOSED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="438">closed</doc>
+             line="358">closed</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCSDPType"
@@ -4707,7 +4063,7 @@ answer.</doc>
                  c:type="GstWebRTCSDPType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="334">See &lt;http://w3c.github.io/webrtc-pc/#rtcsdptype&gt;</doc>
+           line="254">See &lt;http://w3c.github.io/webrtc-pc/#rtcsdptype&gt;</doc>
       <member name="offer"
               value="1"
               c:identifier="GST_WEBRTC_SDP_TYPE_OFFER"
@@ -4715,7 +4071,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SDP_TYPE_OFFER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="336">offer</doc>
+             line="256">offer</doc>
       </member>
       <member name="pranswer"
               value="2"
@@ -4724,7 +4080,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SDP_TYPE_PRANSWER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="337">pranswer</doc>
+             line="257">pranswer</doc>
       </member>
       <member name="answer"
               value="3"
@@ -4733,7 +4089,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SDP_TYPE_ANSWER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="338">answer</doc>
+             line="258">answer</doc>
       </member>
       <member name="rollback"
               value="4"
@@ -4742,7 +4098,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SDP_TYPE_ROLLBACK">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="339">rollback</doc>
+             line="259">rollback</doc>
       </member>
       <function name="to_string" c:identifier="gst_webrtc_sdp_type_to_string">
         <source-position filename="gst-libs/gst/webrtc/rtcsessiondescription.h"
@@ -4793,7 +4149,7 @@ answer.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/rtcsessiondescription.c"
-               line="107">a new #GstWebRTCSessionDescription from @type
+               line="103">a new #GstWebRTCSessionDescription from @type
      and @sdp</doc>
           <type name="WebRTCSessionDescription"
                 c:type="GstWebRTCSessionDescription*"/>
@@ -4802,13 +4158,13 @@ answer.</doc>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/rtcsessiondescription.c"
-                 line="104">a #GstWebRTCSDPType</doc>
+                 line="100">a #GstWebRTCSDPType</doc>
             <type name="WebRTCSDPType" c:type="GstWebRTCSDPType"/>
           </parameter>
           <parameter name="sdp" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/rtcsessiondescription.c"
-                 line="105">a #GstSDPMessage</doc>
+                 line="101">a #GstSDPMessage</doc>
             <type name="GstSdp.SDPMessage" c:type="GstSDPMessage*"/>
           </parameter>
         </parameters>
@@ -4836,7 +4192,7 @@ answer.</doc>
       <method name="free" c:identifier="gst_webrtc_session_description_free">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/rtcsessiondescription.c"
-             line="85">Free @desc and all associated resources</doc>
+             line="83">Free @desc and all associated resources</doc>
         <source-position filename="gst-libs/gst/webrtc/rtcsessiondescription.h"
                          line="54"/>
         <return-value transfer-ownership="none">
@@ -4846,7 +4202,7 @@ answer.</doc>
           <instance-parameter name="desc" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/rtcsessiondescription.c"
-                 line="87">a #GstWebRTCSessionDescription</doc>
+                 line="85">a #GstWebRTCSessionDescription</doc>
             <type name="WebRTCSessionDescription"
                   c:type="GstWebRTCSessionDescription*"/>
           </instance-parameter>
@@ -4859,7 +4215,7 @@ answer.</doc>
                  c:type="GstWebRTCSignalingState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="270">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcsignalingstate&gt;</doc>
+           line="190">See &lt;http://w3c.github.io/webrtc-pc/#dom-rtcsignalingstate&gt;</doc>
       <member name="stable"
               value="0"
               c:identifier="GST_WEBRTC_SIGNALING_STATE_STABLE"
@@ -4867,7 +4223,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SIGNALING_STATE_STABLE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="272">stable</doc>
+             line="192">stable</doc>
       </member>
       <member name="closed"
               value="1"
@@ -4876,7 +4232,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SIGNALING_STATE_CLOSED">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="273">closed</doc>
+             line="193">closed</doc>
       </member>
       <member name="have_local_offer"
               value="2"
@@ -4885,7 +4241,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SIGNALING_STATE_HAVE_LOCAL_OFFER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="274">have-local-offer</doc>
+             line="194">have-local-offer</doc>
       </member>
       <member name="have_remote_offer"
               value="3"
@@ -4894,7 +4250,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SIGNALING_STATE_HAVE_REMOTE_OFFER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="275">have-remote-offer</doc>
+             line="195">have-remote-offer</doc>
       </member>
       <member name="have_local_pranswer"
               value="4"
@@ -4903,7 +4259,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SIGNALING_STATE_HAVE_LOCAL_PRANSWER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="276">have-local-pranswer</doc>
+             line="196">have-local-pranswer</doc>
       </member>
       <member name="have_remote_pranswer"
               value="5"
@@ -4912,7 +4268,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_SIGNALING_STATE_HAVE_REMOTE_PRANSWER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="277">have-remote-pranswer</doc>
+             line="197">have-remote-pranswer</doc>
       </member>
     </enumeration>
     <enumeration name="WebRTCStatsType"
@@ -4921,7 +4277,7 @@ answer.</doc>
                  c:type="GstWebRTCStatsType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-           line="383">See &lt;https://w3c.github.io/webrtc-stats/#dom-rtcstatstype&gt;</doc>
+           line="303">See &lt;https://w3c.github.io/webrtc-stats/#dom-rtcstatstype&gt;</doc>
       <member name="codec"
               value="1"
               c:identifier="GST_WEBRTC_STATS_CODEC"
@@ -4929,7 +4285,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_CODEC">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="385">codec</doc>
+             line="305">codec</doc>
       </member>
       <member name="inbound_rtp"
               value="2"
@@ -4938,7 +4294,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_INBOUND_RTP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="386">inbound-rtp</doc>
+             line="306">inbound-rtp</doc>
       </member>
       <member name="outbound_rtp"
               value="3"
@@ -4947,7 +4303,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_OUTBOUND_RTP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="387">outbound-rtp</doc>
+             line="307">outbound-rtp</doc>
       </member>
       <member name="remote_inbound_rtp"
               value="4"
@@ -4956,7 +4312,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_REMOTE_INBOUND_RTP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="388">remote-inbound-rtp</doc>
+             line="308">remote-inbound-rtp</doc>
       </member>
       <member name="remote_outbound_rtp"
               value="5"
@@ -4965,7 +4321,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_REMOTE_OUTBOUND_RTP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="389">remote-outbound-rtp</doc>
+             line="309">remote-outbound-rtp</doc>
       </member>
       <member name="csrc"
               value="6"
@@ -4974,7 +4330,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_CSRC">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="390">csrc</doc>
+             line="310">csrc</doc>
       </member>
       <member name="peer_connection"
               value="7"
@@ -4983,7 +4339,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_PEER_CONNECTION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="391">peer-connection</doc>
+             line="311">peer-connection</doc>
       </member>
       <member name="data_channel"
               value="8"
@@ -4992,7 +4348,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_DATA_CHANNEL">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="392">data-channel</doc>
+             line="312">data-channel</doc>
       </member>
       <member name="stream"
               value="9"
@@ -5001,7 +4357,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_STREAM">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="393">stream</doc>
+             line="313">stream</doc>
       </member>
       <member name="transport"
               value="10"
@@ -5010,7 +4366,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_TRANSPORT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="394">transport</doc>
+             line="314">transport</doc>
       </member>
       <member name="candidate_pair"
               value="11"
@@ -5019,7 +4375,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_CANDIDATE_PAIR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="395">candidate-pair</doc>
+             line="315">candidate-pair</doc>
       </member>
       <member name="local_candidate"
               value="12"
@@ -5028,7 +4384,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_LOCAL_CANDIDATE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="396">local-candidate</doc>
+             line="316">local-candidate</doc>
       </member>
       <member name="remote_candidate"
               value="13"
@@ -5037,7 +4393,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_REMOTE_CANDIDATE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="397">remote-candidate</doc>
+             line="317">remote-candidate</doc>
       </member>
       <member name="certificate"
               value="14"
@@ -5046,7 +4402,7 @@ answer.</doc>
               glib:name="GST_WEBRTC_STATS_CERTIFICATE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/webrtc/webrtc_fwd.h"
-             line="398">certificate</doc>
+             line="318">certificate</doc>
       </member>
     </enumeration>
     <docsection name="gstwebrtc-datachannel">

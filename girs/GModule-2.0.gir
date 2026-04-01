@@ -7,7 +7,6 @@ and/or use gtk-doc annotations.  -->
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
-  <include name="GLib" version="2.0"/>
   <package name="gmodule-2.0"/>
   <c:include name="gmodule.h"/>
   <doc:format name="gi-docgen"/>
@@ -15,7 +14,7 @@ and/or use gtk-doc annotations.  -->
              version="2.0"
              shared-library="libgmodule-2.0.so.0"
              c:identifier-prefixes="G"
-             c:symbol-prefixes="gmodule,g">
+             c:symbol-prefixes="g">
     <function-macro name="DEPRECATED_ENUMERATOR_IN_2_26_FOR"
                     c:identifier="GMODULE_DEPRECATED_ENUMERATOR_IN_2_26_FOR"
                     introspectable="0">

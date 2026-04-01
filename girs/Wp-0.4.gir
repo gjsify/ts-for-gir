@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="wireplumber-0.4"/>
   <c:include name="wp/wp.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Wp"
              version="0.4"
              shared-library="libwireplumber-0.4.so.0"
@@ -901,7 +903,9 @@ The @type will determine which component loader to use. The following types are 
           </parameter>
         </parameters>
       </method>
-      <method name="sync" c:identifier="wp_core_sync">
+      <method name="sync"
+              c:identifier="wp_core_sync"
+              glib:finish-func="sync_finish">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="874">Asks the PipeWire server to call the @callback via an event.
@@ -3775,7 +3779,9 @@ This is usually used to stop any pending activation if an error happened.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="activate" c:identifier="wp_object_activate">
+      <method name="activate"
+              c:identifier="wp_object_activate"
+              glib:finish-func="activate_finish">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="2158">Callback version of wp_object_activate_closure()</doc>
@@ -4901,7 +4907,10 @@ These features will always be prepared before the object appears on the object m
 The common characteristic of all objects that implement this interface is the presence of an "info" structure that contains additional properties for this object (in the form of a spa_dict / pw_properties) and optionally also some parameters that can be enumerated and set on the object.</doc>
       <source-position filename="lib/wp/proxy-interfaces.h" line="52"/>
       <prerequisite name="Proxy"/>
-      <virtual-method name="enum_params" invoker="enum_params">
+      <virtual-method name="enum_params"
+                      invoker="enum_params"
+                      glib:finish-func="enum_params_finish"
+                      glib:sync-func="enum_params_sync">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="2984">Enumerate object parameters.
@@ -4997,7 +5006,9 @@ This will asynchronously return the result, or an error, by calling the given @c
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="enum_params_sync" invoker="enum_params_sync">
+      <virtual-method name="enum_params_sync"
+                      invoker="enum_params_sync"
+                      glib:async-func="enum_params">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="3017">This method can be used to retrieve object parameters in a synchronous way (in contrast with wp_pipewire_object_enum_params(), which is async).
@@ -5149,7 +5160,10 @@ Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <method name="enum_params" c:identifier="wp_pipewire_object_enum_params">
+      <method name="enum_params"
+              c:identifier="wp_pipewire_object_enum_params"
+              glib:finish-func="enum_params_finish"
+              glib:sync-func="enum_params_sync">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="2984">Enumerate object parameters.
@@ -5245,7 +5259,8 @@ This will asynchronously return the result, or an error, by calling the given @c
         </parameters>
       </method>
       <method name="enum_params_sync"
-              c:identifier="wp_pipewire_object_enum_params_sync">
+              c:identifier="wp_pipewire_object_enum_params_sync"
+              glib:async-func="enum_params">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="3017">This method can be used to retrieve object parameters in a synchronous way (in contrast with wp_pipewire_object_enum_params(), which is async).
@@ -8024,7 +8039,9 @@ This should only be done by sub-classes after the configuration has been done.</
 A WpSiAcquisition is associated directly with a WpSiLinkable via wp_si_linkable_get_acquisition(). In order to allow switching policies, it is recommended that port info implementations use a separate session item to implement this interface and allow replacing it.</doc>
       <source-position filename="lib/wp/si-interfaces.h" line="181"/>
       <prerequisite name="SessionItem"/>
-      <virtual-method name="acquire" invoker="acquire">
+      <virtual-method name="acquire"
+                      invoker="acquire"
+                      glib:finish-func="acquire_finish">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="3539">Acquires the @item for linking by @acquisitor.
@@ -8134,7 +8151,9 @@ When a link needs to be delayed for a short amount of time (ex. to apply a fade 
           </parameter>
         </parameters>
       </virtual-method>
-      <method name="acquire" c:identifier="wp_si_acquisition_acquire">
+      <method name="acquire"
+              c:identifier="wp_si_acquisition_acquire"
+              glib:finish-func="acquire_finish">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="3539">Acquires the @item for linking by @acquisitor.
@@ -8423,7 +8442,9 @@ When a link needs to be delayed for a short amount of time (ex. to apply a fade 
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="set_ports_format" invoker="set_ports_format">
+      <virtual-method name="set_ports_format"
+                      invoker="set_ports_format"
+                      glib:finish-func="set_ports_format_finish">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="3415">Sets the format and configures the adapter session item ports using the given format.
@@ -8563,7 +8584,8 @@ The result of the operation can be checked using the wp_si_adapter_set_ports_for
         </parameters>
       </method>
       <method name="set_ports_format"
-              c:identifier="wp_si_adapter_set_ports_format">
+              c:identifier="wp_si_adapter_set_ports_format"
+              glib:finish-func="set_ports_format_finish">
         <doc xml:space="preserve"
              filename="docs/wp-gtkdoc.h"
              line="3415">Sets the format and configures the adapter session item ports using the given format.

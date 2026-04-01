@@ -71,10 +71,10 @@ on compilers that support that feature.</doc>
           <type name="gint" c:type="int"/>
         </array>
       </field>
-      <method-inline name="clear"
-                     c:identifier="g_unix_pipe_clear"
-                     version="2.80"
-                     introspectable="0">
+      <function name="clear"
+                c:identifier="g_unix_pipe_clear"
+                version="2.80"
+                introspectable="0">
         <doc xml:space="preserve"
              filename="glib/glib-unix.h"
              line="305">Close both ends of the pipe, unless they have already been closed or
@@ -95,19 +95,19 @@ This function preserves the value of `errno`.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
+          <parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="307">a #GUnixPipe</doc>
-            <type name="Pipe" c:type="GUnixPipe*"/>
-          </instance-parameter>
+            <type name="GLib.UnixPipe" c:type="GUnixPipe*"/>
+          </parameter>
         </parameters>
-      </method-inline>
-      <method-inline name="close"
-                     c:identifier="g_unix_pipe_close"
-                     version="2.80"
-                     introspectable="0"
-                     throws="1">
+      </function>
+      <function name="close"
+                c:identifier="g_unix_pipe_close"
+                version="2.80"
+                introspectable="0"
+                throws="1">
         <doc xml:space="preserve"
              filename="glib/glib-unix.h"
              line="264">Close one of the ends of the pipe and set the relevant member of @fds
@@ -134,24 +134,24 @@ g_unix_pipe_clear() instead.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
+          <parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="266">A pair of file descriptors</doc>
-            <type name="Pipe" c:type="GUnixPipe*"/>
-          </instance-parameter>
+            <type name="GLib.UnixPipe" c:type="GUnixPipe*"/>
+          </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="267">One of the ends of the pipe</doc>
-            <type name="PipeEnd" c:type="GUnixPipeEnd"/>
+            <type name="GLib.UnixPipeEnd" c:type="GUnixPipeEnd"/>
           </parameter>
         </parameters>
-      </method-inline>
-      <method-inline name="get"
-                     c:identifier="g_unix_pipe_get"
-                     version="2.80"
-                     introspectable="0">
+      </function>
+      <function name="get"
+                c:identifier="g_unix_pipe_get"
+                version="2.80"
+                introspectable="0">
         <doc xml:space="preserve"
              filename="glib/glib-unix.h"
              line="200">Return one of the ends of the pipe. It remains owned by @self.
@@ -171,25 +171,25 @@ This function preserves the value of `errno`.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
+          <parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="202">A pair of file descriptors</doc>
-            <type name="Pipe" c:type="GUnixPipe*"/>
-          </instance-parameter>
+            <type name="GLib.UnixPipe" c:type="GUnixPipe*"/>
+          </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="203">One of the ends of the pipe</doc>
-            <type name="PipeEnd" c:type="GUnixPipeEnd"/>
+            <type name="GLib.UnixPipeEnd" c:type="GUnixPipeEnd"/>
           </parameter>
         </parameters>
-      </method-inline>
-      <method-inline name="open"
-                     c:identifier="g_unix_pipe_open"
-                     version="2.80"
-                     introspectable="0"
-                     throws="1">
+      </function>
+      <function name="open"
+                c:identifier="g_unix_pipe_open"
+                version="2.80"
+                introspectable="0"
+                throws="1">
         <doc xml:space="preserve"
              filename="glib/glib-unix.h"
              line="173">Open a pipe. This is the same as g_unix_open_pipe(), but uses the
@@ -202,12 +202,12 @@ This function preserves the value of `errno`.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
+          <parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="175">A pair of file descriptors</doc>
-            <type name="Pipe" c:type="GUnixPipe*"/>
-          </instance-parameter>
+            <type name="GLib.UnixPipe" c:type="GUnixPipe*"/>
+          </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
@@ -215,11 +215,11 @@ This function preserves the value of `errno`.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
-      </method-inline>
-      <method-inline name="steal"
-                     c:identifier="g_unix_pipe_steal"
-                     version="2.80"
-                     introspectable="0">
+      </function>
+      <function name="steal"
+                c:identifier="g_unix_pipe_steal"
+                version="2.80"
+                introspectable="0">
         <doc xml:space="preserve"
              filename="glib/glib-unix.h"
              line="231">Return one of the ends of the pipe. It becomes owned by the caller,
@@ -241,20 +241,20 @@ This function preserves the value of `errno`.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
+          <parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="233">A pair of file descriptors</doc>
-            <type name="Pipe" c:type="GUnixPipe*"/>
-          </instance-parameter>
+            <type name="GLib.UnixPipe" c:type="GUnixPipe*"/>
+          </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/glib-unix.h"
                  line="234">One of the ends of the pipe</doc>
-            <type name="PipeEnd" c:type="GUnixPipeEnd"/>
+            <type name="GLib.UnixPipeEnd" c:type="GUnixPipeEnd"/>
           </parameter>
         </parameters>
-      </method-inline>
+      </function>
     </record>
     <enumeration name="PipeEnd" version="2.80" c:type="GUnixPipeEnd">
       <doc xml:space="preserve"
@@ -272,36 +272,13 @@ This function preserves the value of `errno`.</doc>
              line="145">The writable file descriptor 1</doc>
       </member>
     </enumeration>
-    <function name="closefrom" c:identifier="g_closefrom" version="2.80">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="862">Close every file descriptor equal to or greater than @lowfd.
-
-Typically @lowfd will be 3, to leave standard input, standard output
-and standard error open.
-
-This is the same as Linux `close_range (lowfd, ~0U, 0)`,
-but portable to other OSs and to older versions of Linux.
-Equivalently, it is the same as BSD `closefrom (lowfd)`, but portable,
-and async-signal-safe on all OSs.
-
-This function is async-signal safe, making it safe to call from a
-signal handler or a [callback@GLib.SpawnChildSetupFunc], as long as @lowfd is
-non-negative.
-See [`signal(7)`](man:signal(7)) and
-[`signal-safety(7)`](man:signal-safety(7)) for more details.</doc>
+    <function name="closefrom" c:identifier="g_closefrom">
       <source-position filename="glib/glib-unix.h" line="351"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="882">0 on success, -1 with errno set on error</doc>
         <type name="gint" c:type="int"/>
       </return-value>
       <parameters>
         <parameter name="lowfd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="864">Minimum fd to close, which must be non-negative</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -311,97 +288,42 @@ See [`signal(7)`](man:signal(7)) and
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
-    <function name="fd_add"
-              c:identifier="g_unix_fd_add"
-              version="2.36"
-              introspectable="0">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="406">Sets a function to be called when the IO condition, as specified by
-@condition becomes true for @fd.
-
-@function will be called when the specified IO condition becomes
-%TRUE.  The function is expected to clear whatever event caused the
-IO condition to become true and return %TRUE in order to be notified
-when it happens again.  If @function returns %FALSE then the watch
-will be cancelled.
-
-The return value of this function can be passed to g_source_remove()
-to cancel the watch at any time that it exists.
-
-The source will never close the fd -- you must do it yourself.</doc>
+    <function name="fd_add" c:identifier="g_unix_fd_add" introspectable="0">
       <source-position filename="glib/glib-unix.h" line="116"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="427">the ID (greater than 0) of the event source</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="fd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="408">a file descriptor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="condition" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="409">IO conditions to watch for on @fd</doc>
           <type name="GLib.IOCondition" c:type="GIOCondition"/>
         </parameter>
         <parameter name="function" transfer-ownership="none" closure="3">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="410">a #GUnixFDSourceFunc</doc>
-          <type name="FDSourceFunc" c:type="GUnixFDSourceFunc"/>
+          <type name="GLib.UnixFDSourceFunc" c:type="GUnixFDSourceFunc"/>
         </parameter>
         <parameter name="user_data"
                    transfer-ownership="none"
                    nullable="1"
                    allow-none="1">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="411">data to pass to @function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
     </function>
-    <function name="fd_add_full"
-              c:identifier="g_unix_fd_add_full"
-              version="2.36">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="361">Sets a function to be called when the IO condition, as specified by
-@condition becomes true for @fd.
-
-This is the same as g_unix_fd_add(), except that it allows you to
-specify a non-default priority and a provide a #GDestroyNotify for
-@user_data.</doc>
+    <function name="fd_add_full" c:identifier="g_unix_fd_add_full">
       <source-position filename="glib/glib-unix.h" line="108"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="377">the ID (greater than 0) of the event source</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="priority" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="363">the priority of the source</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="fd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="364">a file descriptor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="condition" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="365">IO conditions to watch for on @fd</doc>
           <type name="GLib.IOCondition" c:type="GIOCondition"/>
         </parameter>
         <parameter name="function"
@@ -409,303 +331,119 @@ specify a non-default priority and a provide a #GDestroyNotify for
                    scope="notified"
                    closure="4"
                    destroy="5">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="366">a #GUnixFDSourceFunc</doc>
-          <type name="FDSourceFunc" c:type="GUnixFDSourceFunc"/>
+          <type name="GLib.UnixFDSourceFunc" c:type="GUnixFDSourceFunc"/>
         </parameter>
         <parameter name="user_data"
                    transfer-ownership="none"
                    nullable="1"
                    allow-none="1">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="367">data to pass to @function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="notify" transfer-ownership="none" scope="async">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="368">function to call when the idle is removed, or %NULL</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
       </parameters>
     </function>
-    <function name="fd_query_path"
-              c:identifier="g_unix_fd_query_path"
-              version="2.88"
-              throws="1">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="941">Queries the file path for the given FD opened by the current process.</doc>
-      <source-position filename="glib/glib-unix.h" line="357"/>
-      <return-value transfer-ownership="full">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="948">The file path, or `NULL` on error</doc>
-        <type name="utf8" c:type="char*"/>
-      </return-value>
-      <parameters>
-        <parameter name="fd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="943">The file descriptor to query.</doc>
-          <type name="gint" c:type="int"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="fd_source_new"
-              c:identifier="g_unix_fd_source_new"
-              version="2.36">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="328">Creates a #GSource to watch for a particular I/O condition on a file
-descriptor.
-
-The source will never close the @fd — you must do it yourself.
-
-Any callback attached to the returned #GSource must have type
-#GUnixFDSourceFunc.</doc>
+    <function name="fd_source_new" c:identifier="g_unix_fd_source_new">
       <source-position filename="glib/glib-unix.h" line="104"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="341">the newly created #GSource</doc>
         <type name="GLib.Source" c:type="GSource*"/>
       </return-value>
       <parameters>
         <parameter name="fd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="330">a file descriptor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="condition" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="331">I/O conditions to watch for on @fd</doc>
           <type name="GLib.IOCondition" c:type="GIOCondition"/>
         </parameter>
       </parameters>
     </function>
-    <function name="fdwalk_set_cloexec"
-              c:identifier="g_fdwalk_set_cloexec"
-              version="2.80">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="812">Mark every file descriptor equal to or greater than @lowfd to be closed
-at the next `execve()` or similar, as if via the `FD_CLOEXEC` flag.
-
-Typically @lowfd will be 3, to leave standard input, standard output
-and standard error open after exec.
-
-This is the same as Linux `close_range (lowfd, ~0U, CLOSE_RANGE_CLOEXEC)`,
-but portable to other OSs and to older versions of Linux.
-
-This function is async-signal safe, making it safe to call from a
-signal handler or a [callback@GLib.SpawnChildSetupFunc], as long as @lowfd is
-non-negative.
-See [`signal(7)`](man:signal(7)) and
-[`signal-safety(7)`](man:signal-safety(7)) for more details.</doc>
+    <function name="fdwalk_set_cloexec" c:identifier="g_fdwalk_set_cloexec">
       <source-position filename="glib/glib-unix.h" line="354"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="831">0 on success, -1 with errno set on error</doc>
         <type name="gint" c:type="int"/>
       </return-value>
       <parameters>
         <parameter name="lowfd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="814">Minimum fd to act on, which must be non-negative</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
     <function name="get_passwd_entry"
               c:identifier="g_unix_get_passwd_entry"
-              version="2.64"
               throws="1">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="440">Get the `passwd` file entry for the given @user_name using `getpwnam_r()`.
-This can fail if the given @user_name doesn’t exist.
-
-The returned `struct passwd` has been allocated using g_malloc() and should
-be freed using g_free(). The strings referenced by the returned struct are
-included in the same allocation, so are valid until the `struct passwd` is
-freed.
-
-This function is safe to call from multiple threads concurrently.
-
-You will need to include `pwd.h` to get the definition of `struct passwd`.</doc>
       <source-position filename="glib/glib-unix.h" line="122"/>
-      <return-value transfer-ownership="full" nullable="1">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="457">passwd entry, or %NULL on error; free the returned
-   value with g_free()</doc>
+      <return-value transfer-ownership="none" nullable="1">
         <type name="gpointer" c:type="passwd*"/>
       </return-value>
       <parameters>
         <parameter name="user_name" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="442">the username to get the passwd file entry for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
-    <function name="open_pipe"
-              c:identifier="g_unix_open_pipe"
-              version="2.30"
-              throws="1">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="105">Similar to the UNIX pipe() call, but on modern systems like Linux
-uses the pipe2() system call, which atomically creates a pipe with
-the configured flags.
-
-As of GLib 2.78, the supported flags are `O_CLOEXEC`/`FD_CLOEXEC` (see below)
-and `O_NONBLOCK`. Prior to GLib 2.78, only `FD_CLOEXEC` was supported — if
-you wanted to configure `O_NONBLOCK` then that had to be done separately with
-`fcntl()`.
-
-Since GLib 2.80, the constants %G_UNIX_PIPE_END_READ and
-%G_UNIX_PIPE_END_WRITE can be used as mnemonic indexes in @fds.
-
-It is a programmer error to call this function with unsupported flags, and a
-critical warning will be raised.
-
-As of GLib 2.78, it is preferred to pass `O_CLOEXEC` in, rather than
-`FD_CLOEXEC`, as that matches the underlying `pipe()` API more closely. Prior
-to 2.78, only `FD_CLOEXEC` was supported. Support for `FD_CLOEXEC` may be
-deprecated and removed in future.</doc>
+    <function name="open_pipe" c:identifier="g_unix_open_pipe" throws="1">
       <source-position filename="glib/glib-unix.h" line="64"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="131">%TRUE on success, %FALSE if not (and errno will be set).</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="fds" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="107">Array of two integers</doc>
-          <array zero-terminated="0" c:type="gint*" fixed-size="2">
-            <type name="gint" c:type="gint"/>
-          </array>
+          <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="108">Bitfield of file descriptor flags, as for fcntl()</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
     </function>
     <function name="set_fd_nonblocking"
               c:identifier="g_unix_set_fd_nonblocking"
-              version="2.30"
               throws="1">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="156">Control the non-blocking state of the given file descriptor,
-according to @nonblock. On most systems this uses %O_NONBLOCK, but
-on some older ones may use %O_NDELAY.</doc>
       <source-position filename="glib/glib-unix.h" line="69"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="166">%TRUE if successful</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="fd" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="158">A file descriptor</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="nonblock" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="159">If %TRUE, set the descriptor to be non-blocking</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
     </function>
     <function name="signal_add"
               c:identifier="g_unix_signal_add"
-              shadowed-by="signal_add_full"
-              version="2.30"
               introspectable="0">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="276">A convenience function for g_unix_signal_source_new(), which
-attaches to the default #GMainContext.  You can remove the watch
-using g_source_remove().</doc>
       <source-position filename="glib/glib-unix.h" line="84"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="286">An ID (greater than 0) for the event source</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="signum" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="278">Signal number</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="handler" transfer-ownership="none" closure="2">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="279">Callback</doc>
           <type name="GLib.SourceFunc" c:type="GSourceFunc"/>
         </parameter>
         <parameter name="user_data"
                    transfer-ownership="none"
                    nullable="1"
                    allow-none="1">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="280">Data for @handler</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
     </function>
-    <function name="signal_add_full"
-              c:identifier="g_unix_signal_add_full"
-              shadows="signal_add"
-              version="2.30">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="237">A convenience function for g_unix_signal_source_new(), which
-attaches to the default #GMainContext.  You can remove the watch
-using g_source_remove().</doc>
+    <function name="signal_add_full" c:identifier="g_unix_signal_add_full">
       <source-position filename="glib/glib-unix.h" line="77"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="250">An ID (greater than 0) for the event source</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="priority" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="239">the priority of the signal source. Typically this will be in
-           the range between %G_PRIORITY_DEFAULT and %G_PRIORITY_HIGH.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="signum" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="241">Signal number</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="handler"
@@ -713,68 +451,26 @@ using g_source_remove().</doc>
                    scope="notified"
                    closure="3"
                    destroy="4">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="242">Callback</doc>
           <type name="GLib.SourceFunc" c:type="GSourceFunc"/>
         </parameter>
         <parameter name="user_data"
                    transfer-ownership="none"
                    nullable="1"
                    allow-none="1">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="243">Data for @handler</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="notify" transfer-ownership="none" scope="async">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="244">#GDestroyNotify for @handler</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
       </parameters>
     </function>
-    <function name="signal_source_new"
-              c:identifier="g_unix_signal_source_new"
-              version="2.30">
-      <doc xml:space="preserve"
-           filename="glib/glib-unix.c"
-           line="195">Create a #GSource that will be dispatched upon delivery of the UNIX
-signal @signum.  In GLib versions before 2.36, only `SIGHUP`, `SIGINT`,
-`SIGTERM` can be monitored.  In GLib 2.36, `SIGUSR1` and `SIGUSR2`
-were added. In GLib 2.54, `SIGWINCH` was added.
-
-Note that unlike the UNIX default, all sources which have created a
-watch will be dispatched, regardless of which underlying thread
-invoked g_unix_signal_source_new().
-
-For example, an effective use of this function is to handle `SIGTERM`
-cleanly; flushing any outstanding files, and then calling
-g_main_loop_quit().  It is not safe to do any of this from a regular
-UNIX signal handler; such a handler may be invoked while malloc() or
-another library function is running, causing reentrancy issues if the
-handler attempts to use those functions.  None of the GLib/GObject
-API is safe against this kind of reentrancy.
-
-The interaction of this source when combined with native UNIX
-functions like sigprocmask() is not defined.
-
-The source will not initially be associated with any #GMainContext
-and must be added to one with g_source_attach() before it will be
-executed.</doc>
+    <function name="signal_source_new" c:identifier="g_unix_signal_source_new">
       <source-position filename="glib/glib-unix.h" line="74"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve"
-             filename="glib/glib-unix.c"
-             line="223">A newly created #GSource</doc>
         <type name="GLib.Source" c:type="GSource*"/>
       </return-value>
       <parameters>
         <parameter name="signum" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/glib-unix.c"
-               line="197">A signal number</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>

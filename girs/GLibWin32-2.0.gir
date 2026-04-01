@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:doc="http://www.gtk.org/introspection/doc/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0" version="1.2">
+  <include name="GLib" version="2.0"/>
+  <package name="glib-2.0"/>
+  <c:include name="glib.h"/>
+  <doc:format name="gi-docgen"/>
+  <namespace name="GLibWin32" version="2.0" shared-library="libgobject-2.0-0.dll,libglib-2.0-0.dll" c:identifier-prefixes="GWin32,G" c:symbol-prefixes="glib,g_win32,g">
+    <function-macro name="HAVE_WIDECHAR_API" c:identifier="G_WIN32_HAVE_WIDECHAR_API" introspectable="0"/>
+    <function-macro name="IS_NT_BASED" c:identifier="G_WIN32_IS_NT_BASED" introspectable="0"/>
+    <enumeration name="OSType" c:type="GWin32OSType">
+      <doc xml:space="preserve">Type of Windows edition to check for at run-time.</doc>
+      <member name="any" value="0" c:identifier="G_WIN32_OS_ANY">
+        <doc xml:space="preserve">The running system can be a workstation or a server edition of
+ Windows.  The type of the running system is therefore not checked.</doc>
+      </member>
+      <member name="workstation" value="1" c:identifier="G_WIN32_OS_WORKSTATION">
+        <doc xml:space="preserve">The running system is a workstation edition of Windows,
+ such as Windows 7 Professional.</doc>
+      </member>
+      <member name="server" value="2" c:identifier="G_WIN32_OS_SERVER">
+        <doc xml:space="preserve">The running system is a server edition of Windows, such as
+ Windows Server 2008 R2.</doc>
+      </member>
+    </enumeration>
+    <function name="check_windows_version" c:identifier="g_win32_check_windows_version">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="major" transfer-ownership="none">
+          <type name="gint" c:type="const gint"/>
+        </parameter>
+        <parameter name="minor" transfer-ownership="none">
+          <type name="gint" c:type="const gint"/>
+        </parameter>
+        <parameter name="spver" transfer-ownership="none">
+          <type name="gint" c:type="const gint"/>
+        </parameter>
+        <parameter name="os_type" transfer-ownership="none">
+          <type name="OSType" c:type="const GWin32OSType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="clear_com" c:identifier="g_win32_clear_com" version="2.84" introspectable="0">
+      <doc xml:space="preserve">Releases the referenced COM object, and clears its pointer to `NULL`.
+
+The @com_obj pointer must not be `NULL`.
+
+If @com_obj references a `NULL` COM  object, this function is a no-op.
+
+This is equivalent to `g_clear_object()` for dealing with
+Windows COM objects.</doc>
+      <parameters>
+        <parameter name="com_obj">
+          <doc xml:space="preserve">Pointer to COM object pointer to release and clear</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="error_message" c:identifier="g_win32_error_message">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="error" transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="ftruncate" c:identifier="g_win32_ftruncate">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </return-value>
+      <parameters>
+        <parameter name="f" transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_command_line" c:identifier="g_win32_get_command_line" introspectable="0">
+      <return-value>
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+    </function>
+    <function name="get_package_installation_directory" c:identifier="g_win32_get_package_installation_directory">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="package" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="dll_name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_package_installation_directory_of_module" c:identifier="g_win32_get_package_installation_directory_of_module">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="hmodule" transfer-ownership="none" nullable="1" allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_package_installation_subdirectory" c:identifier="g_win32_get_package_installation_subdirectory">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="package" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="dll_name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="subdir" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_windows_version" c:identifier="g_win32_get_windows_version">
+      <return-value transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="getlocale" c:identifier="g_win32_getlocale">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+    </function>
+    <function name="locale_filename_from_utf8" c:identifier="g_win32_locale_filename_from_utf8">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="utf8filename" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

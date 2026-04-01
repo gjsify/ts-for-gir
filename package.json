@@ -1,6 +1,6 @@
 {
 	"name": "ts-for-gir",
-	"version": "4.0.0-beta.43",
+	"version": "4.0.0-beta.44",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"type": "module",
 	"private": true,
@@ -62,7 +62,7 @@
 		"type definitions"
 	],
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.9",
+		"@biomejs/biome": "^2.4.10",
 		"@ts-for-gir/cli": "workspace:^",
 		"concurrently": "^9.2.1",
 		"rimraf": "^6.1.3",

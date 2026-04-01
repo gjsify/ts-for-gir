@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/lib",
-	"version": "4.0.0-beta.43",
+	"version": "4.0.0-beta.44",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -55,6 +55,6 @@
 		"colorette": "^2.0.20",
 		"ejs": "^5.0.1",
 		"glob": "^13.0.6",
-		"lodash": "^4.17.23"
+		"lodash": "4.17.21"
 	}
 }

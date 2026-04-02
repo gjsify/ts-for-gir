@@ -6,17 +6,69 @@ import { gio, gioUnix, gioWin32, glib, glibUnix, glibWin32, gmodule, gobject } f
 import { clutter, cogl, gvc, meta, mtk, shell, shew, st } from "./gnome-shell.ts";
 import { graphene } from "./graphene.ts";
 import { grl, grlNet } from "./grilo.ts";
-import { ges, gst, gstApp, gstAudio, gstBase, gstController, gstGL, gstPbutils, gstPlayer, gstTag, gstVideo, gstWebRTC } from "./gstreamer.ts";
+import {
+	ges,
+	gst,
+	gstApp,
+	gstAudio,
+	gstBase,
+	gstController,
+	gstGL,
+	gstPbutils,
+	gstPlayer,
+	gstTag,
+	gstVideo,
+	gstWebRTC,
+} from "./gstreamer.ts";
 import { gdk3, gtk3 } from "./gtk3.ts";
 import { gdk4, gdkMacos, gdkWayland, gdkWin32, gdkX11, gsk4, gtk4 } from "./gtk4.ts";
 import { gwebgl } from "./gwebgl.ts";
 import { freetype2, harfBuzz } from "./harfbuzz.ts";
 import {
-	adw, appStream, atk, atspi, dbus, dex, flatpak, gck, gcr, gdesktopEnums, geocodeGlib,
-	gl, goa, gssdp, gstSdp, gtksource5, gudev, gupnp, gweather, json, jsonrpc,
-	libosinfo, libxml2, nm, notify, panel, peas, polkit, polkitAgent, poppler, rest,
-	rsvg, secret, shumate, spelling, template, tsparql, vte, win32, wnck, xdp,
-	xdpGtk4, xfixes, xlib,
+	adw,
+	appStream,
+	atk,
+	atspi,
+	dbus,
+	dex,
+	flatpak,
+	gck,
+	gcr,
+	gdesktopEnums,
+	geocodeGlib,
+	gl,
+	goa,
+	gssdp,
+	gstSdp,
+	gtksource5,
+	gudev,
+	gupnp,
+	gweather,
+	json,
+	jsonrpc,
+	libosinfo,
+	libxml2,
+	nm,
+	notify,
+	panel,
+	peas,
+	polkit,
+	polkitAgent,
+	poppler,
+	rest,
+	rsvg,
+	secret,
+	shumate,
+	spelling,
+	template,
+	tsparql,
+	vte,
+	win32,
+	wnck,
+	xdp,
+	xdpGtk4,
+	xfixes,
+	xlib,
 } from "./misc.ts";
 import { pango, pangoCairo } from "./pango.ts";
 import { soup3 } from "./soup.ts";

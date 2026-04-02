@@ -12,5 +12,5 @@ export const gjs: GirModuleMetadata = {
 	license: "MIT OR LGPL-2.0-or-later",
 	cDocsUrl: "https://gjs-docs.gnome.org",
 	logoUrl: "https://gjs.guide/logo-alt.svg",
-	category: "GJS Core",
+	category: "GJS",
 };

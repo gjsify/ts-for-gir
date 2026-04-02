@@ -96,7 +96,7 @@ export default {
         'PolkitAgent-1.0',
         'NM-1.0',
         'Flatpak-1.0',
-        'GeocodGlib-2.0',
+        'GeocodeGlib-2.0',
         'Poppler-0.18',
         'Wnck-3.0',
         'Libosinfo-1.0',

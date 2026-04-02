@@ -240,7 +240,44 @@ export class TypeDocPipeline {
 
 		const result = await this.convertApp(app, "merged documentation");
 		this.fixExportImportReferences(result.project);
+		this.enrichMergedModuleMetadata(result.project);
 		return result;
+	}
+
+	/**
+	 * Enrich module reflections with curated metadata after merge.
+	 *
+	 * In merge mode, girNamespaceMetadata lives at the project-root level of
+	 * each individual JSON file. When TypeDoc merges these files, the metadata
+	 * may not be transferred to the resulting module reflections. This method
+	 * fills in missing metadata from the curated registry so that the theme
+	 * can always categorise and describe every module.
+	 */
+	private enrichMergedModuleMetadata(project: ProjectReflection): void {
+		if (!project.children) return;
+		for (const child of project.children) {
+			const enriched = child as DeclarationReflection & { girNamespaceMetadata?: GirNamespaceMetadata };
+			// Skip modules that already have a category from the JSON deserializer
+			if (enriched.girNamespaceMetadata?.category) continue;
+
+			// Try to find curated metadata by matching the module name to a GIR ID.
+			// Module names in the merged project follow the pattern "Namespace-Version"
+			// (e.g. "Gtk-4.0") which matches the girId used in the metadata registry.
+			const meta = getModuleMetadata(child.name);
+			if (!meta) continue;
+
+			const existing = enriched.girNamespaceMetadata ?? ({} as GirNamespaceMetadata);
+			enriched.girNamespaceMetadata = {
+				...existing,
+				displayName: existing.displayName ?? meta.displayName,
+				description: existing.description ?? meta.description,
+				logoUrl: existing.logoUrl ?? meta.logoUrl,
+				websiteUrl: existing.websiteUrl ?? meta.websiteUrl,
+				cDocsUrl: existing.cDocsUrl ?? meta.cDocsUrl,
+				license: existing.license ?? meta.license,
+				category: existing.category ?? meta.category,
+			};
+		}
 	}
 
 	async cleanup(): Promise<void> {

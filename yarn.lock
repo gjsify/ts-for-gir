@@ -20443,6 +20443,15 @@ __metadata:
     concurrently: "npm:^9.2.1"
     rimraf: "npm:^6.1.3"
     typescript: "npm:^6.0.2"
+  dependenciesMeta:
+    "@swc/core":
+      built: true
+    esbuild:
+      built: true
+    lmdb:
+      built: true
+    msgpackr-extract:
+      built: true
   languageName: unknown
   linkType: soft
 

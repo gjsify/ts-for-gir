@@ -1,0 +1,40 @@
+{
+	"git": {
+		"commitMessage": "chore: release v${version}",
+		"tagName": "v${version}",
+		"requireBranch": "main",
+		"requireCleanWorkingDir": true
+	},
+	"github": {
+		"release": true,
+		"releaseName": "v${version}",
+		"preRelease": true,
+		"autoGenerate": false
+	},
+	"npm": {
+		"publish": false
+	},
+	"hooks": {
+		"before:init": [
+			"yarn format",
+			"git diff --exit-code || (echo 'Formatting produced changes. Please commit them first.' && exit 1)",
+			"yarn check:app",
+			"yarn test:tests"
+		]
+	},
+	"plugins": {
+		"@release-it/bumper": {
+			"out": [
+				"package.json",
+				"packages/*/package.json"
+			]
+		},
+		"@release-it/conventional-changelog": {
+			"preset": {
+				"name": "conventionalcommits"
+			},
+			"infile": "CHANGELOG.md",
+			"header": "# Changelog"
+		}
+	}
+}

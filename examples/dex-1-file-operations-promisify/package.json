@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/dex-1-file-operations-promisify",
-	"version": "1.0.0",
 	"description": "A file management utility using Dex for efficient, non-blocking file operations with promisify",
 	"main": "dist/main.js",
 	"type": "module",

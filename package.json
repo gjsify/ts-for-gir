@@ -1,6 +1,6 @@
 {
 	"name": "ts-for-gir",
-	"version": "4.0.0-beta.44",
+	"version": "4.0.0-rc.0",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"type": "module",
 	"private": true,
@@ -37,7 +37,10 @@
 		"test:examples:cli": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start && yarn workspace @ts-for-gir-example/gobject-param-spec run start && yarn workspace @ts-for-gir-example/gio-2-async run start && yarn workspace @ts-for-gir-example/gio-2-action-entries run start && yarn workspace @ts-for-gir-example/gio-2-iterate run start",
 		"test:tests": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' --exclude '@ts-for-gir-test/e2e' run test",
 		"test:e2e": "yarn build:app && yarn workspace @ts-for-gir-test/e2e run test",
-		"test": "yarn build && yarn test:types && yarn test:examples && yarn test:tests"
+		"test": "yarn build && yarn test:types && yarn test:examples && yarn test:tests",
+		"release": "release-it --preRelease=rc",
+		"release:stable": "release-it --no-github.preRelease",
+		"release:dry": "release-it --preRelease=rc --dry-run"
 	},
 	"repository": {
 		"type": "git",
@@ -64,8 +67,12 @@
 	],
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.10",
+		"@release-it/bumper": "^7.0.5",
+		"@release-it/conventional-changelog": "^10.0.6",
 		"@ts-for-gir/cli": "workspace:^",
 		"concurrently": "^9.2.1",
+		"conventional-changelog-conventionalcommits": "^9.3.1",
+		"release-it": "^19.2.4",
 		"rimraf": "^6.1.3",
 		"typescript": "^6.0.2"
 	},

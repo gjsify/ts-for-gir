@@ -128,6 +128,15 @@ export class TypeDocPipeline {
 		result.project.packageVersion = module.libraryVersion.toString();
 
 		this.registerGirMetadata(result.app, module);
+
+		// Attach metadata directly to module reflections for HTML rendering.
+		// registerGirMetadata only hooks into the serializer (for JSON export);
+		// the theme needs metadata on the reflections themselves.
+		const nsMeta = this.buildNamespaceMetadata(module);
+		for (const child of result.project.children ?? []) {
+			(child as unknown as { girNamespaceMetadata?: GirNamespaceMetadata }).girNamespaceMetadata ??= nsMeta;
+		}
+
 		return result;
 	}
 
@@ -215,6 +224,7 @@ export class TypeDocPipeline {
 			[new TSConfigReader()],
 		);
 		this.fixExportImportReferences(result.project);
+		this.enrichModuleReflections(result.project);
 		return result;
 	}
 
@@ -271,12 +281,40 @@ export class TypeDocPipeline {
 				...existing,
 				displayName: existing.displayName ?? meta.displayName,
 				description: existing.description ?? meta.description,
-				logoUrl: existing.logoUrl ?? meta.logoUrl,
+				logoUrl: existing.logoUrl ?? meta.logoUrl ?? (meta.iconFile ? `assets/library-icons/${meta.iconFile}` : undefined),
+				iconFile: existing.iconFile ?? meta.iconFile,
 				websiteUrl: existing.websiteUrl ?? meta.websiteUrl,
 				cDocsUrl: existing.cDocsUrl ?? meta.cDocsUrl,
 				license: existing.license ?? meta.license,
 				category: existing.category ?? meta.category,
 			};
+		}
+	}
+
+	/**
+	 * Attach metadata to module reflections by matching against known GIR modules.
+	 * Used in combined mode where modules are discovered via "packages" entry point strategy.
+	 */
+	private enrichModuleReflections(project: ProjectReflection): void {
+		if (!project.children) return;
+
+		// Build lookup maps: by importName (e.g. "rsvg-2.0") and by packageName (e.g. "Rsvg-2.0")
+		const metaByImportName = new Map<string, GirNamespaceMetadata>();
+		for (const module of this.modules) {
+			metaByImportName.set(module.importName, this.buildNamespaceMetadata(module));
+		}
+
+		for (const child of project.children) {
+			const enriched = child as DeclarationReflection & { girNamespaceMetadata?: GirNamespaceMetadata };
+			if (enriched.girNamespaceMetadata?.category) continue;
+
+			// Module name may be scoped (e.g. "@girs/rsvg-2.0") — extract the importName part
+			const scopeMatch = child.name.match(/^@[^/]+\/(.+)$/);
+			const importName = scopeMatch ? scopeMatch[1] : child.name.toLowerCase();
+			const nsMeta = metaByImportName.get(importName);
+			if (nsMeta) {
+				enriched.girNamespaceMetadata ??= nsMeta;
+			}
 		}
 	}
 
@@ -672,7 +710,8 @@ export class TypeDocPipeline {
 			packageVersion: pkgJson?.version,
 			displayName: meta?.displayName,
 			description: meta?.description ?? pkgJson?.description,
-			logoUrl: meta?.logoUrl,
+			logoUrl: meta?.logoUrl ?? (meta?.iconFile ? `assets/library-icons/${meta.iconFile}` : undefined),
+			iconFile: meta?.iconFile,
 			websiteUrl: meta?.websiteUrl ?? pkgJson?.homepage,
 			cDocsUrl: meta?.cDocsUrl,
 			license: meta?.license ?? pkgJson?.license,

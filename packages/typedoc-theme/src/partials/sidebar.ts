@@ -120,7 +120,11 @@ export const giDocgenSidebar = (context: GiDocgenThemeRenderContext, props: Page
 	const nsMeta = owningModule ? getGirNamespaceMetadata(props.model) : undefined;
 
 	// Logo: use module logo if available, otherwise default project logo
-	const logoUrl = nsMeta?.logoUrl || context.relativeURL("assets/logo_x4.png", true);
+	const logoUrl = nsMeta?.logoUrl
+		? nsMeta.logoUrl.startsWith("http://") || nsMeta.logoUrl.startsWith("https://")
+			? nsMeta.logoUrl
+			: context.relativeURL(nsMeta.logoUrl, true)
+		: context.relativeURL("assets/logo_x4.png", true);
 	const logoAlt = nsMeta?.displayName || nsMeta?.namespace || "GJS TypeScript Definitions";
 	const logoHref = owningModule ? context.urlTo(owningModule) : context.relativeURL("index.html", true);
 

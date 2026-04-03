@@ -115,6 +115,8 @@ export interface GirNamespaceMetadata {
 	description?: string;
 	/** Logo/icon URL */
 	logoUrl?: string;
+	/** Icon filename from refs/library-icons (e.g. "librsvg-r.svg") */
+	iconFile?: string;
 	/** Project website URL */
 	websiteUrl?: string;
 	/** URL to upstream C API documentation */

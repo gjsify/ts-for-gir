@@ -13,6 +13,7 @@ export const gtksource5: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/gtksourceview.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/",
+	iconFile: "gtksourceview-r.svg",
 	category: "GNOME Desktop",
 };
 
@@ -26,6 +27,7 @@ export const shumate: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/libshumate.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/libshumate/",
+	iconFile: "libshumate-r.svg",
 	category: "GNOME Desktop",
 };
 
@@ -240,6 +242,7 @@ export const tsparql: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/tracker.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/tracker/docs/developer/",
+	iconFile: "tracker-r.svg",
 	category: "Data & Markup",
 };
 
@@ -316,6 +319,7 @@ export const polkit: GirModuleMetadata = {
 	browseUrl: "https://gitlab.freedesktop.org/polkit/polkit/",
 	repositoryUrl: "https://gitlab.freedesktop.org/polkit/polkit.git",
 	license: "LGPL-2.0-or-later",
+	iconFile: "polkit-r.svg",
 	category: "Security",
 };
 
@@ -328,6 +332,7 @@ export const polkitAgent: GirModuleMetadata = {
 	browseUrl: "https://gitlab.freedesktop.org/polkit/polkit/",
 	repositoryUrl: "https://gitlab.freedesktop.org/polkit/polkit.git",
 	license: "LGPL-2.0-or-later",
+	iconFile: "polkit-r.svg",
 	category: "Security",
 };
 
@@ -432,6 +437,7 @@ export const xdp: GirModuleMetadata = {
 	browseUrl: "https://github.com/flatpak/libportal/",
 	repositoryUrl: "https://github.com/flatpak/libportal.git",
 	license: "LGPL-3.0-or-later",
+	iconFile: "libportal-r.svg",
 	category: "System",
 };
 
@@ -444,6 +450,7 @@ export const xdpGtk4: GirModuleMetadata = {
 	browseUrl: "https://github.com/flatpak/libportal/",
 	repositoryUrl: "https://github.com/flatpak/libportal.git",
 	license: "LGPL-3.0-or-later",
+	iconFile: "libportal-r.svg",
 	category: "System",
 };
 
@@ -459,6 +466,7 @@ export const rsvg: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/librsvg.git",
 	license: "LGPL-2.1-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/librsvg/doc/rsvg/",
+	iconFile: "librsvg-r.svg",
 	category: "Graphics",
 };
 
@@ -539,6 +547,7 @@ export const goa: GirModuleMetadata = {
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git",
 	license: "LGPL-2.0-or-later",
 	cDocsUrl: "https://gnome.pages.gitlab.gnome.org/gnome-online-accounts/goa/",
+	iconFile: "goa-r.svg",
 	category: "Web",
 };
 

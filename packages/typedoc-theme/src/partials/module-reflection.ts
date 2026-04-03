@@ -82,7 +82,7 @@ export function getMemberSections(parent: ContainerReflection): MemberSection[] 
 // ---------------------------------------------------------------------------
 
 const CATEGORY_ORDER = [
-	"GJS Core",
+	"GJS",
 	"GLib",
 	"GTK 4",
 	"GTK 3",
@@ -90,8 +90,13 @@ const CATEGORY_ORDER = [
 	"Graphics",
 	"Text Rendering",
 	"Multimedia",
+	"GNOME Shell",
 	"Web",
-	"GNOME Libraries",
+	"Networking",
+	"Data & Markup",
+	"Security",
+	"System",
+	"GNOME Desktop",
 ];
 
 export function renderCategorizedProject(

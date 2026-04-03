@@ -72,3 +72,35 @@ export const gstController: GirModuleMetadata = {
 	description: "GStreamer dynamic parameter control.",
 	cDocsUrl: "https://gstreamer.freedesktop.org/documentation/controller/index.html",
 };
+
+export const gstPlayer: GirModuleMetadata = {
+	...GST_COMMON,
+	girId: "GstPlayer-1.0",
+	displayName: "GStreamer Player",
+	description: "High-level media playback API.",
+	cDocsUrl: "https://gstreamer.freedesktop.org/documentation/player/index.html",
+};
+
+export const gstGL: GirModuleMetadata = {
+	...GST_COMMON,
+	girId: "GstGL-1.0",
+	displayName: "GStreamer GL",
+	description: "GStreamer OpenGL integration library.",
+	cDocsUrl: "https://gstreamer.freedesktop.org/documentation/gl/index.html",
+};
+
+export const gstWebRTC: GirModuleMetadata = {
+	...GST_COMMON,
+	girId: "GstWebRTC-1.0",
+	displayName: "GStreamer WebRTC",
+	description: "WebRTC support for GStreamer.",
+	cDocsUrl: "https://gstreamer.freedesktop.org/documentation/webrtc/index.html",
+};
+
+export const ges: GirModuleMetadata = {
+	...GST_COMMON,
+	girId: "GES-1.0",
+	displayName: "GES",
+	description: "GStreamer Editing Services for non-linear video editing.",
+	cDocsUrl: "https://gstreamer.freedesktop.org/documentation/gst-editing-services/index.html",
+};

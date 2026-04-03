@@ -74,5 +74,19 @@
 		"packages/*",
 		"types-dev/*"
 	],
+	"dependenciesMeta": {
+		"@swc/core": {
+			"built": true
+		},
+		"esbuild": {
+			"built": true
+		},
+		"lmdb": {
+			"built": true
+		},
+		"msgpackr-extract": {
+			"built": true
+		}
+	},
 	"packageManager": "yarn@4.13.0"
 }

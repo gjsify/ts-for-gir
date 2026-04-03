@@ -5,12 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <package name="gladeui-2.0"/>
   <c:include name="gladeui/glade.h"/>
-  <doc:format name="unknown"/>
   <namespace name="Gladeui"
              version="2.0"
              shared-library="libgladeui-2.so.13"
@@ -7200,7 +7198,7 @@ exists, then %TRUE is returned and no backup is made.</doc>
               c:identifier="glade_project_get_file_mtime">
         <source-position filename="gladeui/glade-project.h" line="260"/>
         <return-value transfer-ownership="none">
-          <type name="time_t" c:type="time_t"/>
+          <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="project" transfer-ownership="none">
@@ -23529,7 +23527,7 @@ to @findme which should be freed with gtk_tree_iter_free()</doc>
              filename="gladeui/glade-utils.c"
              line="1274">The mtime of the file, or %0 if the file attributes
          could not be read.</doc>
-        <type name="time_t" c:type="time_t"/>
+        <type name="glong" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">

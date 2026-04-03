@@ -1080,7 +1080,7 @@ __metadata:
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -1127,7 +1127,7 @@ __metadata:
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -1175,7 +1175,7 @@ __metadata:
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -3698,7 +3698,7 @@ __metadata:
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gexiv2-0.16": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -4647,6 +4647,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/gdkmacos-4.0@workspace:types-dev/gdkmacos-4.0":
+  version: 0.0.0-use.local
+  resolution: "@girs/gdkmacos-4.0@workspace:types-dev/gdkmacos-4.0"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdk-4.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/gdkpixbuf-2.0@workspace:^, @girs/gdkpixbuf-2.0@workspace:types-dev/gdkpixbuf-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdkpixbuf-2.0@workspace:types-dev/gdkpixbuf-2.0"
@@ -4690,6 +4710,27 @@ __metadata:
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/gdkwin32-4.0@workspace:types-dev/gdkwin32-4.0":
+  version: 0.0.0-use.local
+  resolution: "@girs/gdkwin32-4.0@workspace:types-dev/gdkwin32-4.0"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdk-4.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/win32-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -4897,7 +4938,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/geocodeglib-1.0@workspace:types-dev/geocodeglib-1.0":
+"@girs/geocodeglib-1.0@workspace:^, @girs/geocodeglib-1.0@workspace:types-dev/geocodeglib-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/geocodeglib-1.0@workspace:types-dev/geocodeglib-1.0"
   dependencies:
@@ -5164,7 +5205,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/girepository-2.0@workspace:types-dev/girepository-2.0":
+"@girs/giowin32-2.0@workspace:types-dev/giowin32-2.0":
+  version: 0.0.0-use.local
+  resolution: "@girs/giowin32-2.0@workspace:types-dev/giowin32-2.0"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/girepository-2.0@workspace:^, @girs/girepository-2.0@workspace:types-dev/girepository-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/girepository-2.0@workspace:types-dev/girepository-2.0"
   dependencies:
@@ -5175,7 +5229,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/girepository-3.0@workspace:^, @girs/girepository-3.0@workspace:types-dev/girepository-3.0":
+"@girs/girepository-3.0@workspace:types-dev/girepository-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/girepository-3.0@workspace:types-dev/girepository-3.0"
   dependencies:
@@ -5351,6 +5405,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/glibwin32-2.0@workspace:types-dev/glibwin32-2.0":
+  version: 0.0.0-use.local
+  resolution: "@girs/glibwin32-2.0@workspace:types-dev/glibwin32-2.0"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/gly-1@workspace:^, @girs/gly-1@workspace:types-dev/gly-1":
   version: 0.0.0-use.local
   resolution: "@girs/gly-1@workspace:types-dev/gly-1"
@@ -5444,7 +5509,6 @@ __metadata:
   resolution: "@girs/gmenu-3.0@workspace:types-dev/gmenu-3.0"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
-    "@girs/giounix-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -5636,23 +5700,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gnomemaps-1.0@workspace:types-dev/gnomemaps-1.0"
   dependencies:
+    "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
+    "@girs/champlain-0.12": "workspace:^"
+    "@girs/clutter-1.0": "workspace:^"
+    "@girs/cogl-1.0": "workspace:^"
+    "@girs/coglpango-1.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
-    "@girs/gdk-4.0": "workspace:^"
-    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/geocodeglib-1.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/graphene-1.0": "workspace:^"
-    "@girs/gsk-4.0": "workspace:^"
-    "@girs/gtk-4.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/json-1.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
-    "@girs/shumate-1.0": "workspace:^"
+    "@girs/rest-0.7": "workspace:^"
+    "@girs/soup-2.4": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -6397,7 +6464,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstcodecparsers-1.0@workspace:^, @girs/gstcodecparsers-1.0@workspace:types-dev/gstcodecparsers-1.0":
+"@girs/gstcodecparsers-1.0@workspace:types-dev/gstcodecparsers-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstcodecparsers-1.0@workspace:types-dev/gstcodecparsers-1.0"
   dependencies:
@@ -6421,7 +6488,6 @@ __metadata:
     "@girs/gobject-2.0": "workspace:^"
     "@girs/gst-1.0": "workspace:^"
     "@girs/gstbase-1.0": "workspace:^"
-    "@girs/gstcodecparsers-1.0": "workspace:^"
     "@girs/gstvideo-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
@@ -6467,7 +6533,6 @@ __metadata:
     "@girs/gobject-2.0": "workspace:^"
     "@girs/gst-1.0": "workspace:^"
     "@girs/gstbase-1.0": "workspace:^"
-    "@girs/gstcodecparsers-1.0": "workspace:^"
     "@girs/gstcodecs-1.0": "workspace:^"
     "@girs/gstvideo-1.0": "workspace:^"
     typescript: "npm:*"
@@ -8004,7 +8069,7 @@ __metadata:
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -9581,7 +9646,7 @@ __metadata:
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -10430,7 +10495,7 @@ __metadata:
   resolution: "@girs/peas-1.0@workspace:types-dev/peas-1.0"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -10462,7 +10527,7 @@ __metadata:
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
-    "@girs/girepository-3.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
@@ -11480,7 +11545,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shumate-1.0@workspace:^, @girs/shumate-1.0@workspace:types-dev/shumate-1.0":
+"@girs/shumate-1.0@workspace:types-dev/shumate-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/shumate-1.0@workspace:types-dev/shumate-1.0"
   dependencies:
@@ -12988,7 +13053,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/win32-1.0@workspace:types-dev/win32-1.0":
+"@girs/win32-1.0@workspace:^, @girs/win32-1.0@workspace:types-dev/win32-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/win32-1.0@workspace:types-dev/win32-1.0"
   dependencies:
@@ -20443,6 +20508,15 @@ __metadata:
     concurrently: "npm:^9.2.1"
     rimraf: "npm:^6.1.3"
     typescript: "npm:^6.0.2"
+  dependenciesMeta:
+    "@swc/core":
+      built: true
+    esbuild:
+      built: true
+    lmdb:
+      built: true
+    msgpackr-extract:
+      built: true
   languageName: unknown
   linkType: soft
 

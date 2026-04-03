@@ -42,6 +42,8 @@ jobs:
     - run: yarn check
     - run: yarn test:tests
     - run: yarn build:types
+      env:
+        YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
     - name: Show diff
       run: (cd ./types-dev && git diff | cat)
     - run: yarn build:examples

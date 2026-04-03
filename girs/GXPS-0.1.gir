@@ -5,14 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <include name="cairo" version="1.0"/>
   <c:include name="gxps.h"/>
-  <doc:format name="unknown"/>
   <namespace name="GXPS"
              version="0.1"
              shared-library="libgxps.so.2"
@@ -161,7 +159,7 @@ specific use and intended audience. This is not the MIME-Type.</doc>
           <doc xml:space="preserve"
                filename="libgxps/gxps-core-properties.c"
                line="804">the creating date as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
-          <type name="time_t" c:type="time_t"/>
+          <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="core_props" transfer-ownership="none">
@@ -316,7 +314,7 @@ specific use and intended audience. This is not the MIME-Type.</doc>
           <doc xml:space="preserve"
                filename="libgxps/gxps-core-properties.c"
                line="859">the date of the last printing as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
-          <type name="time_t" c:type="time_t"/>
+          <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="core_props" transfer-ownership="none">
@@ -338,7 +336,7 @@ specific use and intended audience. This is not the MIME-Type.</doc>
           <doc xml:space="preserve"
                filename="libgxps/gxps-core-properties.c"
                line="841">the modification date as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
-          <type name="time_t" c:type="time_t"/>
+          <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="core_props" transfer-ownership="none">
@@ -1849,7 +1847,7 @@ from a #GXPSDocument with gxps_document_get_page().</doc>
     <docsection name="gxps-version">
       <doc xml:space="preserve"
            filename="libgxps/gxps-version.h"
-           line="19">GXPS provides version information, primarily useful in configure checks
+           line="26">GXPS provides version information, primarily useful in configure checks
 for builds that have a configure script. Applications will not typically
 use the features described here.</doc>
     </docsection>

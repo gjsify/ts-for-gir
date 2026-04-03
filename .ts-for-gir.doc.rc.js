@@ -10,13 +10,19 @@ export default {
     modules: [
         // === Core ===
         'GLib-2.0',
+        'GLibUnix-2.0',
+        'GLibWin32-2.0',
         'GObject-2.0',
         'Gio-2.0',
+        'GioUnix-2.0',
+        'GioWin32-2.0',
         'GModule-2.0',
 
         // // === UI (GTK 4 stack) ===
         'Gtk-4.0',
         'Gdk-4.0',
+        'GdkMacos-4.0',
+        'GdkWin32-4.0',
         'Gsk-4.0',
         'GdkWayland-4.0',
         'GdkX11-4.0',
@@ -90,7 +96,7 @@ export default {
         'PolkitAgent-1.0',
         'NM-1.0',
         'Flatpak-1.0',
-        'GeocodGlib-2.0',
+        'GeocodeGlib-2.0',
         'Poppler-0.18',
         'Wnck-3.0',
         'Libosinfo-1.0',

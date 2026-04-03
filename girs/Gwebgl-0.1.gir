@@ -2341,6 +2341,574 @@
 				</parameter>
 			</parameters>
 		</method>
+		<method name="isVariantOfByteArray" c:identifier="gwebgl_web_gl_rendering_context_base_isVariantOfByteArray">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="bufferData" c:identifier="gwebgl_web_gl_rendering_context_base_bufferData">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+				<parameter name="usage" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="bufferDataSizeOnly" c:identifier="gwebgl_web_gl_rendering_context_base_bufferDataSizeOnly">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="size" transfer-ownership="none">
+					<type name="gulong" c:type="gsize"/>
+				</parameter>
+				<parameter name="usage" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="bufferSubData" c:identifier="gwebgl_web_gl_rendering_context_base_bufferSubData">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="offset" transfer-ownership="none">
+					<type name="glong" c:type="glong"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="compressedTexImage2D" c:identifier="gwebgl_web_gl_rendering_context_base_compressedTexImage2D">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="level" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="internalFormat" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="width" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="height" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="border" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="compressedTexSubImage2D" c:identifier="gwebgl_web_gl_rendering_context_base_compressedTexSubImage2D">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="level" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="xoffset" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="yoffset" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="width" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="height" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="format" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="readPixels" c:identifier="gwebgl_web_gl_rendering_context_base_readPixels">
+			<return-value transfer-ownership="full">
+				<array length="7" c:type="guint8*">
+					<type name="guint8" c:type="guint8"/>
+				</array>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="x" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="y" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="width" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="height" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="format" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="type" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+				<parameter name="result_length1" direction="out" transfer-ownership="none">
+					<type name="gint" c:type="gint*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="texImage2D" c:identifier="gwebgl_web_gl_rendering_context_base_texImage2D">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="level" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="internalFormat" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="width" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="height" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="border" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="format" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="type" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="texImage2DFromPixbuf" c:identifier="gwebgl_web_gl_rendering_context_base_texImage2DFromPixbuf">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="level" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="internalFormat" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="format" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="type" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="source" transfer-ownership="none" nullable="1">
+					<type name="gpointer" c:type="GdkPixbuf*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="texSubImage2D" c:identifier="gwebgl_web_gl_rendering_context_base_texSubImage2D">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="level" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="xoffset" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="yoffset" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="width" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="height" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="format" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="type" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="variant" transfer-ownership="none">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="texSubImage2DFromPixbuf" c:identifier="gwebgl_web_gl_rendering_context_base_texSubImage2DFromPixbuf">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="target" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="level" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="xoffset" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="yoffset" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="format" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="type" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="source" transfer-ownership="none" nullable="1">
+					<type name="gpointer" c:type="GdkPixbuf*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform1fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform1fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform1iv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform1iv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gint*">
+						<type name="gint" c:type="gint"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform2fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform2fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform2iv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform2iv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gint*">
+						<type name="gint" c:type="gint"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform3fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform3fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform3iv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform3iv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gint*">
+						<type name="gint" c:type="gint"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform4fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform4fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniform4iv" c:identifier="gwebgl_web_gl_rendering_context_base_uniform4iv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="vLength" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gint*">
+						<type name="gint" c:type="gint"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniformMatrix2fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniformMatrix2fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="transpose" transfer-ownership="none">
+					<type name="gboolean" c:type="gboolean"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniformMatrix3fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniformMatrix3fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="transpose" transfer-ownership="none">
+					<type name="gboolean" c:type="gboolean"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="uniformMatrix4fv" c:identifier="gwebgl_web_gl_rendering_context_base_uniformMatrix4fv">
+			<return-value transfer-ownership="full">
+				<type name="none" c:type="void"/>
+			</return-value>
+			<parameters>
+				<instance-parameter name="self" transfer-ownership="none">
+					<type name="Gwebgl.WebGLRenderingContextBase" c:type="GwebglWebGLRenderingContextBase*"/>
+				</instance-parameter>
+				<parameter name="location" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="transpose" transfer-ownership="none">
+					<type name="gboolean" c:type="gboolean"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none">
+					<array length="3" c:type="gfloat*">
+						<type name="gfloat" c:type="gfloat"/>
+					</array>
+				</parameter>
+				<parameter name="value_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
 	</class>
 	<record name="WebGLRenderingContextBaseClass" c:type="GwebglWebGLRenderingContextBaseClass" glib:is-gtype-struct-for="WebGLRenderingContextBase">
 		<field name="parent_class" readable="0" private="1">
@@ -2392,574 +2960,6 @@
 				</parameter>
 			</parameters>
 		</constructor>
-		<method name="isVariantOfByteArray" c:identifier="gwebgl_web_gl_rendering_context_isVariantOfByteArray">
-			<return-value transfer-ownership="full">
-				<type name="gboolean" c:type="gboolean"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="bufferData" c:identifier="gwebgl_web_gl_rendering_context_bufferData">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-				<parameter name="usage" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="bufferDataSizeOnly" c:identifier="gwebgl_web_gl_rendering_context_bufferDataSizeOnly">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="size" transfer-ownership="none">
-					<type name="gulong" c:type="gsize"/>
-				</parameter>
-				<parameter name="usage" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="bufferSubData" c:identifier="gwebgl_web_gl_rendering_context_bufferSubData">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="offset" transfer-ownership="none">
-					<type name="glong" c:type="glong"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="compressedTexImage2D" c:identifier="gwebgl_web_gl_rendering_context_compressedTexImage2D">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="level" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="internalFormat" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="width" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="height" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="border" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="compressedTexSubImage2D" c:identifier="gwebgl_web_gl_rendering_context_compressedTexSubImage2D">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="level" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="xoffset" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="yoffset" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="width" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="height" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="format" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="readPixels" c:identifier="gwebgl_web_gl_rendering_context_readPixels">
-			<return-value transfer-ownership="full">
-				<array length="7" c:type="guint8*">
-					<type name="guint8" c:type="guint8"/>
-				</array>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="x" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="y" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="width" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="height" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="format" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="type" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-				<parameter name="result_length1" direction="out" transfer-ownership="none">
-					<type name="gint" c:type="gint*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="texImage2D" c:identifier="gwebgl_web_gl_rendering_context_texImage2D">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="level" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="internalFormat" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="width" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="height" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="border" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="format" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="type" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="texImage2DFromPixbuf" c:identifier="gwebgl_web_gl_rendering_context_texImage2DFromPixbuf">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="level" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="internalFormat" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="format" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="type" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="source" transfer-ownership="none" nullable="1">
-					<type name="gpointer" c:type="GdkPixbuf*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="texSubImage2D" c:identifier="gwebgl_web_gl_rendering_context_texSubImage2D">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="level" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="xoffset" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="yoffset" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="width" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="height" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="format" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="type" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="texSubImage2DFromPixbuf" c:identifier="gwebgl_web_gl_rendering_context_texSubImage2DFromPixbuf">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="level" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="xoffset" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="yoffset" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="format" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="type" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="source" transfer-ownership="none" nullable="1">
-					<type name="gpointer" c:type="GdkPixbuf*"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform1fv" c:identifier="gwebgl_web_gl_rendering_context_uniform1fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform1iv" c:identifier="gwebgl_web_gl_rendering_context_uniform1iv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gint*">
-						<type name="gint" c:type="gint"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform2fv" c:identifier="gwebgl_web_gl_rendering_context_uniform2fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform2iv" c:identifier="gwebgl_web_gl_rendering_context_uniform2iv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gint*">
-						<type name="gint" c:type="gint"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform3fv" c:identifier="gwebgl_web_gl_rendering_context_uniform3fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform3iv" c:identifier="gwebgl_web_gl_rendering_context_uniform3iv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gint*">
-						<type name="gint" c:type="gint"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform4fv" c:identifier="gwebgl_web_gl_rendering_context_uniform4fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniform4iv" c:identifier="gwebgl_web_gl_rendering_context_uniform4iv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="vLength" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gint*">
-						<type name="gint" c:type="gint"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniformMatrix2fv" c:identifier="gwebgl_web_gl_rendering_context_uniformMatrix2fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="transpose" transfer-ownership="none">
-					<type name="gboolean" c:type="gboolean"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniformMatrix3fv" c:identifier="gwebgl_web_gl_rendering_context_uniformMatrix3fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="transpose" transfer-ownership="none">
-					<type name="gboolean" c:type="gboolean"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="uniformMatrix4fv" c:identifier="gwebgl_web_gl_rendering_context_uniformMatrix4fv">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGLRenderingContext" c:type="GwebglWebGLRenderingContext*"/>
-				</instance-parameter>
-				<parameter name="location" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="transpose" transfer-ownership="none">
-					<type name="gboolean" c:type="gboolean"/>
-				</parameter>
-				<parameter name="value" transfer-ownership="none">
-					<array length="3" c:type="gfloat*">
-						<type name="gfloat" c:type="gfloat"/>
-					</array>
-				</parameter>
-				<parameter name="value_length1" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
 		<property name="width" writable="1" construct-only="1">
 			<type name="gint" c:type="gint"/>
 		</property>
@@ -4777,63 +4777,6 @@
 				</parameter>
 				<parameter name="index" transfer-ownership="none">
 					<type name="guint" c:type="guint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="bufferData2" c:identifier="gwebgl_web_gl2_rendering_context_bufferData2">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGL2RenderingContext" c:type="GwebglWebGL2RenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
-				</parameter>
-				<parameter name="usage" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="bufferDataSizeOnly2" c:identifier="gwebgl_web_gl2_rendering_context_bufferDataSizeOnly2">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGL2RenderingContext" c:type="GwebglWebGL2RenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="size" transfer-ownership="none">
-					<type name="gulong" c:type="gsize"/>
-				</parameter>
-				<parameter name="usage" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-			</parameters>
-		</method>
-		<method name="bufferSubData2" c:identifier="gwebgl_web_gl2_rendering_context_bufferSubData2">
-			<return-value transfer-ownership="full">
-				<type name="none" c:type="void"/>
-			</return-value>
-			<parameters>
-				<instance-parameter name="self" transfer-ownership="none">
-					<type name="Gwebgl.WebGL2RenderingContext" c:type="GwebglWebGL2RenderingContext*"/>
-				</instance-parameter>
-				<parameter name="target" transfer-ownership="none">
-					<type name="gint" c:type="gint"/>
-				</parameter>
-				<parameter name="offset" transfer-ownership="none">
-					<type name="glong" c:type="glong"/>
-				</parameter>
-				<parameter name="variant" transfer-ownership="none">
-					<type name="GLib.Variant" c:type="GVariant*"/>
 				</parameter>
 			</parameters>
 		</method>

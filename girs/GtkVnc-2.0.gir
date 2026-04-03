@@ -5,14 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GVnc" version="1.0"/>
   <include name="Gtk" version="3.0"/>
   <package name="gtk-vnc-2.0"/>
   <c:include name="gtk-vnc.h"/>
-  <doc:format name="unknown"/>
   <namespace name="GtkVnc"
              version="2.0"
              shared-library="libgtk-vnc-2.0.so.0"
@@ -186,7 +184,7 @@ being rendered.</doc>
       <constructor name="new" c:identifier="vnc_display_new">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="328">Create a new widget capable of connecting to a VNC server
+             line="320">Create a new widget capable of connecting to a VNC server
 and displaying its contents
 
 The widget will initially be in a disconnected state</doc>
@@ -194,7 +192,7 @@ The widget will initially be in a disconnected state</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="336">the new VNC display widget</doc>
+               line="328">the new VNC display widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -202,13 +200,13 @@ The widget will initially be in a disconnected state</doc>
                 c:identifier="vnc_display_get_option_entries">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3827">Get the array of command line option entries containing
+             line="3757">Get the array of command line option entries containing
 VNC specific otions</doc>
-        <source-position filename="src/vncdisplay.h" line="167"/>
+        <source-position filename="src/vncdisplay.h" line="164"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3833">the option entries</doc>
+               line="3763">the option entries</doc>
           <array c:type="const GOptionEntry*">
             <type name="GLib.OptionEntry" c:type="GOptionEntry"/>
           </array>
@@ -218,13 +216,13 @@ VNC specific otions</doc>
                 c:identifier="vnc_display_get_option_group">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3805">Get a command line option group containing VNC specific
+             line="3735">Get a command line option group containing VNC specific
 options.</doc>
-        <source-position filename="src/vncdisplay.h" line="166"/>
+        <source-position filename="src/vncdisplay.h" line="163"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3811">the option group</doc>
+               line="3741">the option group</doc>
           <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
         </return-value>
       </function>
@@ -277,7 +275,7 @@ options.</doc>
       </virtual-method>
       <method name="client_cut_text"
               c:identifier="vnc_display_client_cut_text">
-        <source-position filename="src/vncdisplay.h" line="130"/>
+        <source-position filename="src/vncdisplay.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -293,7 +291,7 @@ options.</doc>
       <method name="close" c:identifier="vnc_display_close">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2220">Request that the connection to the remote display
+             line="2183">Request that the connection to the remote display
 is closed. The actual close will complete asynchronously
 and the "vnc-disconnected" signal will be emitted once
 complete.</doc>
@@ -305,7 +303,7 @@ complete.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2222">the VNC display widget</doc>
+                 line="2185">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -313,11 +311,11 @@ complete.</doc>
       <method name="force_grab" c:identifier="vnc_display_force_grab">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="770">If @enable is TRUE, immediately grab the pointer.
+             line="755">If @enable is TRUE, immediately grab the pointer.
 If @enable is FALSE, immediately ungrab the pointer.
 This overrides any automatic grabs that may have
 been done.</doc>
-        <source-position filename="src/vncdisplay.h" line="162"/>
+        <source-position filename="src/vncdisplay.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -325,13 +323,13 @@ been done.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="772">the VNC display widget</doc>
+                 line="757">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="773">TRUE to force pointer grabbing, FALSE otherwise</doc>
+                 line="758">TRUE to force pointer grabbing, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -341,20 +339,20 @@ been done.</doc>
               glib:get-property="allow-resize">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3542">Determine whether widget size is used to request
+             line="3488">Determine whether widget size is used to request
 rsize of the remote desktop</doc>
-        <source-position filename="src/vncdisplay.h" line="142"/>
+        <source-position filename="src/vncdisplay.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3549">TRUE if allow resize is enabled, FALSE otherwise</doc>
+               line="3495">TRUE if allow resize is enabled, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3544">the VNC display widget</doc>
+                 line="3490">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -364,20 +362,20 @@ rsize of the remote desktop</doc>
               glib:get-property="connection">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2252">Get the VNC connection object associated with the
+             line="2215">Get the VNC connection object associated with the
 display</doc>
         <source-position filename="src/vncdisplay.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="2259">the connection object</doc>
+               line="2222">the connection object</doc>
           <type name="GVnc.Connection" c:type="VncConnection*"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2254">the VNC display widget</doc>
+                 line="2217">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -387,19 +385,19 @@ display</doc>
               glib:get-property="depth">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3509">Get the desired colour depth</doc>
-        <source-position filename="src/vncdisplay.h" line="157"/>
+             line="3455">Get the desired colour depth</doc>
+        <source-position filename="src/vncdisplay.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3515">the color depth</doc>
+               line="3461">the color depth</doc>
           <type name="DisplayDepthColor" c:type="VncDisplayDepthColor"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3511">the VNC display widget</doc>
+                 line="3457">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -409,20 +407,20 @@ display</doc>
               glib:get-property="force-size">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3525">Determine whether the widget size is being forced
+             line="3471">Determine whether the widget size is being forced
 to match the desktop size</doc>
-        <source-position filename="src/vncdisplay.h" line="139"/>
+        <source-position filename="src/vncdisplay.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3532">TRUE if force size is enabled, FALSE otherwise</doc>
+               line="3478">TRUE if force size is enabled, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3527">the VNC display widget</doc>
+                 line="3473">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -432,19 +430,19 @@ to match the desktop size</doc>
               glib:get-property="grab-keys">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3113">Get the current grab key sequence</doc>
+             line="3059">Get the current grab key sequence</doc>
         <source-position filename="src/vncdisplay.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3119">the current grab keys</doc>
+               line="3065">the current grab keys</doc>
           <type name="GrabSequence" c:type="VncGrabSequence*"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3115">the VNC display widget</doc>
+                 line="3061">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -454,21 +452,21 @@ to match the desktop size</doc>
               glib:get-property="height">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3244">Get the height of the remote desktop. This is only
+             line="3190">Get the height of the remote desktop. This is only
 valid after the "vnc-initialized" signal has been
 emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="127"/>
+        <source-position filename="src/vncdisplay.h" line="124"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3252">the remote desktop height</doc>
+               line="3198">the remote desktop height</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3246">the VNC display widget</doc>
+                 line="3192">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -478,20 +476,20 @@ emitted</doc>
               glib:get-property="keep-aspect-ratio">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3576">Determine whether the framebuffer aspect ratio is preserved
+             line="3522">Determine whether the framebuffer aspect ratio is preserved
 when scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="148"/>
+        <source-position filename="src/vncdisplay.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3583">TRUE if aspect ratio is preserved, FALSE otherwise</doc>
+               line="3529">TRUE if aspect ratio is preserved, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3578">the VNC display widget</doc>
+                 line="3524">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -500,20 +498,20 @@ when scaling.</doc>
               c:identifier="vnc_display_get_keyboard_grab">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3710">Determine if the keyboard will be grabbed when the
+             line="3640">Determine if the keyboard will be grabbed when the
 widget has input focus.</doc>
-        <source-position filename="src/vncdisplay.h" line="119"/>
+        <source-position filename="src/vncdisplay.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3717">TRUE if the keyboard will be grabbed, FALSE otherwise</doc>
+               line="3647">TRUE if the keyboard will be grabbed, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3712">the VNC display widget</doc>
+                 line="3642">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -523,20 +521,20 @@ widget has input focus.</doc>
               glib:get-property="lossy-encoding">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3627">Determine whether lossy framebuffer update encodings
+             line="3573">Determine whether lossy framebuffer update encodings
 are permitted</doc>
-        <source-position filename="src/vncdisplay.h" line="133"/>
+        <source-position filename="src/vncdisplay.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3634">TRUE if lossy encodings are permitted, FALSE otherwie</doc>
+               line="3580">TRUE if lossy encodings are permitted, FALSE otherwie</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3629">the VNC display widget</doc>
+                 line="3575">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -546,21 +544,21 @@ are permitted</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3262">Get the name of the remote desktop. This is only
+             line="3208">Get the name of the remote desktop. This is only
 valid after the "vnc-initialized" signal has been
 emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="128"/>
+        <source-position filename="src/vncdisplay.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3270">the remote desktop name</doc>
+               line="3216">the remote desktop name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3264">the VNC display widget</doc>
+                 line="3210">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -568,40 +566,19 @@ emitted</doc>
       <method name="get_pixbuf" c:identifier="vnc_display_get_pixbuf">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3186">Take a screenshot of the display.</doc>
-        <source-position filename="src/vncdisplay.h" line="124"/>
+             line="3132">Take a screenshot of the display.</doc>
+        <source-position filename="src/vncdisplay.h" line="121"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3192">a #GdkPixbuf with the screenshot image buffer</doc>
+               line="3138">a #GdkPixbuf with the screenshot image buffer</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3188">the VNC display widget</doc>
-            <type name="Display" c:type="VncDisplay*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_pointer_force_visible"
-              c:identifier="vnc_display_get_pointer_force_visible">
-        <doc xml:space="preserve"
-             filename="src/vncdisplay.c"
-             line="3661">Determine if a visible pointer will be forced</doc>
-        <source-position filename="src/vncdisplay.h" line="110"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="src/vncdisplay.c"
-               line="3667">TRUE if a visible pointer will be forced, FALSE otherwise</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3663">the VNC display widget</doc>
+                 line="3134">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -610,20 +587,20 @@ emitted</doc>
               c:identifier="vnc_display_get_pointer_grab">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3693">Determine if the mouse pointer will be grabbed
+             line="3623">Determine if the mouse pointer will be grabbed
 on first click</doc>
-        <source-position filename="src/vncdisplay.h" line="116"/>
+        <source-position filename="src/vncdisplay.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3700">TRUE if the pointer will be grabbed, FALSE otherwise</doc>
+               line="3630">TRUE if the pointer will be grabbed, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3695">the VNC display widget</doc>
+                 line="3625">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -632,19 +609,19 @@ on first click</doc>
               c:identifier="vnc_display_get_pointer_local">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3677">Determine if a local pointer will be shown</doc>
-        <source-position filename="src/vncdisplay.h" line="113"/>
+             line="3607">Determine if a local pointer will be shown</doc>
+        <source-position filename="src/vncdisplay.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3683">TRUE if a local pointer is shown, FALSE otherwise</doc>
+               line="3613">TRUE if a local pointer is shown, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3679">the VNC display widget</doc>
+                 line="3609">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -654,20 +631,20 @@ on first click</doc>
               glib:get-property="read-only">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3727">Determine if the widget will operate in read-only
+             line="3657">Determine if the widget will operate in read-only
 mode, denying keyboard/mouse inputs</doc>
-        <source-position filename="src/vncdisplay.h" line="122"/>
+        <source-position filename="src/vncdisplay.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3734">TRUE if in read-only mode, FALSE otherwise</doc>
+               line="3664">TRUE if in read-only mode, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3729">the VNC display widget</doc>
+                 line="3659">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -677,19 +654,19 @@ mode, denying keyboard/mouse inputs</doc>
               glib:get-property="rotation">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3593">Determine the current rotation angle of the remote desktop.</doc>
-        <source-position filename="src/vncdisplay.h" line="151"/>
+             line="3539">Determine the current rotation angle of the remote desktop.</doc>
+        <source-position filename="src/vncdisplay.h" line="148"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3599">the rotation angle in clockwise direction</doc>
+               line="3545">the rotation angle in clockwise direction</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3595">the VNC display widget</doc>
+                 line="3541">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -699,21 +676,21 @@ mode, denying keyboard/mouse inputs</doc>
               glib:get-property="scaling">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3609">Determine whether the widget is permitted to
+             line="3555">Determine whether the widget is permitted to
 scale the remote desktop to fit the current
 widget size.</doc>
-        <source-position filename="src/vncdisplay.h" line="136"/>
+        <source-position filename="src/vncdisplay.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3617">TRUE if scaling is permitted, FALSE otherwise</doc>
+               line="3563">TRUE if scaling is permitted, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3611">the VNC display widget</doc>
+                 line="3557">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -723,20 +700,20 @@ widget size.</doc>
               glib:get-property="shared-flag">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3644">Determine if other clients are permitted to
+             line="3590">Determine if other clients are permitted to
 share the VNC connection</doc>
-        <source-position filename="src/vncdisplay.h" line="154"/>
+        <source-position filename="src/vncdisplay.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3651">TRUE if sharing is permittted, FALSE otherwise</doc>
+               line="3597">TRUE if sharing is permittted, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3646">the VNC display widget</doc>
+                 line="3592">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -746,20 +723,20 @@ share the VNC connection</doc>
               glib:get-property="smoothing">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3559">Determine whether pixels are smoothly interpolated when
+             line="3505">Determine whether pixels are smoothly interpolated when
 scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="145"/>
+        <source-position filename="src/vncdisplay.h" line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3566">TRUE if smoothing is enabled, FALSE otherwise</doc>
+               line="3512">TRUE if smoothing is enabled, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3561">the VNC display widget</doc>
+                 line="3507">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -769,21 +746,21 @@ scaling.</doc>
               glib:get-property="width">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3226">Get the width of the remote desktop. This is only
+             line="3172">Get the width of the remote desktop. This is only
 valid after the "vnc-initialized" signal has been
 emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="126"/>
+        <source-position filename="src/vncdisplay.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3234">the remote desktop width</doc>
+               line="3180">the remote desktop width</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3228">the VNC display widget</doc>
+                 line="3174">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -793,19 +770,19 @@ emitted</doc>
               glib:get-property="zoom-level">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3773">Determine the current constant scaling factor.</doc>
-        <source-position filename="src/vncdisplay.h" line="160"/>
+             line="3703">Determine the current constant scaling factor.</doc>
+        <source-position filename="src/vncdisplay.h" line="157"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3779">the zoom percentage level between 10-400</doc>
+               line="3709">the zoom percentage level between 10-400</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3775">the VNC display widget</doc>
+                 line="3705">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -813,19 +790,19 @@ emitted</doc>
       <method name="is_open" c:identifier="vnc_display_is_open">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2204">Check if the connection for the display is currently open</doc>
+             line="2167">Check if the connection for the display is currently open</doc>
         <source-position filename="src/vncdisplay.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="2210">TRUE if open, FALSE if closing/closed</doc>
+               line="2173">TRUE if open, FALSE if closing/closed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2206">the VNC display widget</doc>
+                 line="2169">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -834,21 +811,21 @@ emitted</doc>
               c:identifier="vnc_display_is_pointer_absolute">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3789">Determine if the pointer is operating in absolute
+             line="3719">Determine if the pointer is operating in absolute
 mode. This is only valid after the "vnc-initialized"
 signal has been emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="164"/>
+        <source-position filename="src/vncdisplay.h" line="161"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3797">TRUE if in absolute mode, FALSE for relative mode</doc>
+               line="3727">TRUE if in absolute mode, FALSE for relative mode</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3791">the VNC display widget</doc>
+                 line="3721">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -856,7 +833,7 @@ signal has been emitted</doc>
       <method name="open_addr" c:identifier="vnc_display_open_addr">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2127">Open a socket connection to server identified by @addr.
+             line="2090">Open a socket connection to server identified by @addr.
 @addr may refer to either a TCP address (IPv4/6) or
 a UNIX socket address. The @hostname provided should
 reflect the name of the host that the @addr provides a
@@ -870,20 +847,20 @@ against @hostname.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="2144">TRUE if a connection was opened, FALSE if already open</doc>
+               line="2107">TRUE if a connection was opened, FALSE if already open</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2129">the VNC display widget</doc>
+                 line="2092">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="addr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2130">the socket address</doc>
+                 line="2093">the socket address</doc>
             <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
           </parameter>
           <parameter name="hostname"
@@ -892,7 +869,7 @@ against @hostname.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2131">the hostname</doc>
+                 line="2094">the hostname</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -900,7 +877,7 @@ against @hostname.</doc>
       <method name="open_fd" c:identifier="vnc_display_open_fd">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2055">Open a connection using @fd as the transport. If @fd
+             line="2018">Open a connection using @fd as the transport. If @fd
 refers to a TCP connection, it is recommended to use
 vnc_display_open_fd_with_hostname instead, to
 provide the remote hostname. This allows use of
@@ -910,20 +887,20 @@ to be available.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="2067">TRUE if a connection was opened, FALSE if already open</doc>
+               line="2030">TRUE if a connection was opened, FALSE if already open</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2057">the VNC display widget</doc>
+                 line="2020">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2058">file descriptor to use for the connection</doc>
+                 line="2021">file descriptor to use for the connection</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -932,7 +909,7 @@ to be available.</doc>
               c:identifier="vnc_display_open_fd_with_hostname">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2091">Open a connection using @fd as the transport. The
+             line="2054">Open a connection using @fd as the transport. The
 @hostname provided should reflect the name of the
 host that the @fd provides a connection to. This
 will be used by some authentication schemes, for
@@ -941,20 +918,20 @@ example x509 certificate validation against @hostname.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="2103">TRUE if a connection was opened, FALSE if already open</doc>
+               line="2066">TRUE if a connection was opened, FALSE if already open</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2093">the VNC display widget</doc>
+                 line="2056">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2094">file descriptor to use for the connection</doc>
+                 line="2057">file descriptor to use for the connection</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="hostname"
@@ -963,7 +940,7 @@ example x509 certificate validation against @hostname.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2095">the host associated with the connection</doc>
+                 line="2058">the host associated with the connection</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -971,38 +948,38 @@ example x509 certificate validation against @hostname.</doc>
       <method name="open_host" c:identifier="vnc_display_open_host">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2169">Open a TCP connection to the remote desktop at @host
+             line="2132">Open a TCP connection to the remote desktop at @host
 listening on @port.</doc>
         <source-position filename="src/vncdisplay.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="2178">TRUE if a connection was opened, FALSE if already open</doc>
+               line="2141">TRUE if a connection was opened, FALSE if already open</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2171">the VNC display widget</doc>
+                 line="2134">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2172">the host name or IP address</doc>
+                 line="2135">the host name or IP address</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2173">the service name or port number</doc>
+                 line="2136">the service name or port number</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <method name="request_update" c:identifier="vnc_display_request_update">
-        <source-position filename="src/vncdisplay.h" line="169"/>
+        <source-position filename="src/vncdisplay.h" line="166"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1015,7 +992,7 @@ listening on @port.</doc>
       <method name="send_keys" c:identifier="vnc_display_send_keys">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2269">Send keyval click events to the display. Al the
+             line="2232">Send keyval click events to the display. Al the
 key press events will be sent first and then all
 the key release events.
 
@@ -1028,13 +1005,13 @@ the key release events.
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2271">the VNC display widget</doc>
+                 line="2234">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="keyvals" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2272">Keyval array</doc>
+                 line="2235">Keyval array</doc>
             <array length="1" zero-terminated="0" c:type="const guint*">
               <type name="guint" c:type="guint"/>
             </array>
@@ -1042,7 +1019,7 @@ the key release events.
           <parameter name="nkeyvals" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2273">Length of keyvals</doc>
+                 line="2236">Length of keyvals</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1050,7 +1027,7 @@ the key release events.
       <method name="send_keys_ex" c:identifier="vnc_display_send_keys_ex">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2307">Sends key events to the remote server. @keyvals
+             line="2270">Sends key events to the remote server. @keyvals
 should contain X11 key code values. These will
 be automatically converted to XT scancodes if
 needed
@@ -1066,13 +1043,13 @@ by all the key release events.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2309">the VNC display widget</doc>
+                 line="2272">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="keyvals" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2310">Keyval array</doc>
+                 line="2273">Keyval array</doc>
             <array length="1" zero-terminated="0" c:type="const guint*">
               <type name="guint" c:type="guint"/>
             </array>
@@ -1080,13 +1057,13 @@ by all the key release events.</doc>
           <parameter name="nkeyvals" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2311">Length of keyvals</doc>
+                 line="2274">Length of keyvals</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2312">the type of event to send</doc>
+                 line="2275">the type of event to send</doc>
             <type name="DisplayKeyEvent" c:type="VncDisplayKeyEvent"/>
           </parameter>
         </parameters>
@@ -1094,7 +1071,7 @@ by all the key release events.</doc>
       <method name="send_pointer" c:identifier="vnc_display_send_pointer">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="2347">Move the remote pointer to position (@x, @y) and set the
+             line="2310">Move the remote pointer to position (@x, @y) and set the
 button state to @button_mask.  This method will only
 work if the desktop is using absolute pointer mode. It
 will be a no-op if in relative pointer mode.</doc>
@@ -1106,25 +1083,25 @@ will be a no-op if in relative pointer mode.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2349">the VNC display widget</doc>
+                 line="2312">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2350">the desired horizontal position</doc>
+                 line="2313">the desired horizontal position</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2351">the desired vertical position</doc>
+                 line="2314">the desired vertical position</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="button_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="2352">the state of the buttons</doc>
+                 line="2315">the state of the buttons</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1134,12 +1111,12 @@ will be a no-op if in relative pointer mode.</doc>
               glib:set-property="allow-resize">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3389">Set whether changes in the widget size will be translated
+             line="3335">Set whether changes in the widget size will be translated
 into requests to resize the remote desktop. Resizing of
 the remote desktop is not guaranteed to be honoured by
 servers, but when it is, it will avoid the need to do
 scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="141"/>
+        <source-position filename="src/vncdisplay.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1147,13 +1124,13 @@ scaling.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3391">the VNC display widget</doc>
+                 line="3337">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3392">TRUE to allow the desktop resize, FALSE otherwise</doc>
+                 line="3338">TRUE to allow the desktop resize, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1161,7 +1138,7 @@ scaling.</doc>
       <method name="set_credential" c:identifier="vnc_display_set_credential">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3010">Sets the value of the authentication credential
+             line="2973">Sets the value of the authentication credential
 @type to the string @data.
 
 @type is one of the VncConnectionCredential enum vlaues</doc>
@@ -1169,26 +1146,26 @@ scaling.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
-               line="3021">TRUE if an error occurs, FALSE otherwise</doc>
+               line="2984">TRUE if an error occurs, FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3012">the VNC display widget</doc>
+                 line="2975">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3013">the authentication credential type</doc>
+                 line="2976">the authentication credential type</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3014">the value associated with the credential</doc>
+                 line="2977">the value associated with the credential</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1198,11 +1175,11 @@ scaling.</doc>
               glib:set-property="depth">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3484">Set the desired colour depth. Higher quality colour
+             line="3430">Set the desired colour depth. Higher quality colour
 depths will require greater network bandwidth. The
 colour depth must be set prior to connecting to the
 remote server</doc>
-        <source-position filename="src/vncdisplay.h" line="156"/>
+        <source-position filename="src/vncdisplay.h" line="153"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1210,13 +1187,13 @@ remote server</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3486">the VNC display widget</doc>
+                 line="3432">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="depth" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3487">the desired colour depth</doc>
+                 line="3433">the desired colour depth</doc>
             <type name="DisplayDepthColor" c:type="VncDisplayDepthColor"/>
           </parameter>
         </parameters>
@@ -1226,12 +1203,12 @@ remote server</doc>
               glib:set-property="force-size">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3367">Set whether the widget size will be forced to match the
+             line="3313">Set whether the widget size will be forced to match the
 remote desktop size. If the widget size does not match
 the remote desktop size, and scaling is disabled, some
 of the remote desktop may be hidden, or black borders
 may be drawn.</doc>
-        <source-position filename="src/vncdisplay.h" line="138"/>
+        <source-position filename="src/vncdisplay.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1239,13 +1216,13 @@ may be drawn.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3369">the VNC display widget</doc>
+                 line="3315">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3370">TRUE to force the widget size, FALSE otherwise</doc>
+                 line="3316">TRUE to force the widget size, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1255,7 +1232,7 @@ may be drawn.</doc>
               glib:set-property="grab-keys">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3085">Set the sequence of keys that must be pressed to
+             line="3031">Set the sequence of keys that must be pressed to
 activate keyborad and pointer grab</doc>
         <source-position filename="src/vncdisplay.h" line="104"/>
         <return-value transfer-ownership="none">
@@ -1265,13 +1242,13 @@ activate keyborad and pointer grab</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3087">the VNC display widget</doc>
+                 line="3033">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="seq" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3088">the new grab sequence</doc>
+                 line="3034">the new grab sequence</doc>
             <type name="GrabSequence" c:type="VncGrabSequence*"/>
           </parameter>
         </parameters>
@@ -1281,9 +1258,9 @@ activate keyborad and pointer grab</doc>
               glib:set-property="keep-aspect-ratio">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3438">Set whether the aspect ratio of the framebuffer is preserved
+             line="3384">Set whether the aspect ratio of the framebuffer is preserved
 when scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="147"/>
+        <source-position filename="src/vncdisplay.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1291,13 +1268,13 @@ when scaling.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3440">the VNC display widget</doc>
+                 line="3386">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3441">TRUE to keep aspect ratio, FALSE otherwise</doc>
+                 line="3387">TRUE to keep aspect ratio, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1306,11 +1283,11 @@ when scaling.</doc>
               c:identifier="vnc_display_set_keyboard_grab">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3127">Set whether the widget will grab the keyboard when it
+             line="3073">Set whether the widget will grab the keyboard when it
 has focus. Grabbing the keyboard allows it to intercept
 special key sequences, ensuring they get sent to the
 remote desktop, rather than intepreted locally.</doc>
-        <source-position filename="src/vncdisplay.h" line="118"/>
+        <source-position filename="src/vncdisplay.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1318,13 +1295,13 @@ remote desktop, rather than intepreted locally.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3129">the VNC display widget</doc>
+                 line="3075">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3130">TRUE to enable keyboard grab, FALSE otherwise</doc>
+                 line="3076">TRUE to enable keyboard grab, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1334,12 +1311,12 @@ remote desktop, rather than intepreted locally.</doc>
               glib:set-property="lossy-encoding">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3298">Set whether the client is willing to accept lossy
+             line="3244">Set whether the client is willing to accept lossy
 framebuffer update encodings. Lossy encodings can
 improve performance by lowering network bandwidth
 requirements, with a cost that the display received
 by the client will not be pixel perfect</doc>
-        <source-position filename="src/vncdisplay.h" line="132"/>
+        <source-position filename="src/vncdisplay.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1347,40 +1324,13 @@ by the client will not be pixel perfect</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3300">the VNC display widget</doc>
+                 line="3246">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3301">TRUE to permit lossy encodings, FALSE otherwise</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_pointer_force_visible"
-              c:identifier="vnc_display_set_pointer_force_visible">
-        <doc xml:space="preserve"
-             filename="src/vncdisplay.c"
-             line="3029">If @enable is TRUE, then when the remote cursor has
-no visible pixels, it will be replaced with a visible
-cursor. If @enable is FALSE, the empty remote cursor
-will be honoured.</doc>
-        <source-position filename="src/vncdisplay.h" line="109"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3031">the VNC display widget</doc>
-            <type name="Display" c:type="VncDisplay*"/>
-          </instance-parameter>
-          <parameter name="enable" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3032">TRUE to force a visible cursor, FALSE otherwise</doc>
+                 line="3247">TRUE to permit lossy encodings, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1389,34 +1339,8 @@ will be honoured.</doc>
               c:identifier="vnc_display_set_pointer_grab">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3067">Set whether the widget will automatically grab the mouse
+             line="3013">Set whether the widget will automatically grab the mouse
 pointer upon a button click</doc>
-        <source-position filename="src/vncdisplay.h" line="115"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3069">the VNC display widget</doc>
-            <type name="Display" c:type="VncDisplay*"/>
-          </instance-parameter>
-          <parameter name="enable" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3070">TRUE to enable automatic pointer grab, FALSE otherwise</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_pointer_local"
-              c:identifier="vnc_display_set_pointer_local">
-        <doc xml:space="preserve"
-             filename="src/vncdisplay.c"
-             line="3046">If @enable is TRUE, then a local mouse cursor will be
-made visible. If @enable is FALSE, the local mouse
-cursor will be hidden.</doc>
         <source-position filename="src/vncdisplay.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1425,13 +1349,39 @@ cursor will be hidden.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3048">the VNC display widget</doc>
+                 line="3015">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3049">TRUE to show a local cursor, FALSE otherwise</doc>
+                 line="3016">TRUE to enable automatic pointer grab, FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pointer_local"
+              c:identifier="vnc_display_set_pointer_local">
+        <doc xml:space="preserve"
+             filename="src/vncdisplay.c"
+             line="2992">If @enable is TRUE, then a local mouse cursor will be
+made visible. If @enable is FALSE, the local mouse
+cursor will be hidden.</doc>
+        <source-position filename="src/vncdisplay.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="2994">the VNC display widget</doc>
+            <type name="Display" c:type="VncDisplay*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="2995">TRUE to show a local cursor, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1441,11 +1391,11 @@ cursor will be hidden.</doc>
               glib:set-property="read-only">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3147">Set whether the widget is running in read-only mode. In
+             line="3093">Set whether the widget is running in read-only mode. In
 read-only mode, keyboard and mouse events will not be
 sent to the remote desktop server. The widget will merely
 display activity from the server.</doc>
-        <source-position filename="src/vncdisplay.h" line="121"/>
+        <source-position filename="src/vncdisplay.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1453,13 +1403,13 @@ display activity from the server.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3149">the VNC display widget</doc>
+                 line="3095">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3150">TRUE to enable read-only mode, FALSE otherwise</doc>
+                 line="3096">TRUE to enable read-only mode, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1469,93 +1419,9 @@ display activity from the server.</doc>
               glib:set-property="rotation">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3465">Set the rotation angle to view the display of the remote desktop, in
+             line="3411">Set the rotation angle to view the display of the remote desktop, in
 clockwise direction.</doc>
-        <source-position filename="src/vncdisplay.h" line="150"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3467">the VNC display widget</doc>
-            <type name="Display" c:type="VncDisplay*"/>
-          </instance-parameter>
-          <parameter name="rotation" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3468">The angle of rotation, degrees clockwise.</doc>
-            <type name="guint" c:type="guint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_scaling"
-              c:identifier="vnc_display_set_scaling"
-              glib:set-property="scaling">
-        <doc xml:space="preserve"
-             filename="src/vncdisplay.c"
-             line="3333">Set whether the remote desktop contents is automatically
-scaled to fit the available widget size, or whether it
-will be rendered at 1:1 size</doc>
-        <source-position filename="src/vncdisplay.h" line="135"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="src/vncdisplay.c"
-               line="3342">TRUE always</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3335">the VNC display widget</doc>
-            <type name="Display" c:type="VncDisplay*"/>
-          </instance-parameter>
-          <parameter name="enable" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3336">TRUE to allow scaling the desktop to fit, FALSE otherwise</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_shared_flag"
-              c:identifier="vnc_display_set_shared_flag"
-              glib:set-property="shared-flag">
-        <doc xml:space="preserve"
-             filename="src/vncdisplay.c"
-             line="3316">Set the shared state for the connection. A TRUE value
-allow allow this client to co-exist with other existing
-clients. A FALSE value will cause other clients to be
-dropped</doc>
-        <source-position filename="src/vncdisplay.h" line="153"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3318">the VNC display widget</doc>
-            <type name="Display" c:type="VncDisplay*"/>
-          </instance-parameter>
-          <parameter name="shared" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vncdisplay.c"
-                 line="3319">the new sharing state</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_smoothing"
-              c:identifier="vnc_display_set_smoothing"
-              glib:set-property="smoothing">
-        <doc xml:space="preserve"
-             filename="src/vncdisplay.c"
-             line="3411">Set whether pixels are smoothly interpolated when scaling,
-to avoid aliasing.</doc>
-        <source-position filename="src/vncdisplay.h" line="144"/>
+        <source-position filename="src/vncdisplay.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1566,10 +1432,94 @@ to avoid aliasing.</doc>
                  line="3413">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
+          <parameter name="rotation" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="3414">The angle of rotation, degrees clockwise.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scaling"
+              c:identifier="vnc_display_set_scaling"
+              glib:set-property="scaling">
+        <doc xml:space="preserve"
+             filename="src/vncdisplay.c"
+             line="3279">Set whether the remote desktop contents is automatically
+scaled to fit the available widget size, or whether it
+will be rendered at 1:1 size</doc>
+        <source-position filename="src/vncdisplay.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/vncdisplay.c"
+               line="3288">TRUE always</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="3281">the VNC display widget</doc>
+            <type name="Display" c:type="VncDisplay*"/>
+          </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3414">TRUE to enable smooth scaling, FALSE otherwise</doc>
+                 line="3282">TRUE to allow scaling the desktop to fit, FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_shared_flag"
+              c:identifier="vnc_display_set_shared_flag"
+              glib:set-property="shared-flag">
+        <doc xml:space="preserve"
+             filename="src/vncdisplay.c"
+             line="3262">Set the shared state for the connection. A TRUE value
+allow allow this client to co-exist with other existing
+clients. A FALSE value will cause other clients to be
+dropped</doc>
+        <source-position filename="src/vncdisplay.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="3264">the VNC display widget</doc>
+            <type name="Display" c:type="VncDisplay*"/>
+          </instance-parameter>
+          <parameter name="shared" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="3265">the new sharing state</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_smoothing"
+              c:identifier="vnc_display_set_smoothing"
+              glib:set-property="smoothing">
+        <doc xml:space="preserve"
+             filename="src/vncdisplay.c"
+             line="3357">Set whether pixels are smoothly interpolated when scaling,
+to avoid aliasing.</doc>
+        <source-position filename="src/vncdisplay.h" line="141"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="3359">the VNC display widget</doc>
+            <type name="Display" c:type="VncDisplay*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/vncdisplay.c"
+                 line="3360">TRUE to enable smooth scaling, FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1579,7 +1529,7 @@ to avoid aliasing.</doc>
               glib:set-property="zoom-level">
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
-             line="3744">Requests a constant scaling factor to be applied to the remote
+             line="3674">Requests a constant scaling factor to be applied to the remote
 desktop. The @zoom value is a percentage in the range 10-400.
 
 If scaling mode is not active, then this results in the remote
@@ -1590,7 +1540,7 @@ scaled to fit the widget regardless of the zoom level.
 
 In both cases, when the remote desktop size changes, the
 widget preferred size will reflect the zoom level.</doc>
-        <source-position filename="src/vncdisplay.h" line="159"/>
+        <source-position filename="src/vncdisplay.h" line="156"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1598,13 +1548,13 @@ widget preferred size will reflect the zoom level.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3746">the VNC display widget</doc>
+                 line="3676">the VNC display widget</doc>
             <type name="Display" c:type="VncDisplay*"/>
           </instance-parameter>
           <parameter name="zoom" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vncdisplay.c"
-                 line="3747">the zoom percentage level</doc>
+                 line="3677">the zoom percentage level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>

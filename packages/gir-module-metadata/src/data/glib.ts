@@ -43,3 +43,33 @@ export const gmodule: GirModuleMetadata = {
 	description: "Portable method for dynamically loading plug-ins.",
 	cDocsUrl: "https://docs.gtk.org/gmodule/",
 };
+
+export const glibUnix: GirModuleMetadata = {
+	...GLIB_COMMON,
+	girId: "GLibUnix-2.0",
+	displayName: "GLib Unix",
+	description: "Unix-specific GLib API extensions.",
+	cDocsUrl: "https://docs.gtk.org/glib-unix/",
+};
+
+export const glibWin32: GirModuleMetadata = {
+	...GLIB_COMMON,
+	girId: "GLibWin32-2.0",
+	displayName: "GLib Win32",
+	description: "Windows-specific GLib API extensions.",
+};
+
+export const gioUnix: GirModuleMetadata = {
+	...GLIB_COMMON,
+	girId: "GioUnix-2.0",
+	displayName: "GIO Unix",
+	description: "Unix-specific GIO interfaces and utilities.",
+	cDocsUrl: "https://docs.gtk.org/gio-unix/",
+};
+
+export const gioWin32: GirModuleMetadata = {
+	...GLIB_COMMON,
+	girId: "GioWin32-2.0",
+	displayName: "GIO Win32",
+	description: "Windows-specific GIO interfaces and utilities.",
+};

@@ -14,7 +14,7 @@ and/or use gtk-doc annotations.  -->
              c:identifier-prefixes="GDesktop"
              c:symbol-prefixes="g_desktop">
     <enumeration name="AccentColor" c:type="GDesktopAccentColor">
-      <source-position filename="headers/gdesktop-enums.h" line="293"/>
+      <source-position filename="headers/gdesktop-enums.h" line="287"/>
       <member name="blue" value="0" c:identifier="G_DESKTOP_ACCENT_COLOR_BLUE">
       </member>
       <member name="teal" value="1" c:identifier="G_DESKTOP_ACCENT_COLOR_TEAL">
@@ -98,7 +98,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="ColorScheme" c:type="GDesktopColorScheme">
-      <source-position filename="headers/gdesktop-enums.h" line="267"/>
+      <source-position filename="headers/gdesktop-enums.h" line="261"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_COLOR_SCHEME_DEFAULT">
@@ -151,7 +151,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="FontAntialiasingMode"
                  c:type="GDesktopFontAntialiasingMode">
-      <source-position filename="headers/gdesktop-enums.h" line="243"/>
+      <source-position filename="headers/gdesktop-enums.h" line="237"/>
       <member name="none"
               value="0"
               c:identifier="G_DESKTOP_FONT_ANTIALIASING_MODE_NONE">
@@ -166,7 +166,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="FontHinting" c:type="GDesktopFontHinting">
-      <source-position filename="headers/gdesktop-enums.h" line="251"/>
+      <source-position filename="headers/gdesktop-enums.h" line="245"/>
       <member name="none" value="0" c:identifier="G_DESKTOP_FONT_HINTING_NONE">
       </member>
       <member name="slight"
@@ -181,7 +181,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="FontRendering" c:type="GDesktopFontRendering">
-      <source-position filename="headers/gdesktop-enums.h" line="280"/>
+      <source-position filename="headers/gdesktop-enums.h" line="274"/>
       <member name="automatic"
               value="0"
               c:identifier="G_DESKTOP_FONT_RENDERING_AUTOMATIC">
@@ -192,7 +192,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="FontRgbaOrder" c:type="GDesktopFontRgbaOrder">
-      <source-position filename="headers/gdesktop-enums.h" line="260"/>
+      <source-position filename="headers/gdesktop-enums.h" line="254"/>
       <member name="rgba"
               value="0"
               c:identifier="G_DESKTOP_FONT_RGBA_ORDER_RGBA">
@@ -378,7 +378,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="PointerAccelProfile"
                  c:type="GDesktopPointerAccelProfile">
-      <source-position filename="headers/gdesktop-enums.h" line="230"/>
+      <source-position filename="headers/gdesktop-enums.h" line="224"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_POINTER_ACCEL_PROFILE_DEFAULT">
@@ -394,7 +394,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="PointingStickScrollMethod"
                  c:type="GDesktopPointingStickScrollMethod">
-      <source-position filename="headers/gdesktop-enums.h" line="274"/>
+      <source-position filename="headers/gdesktop-enums.h" line="268"/>
       <member name="default"
               value="0"
               c:identifier="G_DESKTOP_POINTING_STICK_SCROLL_METHOD_DEFAULT">
@@ -417,17 +417,6 @@ and/or use gtk-doc annotations.  -->
               c:identifier="G_DESKTOP_PROXY_MODE_MANUAL">
       </member>
       <member name="auto" value="2" c:identifier="G_DESKTOP_PROXY_MODE_AUTO">
-      </member>
-    </enumeration>
-    <enumeration name="ReducedMotion" c:type="GDesktopReducedMotion">
-      <source-position filename="headers/gdesktop-enums.h" line="298"/>
-      <member name="no_preference"
-              value="0"
-              c:identifier="G_DESKTOP_REDUCED_MOTION_NO_PREFERENCE">
-      </member>
-      <member name="reduce"
-              value="1"
-              c:identifier="G_DESKTOP_REDUCED_MOTION_REDUCE">
       </member>
     </enumeration>
     <enumeration name="ScreensaverMode" c:type="GDesktopScreensaverMode">
@@ -474,18 +463,6 @@ and/or use gtk-doc annotations.  -->
       <member name="keybinding"
               value="6"
               c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_KEYBINDING">
-      </member>
-    </enumeration>
-    <enumeration name="StylusEraserButtonMode"
-                 c:type="GDesktopStylusEraserButtonMode">
-      <source-position filename="headers/gdesktop-enums.h" line="223"/>
-      <member name="default"
-              value="0"
-              c:identifier="G_DESKTOP_STYLUS_ERASER_BUTTON_MODE_DEFAULT">
-      </member>
-      <member name="button"
-              value="1"
-              c:identifier="G_DESKTOP_STYLUS_ERASER_BUTTON_MODE_BUTTON">
       </member>
     </enumeration>
     <enumeration name="TabletMapping" c:type="GDesktopTabletMapping">
@@ -616,7 +593,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="UsbProtection" c:type="GDesktopUsbProtection">
-      <source-position filename="headers/gdesktop-enums.h" line="236"/>
+      <source-position filename="headers/gdesktop-enums.h" line="230"/>
       <member name="lockscreen"
               value="0"
               c:identifier="G_DESKTOP_USB_PROTECTION_LOCKSCREEN">
@@ -635,35 +612,6 @@ and/or use gtk-doc annotations.  -->
       <member name="frame_flash"
               value="1"
               c:identifier="G_DESKTOP_VISUAL_BELL_FRAME_FLASH">
-      </member>
-    </enumeration>
-    <enumeration name="Weekday" c:type="GDesktopWeekday">
-      <source-position filename="headers/gdesktop-enums.h" line="311"/>
-      <member name="default"
-              value="0"
-              c:identifier="G_DESKTOP_WEEKDAY_DEFAULT">
-      </member>
-      <member name="monday" value="1" c:identifier="G_DESKTOP_WEEKDAY_MONDAY">
-      </member>
-      <member name="tuesday"
-              value="2"
-              c:identifier="G_DESKTOP_WEEKDAY_TUESDAY">
-      </member>
-      <member name="wednesday"
-              value="3"
-              c:identifier="G_DESKTOP_WEEKDAY_WEDNESDAY">
-      </member>
-      <member name="thursday"
-              value="4"
-              c:identifier="G_DESKTOP_WEEKDAY_THURSDAY">
-      </member>
-      <member name="friday" value="5" c:identifier="G_DESKTOP_WEEKDAY_FRIDAY">
-      </member>
-      <member name="saturday"
-              value="6"
-              c:identifier="G_DESKTOP_WEEKDAY_SATURDAY">
-      </member>
-      <member name="sunday" value="7" c:identifier="G_DESKTOP_WEEKDAY_SUNDAY">
       </member>
     </enumeration>
   </namespace>

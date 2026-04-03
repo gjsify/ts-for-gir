@@ -31,3 +31,11 @@ export const javaScriptCore6: GirModuleMetadata = {
 	description: "JavaScript engine used by WebKitGTK.",
 	cDocsUrl: "https://webkitgtk.org/reference/jsc-glib/unstable/",
 };
+
+export const webkitWebProcessExtension6: GirModuleMetadata = {
+	...WEBKIT_COMMON,
+	girId: "WebKitWebProcessExtension-6.0",
+	displayName: "WebKit Web Process Extension",
+	description: "Library for extensions running in WebKit's web process.",
+	cDocsUrl: "https://webkitgtk.org/reference/webkit2gtk-web-process-extension/unstable/",
+};

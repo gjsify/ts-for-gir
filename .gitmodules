@@ -39,3 +39,6 @@
 [submodule "refs/gnome-shell"]
 	path = refs/gnome-shell
 	url = https://gitlab.gnome.org/GNOME/gnome-shell.git
+[submodule "refs/gtk-rs-gir-files"]
+	path = refs/gtk-rs-gir-files
+	url = git@github.com:gtk-rs/gir-files.git

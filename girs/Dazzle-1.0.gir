@@ -5,13 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <package name="libdazzle-1.0"/>
   <c:include name="dazzle.h"/>
-  <doc:format name="unknown"/>
   <namespace name="Dazzle"
              version="1.0"
              shared-library="libdazzle-1.0.so.0"
@@ -2481,8 +2479,7 @@ DZL_DEFINE_COUNTER (my_counter, "My", "Counter", "My Counter Description");
       </method>
       <method name="execute"
               c:identifier="dzl_directory_reaper_execute"
-              throws="1"
-              glib:async-func="execute_async">
+              throws="1">
         <source-position filename="src/files/dzl-directory-reaper.h"
                          line="49"/>
         <return-value transfer-ownership="none">
@@ -2501,9 +2498,7 @@ DZL_DEFINE_COUNTER (my_counter, "My", "Counter", "My Counter Description");
         </parameters>
       </method>
       <method name="execute_async"
-              c:identifier="dzl_directory_reaper_execute_async"
-              glib:finish-func="execute_finish"
-              glib:sync-func="execute">
+              c:identifier="dzl_directory_reaper_execute_async">
         <source-position filename="src/files/dzl-directory-reaper.h"
                          line="53"/>
         <return-value transfer-ownership="none">
@@ -5810,8 +5805,7 @@ notify::reveal-child instead.</doc>
       </method>
       <method name="execute"
               c:identifier="dzl_file_transfer_execute"
-              throws="1"
-              glib:async-func="execute_async">
+              throws="1">
         <source-position filename="src/files/dzl-file-transfer.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5832,9 +5826,7 @@ notify::reveal-child instead.</doc>
         </parameters>
       </method>
       <method name="execute_async"
-              c:identifier="dzl_file_transfer_execute_async"
-              glib:finish-func="execute_finish"
-              glib:sync-func="execute">
+              c:identifier="dzl_file_transfer_execute_async">
         <source-position filename="src/files/dzl-file-transfer.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6107,8 +6099,7 @@ notify::reveal-child instead.</doc>
       </method>
       <method name="load_file"
               c:identifier="dzl_fuzzy_index_load_file"
-              throws="1"
-              glib:async-func="load_file_async">
+              throws="1">
         <source-position filename="src/search/dzl-fuzzy-index.h" line="36"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -6129,9 +6120,7 @@ notify::reveal-child instead.</doc>
         </parameters>
       </method>
       <method name="load_file_async"
-              c:identifier="dzl_fuzzy_index_load_file_async"
-              glib:finish-func="load_file_finish"
-              glib:sync-func="load_file">
+              c:identifier="dzl_fuzzy_index_load_file_async">
         <source-position filename="src/search/dzl-fuzzy-index.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6181,9 +6170,7 @@ notify::reveal-child instead.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="query_async"
-              c:identifier="dzl_fuzzy_index_query_async"
-              glib:finish-func="query_finish">
+      <method name="query_async" c:identifier="dzl_fuzzy_index_query_async">
         <source-position filename="src/search/dzl-fuzzy-index.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6438,8 +6425,7 @@ less than 256.</doc>
       </method>
       <method name="write"
               c:identifier="dzl_fuzzy_index_builder_write"
-              throws="1"
-              glib:async-func="write_async">
+              throws="1">
         <source-position filename="src/search/dzl-fuzzy-index-builder.h"
                          line="46"/>
         <return-value transfer-ownership="none">
@@ -6464,9 +6450,7 @@ less than 256.</doc>
         </parameters>
       </method>
       <method name="write_async"
-              c:identifier="dzl_fuzzy_index_builder_write_async"
-              glib:finish-func="write_finish"
-              glib:sync-func="write">
+              c:identifier="dzl_fuzzy_index_builder_write_async">
         <doc xml:space="preserve"
              filename="src/search/dzl-fuzzy-index-builder.c"
              line="531">Builds and writes the index to @file. The file format is a
@@ -12872,8 +12856,7 @@ ignore any files or directories.</doc>
         </parameters>
       </method>
       <method name="start_async"
-              c:identifier="dzl_recursive_file_monitor_start_async"
-              glib:finish-func="start_finish">
+              c:identifier="dzl_recursive_file_monitor_start_async">
         <source-position filename="src/files/dzl-recursive-file-monitor.h"
                          line="41"/>
         <return-value transfer-ownership="none">
@@ -14222,21 +14205,9 @@ from the resolved value via the settings sandwich.</doc>
     <record name="ShortcutChordTable"
             c:type="DzlShortcutChordTable"
             disguised="1"
-            opaque="1"
-            glib:type-name="DzlShortcutChordTable"
-            glib:get-type="dzl_shortcut_chord_table_get_type"
-            c:symbol-prefix="shortcut_chord_table">
+            opaque="1">
       <source-position filename="src/shortcuts/dzl-shortcut-chord.h"
                        line="40"/>
-      <constructor name="new"
-                   c:identifier="dzl_shortcut_chord_table_new"
-                   introspectable="0">
-        <source-position filename="src/shortcuts/dzl-shortcut-chord.h"
-                         line="83"/>
-        <return-value transfer-ownership="full">
-          <type name="ShortcutChordTable" c:type="DzlShortcutChordTable*"/>
-        </return-value>
-      </constructor>
       <method name="add" c:identifier="dzl_shortcut_chord_table_add">
         <source-position filename="src/shortcuts/dzl-shortcut-chord.h"
                          line="90"/>
@@ -14424,6 +14395,15 @@ from the resolved value via the settings sandwich.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <function name="new"
+                c:identifier="dzl_shortcut_chord_table_new"
+                introspectable="0">
+        <source-position filename="src/shortcuts/dzl-shortcut-chord.h"
+                         line="83"/>
+        <return-value>
+          <type name="ShortcutChordTable" c:type="DzlShortcutChordTable*"/>
+        </return-value>
+      </function>
     </record>
     <callback name="ShortcutChordTableForeach"
               c:type="DzlShortcutChordTableForeach">
@@ -22085,9 +22065,7 @@ Otherwise, the position is expected to be relative to @entry.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_async"
-              c:identifier="dzl_task_cache_get_async"
-              glib:finish-func="get_finish">
+      <method name="get_async" c:identifier="dzl_task_cache_get_async">
         <source-position filename="src/cache/dzl-task-cache.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -26692,6 +26670,24 @@ gdouble v = dzl_ring_get_index(ring, gdouble, 0);
           <type name="gpointer" c:type="gconstpointer"/>
         </parameter>
       </parameters>
+    </function>
+    <function name="shortcut_chord_table_get_type"
+              c:identifier="dzl_shortcut_chord_table_get_type">
+      <source-position filename="src/shortcuts/dzl-shortcut-chord.h"
+                       line="81"/>
+      <return-value transfer-ownership="none">
+        <type name="GType" c:type="GType"/>
+      </return-value>
+    </function>
+    <function name="shortcut_chord_table_new"
+              c:identifier="dzl_shortcut_chord_table_new"
+              moved-to="ShortcutChordTable.new"
+              introspectable="0">
+      <source-position filename="src/shortcuts/dzl-shortcut-chord.h"
+                       line="83"/>
+      <return-value>
+        <type name="ShortcutChordTable" c:type="DzlShortcutChordTable*"/>
+      </return-value>
     </function>
   </namespace>
 </repository>

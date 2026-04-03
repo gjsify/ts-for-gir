@@ -557,7 +557,7 @@ moon phases.</doc>
       <constructor name="new" c:identifier="gweather_info_new">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2452">Builds a new `GWeatherInfo` that will provide weather information about
+             line="2466">Builds a new `GWeatherInfo` that will provide weather information about
 the given location.
 
 In order to retrieve the weather information, you will need to enable
@@ -569,7 +569,7 @@ signal before updating the `GWeatherInfo` instance.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="2465">a new weather information instance</doc>
+               line="2479">a new weather information instance</doc>
           <type name="Info" c:type="GWeatherInfo*"/>
         </return-value>
         <parameters>
@@ -579,7 +579,7 @@ signal before updating the `GWeatherInfo` instance.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2454">the desidered location</doc>
+                 line="2468">the desidered location</doc>
             <type name="Location" c:type="GWeatherLocation*"/>
           </parameter>
         </parameters>
@@ -587,7 +587,7 @@ signal before updating the `GWeatherInfo` instance.</doc>
       <function name="store_cache" c:identifier="gweather_info_store_cache">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="633">Ensures that any data cached from the network is stored to disk.
+             line="643">Ensures that any data cached from the network is stored to disk.
 Calling this is not necessary, as the cache will be saved when
 the last reference to a #GWeatherInfo will be dropped.
 On the other hand, it must be called if there is any chance that
@@ -625,20 +625,20 @@ as when using a language binding that employs a GC.</doc>
               glib:get-property="application-id">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2203">Get the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
+             line="2217">Get the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
 of the application fetching the weather.</doc>
         <source-position filename="libgweather/gweather-info.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="2210">the application ID</doc>
+               line="2224">the application ID</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2205">a #GWeatherInfo</doc>
+                 line="2219">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -647,7 +647,7 @@ of the application fetching the weather.</doc>
               c:identifier="gweather_info_get_attribution">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="1330">Some weather services require the application showing the
+             line="1344">Some weather services require the application showing the
 data to include an attribution text, possibly including links
 to the service website.
 This must be shown prominently toghether with the data.</doc>
@@ -655,7 +655,7 @@ This must be shown prominently toghether with the data.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1339">the required attribution text, in Pango
+               line="1353">the required attribution text, in Pango
          markup form, or %NULL if not required</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -663,7 +663,7 @@ This must be shown prominently toghether with the data.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1332">a #GWeatherInfo</doc>
+                 line="1346">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -685,19 +685,19 @@ This must be shown prominently toghether with the data.</doc>
               glib:get-property="contact-info">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2248">Get the contact information of the application fetching the weather.</doc>
+             line="2262">Get the contact information of the application fetching the weather.</doc>
         <source-position filename="libgweather/gweather-info.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="2254">the contact information</doc>
+               line="2268">the contact information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2250">a #GWeatherInfo</doc>
+                 line="2264">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -718,7 +718,7 @@ This must be shown prominently toghether with the data.</doc>
               glib:get-property="enabled-providers">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2154">Gets the bitmask of enabled #GWeatherProvider weather
+             line="2168">Gets the bitmask of enabled #GWeatherProvider weather
 providers.</doc>
         <source-position filename="libgweather/gweather-info.h" line="55"/>
         <return-value transfer-ownership="none">
@@ -728,7 +728,7 @@ providers.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2156">a #GWeatherInfo</doc>
+                 line="2170">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -739,7 +739,7 @@ providers.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1313">list
+               line="1327">list
 of GWeatherInfo* objects for the forecast.
 The list is owned by the 'info' object thus is alive as long
 as the 'info'. The 'update' property is the date/time when the
@@ -752,7 +752,7 @@ forecast info is used for.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1311">a #GWeatherInfo</doc>
+                 line="1325">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -937,20 +937,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1892">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1906">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1888">a #GWeatherInfo</doc>
+                 line="1902">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1889">the desired unit, as a #GWeatherTemperatureUnit</doc>
+                 line="1903">the desired unit, as a #GWeatherTemperatureUnit</doc>
             <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
           </parameter>
           <parameter name="value"
@@ -959,7 +959,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1890">the apparent temperature</doc>
+                 line="1904">the apparent temperature</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -968,19 +968,19 @@ forecast info is used for.</doc>
               c:identifier="gweather_info_get_value_conditions">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="1765">Fills out @phenomenon and @qualifier with current weather conditions.</doc>
+             line="1779">Fills out @phenomenon and @qualifier with current weather conditions.</doc>
         <source-position filename="libgweather/gweather-info.h" line="339"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1772">TRUE is out arguments are valid, FALSE otherwise.</doc>
+               line="1786">TRUE is out arguments are valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1767">a #GWeatherInfo</doc>
+                 line="1781">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="phenomenon"
@@ -989,7 +989,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1768">a location for a #GWeatherConditionPhenomenon.</doc>
+                 line="1782">a location for a #GWeatherConditionPhenomenon.</doc>
             <type name="ConditionPhenomenon"
                   c:type="GWeatherConditionPhenomenon*"/>
           </parameter>
@@ -999,7 +999,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1769">a location for a #GWeatherConditionQualifier.</doc>
+                 line="1783">a location for a #GWeatherConditionQualifier.</doc>
             <type name="ConditionQualifier"
                   c:type="GWeatherConditionQualifier*"/>
           </parameter>
@@ -1010,20 +1010,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1865">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1879">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1861">a #GWeatherInfo</doc>
+                 line="1875">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1862">the desired unit, as a #GWeatherTemperatureUnit</doc>
+                 line="1876">the desired unit, as a #GWeatherTemperatureUnit</doc>
             <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
           </parameter>
           <parameter name="value"
@@ -1032,7 +1032,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1863">the dew point</doc>
+                 line="1877">the dew point</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -1043,14 +1043,14 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1981">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1995">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1977">a #GWeatherInfo</doc>
+                 line="1991">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="value"
@@ -1059,7 +1059,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1978">the current moon phase</doc>
+                 line="1992">the current moon phase</doc>
             <type name="MoonPhase" c:type="GWeatherMoonPhase*"/>
           </parameter>
           <parameter name="lat"
@@ -1068,7 +1068,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1979">the moon declension</doc>
+                 line="1993">the moon declension</doc>
             <type name="MoonLatitude" c:type="GWeatherMoonLatitude*"/>
           </parameter>
         </parameters>
@@ -1079,20 +1079,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="2042">TRUE if @value is valid, FALSE otherwise.</doc>
+               line="2056">TRUE if @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2038">a #GWeatherInfo</doc>
+                 line="2052">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2039">the desired unit, as a #GWeatherPressureUnit</doc>
+                 line="2053">the desired unit, as a #GWeatherPressureUnit</doc>
             <type name="PressureUnit" c:type="GWeatherPressureUnit"/>
           </parameter>
           <parameter name="value"
@@ -1101,7 +1101,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2040">forecasted pressure, expressed in @unit</doc>
+                 line="2054">forecasted pressure, expressed in @unit</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -1109,19 +1109,19 @@ forecast info is used for.</doc>
       <method name="get_value_sky" c:identifier="gweather_info_get_value_sky">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="1740">Fills out @sky with current sky conditions.</doc>
+             line="1754">Fills out @sky with current sky conditions.</doc>
         <source-position filename="libgweather/gweather-info.h" line="336"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1746">TRUE is @sky is valid, FALSE otherwise.</doc>
+               line="1760">TRUE is @sky is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1742">a #GWeatherInfo</doc>
+                 line="1756">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="sky"
@@ -1130,7 +1130,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1743">a location for a #GWeatherSky.</doc>
+                 line="1757">a location for a #GWeatherSky.</doc>
             <type name="Sky" c:type="GWeatherSky*"/>
           </parameter>
         </parameters>
@@ -1141,14 +1141,14 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1934">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1948">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1931">a #GWeatherInfo</doc>
+                 line="1945">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="value"
@@ -1157,7 +1157,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1932">the time of sunrise</doc>
+                 line="1946">the time of sunrise</doc>
             <type name="gulong" c:type="time_t*"/>
           </parameter>
         </parameters>
@@ -1168,14 +1168,14 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1957">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1971">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1954">a #GWeatherInfo</doc>
+                 line="1968">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="value"
@@ -1184,7 +1184,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1955">the time of sunset</doc>
+                 line="1969">the time of sunset</doc>
             <type name="gulong" c:type="time_t*"/>
           </parameter>
         </parameters>
@@ -1195,20 +1195,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1805">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1819">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1801">a #GWeatherInfo</doc>
+                 line="1815">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1802">the desired unit, as a #GWeatherTemperatureUnit</doc>
+                 line="1816">the desired unit, as a #GWeatherTemperatureUnit</doc>
             <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
           </parameter>
           <parameter name="value"
@@ -1217,7 +1217,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1803">the temperature value</doc>
+                 line="1817">the temperature value</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -1228,20 +1228,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1845">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1859">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1841">a #GWeatherInfo</doc>
+                 line="1855">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1842">the desired unit, as a #GWeatherTemperatureUnit</doc>
+                 line="1856">the desired unit, as a #GWeatherTemperatureUnit</doc>
             <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
           </parameter>
           <parameter name="value"
@@ -1250,7 +1250,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1843">the maximum temperature value</doc>
+                 line="1857">the maximum temperature value</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -1261,20 +1261,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1825">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1839">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1821">a #GWeatherInfo</doc>
+                 line="1835">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1822">the desired unit, as a #GWeatherTemperatureUnit</doc>
+                 line="1836">the desired unit, as a #GWeatherTemperatureUnit</doc>
             <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
           </parameter>
           <parameter name="value"
@@ -1283,7 +1283,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1823">the minimum temperature value</doc>
+                 line="1837">the minimum temperature value</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -1292,19 +1292,19 @@ forecast info is used for.</doc>
               c:identifier="gweather_info_get_value_update">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="1906">Note that @value may be 0 if @info has not yet been updated.</doc>
+             line="1920">Note that @value may be 0 if @info has not yet been updated.</doc>
         <source-position filename="libgweather/gweather-info.h" line="333"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1913">TRUE is @value is valid, FALSE otherwise.</doc>
+               line="1927">TRUE is @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1908">a #GWeatherInfo</doc>
+                 line="1922">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="value"
@@ -1313,7 +1313,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1909">the time @info was last updated</doc>
+                 line="1923">the time @info was last updated</doc>
             <type name="glong" c:type="time_t*"/>
           </parameter>
         </parameters>
@@ -1324,20 +1324,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="2064">TRUE if @value is valid, FALSE otherwise.</doc>
+               line="2078">TRUE if @value is valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2060">a #GWeatherInfo</doc>
+                 line="2074">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2061">the desired unit, as a #GWeatherDistanceUnit</doc>
+                 line="2075">the desired unit, as a #GWeatherDistanceUnit</doc>
             <type name="DistanceUnit" c:type="GWeatherDistanceUnit"/>
           </parameter>
           <parameter name="value"
@@ -1346,7 +1346,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2062">forecasted visibility, expressed in @unit</doc>
+                 line="2076">forecasted visibility, expressed in @unit</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -1357,20 +1357,20 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="2010">TRUE if @speed and @direction are valid, FALSE otherwise.</doc>
+               line="2024">TRUE if @speed and @direction are valid, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2005">a #GWeatherInfo</doc>
+                 line="2019">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2006">the desired unit, as a #GWeatherSpeedUnit</doc>
+                 line="2020">the desired unit, as a #GWeatherSpeedUnit</doc>
             <type name="SpeedUnit" c:type="GWeatherSpeedUnit"/>
           </parameter>
           <parameter name="speed"
@@ -1379,7 +1379,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2007">forecasted wind speed</doc>
+                 line="2021">forecasted wind speed</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="direction"
@@ -1388,7 +1388,7 @@ forecast info is used for.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2008">forecasted wind direction</doc>
+                 line="2022">forecasted wind direction</doc>
             <type name="WindDirection" c:type="GWeatherWindDirection*"/>
           </parameter>
         </parameters>
@@ -1411,14 +1411,14 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1365">a summary for current weather conditions.</doc>
+               line="1379">a summary for current weather conditions.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1363">a #GWeatherInfo</doc>
+                 line="1377">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1439,7 +1439,7 @@ forecast info is used for.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1393">Whether it is daytime (that is, if the sun is visible)
+               line="1407">Whether it is daytime (that is, if the sun is visible)
   or not at the location and the point of time referred by @info.
   This is mostly equivalent to comparing the return value
   of gweather_info_get_value_sunrise() and
@@ -1452,7 +1452,7 @@ forecast info is used for.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1391">a #GWeatherInfo</doc>
+                 line="1405">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1496,7 +1496,7 @@ forecast info is used for.</doc>
               glib:set-property="application-id">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2220">Sets the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
+             line="2234">Sets the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
 of the application fetching the weather. It is a requirement
 for using any of the online weather providers.
 
@@ -1510,13 +1510,13 @@ will be automatically filled in.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2222">a #GWeatherInfo</doc>
+                 line="2236">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="application_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2223">the application ID to set</doc>
+                 line="2237">the application ID to set</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1526,7 +1526,7 @@ will be automatically filled in.</doc>
               glib:set-property="contact-info">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2264">Sets the contact information for the application fetching the
+             line="2278">Sets the contact information for the application fetching the
 weather. It is a requirement for using any of the online
 weather providers as it allows API providers to contact application
 developers in case of terms of use breaches.
@@ -1543,13 +1543,13 @@ URLs which require creating accounts.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2266">a #GWeatherInfo</doc>
+                 line="2280">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="contact_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2267">the contact information for the application</doc>
+                 line="2281">the contact information for the application</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1559,7 +1559,7 @@ URLs which require creating accounts.</doc>
               glib:set-property="enabled-providers">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2170">Sets the enabled providers for fetching the weather. Note
+             line="2184">Sets the enabled providers for fetching the weather. Note
 that it is up to the application developer to make sure that
 the terms of use for each service are respected.
 
@@ -1573,13 +1573,13 @@ not set to a valid value.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2172">a #GWeatherInfo</doc>
+                 line="2186">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="providers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2173">a bitmask of #GWeatherProvider</doc>
+                 line="2187">a bitmask of #GWeatherProvider</doc>
             <type name="Provider" c:type="GWeatherProvider"/>
           </parameter>
         </parameters>
@@ -1589,7 +1589,7 @@ not set to a valid value.</doc>
               glib:set-property="location">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2134">Changes the location of the weather report.
+             line="2148">Changes the location of the weather report.
 
 Note that this will clear any forecast or current conditions, and
 you must call [method@GWeather.Info.update] to obtain the new data.</doc>
@@ -1601,7 +1601,7 @@ you must call [method@GWeather.Info.update] to obtain the new data.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2136">a #GWeatherInfo</doc>
+                 line="2150">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
           <parameter name="location"
@@ -1610,7 +1610,7 @@ you must call [method@GWeather.Info.update] to obtain the new data.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="2137">a location for which weather is desired</doc>
+                 line="2151">a location for which weather is desired</doc>
             <type name="Location" c:type="GWeatherLocation*"/>
           </parameter>
         </parameters>
@@ -1618,7 +1618,7 @@ you must call [method@GWeather.Info.update] to obtain the new data.</doc>
       <method name="update" c:identifier="gweather_info_update">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="655">Requests a reload of weather conditions and forecast data from
+             line="665">Requests a reload of weather conditions and forecast data from
 enabled network services.
 This call does no synchronous IO: rather, the result is delivered
 by emitting the #GWeatherInfo::updated signal.
@@ -1632,7 +1632,7 @@ be emitted. See #GWeatherInfo:enabled-providers for details.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="657">a #GWeatherInfo</doc>
+                 line="667">a #GWeatherInfo</doc>
             <type name="Info" c:type="GWeatherInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1645,7 +1645,7 @@ be emitted. See #GWeatherInfo:enabled-providers for details.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2400">A unique identifier, typically in the form of reverse DNS notation,
+             line="2414">A unique identifier, typically in the form of reverse DNS notation,
 for the application that is querying the weather information.
 
 Weather providers require this information.</doc>
@@ -1659,7 +1659,7 @@ Weather providers require this information.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2414">An email address or any other contact form URL.
+             line="2428">An email address or any other contact form URL.
 
 Weather providers require this information.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1672,7 +1672,7 @@ Weather providers require this information.</doc>
                 default-value="GWEATHER_PROVIDER_NONE">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2388">The enabled weather providers.</doc>
+             line="2402">The enabled weather providers.</doc>
         <type name="Provider"/>
       </property>
       <property name="location"
@@ -1683,13 +1683,13 @@ Weather providers require this information.</doc>
                 getter="get_location">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2377">The location of the weather information.</doc>
+             line="2391">The location of the weather information.</doc>
         <type name="Location"/>
       </property>
       <glib:signal name="updated" when="first">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="2430">This signal is emitted after the initial fetch of the weather
+             line="2444">This signal is emitted after the initial fetch of the weather
 data from upstream services, and after every successful call
 to [method@GWeather.Info.update].</doc>
         <return-value transfer-ownership="none">
@@ -3104,7 +3104,7 @@ gweather_info_get_value_wind().</doc>
       <function name="to_string" c:identifier="gweather_speed_unit_to_string">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="1126">Creates a human-readable, localized representation of @unit</doc>
+             line="1140">Creates a human-readable, localized representation of @unit</doc>
         <source-position filename="libgweather/gweather-info.h" line="423"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
@@ -3113,7 +3113,7 @@ gweather_info_get_value_wind().</doc>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="1128">a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT</doc>
+                 line="1142">a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT</doc>
             <type name="SpeedUnit" c:type="GWeatherSpeedUnit"/>
           </parameter>
         </parameters>
@@ -3176,7 +3176,7 @@ the gweather_info_get_value_temp() family of functions.</doc>
                 c:identifier="gweather_temperature_unit_to_real">
         <doc xml:space="preserve"
              filename="libgweather/gweather-info.c"
-             line="878">Resolve @unit into a real temperature unit, potentially considering
+             line="892">Resolve @unit into a real temperature unit, potentially considering
 locale defaults.</doc>
         <source-position filename="libgweather/gweather-info.h" line="420"/>
         <return-value transfer-ownership="none">
@@ -3186,7 +3186,7 @@ locale defaults.</doc>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgweather/gweather-info.c"
-                 line="880">a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT</doc>
+                 line="894">a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT</doc>
             <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
           </parameter>
         </parameters>
@@ -3457,7 +3457,7 @@ purposes.</doc>
               moved-to="SpeedUnit.to_string">
       <doc xml:space="preserve"
            filename="libgweather/gweather-info.c"
-           line="1126">Creates a human-readable, localized representation of @unit</doc>
+           line="1140">Creates a human-readable, localized representation of @unit</doc>
       <source-position filename="libgweather/gweather-info.h" line="423"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
@@ -3466,7 +3466,7 @@ purposes.</doc>
         <parameter name="unit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="1128">a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT</doc>
+               line="1142">a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT</doc>
           <type name="SpeedUnit" c:type="GWeatherSpeedUnit"/>
         </parameter>
       </parameters>
@@ -3476,7 +3476,7 @@ purposes.</doc>
               moved-to="TemperatureUnit.to_real">
       <doc xml:space="preserve"
            filename="libgweather/gweather-info.c"
-           line="878">Resolve @unit into a real temperature unit, potentially considering
+           line="892">Resolve @unit into a real temperature unit, potentially considering
 locale defaults.</doc>
       <source-position filename="libgweather/gweather-info.h" line="420"/>
       <return-value transfer-ownership="none">
@@ -3486,7 +3486,7 @@ locale defaults.</doc>
         <parameter name="unit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgweather/gweather-info.c"
-               line="880">a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT</doc>
+               line="894">a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT</doc>
           <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
         </parameter>
       </parameters>

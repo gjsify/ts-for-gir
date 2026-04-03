@@ -25,7 +25,6 @@
 	"plugins": {
 		"@release-it/bumper": {
 			"out": [
-				"package.json",
 				"packages/*/package.json"
 			]
 		},

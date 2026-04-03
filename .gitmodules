@@ -42,3 +42,6 @@
 [submodule "refs/gtk-rs-gir-files"]
 	path = refs/gtk-rs-gir-files
 	url = git@github.com:gtk-rs/gir-files.git
+[submodule "refs/library-icons"]
+	path = refs/library-icons
+	url = https://gitlab.gnome.org/Teams/Design/library-icons.git

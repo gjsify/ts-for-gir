@@ -1,4 +1,4 @@
-import { copyFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { NavigationElement, ProjectReflection, Renderer } from "typedoc";
@@ -58,6 +58,18 @@ export class GiDocgenTheme extends DefaultTheme {
 			const faviconDir = join(__dirname, "static", "favicon");
 			for (const file of FAVICON_FILES) {
 				copyFileSync(join(faviconDir, file), join(assetsDir, file));
+			}
+
+			// Copy round library icons from refs/library-icons submodule
+			const iconsSourceDir = join(__dirname, "..", "..", "..", "refs", "library-icons", "library-icons");
+			const iconsOutputDir = join(assetsDir, "library-icons");
+			if (existsSync(iconsSourceDir)) {
+				mkdirSync(iconsOutputDir, { recursive: true });
+				for (const file of readdirSync(iconsSourceDir)) {
+					if (file.endsWith("-r.svg")) {
+						copyFileSync(join(iconsSourceDir, file), join(iconsOutputDir, file));
+					}
+				}
 			}
 
 			// Generate site.webmanifest with configurable name

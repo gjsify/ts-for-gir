@@ -22,6 +22,8 @@ export interface GirModuleMetadata {
 	cDocsUrl?: string;
 	/** Logo/icon URL (absolute URL) */
 	logoUrl?: string;
+	/** Icon filename from refs/library-icons (e.g. "librsvg-r.svg"). Used as fallback when logoUrl is not set. */
+	iconFile?: string;
 	/** Category for grouping on documentation homepage */
 	category?: string;
 }

@@ -186,6 +186,7 @@ export interface GirNamespaceMetadata {
 	displayName?: string;
 	description?: string;
 	logoUrl?: string;
+	iconFile?: string;
 	websiteUrl?: string;
 	cDocsUrl?: string;
 	license?: string;

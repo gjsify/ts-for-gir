@@ -6,6 +6,7 @@ const MUTTER_COMMON = {
 	browseUrl: "https://gitlab.gnome.org/GNOME/mutter/",
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/mutter.git",
 	license: "GPL-2.0-or-later",
+	iconFile: "mutter-r.svg",
 	category: "GNOME Shell",
 };
 
@@ -15,6 +16,7 @@ const SHELL_COMMON = {
 	browseUrl: "https://gitlab.gnome.org/GNOME/gnome-shell/",
 	repositoryUrl: "https://gitlab.gnome.org/GNOME/gnome-shell.git",
 	license: "GPL-2.0-or-later",
+	iconFile: "gnome-shell-r.svg",
 	category: "GNOME Shell",
 };
 

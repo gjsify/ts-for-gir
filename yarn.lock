@@ -16308,6 +16308,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-test/e2e@workspace:tests/e2e":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-test/e2e@workspace:tests/e2e"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-test/language-server-validation@workspace:tests/language-server-validation":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-test/language-server-validation@workspace:tests/language-server-validation"

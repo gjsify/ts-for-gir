@@ -38,9 +38,9 @@
 		"test:tests": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' --exclude '@ts-for-gir-test/e2e' run test",
 		"test:e2e": "yarn build:app && yarn workspace @ts-for-gir-test/e2e run test",
 		"test": "yarn build && yarn test:types && yarn test:examples && yarn test:tests",
-		"release": "release-it --preRelease=rc",
-		"release:stable": "release-it --no-github.preRelease",
-		"release:dry": "release-it --preRelease=rc --dry-run"
+		"release": "GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --preRelease=rc",
+		"release:stable": "GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --no-github.preRelease",
+		"release:dry": "GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --preRelease=rc --dry-run"
 	},
 	"repository": {
 		"type": "git",

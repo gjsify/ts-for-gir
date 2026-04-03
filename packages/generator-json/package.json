@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/generator-json",
-	"version": "4.0.0-beta.44",
+	"version": "4.0.0-rc.1",
 	"description": "JSON generator for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

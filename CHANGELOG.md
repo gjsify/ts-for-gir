@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0-rc.1](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-beta.44...v4.0.0-rc.1) (2026-04-03)
+
+### Features
+
+* improve documentation with updated GIR files, module metadata, and categories ([#345](https://github.com/gjsify/ts-for-gir/issues/345)) ([5e3e916](https://github.com/gjsify/ts-for-gir/commit/5e3e9160860071503f340af1688c302f5970dc88))
+
+### Bug Fixes
+
+* remove root package.json from bumper to avoid npm version conflict ([7174b87](https://github.com/gjsify/ts-for-gir/commit/7174b87ff546de5d602ba43179b3f005a9e33e05))
+* remove unused execSync import in e2e helpers ([b178dc5](https://github.com/gjsify/ts-for-gir/commit/b178dc54305c6485ca0ef43703d516a6d06278cd))
+
 ## [4.0.0-beta.44](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-beta.43...v4.0.0-beta.44) (2026-04-01)
 
 ### Features

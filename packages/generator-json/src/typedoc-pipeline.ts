@@ -281,7 +281,8 @@ export class TypeDocPipeline {
 				...existing,
 				displayName: existing.displayName ?? meta.displayName,
 				description: existing.description ?? meta.description,
-				logoUrl: existing.logoUrl ?? meta.logoUrl ?? (meta.iconFile ? `assets/library-icons/${meta.iconFile}` : undefined),
+				logoUrl:
+					existing.logoUrl ?? meta.logoUrl ?? (meta.iconFile ? `assets/library-icons/${meta.iconFile}` : undefined),
 				iconFile: existing.iconFile ?? meta.iconFile,
 				websiteUrl: existing.websiteUrl ?? meta.websiteUrl,
 				cDocsUrl: existing.cDocsUrl ?? meta.cDocsUrl,

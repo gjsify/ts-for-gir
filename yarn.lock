@@ -19494,6 +19494,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"husky@npm:^9.1.7":
+  version: 9.1.7
+  resolution: "husky@npm:9.1.7"
+  bin:
+    husky: bin.js
+  checksum: 10/c2412753f15695db369634ba70f50f5c0b7e5cb13b673d0826c411ec1bd9ddef08c1dad89ea154f57da2521d2605bd64308af748749b27d08c5f563bcd89975f
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.6.3, iconv-lite@npm:^0.6.2, iconv-lite@npm:^0.6.3":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
@@ -22435,6 +22444,7 @@ __metadata:
     "@ts-for-gir/cli": "workspace:^"
     concurrently: "npm:^9.2.1"
     conventional-changelog-conventionalcommits: "npm:^9.3.1"
+    husky: "npm:^9.1.7"
     release-it: "npm:^19.2.4"
     rimraf: "npm:^6.1.3"
     typescript: "npm:^6.0.2"

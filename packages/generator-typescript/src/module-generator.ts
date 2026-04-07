@@ -750,10 +750,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return def;
 	}
 
-	generateParameter(tsParam: IntrospectedFunctionParameter) {
+	generateParameter(tsParam: IntrospectedFunctionParameter, direction: GirDirection = GirDirection.In) {
 		const types = tsParam.type;
 		const name = tsParam.name;
-		const typeStr = this.generateDirectedType(types, GirDirection.In);
+		const typeStr = this.generateDirectedType(types, direction);
 		const optional = tsParam.isOptional && !tsParam.isVarArgs;
 		const affix = optional ? "?" : "";
 		const prefix = tsParam.isVarArgs ? "..." : "";
@@ -956,7 +956,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		if (classModuleName) name = removeClassModule(name, classModuleName);
 		const genericParameters = this.generateGenericParameters(generics);
 
-		const inParamsDef: string[] = this.generateInParameters(inParams);
+		const inParamsDef: string[] = [];
+		for (const inParam of inParams) {
+			// Direction is reversed in callbacks. The callback's in-param is
+			// going _out_ from C to JS
+			inParamsDef.push(...this.generateParameter(inParam, GirDirection.Out));
+		}
 
 		const interfaceHead = `${name}${genericParameters}`;
 
@@ -1056,7 +1061,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const exp = !this.config.noNamespace ? "" : "export ";
 
 		const ComputedName = generateMemberName(tsConst);
-		const typeStr = this.generateType(tsConst.type);
+		const typeStr = this.generateType(resolveDirectedType(tsConst.type, GirDirection.Out) ?? tsConst.type);
 
 		desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr}`);
 		return desc;

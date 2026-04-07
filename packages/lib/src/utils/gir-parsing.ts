@@ -14,6 +14,7 @@ import { LazyReporter } from "@ts-for-gir/reporter";
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import {
 	ArrayType,
+	BigintOrNumberType,
 	ClosureType,
 	GenerifiedTypeIdentifier,
 	NativeType,
@@ -238,7 +239,8 @@ export function getType(
 		parameter.$ &&
 		(parameter.$.direction === GirDirection.Inout || parameter.$.direction === GirDirection.Out) &&
 		(nullable || allowNone) &&
-		!(variableType instanceof NativeType)
+		!(variableType instanceof NativeType) &&
+		variableType !== BigintOrNumberType
 	) {
 		return new NullableType(variableType);
 	}

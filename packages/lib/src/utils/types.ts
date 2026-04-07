@@ -4,14 +4,17 @@ import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import {
 	AnyType,
 	ArrayType,
+	BigintOrNumberType,
 	BinaryType,
 	BooleanType,
 	NativeType,
 	NeverType,
 	NumberType,
 	ObjectType,
+	OrType,
 	StringType,
 	ThisType,
+	TupleType,
 	type TypeExpression,
 	TypeIdentifier,
 	Uint8ArrayType,
@@ -167,18 +170,19 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
 		case "gfloat":
 		case "gchar":
 		case "guint":
-		case "glong":
-		case "gulong":
 		case "gint":
 		case "guint8":
+		case "gdouble":
+			return NumberType;
+		case "glong":
+		case "gulong":
 		case "guint64":
 		case "gint64":
-		case "gdouble":
 		case "gssize":
 		case "gsize":
 		case "time_t": // C standard library time type (seconds since Unix epoch)
 		case "ulong": // C standard library unsigned long type
-			return NumberType;
+			return BigintOrNumberType;
 		case "gboolean":
 			return BooleanType;
 		case "gpointer": // This is typically used in callbacks to pass data, so we'll allow anything.
@@ -243,6 +247,14 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 				return type;
 			}
 		}
+	} else if (type === BigintOrNumberType && direction === GirDirection.Out) {
+		// 64-bit integers accept number or bigint, but only return number to JS
+		return NumberType;
+	} else if (type instanceof OrType && !(type instanceof BinaryType || type instanceof TupleType)) {
+		// flatten "bigint | number" out of another OR-type
+		const types = type.types.map((t) => resolveDirectedType(t, direction) ?? t);
+		if (types.length === 1) return types[0];
+		return new OrType(types[0], ...types.slice(1));
 	}
 
 	return null;

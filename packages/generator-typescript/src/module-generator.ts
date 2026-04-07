@@ -516,6 +516,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		}
 
 		const Type = type.resolve(this.namespace, this.options).rootPrint(this.namespace, this.options) || "any";
+		// Properties are direction-aware: getters return values from C to JS (Out),
+		// setters accept values from JS to C (In). For 64-bit integers this means
+		// getters return `number`, while setters accept `bigint | number`.
+		const GetterType = this.generateDirectedType(type, GirDirection.Out) || "any";
+		const SetterType = this.generateDirectedType(type, GirDirection.In) || "any";
 
 		if (construct) {
 			// If the property type is GType, use GTypeInput to also accept class constructors
@@ -525,7 +530,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				const gtypeNamespace = this.namespace.namespace === "GObject" ? "" : "GObject.";
 				return [`${name}: ${gtypeNamespace}GTypeInput;`];
 			}
-			return [`${name}: ${Type};`];
+			return [`${name}: ${SetterType};`];
 		}
 
 		if (printAsProperty) {
@@ -536,13 +541,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		if (hasGetter && hasSetter) {
 			desc.push(
-				`${getterAnnotation}${indent}get ${name}(): ${Type};`,
-				`${setterAnnotation}${indent}set ${name}(val: ${Type});`,
+				`${getterAnnotation}${indent}get ${name}(): ${GetterType};`,
+				`${setterAnnotation}${indent}set ${name}(val: ${SetterType});`,
 			);
 		} else if (hasGetter) {
-			desc.push(`${getterSetterAnnotation}${indent}get ${name}(): ${Type};`);
+			desc.push(`${getterSetterAnnotation}${indent}get ${name}(): ${GetterType};`);
 		} else {
-			desc.push(`${getterSetterAnnotation}${indent}set ${name}(val: ${Type});`);
+			desc.push(`${getterSetterAnnotation}${indent}set ${name}(val: ${SetterType});`);
 		}
 
 		return desc;
@@ -578,7 +583,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			}
 		}
 
-		const typeStr = this.generateType(type);
+		// Readonly fields are only read from C to JS, so resolve as Out direction
+		// (e.g. 64-bit integers come back as `number`, not `bigint | number`).
+		const typeStr = !tsProp.writable ? this.generateDirectedType(type, GirDirection.Out) : this.generateType(type);
 
 		desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr}`);
 		return desc;

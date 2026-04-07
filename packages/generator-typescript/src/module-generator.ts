@@ -519,8 +519,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// Properties are direction-aware: getters return values from C to JS (Out),
 		// setters accept values from JS to C (In). For 64-bit integers this means
 		// getters return `number`, while setters accept `bigint | number`.
-		const GetterType = this.generateDirectedType(type, GirDirection.Out) || "any";
-		const SetterType = this.generateDirectedType(type, GirDirection.In) || "any";
+		const GetterType = this.generateDirectedType(type, GirDirection.Out) || Type;
+		const SetterType = this.generateDirectedType(type, GirDirection.In) || Type;
 
 		if (construct) {
 			// If the property type is GType, use GTypeInput to also accept class constructors

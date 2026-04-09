@@ -1,3 +1,4 @@
+import { GirDirection } from "@gi.ts/parser";
 import {
 	BinaryType,
 	BooleanType,
@@ -113,15 +114,18 @@ export class SignalGenerator {
 				const gobjectRef = this.namespace.namespace === "GObject" ? "" : "GObject.";
 				cbType = `(pspec: ${gobjectRef}ParamSpec) => void`;
 			} else if (signalInfo.signal) {
+				// Signal handlers are invoked from C to JS: in-params come _out_ of C
+				// (so e.g. 64-bit ints arrive as `number`, not `bigint | number`), and
+				// the handler's return value goes _in_ to C.
 				const paramTypes = signalInfo.signal.parameters
-					.map((p, idx) => `arg${idx}: ${this.core.generateType(p.type)}`)
+					.map((p, idx) => `arg${idx}: ${this.core.generateDirectedType(p.type, GirDirection.Out)}`)
 					.join(", ");
 
 				let returnType = signalInfo.signal.return_type;
 				if (signalInfo.signal.return_type.equals(BooleanType)) {
 					returnType = new BinaryType(BooleanType, VoidType);
 				}
-				const returnTypeStr = this.core.generateType(returnType);
+				const returnTypeStr = this.core.generateDirectedType(returnType, GirDirection.In);
 
 				cbType = `(${paramTypes}) => ${returnTypeStr}`;
 			} else {

@@ -583,9 +583,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			}
 		}
 
-		// Readonly fields are only read from C to JS, so resolve as Out direction
-		// (e.g. 64-bit integers come back as `number`, not `bigint | number`).
-		const typeStr = !tsProp.writable ? this.generateDirectedType(type, GirDirection.Out) : this.generateType(type);
+		// GJS marshals field reads as the out type (e.g. 64-bit ints come back as `number`).
+		// A single TS field declaration can't express the JS → C write asymmetry, so we pick
+		// the sound read type — users writing a raw bigint can convert via `Number(bigInt)`.
+		const typeStr = this.generateDirectedType(type, GirDirection.Out);
 
 		desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr}`);
 		return desc;
@@ -806,12 +807,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	generateFunctionReturn(
 		tsFunction: IntrospectedFunction | IntrospectedClassFunction | IntrospectedClassCallback | IntrospectedCallback,
+		direction: GirDirection = GirDirection.Out,
 	) {
 		if (tsFunction.name === "constructor") {
 			return "";
 		}
 
-		const typeStr = this.generateDirectedType(tsFunction.return(), GirDirection.Out);
+		const typeStr = this.generateDirectedType(tsFunction.return(), direction);
 
 		const outputParameters = tsFunction.output_parameters;
 
@@ -822,7 +824,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				...outputParameters
 					.map((op) => {
 						return (
-							resolveDirectedType(op.type, GirDirection.Out)?.resolve(this.namespace, this.options) ??
+							resolveDirectedType(op.type, direction)?.resolve(this.namespace, this.options) ??
 							op.type.resolve(this.namespace, this.options)
 						);
 					})
@@ -854,6 +856,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const isStatic = tsFunction instanceof IntrospectedStaticClassFunction;
 		const isGlobal = !(tsFunction instanceof IntrospectedClassFunction);
 		const isArrowType = tsFunction instanceof IntrospectedCallback || tsFunction instanceof IntrospectedClassCallback;
+		// Virtual functions are implemented in JS and invoked from C, so their
+		// "in" parameters are actually going _out_ from C to JS, and their
+		// return value goes _in_ from JS to C. This mirrors the existing
+		// callback handling in `generateCallback`.
+		const isReversedDirection = tsFunction instanceof IntrospectedVirtualClassFunction;
+		const inParamDirection = isReversedDirection ? GirDirection.Out : GirDirection.In;
+		const returnDirection = isReversedDirection ? GirDirection.In : GirDirection.Out;
 
 		const { parameters: inParams } = tsFunction;
 
@@ -892,7 +901,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			exportStr = !this.config.noNamespace ? "" : "export ";
 		}
 
-		const returnType = this.generateFunctionReturn(tsFunction);
+		const returnType = this.generateFunctionReturn(tsFunction, returnDirection);
 
 		let retSep = "";
 		if (returnType) {
@@ -909,7 +918,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			name = `["${name}"]`;
 		}
 
-		const inParamsDef: string[] = this.generateInParameters(inParams);
+		const inParamsDef: string[] = [];
+		for (const inParam of inParams) {
+			inParamsDef.push(...this.generateParameter(inParam, inParamDirection));
+		}
 
 		def.push(
 			`${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(

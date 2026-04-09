@@ -9,9 +9,11 @@ import {
 	BooleanType,
 	NativeType,
 	NeverType,
+	NullableType,
 	NumberType,
 	ObjectType,
 	OrType,
+	PromiseType,
 	StringType,
 	ThisType,
 	TupleType,
@@ -250,6 +252,19 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 	} else if (type === BigintOrNumberType && direction === GirDirection.Out) {
 		// 64-bit integers accept number or bigint, but only return number to JS
 		return NumberType;
+	} else if (type instanceof PromiseType) {
+		// Propagate direction into the Promise's inner type so e.g. async
+		// functions returning 64-bit ints resolve to `Promise<number>` rather
+		// than `Promise<bigint | number>`.
+		const resolvedInner = resolveDirectedType(type.type, direction);
+		if (resolvedInner) return new PromiseType(resolvedInner);
+	} else if (type instanceof BinaryType && !(type instanceof NullableType)) {
+		// Walk through binary unions like `Promise<T> | void` (the dual-call
+		// async overload) so the inner types still get direction propagation.
+		// NullableType is skipped to preserve its subclass behaviour.
+		const a = resolveDirectedType(type.a, direction) ?? type.a;
+		const b = resolveDirectedType(type.b, direction) ?? type.b;
+		if (a !== type.a || b !== type.b) return new BinaryType(a, b);
 	} else if (type instanceof OrType && !(type instanceof BinaryType || type instanceof TupleType)) {
 		// flatten "bigint | number" out of another OR-type
 		const types = type.types.map((t) => resolveDirectedType(t, direction) ?? t);

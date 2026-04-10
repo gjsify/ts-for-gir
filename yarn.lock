@@ -5788,7 +5788,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gom-1.0@workspace:types-dev/gom-1.0":
+"@girs/gom-1.0@workspace:^, @girs/gom-1.0@workspace:types-dev/gom-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gom-1.0@workspace:types-dev/gom-1.0"
   dependencies:
@@ -16341,6 +16341,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/gda-6-sqlite@workspace:examples/gda-6-sqlite":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gda-6-sqlite@workspace:examples/gda-6-sqlite"
+  dependencies:
+    "@girs/gda-6.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    esbuild: "npm:^0.28.0"
+    typescript: "npm:^6.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gdkpixbuf-2-ref-unref-example@workspace:examples/gdkpixbuf-2-ref-unref":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gdkpixbuf-2-ref-unref-example@workspace:examples/gdkpixbuf-2-ref-unref"
@@ -16495,6 +16509,20 @@ __metadata:
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:^6.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir-example/gom-1-sqlite@workspace:examples/gom-1-sqlite":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/gom-1-sqlite@workspace:examples/gom-1-sqlite"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gom-1.0": "workspace:^"
+    esbuild: "npm:^0.28.0"
     typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft

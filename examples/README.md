@@ -88,6 +88,13 @@ This collaborative approach helps us improve the quality of the type definitions
 | [GLib Variant](glib-2-variant)                   | GVariant serialization and handling      | esbuild |
 | [GObject Param Spec](gobject-param-spec)         | GObject property specifications          | esbuild |
 
+### Database Examples
+
+| Example                            | Description                                          | Bundler |
+| ---------------------------------- | ---------------------------------------------------- | ------- |
+| [GOM SQLite ORM](gom-1-sqlite)    | SQLite ORM with GOM (insert, find, update, migrate)  | esbuild |
+| [GDA SQLite](gda-6-sqlite)        | SQLite with libgda (raw SQL, SqlBuilder, DataModel)  | esbuild |
+
 ### Cairo and Graphics Examples
 
 | Example                               | Description                       | Bundler |

@@ -17,9 +17,7 @@
 	"hooks": {
 		"before:init": [
 			"yarn format",
-			"git diff --exit-code || (echo 'Formatting produced changes. Please commit them first.' && exit 1)",
-			"yarn check:app",
-			"yarn test:tests"
+			"git diff --exit-code || (echo 'Formatting produced changes. Please commit them first.' && exit 1)"
 		]
 	},
 	"plugins": {

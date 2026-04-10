@@ -77,7 +77,7 @@ function main(): void {
 
 	// --- INSERT via SqlBuilder ---
 	print("\n--- INSERT (SqlBuilder) ---");
-	const insertBuilder = Gda.SqlBuilder.new(Gda.SqlStatementType.INSERT);
+	const insertBuilder = new Gda.SqlBuilder({ stmt_type: Gda.SqlStatementType.INSERT });
 	insertBuilder.set_table("products");
 	insertBuilder.add_field_value_as_gvalue("ref", gval("REF003"));
 	insertBuilder.add_field_value_as_gvalue("name", gval("Monitor"));
@@ -94,7 +94,7 @@ function main(): void {
 
 	// --- UPDATE via SqlBuilder ---
 	print("\n--- UPDATE (SqlBuilder) ---");
-	const updateBuilder = Gda.SqlBuilder.new(Gda.SqlStatementType.UPDATE);
+	const updateBuilder = new Gda.SqlBuilder({ stmt_type: Gda.SqlStatementType.UPDATE });
 	updateBuilder.set_table("products");
 	updateBuilder.add_field_value_as_gvalue("price", gval(39.99));
 	// Build WHERE clause: ref = 'REF002'
@@ -112,7 +112,7 @@ function main(): void {
 
 	// --- DELETE via SqlBuilder ---
 	print("\n--- DELETE (SqlBuilder) ---");
-	const deleteBuilder = Gda.SqlBuilder.new(Gda.SqlStatementType.DELETE);
+	const deleteBuilder = new Gda.SqlBuilder({ stmt_type: Gda.SqlStatementType.DELETE });
 	deleteBuilder.set_table("products");
 	const delRefId = deleteBuilder.add_id("ref");
 	const delValId = deleteBuilder.add_expr_value(gval("REF003"));

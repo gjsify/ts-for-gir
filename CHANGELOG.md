@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.0-rc.2](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.1...v4.0.0-rc.2) (2026-04-10)
+
+### Features
+
+* **examples:** add GOM and GDA SQLite examples ([#355](https://github.com/gjsify/ts-for-gir/issues/355)) ([64c9e73](https://github.com/gjsify/ts-for-gir/commit/64c9e73b3984495f374e2cf908200f3670623f4a)), closes [#295](https://github.com/gjsify/ts-for-gir/issues/295)
+* integrate library icons into generated documentation ([#349](https://github.com/gjsify/ts-for-gir/issues/349)) ([f81a778](https://github.com/gjsify/ts-for-gir/commit/f81a778f9f08a14b5186e2be2f6615f5d06a4b42))
+
+### Bug Fixes
+
+* **generator-typescript:** Accept bigint | number for 64-bit params ([#350](https://github.com/gjsify/ts-for-gir/issues/350)) ([b417276](https://github.com/gjsify/ts-for-gir/commit/b417276f9983c2e28b744206c48d0b3ac446bee8))
+* **generator-typescript:** direction-aware property accessors ([#352](https://github.com/gjsify/ts-for-gir/issues/352)) ([3b44be3](https://github.com/gjsify/ts-for-gir/commit/3b44be3746eaedc119e07ebf783f4ebb1f7bb7e0)), closes [#350](https://github.com/gjsify/ts-for-gir/issues/350)
+
 ## [4.0.0-rc.1](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-beta.44...v4.0.0-rc.1) (2026-04-03)
 
 ### Features

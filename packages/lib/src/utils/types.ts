@@ -182,6 +182,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
 		case "gint64":
 		case "gssize":
 		case "gsize":
+		case "guintptr": // Integer of the same width as a pointer
 		case "time_t": // C standard library time type (seconds since Unix epoch)
 		case "ulong": // C standard library unsigned long type
 			return BigintOrNumberType;
@@ -193,8 +194,6 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
 			return ObjectType;
 		case "va_list":
 			return AnyType;
-		case "guintptr": // You can't use pointers in GJS! (at least that I'm aware of)
-			return NeverType;
 		case "never": // Support TS "never"
 			return NeverType;
 		case "unknown": // Support TS "unknown"

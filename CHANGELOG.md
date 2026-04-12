@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.0.0-rc.3](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.2...v4.0.0-rc.3) (2026-04-12)
+
+### Bug Fixes
+
+* **generator-typescript:** Handle guintptr ([5159a0a](https://github.com/gjsify/ts-for-gir/commit/5159a0a6fc5f8383d8039bdfe029d38c2367f302))
+
+### Reverts
+
+* Revert "Mark enum parameters as nullable, fixes #207" ([53cc6c4](https://github.com/gjsify/ts-for-gir/commit/53cc6c43cc552d31a41bf45f4a54b6f790c41f33))
+
 ## [4.0.0-rc.2](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.1...v4.0.0-rc.2) (2026-04-10)
 
 ### Features

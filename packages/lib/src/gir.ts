@@ -624,12 +624,17 @@ export class NullableType extends BinaryType {
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
-		return new NullableType(this.a.rewrap(type));
+		return makeNullable(this.a.rewrap(type));
 	}
 
 	get type() {
 		return this.a;
 	}
+}
+
+export function makeNullable(type: TypeExpression) {
+	if (type === AnyType) return AnyType;
+	return new NullableType(type);
 }
 
 export class PromiseType extends TypeExpression {

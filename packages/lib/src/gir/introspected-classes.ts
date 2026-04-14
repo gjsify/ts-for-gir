@@ -5,6 +5,7 @@ import {
 	Generic,
 	GenericType,
 	GenerifiedTypeIdentifier,
+	makeNullable,
 	NullableType,
 	type TypeExpression,
 	TypeIdentifier,
@@ -77,7 +78,7 @@ function resolveNullableProperties(cls: IntrospectedBaseClass): void {
 		const getter = cls.members.find((m) => m.name === getterName && !(m instanceof IntrospectedStaticClassFunction));
 
 		if (getter instanceof IntrospectedClassFunction && getter.return() instanceof NullableType) {
-			prop.type = new NullableType(prop.type);
+			prop.type = makeNullable(prop.type);
 		}
 	}
 }

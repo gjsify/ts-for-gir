@@ -17,8 +17,8 @@ import {
 	BigintOrNumberType,
 	ClosureType,
 	GenerifiedTypeIdentifier,
+	makeNullable,
 	NativeType,
-	NullableType,
 	type TypeExpression,
 	TypeIdentifier,
 	VoidType,
@@ -242,11 +242,11 @@ export function getType(
 		!(variableType instanceof NativeType) &&
 		variableType !== BigintOrNumberType
 	) {
-		return new NullableType(variableType);
+		return makeNullable(variableType);
 	}
 
 	if ((!parameter.$?.direction || parameter.$.direction === GirDirection.In) && nullable) {
-		return new NullableType(variableType);
+		return makeNullable(variableType);
 	}
 
 	variableType.isPointer = isPointer;

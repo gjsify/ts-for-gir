@@ -1,5 +1,5 @@
 import type { FormatGenerator } from "../generators/generator.ts";
-import { NullableType, type TypeExpression } from "../gir.ts";
+import { makeNullable, type TypeExpression } from "../gir.ts";
 import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 import type { OptionsLoad } from "../types/index.ts";
 import type { Options } from "../types/introspected.ts";
@@ -210,7 +210,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		property.getter = element.$.getter;
 
 		if (element.$.nullable === "1" || element.$["allow-none"] === "1") {
-			property.type = new NullableType(property.type);
+			property.type = makeNullable(property.type);
 		}
 
 		return property;

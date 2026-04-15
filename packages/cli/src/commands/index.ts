@@ -1,5 +1,6 @@
 export * from "./analyze.ts";
 export * from "./copy.ts";
+export * from "./create.ts";
 export * from "./doc.ts";
 export * from "./generate.ts";
 export * from "./json.ts";

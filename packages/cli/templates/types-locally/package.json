@@ -1,0 +1,18 @@
+{
+	"name": "__PROJECT_NAME__",
+	"version": "0.1.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"generate": "ts-for-gir generate",
+		"check:types": "tsc --noEmit",
+		"build": "node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+		"start": "gjs -m dist/main.js",
+		"clear": "rm -rf dist @types"
+	},
+	"devDependencies": {
+		"@ts-for-gir/cli": "workspace:^",
+		"esbuild": "^0.28.0",
+		"typescript": "^6.0.2"
+	}
+}

@@ -36,6 +36,8 @@ export interface GenerateCommandArgs extends BaseCommandArgs {
 	npmScope: string;
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
 	workspace: boolean;
+	/** Dependency version spec format in generated package.json files */
+	depVersionFormat?: "workspace" | "caret" | "any" | "exact";
 	/** Only use the version prefix for the ambient module exports */
 	onlyVersionPrefix: boolean;
 	/** Do not prettify the generated types */
@@ -81,6 +83,27 @@ export interface DocCommandArgs extends GenerateCommandArgs {
 	merge?: boolean;
 	/** Directory containing pre-generated TypeDoc JSON files for merge mode */
 	jsonDir?: string;
+}
+
+/**
+ * Available scaffolding template identifiers for the create command.
+ */
+export type CreateTemplateId = "types-locally" | "types-npm" | "types-workspace";
+
+/**
+ * Arguments for the create command
+ */
+export interface CreateCommandArgs {
+	/** Project name and target directory (positional) */
+	name?: string;
+	/** Template identifier */
+	template?: CreateTemplateId;
+	/** Run npm install after scaffolding (use --no-install to skip) */
+	install: boolean;
+	/** Allow scaffolding into a non-empty target directory */
+	force: boolean;
+	/** Switch on/off the verbose mode */
+	verbose: boolean;
 }
 
 /**

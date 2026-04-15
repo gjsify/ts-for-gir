@@ -1,0 +1,19 @@
+{
+	"name": "__PROJECT_NAME__",
+	"version": "0.1.0",
+	"type": "module",
+	"private": true,
+	"workspaces": ["packages/*", "@girs/*"],
+	"scripts": {
+		"build:types": "ts-for-gir generate --package --outdir=./@girs",
+		"build:app": "npm run --workspace=@__PROJECT_NAME__/app build",
+		"build": "npm run build:types && npm install && npm run build:app",
+		"check": "npm run --workspaces --if-present check",
+		"start": "npm run --workspace=@__PROJECT_NAME__/app start",
+		"clear": "rm -rf @girs packages/*/dist"
+	},
+	"devDependencies": {
+		"@ts-for-gir/cli": "workspace:^",
+		"typescript": "^6.0.2"
+	}
+}

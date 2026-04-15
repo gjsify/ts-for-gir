@@ -11,15 +11,23 @@ export const MONOREPO_ROOT = join(__dirname, '..', '..');
 export const GIRS_DIR = join(MONOREPO_ROOT, 'girs');
 
 /**
- * Pack all workspace tarballs via pack.sh into tarballsDir.
- * Returns { "@ts-for-gir/cli": "ts-for-gir-cli.tgz", ... } map.
+ * Pack workspace tarballs via pack.mjs into tarballsDir.
+ * Returns { "@ts-for-gir/cli": "@ts-for-gir-cli.tgz", ... } map.
+ *
+ * @param {string} tarballsDir Output directory for tarballs
+ * @param {object} [options]
+ * @param {string[]} [options.includeGirs] Names of @girs/* packages from types-dev to also pack
  */
-export function packWorkspaces(tarballsDir) {
-  const stdout = execFileSync('bash', [join(__dirname, 'pack.sh'), tarballsDir], {
+export function packWorkspaces(tarballsDir, options = {}) {
+  const args = [join(__dirname, 'pack.mjs'), tarballsDir];
+  if (options.includeGirs && options.includeGirs.length > 0) {
+    args.push('--include-girs', options.includeGirs.join(','));
+  }
+  const stdout = execFileSync('node', args, {
     cwd: MONOREPO_ROOT,
     encoding: 'utf8',
     maxBuffer: 50 * 1024 * 1024,
-    timeout: 5 * 60 * 1000,
+    timeout: 10 * 60 * 1000,
   });
   return JSON.parse(stdout);
 }
@@ -27,14 +35,18 @@ export function packWorkspaces(tarballsDir) {
 /**
  * Create a temporary directory for an E2E test.
  * Returns { tmpDir, tarballsDir, tarballMap }.
+ *
+ * @param {string} [prefix]
+ * @param {object} [options]
+ * @param {string[]} [options.includeGirs] Names of @girs/* packages from types-dev to also pack
  */
-export function createTestEnvironment(prefix = 'ts-for-gir-e2e-') {
+export function createTestEnvironment(prefix = 'ts-for-gir-e2e-', options = {}) {
   const tmpDir = mkdtempSync(join(tmpdir(), prefix));
   const tarballsDir = join(tmpDir, 'tarballs');
 
   console.log(`  tmp dir: ${tmpDir}`);
   console.log('  packing workspace packages...');
-  const tarballMap = packWorkspaces(tarballsDir);
+  const tarballMap = packWorkspaces(tarballsDir, options);
   console.log(`  packed ${Object.keys(tarballMap).length} packages`);
 
   return { tmpDir, tarballsDir, tarballMap };
@@ -73,7 +85,6 @@ export function toFileRef(name, tarballsDir, tarballMap) {
 
 /**
  * Write a package.json, install deps, and return the project dir.
- * Note: Uses execSync for npm install — input is not user-controlled, safe in E2E context.
  */
 export function setupProject(projectDir, pkg, tarballsDir, tarballMap) {
   // Patch all @ts-for-gir/* and @gi.ts/* deps to local tarballs

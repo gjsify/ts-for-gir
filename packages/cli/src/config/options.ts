@@ -103,6 +103,12 @@ export const options: { [name: string]: Options } = {
 		default: defaults.workspace,
 		normalize: true,
 	},
+	depVersionFormat: {
+		type: "string",
+		description:
+			"Dependency version spec format in generated package.json files. Defaults to 'workspace' when --workspace, else 'exact'",
+		choices: ["workspace", "caret", "any", "exact"] as const,
+	},
 	onlyVersionPrefix: {
 		type: "boolean",
 		description:
@@ -160,6 +166,7 @@ export const generateOptions = {
 	promisify: options.promisify,
 	npmScope: options.npmScope,
 	workspace: options.workspace,
+	depVersionFormat: options.depVersionFormat,
 	onlyVersionPrefix: options.onlyVersionPrefix,
 	noPrettyPrint: options.noPrettyPrint,
 	noAdvancedVariants: options.noAdvancedVariants,
@@ -221,6 +228,26 @@ export const docOptions = {
 		type: "string" as const,
 		description: "Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json')",
 	},
+};
+
+export const createOptions = {
+	template: {
+		type: "string" as const,
+		alias: "t",
+		description: "Template to scaffold (types-locally, types-npm, types-workspace)",
+		choices: ["types-locally", "types-npm", "types-workspace"] as const,
+	},
+	install: {
+		type: "boolean" as const,
+		description: "Run npm install after scaffolding (use --no-install to skip)",
+		default: true,
+	},
+	force: {
+		type: "boolean" as const,
+		description: "Allow scaffolding into a non-empty target directory",
+		default: false,
+	},
+	verbose: options.verbose,
 };
 
 export const analyzeOptions = {

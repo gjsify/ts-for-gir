@@ -147,13 +147,22 @@ export class DependencyManager {
 	}
 
 	createPackageJsonImport(importPath: string, libraryVersion?: LibraryVersion): string {
+		const pinnedVersion = libraryVersion ? `${libraryVersion.toString()}-${APP_VERSION}` : APP_VERSION;
+		const format = this.config.depVersionFormat ?? (this.config.workspace ? "workspace" : "exact");
 		let depVersion: string;
-		if (this.config.workspace) {
-			depVersion = "workspace:^";
-		} else if (libraryVersion) {
-			depVersion = `${libraryVersion.toString()}-${APP_VERSION}`;
-		} else {
-			depVersion = APP_VERSION;
+		switch (format) {
+			case "workspace":
+				depVersion = "workspace:^";
+				break;
+			case "caret":
+				depVersion = `^${pinnedVersion}`;
+				break;
+			case "any":
+				depVersion = "*";
+				break;
+			default:
+				depVersion = pinnedVersion;
+				break;
 		}
 		return `"${importPath}": "${depVersion}"`;
 	}

@@ -103,6 +103,12 @@ export const options: { [name: string]: Options } = {
 		default: defaults.workspace,
 		normalize: true,
 	},
+	depVersionFormat: {
+		type: "string",
+		description:
+			"Dependency version spec format in generated package.json files. Defaults to 'workspace' when --workspace, else 'exact'",
+		choices: ["workspace", "caret", "any", "exact"] as const,
+	},
 	onlyVersionPrefix: {
 		type: "boolean",
 		description:
@@ -160,6 +166,7 @@ export const generateOptions = {
 	promisify: options.promisify,
 	npmScope: options.npmScope,
 	workspace: options.workspace,
+	depVersionFormat: options.depVersionFormat,
 	onlyVersionPrefix: options.onlyVersionPrefix,
 	noPrettyPrint: options.noPrettyPrint,
 	noAdvancedVariants: options.noAdvancedVariants,

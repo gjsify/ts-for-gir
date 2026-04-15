@@ -153,18 +153,19 @@ describe('ts-for-gir create E2E', { timeout: 20 * 60 * 1000 }, () => {
         `Root package.json has unresolved workspace:^ specifier:\n${rootText}`,
       );
 
-      // For types-workspace, the sub-package keeps workspace:^ literal (user-workspace ref).
+      // For types-workspace, the sub-package uses plain "*" so npm, yarn and pnpm
+      // all resolve to the local workspace (npm does not understand workspace:^).
       if (template === 'types-workspace') {
         const subPkgPath = join(targetDir, 'packages', 'app', 'package.json');
         assert.ok(existsSync(subPkgPath), 'types-workspace sub-package missing');
-        const subText = readFileSync(subPkgPath, 'utf8');
-        assert.ok(
-          /workspace:\^/.test(subText),
-          'sub-package should keep workspace:^ literal for user-workspace refs',
-        );
-        // Project name must also be substituted in sub-package
-        const subPkg = JSON.parse(subText);
+        const subPkg = JSON.parse(readFileSync(subPkgPath, 'utf8'));
         assert.equal(subPkg.name, `@${projectName}/app`);
+        for (const [name, spec] of Object.entries(subPkg.dependencies || {})) {
+          assert.ok(
+            !/^workspace:/.test(spec),
+            `sub-package dep "${name}": "${spec}" must not use workspace: protocol (npm incompatible)`,
+          );
+        }
       }
     });
   }
@@ -202,13 +203,12 @@ describe('ts-for-gir create E2E', { timeout: 20 * 60 * 1000 }, () => {
     assert.ok(existsSync(join(projectDir, 'dist', 'main.js')), 'dist/main.js missing');
   });
 
-  it('types-workspace: install root and generate workspace types', () => {
-    // Scope: verifies the create-command output for types-workspace works end-to-end
-    // through `build:types`. The follow-up "use the freshly generated workspace
-    // packages" step depends on the user's package manager (yarn/pnpm understand
-    // workspace:^ in transitive deps; npm 11 errors on dangling refs to GIR
-    // packages outside the configured `modules` set). That is a property of the
-    // user's chosen tooling, not the scaffolder.
+  it('types-workspace: install, generate types, re-install, check sub-package', () => {
+    // The template's .ts-for-girrc.js sets depVersionFormat: "caret" so the
+    // generator writes ^<version> instead of workspace:^ for transitive @girs
+    // refs. That lets npm either (a) resolve to a local workspace package or
+    // (b) fall back to the NPM registry for transitive deps whose modules
+    // aren't in the user's `modules` set.
     const projectDir = join(tmpDir, 'scaffolds', 'types-workspace', 'app-types-workspace');
     rewriteWorkspaceProtocolToTarballs(join(projectDir, 'package.json'), tarballMap, tarballsDir);
     npmInstall(projectDir);
@@ -218,17 +218,38 @@ describe('ts-for-gir create E2E', { timeout: 20 * 60 * 1000 }, () => {
     assert.ok(existsSync(join(projectDir, '@girs')), '@girs/ workspace dir not generated');
     const girsEntries = readdirSync(join(projectDir, '@girs'));
     assert.ok(girsEntries.length > 0, '@girs/ has no generated packages');
-
-    // Spot-check: at least the requested modules appear as workspace packages
-    // with the expected scaffold (package.json, .d.ts entrypoint).
     for (const expected of ['adw-1', 'gtk-4.0']) {
       const pkgDir = join(projectDir, '@girs', expected);
       assert.ok(existsSync(pkgDir), `expected @girs/${expected} not generated`);
+      assert.ok(existsSync(join(pkgDir, 'package.json')), `@girs/${expected}/package.json missing`);
+    }
+
+    // Verify caret format landed in a generated package.json (spot-check).
+    const adwPkg = JSON.parse(readFileSync(join(projectDir, '@girs', 'adw-1', 'package.json'), 'utf8'));
+    const adwDeps = adwPkg.dependencies || {};
+    for (const [name, spec] of Object.entries(adwDeps)) {
       assert.ok(
-        existsSync(join(pkgDir, 'package.json')),
-        `@girs/${expected}/package.json missing — workspace mode did not emit package metadata`,
+        !/^workspace:/.test(spec),
+        `generated @girs/adw-1 dep "${name}" is "${spec}" — expected caret or registry spec, not workspace:`,
       );
     }
+
+    // Second install: npm now discovers the freshly generated @girs/* as
+    // workspaces. Strip @girs/* tarball overrides first — the local workspace
+    // packages are now the source of truth and npm refuses to override direct
+    // workspace deps.
+    const rootPkgPath = join(projectDir, 'package.json');
+    const rootPkg = JSON.parse(readFileSync(rootPkgPath, 'utf8'));
+    if (rootPkg.overrides) {
+      for (const name of Object.keys(rootPkg.overrides)) {
+        if (name.startsWith('@girs/')) delete rootPkg.overrides[name];
+      }
+    }
+    writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2));
+    npmInstall(projectDir);
+
+    const check = npmRun(projectDir, 'check');
+    assert.equal(check.status, 0, `workspace check failed: ${check.stderr}\n${check.stdout}`);
   });
 
   it('errors on non-TTY without --template', () => {

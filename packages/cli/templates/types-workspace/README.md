@@ -14,4 +14,13 @@ npm start
 
 Or shorthand: `npm run build` runs all three steps in order.
 
-The application lives in [`packages/app/`](./packages/app/) and depends on `@girs/*` via `workspace:^` — those references are resolved by your package manager to the locally generated packages in `./@girs/`.
+The application lives in [`packages/app/`](./packages/app/). Its dependencies on `@girs/*` are written as `"*"` which works across all three package managers — npm, yarn, pnpm all resolve to the locally generated workspace packages in `./@girs/`.
+
+### About the dependency version format
+
+Two deliberate choices keep the template portable:
+
+1. **Generated `@girs/*` packages** reference each other via `^<version>` (not `workspace:^`). Controlled by `depVersionFormat: "caret"` in [`.ts-for-girrc.js`](./.ts-for-girrc.js). npm and yarn/pnpm all prefer the local workspace match; the registry serves as fallback for transitive GIR packages outside your `modules` set.
+2. **Sub-package deps** (`packages/app/package.json`) use `"*"`. Same reasoning — all managers resolve to the local workspace.
+
+If you run yarn or pnpm exclusively and want strict workspace-only resolution, switch both: `depVersionFormat: "workspace"` in `.ts-for-girrc.js` and `"workspace:^"` specs in `packages/app/package.json`. npm does **not** support the `workspace:` protocol.

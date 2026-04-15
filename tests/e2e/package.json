@@ -4,6 +4,8 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"test": "node --test --test-timeout=600000 cli/run.mjs"
+		"test:cli": "node --test --test-timeout=600000 cli/run.mjs",
+		"test:create": "node --test --test-timeout=1200000 create/run.mjs",
+		"test": "yarn test:cli && yarn test:create"
 	}
 }

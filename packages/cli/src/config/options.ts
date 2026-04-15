@@ -223,6 +223,26 @@ export const docOptions = {
 	},
 };
 
+export const createOptions = {
+	template: {
+		type: "string" as const,
+		alias: "t",
+		description: "Template to scaffold (types-locally, types-npm, types-workspace)",
+		choices: ["types-locally", "types-npm", "types-workspace"] as const,
+	},
+	install: {
+		type: "boolean" as const,
+		description: "Run npm install after scaffolding (use --no-install to skip)",
+		default: true,
+	},
+	force: {
+		type: "boolean" as const,
+		description: "Allow scaffolding into a non-empty target directory",
+		default: false,
+	},
+	verbose: options.verbose,
+};
+
 export const analyzeOptions = {
 	reportFile: {
 		type: "string" as const,

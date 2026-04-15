@@ -84,6 +84,27 @@ export interface DocCommandArgs extends GenerateCommandArgs {
 }
 
 /**
+ * Available scaffolding template identifiers for the create command.
+ */
+export type CreateTemplateId = "types-locally" | "types-npm" | "types-workspace";
+
+/**
+ * Arguments for the create command
+ */
+export interface CreateCommandArgs {
+	/** Project name and target directory (positional) */
+	name?: string;
+	/** Template identifier */
+	template?: CreateTemplateId;
+	/** Run npm install after scaffolding (use --no-install to skip) */
+	install: boolean;
+	/** Allow scaffolding into a non-empty target directory */
+	force: boolean;
+	/** Switch on/off the verbose mode */
+	verbose: boolean;
+}
+
+/**
  * Arguments for the analyze command
  */
 export interface AnalyzeCommandArgs {

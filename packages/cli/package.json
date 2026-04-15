@@ -17,6 +17,8 @@
 		"start": "node bin/ts-for-gir-dev",
 		"start:prod": "node bin/ts-for-gir",
 		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
+		"build:templates": "node scripts/process-templates.mjs",
+		"prepack": "node scripts/process-templates.mjs",
 		"check:types": "tsc --noEmit",
 		"check": "yarn check:types"
 	},
@@ -27,7 +29,8 @@
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"files": [
 		"src",
-		"bin"
+		"bin",
+		"dist-templates"
 	],
 	"license": "Apache-2.0",
 	"bugs": {

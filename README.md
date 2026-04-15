@@ -22,21 +22,32 @@ Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)*
 
 ## Getting Started
 
-Install the latest LTS version of Node.js. We recommend using [NVM](https://github.com/nvm-sh/nvm) for this purpose. After Node.js has been installed, `ts-for-gir` can be executed with the following command:
+Install the latest LTS version of Node.js — we recommend using [NVM](https://github.com/nvm-sh/nvm). The fastest path to a working GJS + TypeScript project:
 
 ```bash
-npx @ts-for-gir/cli --help
+npx @ts-for-gir/cli create my-app
 ```
 
-That's it, you can start generating your types 👩‍💻☕
+That scaffolds a ready-to-run starter with `esbuild`, `tsconfig.json`, and a minimal Gtk/Adwaita `main.ts`. Pick a template interactively — or pass `--template <id>`:
 
-To generate TypeScript definitions for Gtk 4.0:
+- **`types-npm`** — uses the pre-generated [`@girs/*`](https://github.com/gjsify/types) NPM packages (fastest start)
+- **`types-locally`** — generates types directly into `./@types/`, no `@girs/*` dependencies
+- **`types-workspace`** — npm workspace layout with locally-generated `@girs/*` as workspace packages
+
+```bash
+cd my-app
+npm start
+```
+
+### Using the CLI directly
+
+If you already have a project and just need type definitions, invoke `ts-for-gir` without scaffolding:
 
 ```bash
 npx @ts-for-gir/cli generate Gtk-4.0
 ```
 
-For detailed CLI options and advanced usage, see the [CLI documentation](/packages/cli/README.md).
+Run `npx @ts-for-gir/cli --help` for all commands. See the [CLI documentation](/packages/cli/README.md) for detailed options and advanced usage.
 
 **Debug Generation Issues:**
 If you encounter type generation problems, enable the reporter and use the analyze command:

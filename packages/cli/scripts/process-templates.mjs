@@ -50,16 +50,41 @@ function buildVersionMap() {
 	return map;
 }
 
+const npmVersionCache = {};
+
+function resolveViaNpm(name) {
+	if (name in npmVersionCache) return npmVersionCache[name];
+	try {
+		const stdout = execFileSync("npm", ["view", name, "version"], {
+			encoding: "utf8",
+			stdio: ["pipe", "pipe", "pipe"],
+			timeout: 30 * 1000,
+		});
+		const version = stdout.trim();
+		npmVersionCache[name] = version || null;
+		return npmVersionCache[name];
+	} catch {
+		npmVersionCache[name] = null;
+		return null;
+	}
+}
+
 function resolveDeps(deps, versionMap, templateName) {
 	if (!deps) return;
 	for (const name of Object.keys(deps)) {
 		const spec = deps[name];
 		if (typeof spec !== "string" || !WORKSPACE_PREFIX_RE.test(spec)) continue;
-		const version = versionMap[name];
+		let version = versionMap[name];
+		if (!version) {
+			version = resolveViaNpm(name);
+			if (version) {
+				console.log(`[process-templates] resolved ${name} via npm registry: ${version}`);
+			}
+		}
 		if (!version) {
 			throw new Error(
 				`[process-templates] Template "${templateName}": cannot resolve workspace:^ for "${name}". ` +
-					"Make sure the package exists as a workspace in the monorepo.",
+					"Not found as a local workspace and not published to the npm registry.",
 			);
 		}
 		deps[name] = `^${version}`;

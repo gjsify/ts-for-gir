@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0-rc.4](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.3...v4.0.0-rc.4) (2026-04-15)
+
+### Features
+
+* **cli:** add create command with 3 project templates ([9cf6442](https://github.com/gjsify/ts-for-gir/commit/9cf644215d721aaedc40047339afbb295057f9e8))
+* **generator:** configurable dependency version format ([9bbe17e](https://github.com/gjsify/ts-for-gir/commit/9bbe17e7de9c3e7e901e19c15d5d7aebdee91214))
+
+### Bug Fixes
+
+* **templates:** drop --workspace from types-workspace build script ([63b1d66](https://github.com/gjsify/ts-for-gir/commit/63b1d66d00e2a85bf43ddff74283a4f25ecbd167))
+
 ## [4.0.0-rc.3](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.2...v4.0.0-rc.3) (2026-04-12)
 
 ### Bug Fixes

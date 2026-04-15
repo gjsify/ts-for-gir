@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/reporter",
-	"version": "4.0.0-rc.3",
+	"version": "4.0.0-rc.4",
 	"description": "Problem reporting and comprehensive generation analysis for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

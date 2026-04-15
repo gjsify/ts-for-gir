@@ -6,7 +6,7 @@ GJS + TypeScript starter that uses an **npm workspace** with the `@girs/*` types
 
 ```sh
 npm install
-npm run build:types   # ts-for-gir generate --package --workspace into ./@girs/
+npm run build:types   # generates @girs/* packages into ./@girs/
 npm install           # picks up the freshly generated @girs/* workspace packages
 npm run build:app
 npm start

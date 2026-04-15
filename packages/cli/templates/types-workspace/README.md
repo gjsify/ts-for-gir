@@ -23,4 +23,4 @@ Two deliberate choices keep the template portable:
 1. **Generated `@girs/*` packages** reference each other via `^<version>` (not `workspace:^`). Controlled by `depVersionFormat: "caret"` in [`.ts-for-girrc.js`](./.ts-for-girrc.js). npm and yarn/pnpm all prefer the local workspace match; the registry serves as fallback for transitive GIR packages outside your `modules` set.
 2. **Sub-package deps** (`packages/app/package.json`) use `"*"`. Same reasoning — all managers resolve to the local workspace.
 
-If you run yarn or pnpm exclusively and want strict workspace-only resolution, switch both: `depVersionFormat: "workspace"` in `.ts-for-girrc.js` and `"workspace:^"` specs in `packages/app/package.json`. npm does **not** support the `workspace:` protocol.
+If you run yarn or pnpm exclusively and want strict workspace-only resolution, switch both: add `workspace: true` and `depVersionFormat: "workspace"` in `.ts-for-girrc.js`, plus `"workspace:^"` specs in `packages/app/package.json`. npm does **not** support the `workspace:` protocol.

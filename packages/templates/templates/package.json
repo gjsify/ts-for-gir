@@ -4,7 +4,6 @@ let entryPointName = importName
 if (packageName === 'Gjs') {
   entryPointName = 'gjs'
 }
-let depVersion = workspace ? 'workspace:^' : APP_VERSION
 _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
@@ -77,7 +76,7 @@ _%>
     },
     "dependencies": {
       <%_ if (packageName !== 'Gjs') { _%>
-      "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,
+      <%- dep.createPackageJsonImport(npmScope + '/gjs') %><%_ if(deps.length > 0 ) { _%>,
       <%_ } _%>
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>

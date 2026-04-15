@@ -141,6 +141,7 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		const stringKeys: Array<[keyof UserConfig, unknown]> = [
 			["npmScope", options.npmScope.default],
 			["reporterOutput", options.reporterOutput.default],
+			["depVersionFormat", undefined],
 			["theme", docOptions.theme.default],
 			["sourceLinkTemplate", undefined],
 			["readme", undefined],

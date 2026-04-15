@@ -36,6 +36,8 @@ export interface GenerateCommandArgs extends BaseCommandArgs {
 	npmScope: string;
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
 	workspace: boolean;
+	/** Dependency version spec format in generated package.json files */
+	depVersionFormat?: "workspace" | "caret" | "any" | "exact";
 	/** Only use the version prefix for the ambient module exports */
 	onlyVersionPrefix: boolean;
 	/** Do not prettify the generated types */

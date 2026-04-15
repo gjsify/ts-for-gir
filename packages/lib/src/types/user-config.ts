@@ -29,6 +29,16 @@ export interface UserConfig {
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
 	workspace: boolean;
 	/**
+	 * Format used for dependency version specifiers in generated package.json files.
+	 * - `workspace`: emit `workspace:^` (yarn/pnpm; npm only when the ref matches a registered workspace)
+	 * - `caret`: emit `^<version>` (all managers, falls back to registry for dangling refs)
+	 * - `any`: emit `*` (all managers, most permissive)
+	 * - `exact`: emit `<version>` (all managers, no range)
+	 *
+	 * If unset, defaults to `workspace` when `workspace: true`, else `caret`.
+	 */
+	depVersionFormat?: "workspace" | "caret" | "any" | "exact";
+	/**
 	 * Only use the version prefix for the ambient module exports.
 	 * This is useful if, for whatever reason, you want to use different library versions of the same library in your project.
 	 *

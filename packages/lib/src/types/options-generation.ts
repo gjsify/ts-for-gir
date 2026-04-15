@@ -23,6 +23,8 @@ export interface OptionsGeneration extends OptionsBase {
 	npmScope: string;
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
 	workspace: boolean;
+	/** Format used for dependency version specifiers in generated package.json files */
+	depVersionFormat?: "workspace" | "caret" | "any" | "exact";
 	/** Disable GLib.Variant class with string parsing */
 	noAdvancedVariants: boolean;
 	/**

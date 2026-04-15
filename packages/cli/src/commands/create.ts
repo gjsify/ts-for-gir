@@ -3,7 +3,7 @@
  */
 
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -46,8 +46,6 @@ const TEMPLATE_CHOICES: ReadonlyArray<{ value: CreateTemplateId; name: string; d
 	},
 ];
 
-const TEMPLATE_IDS: ReadonlyArray<CreateTemplateId> = TEMPLATE_CHOICES.map((c) => c.value);
-
 const PROJECT_NAME_PLACEHOLDER = "__PROJECT_NAME__";
 
 const TEXT_FILE_EXT = new Set([".json", ".md", ".ts", ".tsx", ".js", ".mjs", ".cjs"]);
@@ -75,11 +73,11 @@ function findTemplatesRoot(): string {
 }
 
 function listTemplates(templatesRoot: string): CreateTemplateId[] {
-	const entries = readdirSync(templatesRoot).filter((name) => {
-		const p = join(templatesRoot, name);
-		return statSync(p).isDirectory();
-	});
-	return entries.filter((name): name is CreateTemplateId => (TEMPLATE_IDS as readonly string[]).includes(name));
+	const knownIds = TEMPLATE_CHOICES.map((c) => c.value) as readonly string[];
+	return readdirSync(templatesRoot, { withFileTypes: true })
+		.filter((entry) => entry.isDirectory())
+		.map((entry) => entry.name)
+		.filter((name): name is CreateTemplateId => knownIds.includes(name));
 }
 
 function sanitizeProjectName(raw: string): string {
@@ -122,8 +120,8 @@ function walkAndSubstitute(rootDir: string, projectName: string): void {
 }
 
 const handler = async (args: ConfigFlags) => {
-	const a = args as unknown as CreateCommandArgs;
-	const log = new Logger(a.verbose ?? false, "CreateCommand");
+	const opts = args as unknown as CreateCommandArgs;
+	const log = new Logger(opts.verbose ?? false, "CreateCommand");
 
 	const templatesRoot = findTemplatesRoot();
 	const available = listTemplates(templatesRoot);
@@ -131,7 +129,7 @@ const handler = async (args: ConfigFlags) => {
 		throw new Error(`No templates found in ${templatesRoot}`);
 	}
 
-	let template: CreateTemplateId | undefined = a.template;
+	let template: CreateTemplateId | undefined = opts.template;
 	if (template && !available.includes(template)) {
 		throw new Error(`Unknown template "${template}". Available: ${available.join(", ")}`);
 	}
@@ -149,7 +147,7 @@ const handler = async (args: ConfigFlags) => {
 		});
 	}
 
-	let nameRaw = a.name;
+	let nameRaw = opts.name;
 	if (!nameRaw) {
 		if (!process.stdin.isTTY) {
 			throw new Error("Project name is required (non-TTY). Pass it as the first positional argument.");
@@ -163,7 +161,7 @@ const handler = async (args: ConfigFlags) => {
 	const projectName = sanitizeProjectName(nameRaw);
 
 	const targetDir = resolve(process.cwd(), projectName);
-	if (existsSync(targetDir) && !isDirEmpty(targetDir) && !a.force) {
+	if (existsSync(targetDir) && !isDirEmpty(targetDir) && !opts.force) {
 		throw new Error(
 			`Target directory ${targetDir} exists and is not empty. Use --force to scaffold into a non-empty directory.`,
 		);
@@ -176,7 +174,7 @@ const handler = async (args: ConfigFlags) => {
 
 	log.success(`Scaffolded ${template} into ${targetDir}`);
 
-	if (a.install) {
+	if (opts.install) {
 		log.info("Running npm install...");
 		const result = spawnSync("npm", ["install", "--no-audit", "--no-fund"], {
 			cwd: targetDir,
@@ -189,17 +187,21 @@ const handler = async (args: ConfigFlags) => {
 
 	log.info("\nNext steps:");
 	log.white(`  cd ${projectName}`);
-	if (!a.install) log.white("  npm install");
-	if (template === "types-locally") {
-		log.white("  npm run generate");
-		log.white("  npm run check:types");
-		log.white("  npm run build && npm start");
-	} else if (template === "types-npm") {
-		log.white("  npm run check");
-		log.white("  npm run build && npm start");
-	} else if (template === "types-workspace") {
-		log.white("  npm run build:types && npm install");
-		log.white("  npm run build:app && npm start");
+	if (!opts.install) log.white("  npm install");
+	switch (template) {
+		case "types-locally":
+			log.white("  npm run generate");
+			log.white("  npm run check:types");
+			log.white("  npm run build && npm start");
+			break;
+		case "types-npm":
+			log.white("  npm run check");
+			log.white("  npm run build && npm start");
+			break;
+		case "types-workspace":
+			log.white("  npm run build:types && npm install");
+			log.white("  npm run build:app && npm start");
+			break;
 	}
 };
 

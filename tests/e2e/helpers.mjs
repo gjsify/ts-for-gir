@@ -85,7 +85,6 @@ export function toFileRef(name, tarballsDir, tarballMap) {
 
 /**
  * Write a package.json, install deps, and return the project dir.
- * Note: Uses execSync for npm install — input is not user-controlled, safe in E2E context.
  */
 export function setupProject(projectDir, pkg, tarballsDir, tarballMap) {
   // Patch all @ts-for-gir/* and @gi.ts/* deps to local tarballs

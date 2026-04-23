@@ -29,7 +29,7 @@
 		"check": "tsc --noEmit"
 	},
 	"dependencies": {
-		"fast-xml-parser": "^5.5.10"
+		"fast-xml-parser": "^5.7.0"
 	},
 	"devDependencies": {
 		"@ts-for-gir/tsconfig": "workspace:^",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.0-rc.5](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.4...v4.0.0-rc.5) (2026-04-25)
+
+### Bug Fixes
+
+* **cli:** fall back to npm registry for workspace:^ in prepack ([87f3569](https://github.com/gjsify/ts-for-gir/commit/87f35691ae407911fd39ebc4f91b07c09c321420))
+* **docs:** include Gjsify modules in documentation configuration ([abd992b](https://github.com/gjsify/ts-for-gir/commit/abd992b1164bb0ad135374eb36e17541fdc815bb))
+
 ## [4.0.0-rc.4](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.3...v4.0.0-rc.4) (2026-04-15)
 
 ### Features

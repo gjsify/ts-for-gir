@@ -1,6 +1,6 @@
 {
 	"name": "@gi.ts/parser",
-	"version": "4.0.0-rc.4",
+	"version": "4.0.0-rc.5",
 	"description": "Parser for GObject Introspection XML files",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

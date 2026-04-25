@@ -5373,6 +5373,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/gjsifywebrtc-0.1@workspace:types-dev/gjsifywebrtc-0.1":
+  version: 0.0.0-use.local
+  resolution: "@girs/gjsifywebrtc-0.1@workspace:types-dev/gjsifywebrtc-0.1"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gst-1.0": "workspace:^"
+    "@girs/gstsdp-1.0": "workspace:^"
+    "@girs/gstwebrtc-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/gjsprivate-1.0@workspace:types-dev/gjsprivate-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gjsprivate-1.0@workspace:types-dev/gjsprivate-1.0"
@@ -7068,7 +7083,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstwebrtc-1.0@workspace:types-dev/gstwebrtc-1.0":
+"@girs/gstwebrtc-1.0@workspace:^, @girs/gstwebrtc-1.0@workspace:types-dev/gstwebrtc-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstwebrtc-1.0@workspace:types-dev/gstwebrtc-1.0"
   dependencies:

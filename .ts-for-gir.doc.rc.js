@@ -109,6 +109,7 @@ export default {
 
         // === Gjsify ===
         'Gwebgl-*',
+        'Gjsify*',
     ],
     girDirectories: [
         './girs',

@@ -37,11 +37,11 @@
 	"devDependencies": {
 		"@ts-for-gir/tsconfig": "workspace:^",
 		"@types/lunr": "^2.3.7",
-		"@types/node": "^24.12.2",
-		"typescript": "^6.0.2"
+		"@types/node": "^25.6.0",
+		"typescript": "^6.0.3"
 	},
 	"dependencies": {
 		"lunr": "^2.3.9",
-		"typedoc": "^0.28.18"
+		"typedoc": "^0.28.19"
 	}
 }

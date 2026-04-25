@@ -10,7 +10,7 @@
 		"clear": "rm -rf dist"
 	},
 	"devDependencies": {
-		"typescript": "^6.0.2"
+		"typescript": "^6.0.3"
 	},
 	"dependencies": {
 		"@girs/gdk-4.0": "workspace:^",

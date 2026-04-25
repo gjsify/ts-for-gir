@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@ts-for-gir/cli": "workspace:^",
 		"esbuild": "^0.28.0",
-		"typescript": "^6.0.2"
+		"typescript": "^6.0.3"
 	},
 	"dependencies": {
 		"@girs/gio-2.0": "workspace:^",

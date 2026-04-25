@@ -4123,8 +4123,8 @@
 					<type name="Gwebgl.WebGL2RenderingContext" c:type="GwebglWebGL2RenderingContext*"/>
 				</instance-parameter>
 				<parameter name="buffers" transfer-ownership="none">
-					<array length="1" c:type="gint*">
-						<type name="gint" c:type="gint"/>
+					<array length="1" c:type="guint*">
+						<type name="guint" c:type="guint"/>
 					</array>
 				</parameter>
 				<parameter name="buffers_length1" transfer-ownership="none">
@@ -4212,8 +4212,8 @@
 					<type name="gint" c:type="gint"/>
 				</parameter>
 				<parameter name="attachments" transfer-ownership="none">
-					<array length="2" c:type="gint*">
-						<type name="gint" c:type="gint"/>
+					<array length="2" c:type="guint*">
+						<type name="guint" c:type="guint"/>
 					</array>
 				</parameter>
 				<parameter name="attachments_length1" transfer-ownership="none">
@@ -4233,8 +4233,8 @@
 					<type name="gint" c:type="gint"/>
 				</parameter>
 				<parameter name="attachments" transfer-ownership="none">
-					<array length="2" c:type="gint*">
-						<type name="gint" c:type="gint"/>
+					<array length="2" c:type="guint*">
+						<type name="guint" c:type="guint"/>
 					</array>
 				</parameter>
 				<parameter name="attachments_length1" transfer-ownership="none">

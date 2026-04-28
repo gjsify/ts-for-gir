@@ -48,9 +48,7 @@ export async function runGenerationCommand(args: ConfigFlags, options: Generatio
 
 		// In external-deps mode, only generate the user-requested module(s). Transitively-loaded
 		// deps stay in the registry for type resolution but must not produce their own output.
-		const toGenerate = generateConfig.externalDeps
-			? keep.filter((m) => m.resolvedBy === ResolveType.BY_HAND)
-			: keep;
+		const toGenerate = generateConfig.externalDeps ? keep.filter((m) => m.resolvedBy === ResolveType.BY_HAND) : keep;
 
 		const girModules = Array.from(toGenerate).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule);
 

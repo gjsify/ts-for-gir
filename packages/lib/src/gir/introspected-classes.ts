@@ -75,6 +75,8 @@ export class IntrospectedClassFunction<
 	returnTypeDoc?: string | null;
 	/** If this function was generated from a signal, stores the signal name. */
 	signalOrigin?: string;
+	/** GIR glib:finish-func attribute: name of the function that finishes this async operation. */
+	finishFuncName?: string;
 
 	generics: Generic[] = [];
 
@@ -143,6 +145,7 @@ export class IntrospectedClassFunction<
 
 		fn.generics = [...this.generics];
 		fn.returnTypeDoc = this.returnTypeDoc;
+		fn.finishFuncName = this.finishFuncName;
 
 		if (interfaceParent) {
 			fn.interfaceParent = interfaceParent;
@@ -177,6 +180,10 @@ export class IntrospectedClassFunction<
 		// Convert the function to a class function
 		const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
 
+		// A function with shadowed-by is superseded by the shadowing function (which uses `shadows`)
+		// and takes the original name. Do not emit the shadowed function to avoid duplicate declarations.
+		const isShadowedBy = element.$["shadowed-by"] != null;
+
 		const classFn = new IntrospectedClassFunction({
 			parent,
 			name,
@@ -184,11 +191,12 @@ export class IntrospectedClassFunction<
 			parameters,
 			return_type,
 			doc,
-			isIntrospectable,
+			isIntrospectable: isIntrospectable && !isShadowedBy,
 		});
 
 		classFn.returnTypeDoc = fn.returnTypeDoc;
 		classFn.generics = [...fn.generics];
+		classFn.finishFuncName = element.$["glib:finish-func"];
 
 		return classFn;
 	}
@@ -396,6 +404,8 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
 		// Convert the function to a static class function
 		const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
 
+		const isShadowedBy = m.$["shadowed-by"] != null;
+
 		return new IntrospectedStaticClassFunction({
 			parent,
 			name,
@@ -403,7 +413,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
 			parameters,
 			return_type,
 			doc,
-			isIntrospectable,
+			isIntrospectable: isIntrospectable && !isShadowedBy,
 		});
 	}
 }

@@ -98,6 +98,8 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 	readonly writable: boolean = false;
 	readonly readable: boolean = true;
 	readonly constructOnly: boolean;
+	/** GIR default-value attribute: the default value of the property as a string. */
+	defaultValue?: string;
 
 	get namespace() {
 		return this.parent.namespace;
@@ -110,7 +112,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 	}): IntrospectedProperty {
 		const { name, writable, readable, type, constructOnly, parent } = this;
 
-		return new IntrospectedProperty({
+		const prop = new IntrospectedProperty({
 			name: options?.name ?? name,
 			writable,
 			readable,
@@ -118,6 +120,8 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 			constructOnly,
 			parent: options?.parent ?? parent,
 		})._copyBaseProperties(this);
+		prop.defaultValue = this.defaultValue;
+		return prop;
 	}
 
 	accept(visitor: GirVisitor): IntrospectedProperty {
@@ -197,6 +201,8 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 			property.doc = parseDoc(element);
 			property.metadata = parseMetadata(element);
 		}
+
+		property.defaultValue = element.$["default-value"];
 
 		return property;
 	}

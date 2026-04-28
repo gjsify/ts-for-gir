@@ -464,6 +464,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		if (tsProp.constructOnly) propTags.push({ tagName: "construct-only", paramName: "", text: "" });
 		else if (tsProp.readable && !tsProp.writable) propTags.push({ tagName: "read-only", paramName: "", text: "" });
 		else if (tsProp.writable && !tsProp.readable) propTags.push({ tagName: "write-only", paramName: "", text: "" });
+		if (tsProp.defaultValue !== undefined)
+			propTags.push({ tagName: "default", paramName: "", text: tsProp.defaultValue });
 		desc.push(...this.addGirDocComment(tsProp.doc, propTags, indentCount));
 
 		const indent = generateIndent(indentCount);

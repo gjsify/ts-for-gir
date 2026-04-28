@@ -62,6 +62,11 @@ function findFinishMethodInClass(cls: IntrospectedBaseClass, node: IntrospectedC
 			? [...cls.constructors, ...cls.members.filter((m) => m instanceof IntrospectedStaticClassFunction)]
 			: [...cls.members.filter((m) => !(m instanceof IntrospectedStaticClassFunction))];
 
+	// Prefer the GIR-specified finish function name over name heuristics
+	if (node.finishFuncName) {
+		return members.find((m) => m.name === node.finishFuncName);
+	}
+
 	return members.find(
 		(m) => m.name === `${node.name.replace(/_async$/, "")}_finish` || m.name === `${node.name}_finish`,
 	);

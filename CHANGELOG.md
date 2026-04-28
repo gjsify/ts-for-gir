@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-rc.6](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.5...v4.0.0-rc.6) (2026-04-28)
+
+### Features
+
+* **cli:** add --external-deps mode for project-local GIR generation ([12916c2](https://github.com/gjsify/ts-for-gir/commit/12916c23ad2e530fae236022fe0caa472829c2b2))
+
 ## [4.0.0-rc.5](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.4...v4.0.0-rc.5) (2026-04-25)
 
 ### Bug Fixes

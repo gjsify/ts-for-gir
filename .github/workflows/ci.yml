@@ -73,6 +73,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
+      - name: Cache apt packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-test-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}
+          restore-keys: apt-test-${{ runner.os }}-
+      - name: Install GIR system files
+        run: sudo apt-get update && sudo apt-get --yes install gobject-introspection
       - name: Cache Yarn packages
         uses: actions/cache@v4
         with:

@@ -2,7 +2,7 @@
  * Config loader functionality for ts-for-gir
  */
 
-import { dirname, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import type { ConfigFlags, OptionsGeneration, UserConfig, UserConfigLoadResult } from "@ts-for-gir/lib";
 import { APP_NAME, isEqual } from "@ts-for-gir/lib";
 import { type Options as ConfigSearchOptions, cosmiconfig } from "cosmiconfig";
@@ -60,6 +60,24 @@ export function getOptionsGeneration(config: UserConfig): OptionsGeneration {
 }
 
 /**
+ * Parse `Namespace=npm-package` strings (from repeatable `--external-package` flag) into a
+ * map. Silently drops entries that don't contain `=`. Empty input returns undefined so the
+ * field stays absent in the merged config (rather than `{}`, which would shadow rc values).
+ */
+function parseExternalPackagePairs(pairs: string[] | undefined): Record<string, string> | undefined {
+	if (!pairs || pairs.length === 0) return undefined;
+	const map: Record<string, string> = {};
+	for (const pair of pairs) {
+		const eq = pair.indexOf("=");
+		if (eq < 1) continue;
+		const ns = pair.slice(0, eq).trim();
+		const pkg = pair.slice(eq + 1).trim();
+		if (ns && pkg) map[ns] = pkg;
+	}
+	return Object.keys(map).length > 0 ? map : undefined;
+}
+
+/**
  * Validate the configuration
  */
 export function validate(config: UserConfig): UserConfig {
@@ -111,9 +129,21 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 	const configFile = await loadConfigFile(cliOptions.configName);
 	const configFileData = configFile?.config || {};
 
-	const userConfig: UserConfig = {
-		...cliOptions,
+	// `--external-package GLib=@girs/glib-2.0` arrives as a string[]; collapse to Record.
+	// Drop the raw array so it doesn't pollute the merged UserConfig surface.
+	const externalPackagesFromCli = parseExternalPackagePairs(
+		(cliOptions as { externalPackage?: string[] }).externalPackage,
+	);
+	const { externalPackage: _externalPackage, ...cliOptionsClean } = cliOptions as ConfigFlags & {
+		externalPackage?: string[];
 	};
+
+	const userConfig: UserConfig = {
+		...cliOptionsClean,
+	};
+	if (externalPackagesFromCli) {
+		userConfig.externalPackages = externalPackagesFromCli;
+	}
 
 	if (configFileData) {
 		// Boolean options — config file overrides CLI defaults
@@ -130,6 +160,8 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 			["noAdvancedVariants", options.noAdvancedVariants.default],
 			["package", options.package.default],
 			["reporter", options.reporter.default],
+			["externalDeps", options.externalDeps.default],
+			["allowMissingDeps", options.allowMissingDeps.default],
 			["combined", docOptions.combined.default],
 			["merge", docOptions.merge.default],
 		];
@@ -146,6 +178,8 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 			["sourceLinkTemplate", undefined],
 			["readme", undefined],
 			["jsonDir", undefined],
+			["girFile", undefined],
+			["outfile", undefined],
 		];
 		for (const [key, defaultVal] of stringKeys) {
 			mergeConfigValue(userConfig, configFileData, key, defaultVal);
@@ -172,6 +206,11 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 		if (isDefaultOutdir && configFileData.outdir) {
 			userConfig.outdir = userConfig.print ? null : configFileData.outdir;
 		}
+
+		// externalPackages is a Record<string, string> in rc files; CLI overrides take precedence.
+		if (!externalPackagesFromCli && configFileData.externalPackages) {
+			userConfig.externalPackages = configFileData.externalPackages;
+		}
 	}
 
 	// Make paths absolute relative to root
@@ -185,6 +224,28 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 	}
 	if (userConfig.girDirectories) {
 		userConfig.girDirectories = userConfig.girDirectories.map(resolveToRoot);
+	}
+	if (userConfig.outfile) {
+		userConfig.outfile = resolveToRoot(userConfig.outfile);
+	}
+
+	// `--gir-file <path>` is a convenience for one-off external-deps generation: derive the
+	// module name from basename, add dirname to girDirectories, and force-skip the system
+	// glob fallback. Only the explicit file gets parsed.
+	if (userConfig.girFile) {
+		userConfig.girFile = resolveToRoot(userConfig.girFile);
+		const moduleName = basename(userConfig.girFile, ".gir");
+		const girDir = dirname(userConfig.girFile);
+		if (!userConfig.girDirectories.includes(girDir)) {
+			userConfig.girDirectories = [girDir, ...userConfig.girDirectories];
+		}
+		// Override `modules` only when the user is on the default `['*']` to avoid surprising
+		// rc-file users who set both. CLI explicit `modules` still wins.
+		const isDefaultModules =
+			userConfig.modules.length === 1 && userConfig.modules[0] === (options.modules.default as string[])[0];
+		if (isDefaultModules) {
+			userConfig.modules = [moduleName];
+		}
 	}
 
 	return validate(userConfig);

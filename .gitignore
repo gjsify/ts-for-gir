@@ -20,6 +20,12 @@ json/
 
 tests/**/dist/
 
+# Generator output of test workspaces
+tests/**/generated/
+
+# Local Claude Code state (plans, settings)
+.claude/
+
 debug.txt
 
 ts-for-gir-report.json

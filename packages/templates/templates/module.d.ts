@@ -1,4 +1,4 @@
-<%_ if(!package){ -%>
+<%_ if(!package && !externalDeps){ -%>
     <%_ girModule.transitiveDependencies.forEach(dependency => { -%>
         <%_ if (girModule.packageName !== dependency.packageName) { -%>
             <%_ if (dependency.exists) { -%>
@@ -32,8 +32,8 @@
 // Module dependencies
 <%_ girModule.transitiveDependencies.forEach(dependency => { -%>
     <%_ if (girModule.packageName !== dependency.packageName) { -%>
-        <%_ if (dependency.exists) { -%>
-            <%_ if (girModule.hasSymbol(dependency.namespace)) { -%>
+        <%_ if (dependency.exists || externalDeps) { -%>
+            <%_ if (dependency.exists && girModule.hasSymbol(dependency.namespace)) { -%>
                 <%_ if (noNamespace) { -%>
                     import * as <%- dependency.namespace %>__ from '<%- dependency.importPath %>';
                 <%_ } else { %>

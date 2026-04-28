@@ -50,6 +50,16 @@ export interface GenerateCommandArgs extends BaseCommandArgs {
 	reporter: boolean;
 	/** Output file path for the reporter */
 	reporterOutput: string;
+	/** Skip recursive transitive dep resolution; emit imports from installed @girs/* npm packages */
+	externalDeps: boolean;
+	/** Allow externalDeps generation when transitive dep GIRs are missing (degraded type quality) */
+	allowMissingDeps: boolean;
+	/** Convenience: path to a single .gir file to use as the primary input (sets girDirectories + modules) */
+	girFile?: string;
+	/** Single-file output path for the generated module declaration (only with --external-deps) */
+	outfile?: string;
+	/** Override default namespace→npm package mapping. Repeatable. Format: `Namespace=@girs/pkg` */
+	externalPackage?: string[];
 }
 
 /**

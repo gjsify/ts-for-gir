@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- Greeter-1.0.gir — synthetic Vala-bridge-style fixture for ts-for-gir-test/external-deps. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="greeter"/>
+  <c:include name="greeter.h"/>
+  <namespace name="Greeter" version="1.0" shared-library="libgreeter.so" c:prefix="Greeter" c:identifier-prefixes="Greeter" c:symbol-prefixes="greeter">
+    <class name="HelloWorld" c:type="GreeterHelloWorld" c:symbol-prefix="hello_world" glib:type-name="GreeterHelloWorld" glib:get-type="greeter_hello_world_get_type" parent="GObject.Object">
+      <field name="parent_instance" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <constructor name="new" c:identifier="greeter_hello_world_new">
+        <return-value transfer-ownership="full">
+          <type name="HelloWorld" c:type="GreeterHelloWorld*"/>
+        </return-value>
+      </constructor>
+      <method name="say_hello" c:identifier="greeter_hello_world_say_hello">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Greeter.HelloWorld" c:type="GreeterHelloWorld*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_stream" c:identifier="greeter_hello_world_open_stream">
+        <return-value transfer-ownership="full">
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Greeter.HelloWorld" c:type="GreeterHelloWorld*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="ready" when="last">
+        <return-value transfer-ownership="full">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+  </namespace>
+</repository>

@@ -103,13 +103,17 @@ export class NSRegistry {
 	}
 
 	transform(options: OptionsTransform) {
-		const GLib = this.assertNamespace("GLib", "2.0");
-		const Gio = this.assertNamespace("Gio", "2.0");
-		const GObject = this.assertNamespace("GObject", "2.0");
+		// In tolerant external-deps mode (with --allow-missing-deps) the core namespaces
+		// may not be loaded. Sync their package_version only when actually present;
+		// generify/inject still run on whatever IS loaded (other modules' transformations
+		// don't depend on GLib being in the registry).
+		const GLib = this.namespace("GLib", "2.0");
+		const Gio = this.namespace("Gio", "2.0");
+		const GObject = this.namespace("GObject", "2.0");
 
 		// These follow the GLib version.
-		Gio.package_version = [...GLib.package_version];
-		GObject.package_version = [...GLib.package_version];
+		if (GLib && Gio) Gio.package_version = [...GLib.package_version];
+		if (GLib && GObject) GObject.package_version = [...GLib.package_version];
 
 		const interfaceVisitor = new InterfaceVisitor();
 

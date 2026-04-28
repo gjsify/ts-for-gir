@@ -245,21 +245,29 @@ export class ModuleLoader {
 
 		const dependencies = await this.fileFinder.girFilePathToDependencies(girFiles);
 
-		const { loaded, failed } = await this.loadGirModules(
-			[
-				GLib,
-				Gio,
-				GObject,
-				Cairo,
-				...dependencies.filter(
-					(dep) =>
-						dep.namespace !== "GLib" &&
-						dep.namespace !== "Gio" &&
-						dep.namespace !== "GObject" &&
-						dep.namespace !== "cairo",
-				),
-			],
+		// Load GJS force-loads as DEPENDENCE so they are never treated as user-requested
+		// modules. This ensures --external-deps mode doesn't emit output files for them.
+		const { loaded: forceLoaded, failed: forceFailed } = await this.loadGirModules(
+			[GLib, Gio, GObject, Cairo],
 			ignore,
+			[],
+			ResolveType.DEPENDENCE,
+		);
+
+		// Load user-requested modules (and their transitive deps) starting from the
+		// already-loaded force-load registry so they are not double-loaded.
+		const { loaded, failed } = await this.loadGirModules(
+			dependencies.filter(
+				(dep) =>
+					dep.namespace !== "GLib" &&
+					dep.namespace !== "Gio" &&
+					dep.namespace !== "GObject" &&
+					dep.namespace !== "cairo",
+			),
+			ignore,
+			forceLoaded,
+			ResolveType.BY_HAND,
+			forceFailed,
 		);
 
 		// External-deps mode is strict by default: any transitive dep GIR that couldn't be

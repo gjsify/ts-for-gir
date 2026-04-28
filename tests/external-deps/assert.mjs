@@ -8,8 +8,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const outfile = join(here, "generated", "gi-types.d.ts");
 const outdir = join(here, "generated");
+const outfile = join(outdir, "greeter-1.0.d.ts");
 
 if (!existsSync(outfile)) {
 	throw new Error(`expected outfile not generated: ${outfile}`);
@@ -38,7 +38,7 @@ const failures = [];
 for (const [label, re] of must) if (!re.test(content)) failures.push(`missing: ${label} (${re})`);
 for (const [label, re] of mustNot) if (re.test(content)) failures.push(`should not appear: ${label} (${re})`);
 
-const auxFiles = readdirSync(outdir).filter((n) => n !== "gi-types.d.ts");
+const auxFiles = readdirSync(outdir).filter((n) => n !== "greeter-1.0.d.ts");
 if (auxFiles.length > 0) failures.push(`unexpected aux files in output dir: ${auxFiles.join(", ")}`);
 
 if (failures.length > 0) {

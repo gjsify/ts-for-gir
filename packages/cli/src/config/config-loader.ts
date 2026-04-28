@@ -2,7 +2,7 @@
  * Config loader functionality for ts-for-gir
  */
 
-import { basename, dirname, resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import type { ConfigFlags, OptionsGeneration, UserConfig, UserConfigLoadResult } from "@ts-for-gir/lib";
 import { APP_NAME, isEqual } from "@ts-for-gir/lib";
 import { type Options as ConfigSearchOptions, cosmiconfig } from "cosmiconfig";
@@ -178,8 +178,6 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 			["sourceLinkTemplate", undefined],
 			["readme", undefined],
 			["jsonDir", undefined],
-			["girFile", undefined],
-			["outfile", undefined],
 		];
 		for (const [key, defaultVal] of stringKeys) {
 			mergeConfigValue(userConfig, configFileData, key, defaultVal);
@@ -187,12 +185,23 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 
 		// Array options — config file overrides CLI defaults
 		const arrayKeys: Array<[keyof UserConfig, unknown]> = [
-			["girDirectories", options.girDirectories.default],
 			["ignore", options.ignore.default],
 			["modules", options.modules.default],
 		];
 		for (const [key, defaultVal] of arrayKeys) {
 			mergeConfigValue(userConfig, configFileData, key, defaultVal);
+		}
+
+		// girDirectories: rc-file entries are prepended to the current dirs (CLI-provided or
+		// system defaults) rather than replacing them. This lets projects add local GIR dirs
+		// (e.g. a Vala build output) without having to enumerate all system paths in the rc.
+		// To use ONLY the specified dirs (no system fallback), pass --girDirectories on the CLI.
+		if (configFileData.girDirectories?.length) {
+			const current = userConfig.girDirectories as string[];
+			const toAdd = (configFileData.girDirectories as string[]).filter((d) => !current.includes(d));
+			if (toAdd.length > 0) {
+				userConfig.girDirectories = [...toAdd, ...current];
+			}
 		}
 
 		// Special handling for root
@@ -225,28 +234,5 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
 	if (userConfig.girDirectories) {
 		userConfig.girDirectories = userConfig.girDirectories.map(resolveToRoot);
 	}
-	if (userConfig.outfile) {
-		userConfig.outfile = resolveToRoot(userConfig.outfile);
-	}
-
-	// `--gir-file <path>` is a convenience for one-off external-deps generation: derive the
-	// module name from basename, add dirname to girDirectories, and force-skip the system
-	// glob fallback. Only the explicit file gets parsed.
-	if (userConfig.girFile) {
-		userConfig.girFile = resolveToRoot(userConfig.girFile);
-		const moduleName = basename(userConfig.girFile, ".gir");
-		const girDir = dirname(userConfig.girFile);
-		if (!userConfig.girDirectories.includes(girDir)) {
-			userConfig.girDirectories = [girDir, ...userConfig.girDirectories];
-		}
-		// Override `modules` only when the user is on the default `['*']` to avoid surprising
-		// rc-file users who set both. CLI explicit `modules` still wins.
-		const isDefaultModules =
-			userConfig.modules.length === 1 && userConfig.modules[0] === (options.modules.default as string[])[0];
-		if (isDefaultModules) {
-			userConfig.modules = [moduleName];
-		}
-	}
-
 	return validate(userConfig);
 }

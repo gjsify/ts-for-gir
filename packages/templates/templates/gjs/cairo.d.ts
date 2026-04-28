@@ -64,9 +64,9 @@ import Cairo from '<%- Cairo.importPath %>';
         /** Recommended vertical distance between baselines for consecutive lines */
         height: number;
         /** Maximum X advance for any glyph */
-        max_x_advance: number;
+        maxXAdvance: number;
         /** Maximum Y advance for any glyph (typically 0 for horizontal text) */
-        max_y_advance: number;
+        maxYAdvance: number;
     }
 
     /**
@@ -534,6 +534,13 @@ import Cairo from '<%- Cairo.importPath %>';
         showText(utf8: string): void;
 
         /**
+         * Adds the text outline to the current path (cairo_text_path).
+         * After this call the context will have a current point.
+         * @param utf8 A string of text encoded in UTF-8
+         */
+        textPath(utf8: string): void;
+
+        /**
          * Strokes the current path using the current line width, line join,
          * line cap, and dash settings, then clears the path
          */
@@ -561,7 +568,7 @@ import Cairo from '<%- Cairo.importPath %>';
          * Gets the font extents for the currently selected font
          * @returns Font extents in user-space coordinates
          */
-        getFontExtents(): FontExtents;
+        fontExtents(): FontExtents;
 
         /**
          * Renders an array of glyphs at the current point (low-level text API)

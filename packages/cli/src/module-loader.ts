@@ -168,7 +168,13 @@ export class ModuleLoader {
 				const girModule = await this.loadAndCreateGirModule(dependency);
 				if (!girModule) {
 					if (!failedGirModules.has(dependency.packageName)) {
-						this.log.warn(WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE(dependency.packageName));
+						// In external-deps mode the strict check after loading turns missing
+						// transitive deps into a hard error; suppress the per-dep warn here so
+						// the user sees one consolidated error instead of a wall of warnings.
+						// `--allow-missing-deps` opts into the same suppression with a soft fail.
+						if (!this.config.externalDeps) {
+							this.log.warn(WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE(dependency.packageName));
+						}
 						failedGirModules.add(dependency.packageName);
 					}
 				} else if (girModule?.packageName) {
@@ -255,6 +261,24 @@ export class ModuleLoader {
 			],
 			ignore,
 		);
+
+		// External-deps mode is strict by default: any transitive dep GIR that couldn't be
+		// loaded would silently degrade type quality. The hardcoded GLib/Gio/GObject/cairo
+		// force-loads above are exempt (they exist for runtime convenience, not because the
+		// input GIR references them).
+		if (this.config.externalDeps && !this.config.allowMissingDeps && failed.size > 0) {
+			const exempt = new Set(["GLib-2.0", "Gio-2.0", "GObject-2.0", "cairo-1.0"]);
+			const critical = Array.from(failed).filter((pkg) => !exempt.has(pkg));
+			if (critical.length > 0) {
+				throw new Error(
+					`Missing GIR files for transitive dependencies in --external-deps mode:\n` +
+						critical.map((pkg) => `  - ${pkg}`).join("\n") +
+						`\n\nInstall the corresponding -devel packages, add their directories to ` +
+						`--girDirectories, or pass --allow-missing-deps to generate anyway ` +
+						`(warning: degraded type quality).`,
+				);
+			}
+		}
 
 		let keep: GirModuleResolvedBy[] = [];
 		if (doNotAskForVersionOnConflict) {

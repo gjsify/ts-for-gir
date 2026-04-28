@@ -16783,6 +16783,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-test/external-deps@workspace:tests/external-deps":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-test/external-deps@workspace:tests/external-deps"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-test/language-server-validation@workspace:tests/language-server-validation":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-test/language-server-validation@workspace:tests/language-server-validation"

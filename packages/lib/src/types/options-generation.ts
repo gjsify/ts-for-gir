@@ -64,4 +64,32 @@ export interface OptionsGeneration extends OptionsBase {
 	merge?: boolean;
 	/** Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json') */
 	jsonDir?: string;
+	/**
+	 * External-deps mode: skip recursive resolution of transitive GIR dependencies and emit
+	 * `import` statements that reference dependency types from already-installed npm packages
+	 * (e.g. `@girs/glib-2.0`) instead of regenerating them. Designed for project-local GIRs
+	 * (Vala bridges etc.) where the surrounding `@girs/*` ecosystem is already in node_modules.
+	 *
+	 * Implies single-file ambient `.d.ts` output (no GJS supporting files, no index aggregator).
+	 */
+	externalDeps: boolean;
+	/**
+	 * In `externalDeps` mode, allow generation to proceed even when some transitive dep GIRs
+	 * cannot be found. Default is strict: missing deps abort the run, since divergent dep
+	 * availability between environments (dev with -devel packages vs CI without) would
+	 * silently produce inconsistent generated `.d.ts` output.
+	 */
+	allowMissingDeps: boolean;
+	/**
+	 * Single-file output path for the generated module declaration. Mutually exclusive with
+	 * the per-module `<outdir>/<importName>.d.ts` layout. Only meaningful with `externalDeps`.
+	 */
+	outfile?: string;
+	/**
+	 * Override the default `<npmScope>/<importName>` mapping for individual namespaces when
+	 * resolving external dependency imports in `externalDeps` mode.
+	 *
+	 * Example: `{ Soup: '@girs/soup-3.0', GLib: '@girs/glib-2.0' }`
+	 */
+	externalPackages?: Record<string, string>;
 }

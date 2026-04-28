@@ -43,6 +43,11 @@ export class TypeDefinitionGenerator implements Generator {
 	async exportGjs() {
 		const { config, dependencyManager } = this;
 
+		// External-deps mode emits a single ambient `.d.ts` for one module; the GJS supporting
+		// files (gjs.d.ts, dom.d.ts, gettext.d.ts, …) are provided by the consumer's installed
+		// `@girs/gjs` package and must not be re-emitted alongside.
+		if (config.externalDeps) return;
+
 		// TODO: Print to stdout
 		if (!config.outdir) return;
 
@@ -163,8 +168,9 @@ export class TypeDefinitionGenerator implements Generator {
 		// GJS internal stuff
 		await this.exportGjs();
 
-		// index file for all modules
-		if (!this.config.package) {
+		// index file for all modules — skipped in external-deps mode where the output is a
+		// single ambient `.d.ts` for one module and the aggregator would have nothing to do.
+		if (!this.config.package && !this.config.externalDeps) {
 			await this.exportAllModules(girModules);
 		}
 	}

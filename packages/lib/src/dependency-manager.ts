@@ -132,6 +132,15 @@ export class DependencyManager {
 	}
 
 	createImportPath(packageName: string, namespace: string, version: string): string {
+		// In external-deps mode every dep import is resolved against an installed npm package
+		// (e.g. `@girs/glib-2.0`), regardless of `package` mode. User-supplied overrides win
+		// for namespaces with non-default scopes/versions (e.g. `Soup → @girs/soup-3.0`).
+		if (this.config.externalDeps) {
+			const override = this.config.externalPackages?.[namespace];
+			if (override) return override;
+			const importName = transformImportName(packageName);
+			return `${this.config.npmScope}/${importName}`;
+		}
 		if (!this.config.package) {
 			return `gi://${namespace}?version=${version}`;
 		}

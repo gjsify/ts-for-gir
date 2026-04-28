@@ -146,6 +146,38 @@ export const options: { [name: string]: Options } = {
 		default: defaults.reporterOutput,
 		normalize: true,
 	},
+	externalDeps: {
+		type: "boolean",
+		description:
+			"Emit imports from installed @girs/* npm packages instead of regenerating dep types. Implies single-file ambient .d.ts output. Designed for project-local Vala/C bridges. Strict by default — missing transitive dep GIRs abort the run; pass --allow-missing-deps to override.",
+		default: defaults.externalDeps,
+		normalize: true,
+	},
+	allowMissingDeps: {
+		type: "boolean",
+		description:
+			"In --external-deps mode, allow generation to proceed when app-specific transitive dep GIRs are missing (e.g. CI without libsoup3-devel). Note: GLib/Gio/GObject GIRs are still architecturally required for class-hierarchy resolution. Default strict behavior prevents silent type-quality drift between environments.",
+		default: defaults.allowMissingDeps,
+		normalize: true,
+	},
+	girFile: {
+		type: "string",
+		description:
+			"Convenience: path to a single .gir file as the primary input. Adds dirname to girDirectories and uses basename as the module to generate.",
+		normalize: true,
+	},
+	outfile: {
+		type: "string",
+		description:
+			"Single-file output path for the generated module declaration (only meaningful with --external-deps). Mutually exclusive with the per-module layout under --outdir.",
+		normalize: true,
+	},
+	externalPackage: {
+		type: "string",
+		description:
+			"Override the default namespace→npm package mapping for --external-deps mode. Repeatable. Format: 'Namespace=@scope/pkg'. Example: --external-package Soup=@girs/soup-3.0",
+		array: true,
+	},
 };
 
 /**
@@ -173,6 +205,11 @@ export const generateOptions = {
 	package: options.package,
 	reporter: options.reporter,
 	reporterOutput: options.reporterOutput,
+	externalDeps: options.externalDeps,
+	allowMissingDeps: options.allowMissingDeps,
+	girFile: options.girFile,
+	outfile: options.outfile,
+	externalPackage: options.externalPackage,
 };
 
 export const listOptions = {

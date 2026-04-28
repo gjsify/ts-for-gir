@@ -7,46 +7,138 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'packages/**'
+      - 'tests/**'
+      - 'girs/**'
+      - 'examples/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.ts-for-gir.*.rc.js'
+      - 'tsconfig*.json'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches:
       - "*"
+    paths:
+      - 'packages/**'
+      - 'tests/**'
+      - 'girs/**'
+      - 'examples/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.ts-for-gir.*.rc.js'
+      - 'tsconfig*.json'
+      - '.github/workflows/ci.yml'
   # Also run on workflow dispatch for manual testing
   workflow_dispatch:
+
 jobs:
-  ci:
-
+  check:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [24.x]
-        architecture:
-          - x64
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Update package repository
-      run: sudo apt-get update; # sudo apt-get upgrade
-    - name: Install dependencies
-      run: sudo apt-get --yes install gjs blueprint-compiler libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.1-dev libadwaita-1-dev gnome-shell-common libmutter-14-dev libgcr-3-dev libgnome-desktop-4-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev libdex-dev
-    - run: yarn --version
-    - run: node --version
-    - run: gjs --version
-    - run: yarn install
-    - run: yarn check
-    - run: yarn test:tests
-    - run: yarn build:types
-      env:
-        YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
-    - name: Show diff
-      run: (cd ./types-dev && git diff | cat)
-    - run: yarn build:examples
-    - run: yarn check:examples
-    - run: yarn test:examples:cli
-    - run: yarn check:types
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+      - name: Cache Yarn packages
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-${{ runner.os }}-
+      - run: yarn install --immutable
+      - run: yarn check
+
+  test-units:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+      - name: Cache Yarn packages
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-${{ runner.os }}-
+      - run: yarn install --immutable
+      - run: yarn test:tests
+
+  build-validate:
+    runs-on: ubuntu-latest
+    needs: [check, test-units]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Detect changed paths
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            generator:
+              - 'packages/**'
+              - 'girs/**'
+              - '.ts-for-gir.*.rc.js'
+              - 'yarn.lock'
+            examples:
+              - 'examples/**'
+              - 'packages/**'
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+      - name: Cache apt packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}
+          restore-keys: apt-${{ runner.os }}-
+      - name: Update package repository
+        run: sudo apt-get update
+      - name: Install system dependencies
+        run: |
+          sudo apt-get --yes install gjs blueprint-compiler libappindicator3-dev \
+            libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev \
+            libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev \
+            libwebkit2gtk-4.1-dev libadwaita-1-dev gnome-shell-common \
+            libmutter-14-dev libgcr-3-dev libgnome-desktop-4-dev build-essential \
+            gobject-introspection libgirepository1.0-dev libcairo2-dev libdex-dev
+      - run: yarn --version
+      - run: node --version
+      - run: gjs --version
+      - name: Cache Yarn packages
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-${{ runner.os }}-
+      - run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+      - run: yarn build:types
+        if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+      - name: Show diff
+        if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
+        run: (cd ./types-dev && git diff | cat)
+      - run: yarn build:examples
+        if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
+      - run: yarn check:examples
+        if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
+      - run: yarn test:examples:cli
+        if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
+      - run: yarn check:types
+        if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'

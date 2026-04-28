@@ -1,5 +1,3 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname } from "node:path";
 import type { DependencyManager, GirModule, NSRegistry, OptionsGeneration, Reporter } from "@ts-for-gir/lib";
 import type { ModuleGenerator } from "../module-generator.ts";
 import { NpmPackage } from "../npm-package.ts";
@@ -57,22 +55,7 @@ export class ModuleExporter {
 		output.unshift(prepend);
 		output.push(append);
 
-		if (this.config.outfile) {
-			// Single-file output mode (used by --external-deps): write the rendered module
-			// declaration directly to the requested path, bypassing the per-module template
-			// directory layout that getOutputPath() would otherwise impose.
-			const target = this.config.outfile;
-			await mkdir(dirname(target), { recursive: true });
-			let content = output.join("\n");
-			if (!this.config.noPrettyPrint && target.endsWith(".d.ts")) {
-				try {
-					content = await this.core.girNamespace.parent.getFormatter("dts").format(content);
-				} catch (error) {
-					this.log.error("Failed to format outfile...", error);
-				}
-			}
-			await writeFile(target, content);
-		} else if (this.config.outdir) {
+		if (this.config.outdir) {
 			await this.moduleTemplateProcessor.write(output.join("\n"), this.config.outdir, explicitTemplate);
 		} else {
 			this.log.log(output.join("\n"));

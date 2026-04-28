@@ -1,7 +1,8 @@
 export default {
     externalDeps: true,
-    girFile: './fixtures/Greeter-1.0.gir',
-    outfile: './generated/gi-types.d.ts',
+    girDirectories: ['./fixtures'],
+    modules: ['Greeter-1.0'],
+    outdir: './generated',
     npmScope: '@girs',
     package: false,
     reporter: false,

@@ -123,11 +123,13 @@ export class NSRegistry {
 
 		this.registerTransformation(classVisitor);
 
-		console.log("Adding generics...");
-		generify(this, options.inferGenerics);
+		if (GLib && Gio) {
+			console.log("Adding generics...");
+			generify(this, options.inferGenerics);
 
-		console.log("Injecting types...");
-		inject(this);
+			console.log("Injecting types...");
+			inject(this);
+		}
 	}
 
 	defaultVersionOf(name: string): string | null {

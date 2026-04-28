@@ -78,12 +78,10 @@ export interface UserConfig {
 	/** Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json') */
 	jsonDir?: string;
 	/**
-	 * External-deps mode: skip recursive resolution of transitive GIR dependencies and emit
-	 * `import` statements that reference dependency types from already-installed npm packages
-	 * (e.g. `@girs/glib-2.0`). Designed for project-local GIRs (Vala bridges etc.) so they
-	 * can be generated without `/usr/share/gir-1.0/` system packages available.
-	 *
-	 * Implies single-file ambient `.d.ts` output.
+	 * External-deps mode: emit `import` statements that reference dependency types from
+	 * already-installed npm packages (e.g. `@girs/glib-2.0`) instead of regenerating them.
+	 * Designed for project-local GIRs (Vala bridges etc.) where the surrounding `@girs/*`
+	 * ecosystem is already in node_modules.
 	 */
 	externalDeps: boolean;
 	/**
@@ -92,17 +90,6 @@ export interface UserConfig {
 	 * between environments with and without system GIR -devel packages installed.
 	 */
 	allowMissingDeps: boolean;
-	/**
-	 * Convenience: path to a single `.gir` file to use as the primary input. The file's
-	 * directory is automatically added to `girDirectories`, and its basename becomes the
-	 * module to generate (overriding `modules`). Useful for `--external-deps` workflows.
-	 */
-	girFile?: string;
-	/**
-	 * Single-file output path for the generated module declaration. Mutually exclusive with
-	 * `outdir`'s per-module layout. Only meaningful with `externalDeps`.
-	 */
-	outfile?: string;
 	/**
 	 * Override the default `<npmScope>/<importName>` mapping for individual namespaces when
 	 * resolving external dependency imports in `externalDeps` mode.

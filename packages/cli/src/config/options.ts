@@ -160,18 +160,6 @@ export const options: { [name: string]: Options } = {
 		default: defaults.allowMissingDeps,
 		normalize: true,
 	},
-	girFile: {
-		type: "string",
-		description:
-			"Convenience: path to a single .gir file as the primary input. Adds dirname to girDirectories and uses basename as the module to generate.",
-		normalize: true,
-	},
-	outfile: {
-		type: "string",
-		description:
-			"Single-file output path for the generated module declaration (only meaningful with --external-deps). Mutually exclusive with the per-module layout under --outdir.",
-		normalize: true,
-	},
 	externalPackage: {
 		type: "string",
 		description:
@@ -207,8 +195,6 @@ export const generateOptions = {
 	reporterOutput: options.reporterOutput,
 	externalDeps: options.externalDeps,
 	allowMissingDeps: options.allowMissingDeps,
-	girFile: options.girFile,
-	outfile: options.outfile,
 	externalPackage: options.externalPackage,
 };
 

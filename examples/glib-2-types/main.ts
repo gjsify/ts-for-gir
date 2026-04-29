@@ -313,6 +313,31 @@ function testNullableParamsRequired(): void {
 	}
 }
 
+function testRawPointers(): void {
+	// Non-nullable raw pointers cannot be passed to functions, either according
+	// to TypeScript or at runtime
+	let failed = false;
+	try {
+		// @ts-expect-error
+		GLib.str_hash("foobar");
+	} catch (_) {
+		failed = true;
+	}
+	if (!failed) throw new Error("Passing value to non-nullable raw pointer failed");
+
+	// Nullable raw pointers are always marshalled as C null, even if you pass
+	// something else
+	// @ts-expect-error
+	const nonnullHash = GLib.direct_hash("foobar");
+	const nullHash = GLib.direct_hash(null);
+	if (nonnullHash !== nullHash) throw new Error("Passing value to nullable raw pointer failed");
+
+	// Raw pointers are always marshalled as JS null, even if the function
+	// returns something else
+	const pointer: null = GLib.aligned_alloc0(1, 64, 8);
+	if (pointer !== null) throw new Error("Returning raw pointer from function failed");
+}
+
 /**
  * Tests that GLib.DestroyNotify params are stripped from _full-shadowed functions.
  * GJS handles destroy-notify internally for scope="notified" callbacks and does not
@@ -390,6 +415,7 @@ function main(): void {
 	testBigintOrNumber();
 	testDestroyNotifyParamsFiltered();
 	testNullableParamsRequired();
+	testRawPointers();
 	displaySummary();
 	runMainLoop();
 }

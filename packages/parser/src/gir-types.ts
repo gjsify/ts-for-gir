@@ -684,6 +684,10 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
 		setter?: string;
 		/** The getter function for this property */
 		getter?: string;
+		/** Binary attribute, true if the property value can be null */
+		nullable?: GirBoolean;
+		/** @deprecated Replaced by nullable */
+		"allow-none"?: GirBoolean;
 		/** The default value of the property, as a string; if missing, the default value is zero for integer types, and null for pointer types */
 		"default-value"?: string;
 	} & Partial<GirTransferOwnership>;

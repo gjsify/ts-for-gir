@@ -206,6 +206,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		}
 
 		property.defaultValue = element.$["default-value"];
+
 		property.getter = element.$.getter;
 
 		if (element.$.nullable === "1" || element.$["allow-none"] === "1") {

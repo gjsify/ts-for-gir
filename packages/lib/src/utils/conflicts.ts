@@ -261,8 +261,13 @@ function checkFunctionConflicts<T extends IntrospectedClassFunction | Introspect
 		});
 	});
 
-	// Check field/property conflicts
-	const hasFieldConflicts = checkFieldPropertyConflicts(base, functionElement.name);
+	// Static methods can coexist with instance fields/properties of the same name
+	// in TypeScript (e.g. `static map(...)` alongside `map: T[]`), so skip the check
+	// for them. The conflict only applies to instance methods.
+	const hasFieldConflicts =
+		functionElement instanceof IntrospectedStaticClassFunction
+			? false
+			: checkFieldPropertyConflicts(base, functionElement.name);
 
 	// Check GObject reserved methods
 	const hasGObjectConflicts = checkGObjectConflicts(base, functionElement.name);

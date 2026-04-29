@@ -169,6 +169,8 @@ Demonstrate TS+GJS apps, validate generated types, serve as CI test cases.
 Patterns: `GObject.registerClass` with Properties/Signals | type-safe signal connections | Gtk.Template | bundler integrations (Vite, Webpack, esbuild, Rollup)
 All examples built+validated in CI; create/adapt examples when type issues are found.
 
+**Required for every type-generation PR**: Create or update an example that uses the previously-broken construct. The example exercises the affected types both at compile time (via `tsc --noEmit`) and at runtime (when executed with GJS), giving the fix static and dynamic regression coverage. Prefer extending an existing namespace example (e.g. `gio-2-dbus`, `glib-2-types`) over adding a new one. Mention the example update in the PR description.
+
 ## New Packages
 
 Structure: `packages/[name]/{src/index.ts, package.json, tsconfig.json(opt)}`

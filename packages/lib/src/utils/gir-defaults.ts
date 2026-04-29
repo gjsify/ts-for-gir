@@ -1,48 +1,5 @@
 import type { GirModule } from "../gir-module.ts";
 
-// Structural type for enum/bitfield nodes — avoids circular import via gir/enum.ts → gir/property.ts
-type EnumLike = {
-	name: string;
-	members: Map<string, { c_identifier: string }>;
-};
-
-function isEnumLike(node: unknown): node is EnumLike {
-	return (
-		typeof node === "object" &&
-		node !== null &&
-		"members" in node &&
-		node.members instanceof Map &&
-		"name" in node &&
-		typeof (node as Record<string, unknown>).name === "string"
-	);
-}
-
-// Lazy cache per namespace: c_identifier → JavaScript path (e.g. "Gtk.Align.FILL")
-const cIdentifierCache = new WeakMap<GirModule, Map<string, string>>();
-
-function buildCIdentifierMap(ns: GirModule): Map<string, string> {
-	const map = new Map<string, string>();
-	for (const [, nodeOrArray] of ns.members) {
-		const node = Array.isArray(nodeOrArray) ? nodeOrArray[0] : nodeOrArray;
-		if (!isEnumLike(node)) continue;
-		for (const [memberName, member] of node.members) {
-			if (member.c_identifier) {
-				map.set(member.c_identifier, `${ns.namespace}.${node.name}.${memberName}`);
-			}
-		}
-	}
-	return map;
-}
-
-function getCIdentifierMap(ns: GirModule): Map<string, string> {
-	let map = cIdentifierCache.get(ns);
-	if (!map) {
-		map = buildCIdentifierMap(ns);
-		cIdentifierCache.set(ns, map);
-	}
-	return map;
-}
-
 function convertSingleCValue(value: string, ns: GirModule): string {
 	const trimmed = value.trim();
 
@@ -56,9 +13,10 @@ function convertSingleCValue(value: string, ns: GirModule): string {
 		if (!Number.isNaN(n)) return String(n);
 	}
 
-	// C enum/bitfield constant lookup
-	const jsPath = getCIdentifierMap(ns).get(trimmed);
-	if (jsPath) return jsPath;
+	// Resolve C enum/bitfield constant via the existing GirModule.enum_constants map
+	// e.g. "GTK_ALIGN_FILL" → ["Align", "FILL"] → "Gtk.Align.FILL"
+	const entry = ns.enum_constants.get(trimmed);
+	if (entry) return `${ns.namespace}.${entry[0]}.${entry[1]}`;
 
 	return trimmed;
 }

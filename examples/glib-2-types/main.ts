@@ -293,6 +293,29 @@ function testBigintOrNumber() {
 }
 
 /**
+ * Tests that trailing nullable parameters are required, not optional.
+ * GJS does not support omitting nullable C parameters — they must be passed as null.
+ * Relates to: https://github.com/gjsify/ts-for-gir/issues/369
+ */
+function testNullableParamsRequired(): void {
+	// Nullable parameters must be passed explicitly as null
+	const encoded = GLib.base64_encode(null);
+	const canonical = GLib.canonicalize_filename("foo.txt", null);
+	const cmp = GLib.strcmp0(null, null);
+	console.log(`  base64_encode(null): "${encoded}"`);
+	console.log(`  canonicalize_filename("foo.txt", null): "${canonical}"`);
+	console.log(`  strcmp0(null, null): ${cmp}`);
+
+	// Omitting nullable params must be a type error — GJS throws at runtime if omitted
+	// @ts-expect-error
+	GLib.base64_encode();
+	// @ts-expect-error
+	GLib.canonicalize_filename("foo.txt");
+	// @ts-expect-error
+	GLib.strcmp0();
+}
+
+/**
  * Displays summary of type handling capabilities
  */
 function displaySummary(): void {
@@ -303,6 +326,7 @@ function displaySummary(): void {
 	console.log("✓ Timestamp values integrate with GLib.Date functions");
 	console.log("✓ Large number ranges work with GObject property specifications");
 	console.log("✓ High-precision time functions return proper numeric types");
+	console.log("✓ Trailing nullable params are required (not optional) — GJS throws if omitted");
 	console.log("✓ All type mappings provide TypeScript safety");
 }
 
@@ -339,6 +363,7 @@ function main(): void {
 	testEnumGType();
 	testEnumNotIntrospectable();
 	testBigintOrNumber();
+	testNullableParamsRequired();
 	displaySummary();
 	runMainLoop();
 }

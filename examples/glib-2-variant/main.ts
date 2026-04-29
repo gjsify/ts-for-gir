@@ -102,11 +102,16 @@ function main(): void {
 
 	// Keep the example short-lived in CI and local runs
 	const loop = GLib.MainLoop.new(null, false);
-	GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
-		print("\nDone.");
-		loop.quit();
-		return GLib.SOURCE_REMOVE;
-	}, null);
+	GLib.timeout_add(
+		GLib.PRIORITY_DEFAULT,
+		1000,
+		() => {
+			print("\nDone.");
+			loop.quit();
+			return GLib.SOURCE_REMOVE;
+		},
+		null,
+	);
 	loop.run();
 }
 

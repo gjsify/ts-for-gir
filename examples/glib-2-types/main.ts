@@ -230,10 +230,15 @@ function testPrecisionTimeAndTimeouts(): void {
 		const largeTimeoutMs = 2147483647; // Large timeout value
 		console.log(`Setting timeout with large value: ${largeTimeoutMs}ms`);
 
-		const timeoutId = GLib.timeout_add(50, largeTimeoutMs, () => {
-			console.log("  Large timeout value processed successfully");
-			return false;
-		}, null);
+		const timeoutId = GLib.timeout_add(
+			50,
+			largeTimeoutMs,
+			() => {
+				console.log("  Large timeout value processed successfully");
+				return false;
+			},
+			null,
+		);
 
 		console.log(`  Timeout ID: ${timeoutId}`);
 	} catch (error) {
@@ -307,11 +312,16 @@ function displaySummary(): void {
 function runMainLoop(): void {
 	const loop = GLib.MainLoop.new(null, false);
 
-	GLib.timeout_add(100, 0, () => {
-		console.log("\nExample completed successfully!");
-		loop.quit();
-		return false;
-	}, null);
+	GLib.timeout_add(
+		100,
+		0,
+		() => {
+			console.log("\nExample completed successfully!");
+			loop.quit();
+			return false;
+		},
+		null,
+	);
 
 	loop.run();
 }

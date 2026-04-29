@@ -3,6 +3,7 @@ import type { TypeExpression } from "../gir.ts";
 import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 import type { OptionsLoad } from "../types/index.ts";
 import type { Options } from "../types/introspected.ts";
+import { convertCDefaultValue } from "../utils/gir-defaults.ts";
 import { getType, parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
 import { isIntrospectable } from "../utils/girs.ts";
 import type { GirVisitor } from "../visitor.ts";
@@ -202,7 +203,10 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 			property.metadata = parseMetadata(element);
 		}
 
-		property.defaultValue = element.$["default-value"];
+		const rawDefault = element.$["default-value"];
+		if (rawDefault !== undefined) {
+			property.defaultValue = convertCDefaultValue(rawDefault, ns);
+		}
 
 		return property;
 	}

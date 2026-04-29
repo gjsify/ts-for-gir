@@ -5,15 +5,12 @@ import type { GirModule } from "../gir-module.ts";
  * the module's own enum_constants map and then all direct and transitive dependencies.
  * Returns [namespaceName, enumTypeName, memberName] or null if not found.
  *
- * No combined cache is used intentionally: the lookup happens during parse(), and
- * dependency modules may not yet have run parse() when a cached combined map would
- * be built. Each GirModule.enum_constants is already a lazily-built Map, so per-call
- * lookups are O(1) per namespace and O(deps) overall — acceptable for property parsing.
+ * Called during the generation phase (after all modules have been parsed), so all
+ * dependency enum_constants maps are fully populated. Each GirModule.enum_constants
+ * is an O(1) Map; the total cost per call is O(deps) — negligible given the small
+ * fraction of properties that carry a default-value attribute.
  */
-function resolveCEnumConstant(
-	cIdentifier: string,
-	ns: GirModule,
-): readonly [string, string, string] | null {
+function resolveCEnumConstant(cIdentifier: string, ns: GirModule): readonly [string, string, string] | null {
 	// Check own namespace first
 	const own = ns.enum_constants.get(cIdentifier);
 	if (own) return [ns.namespace, own[0], own[1]] as const;

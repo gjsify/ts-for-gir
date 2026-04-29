@@ -65,21 +65,31 @@ function onActivate() {
 	window.set_default_size(200, 200);
 	window.connect("close-request", onQuit);
 
-	const ui = getUI();
-	const builder = Gtk.Builder.new_from_string(ui, ui.length);
-	const root = builder.get_object("root") as Gtk.Box;
 	const custom = new CustomWidget();
-	root.append(custom);
-	custom.show();
 
-	const actionButton = builder.get_object("actionButton") as Gtk.Button;
-	actionButton?.connect("clicked", () => {
-		console.log("clicked");
-		custom.customMethod();
+	// Exercises GJS-only Builder constructor props (`data`, `callbacks`, `objects`)
+	// that are typed via the gtk-4.0 template — the `data` source is loaded with
+	// `add_from_string`, `<signal handler="...">` is resolved against `callbacks`,
+	// and `objects` registers existing widgets for `<object id="..." constructor="">`.
+	const builder = new Gtk.Builder({
+		data: getUI(),
+		callbacks: {
+			on_action_clicked: () => {
+				console.log("clicked");
+				custom.customMethod();
+			},
+			on_close_clicked: () => window.close(),
+		},
+		objects: { custom },
 	});
 
-	const closeButton = builder.get_object("closeButton") as Gtk.Button;
-	closeButton?.connect("clicked", () => window.close());
+	// Demonstrates the `exposeObjects` GJS-only convenience method (registers each
+	// entry by name so the UI XML can reference it via `<object constructor="...">`).
+	builder.exposeObjects({ window });
+
+	const root = builder.get_object("root") as Gtk.Box;
+	root.append(custom);
+	custom.show();
 
 	if (root) window.set_child(root);
 	window.present();
@@ -110,12 +120,14 @@ function getUI() {
           <object class="GtkButton" id="actionButton">
             <property name="label" translatable="yes">Action</property>
             <property name="receives_default">1</property>
+            <signal name="clicked" handler="on_action_clicked"/>
           </object>
         </child>
         <child>
           <object class="GtkButton" id="closeButton">
             <property name="label" translatable="yes">Close</property>
             <property name="receives_default">1</property>
+            <signal name="clicked" handler="on_close_clicked"/>
           </object>
         </child>
       </object>

@@ -67,11 +67,16 @@ function onNameAcquired(_connection: Gio.DBusConnection, _name: string) {
 	// Clients will typically start connecting and using your interface now.
 
 	// Emit the TestSignal every few seconds
-	serviceSignalId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3, () => {
-		serviceObj.emitTestSignal();
+	serviceSignalId = GLib.timeout_add_seconds(
+		GLib.PRIORITY_DEFAULT,
+		3,
+		() => {
+			serviceObj.emitTestSignal();
 
-		return GLib.SOURCE_CONTINUE;
-	});
+			return GLib.SOURCE_CONTINUE;
+		},
+		null,
+	);
 }
 
 function onNameLost(_connection: Gio.DBusConnection, _name: string) {

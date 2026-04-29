@@ -1,5 +1,5 @@
 import type { FormatGenerator } from "../generators/generator.ts";
-import { NullableType, type TypeExpression } from "../gir.ts";
+import type { TypeExpression } from "../gir.ts";
 import type { GirFieldElement, GirPropertyElement } from "../index.ts";
 import type { OptionsLoad } from "../types/index.ts";
 import type { Options } from "../types/introspected.ts";
@@ -100,8 +100,6 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 	readonly constructOnly: boolean;
 	/** GIR default-value attribute: the default value of the property as a string. */
 	defaultValue?: string;
-	/** GIR getter attribute: name of the getter method for this property (used for nullable inference). */
-	getter?: string;
 
 	get namespace() {
 		return this.parent.namespace;
@@ -123,7 +121,6 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 			parent: options?.parent ?? parent,
 		})._copyBaseProperties(this);
 		prop.defaultValue = this.defaultValue;
-		prop.getter = this.getter;
 		return prop;
 	}
 
@@ -206,11 +203,6 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		}
 
 		property.defaultValue = element.$["default-value"];
-		property.getter = element.$.getter;
-
-		if (element.$.nullable === "1" || element.$["allow-none"] === "1") {
-			property.type = new NullableType(property.type);
-		}
 
 		return property;
 	}

@@ -5,7 +5,6 @@ import {
 	Generic,
 	GenericType,
 	GenerifiedTypeIdentifier,
-	NullableType,
 	type TypeExpression,
 	TypeIdentifier,
 	UnknownType,
@@ -47,21 +46,6 @@ import { IntrospectedField, IntrospectedProperty } from "./property.ts";
 import { IntrospectedSignal } from "./signal.ts";
 
 const log = new ConsoleReporter(true, "gir/introspected-classes", true);
-
-function resolveNullableProperties(cls: IntrospectedBaseClass): void {
-	for (const prop of cls.props) {
-		if (prop.type instanceof NullableType) continue;
-
-		const getterName = prop.getter ?? `get_${prop.name}`;
-		const getter = cls.members.find(
-			(m) => m.name === getterName && !(m instanceof IntrospectedStaticClassFunction),
-		);
-
-		if (getter instanceof IntrospectedClassFunction && getter.return() instanceof NullableType) {
-			prop.type = new NullableType(prop.type);
-		}
-	}
-}
 
 /**
  * Represents a signal with metadata
@@ -1062,7 +1046,6 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		IntrospectedClass.parseBasicProperties(element, clazz, ns, options);
 		IntrospectedClass.parseResolveNames(element, clazz, ns, name);
 		IntrospectedClass.parseInheritanceAndMembers(element, clazz, ns, options);
-		resolveNullableProperties(clazz);
 
 		return clazz;
 	}
@@ -1369,7 +1352,6 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 		IntrospectedInterface.parseInterfaceBasicProperties(element, iface, namespace, options);
 		IntrospectedInterface.parseInterfaceResolveNames(element, iface, namespace, name);
 		IntrospectedInterface.parseInterfaceMembers(element, iface, namespace, options);
-		resolveNullableProperties(iface);
 
 		return iface;
 	}

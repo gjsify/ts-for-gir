@@ -233,7 +233,7 @@ function testPrecisionTimeAndTimeouts(): void {
 		const timeoutId = GLib.timeout_add(50, largeTimeoutMs, () => {
 			console.log("  Large timeout value processed successfully");
 			return false;
-		});
+		}, null);
 
 		console.log(`  Timeout ID: ${timeoutId}`);
 	} catch (error) {
@@ -311,7 +311,7 @@ function runMainLoop(): void {
 		console.log("\nExample completed successfully!");
 		loop.quit();
 		return false;
-	});
+	}, null);
 
 	loop.run();
 }

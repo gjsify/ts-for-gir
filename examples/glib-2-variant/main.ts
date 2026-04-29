@@ -106,7 +106,7 @@ function main(): void {
 		print("\nDone.");
 		loop.quit();
 		return GLib.SOURCE_REMOVE;
-	});
+	}, null);
 	loop.run();
 }
 

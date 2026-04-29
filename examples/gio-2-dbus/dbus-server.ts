@@ -71,7 +71,7 @@ function onNameAcquired(_connection: Gio.DBusConnection, _name: string) {
 		serviceObj.emitTestSignal();
 
 		return GLib.SOURCE_CONTINUE;
-	});
+	}, null);
 }
 
 function onNameLost(_connection: Gio.DBusConnection, _name: string) {

@@ -248,9 +248,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 					const { type, isOptional } = p;
 
 					if (allowOptions) {
-						if (type instanceof NullableType) {
-							params.push(p.copy({ isOptional: true }));
-						} else if (!isOptional) {
+						if (!isOptional) {
 							params.push(p);
 							return { allowOptions: false, params };
 						} else {

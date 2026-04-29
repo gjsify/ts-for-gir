@@ -53,7 +53,9 @@ function resolveNullableProperties(cls: IntrospectedBaseClass): void {
 		if (prop.type instanceof NullableType) continue;
 
 		const getterName = prop.getter ?? `get_${prop.name}`;
-		const getter = cls.members.find((m) => m.name === getterName && !(m instanceof IntrospectedStaticClassFunction));
+		const getter = cls.members.find(
+			(m) => m.name === getterName && !(m instanceof IntrospectedStaticClassFunction),
+		);
 
 		if (getter instanceof IntrospectedClassFunction && getter.return() instanceof NullableType) {
 			prop.type = new NullableType(prop.type);

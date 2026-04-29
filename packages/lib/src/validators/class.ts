@@ -3,7 +3,7 @@ import { IntrospectedError } from "../gir/error.ts";
 import type { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface } from "../gir/introspected-classes.ts";
 import { IntrospectedClassFunction, IntrospectedStaticClassFunction } from "../gir/introspected-classes.ts";
 import { IntrospectedRecord } from "../gir/record.ts";
-import { AnyType, NativeType, TypeIdentifier } from "../gir.ts";
+import { AnyType, ArrayType, NativeType, TypeIdentifier } from "../gir.ts";
 import { resolveTypeIdentifier } from "../utils/type-resolution.ts";
 import { GirVisitor } from "../visitor.ts";
 
@@ -125,9 +125,10 @@ const fixMissingParent = <T extends IntrospectedBaseClass>(node: T): T => {
 };
 
 /**
- * Fields cannot be array types, error types,
- * or class-like types in GJS. This strips
- * fields which have these "complex" types.
+ * Removes fields with types that GJS cannot directly expose on a struct instance.
+ * Error types and non-simple non-pointer struct fields are removed.
+ * Array fields (zero-terminated pointer arrays, T**) are always safe in GJS and are only
+ * rejected if the element type is private or disguised.
  *
  * @param node
  */
@@ -135,6 +136,17 @@ const removeComplexFields = <T extends IntrospectedBaseClass>(node: T): T => {
 	const { namespace } = node;
 
 	node.fields = node.fields.filter((f) => {
+		// Array fields (T**) are marshalled by GJS for any GBoxed element type.
+		// Only reject arrays of private/disguised element types.
+		if (f.type instanceof ArrayType) {
+			const elementType = f.type.deepUnwrap();
+			if (elementType instanceof TypeIdentifier) {
+				const classNode = resolveTypeIdentifier(namespace, elementType);
+				return !classNode?.isPrivate;
+			}
+			return true;
+		}
+
 		const type = f.type.deepUnwrap();
 
 		if (type instanceof NativeType) {

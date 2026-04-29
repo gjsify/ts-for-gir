@@ -6,6 +6,30 @@ import Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";
 import { type DbusIfaceXml, dbusIfaceXml } from "./dbus-ifrace-xml.ts";
 
+/**
+ * Walk the introspection tree exposed by Gio.DBusNodeInfo.
+ *
+ * Exercises array fields that were previously stripped from the generated
+ * types by the over-conservative `removeComplexFields` validator
+ * (see https://github.com/gjsify/ts-for-gir/issues/180):
+ *   - DBusNodeInfo.interfaces, DBusNodeInfo.nodes
+ *   - DBusInterfaceInfo.properties
+ */
+function inspectDbusIntrospection(): void {
+	const nodeInfo = Gio.DBusNodeInfo.new_for_xml(dbusIfaceXml);
+
+	for (const iface of nodeInfo.interfaces) {
+		print(`interface: ${iface.name}`);
+		for (const method of iface.methods) print(`  method: ${method.name}`);
+		for (const signal of iface.signals) print(`  signal: ${signal.name}`);
+		for (const property of iface.properties) {
+			print(`  property: ${property.name} (signature=${property.signature})`);
+		}
+	}
+
+	for (const child of nodeInfo.nodes) print(`node: ${child.path ?? "<anonymous>"}`);
+}
+
 // Pass the XML string to make a re-usable proxy class for an interface proxies.
 const TestProxy = Gio.DBusProxy.makeProxyWrapper<DbusIfaceXml>(dbusIfaceXml);
 
@@ -116,6 +140,7 @@ function onNameVanished(_connection: Gio.DBusConnection, name: string) {
 }
 
 print("Start DBus client");
+inspectDbusIntrospection();
 const busWatchId = Gio.bus_watch_name(
 	Gio.BusType.SESSION,
 	"org.gnome.gjs.Test",

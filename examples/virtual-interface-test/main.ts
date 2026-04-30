@@ -140,6 +140,56 @@ class CustomPaintable extends GObject.Object implements Gdk.Paintable.Interface 
 	}
 }
 
+/**
+ * Regression for https://github.com/gjsify/ts-for-gir/issues/222
+ *
+ * Before the fix, a class that extended GObject.Object and implemented an
+ * interface whose `<prerequisite>` was GObject.Object (e.g. Gdk.Paintable) had
+ * every GObject.Object member duplicated into its body. The conflict resolver
+ * then emitted a `(...args: never[]): any` overload alongside each duplicate,
+ * which broke real call sites such as `bind_property_full(...)`. This class
+ * exercises the previously broken methods to lock in the fix.
+ */
+class IssueGh222Regression extends GObject.Object implements Gdk.Paintable.Interface {
+	declare get_current_image: Gdk.Paintable["get_current_image"];
+	declare get_flags: Gdk.Paintable["get_flags"];
+	declare get_intrinsic_aspect_ratio: Gdk.Paintable["get_intrinsic_aspect_ratio"];
+	declare get_intrinsic_height: Gdk.Paintable["get_intrinsic_height"];
+	declare get_intrinsic_width: Gdk.Paintable["get_intrinsic_width"];
+
+	declare value: number;
+
+	static {
+		GObject.registerClass(
+			{
+				GTypeName: "IssueGh222Regression",
+				Implements: [Gdk.Paintable],
+				Properties: {
+					value: GObject.ParamSpec.int("value", "Value", "A test property", GObject.ParamFlags.READWRITE, 0, 100, 0),
+				},
+			},
+			IssueGh222Regression,
+		);
+	}
+
+	vfunc_get_current_image(this: this & Gdk.Paintable): Gdk.Paintable {
+		return this;
+	}
+	vfunc_get_flags(): Gdk.PaintableFlags {
+		return Gdk.PaintableFlags.STATIC_SIZE;
+	}
+	vfunc_get_intrinsic_aspect_ratio(): number {
+		return 1;
+	}
+	vfunc_get_intrinsic_height(): number {
+		return 0;
+	}
+	vfunc_get_intrinsic_width(): number {
+		return 0;
+	}
+	vfunc_snapshot(_snapshot: Gdk.Snapshot, _width: number, _height: number): void {}
+}
+
 function main() {
 	console.log("=== Virtual Interface Demo ===");
 
@@ -163,6 +213,20 @@ function main() {
 	console.log(`Intrinsic height: ${paintable.get_intrinsic_height()}`);
 	console.log(`Aspect ratio: ${paintable.get_intrinsic_aspect_ratio()}`);
 	console.log(`Flags: ${paintable.get_flags()}`);
+
+	// Issue #222 regression: methods inherited from GObject.Object must be
+	// callable with their real signatures rather than `(...args: never[]): any`.
+	console.log("\n3. Testing issue #222 regression (Gdk.Paintable + GObject.Object methods):");
+	const subject = new IssueGh222Regression();
+	const target = new IssueGh222Regression();
+	const binding = subject.bind_property_full("value", target, "value", GObject.BindingFlags.DEFAULT, null, null);
+	subject.freeze_notify();
+	subject.value = 42;
+	subject.thaw_notify();
+	subject.notify("value");
+	const propagated = target.value;
+	binding.unbind();
+	console.log(`  bind_property_full + notify roundtrip OK on ${subject.constructor.name}, target.value=${propagated}`);
 }
 
 // Run the test

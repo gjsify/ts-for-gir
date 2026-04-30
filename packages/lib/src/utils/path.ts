@@ -1,7 +1,15 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Get __filename on ESM
-const __filename = fileURLToPath(import.meta.url);
-// Get __dirname on ESM, resolve to the root directory of this package
-export const __dirname = resolve(dirname(__filename), "../.."); // TODO: Bundled this must be '..' but unbundled it must be '../..'
+// Resolves to the root directory of this package in dev mode.
+// Wrapped in try/catch so a bundled consumer that lacks `import.meta.url`
+// support degrades to "" instead of crashing at module load.
+function resolvePackageDir(): string {
+	try {
+		return resolve(dirname(fileURLToPath(import.meta.url)), "../..");
+	} catch {
+		return "";
+	}
+}
+
+export const __dirname = resolvePackageDir();

@@ -48,6 +48,27 @@ import { IntrospectedSignal } from "./signal.ts";
 
 const log = new ConsoleReporter(true, "gir/introspected-classes", true);
 
+/**
+ * Walks the implementing class's `extends` chain (skipping the prerequisite class
+ * itself) and reports whether any ancestor *shadows* a member by declaring its
+ * own member of the given name. A shadow indicates the parent chain has
+ * overridden the prerequisite's member with a possibly incompatible type, which
+ * would otherwise leave the implementing class unable to satisfy the
+ * interface's contract.
+ */
+function hasExtendsShadowOf(cls: IntrospectedBaseClass, prerequisite: IntrospectedBaseClass, name: string): boolean {
+	let current = cls.resolveParents().extends();
+	while (current) {
+		const node = current.node;
+		if (node !== prerequisite) {
+			const hasOwn = [...node.props, ...node.fields, ...node.members].some((m) => m.name === name);
+			if (hasOwn) return true;
+		}
+		current = current.extends();
+	}
+	return false;
+}
+
 function resolveNullableProperties(cls: IntrospectedBaseClass): void {
 	for (const prop of cls.props) {
 		if (prop.type instanceof NullableType) continue;
@@ -877,13 +898,19 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 			});
 		}
 
-		// If an interface inherits from a class (such as Gtk.Widget)
-		// we need to pull in every item from that class...
+		// An interface's <prerequisite> of class type is always satisfied by the
+		// implementing class's actual parent chain — those members are already
+		// inherited via TS class inheritance, so we don't re-emit them. The one
+		// case we still need to handle: when the parent chain has a same-named
+		// member with an incompatible signature/type, we re-emit the interface's
+		// version so `filterConflicts` / `filterFunctionConflict` can broaden or
+		// override it to satisfy both `extends` and `implements` simultaneously.
 		for (const implemented of resolution.implements()) {
 			const extended = implemented.extends();
 			if (extended?.node instanceof IntrospectedClass) {
 				for (const item of getItems(extended.node)) {
 					if (items.has(item.name) || !validate(item)) continue;
+					if (!hasExtendsShadowOf(this, extended.node, item.name)) continue;
 					items.set(item.name, item);
 				}
 			}

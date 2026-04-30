@@ -73,9 +73,11 @@ function getPackageVersion(): string {
 
 ---
 
-## Change 2 — `@ts-for-gir/cli`: explicit shutdown that works under any event loop
+## Change 2 — `@ts-for-gir/cli`: keep startup Node-idiomatic, push GJS plumbing into gjsify
 
 **File:** [`packages/cli/src/start.ts`](packages/cli/src/start.ts)
+
+**Guiding principle:** ts-for-gir should not contain GJS-specific runtime code. Anything that's about "make Node-style code run under SpiderMonkey + GLib" belongs in the gjsify Node-compat layer so every project benefits, not just this one. The only ts-for-gir-side changes here are yargs-API decisions that we want regardless of runtime.
 
 **Today:**
 
@@ -91,11 +93,11 @@ void yargs(hideBin(process.argv))
     .help().argv;
 ```
 
-**Problems we hit when running this on GJS:**
+**Problems on GJS without runtime support:**
 
-1. `yargs.argv` is fire-and-forget — async command handlers (e.g. `list`, `generate`, `analyze`) never get awaited. On Node the libuv event loop keeps the process alive until I/O drains. **On GJS** the JS module evaluation finishes and the process exits before Gio async callbacks run. Result: `list -g <dir>` produces zero output.
-2. yargs's internal `process.exit(0)` for `--version` / `--help` runs synchronously inside the parse pipeline. **On GJS** this triggers `imports.system.exit` while the GLib MainLoop is still parked in `runAsync()`, deadlocking the process for the entire test timeout.
-3. Even when work completes, the GLib MainLoop has to be quit *before* exit is called, AND the exit syscall has to fire from a fresh main-loop iteration — calling exit from inside a promise-microtask continuation leaves the process parked.
+1. `yargs.argv` is fire-and-forget — async command handlers (e.g. `list`, `generate`, `analyze`) never get awaited. JS module evaluation finishes before Gio async callbacks run.
+2. yargs's internal `process.exit(0)` for `--version` / `--help` runs synchronously inside the parse pipeline. On a parked GLib MainLoop this becomes `imports.system.exit` mid-microtask and deadlocks until timeout.
+3. The GLib MainLoop has to be parked somewhere or async Gio I/O won't dispatch at all.
 
 **Wanted:**
 
@@ -105,49 +107,18 @@ import yargs, { type CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";
 import { analyze, copy, create, doc, generate, json, list } from "./commands/index.ts";
 
-// On GJS, async command handlers do Gio I/O that needs the GLib main context
-// to dispatch. We start an idempotent MainLoop here so handlers complete
-// before the process exits. No-op on Node.
-const gjsImports = (globalThis as { imports?: any }).imports;
-let gjsMainLoop: any;
-if (gjsImports) {
-    const GLib = gjsImports.gi.GLib;
-    const loop = new GLib.MainLoop(null, false);
-    if (GLib.main_depth() === 0) {
-        try {
-            loop.runAsync();
-            gjsMainLoop = loop;
-        } catch { /* loop already running on default ctx (e.g. embedded) */ }
-    }
-}
-
-// On GJS the exit syscall has to fire from a fresh main-loop iteration —
-// calling it from a promise-microtask continuation leaves the process parked.
-// We schedule the exit via GLib.idle_add. On Node we just call process.exit.
-function shutdown(code: number): never {
-    if (gjsImports) {
-        const GLib = gjsImports.gi.GLib;
-        GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
-            gjsMainLoop?.quit();
-            gjsImports.system.exit(code);
-            return GLib.SOURCE_REMOVE;
-        });
-        return new Promise<never>(() => { /* never */ }) as unknown as never;
-    }
-    process.exit(code);
-}
-
 try {
     await yargs(hideBin(process.argv))
         .scriptName(APP_NAME)
         .strict()
         .usage(APP_USAGE)
         .version(APP_VERSION)
-        // `.exitProcess(false)` keeps yargs from calling `process.exit`
-        // synchronously for --version/--help. On GJS that deadlocks the
-        // parked MainLoop; letting parseAsync resolve normally and routing
-        // through `shutdown()` works on both runtimes.
+        // Disable yargs's internal `process.exit` and route both success
+        // and failure through `parseAsync` + `process.exitCode` so async
+        // command handlers complete and stdout drains before the runtime
+        // tears down.
         .exitProcess(false)
+        .fail(false)
         .command(analyze as unknown as CommandModule)
         .command(create as unknown as CommandModule)
         .command(generate as unknown as CommandModule)
@@ -158,31 +129,37 @@ try {
         .demandCommand(1)
         .help()
         .parseAsync();
-    shutdown(0);
 } catch (err) {
-    // Print just the message — passing the whole instance to console.error
-    // hits a slow JSON-stringify path on GJS that can stall for tens of
-    // seconds before shutdown() ever runs.
     const message = err instanceof Error ? err.message : String(err);
     process.stderr.write(`${message}\n`);
-    shutdown(1);
+    process.exitCode = 1;
 }
 ```
 
-**Why all four changes go together:** dropping any one of them re-introduces a hang on GJS. Tested in the gjsify integration suite — the unknown-command test went from **30 s timeout → 2.4 s** with this exact shape.
-
 **Why this is safe on Node:**
-- The `gjsImports` check is `false` on Node — the MainLoop block is dead code.
-- `parseAsync` + `await` is idiomatic Node yargs usage.
-- `.exitProcess(false)` with our own `shutdown(0)` after parseAsync produces identical behavior to today's `void yargs.argv` for the success path.
-- The catch path matches today's behavior (yargs prints the error, process exits non-zero).
+- `parseAsync` + `await` is idiomatic Node yargs usage and awaits async command handlers properly (vs. `void yargs.argv`, which leaks them as unhandled Promises).
+- `.exitProcess(false)` + `.fail(false)` route every yargs error through our `catch`, where we print the user-facing message and set `process.exitCode = 1`. Node exits with that code once the event loop drains.
+- `process.exitCode = 0` (implicit on success) lets pending async stdout writes flush before exit. `process.exit(code)` would truncate them on piped stdout.
+- The catch path matches today's behavior: yargs error message on stderr, non-zero exit.
 
-**Acceptance:**
-- `yarn ts-for-gir-dev --version` exits 0 within 1 second on Node.
-- `yarn ts-for-gir-dev --help` lists all commands and exits 0 within 1 second on Node.
-- `yarn ts-for-gir-dev nonexistent-command` exits non-zero with yargs's error message on Node.
-- `yarn ts-for-gir-dev generate Gtk-4.0` produces `.d.ts` output on Node.
+**What gjsify must provide for this same code to work on GJS** (tracked in [`gjsify/gjsify` PR #58](https://github.com/gjsify/gjsify/pull/58)):
+
+1. **Auto MainLoop**: gjsify's runtime parks an idempotent `GLib.MainLoop` at startup so async Gio I/O dispatches without ts-for-gir having to think about it.
+2. **`process.exit(code)` is async-safe**: gjsify's `process` polyfill quits the parked MainLoop and schedules `imports.system.exit(code)` via `GLib.idle_add(PRIORITY_DEFAULT, …)` so the syscall fires from a fresh main-loop iteration, not from a microtask continuation. (yargs may still call this internally even with `.exitProcess(false)` in edge cases — and any other library we depend on may.)
+3. **`process.exitCode` semantics**: when JS module evaluation finishes with no pending I/O and `process.exitCode` is set, gjsify quits the MainLoop and exits with that code.
+4. **`process.stderr.write` is fast for `string`**: the slow path we hit empirically was `console.error(errorInstance)` going through a JSON-stringify; writing the pre-extracted message string avoids it. If gjsify's `console.error` polyfill formats Errors efficiently, even our `process.stderr.write(message)` becomes optional.
+
+If any of (1)–(3) is missing in gjsify, this same start.ts will hang on GJS — that's a gjsify bug, not a ts-for-gir bug.
+
+**Acceptance on Node** (this repo):
+- `yarn ts-for-gir-dev --version` exits 0 within 1 second.
+- `yarn ts-for-gir-dev --help` lists all commands and exits 0 within 1 second.
+- `yarn ts-for-gir-dev nonexistent-command` exits non-zero with yargs's error message.
+- `yarn ts-for-gir-dev generate Gtk-4.0` produces `.d.ts` output.
 - All existing `tests/e2e/cli/` end-to-end tests still pass.
+
+**Acceptance on GJS** (gjsify side):
+- After gjsify's polyfills (1)–(3) land, `gjs -m packages/cli/bin/ts-for-gir generate Gtk-4.0` produces `.d.ts` output without any ts-for-gir-side patches beyond what's in this repo.
 
 ---
 

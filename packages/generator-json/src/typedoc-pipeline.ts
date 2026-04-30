@@ -16,9 +16,11 @@ import {
 	type ProjectReflection,
 	ReferenceReflection,
 	ReflectionCategory,
+	ReflectionKind,
 	Serializer,
 	TSConfigReader,
 	type TypeDocOptions,
+	type Reflection as TypeDocReflection,
 } from "typedoc";
 import { GirMetadataDeserializer } from "./gir-metadata-deserializer.ts";
 import { buildGirLookupIndex } from "./gir-metadata-index.ts";
@@ -548,25 +550,77 @@ export class TypeDocPipeline {
 
 	/**
 	 * Extract a human-readable source name from an inherited member's `inheritedFrom`.
-	 * e.g. `"Window.accessible_role"` → looks up parent to get `"Gtk.Window"`.
+	 *
+	 * Two TypeDoc quirks are handled:
+	 *
+	 * 1. Per-class phantom inheritance chain. For `Window extends Widget extends
+	 *    InitiallyUnowned extends Object`, Window's `bind_property.inheritedFrom`
+	 *    points to `Widget.bind_property` (itself inherited from
+	 *    `InitiallyUnowned.bind_property`), not directly to the original definer.
+	 *    Walking the chain transitively yields the most-original visible source,
+	 *    matching gi-docgen's upstream documentation convention. When the chain
+	 *    crosses a package boundary the reference can't be resolved at runtime
+	 *    (target=-1), but the reference's `name` field still records the
+	 *    qualified original definer.
+	 *
+	 * 2. Accessor signatures. For an inherited accessor like Widget.cursor,
+	 *    `inheritedFrom.reflection` may be the get/set signature whose `parent`
+	 *    is the Accessor reflection (`Gtk.Widget.cursor`), not the class. Using
+	 *    that name verbatim creates a per-property "Inherited from
+	 *    Widget.cursor" section instead of a single "Inherited from Gtk.Widget"
+	 *    section. Walking up to the nearest containing class/interface fixes it.
 	 */
 	private extractInheritedSourceName(child: DeclarationReflection): string | null {
 		if (!child.inheritedFrom) return null;
 
-		// Try to resolve via the referenced reflection's parent
-		const target = child.inheritedFrom.reflection;
-		if (target?.parent) {
-			const parent = target.parent;
-			// Get the full qualified name: "Gtk.Window" from the parent's path
-			const fullName = parent.getFullName();
-			// The full name format is "Module.Class" — keep as-is
-			if (fullName) return fullName;
+		// 1. Follow `inheritedFrom` transitively to the original definer.
+		// Capture the *unresolved* boundary name if we hit one — TypeDoc's
+		// per-package conversion can't follow `inheritedFrom` across package
+		// boundaries (target=-1), but the reference's `name` field still
+		// records the original definer's qualified name.
+		let target = child.inheritedFrom.reflection as DeclarationReflection | undefined;
+		let unresolvedBoundaryName: string | undefined = target ? undefined : child.inheritedFrom.name;
+		const seen = new Set<number>();
+		while (target?.isDeclaration() && target.inheritedFrom) {
+			if (!target.inheritedFrom.reflection) {
+				unresolvedBoundaryName = target.inheritedFrom.name;
+				break;
+			}
+			if (seen.has(target.id)) break;
+			seen.add(target.id);
+			target = target.inheritedFrom.reflection as DeclarationReflection;
 		}
 
-		// Fallback: extract from the name string (e.g. "Window.method" → "Window")
+		// 2. If the chain ended at a cross-package boundary, parse the original
+		// definer from the unresolved reference's `name` (e.g. for the gtk-4.0
+		// project, `Widget.bind_property.inheritedFrom.name` is
+		// "GObject.InitiallyUnowned.bind_property"). Strip the trailing member
+		// name to get the qualified defining class.
+		if (unresolvedBoundaryName) {
+			const lastDot = unresolvedBoundaryName.lastIndexOf(".");
+			if (lastDot > 0) return unresolvedBoundaryName.slice(0, lastDot);
+		}
+
+		// 3. The chain resolved fully within this project. Walk the target's
+		// parent chain to the containing class/interface so accessor signatures
+		// don't yield "Class.property" as the source.
+		if (target) {
+			let owner: TypeDocReflection | undefined = target.parent;
+			while (owner && !owner.kindOf(ReflectionKind.ClassOrInterface)) {
+				owner = owner.parent;
+			}
+			const fullName = owner?.getFullName();
+			if (fullName) return fullName;
+			if (target.parent) {
+				const parentName = target.parent.getFullName();
+				if (parentName) return parentName;
+			}
+		}
+
+		// Final fallback: parse the immediate `inheritedFrom.name`.
 		const name = child.inheritedFrom.name;
-		const dotIdx = name.indexOf(".");
-		return dotIdx > 0 ? name.slice(0, dotIdx) : name;
+		const lastDot = name.lastIndexOf(".");
+		return lastDot > 0 ? name.slice(0, lastDot) : name;
 	}
 
 	/**

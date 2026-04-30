@@ -157,8 +157,19 @@ class IssueGh222Regression extends GObject.Object implements Gdk.Paintable.Inter
 	declare get_intrinsic_height: Gdk.Paintable["get_intrinsic_height"];
 	declare get_intrinsic_width: Gdk.Paintable["get_intrinsic_width"];
 
+	declare value: number;
+
 	static {
-		GObject.registerClass({ GTypeName: "IssueGh222Regression", Implements: [Gdk.Paintable] }, IssueGh222Regression);
+		GObject.registerClass(
+			{
+				GTypeName: "IssueGh222Regression",
+				Implements: [Gdk.Paintable],
+				Properties: {
+					value: GObject.ParamSpec.int("value", "Value", "A test property", GObject.ParamFlags.READWRITE, 0, 100, 0),
+				},
+			},
+			IssueGh222Regression,
+		);
 	}
 
 	vfunc_get_current_image(this: this & Gdk.Paintable): Gdk.Paintable {
@@ -207,13 +218,15 @@ function main() {
 	// callable with their real signatures rather than `(...args: never[]): any`.
 	console.log("\n3. Testing issue #222 regression (Gdk.Paintable + GObject.Object methods):");
 	const subject = new IssueGh222Regression();
-	const target = new GObject.Object();
-	const binding = subject.bind_property_full("x", target, "y", GObject.BindingFlags.DEFAULT, null, null);
-	binding.unbind();
+	const target = new IssueGh222Regression();
+	const binding = subject.bind_property_full("value", target, "value", GObject.BindingFlags.DEFAULT, null, null);
 	subject.freeze_notify();
-	subject.notify("x");
+	subject.value = 42;
 	subject.thaw_notify();
-	console.log(`  bind_property_full + notify roundtrip OK on ${subject.constructor.name}`);
+	subject.notify("value");
+	const propagated = target.value;
+	binding.unbind();
+	console.log(`  bind_property_full + notify roundtrip OK on ${subject.constructor.name}, target.value=${propagated}`);
 }
 
 // Run the test

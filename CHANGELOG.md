@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.0.0-rc.7](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.6...v4.0.0-rc.7) (2026-04-30)
+
+### Features
+
+* **gtk-4:** type GJS-only Gtk.Builder constructor props and exposeObjects ([#373](https://github.com/gjsify/ts-for-gir/issues/373)) ([b37621f](https://github.com/gjsify/ts-for-gir/commit/b37621fc6b3acc212efc3184248ec87fc88935fc))
+* **lib:** use GIR attributes glib:finish-func, default-value, shadowed-by ([bd5323d](https://github.com/gjsify/ts-for-gir/commit/bd5323dd8aad1bb4cc6622fcc4cb17529ecef65e)), closes [#115](https://github.com/gjsify/ts-for-gir/issues/115)
+
+### Bug Fixes
+
+* **cairo:** correct fontExtents name, camelCase FontExtents fields, add textPath ([eeee78e](https://github.com/gjsify/ts-for-gir/commit/eeee78ef37a1e1cbf4496d9546ac7d610148f192)), closes [#118](https://github.com/gjsify/ts-for-gir/issues/118)
+* **ci:** checkout types-dev submodule in check and test-units jobs ([cb9f06a](https://github.com/gjsify/ts-for-gir/commit/cb9f06ae6a0eec673e372dd6fb14032c299dfbaf))
+* **ci:** install gobject-introspection in test-units for system GIR files ([b3a28c5](https://github.com/gjsify/ts-for-gir/commit/b3a28c5fcd1b49cfe4eee671f448b87fb91e6cb7))
+* **ci:** make external-deps test self-contained with local girs dir ([0a49519](https://github.com/gjsify/ts-for-gir/commit/0a49519dac91683e1b871debd4dca08dc748bdfc))
+* **ci:** rewrite SSH submodule URLs to HTTPS for manual submodule init ([9a97c59](https://github.com/gjsify/ts-for-gir/commit/9a97c590d605af6beb696aa9ee68a4e5979823a3))
+* **ci:** use gir1.2-glib-2.0 instead of gobject-introspection for GIR files ([e2ba530](https://github.com/gjsify/ts-for-gir/commit/e2ba5306f35c20c5aba18ae0773021c82fd2b182))
+* **lib,examples:** type nullable GObject properties as T | null; fix trailing nullable params ([#156](https://github.com/gjsify/ts-for-gir/issues/156), [#369](https://github.com/gjsify/ts-for-gir/issues/369)) ([#370](https://github.com/gjsify/ts-for-gir/issues/370)) ([183d8c9](https://github.com/gjsify/ts-for-gir/commit/183d8c9c653519d5edf0c226498f9a422dc4a2d3))
+* **lib:** convert C default-value literals to JS equivalents in [@default](https://github.com/default) JSDoc ([#371](https://github.com/gjsify/ts-for-gir/issues/371)) ([97722ab](https://github.com/gjsify/ts-for-gir/commit/97722abf8389a438ef7f64d9331e55182217a7a2))
+* **lib:** expose array fields of complex GBoxed records ([#180](https://github.com/gjsify/ts-for-gir/issues/180)) ([#372](https://github.com/gjsify/ts-for-gir/issues/372)) ([c1523ca](https://github.com/gjsify/ts-for-gir/commit/c1523ca6d292e8986d5929e1102a98f836ee0f82))
+* **lib:** stop duplicating GObject.Object members on classes implementing interfaces ([#222](https://github.com/gjsify/ts-for-gir/issues/222)) ([#374](https://github.com/gjsify/ts-for-gir/issues/374)) ([f69966c](https://github.com/gjsify/ts-for-gir/commit/f69966c964dba58bd5082eff46dd922be9f45adf))
+* **refs:** update subproject commit references in gjs and types-release ([4001200](https://github.com/gjsify/ts-for-gir/commit/4001200926c00048d8cfe3bcb1146045bd3bda0c))
+* **types:** update subproject commit reference in types-dev ([8a6dc68](https://github.com/gjsify/ts-for-gir/commit/8a6dc688f88cd54c200f5586c8bb2f09703aa5a0))
+
 ## [4.0.0-rc.6](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.5...v4.0.0-rc.6) (2026-04-28)
 
 ### Features

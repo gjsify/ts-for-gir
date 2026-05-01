@@ -231,9 +231,9 @@ function testPrecisionTimeAndTimeouts(): void {
 		console.log(`Setting timeout with large value: ${largeTimeoutMs}ms`);
 
 		const timeoutId = GLib.timeout_add(50, largeTimeoutMs, () => {
-				console.log("  Large timeout value processed successfully");
-				return false;
-			});
+			console.log("  Large timeout value processed successfully");
+			return false;
+		});
 
 		console.log(`  Timeout ID: ${timeoutId}`);
 	} catch (error) {
@@ -301,13 +301,16 @@ function testNullableParamsRequired(): void {
 	console.log(`  canonicalize_filename("foo.txt", null): "${canonical}"`);
 	console.log(`  strcmp0(null, null): ${cmp}`);
 
-	// Omitting nullable params must be a type error — GJS throws at runtime if omitted
-	// @ts-expect-error
-	GLib.base64_encode();
-	// @ts-expect-error
-	GLib.canonicalize_filename("foo.txt");
-	// @ts-expect-error
-	GLib.strcmp0();
+	// Omitting nullable params is a compile-time type error.
+	// Wrapped in `if (false)` so TypeScript still checks the types but the code never runs.
+	if (false as boolean) {
+		// @ts-expect-error
+		GLib.base64_encode();
+		// @ts-expect-error
+		GLib.canonicalize_filename("foo.txt");
+		// @ts-expect-error
+		GLib.strcmp0();
+	}
 }
 
 /**
@@ -331,11 +334,14 @@ function testDestroyNotifyParamsFiltered(): void {
 	});
 	console.log(`  timeout_add id: ${tid}`);
 
-	// Passing a spurious null as notify must be a type error (GJS would warn at runtime)
-	// @ts-expect-error
-	GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => false, null);
-	// @ts-expect-error
-	GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1, () => false, null);
+	// Passing a spurious null as notify is a compile-time type error.
+	// Wrapped in `if (false)` so TypeScript still checks the types but the code never runs.
+	if (false as boolean) {
+		// @ts-expect-error
+		GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => false, null);
+		// @ts-expect-error
+		GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1, () => false, null);
+	}
 }
 
 /**

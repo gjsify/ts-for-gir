@@ -315,14 +315,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const warning = node.getWarning();
 		const genericTypes = this.generateGenericParameters(node.generics);
 
-		return [
-			`${warning ? `${indent}${warning}\n` : ""}`,
-			...this.addGirDocComment(node.doc, [], indentCount),
+		const lines: string[] = [];
+		if (warning) lines.push(`${indent}${warning}`);
+		lines.push(...this.addGirDocComment(node.doc, [], indentCount));
+		lines.push(
 			`${indent}static ${name}${genericTypes}(${Parameters}): ${node
 				.return()
 				.resolve(namespace, options)
 				.rootPrint(namespace, options)};`,
-		];
+		);
+		return lines;
 	}
 	generateRecord(node: IntrospectedRecord): string[] {
 		const structFor = node.structFor;
@@ -614,7 +616,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateProperties(tsProps: IntrospectedProperty[], comment: string, indentCount = 0) {
 		const def: string[] = [];
 		for (const tsProp of tsProps) {
-			def.push(...this.generateProperty(tsProp, false, indentCount));
+			const propLines = this.generateProperty(tsProp, false, indentCount);
+			if (propLines.length === 0) continue;
+			// Blank line BETWEEN entries (not trailing) so the section's last
+			// entry sits flush against the next section's `addInfoComment`
+			// leading blank, avoiding double-gaps between section headers.
+			if (def.length > 0) def.push("");
+			def.push(...propLines);
 		}
 
 		if (def.length > 0) {
@@ -627,7 +635,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateFields(tsProps: IntrospectedField[], comment: string, indentCount = 0) {
 		const def: string[] = [];
 		for (const tsProp of tsProps) {
-			def.push(...this.generateField(tsProp, indentCount));
+			const fieldLines = this.generateField(tsProp, indentCount);
+			if (fieldLines.length === 0) continue;
+			if (def.length > 0) def.push("");
+			def.push(...fieldLines);
 		}
 
 		if (def.length > 0) {
@@ -961,10 +972,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		for (const girFunction of tsFunctions) {
 			const fnLines = this.generateFunction(girFunction, indentCount);
 			if (fnLines.length === 0) continue;
+			if (def.length > 0) def.push("");
 			def.push(...fnLines);
-			// Blank line between adjacent member functions/methods so
-			// JSDoc + signature pairs are visually distinct.
-			def.push("");
 		}
 
 		if (def.length > 0) {
@@ -1208,7 +1217,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		def.push(`${indent}${exp}interface ${constructPropInterfaceName}${genericTypes} ${ext} {`);
 		def.push(constructorPropMembers);
-		def.push(`${indent}}`, "");
+		def.push(`${indent}}`);
 
 		// END BODY
 
@@ -1343,19 +1352,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// as the types may not be compatible.
 		//
 		// TODO: Don't hardcode string index signatures
-		if (
+		const hasInit =
 			girClass instanceof IntrospectedClass &&
-			(!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any"))
-		) {
-			// _init method
+			(!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any"));
+		if (hasInit) {
+			// Blank line between the GObject `constructor` and `_init` so the
+			// two declarations are visually distinct.
+			if (def.length > 0) def.push("");
 			def.push(`${indent}_init(...args: any[]): void;`);
 		}
 
-		def.push(
-			...filterFunctionConflict(girClass.parent, girClass, girClass.constructors, []).flatMap((constructorFunction) =>
-				this.generateConstructorFunction(constructorFunction, indentCount),
-			),
-		);
+		for (const constructorFunction of filterFunctionConflict(girClass.parent, girClass, girClass.constructors, [])) {
+			if (def.length > 0) def.push("");
+			def.push(...this.generateConstructorFunction(constructorFunction, indentCount));
+		}
 
 		if (def.length) {
 			def.unshift(...addInfoComment("Constructors", indentCount));
@@ -1835,8 +1845,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							if (source !== selfName) {
 								injectInheritedTags(memberLines, source);
 							}
-							def.push(...indentMember(memberLines));
 							def.push("");
+							def.push(...indentMember(memberLines));
 						}
 					}
 				}
@@ -1856,8 +1866,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							if (source !== selfName) {
 								injectInheritedTags(memberLines, source);
 							}
-							def.push(...indentMember(memberLines));
 							def.push("");
+							def.push(...indentMember(memberLines));
 						}
 					}
 				}
@@ -1972,16 +1982,18 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 					.filter((m) => m.emit)
 					.flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? "");
 				if (memberLines.length === 0) continue;
+				// Blank-line separator BETWEEN top-level namespace declarations
+				// (classes, interfaces, type aliases, constants) — placed before
+				// each entry except the first so we don't end with a trailing
+				// blank that compounds with `__name__`'s own leading spacing.
+				if (out.length > 0) out.push("");
 				out.push(...memberLines);
-				// Blank-line separator between top-level namespace declarations
-				// (classes, interfaces, type aliases, constants) so adjacent
-				// definitions are visually distinct.
-				out.push("");
 			}
 		}
 
 		// Properties added to every GIRepositoryNamespace
 		// https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
+		if (out.length > 0) out.push("");
 		out.push(
 			...this.generateConst(
 				new IntrospectedConstant({
@@ -2009,6 +2021,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				}),
 				0,
 			),
+			"",
 			...this.generateConst(
 				new IntrospectedConstant({
 					doc: printGirDocComment(

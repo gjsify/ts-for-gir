@@ -59,7 +59,8 @@ export function mergeDescs(descs: string[], comment?: string, indentCount = 1): 
 	const indent = generateIndent(indentCount);
 
 	for (const desc of descs) {
-		def.push(`${indent}${desc}`);
+		// Empty separator strings stay empty; only real content gets indented.
+		def.push(desc.length === 0 ? desc : `${indent}${desc}`);
 	}
 
 	if (def.length > 0) {

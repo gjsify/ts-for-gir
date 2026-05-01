@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0-rc.8](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.7...v4.0.0-rc.8) (2026-05-01)
+
+### Features
+
+* **cli,lib:** prepare CLI to run on GJS + drop prettier ([#376](https://github.com/gjsify/ts-for-gir/issues/376)) ([32cb61f](https://github.com/gjsify/ts-for-gir/commit/32cb61f7c52837e496f1f19af2932035b1975ca2)), closes [gjsify/gjsify#58](https://github.com/gjsify/gjsify/issues/58)
+
+### Bug Fixes
+
+* **generator-json:** attribute inherited members to original definer ([#375](https://github.com/gjsify/ts-for-gir/issues/375)) ([08432c2](https://github.com/gjsify/ts-for-gir/commit/08432c26811b31b83aa9b8c639323e94e5bedac8))
+* update subproject commit references in docs, types-dev, and types-release ([2f78fa7](https://github.com/gjsify/ts-for-gir/commit/2f78fa7e452bfc2705138f7ffa161815ae125cd5))
+
 ## [4.0.0-rc.7](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.6...v4.0.0-rc.7) (2026-04-30)
 
 ### Features
